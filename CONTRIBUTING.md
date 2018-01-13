@@ -61,3 +61,10 @@ The form contains a list of employees who are authorized to contribute on behalf
 * If your patch is not getting reviewed or you need a specific person to review it, you can @-reply a reviewer asking for a review in the pull request or a comment, or you can ask for a review on our [mailing list](https://groups.google.com/forum/?fromgroups#!forum/gardener).
 
 * Add tests relevant to the fixed bug or new feature.
+
+## Issues and Planning
+
+We use GitHub issues to track bugs and enhancement requests and ZenHub for planning.
+* Install the [ZenHub Chrome plugin](https://chrome.google.com/webstore/detail/zenhub-for-github/ogcgkffhplmphkaahpmffcafajaocjbd)
+* Login to [ZenHub](https://www.zenhub.com/)
+* Open the [Gardener ZenHub workspace] https://app.zenhub.com/workspace/o/gardener/gardener
