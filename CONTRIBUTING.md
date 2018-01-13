@@ -67,4 +67,4 @@ The form contains a list of employees who are authorized to contribute on behalf
 We use GitHub issues to track bugs and enhancement requests and ZenHub for planning.
 * Install the [ZenHub Chrome plugin](https://chrome.google.com/webstore/detail/zenhub-for-github/ogcgkffhplmphkaahpmffcafajaocjbd)
 * Login to [ZenHub](https://www.zenhub.com/)
-* Open the [Gardener ZenHub workspace] https://app.zenhub.com/workspace/o/gardener/gardener
+* Open the [Gardener ZenHub workspace](https://app.zenhub.com/workspace/o/gardener/gardener)
