@@ -44,7 +44,7 @@ This applies to all contributors, including those contributing on behalf of a co
 If employees of a company contribute code, in **addition** to the individual agreement above, there needs to be one company agreement submitted. This is mainly for the protection of the contributing employees.
 
 An authorized company representative needs to download, fill, and print
-the [Corporate Contributor License Agreement](/docs/cla/SAP%20Corporate%20Contributor%20License%20Agreement%20(5-26-15).pdf) form. Then either:
+the [Corporate Contributor License Agreement](/doc/cla/SAP%20Corporate%20Contributor%20License%20Agreement%20(5-26-15).pdf) form. Then either:
 
 -   Scan it and e-mail it to [opensource@sap.com](mailto:opensource@sap.com) and [gardener.opensource@sap.com](mailto:gardener.opensource@sap.com)
 -   Fax it to: +49 6227 78-45813
