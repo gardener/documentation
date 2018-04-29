@@ -32,15 +32,25 @@ If you have questions about one of the issues, with or without the tag, please c
 You are welcome to contribute code to Gardener in order to fix a bug or to implement a new feature.
 
 The following rules govern code contributions:
-* Contributions must be licensed under the Apache 2 License
+* Contributions must be licensed under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0)
 * You need to sign the Contributor License Agreement. We are using *[CLA assistant](https://cla-assistant.io/)* providing a click-through workflow for accepting the CLA. For company contributors additionally the company needs to sign a corporate license agreement. See the following sections for details.
 
-### Individual Contributor License Agreement
+## Contributing Documentation
 
-When you contribute (code, documentation, or anything else), be aware that we only accept contributions under the Gardener project's [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0) and you need to agree to the [Individual Contributor License Agreement](https://gist.github.com/CLAassistant/bd1ea8ec8aa0357414e8).
+You are welcome to contribute documentation to Gardener.
+
+The following rules govern documentation contributions:
+* Contributions must be licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/legalcode)
+* You need to sign the Contributor License Agreement. We are using *[CLA assistant](https://cla-assistant.io/)* providing a click-through workflow for accepting the CLA. For company contributors additionally the company needs to sign a corporate license agreement. See the following sections for details.
+
+## Individual Contributor License Agreement
+
+When you contribute (code, documentation, or anything else), be aware that we only accept contributions 
+under the Gardener project's license (see previous sections) and you need to agree to the
+[Individual Contributor License Agreement](https://gist.github.com/CLAassistant/bd1ea8ec8aa0357414e8).
 This applies to all contributors, including those contributing on behalf of a company. If you agree to its content, click on the link posted by the CLA assistant as a comment to the pull request. Click it to review the CLA, then accept it on the next screen if you agree to it. CLA assistant will save your decision for upcoming contributions and will notify you if there is any change to the CLA in the meantime.
 
-### Corporate Contributor License Agreement
+## Corporate Contributor License Agreement
 
 If employees of a company contribute code, in **addition** to the individual agreement above, there needs to be one company agreement submitted. This is mainly for the protection of the contributing employees.
 
