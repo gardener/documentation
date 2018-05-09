@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="198px" height="100px" viewBox="0 0 198 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>cncf_logo_saptext</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M23.8127561,0.9325383 C24.8063996,0.457952394 26.4145851,0.456601183 27.4110577,0.9325383 L44.288622,8.99363241 C45.2822655,9.46821832 46.2891387,10.7279464 46.5365586,11.8030662 L50.6961083,29.8776614 C50.9439658,30.9546829 50.5894235,32.5186023 49.8874243,33.3916563 L38.232625,47.8863562 C37.5381436,48.7500604 36.0842496,49.450231 34.9782484,49.450231 L16.2455653,49.450231 C15.1427041,49.450231 13.693188,48.7594101 12.9911887,47.8863562 L1.33638946,33.3916563 C0.641908063,32.527952 0.280285533,30.9527812 0.527705432,29.8776614 L4.68725514,11.8030662 C4.93511268,10.7260447 5.93871912,9.46956953 6.93519171,8.99363241 L23.8127561,0.9325383 Z" id="path-1"></path>
+        <linearGradient x1="12.7542673%" y1="-18.6617048%" x2="88.2666158%" y2="84.6075483%" id="linearGradient-3">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#439246" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="4.93673768%" x2="148.756007%" y2="175.514523%" id="linearGradient-4">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#439246" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="19.1574381%" y1="-9.04800713%" x2="82.2203149%" y2="77.9084293%" id="linearGradient-5">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#439246" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="57.4403751%" y1="26.3148481%" x2="137.966711%" y2="158.080556%" id="linearGradient-6">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#439246" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="cncf_logo_saptext" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Logo" transform="translate(17.000000, 17.000000)">
+            <g>
+                <g id="Rectangle-2">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Mask" fill="#009F76" xlink:href="#path-1"></use>
+                    <polygon fill="#000000" opacity="0.289628623" mask="url(#mask-2)" points="-10.3456358 31.6991052 18.0693696 14.580873 36.7274551 35.2694072 14.4983163 53.8772938"></polygon>
+                </g>
+                <path d="M34,22.7431767 C33.5470202,23.8006447 32.808293,24.784198 31.9707381,25.3413145 L29.3042854,27.114959 C27.9240891,28.0330243 25.6907224,28.0359335 24.3061525,27.114959 L21.6396998,25.3413145 C20.2595035,24.4232492 19.1406334,22.33551 19.1406334,20.6748715 L19.1406334,16.486643 C19.1406334,15.7257136 19.375057,14.8749294 19.7624442,14.0879197 L34,22.7431767 Z" id="Combined-Shape" fill="url(#linearGradient-3)" transform="translate(26.570317, 20.946260) scale(-1, 1) translate(-26.570317, -20.946260) "></path>
+                <path d="M32.2478084,14.0854839 C32.633504,14.8653826 32.8671659,15.7104888 32.8671659,16.4730869 L32.8671659,20.6662467 C32.8671659,22.3273403 31.7490913,24.405238 30.3550831,25.3170374 L27.5755861,27.1350637 C26.1882011,28.0425309 23.9454287,28.046863 22.5514205,27.1350637 L19.7719235,25.3170374 C19.0804599,24.8647616 18.4542467,24.1236596 18,23.2868462 L32.2478084,14.0854839 Z" id="Combined-Shape" fill="url(#linearGradient-4)" transform="translate(25.433583, 20.951387) scale(-1, 1) translate(-25.433583, -20.951387) "></path>
+                <path d="M37.8396006,33.9261431 C37.3622071,34.8579831 36.6464229,35.6884676 35.853211,36.1459719 L28.8147737,40.2055626 C27.3831897,41.0312637 25.0507014,41.02467 23.6305494,40.2055626 L16.5921122,36.1459719 C15.1605281,35.3202709 14,33.2989946 14,31.6607799 L14,23.5415985 C14,22.7505424 14.2689192,21.8761275 14.7052201,21.0896981 L37.8396006,33.9261431 Z" id="Combined-Shape" fill="url(#linearGradient-5)"></path>
+                <path d="M37.5875585,21.0784882 C37.8481414,21.7329042 38,22.4091811 38,23.026686 L38,31.7637402 C38,33.4206186 36.8216749,35.4154663 35.3743417,36.2159257 L28.1006209,40.2387163 C26.6505099,41.0407121 24.3112854,41.0140485 22.8759548,40.1792421 L16.1638559,36.2754 C15.3443304,35.7987535 14.6252284,34.9340045 14.1673059,33.9718953 L37.5875585,21.0784882 Z" id="Combined-Shape" fill="url(#linearGradient-6)"></path>
+            </g>
+            <text id="Gardener" font-family="Verdana" font-size="22" font-weight="normal" fill="#4A4A4A">
+                <tspan x="63" y="36">Gardener</tspan>
+            </text>
+            <text id="open-sourced-by-SAP" font-family="Verdana" font-size="9" font-weight="normal" fill="#4A4A4A">
+                <tspan x="79" y="75">open sourced by SAP</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
