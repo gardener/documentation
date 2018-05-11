@@ -1,4 +1,13 @@
-# Contributing
+# Contributing to Gardener
+
+## Code of conduct
+
+All members of the Gardener community must abide by the
+[CNCF Code of Conduct](https://github.com/cncf/foundation/blob/master/code-of-conduct.md).
+Only by respecting each other can we develop a productive, collaborative community.
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting [gardener.opensource@sap.com](mailto:gardener.opensource@sap.com) and/or a Gardener project maintainer.
+
+## Contributing
 
 Gardener uses GitHub to manage reviews of pull requests.
 
@@ -19,7 +28,6 @@ Gardener uses GitHub to manage reviews of pull requests.
   and the _Formatting and style_ section of Peter Bourgon's [Go: Best
   Practices for Production
   Environments](http://peter.bourgon.org/go-in-production/#formatting-and-style).
-
 
 ## Steps to Contribute
 
