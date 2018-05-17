@@ -393,3 +393,59 @@ the avoidance of doubt, this paragraph does not form part of the
 public licenses.
 
 Creative Commons may be contacted at creativecommons.org.
+
+=======================================================================
+Subcomponents
+
+This project includes the following subcomponents that are subject to separate license terms. 
+Your use of these subcomponents is subject to the separate license terms applicable to
+each subcomponent.
+
+Skeleton V2.0.4
+https://github.com/dhg/Skeleton/
+Copyright 2014, Dave Gamache
+MIT license http://www.opensource.org/licenses/mit-license.php
+
+ScrollMagic v2.0.5
+https://github.com/janpaepke/ScrollMagic
+Copyright 2015 Jan Paepke (@janpaepke)
+We use it under MIT license from dual license MIT and GPL https://github.com/janpaepke/ScrollMagic/blob/master/LICENSE.md
+
+jQuery v1.11.1
+https://github.com/jquery/jquery/
+Copyright 2005, 2014 jQuery Foundation, Inc.
+MIT license https://github.com/jquery/jquery/blob/0d5ec2d8ac94a419ee47a39319c43ff9a7326b50/MIT-LICENSE.txt
+
+jsrender v0.9.90 (Beta)
+https://github.com/BorisMoore/jsrender
+Copyright (c) 2015 Boris Moore
+MIT license https://github.com/BorisMoore/jsrender/blob/master/MIT-LICENSE.txt
+
+Modernizr 2.7.1 (Custom Build) | MIT & BSD
+https://github.com/Modernizr/Modernizr/blob/master/LICENSE
+Build: http://modernizr.com/download/#-touch-shiv-cssclasses-addtest-prefixed-teststyles-testprop-testallprops-hasevent-prefixes-domprefixes-load
+MIT license https://github.com/Modernizr/Modernizr/blob/master/LICENSE
+
+=======================================================================
+MIT License
+SPDX short identifier: MIT
+
+Further resources on the MIT License
+Copyright <YEAR> <COPYRIGHT HOLDER>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
