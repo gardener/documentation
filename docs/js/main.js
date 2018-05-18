@@ -11,6 +11,24 @@ $(document).ready(function(){
 
 $(window).load(function() {
 		
+	// response menu at the top right menu bar starting 
+	// on page-2
+	$('.toggle-nav').click(function(e) {
+		$(this).toggleClass('active');
+		$('.menu ul').toggleClass('active');
+		e.preventDefault();
+	});
+
+	$(document).scroll(function(e) {
+		$('.menu .toggle-nav').addClass('active');
+	   	$('.menu ul').addClass('active');
+   });
+   $(".page").click(function(e) {
+		$('.menu .toggle-nav').addClass('active');
+		$('.menu ul').addClass('active');
+	});
+
+
 	// reverse the z-index of all "page" elements to ensure that
 	// the stacked page effect works well
 	//
