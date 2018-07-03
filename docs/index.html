@@ -148,7 +148,60 @@
 			</div>
 		</div>
 	</div>
-	
+
+<!--
+
+	Starting from Kubernetes release 1.10 the conformance test results of clusters provided by the Gardener are published.
+
+	One major goal of [Gardener](https://github.com/gardener/gardener) is to provide Kubernetes clusters which completely
+	statisfie the requirements of the [CNCF](/https://www.cncf.io/).  For this the CNCF launched in 2017 a [certification program]
+	(https://kubernetes.io/blog/2017/11/certified-kubernetes-conformance/). As of the Kubernetes release 1.8 the clusters
+	created by the Gardener are already officially certified by the CNCF.
+
+	In addition, the CNCF offers the public dashboard [Testgrid](https://k8s-testgrid.appspot.com/), where besides others
+	the conformance test results are published. A typical use case is to add a publish step into an existing CI/CD
+	pipelines as a target for the conformance test results. Testgrid offers an easy way to investigate historical
+	conformance test results by visualizing the result of each test and by providing access to the test logs.
+-->
+
+	<div id="self-service-page" class="page sp-fixed">
+		<div class="container">
+			<div class="title-group">
+				<h2>Full transparency of CNCF conformance test results</h2>
+				<h1>100% Kubernetes</h1>
+			</div>
+			<div class="row" style="margin-top:60px">
+				<div class="one-third column">
+					<div class="description">
+						Starting from Kubernetes release 1.10 the conformance test results of clusters provided by the Gardener are published
+						on <a href="https://k8s-testgrid.appspot.com/conformance-gardener" target="_blank">Testgrid</a>.
+					</div>
+					<div class="description">
+						One major goal of <a href="https://github.com/gardener/gardener" target="_blank">Gardener</a> is to provide
+						Kubernetes clusters which completely satisfy the requirements of the <a target="_blank" href="/https://www.cncf.io/">CNCF</a>.
+
+					</div>
+				</div>
+				<div class="two-thirds column">
+					<a href="https://k8s-testgrid.appspot.com/conformance-gardener" target="_blank">
+						<img style="width:100%" class="box-shadow poster"  src="images/testgrid.png">
+					</a>
+				</div>
+				<div class="twelve columns description"  style="padding-top:30px">
+					For this the CNCF launched in 2017 a <a href="https://kubernetes.io/blog/2017/11/certified-kubernetes-conformance/">certification program</a>.
+					As of the Kubernetes release 1.8 the clusters created by the Gardener are already officially certified by the CNCF.
+				<br>
+					In addition, the CNCF offers the public dashboard <a href="https://k8s-testgrid.appspot.com/">Testgrid</a>, where besides others
+					the conformance test results are published. A typical use case is to add a publish step into an existing CI/CD
+					pipelines as a target for the conformance test results. Testgrid offers an easy way to investigate historical
+					conformance test results by visualizing the result of each test and by providing access to the test logs.
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
 	<div class="page sp-fixed projectMembers">
 		<div class="container">
 			<div class="title-group">
