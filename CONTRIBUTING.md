@@ -87,3 +87,7 @@ We use GitHub issues to track bugs and enhancement requests and ZenHub for plann
 * Install the [ZenHub Chrome plugin](https://chrome.google.com/webstore/detail/zenhub-for-github/ogcgkffhplmphkaahpmffcafajaocjbd)
 * Login to [ZenHub](https://www.zenhub.com/)
 * Open the [Gardener ZenHub workspace](https://app.zenhub.com/workspace/o/gardener/gardener)
+
+## Security Release Process
+
+See [Security Release Process](https://github.com/gardener/documentation/blob/master/security-release-process.md)
