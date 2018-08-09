@@ -1,0 +1,7 @@
+{{ $url := print "content/" .File.Path ".json"}}
+{{ $id := md5 $url}}
+{{range (first 1 (getJSON $url)) }}
+   <span id="{{$id}}"></span>
+   <script>$("#{{$id}}").html(moment("{{  .commit.author.date}}").fromNow())</script>
+{{ end }}
+

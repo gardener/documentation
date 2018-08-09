@@ -1,0 +1,121 @@
+{{ partial "header_blank.html" . }}
+
+{{ $skill := resources.Get "sass/groupedBySkill.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $skill.Permalink }}">
+{{ $group := resources.Get "sass/hero.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $group.Permalink }}">
+
+<div class="learning">
+
+    {{.Content}}
+
+    <ul class="timeline">
+    <!-- Item 1 -->
+    <li class="timeline_anchor">
+        <div class="content">
+            <div class="flag-wrapper">
+                <span class="flag">Beginner</span>
+                <span class="header">Here you are in good hands if you are a beginner at Kubernetes</span>
+            </div>
+                <div class="category">
+                <div class="categoryInner">
+                    <ul>
+                        {{ range where (where (where .Site.Pages "Section" .Section) "Type" "in" (slice "tutorial-page" "tutorial-app")) "Params.level" "beginner"}}
+                        <li>
+                            <a href="{{ .Permalink}}">
+                                {{ if (strings.HasSuffix  .Params.remote ".git" )}}
+                                <i class="fa fa-github listicon" aria-hidden="true"></i>
+                                {{else}}
+                                <i class="fa fa-file-text listicon" aria-hidden="true"></i>
+                                {{end}}
+                                {{ .Title }}
+                            </a>
+                        </li>
+                        {{end}}
+                        <!-- mailing list for CP-Enablement Team -->
+                        <li><a href="mailto:DL_58DA4AB77BCF84A1EA000116@exchange.sap.corp?subject=request%20for%20a%20new%20topic%20in%20the%20gardener%20HowTo%20section">
+                            <i class="fa fa-plus-square-o listicon" aria-hidden="true">
+                            </i>Request new topic</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+
+
+    <!-- Item 1 -->
+    <li class="timeline_anchor">
+        <div class="content">
+            <div class="flag-wrapper">
+                <span class="flag">Intermediate</span>
+                <span class="header">You already have experience with Kubernetes and just need some support with some topics</span>
+            </div>
+            <div class="category">
+                <div class="categoryInner">
+                    <ul>
+                        {{ range where (where (where .Site.Pages "Section" .Section) "Type" "in" (slice "tutorial-page" "tutorial-app")) "Params.level" "intermediate"}}
+                        <li>
+                            <a href="{{ .Permalink}}">
+                                {{ if (strings.HasSuffix  .Params.remote ".git" )}}
+                                <i class="fa fa-github listicon" aria-hidden="true"></i>
+                                {{else}}
+                                <i class="fa fa-file-text listicon" aria-hidden="true"></i>
+                                {{end}}
+                                {{ .Title }}
+                            </a>
+                        </li>
+                        {{end}}
+                        <!-- mailing list for CP-Enablement Team -->
+                        <li><a href="mailto:DL_58DA4AB77BCF84A1EA000116@exchange.sap.corp?subject=request%20for%20a%20new%20topic%20in%20the%20gardener%20HowTo%20section">
+                            <i class="fa fa-plus-square-o listicon" aria-hidden="true">
+                            </i>Request new topic</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+
+
+
+
+    <!-- Item 1 -->
+    <li class="timeline_anchor">
+        <div class="content">
+            <div class="flag-wrapper">
+                <span class="flag">Advanced</span>
+                <span class="header">You are an expert and just need a little hint on a specific topic</span>
+            </div>
+            <div class="category">
+                <div class="categoryInner">
+                    <ul>
+                        {{ range where (where (where .Site.Pages "Section" .Section) "Type" "in" (slice "tutorial-page" "tutorial-app")) "Params.level" "advanced"}}
+                        <li>
+                            <a href="{{ .Permalink}}">
+                                {{ if (strings.HasSuffix  .Params.remote ".git" )}}
+                                <i class="fa fa-github listicon" aria-hidden="true"></i>
+                                {{else}}
+                                <i class="fa fa-file-text listicon" aria-hidden="true"></i>
+                                {{end}}
+                                {{ .Title }}
+                            </a>
+                        </li>
+                        {{end}}
+                        <!-- mailing list for CP-Enablement Team -->
+                        <li><a href="mailto:DL_58DA4AB77BCF84A1EA000116@exchange.sap.corp?subject=request%20for%20a%20new%20topic%20in%20the%20gardener%20HowTo%20section">
+                            <i class="fa fa-plus-square-o listicon" aria-hidden="true">
+                            </i>Request new topic</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
+
+</ul>
+
+</div>
+
+{{ partial "footer.html" . }}
+

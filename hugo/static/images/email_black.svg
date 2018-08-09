@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300px" height="300px" viewBox="0 0 300 300" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
+    <title>email_black</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="email_black" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-2" fill="#000000" x="24" y="55.1487944" width="253" height="174.851206" rx="14"></rect>
+        <path d="M32.8300781,63.5625 L147.045857,145.841867 C148.786722,147.127361 151.613972,147.123855 153.350089,145.841867 L267.851562,63.5625" id="Triangle" stroke="#FFFFFF" stroke-width="13" stroke-linecap="round"></path>
+    </g>
+</svg>

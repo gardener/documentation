@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+      <meta name="description" content="Documentation for Gardener">
+<meta name="author" content="Andreas Herz">
+
+
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700|Material+Icons" rel="stylesheet">
+
+      <link rel="icon" type="image/x-icon"  href="images/favicon.ico">
+<link rel="icon" type="image/png"     href="images/favicon-32x32.png" sizes="32x32" />
+<link rel="icon" type="image/png"     href="images/favicon-16x16.png" sizes="16x16" />
+
+      <title>tail -f /var/log/my-application.log :: Gardener Documentation</title>
+
+      <link rel="icon" type="image/x-icon" href='https://gardener.github.io/website/images/favicon.ico'>
+      <link rel="icon" type="image/png"    href='https://gardener.github.io/website/images/favicon-32x32.png' sizes="32x32">
+      <link rel="icon" type="image/png"    href='https://gardener.github.io/website/images/favicon-16x16.png' sizes="16x16">
+
+      
+      <link href="/website/css/nucleus.css?1533730314" rel="stylesheet">
+      <link href="/website/css/font-awesome.min.css?1533730314" rel="stylesheet">
+      <link href="/website/css/hybrid.css?1533730314" rel="stylesheet">
+      <link href="/website/css/featherlight.min.css?1533730314" rel="stylesheet">
+      <link href="/website/css/perfect-scrollbar.min.css?1533730314" rel="stylesheet">
+      <link href="/website/css/auto-complete.css?1533730314" rel="stylesheet">
+      <link href="/website/css/skeleton.css?1533730314" rel="stylesheet">
+      <script src="/website/js/moment.js?1533730314"></script>
+      <script src="/website/js/vivus.js?1533730314"></script>
+      <script src="/website/js/scrollreveal.js?1533730314"></script>
+      <script src="/website/js/inlineSVG.js?1533730314"></script>
+      <link href="/website/css/theme.css?1533730314" rel="stylesheet">
+      <link href="/website/css/hugo-theme.css?1533730314" rel="stylesheet">
+      
+        <link href="/website/css/theme-gardener.css?1533730314" rel="stylesheet">
+      
+
+
+
+    <script src="/website/js/jquery-2.x.min.js?1533730314"></script>
+
+    <style type="text/css">
+      :root #header + #content > #left > #rlblock_left{ 
+          display:none !important;
+      }
+
+    </style>
+
+    
+
+  </head>
+
+
+  <body class="" data-url="/website/010-blog/2018_week_08/">
+    <nav id="sidebar" class="">
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="https://gardener.github.io/website">
+
+	<svg width="90px" height="90px" viewBox="0 0 90 90" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		
+		<title>logo</title>
+		<defs>
+			<path d="M41.8864954,0.994901575 C42.8830405,0.514990742 44.5028956,0.516982644 45.4953045,0.994901575 L76.8159138,16.0781121 C77.8124589,16.5580229 78.8208647,17.8257185 79.0659694,18.8995926 L86.8015211,52.7912589 C87.0476474,53.8696088 86.6852538,55.4484075 85.9984855,56.3095876 L64.3239514,83.4885938 C63.6343208,84.3533632 62.1740175,85.0543973 61.0725268,85.0543973 L26.3092731,85.0543973 C25.2031915,85.0543973 23.7446167,84.3497739 23.0578485,83.4885938 L1.38331434,56.3095876 C0.693683723,55.4448182 0.335174016,53.865133 0.580278769,52.7912589 L8.31583044,18.8995926 C8.56195675,17.8212428 9.57347722,16.556031 10.5658861,16.0781121 L41.8864954,0.994901575 Z" id="path-1"></path>
+			<linearGradient x1="12.7542673%" y1="-18.6617048%" x2="88.2666158%" y2="84.6075483%" id="linearGradient-3">
+				<stop stop-color="#FFFFFF" offset="0%"></stop>
+				<stop stop-color="#439246" offset="100%"></stop>
+			</linearGradient>
+			<linearGradient x1="50%" y1="4.93673768%" x2="148.756007%" y2="175.514523%" id="linearGradient-4">
+				<stop stop-color="#FFFFFF" offset="0%"></stop>
+				<stop stop-color="#439246" offset="100%"></stop>
+			</linearGradient>
+			<linearGradient x1="19.1574381%" y1="-9.04800713%" x2="82.2203149%" y2="77.9084293%" id="linearGradient-5">
+				<stop stop-color="#FFFFFF" offset="0%"></stop>
+				<stop stop-color="#439246" offset="100%"></stop>
+			</linearGradient>
+			<linearGradient x1="57.4403751%" y1="26.3148481%" x2="137.966711%" y2="158.080556%" id="linearGradient-6">
+				<stop stop-color="#FFFFFF" offset="0%"></stop>
+				<stop stop-color="#439246" offset="100%"></stop>
+			</linearGradient>
+		</defs>
+		<g id="logo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+			<g id="Rectangle-2" transform="translate(1.000000, 0.000000)">
+				<mask id="mask-2" fill="white">
+					<use xlink:href="#path-1"></use>
+				</mask>
+				<use id="Mask" fill="#009F76" xlink:href="#path-1"></use>
+				<polygon fill="#000000" opacity="0.289628623" mask="url(#mask-2)" points="-17.6484375 54.5224609 30.8242188 25.0791016 63.4726562 58.5 24.7324219 92.6689453"></polygon>
+			</g>
+			<path d="M56.8508631,39.260019 C56.4193519,40.443987 55.6088085,41.581593 54.6736295,42.1938694 L46.5997298,47.4799783 C45.2142627,48.3870654 42.9749783,48.3916494 41.5825097,47.4799783 L33.50861,42.1938694 C32.123143,41.2867823 31,39.206345 31,37.545932 L31,26.4150304 C31,25.6897174 31.2131118,24.884885 31.5692681,24.1324532 L56.8508631,39.260019 Z" id="Combined-Shape" fill="url(#linearGradient-3)" transform="translate(43.925432, 36.147233) scale(-1, 1) translate(-43.925432, -36.147233) "></path>
+			<path d="M56.0774672,25.1412464 C56.4306829,25.8903325 56.6425556,26.6907345 56.6425556,27.4119019 L56.6425556,38.5428034 C56.6425556,40.2027013 55.5264141,42.2790698 54.1339456,43.1907408 L46.0600459,48.4768498 C44.6745788,49.3839368 42.4352943,49.3885208 41.0428258,48.4768498 L32.9689261,43.1907408 C32.2918101,42.7474223 31.6773514,42.0238435 31.2260376,41.206007 L56.0774672,25.1412464 Z" id="Combined-Shape" fill="url(#linearGradient-4)" transform="translate(43.821278, 37.246598) scale(-1, 1) translate(-43.821278, -37.246598) "></path>
+			<path d="M65.0702134,57.1846889 C64.5985426,58.2007851 63.8367404,59.1236871 62.9788591,59.6189851 L47.37497,68.6278947 C45.9443535,69.4538615 43.6226022,69.4525546 42.1942494,68.6278947 L26.5903603,59.6189851 C25.1597438,58.7930183 24,56.7816693 24,55.1323495 L24,37.1145303 C24,36.3487436 24.249712,35.5060005 24.6599102,34.7400631 L65.0702134,57.1846889 Z" id="Combined-Shape" fill="url(#linearGradient-5)"></path>
+			<path d="M65.0189476,34.954538 C65.3636909,35.6617313 65.5692194,36.42021 65.5692194,37.1145303 L65.5692194,55.1323495 C65.5692194,56.7842831 64.4072119,58.7943252 62.9788591,59.6189851 L47.37497,68.6278947 C45.9443535,69.4538615 43.6226022,69.4525546 42.1942494,68.6278947 L26.5903603,59.6189851 C25.9237304,59.2341061 25.3159155,58.5918431 24.8568495,57.8487596 L65.0189476,34.954538 Z" id="Combined-Shape" fill="url(#linearGradient-6)"></path>
+		</g>
+	</svg>
+	<h1>Gardener</h1>
+	<h2>The Kubernetes Botanist</h2>
+</a>
+
+    </div>
+    <div class="searchbox">
+    <label for="search-by"><i class="fa fa-search"></i></label>
+    <input data-search-input id="search-by" type="text" placeholder="Search...">
+    <span data-search-clear=""><i class="fa fa-close"></i></span>
+</div>
+
+<script type="text/javascript" src="/website/js/lunr.min.js?1533730314"></script>
+<script type="text/javascript" src="/website/js/auto-complete.js?1533730314"></script>
+<script type="text/javascript">
+    
+        var baseurl = '\/website';
+    
+</script>
+<script type="text/javascript" src="/website/js/search.js?1533730314"></script>
+
+  </div>
+
+
+  <div class="highlightable">
+      <ul class="topics">
+            
+                 
+                 
+
+
+
+
+  
+    
+    <li data-nav-id="/website/blog/" title="Whats New" class="dd-item
+        parent
+        
+        
+        ">
+        
+          <a href="/website/blog/">
+              <i class="fa fa-rss "></i>
+              Whats New
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+            
+                 
+                 
+
+
+
+
+  
+    
+    <li data-nav-id="/website/about/" title="Getting Started" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/about/">
+              <i class="fa fa-circle-thin "></i>
+              Getting Started
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+            
+                 
+                 
+
+
+
+
+  
+    
+    <li data-nav-id="/website/030-architecture/" title="Architecture" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/030-architecture/">
+              <i class="fa fa-square-o "></i>
+              Architecture
+          </a>
+          
+          
+            <ul>
+              
+              
+                
+              
+              
+
+
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/components/gardner/" title="Gardener" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/components/gardner/">
+              <i class=" "></i>
+              Gardener
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/components/gardenctl/" title="gardenctl" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/components/gardenctl/">
+              <i class=" "></i>
+              gardenctl
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/components/mcm/" title="Machine Controller Manager" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/components/mcm/">
+              <i class=" "></i>
+              Machine Controller Manager
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/components/dns-cm/" title="DNS Controller Manager" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/components/dns-cm/">
+              <i class=" "></i>
+              DNS Controller Manager
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/components/dashboard/" title="Dashboard" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/components/dashboard/">
+              <i class=" "></i>
+              Dashboard
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/components/kubify/" title="kubify" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/components/kubify/">
+              <i class=" "></i>
+              kubify
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/components/bouquet/" title="Bouquet" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/components/bouquet/">
+              <i class=" "></i>
+              Bouquet
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+
+            </ul>
+        
+      
+    </li>
+  
+
+
+            
+                 
+                 
+
+
+
+
+  
+    
+    <li data-nav-id="/website/contribute/" title="Contribute" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/contribute/">
+              <i class="fa fa-plus-square-o "></i>
+              Contribute
+          </a>
+          
+          
+            <ul>
+              
+              
+                
+              
+              
+
+
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/contribute/code/" title="Code" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/contribute/code/">
+              <i class=" "></i>
+              Code
+          </a>
+          
+          
+            <ul>
+              
+              
+                
+              
+              
+
+
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/045_contribute/10_code/10-contribution_guide/" title="Contribution Guide" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/045_contribute/10_code/10-contribution_guide/">
+              <i class=" "></i>
+              Contribution Guide
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/045_contribute/10_code/10_env/" title="Enviroment" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/045_contribute/10_code/10_env/">
+              <i class=" "></i>
+              Enviroment
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/045_contribute/10_code/15_conf_secrets/" title="Configuration and Secrets" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/045_contribute/10_code/15_conf_secrets/">
+              <i class=" "></i>
+              Configuration and Secrets
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/045_contribute/10_code/20_dependencies/" title="Dependencies" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/045_contribute/10_code/20_dependencies/">
+              <i class=" "></i>
+              Dependencies
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/development/usage/" title="Creating Shoots" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/development/usage/">
+              <i class=" "></i>
+              Creating Shoots
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/045_contribute/10_code/27_deploy_into_cluster/" title="Deploy into a Cluster" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/045_contribute/10_code/27_deploy_into_cluster/">
+              <i class=" "></i>
+              Deploy into a Cluster
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/045_contribute/10_code/30_deploy_into_minikube/" title="Deploy into Minikube" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/045_contribute/10_code/30_deploy_into_minikube/">
+              <i class=" "></i>
+              Deploy into Minikube
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/045_contribute/10_code/30_deploy_seed_into_aks/" title="Deploy into AKS" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/045_contribute/10_code/30_deploy_seed_into_aks/">
+              <i class=" "></i>
+              Deploy into AKS
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/045_contribute/10_code/37_process/" title="Process" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/045_contribute/10_code/37_process/">
+              <i class=" "></i>
+              Process
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/045_contribute/10_code/40_repositories/" title="Repositories" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/045_contribute/10_code/40_repositories/">
+              <i class=" "></i>
+              Repositories
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+
+            </ul>
+        
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/contribute/docs/" title="Documentation" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/contribute/docs/">
+              <i class=" "></i>
+              Documentation
+          </a>
+          
+          
+            <ul>
+              
+              
+                
+              
+              
+
+
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/045_contribute/20_documentation/10_organisation/" title="Organisation" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/045_contribute/20_documentation/10_organisation/">
+              <i class=" "></i>
+              Organisation
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/045_contribute/20_documentation/20_style/" title="Style Guide" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/045_contribute/20_documentation/20_style/">
+              <i class=" "></i>
+              Style Guide
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/045_contribute/20_documentation/25_markup/" title="Markdown" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/045_contribute/20_documentation/25_markup/">
+              <i class=" "></i>
+              Markdown
+          </a>
+          
+          
+            <ul>
+              
+              
+              
+
+
+              
+                
+                    
+
+
+
+
+  
+      <li data-nav-id="/website/045_contribute/20_documentation/25_markup/attachments/" title="Attachments" class="dd-item ">
+        <a href="/website/045_contribute/20_documentation/25_markup/attachments/">
+            Attachments
+        </a>
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+      <li data-nav-id="/website/045_contribute/20_documentation/25_markup/button/" title="Button" class="dd-item ">
+        <a href="/website/045_contribute/20_documentation/25_markup/button/">
+            Button
+        </a>
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+      <li data-nav-id="/website/045_contribute/20_documentation/25_markup/expand/" title="Expand" class="dd-item ">
+        <a href="/website/045_contribute/20_documentation/25_markup/expand/">
+            Expand
+        </a>
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+      <li data-nav-id="/website/045_contribute/20_documentation/25_markup/mermaid/" title="Mermaid" class="dd-item ">
+        <a href="/website/045_contribute/20_documentation/25_markup/mermaid/">
+            Mermaid
+        </a>
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+      <li data-nav-id="/website/045_contribute/20_documentation/25_markup/notice/" title="Notice" class="dd-item ">
+        <a href="/website/045_contribute/20_documentation/25_markup/notice/">
+            Notice
+        </a>
+    </li>
+  
+
+
+                
+              
+
+            </ul>
+        
+      
+    </li>
+  
+
+
+                
+              
+
+            </ul>
+        
+      
+    </li>
+  
+
+
+                
+              
+
+            </ul>
+        
+      
+    </li>
+  
+
+
+            
+                 
+                 
+
+
+
+
+  
+    
+    <li data-nav-id="/website/tutorials/" title="Tutorials" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/tutorials/">
+              <i class="fa fa-terminal "></i>
+              Tutorials
+          </a>
+          
+          
+            <ul>
+              
+              
+                
+              
+              
+
+
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/using-gardener/administrator/" title="Administrator" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/using-gardener/administrator/">
+              <i class=" "></i>
+              Administrator
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/using-gardener/developer/topic/" title="App Developer" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/using-gardener/developer/topic/">
+              <i class=" "></i>
+              App Developer
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                
+              
+
+            </ul>
+        
+      
+    </li>
+  
+
+
+            
+                 
+                 
+
+
+
+
+  
+    
+    <li data-nav-id="/website/curated-links/" title="Curated Links" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/curated-links/">
+              <i class="fa fa-bookmark-o "></i>
+              Curated Links
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+            
+      </ul>
+      <section id="footer">
+        
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+      </section>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="body-inner-wrapper">
+
+
+        <div id="body-inner">
+
+
+<p>One thing that always bothered me was that I couldn&rsquo;t get logs of several pods at once with <code>kubectl</code>. A simple
+<code>tail -f &lt;path-to-logfile&gt;</code> isn&rsquo;t possible at all. Certainly you can use <code>kubectl logs -f &lt;pod-id&gt;</code>, but it doesn&rsquo;t
+help if you want to monitor more than one pod at a time.</p>
+
+<p>This is something you really need a lot, at least if you run several instances of a pod behind a <code>deployment</code>.
+This is even more so if you don&rsquo;t have a Kibana setup or similar.</p>
+
+
+
+    <img src="../010-blog/2018_week_08/blog-kubetail.png" title="logo" width="100%" class="reveal-fast" style="visibility:hidden"/>
+
+
+<p>Luckily, there are smart developers out there who always come up with solutions. The <strong>finding of the week</strong> is
+a small bash script that allows you to aggregate log files of several pods at the same time in
+a simple way. The script is called <code>kubetail</code> and is available at
+<a href="https://github.com/johanhaleby/kubetail">https://github.com/johanhaleby/kubetail</a>.</p>
+
+
+<footer class=" footline" >
+</footer>
+
+
+
+        </div> 
+        
+
+      </div>
+
+
+        
+        
+
+        
+            
+            <div class="howto_tickets">
+                <span class="open_github_ticket">
+                    <h3 class="open_github_ticket_header"><i class="fa fa-github" aria-hidden="true"></i> Report an issue</h3>
+                    See a typo? Have a picture to recommend? Want to edit some words/phrases/sentences?
+                    You can simply submit a ticket to request we make the change. If you are github savvy, submit a
+                    pull request.
+                    <a href="#" onclick="return createIssue('https:\/\/github.com\/gardener\/website\/issues/new','010-blog\/2018_week_08\/_index.md','https:\/\/github.com\/gardener\/website\/edit\/master\/hugo\/content\/010-blog\/2018_week_08\/_index.md')" target="_blank">Open Github Issue <i class="fa fa-external-link" aria-hidden="true"></i></a>
+                    <br>
+                </span>
+            </div>
+
+        
+
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/website/js/clipboard.min.js?1533730314"></script>
+    <script src="/website/js/perfect-scrollbar.min.js?1533730314"></script>
+    <script src="/website/js/perfect-scrollbar.jquery.min.js?1533730314"></script>
+    <script src="/website/js/jquery.sticky.js?1533730314"></script>
+    <script src="/website/js/featherlight.min.js?1533730314"></script>
+    <script src="/website/js/html5shiv-printshiv.min.js?1533730314"></script>
+    <script src="/website/js/highlight.pack.js?1533730314"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/website/js/modernizr.custom.71422.js?1533730314"></script>
+    <script src="/website/js/learn.js?1533730314"></script>
+    <script src="/website/js/hugo-learn.js?1533730314"></script>
+
+    <link href="/website/mermaid/mermaid.css?1533730314" type="text/css" rel="stylesheet" />
+    <script src="/website/mermaid/mermaid.js?1533730314"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true, htmlLables: true });
+        function createIssue(issueUrl, page, url) {
+            var uri = issueUrl+"?title=Documentation issue on page \""+page+"\"";
+            uri = uri+ "&body=\n\n<- DESCRIBE MISSING OR FAULTY DOCUMENTATION HERE->\n\n---\nPage: ["+ page +"]("+
+            url+ ")\ndon't remove the link to the page. It's required for the processor"
+            var res = encodeURI(uri);
+            res +="&labels=area/documentation"
+            window.open(res,"issue")
+            return false;
+        }
+
+        $(document).ready(function() {
+            var $window = $(window);
+            $window.sr = ScrollReveal({ reset: false});
+            $window.sr.reveal('.reveal-fast', { duration: 2000 });
+            $window.sr.reveal('.reveal-slow', { duration: 2500 });
+            $window.sr.reveal('.reveal-right', { duration: 2000, origin:'right', distance:'300px' });
+            $window.sr.reveal('.reveal-left', { duration: 2000, origin:'left', distance:'300px' });
+
+            inlineSVG.init();
+        });
+
+    </script>
+    
+    <script>
+    
+    
+    (function () {
+        $("#body-inner a").not(".inline")
+            .each(function () {
+                if (this.hostname != window.location.hostname && this.href.indexOf("mailto:")===-1) {
+                    this.target = '_blank';
+                    $(this).addClass("externalLink");
+                    if($(this).find("img").length===0) {
+                        this.innerHTML += '<i class="fa fa-external-link" aria-hidden="true"></i>';
+                    }
+                }
+            });
+
+
+
+    })();
+
+    </script>
+  </body>
+</html>

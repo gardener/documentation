@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="522px" height="80px" viewBox="0 0 522 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>hiring_title</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="hiring_banner" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-31.000000, -32.000000)" font-family="Roboto-Regular, Roboto" font-size="64" font-weight="normal" letter-spacing="9.10000038">
+        <text id="We-are-hiring-!" fill="#000000">
+            <tspan x="36" y="91">We are hirin</tspan>
+            <tspan x="479.668755" y="91">g !</tspan>
+        </text>
+    </g>
+</svg>

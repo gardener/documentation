@@ -1,0 +1,21 @@
+
+    <script>
+    // any link that is not part of the current domain will be modified
+    // and opened in an external window
+    (function () {
+        $("#body-inner a").not(".inline")
+            .each(function () {
+                if (this.hostname != window.location.hostname && this.href.indexOf("mailto:")===-1) {
+                    this.target = '_blank';
+                    $(this).addClass("externalLink");
+                    if($(this).find("img").length===0) {
+                        this.innerHTML += '<i class="fa fa-external-link" aria-hidden="true"></i>';
+                    }
+                }
+            });
+
+
+
+    })();
+
+    </script>

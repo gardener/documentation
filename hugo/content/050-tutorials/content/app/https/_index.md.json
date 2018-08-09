@@ -1,0 +1,75 @@
+[
+  {
+    "sha": "6c3b0f8e6d016be051aae2e03f1b91c0f0ac431d",
+    "node_id": "MDY6Q29tbWl0MTQzODcyMzcwOjZjM2IwZjhlNmQwMTZiZTA1MWFhZTJlMDNmMWI5MWMwZjBhYzQzMWQ=",
+    "commit": {
+      "author": {
+        "name": "Herz, Andreas",
+        "email": "a.herz@freegroup.de",
+        "date": "2018-08-07T12:48:55Z"
+      },
+      "committer": {
+        "name": "Herz, Andreas",
+        "email": "a.herz@freegroup.de",
+        "date": "2018-08-07T12:48:55Z"
+      },
+      "message": "initial commit",
+      "tree": {
+        "sha": "9ee5924df4242ab0050650567b8f74f0c12519ea",
+        "url": "https://api.github.com/repos/freegroup/kube-https/git/trees/9ee5924df4242ab0050650567b8f74f0c12519ea"
+      },
+      "url": "https://api.github.com/repos/freegroup/kube-https/git/commits/6c3b0f8e6d016be051aae2e03f1b91c0f0ac431d",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/freegroup/kube-https/commits/6c3b0f8e6d016be051aae2e03f1b91c0f0ac431d",
+    "html_url": "https://github.com/freegroup/kube-https/commit/6c3b0f8e6d016be051aae2e03f1b91c0f0ac431d",
+    "comments_url": "https://api.github.com/repos/freegroup/kube-https/commits/6c3b0f8e6d016be051aae2e03f1b91c0f0ac431d/comments",
+    "author": {
+      "login": "freegroup",
+      "id": 1155039,
+      "node_id": "MDQ6VXNlcjExNTUwMzk=",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1155039?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/freegroup",
+      "html_url": "https://github.com/freegroup",
+      "followers_url": "https://api.github.com/users/freegroup/followers",
+      "following_url": "https://api.github.com/users/freegroup/following{/other_user}",
+      "gists_url": "https://api.github.com/users/freegroup/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/freegroup/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/freegroup/subscriptions",
+      "organizations_url": "https://api.github.com/users/freegroup/orgs",
+      "repos_url": "https://api.github.com/users/freegroup/repos",
+      "events_url": "https://api.github.com/users/freegroup/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/freegroup/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "freegroup",
+      "id": 1155039,
+      "node_id": "MDQ6VXNlcjExNTUwMzk=",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1155039?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/freegroup",
+      "html_url": "https://github.com/freegroup",
+      "followers_url": "https://api.github.com/users/freegroup/followers",
+      "following_url": "https://api.github.com/users/freegroup/following{/other_user}",
+      "gists_url": "https://api.github.com/users/freegroup/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/freegroup/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/freegroup/subscriptions",
+      "organizations_url": "https://api.github.com/users/freegroup/orgs",
+      "repos_url": "https://api.github.com/users/freegroup/repos",
+      "events_url": "https://api.github.com/users/freegroup/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/freegroup/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": []
+  }
+]

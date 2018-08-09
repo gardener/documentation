@@ -1,0 +1,8 @@
+<!-- {{/*
+Usage: {{% img "title" "URL" %}}
+*/}}-->
+{{ if (strings.HasSuffix  (.Get 1) ".svg" )}}
+    <img src="../{{.Page.Dir}}{{ .Get 1 }}" title="{{.Get 0}}" data-src="../{{.Page.Dir}}{{ .Get 1 }}" class="svg" width="100%"/>
+{{else}}
+    <img src="../{{.Page.Dir}}{{ .Get 1 }}" title="{{.Get 0}}" width="100%" class="reveal-fast" style="visibility:hidden"/>
+{{end}}

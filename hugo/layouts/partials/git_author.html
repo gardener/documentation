@@ -1,0 +1,7 @@
+{{ $url := print "content/" .File.Path ".json"}}
+{{ $scratch := newScratch }}
+{{range (getJSON $url) }}
+   {{ $scratch.Add "email" (slice (printf "<a href='mailto:%s'>%s</a>" .commit.author.email .commit.author.name)) }}
+{{ end }}
+{{ delimit (uniq ($scratch.Get "email")) ", "}}
+

@@ -1,0 +1,1707 @@
+
+	<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <meta name="description" content="Documentation for Gardener">
+<meta name="author" content="Andreas Herz">
+
+
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700|Material+Icons" rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon"  href="images/favicon.ico">
+<link rel="icon" type="image/png"     href="images/favicon-32x32.png" sizes="32x32" />
+<link rel="icon" type="image/png"     href="images/favicon-16x16.png" sizes="16x16" />
+
+    <title>DNS Controller Manager :: Gardener Documentation</title>
+
+    <link rel="icon" type="image/x-icon" href='https://gardener.github.io/website/images/favicon.ico'>
+    <link rel="icon" type="image/png"    href='https://gardener.github.io/website/images/favicon-32x32.png' sizes="32x32">
+    <link rel="icon" type="image/png"    href='https://gardener.github.io/website/images/favicon-16x16.png' sizes="16x16">
+
+    
+    <link href="/website/css/nucleus.css?1533730314" rel="stylesheet">
+    <link href="/website/css/font-awesome.min.css?1533730314" rel="stylesheet">
+    <link href="/website/css/hybrid.css?1533730314" rel="stylesheet">
+    <link href="/website/css/featherlight.min.css?1533730314" rel="stylesheet">
+    <link href="/website/css/perfect-scrollbar.min.css?1533730314" rel="stylesheet">
+    <link href="/website/css/auto-complete.css?1533730314" rel="stylesheet">
+    <link href="/website/css/skeleton.css?1533730314" rel="stylesheet">
+
+    <script src="/website/js/moment.js?1533730314"></script>
+    <script src="/website/js/vivus.js?1533730314"></script>
+    <script src="/website/js/scrollreveal.js?1533730314"></script>
+    <script src="/website/js/inlineSVG.js?1533730314"></script>
+    <link href="/website/css/theme.css?1533730314" rel="stylesheet">
+    <link href="/website/css/hugo-theme.css?1533730314" rel="stylesheet">
+
+
+    
+      <link href="/website/css/theme-gardener.css?1533730314" rel="stylesheet">
+    
+
+    <script src="/website/js/jquery-2.x.min.js?1533730314"></script>
+    
+    <style type="text/css">
+      :root #header + #content > #left > #rlblock_left{ 
+          display:none !important;
+      }
+
+    </style>
+
+    
+
+  </head>
+
+
+  <body class="" data-url="/website/components/dns-cm/">
+    <nav id="sidebar" class="">
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="https://gardener.github.io/website">
+
+	<svg width="90px" height="90px" viewBox="0 0 90 90" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		
+		<title>logo</title>
+		<defs>
+			<path d="M41.8864954,0.994901575 C42.8830405,0.514990742 44.5028956,0.516982644 45.4953045,0.994901575 L76.8159138,16.0781121 C77.8124589,16.5580229 78.8208647,17.8257185 79.0659694,18.8995926 L86.8015211,52.7912589 C87.0476474,53.8696088 86.6852538,55.4484075 85.9984855,56.3095876 L64.3239514,83.4885938 C63.6343208,84.3533632 62.1740175,85.0543973 61.0725268,85.0543973 L26.3092731,85.0543973 C25.2031915,85.0543973 23.7446167,84.3497739 23.0578485,83.4885938 L1.38331434,56.3095876 C0.693683723,55.4448182 0.335174016,53.865133 0.580278769,52.7912589 L8.31583044,18.8995926 C8.56195675,17.8212428 9.57347722,16.556031 10.5658861,16.0781121 L41.8864954,0.994901575 Z" id="path-1"></path>
+			<linearGradient x1="12.7542673%" y1="-18.6617048%" x2="88.2666158%" y2="84.6075483%" id="linearGradient-3">
+				<stop stop-color="#FFFFFF" offset="0%"></stop>
+				<stop stop-color="#439246" offset="100%"></stop>
+			</linearGradient>
+			<linearGradient x1="50%" y1="4.93673768%" x2="148.756007%" y2="175.514523%" id="linearGradient-4">
+				<stop stop-color="#FFFFFF" offset="0%"></stop>
+				<stop stop-color="#439246" offset="100%"></stop>
+			</linearGradient>
+			<linearGradient x1="19.1574381%" y1="-9.04800713%" x2="82.2203149%" y2="77.9084293%" id="linearGradient-5">
+				<stop stop-color="#FFFFFF" offset="0%"></stop>
+				<stop stop-color="#439246" offset="100%"></stop>
+			</linearGradient>
+			<linearGradient x1="57.4403751%" y1="26.3148481%" x2="137.966711%" y2="158.080556%" id="linearGradient-6">
+				<stop stop-color="#FFFFFF" offset="0%"></stop>
+				<stop stop-color="#439246" offset="100%"></stop>
+			</linearGradient>
+		</defs>
+		<g id="logo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+			<g id="Rectangle-2" transform="translate(1.000000, 0.000000)">
+				<mask id="mask-2" fill="white">
+					<use xlink:href="#path-1"></use>
+				</mask>
+				<use id="Mask" fill="#009F76" xlink:href="#path-1"></use>
+				<polygon fill="#000000" opacity="0.289628623" mask="url(#mask-2)" points="-17.6484375 54.5224609 30.8242188 25.0791016 63.4726562 58.5 24.7324219 92.6689453"></polygon>
+			</g>
+			<path d="M56.8508631,39.260019 C56.4193519,40.443987 55.6088085,41.581593 54.6736295,42.1938694 L46.5997298,47.4799783 C45.2142627,48.3870654 42.9749783,48.3916494 41.5825097,47.4799783 L33.50861,42.1938694 C32.123143,41.2867823 31,39.206345 31,37.545932 L31,26.4150304 C31,25.6897174 31.2131118,24.884885 31.5692681,24.1324532 L56.8508631,39.260019 Z" id="Combined-Shape" fill="url(#linearGradient-3)" transform="translate(43.925432, 36.147233) scale(-1, 1) translate(-43.925432, -36.147233) "></path>
+			<path d="M56.0774672,25.1412464 C56.4306829,25.8903325 56.6425556,26.6907345 56.6425556,27.4119019 L56.6425556,38.5428034 C56.6425556,40.2027013 55.5264141,42.2790698 54.1339456,43.1907408 L46.0600459,48.4768498 C44.6745788,49.3839368 42.4352943,49.3885208 41.0428258,48.4768498 L32.9689261,43.1907408 C32.2918101,42.7474223 31.6773514,42.0238435 31.2260376,41.206007 L56.0774672,25.1412464 Z" id="Combined-Shape" fill="url(#linearGradient-4)" transform="translate(43.821278, 37.246598) scale(-1, 1) translate(-43.821278, -37.246598) "></path>
+			<path d="M65.0702134,57.1846889 C64.5985426,58.2007851 63.8367404,59.1236871 62.9788591,59.6189851 L47.37497,68.6278947 C45.9443535,69.4538615 43.6226022,69.4525546 42.1942494,68.6278947 L26.5903603,59.6189851 C25.1597438,58.7930183 24,56.7816693 24,55.1323495 L24,37.1145303 C24,36.3487436 24.249712,35.5060005 24.6599102,34.7400631 L65.0702134,57.1846889 Z" id="Combined-Shape" fill="url(#linearGradient-5)"></path>
+			<path d="M65.0189476,34.954538 C65.3636909,35.6617313 65.5692194,36.42021 65.5692194,37.1145303 L65.5692194,55.1323495 C65.5692194,56.7842831 64.4072119,58.7943252 62.9788591,59.6189851 L47.37497,68.6278947 C45.9443535,69.4538615 43.6226022,69.4525546 42.1942494,68.6278947 L26.5903603,59.6189851 C25.9237304,59.2341061 25.3159155,58.5918431 24.8568495,57.8487596 L65.0189476,34.954538 Z" id="Combined-Shape" fill="url(#linearGradient-6)"></path>
+		</g>
+	</svg>
+	<h1>Gardener</h1>
+	<h2>The Kubernetes Botanist</h2>
+</a>
+
+    </div>
+    <div class="searchbox">
+    <label for="search-by"><i class="fa fa-search"></i></label>
+    <input data-search-input id="search-by" type="text" placeholder="Search...">
+    <span data-search-clear=""><i class="fa fa-close"></i></span>
+</div>
+
+<script type="text/javascript" src="/website/js/lunr.min.js?1533730314"></script>
+<script type="text/javascript" src="/website/js/auto-complete.js?1533730314"></script>
+<script type="text/javascript">
+    
+        var baseurl = '\/website';
+    
+</script>
+<script type="text/javascript" src="/website/js/search.js?1533730314"></script>
+
+  </div>
+
+
+  <div class="highlightable">
+      <ul class="topics">
+            
+                 
+                 
+
+
+
+
+  
+    
+    <li data-nav-id="/website/blog/" title="Whats New" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/blog/">
+              <i class="fa fa-rss "></i>
+              Whats New
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+            
+                 
+                 
+
+
+
+
+  
+    
+    <li data-nav-id="/website/about/" title="Getting Started" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/about/">
+              <i class="fa fa-circle-thin "></i>
+              Getting Started
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+            
+                 
+                 
+
+
+
+
+  
+    
+    <li data-nav-id="/website/030-architecture/" title="Architecture" class="dd-item
+        parent
+        
+        
+        ">
+        
+          <a href="/website/030-architecture/">
+              <i class="fa fa-square-o "></i>
+              Architecture
+          </a>
+          
+          
+            <ul>
+              
+              
+                
+              
+              
+
+
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/components/gardner/" title="Gardener" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/components/gardner/">
+              <i class=" "></i>
+              Gardener
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/components/gardenctl/" title="gardenctl" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/components/gardenctl/">
+              <i class=" "></i>
+              gardenctl
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/components/mcm/" title="Machine Controller Manager" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/components/mcm/">
+              <i class=" "></i>
+              Machine Controller Manager
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/components/dns-cm/" title="DNS Controller Manager" class="dd-item
+        parent
+        active
+        
+        ">
+        
+          <a href="/website/components/dns-cm/">
+              <i class=" "></i>
+              DNS Controller Manager
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/components/dashboard/" title="Dashboard" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/components/dashboard/">
+              <i class=" "></i>
+              Dashboard
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/components/kubify/" title="kubify" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/components/kubify/">
+              <i class=" "></i>
+              kubify
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/components/bouquet/" title="Bouquet" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/components/bouquet/">
+              <i class=" "></i>
+              Bouquet
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+
+            </ul>
+        
+      
+    </li>
+  
+
+
+            
+                 
+                 
+
+
+
+
+  
+    
+    <li data-nav-id="/website/contribute/" title="Contribute" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/contribute/">
+              <i class="fa fa-plus-square-o "></i>
+              Contribute
+          </a>
+          
+          
+            <ul>
+              
+              
+                
+              
+              
+
+
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/contribute/code/" title="Code" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/contribute/code/">
+              <i class=" "></i>
+              Code
+          </a>
+          
+          
+            <ul>
+              
+              
+                
+              
+              
+
+
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/045_contribute/10_code/10-contribution_guide/" title="Contribution Guide" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/045_contribute/10_code/10-contribution_guide/">
+              <i class=" "></i>
+              Contribution Guide
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/045_contribute/10_code/10_env/" title="Enviroment" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/045_contribute/10_code/10_env/">
+              <i class=" "></i>
+              Enviroment
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/045_contribute/10_code/15_conf_secrets/" title="Configuration and Secrets" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/045_contribute/10_code/15_conf_secrets/">
+              <i class=" "></i>
+              Configuration and Secrets
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/045_contribute/10_code/20_dependencies/" title="Dependencies" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/045_contribute/10_code/20_dependencies/">
+              <i class=" "></i>
+              Dependencies
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/development/usage/" title="Creating Shoots" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/development/usage/">
+              <i class=" "></i>
+              Creating Shoots
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/045_contribute/10_code/27_deploy_into_cluster/" title="Deploy into a Cluster" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/045_contribute/10_code/27_deploy_into_cluster/">
+              <i class=" "></i>
+              Deploy into a Cluster
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/045_contribute/10_code/30_deploy_into_minikube/" title="Deploy into Minikube" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/045_contribute/10_code/30_deploy_into_minikube/">
+              <i class=" "></i>
+              Deploy into Minikube
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/045_contribute/10_code/30_deploy_seed_into_aks/" title="Deploy into AKS" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/045_contribute/10_code/30_deploy_seed_into_aks/">
+              <i class=" "></i>
+              Deploy into AKS
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/045_contribute/10_code/37_process/" title="Process" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/045_contribute/10_code/37_process/">
+              <i class=" "></i>
+              Process
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/045_contribute/10_code/40_repositories/" title="Repositories" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/045_contribute/10_code/40_repositories/">
+              <i class=" "></i>
+              Repositories
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+
+            </ul>
+        
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/contribute/docs/" title="Documentation" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/contribute/docs/">
+              <i class=" "></i>
+              Documentation
+          </a>
+          
+          
+            <ul>
+              
+              
+                
+              
+              
+
+
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/045_contribute/20_documentation/10_organisation/" title="Organisation" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/045_contribute/20_documentation/10_organisation/">
+              <i class=" "></i>
+              Organisation
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/045_contribute/20_documentation/20_style/" title="Style Guide" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/045_contribute/20_documentation/20_style/">
+              <i class=" "></i>
+              Style Guide
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/045_contribute/20_documentation/25_markup/" title="Markdown" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/045_contribute/20_documentation/25_markup/">
+              <i class=" "></i>
+              Markdown
+          </a>
+          
+          
+            <ul>
+              
+              
+              
+
+
+              
+                
+                    
+
+
+
+
+  
+      <li data-nav-id="/website/045_contribute/20_documentation/25_markup/attachments/" title="Attachments" class="dd-item ">
+        <a href="/website/045_contribute/20_documentation/25_markup/attachments/">
+            Attachments
+        </a>
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+      <li data-nav-id="/website/045_contribute/20_documentation/25_markup/button/" title="Button" class="dd-item ">
+        <a href="/website/045_contribute/20_documentation/25_markup/button/">
+            Button
+        </a>
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+      <li data-nav-id="/website/045_contribute/20_documentation/25_markup/expand/" title="Expand" class="dd-item ">
+        <a href="/website/045_contribute/20_documentation/25_markup/expand/">
+            Expand
+        </a>
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+      <li data-nav-id="/website/045_contribute/20_documentation/25_markup/mermaid/" title="Mermaid" class="dd-item ">
+        <a href="/website/045_contribute/20_documentation/25_markup/mermaid/">
+            Mermaid
+        </a>
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+      <li data-nav-id="/website/045_contribute/20_documentation/25_markup/notice/" title="Notice" class="dd-item ">
+        <a href="/website/045_contribute/20_documentation/25_markup/notice/">
+            Notice
+        </a>
+    </li>
+  
+
+
+                
+              
+
+            </ul>
+        
+      
+    </li>
+  
+
+
+                
+              
+
+            </ul>
+        
+      
+    </li>
+  
+
+
+                
+              
+
+            </ul>
+        
+      
+    </li>
+  
+
+
+            
+                 
+                 
+
+
+
+
+  
+    
+    <li data-nav-id="/website/tutorials/" title="Tutorials" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/tutorials/">
+              <i class="fa fa-terminal "></i>
+              Tutorials
+          </a>
+          
+          
+            <ul>
+              
+              
+                
+              
+              
+
+
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/using-gardener/administrator/" title="Administrator" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/using-gardener/administrator/">
+              <i class=" "></i>
+              Administrator
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                    
+
+
+
+
+  
+    
+    <li data-nav-id="/website/using-gardener/developer/topic/" title="App Developer" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/using-gardener/developer/topic/">
+              <i class=" "></i>
+              App Developer
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+                
+              
+                
+                
+              
+
+            </ul>
+        
+      
+    </li>
+  
+
+
+            
+                 
+                 
+
+
+
+
+  
+    
+    <li data-nav-id="/website/curated-links/" title="Curated Links" class="dd-item
+        
+        
+        
+        ">
+        
+          <a href="/website/curated-links/">
+              <i class="fa fa-bookmark-o "></i>
+              Curated Links
+          </a>
+          
+          
+      
+    </li>
+  
+
+
+            
+      </ul>
+      <section id="footer">
+        
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+      </section>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable  body-inner-wrapper">
+
+          <div>
+              <div id="top-bar">
+                
+                    <div id="top-github-link">
+                        <a class="github-link" title='Edit this page'
+                        
+                          href='https://github.com/gardener/dnslb-controller-manager/edit/master/README.md'
+                        
+                         target="blank">
+                        <i class="fa fa-code-fork"></i>
+                          <span id="top-github-link-text">Edit this page</span>
+                        </a>
+                    </div>
+                
+
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                    <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    </a>
+                    </span>
+                    
+                    <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
+                    
+                    <span class="links">
+                        
+            
+            
+              
+              
+            
+            
+              
+              
+            
+            
+              <a href='/website/'>Gardener</a> > <a href='/website/030-architecture/'>Architecture</a> > DNS Controller Manager
+            
+          
+            
+          
+            
+          
+                    </span>
+                </div>
+
+                
+                <div class="progress">
+    <div class="wrapper">
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#dns-loadbalancer-controller-manager">DNS Loadbalancer Controller Manager</a>
+<ul>
+<li><a href="#controllers">Controllers</a>
+<ul>
+<li><a href="#dns-controller">DNS Controller</a></li>
+<li><a href="#dns-endpoint-controller">DNS Endpoint Controller</a></li>
+</ul></li>
+<li><a href="#multi-cluster-mode">Multi Cluster Mode</a></li>
+<li><a href="#leases">Leases</a></li>
+<li><a href="#run-modes">Run Modes</a></li>
+<li><a href="#command-line-interface">Command Line Interface</a></li>
+<li><a href="#custom-resource-definitions">Custom Resource Definitions</a>
+<ul>
+<li><a href="#dns-load-balancer">DNS Load Balancer</a></li>
+<li><a href="#dns-load-balancer-endpoint">DNS Load Balancer Endpoint</a></li>
+<li><a href="#dns-provider">DNS Provider</a></li>
+</ul></li>
+<li><a href="#supported-dns-provider-types">Supported DNS Provider Types</a>
+<ul>
+<li><a href="#aws-route53">AWS Route53</a></li>
+</ul></li>
+<li><a href="#http-endpoints">HTTP Endpoints</a>
+<ul>
+<li><a href="#health-endpoint">Health Endpoint</a></li>
+<li><a href="#metrics-endpoint">Metrics Endpoint</a></li>
+</ul></li>
+<li><a href="#plugins">Plugins</a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+          </div>
+
+          
+              
+              
+              
+              
+              
+              
+              
+              <div id="githubFactsheet">
+                <span id="githubLink"><i class="fa fa-github"></i><a target="_blank" href="https://github.com/gardener/dnslb-controller-manager/">https://github.com/gardener/dnslb-controller-manager/</a></span>
+                <a class="github-button" href="https://github.com/gardener" aria-label="Follow @gardener on GitHub">Follow @dnslb-controller-manager/</a>
+                <a class="github-button" href="https://github.com/gardener/dnslb-controller-manager/" data-show-count="true" aria-label="Star gardener/gardener on GitHub">Star</a>
+                <div class="tutorial-last-update">Updated <span>
+
+
+   <span id="87bb8c9ce7802d136b14e1003f3ad10b"></span>
+   <script>$("#87bb8c9ce7802d136b14e1003f3ad10b").html(moment("2018-08-01T11:42:34Z").fromNow())</script>
+
+
+</span> by 
+
+
+   
+
+   
+
+   
+
+   
+
+<a href='mailto:uwe.krueger@sap.com'>Uwe Krueger</a>
+
+</div>
+              </div>
+          
+
+          <div id="body-inner">
+
+          
+
+
+
+<br>
+<br>
+
+
+
+
+<h1 id="dns-loadbalancer-controller-manager">DNS Loadbalancer Controller Manager</h1>
+
+<p>The <em>DNS Load Balancer Controller Manager</em> hosts kubernetes controllers managing
+DNS entries acting as kind of load balancer. Depending on health checks on
+explicitly maintained endpoints the endpoints are added or removed from an DNS
+entry.</p>
+
+<p>It is primarily designed to support multi-cluster loadbalancing (see below)</p>
+
+<p>It defines 3 new resource kinds using the api group <code>loadbalancer.gardener.cloud</code>
+and version <code>v1beta1</code>.
+- <code>DNSProvider</code>: A resource describing a dedicated DNS access
+- <code>DNSLoadBalancer</code>: a resource describing a dedicated load balancer defining the DNS name and the health check
+- <code>DNSLoadBalancerEndpoint</code>: a resource describing a dedicated load balancer target endpoint</p>
+
+<p>The following DNS Provider types are supported so far:
+- AWS Route53</p>
+
+<h2 id="controllers">Controllers</h2>
+
+<p>The controller manager hosts two different controllers:</p>
+
+<h3 id="dns-controller">DNS Controller</h3>
+
+<p>The DNS Controller uses the resources decribed above to main DNS entries.
+Is uses the DNSProvider resources to get access to various DNS accounts with
+different hosted zones. The matching provider for the DNS name of an <code>DNSLoadBalancer</code>
+is determined automatically. The <code>DNSLoadBalancerEndpoint</code>resources are used
+as potential targets for the maintained DNS names.</p>
+
+<h3 id="dns-endpoint-controller">DNS Endpoint Controller</h3>
+
+<p>The endpoint controller scans a cluster for annotated service and ingress resources
+looking for the annotation</p>
+
+<pre><code>        loadbalancer.gardener.cloud/dnsloadbalancer
+</code></pre>
+
+<p>expecting the name of the load balancer resource as value.
+For those matching resources it maintains endpoint resources (mentioned above).</p>
+
+<h2 id="multi-cluster-mode">Multi Cluster Mode</h2>
+
+<p>Basically both controllers can work on the same cluster. This would be a single
+cluster scenario. But for such a scenario the introduction of explicitly maintained
+loadbalancer and endpoint resources would be superfluous.</p>
+
+<p>The intended scenario is a multi-cluster scenario, where the various endpoints
+reside in different clusters. Therefore the two controllers may use different
+target clusters for scanning.</p>
+
+<p>If two kubeconfigs are configured for the controller manager, the endpoint
+controller scans the default (source) cluster for service and ingress resources
+and expects the load balancer and endpoint resources to be maintained in the
+second cluster.</p>
+
+<p>The dns controller acts on the second cluster to look for DNS providers,
+loadbalancers and endpoints to maintain the desired DNS entries.</p>
+
+<p>This second cluster should be shared among the various source clusters to
+maintain a central loadbalancing datasource.</p>
+
+<p>For every source cluster the complete controller manager is deployed varying
+the first cluster access for the local cluster and using the second cluster
+access for the shared one.</p>
+
+<h2 id="leases">Leases</h2>
+
+<p>The controllers request leases in the different clusters, therefore they can be
+run multiple times across the involved clusters.</p>
+
+<h2 id="run-modes">Run Modes</h2>
+
+<p>The controller manager can be started for a single kind of controller or for
+both controllers at once. Nevertheless the DNS controller always requests
+its lease from the shared cluster. Therefore it effectivly runs only once
+in the complete landscape, even if started with each controller manager instance.</p>
+
+<p>If the <code>--watches</code> option is used, the DNS controller doesn&rsquo;t use the custom
+resources for the load balancer but reads the definitions from the given
+config file (legacy mode). In combination with using the static DNS providers
+this mode can be used to work standalone.</p>
+
+<p>If the <code>--providers</code> option is used to select a static provider, every
+supported DNS provider type may provide a default provider according to
+the environment settings. If the value <code>dynamic</code> (default) is specified, only
+the <code>DNSProvider</code> resources found in the target cluster are used.</p>
+
+<h2 id="command-line-interface">Command Line Interface</h2>
+
+<pre><code>This manager manages DNS LB endpoint resources for DNS Loadbalancer
+resources based on annotations in services and ingresses. Based on
+those endpoints a second controller manages DNS entries. The endpoint
+sources may reside in different kubernetes clusters than the one
+hosting the DNS loadbalancer and endpoint resources.
+
+Usage:
+  dnslb-controller-manager [flags]
+
+Flags:
+      --cluster string       Cluster identity
+      --controllers string   Comma separated list of controllers to start (&lt;name&gt;,source,target,all) (default &quot;all&quot;)
+      --dry-run              Dry run for DNS controller
+      --duration int         Runtime before stop (in seconds)
+  -h, --help                 help for dnslb-controller-manager
+      --identity string      DNS record identifer (default &quot;GardenRing&quot;)
+      --interval int         DNS check/update interval in seconds (default 30)
+      --kubeconfig string    path to the kubeconfig file
+  -D, --log-level string     log level (default &quot;info&quot;)
+      --once                 only one update instread of loop
+      --plugin-dir string    directory containing go plugins for DNS provider types
+      --port int             http server endpoint port for health-check (default: 0=no server)
+      --providers string     Selection mode for DNS providers (static,dynamic,all,&lt;type name&gt;) (default &quot;dynamic&quot;)
+      --targetkube string    path to the kubeconfig file for shared virtual cluster
+      --ttl int              DNS record ttl in seconds (default 60)
+      --watches string       config file for watches
+
+</code></pre>
+
+<h2 id="custom-resource-definitions">Custom Resource Definitions</h2>
+
+<h3 id="dns-load-balancer">DNS Load Balancer</h3>
+
+<pre><code>apiVersion: loadbalancer.gardener.cloud/v1beta1
+kind: DNSLoadBalancer
+metadata:
+  name: test
+  namespace: acme
+spec:
+  DNSName: test.acme.com
+  type: Balanced # or Exclusive
+  healthPath:  /healthz
+  statusCode: 200 # default
+  endpointValidityInterval: 5m # Optional
+status:
+  active:
+    - ipaddress: &quot;172.18.117.33&quot;
+      name: &quot;a-test-service&quot;
+  state: healthy
+  message:
+</code></pre>
+
+<p>If the optional endpoint validity interval is specified, the endpoint
+controller generates endpoints with a limited lifetime, and updates
+it accordingly as long as it is running. The dns controller automatically
+discards outdated endpoint resources.</p>
+
+<h3 id="dns-load-balancer-endpoint">DNS Load Balancer Endpoint</h3>
+
+<pre><code>apiVersion: loadbalancer.gardener.cloud/v1beta1
+kind: DNSLoadBalancerEndpoint
+metadata:
+  name: a-test-service
+  namespace: acme
+spec:
+  ipaddress: 172.18.117.33 # or cname
+  loadbalancer: test
+status:
+  active: true
+  healthy: true
+  validUntil: 2018-07-24T11:34:44Z
+</code></pre>
+
+<p>The <code>validUtil</code> status property is managed by the
+endpoint controller, if the loadbalancer resource requests it
+by specifying a validity interval for endpoints.</p>
+
+<h3 id="dns-provider">DNS Provider</h3>
+
+<pre><code>apiVersion: loadbalancer.gardener.cloud/v1beta1
+kind: DNSProvider
+metadata:
+  name: aws
+  namespace: acme
+spec:
+  type: aws
+  scope: 
+    type: Selected  # or Cluster/Namespace
+    namespaces:
+	  - acme
+  secretRef:
+    name: route53
+</code></pre>
+
+<p>A provider may only be used for a load balancer resource if it is in the scope
+of the provider. The following scopes are supported:</p>
+
+<ul>
+<li><code>Cluster</code>: (default) valid for all namespaces in kubernetes cluster</li>
+<li><code>Namespace</code>: only valid for the namespace of the provider resource</li>
+<li><code>Selected</code>: valid for the explicitly managed namespace list in property <code>namespaces</code></li>
+</ul>
+
+<h2 id="supported-dns-provider-types">Supported DNS Provider Types</h2>
+
+<p>For every provider type multiple provider (with different credentials)
+may be configured by deploying the appropriate <code>DNSProvider</code> resources.</p>
+
+<p>Additional provider types can be added by go plugins (see below).
+Plugins are enabled by specifying the <code>--plugin-dir</code> option.</p>
+
+<h3 id="aws-route53">AWS Route53</h3>
+
+<p>The AWS Route53 provider type is selected by using the type name <code>aws</code>.</p>
+
+<p>The secret must have the fields:</p>
+
+<p>|Name|Meaning|
+|&ndash;|&ndash;|
+|AWS_ACCESS_KEY_ID|The aws access key id|
+|AWS_SECRET_ACCESS_KEY|The aws secret access key|</p>
+
+<h2 id="http-endpoints">HTTP Endpoints</h2>
+
+<p>If the controller manager is called with the <code>--port</code> option using a value larger
+than zero an https server is started serving two endpoints:</p>
+
+<h3 id="health-endpoint">Health Endpoint</h3>
+
+<p>A health endpoint with path <code>/healthz</code> is provided at the given port.
+It reports status code 200 if everything looks fine. The timestamps of the
+internal check keys are reported as content.</p>
+
+<h3 id="metrics-endpoint">Metrics Endpoint</h3>
+
+<p>A metrics endpoint (for prometheus) is provided with the path <code>/metrics</code> .
+It supports five metrics:</p>
+
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Label</th>
+<th>Meaning</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>endpoint_health</code></td>
+<td></td>
+<td>Health status of an endpoint (0/1)</td>
+</tr>
+
+<tr>
+<td></td>
+<td><code>loadbalancer</code></td>
+<td>Load balancer name</td>
+</tr>
+
+<tr>
+<td></td>
+<td><code>endpoint</code></td>
+<td>Endpoint name</td>
+</tr>
+
+<tr>
+<td><code>endpoint_active</code></td>
+<td></td>
+<td>Active status of an endpoint (assigned to DNS entry)</td>
+</tr>
+
+<tr>
+<td></td>
+<td><code>loadbalancer</code></td>
+<td>Load balancer name</td>
+</tr>
+
+<tr>
+<td></td>
+<td><code>endpoint</code></td>
+<td>Endpoint name</td>
+</tr>
+
+<tr>
+<td><code>endpoint_hosts</code></td>
+<td></td>
+<td>Hostname for an endpoint resource with health status</td>
+</tr>
+
+<tr>
+<td></td>
+<td><code>endpoint</code></td>
+<td>Endpoint name</td>
+</tr>
+
+<tr>
+<td></td>
+<td><code>host</code></td>
+<td>Hostname</td>
+</tr>
+
+<tr>
+<td><code>loadbalancer_health</code></td>
+<td></td>
+<td>Health status of a load balancer (0/1)</td>
+</tr>
+
+<tr>
+<td></td>
+<td><code>loadbalancer</code></td>
+<td>Load balancer name</td>
+</tr>
+
+<tr>
+<td><code>loadbalancer_dnsnames</code></td>
+<td></td>
+<td>DNS names of a load balancer with health status</td>
+</tr>
+
+<tr>
+<td></td>
+<td><code>loadbalancer</code></td>
+<td>Load balancer name</td>
+</tr>
+
+<tr>
+<td></td>
+<td><code>dnsname</code></td>
+<td>DNS name of the load balancer</td>
+</tr>
+
+<tr>
+<td><code>dns_reconcile_duration</code></td>
+<td></td>
+<td>Duration of a DNS reconcilation run</td>
+</tr>
+
+<tr>
+<td><code>dns_reconcile_interval</code></td>
+<td></td>
+<td>Duration between two DNS reconcilations</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="plugins">Plugins</h2>
+
+<p>Go plugins can be used to add new independently developed DNS provider types.
+The plugins must be placed in a dedicated folder, which is specified
+by the <code>--plugin-dir</code>  option</p>
+
+<p>A DNS provider type must implement the
+<a href="https://raw.githubusercontent.com/gardener/dnslb-controller-manager/master/pkg/controller/dns/provider/type.go#L27"><code>DNSProviderType</code></a> interface found in package
+<code>github.com/gardener/dnslb-controller-manager/pkg/controller/dns/provider</code>.</p>
+
+<p>The main package must provide a variable called <code>Name</code> of type <code>string</code> containing
+the name of the plugin. To register a provider type it has to implement an
+<code>init</code> function registering the provided provider types. For example:</p>
+
+<pre><code>    func init() {
+        provider.RegisterProviderType(&quot;aws&quot;, &amp;AWSProviderType{})
+    }
+</code></pre>
+
+<p>The specified name can then be used in the <code>DNSProvider</code> kubernetes resources
+to add a dedicated set of hosted zones handled by this provider type.</p>
+
+
+
+
+
+
+        </div> 
+        
+
+      </div>
+
+
+        
+        
+
+        
+            
+            <div class="howto_tickets">
+                <span class="open_github_ticket">
+                    <h3 class="open_github_ticket_header"><i class="fa fa-github" aria-hidden="true"></i> Report an issue</h3>
+                    See a typo? Have a picture to recommend? Want to edit some words/phrases/sentences?
+                    You can simply submit a ticket to request we make the change. If you are github savvy, submit a
+                    pull request.
+                    
+                    
+                    
+                    <a href="#" onclick="return createIssue('https://github.com/gardener/dnslb-controller-manager\//issues/new','https:\/\/github.com\/gardener\/dnslb-controller-manager.git','https:\/\/github.com\/gardener\/dnslb-controller-manager.git')" target="_blank">Open Github Issue <i class="fa fa-external-link" aria-hidden="true"></i></a>
+                    <br>
+                </span>
+            </div>
+        
+
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/website/js/clipboard.min.js?1533730314"></script>
+    <script src="/website/js/perfect-scrollbar.min.js?1533730314"></script>
+    <script src="/website/js/perfect-scrollbar.jquery.min.js?1533730314"></script>
+    <script src="/website/js/jquery.sticky.js?1533730314"></script>
+    <script src="/website/js/featherlight.min.js?1533730314"></script>
+    <script src="/website/js/html5shiv-printshiv.min.js?1533730314"></script>
+    <script src="/website/js/highlight.pack.js?1533730314"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/website/js/modernizr.custom.71422.js?1533730314"></script>
+    <script src="/website/js/learn.js?1533730314"></script>
+    <script src="/website/js/hugo-learn.js?1533730314"></script>
+
+    <link href="/website/mermaid/mermaid.css?1533730314" type="text/css" rel="stylesheet" />
+    <script src="/website/mermaid/mermaid.js?1533730314"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true, htmlLables: true });
+        function createIssue(issueUrl, page, url) {
+            var uri = issueUrl+"?title=Documentation issue on page \""+page+"\"";
+            uri = uri+ "&body=\n\n<- DESCRIBE MISSING OR FAULTY DOCUMENTATION HERE->\n\n---\nPage: ["+ page +"]("+
+            url+ ")\ndon't remove the link to the page. It's required for the processor"
+            var res = encodeURI(uri);
+            res +="&labels=area/documentation"
+            window.open(res,"issue")
+            return false;
+        }
+
+        $(document).ready(function() {
+            var $window = $(window);
+            $window.sr = ScrollReveal({ reset: false});
+            $window.sr.reveal('.reveal-fast', { duration: 2000 });
+            $window.sr.reveal('.reveal-slow', { duration: 2500 });
+            $window.sr.reveal('.reveal-right', { duration: 2000, origin:'right', distance:'300px' });
+            $window.sr.reveal('.reveal-left', { duration: 2000, origin:'left', distance:'300px' });
+
+            inlineSVG.init();
+        });
+
+    </script>
+    
+    <script>
+    
+    
+    (function () {
+        $("#body-inner a").not(".inline")
+            .each(function () {
+                if (this.hostname != window.location.hostname && this.href.indexOf("mailto:")===-1) {
+                    this.target = '_blank';
+                    $(this).addClass("externalLink");
+                    if($(this).find("img").length===0) {
+                        this.innerHTML += '<i class="fa fa-external-link" aria-hidden="true"></i>';
+                    }
+                }
+            });
+
+
+
+    })();
+
+    </script>
+  </body>
+</html>

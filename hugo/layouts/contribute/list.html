@@ -1,0 +1,15 @@
+{{if .Params.remote}}
+	{{ partial "header_remote.html" . }}
+{{else}}
+	{{ partial "header_local.html" . }}
+{{end}}
+<br>
+<br>
+
+
+{{ .Content }}
+
+
+
+
+{{ partial "footer.html" . }}

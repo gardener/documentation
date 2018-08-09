@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<meta name="generator" content="Hugo 0.45.1" />
 	<meta charset="UTF-8">
 	<title>Kubernetes Gardener</title>
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Material+Icons" rel="stylesheet">
@@ -14,40 +15,44 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body>
+<body id="landingpage">
 
-	<nav id="toolbar">
-		<div class="container">
-	
-			<div class="branding"> 
-				<img class="u-max-full-width svg" height="45px" src="./images/logo.svg"> 
-				<span>Kubernetes Gardener</span>
-				<nav class="menu u-pull-right">
-						<ul class="active">
-							<li>
-								<a href="https://github.com/gardener" target="_blank">
-									<button class="u-pull-right github-button">
-										<svg style="vertical-align:middle" height="20" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
-										Github
-									</button>
-								</a>
-							</li>
-							<li>
-								<a href="https://kubernetes.slack.com/messages/gardener" target="_blank" title="self-invite yourself to K8s slack via https://slack.k8s.io">
-									<button class="u-pull-right ">
-										<img src="images/Slack_RGB.svg" height="40">
-									</button>
-								</a>
-							</li>
-						</ul>
-						<a class="toggle-nav active" href="#">☰</a>
-				</nav>
-			</div>
-
+<nav id="toolbar">
+		<div class="branding">
+			<img class="u-max-full-width svg" height="45px" src="./images/logo.svg">
+			<span>Gardener</span>
+			<nav class="menu u-pull-right">
+				<ul class="active">
+					<li>
+						<a href="./blog">
+							<button class="u-pull-right documentation-button">
+								Documentation
+							</button>
+						</a>
+					</li>
+					<li>
+						<a href="https://github.com/gardener" target="_blank">
+							<button class="u-pull-right github-button">
+								<svg style="vertical-align:middle" height="20" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+								Github
+							</button>
+						</a>
+					</li>
+					<li>
+						<a href="https://kubernetes.slack.com/messages/gardener" target="_blank" title="self-invite yourself to K8s slack via https://slack.k8s.io">
+							<button class="u-pull-right ">
+								<img src="images/Slack_RGB.svg" height="40">
+							</button>
+						</a>
+					</li>
+				</ul>
+				<a class="toggle-nav active" href="#">☰</a>
+			</nav>
 		</div>
-	</nav>
+</nav>
 
-	<div id="page-1" class="page ">
+
+<div id="page-1" class="page ">
 		<div class="reveal-fast">
 			<div class="container">
 				<h1 class="center">Kubernetes Clusters as a Service</h1>
@@ -149,20 +154,6 @@
 		</div>
 	</div>
 
-<!--
-
-	Starting from Kubernetes release 1.10 the conformance test results of clusters provided by the Gardener are published.
-
-	One major goal of [Gardener](https://github.com/gardener/gardener) is to provide Kubernetes clusters which completely
-	statisfie the requirements of the [CNCF](/https://www.cncf.io/).  For this the CNCF launched in 2017 a [certification program]
-	(https://kubernetes.io/blog/2017/11/certified-kubernetes-conformance/). As of the Kubernetes release 1.8 the clusters
-	created by the Gardener are already officially certified by the CNCF.
-
-	In addition, the CNCF offers the public dashboard [Testgrid](https://k8s-testgrid.appspot.com/), where besides others
-	the conformance test results are published. A typical use case is to add a publish step into an existing CI/CD
-	pipelines as a target for the conformance test results. Testgrid offers an easy way to investigate historical
-	conformance test results by visualizing the result of each test and by providing access to the test logs.
--->
 
 	<div id="self-service-page" class="page sp-fixed">
 		<div class="container">
@@ -178,7 +169,7 @@
 					</div>
 					<div class="description">
 						One major goal of <a href="https://github.com/gardener/gardener" target="_blank">Gardener</a> is to provide
-						Kubernetes clusters which completely satisfy the requirements of the <a target="_blank" href="https://www.cncf.io/">CNCF</a>.
+						Kubernetes clusters which completely satisfy the requirements of the <a target="_blank" href="/https://www.cncf.io/">CNCF</a>.
 
 					</div>
 				</div>
@@ -263,13 +254,12 @@
 	</div>
 
 
-	<script src="js/jquery.min.js"></script>
-	<script src="js/modernizr.custom.min.js"></script>
-	<script src="js/ScrollMagic.min.js"></script>
-	<script src="js/scrollreveal.js"></script>
-	<script src="js/jsrender.min.js"></script>
-	<script src="js/main.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/modernizr.custom.min.js"></script>
+<script src="js/ScrollMagic.min.js"></script>
+<script src="js/scrollreveal.js"></script>
+<script src="js/jsrender.min.js"></script>
+<script src="js/main.js"></script>
+
 </body>
 </html>
-
-

@@ -1,0 +1,33 @@
+---
+new_page_extension: md
+auto_deploy: false
+admin_path: 
+webhook_url: 
+sections:
+- path: hugo/content
+  label: Pages
+  create: all
+- path: hugo/content/020_concept
+  label: 020 concept
+  create: all
+- path: hugo/content/060_howtos
+  label: 060 howtos
+  create: all
+- path: hugo/content/010_basics
+  label: 010 basics
+  create: all
+- path: hugo/content/050_contribute
+  label: 050 contribute
+  create: all
+- path: hugo/content/040_development
+  label: 040 development
+  create: all
+- path: hugo/content/030_setup
+  label: 030 setup
+  create: all
+upload_dir: hugo/static/uploads
+public_path: "/uploads"
+front_matter_path: ''
+use_front_matter_path: false
+file_template: ":filename:"
+version: '0.43'

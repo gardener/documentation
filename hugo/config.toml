@@ -1,0 +1,23 @@
+baseURL = "https://gardener.cloud"
+languageCode = "en-US"
+defaultContentLanguage = "en"
+enableGitInfo = true
+
+title = "Gardener Documentation"
+theme = "learn"
+metaDataFormat = "yaml"
+defaultContentLanguageInSubdir= true
+contentDir="content"
+
+[params]
+  editURL = "https://github.com/gardener/documentation/edit/master/hugo/content/"
+  issueURL = "https://github.com/gardener/documentation/issues"
+  description = "Documentation for Gardener"
+  author = "Andreas Herz"
+  showVisitedLinks = true
+  # Change default color scheme with a variant one. Can be "red", "blue", "green".
+  themeVariant = "gardener"
+
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
+

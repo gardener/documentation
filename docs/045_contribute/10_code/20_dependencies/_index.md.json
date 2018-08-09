@@ -1,0 +1,56 @@
+[
+  {
+    "sha": "d9619d01845db8c7105d27596fdb7563158effe1",
+    "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOmQ5NjE5ZDAxODQ1ZGI4YzcxMDVkMjc1OTZmZGI3NTYzMTU4ZWZmZTE=",
+    "commit": {
+      "author": {
+        "name": "Gardener Development Community",
+        "email": "gardener.opensource@sap.com",
+        "date": "2018-01-10T12:07:09Z"
+      },
+      "committer": {
+        "name": "Matthias Sohn",
+        "email": "matthias.sohn@sap.com",
+        "date": "2018-01-17T00:18:54Z"
+      },
+      "message": "Initial version of gardener\n\nThis is the initial contribution to the Open Source Gardener project.\n\nThe following SAP developers contributed to this project until this\ninitial contribution was published as open source:\n\n$ git shortlog -sn\n   631  Rafael Franzke\n    69  Martin Vladev\n    49  Dominic Kistner\n    48  Andreas Burger\n     9  Christian Cwienk\n     8  Prashanth\n     6  Swapnil Mhamane\n     4  George Kuruvilla\n     4  Sebastian Stauch\n     4  Vedran Lerenc\n     2  Georgi Pavlov\n     2  Hardik Dodiya\n     2  Andreas Herz\n     1  Vasu Chandrasekhara\n     1  Raphael Vogel\n     1  Christian Cwienk\n     1  Andreas Fritzler\n\nIt is derived from the historical, SAP internal garden-operator repository\nat commit 6e083ea79c1536c23d91733d2b713c55e76bc7f2.",
+      "tree": {
+        "sha": "e658e5d4f8ebc734fc9f0b27de87f0f267e5f7ec",
+        "url": "https://api.github.com/repos/gardener/gardener/git/trees/e658e5d4f8ebc734fc9f0b27de87f0f267e5f7ec"
+      },
+      "url": "https://api.github.com/repos/gardener/gardener/git/commits/d9619d01845db8c7105d27596fdb7563158effe1",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/gardener/commits/d9619d01845db8c7105d27596fdb7563158effe1",
+    "html_url": "https://github.com/gardener/gardener/commit/d9619d01845db8c7105d27596fdb7563158effe1",
+    "comments_url": "https://api.github.com/repos/gardener/gardener/commits/d9619d01845db8c7105d27596fdb7563158effe1/comments",
+    "author": null,
+    "committer": {
+      "login": "msohn",
+      "id": 143355,
+      "node_id": "MDQ6VXNlcjE0MzM1NQ==",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/143355?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/msohn",
+      "html_url": "https://github.com/msohn",
+      "followers_url": "https://api.github.com/users/msohn/followers",
+      "following_url": "https://api.github.com/users/msohn/following{/other_user}",
+      "gists_url": "https://api.github.com/users/msohn/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/msohn/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/msohn/subscriptions",
+      "organizations_url": "https://api.github.com/users/msohn/orgs",
+      "repos_url": "https://api.github.com/users/msohn/repos",
+      "events_url": "https://api.github.com/users/msohn/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/msohn/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": []
+  }
+]

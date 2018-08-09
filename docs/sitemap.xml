@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://gardener.github.io/website/050-tutorials/content/howto/access_pod_from_local/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/050-tutorials/content/howto/service-access/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/using-gardener/administrator/</loc>
+    <lastmod>2018-08-08T14:06:17+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/010-blog/2018_week_22/</loc>
+    <lastmod>2018-08-07T14:52:02+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/using-gardener/developer/topic/</loc>
+    <lastmod>2018-08-08T14:06:17+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/050-tutorials/content/app/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/030-architecture/</loc>
+    <lastmod>2018-08-07T16:17:36+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/045_contribute/20_documentation/25_markup/attachments/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/050-tutorials/content/howto/kubectl-apiserver/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/050-tutorials/content/howto/multi_az/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/010-blog/2018_week_07/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/components/bouquet/</loc>
+    <lastmod>2018-08-07T10:44:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/045_contribute/20_documentation/25_markup/button/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/using-gardener/developer/experience/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/contribute/code/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/050-tutorials/content/howto/commit_secret_fail/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/045_contribute/10_code/15_conf_secrets/</loc>
+    <lastmod>2018-08-07T10:44:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/050-tutorials/content/howto/missing-registry-permission/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/050-tutorials/content/howto/image-pull-policy/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/050-tutorials/content/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/contribute/</loc>
+    <lastmod>2018-08-08T14:06:17+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/045_contribute/10_code/10-contribution_guide/</loc>
+    <lastmod>2018-08-07T10:44:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/050-tutorials/content/howto/gardener_aws/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/050-tutorials/content/howto/gardener_gcp/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/development/usage/</loc>
+    <lastmod>2018-08-07T10:44:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/curated-links/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/components/dns-cm/</loc>
+    <lastmod>2018-08-07T10:44:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/components/dashboard/</loc>
+    <lastmod>2018-08-07T10:44:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/045_contribute/10_code/20_dependencies/</loc>
+    <lastmod>2018-08-07T10:44:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/045_contribute/10_code/30_deploy_seed_into_aks/</loc>
+    <lastmod>2018-08-07T10:44:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/045_contribute/10_code/30_deploy_into_minikube/</loc>
+    <lastmod>2018-08-07T10:44:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/045_contribute/10_code/27_deploy_into_cluster/</loc>
+    <lastmod>2018-08-07T10:44:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/050-tutorials/content/howto/dockerfile_pitfall/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/contribute/docs/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/050-tutorials/content/howto/dynamic-pvc/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/045_contribute/10_code/10_env/</loc>
+    <lastmod>2018-08-07T10:44:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/045_contribute/20_documentation/25_markup/expand/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/010-blog/2018_week_17/</loc>
+    <lastmod>2018-08-07T14:52:02+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/050-tutorials/content/howto/gpu/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/components/gardner/</loc>
+    <lastmod>2018-08-07T10:44:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/about/</loc>
+    <lastmod>2018-08-08T14:10:22+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/050-tutorials/content/app/https/</loc>
+    <lastmod>2018-08-07T14:52:02+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/050-tutorials/content/howto/debug-a-pod/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/050-tutorials/content/howto/helm/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/050-tutorials/content/howto/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/050-tutorials/content/howto/content_trust/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/050-tutorials/content/howto/bash_kubeconfig/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/050-tutorials/content/howto/antipattern/</loc>
+    <lastmod>2018-08-07T14:52:02+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/010-blog/2018_week_06/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/050-tutorials/content/howto/landscape-setup/</loc>
+    <lastmod>2018-08-07T10:44:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/components/mcm/</loc>
+    <lastmod>2018-08-07T10:44:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/045_contribute/20_documentation/25_markup/</loc>
+    <lastmod>2018-08-07T12:43:39+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/045_contribute/20_documentation/25_markup/mermaid/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/010-blog/2018_week_09/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/050-tutorials/content/howto/network-isolation/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/010-blog/2018_week_08_2/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/050-tutorials/content/howto/nload/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/045_contribute/20_documentation/25_markup/notice/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/050-tutorials/content/howto/container-startup/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/045_contribute/20_documentation/10_organisation/</loc>
+    <lastmod>2018-08-07T12:43:39+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/050-tutorials/content/howto/service-cache-control/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/045_contribute/10_code/37_process/</loc>
+    <lastmod>2018-08-07T10:44:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/010-blog/2018_week_27/</loc>
+    <lastmod>2018-08-07T14:41:12+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/050-tutorials/content/app/read-write-many/</loc>
+    <lastmod>2018-08-07T14:41:12+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/045_contribute/10_code/40_repositories/</loc>
+    <lastmod>2018-08-07T10:44:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/050-tutorials/content/howto/ssh-into-node/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/010-blog/2018_week_10/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/045_contribute/20_documentation/20_style/</loc>
+    <lastmod>2018-08-07T12:43:39+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/tutorials/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/050-tutorials/content/howto/prometheus/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/010-blog/2018_week_05/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/blog/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/components/gardenctl/</loc>
+    <lastmod>2018-08-07T10:44:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/components/kubify/</loc>
+    <lastmod>2018-08-07T10:44:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/010-blog/2018_week_08/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gardener.github.io/website/050-tutorials/content/howto/tail-logfile/</loc>
+    <lastmod>2018-08-07T11:10:52+02:00</lastmod>
+  </url>
+  
+</urlset>

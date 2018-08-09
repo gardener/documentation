@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1166px" height="522px" viewBox="0 0 1166 522" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>hiring_banner</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="329" y="164" width="793" height="279" rx="8"></rect>
+        <circle id="path-2" cx="145.5" cy="145.5" r="145.5"></circle>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="hiring_banner">
+            <polygon id="Rectangle-3" fill="#7ED321" points="133 367.323762 164 367 164 371.676238 133 372"></polygon>
+            <g id="Rectangle-6">
+                <use fill="#4A4A4A" fill-rule="evenodd" xlink:href="#path-1"></use>
+                <rect stroke="#000000" stroke-width="1" x="329.5" y="164.5" width="792" height="278" rx="8"></rect>
+            </g>
+            <circle id="Oval" fill="#000000" cx="347" cy="181" r="7"></circle>
+            <circle id="Oval" fill="#000000" cx="366" cy="181" r="7"></circle>
+            <circle id="Oval" fill="#000000" cx="385" cy="181" r="7"></circle>
+            <text id="$-kubectl-describe-j" font-family="Courier" font-size="20" font-weight="normal">
+                <tspan x="347" y="222" fill="#FFFFFF">$ </tspan>
+                <tspan x="371.003906" y="222" fill="#E45C3A">kubectl</tspan>
+                <tspan x="455.017578" y="222" fill="#FFFFFF"> </tspan>
+                <tspan x="467.019531" y="222" fill="#0CA391">describe jobs gardener</tspan>
+                <tspan x="731.0625" y="222" fill="#417505"> </tspan>
+                <tspan x="743.064453" y="222" font-family="LucidaGrande, Lucida Grande" fill="#FFFFFF">↩</tspan>
+                <tspan x="763.064453" y="222" fill="#FFFFFF"></tspan>
+                <tspan x="347" y="246" fill="#9B9B9B"># </tspan>
+                <tspan x="371.003906" y="246" letter-spacing="-0.7" fill="#9B9B9B">if you want to join the next generation cloud native </tspan>
+                <tspan x="347" y="270" letter-spacing="-0.7" fill="#9B9B9B"># movement and bring relevant experience in Linux, container</tspan>
+                <tspan x="347" y="294" letter-spacing="-0.7" fill="#9B9B9B"># technologies or networking, we look forward to meeting you.</tspan>
+                <tspan x="347" y="318" fill="#FFFFFF"></tspan>
+                <tspan x="347" y="342" fill="#FFFFFF">$ </tspan>
+                <tspan x="371.003906" y="342" fill="#E45C3A">kubectl</tspan>
+                <tspan x="455.017578" y="342" fill="#FFFFFF"> </tspan>
+                <tspan x="467.019531" y="342" fill="#0CA391">contact us  </tspan>
+            </text>
+            <path d="M372.5,350.5 L586.5,350.5" id="Line" stroke="#979797" stroke-linecap="square"></path>
+            <text id="We-are-hiring-!" font-family="Roboto-Regular, Roboto" font-size="64" font-weight="normal" letter-spacing="9.10000038" fill="#000000">
+                <tspan x="36" y="91">We are hirin</tspan>
+                <tspan x="479.668755" y="91">g !</tspan>
+            </text>
+            <g id="Hippster" transform="translate(18.000000, 165.000000)">
+                <g id="Group">
+                    <mask id="mask-3" fill="white">
+                        <use xlink:href="#path-2"></use>
+                    </mask>
+                    <circle stroke="#4A4A4A" stroke-width="3" cx="145.5" cy="145.5" r="147"></circle>
+                    <path d="M173.5,87.5 L187,91" id="Line-2" stroke="#4D4C4C" stroke-width="2" stroke-linecap="square" mask="url(#mask-3)"></path>
+                    <path d="M17.6640625,229.6875 L74,185.572266 L137.371094,160.011719 L125.208984,122.261719 L115.972656,70.859375 L163.573242,46.5556641 C165.734474,47.4166168 167.713315,49.3472808 169.509766,52.3476563 C171.306216,55.3480317 172.549706,58.7992035 173.240234,62.7011719 L190.060547,179.710938 L188.411133,197.412109 C156.430459,207.667545 135.363077,213.104394 125.208984,213.722656 C115.054892,214.340918 110.300009,210.476335 110.944336,202.128906 L82.6523438,211.427734 L24.4121094,241.878906 L17.6640625,229.6875 Z" id="Rectangle-5" fill="#DCB282" mask="url(#mask-3)"></path>
+                    <path d="M121,93 L138,96" id="Line-2" stroke="#4D4C4C" stroke-width="2" stroke-linecap="square" mask="url(#mask-3)"></path>
+                    <polygon id="Rectangle-5" fill="#DCB282" mask="url(#mask-3)" points="247.710938 203.943359 268.191406 241.894531 261.507812 257.621094 234.304688 219.025391"></polygon>
+                    <polygon id="Rectangle-4" fill="#49145C" mask="url(#mask-3)" points="76.7792969 214.179687 69 184.644531 104.962891 169.669922 138.271484 158.138672 160.100586 195.90332 174.804688 155 215.458984 161.478516 251.201172 202.763672 234.441406 226.826172 209.851562 194.179688 209.851562 306.521484 99.3085938 298.810547 104.962891 207.074219"></polygon>
+                    <polygon id="Polygon" fill="#5D250E" mask="url(#mask-3)" points="145.394531 130.259766 171.308594 127.771484 180.927734 115.212891 186.980469 133.414062 186.980469 148.853516 180.927734 164.964844 167.552734 173.197266 151.103516 181.585938 135.316406 164.964844 126.578125 142.023437 124.3125 120"></polygon>
+                    <path d="M167.72168,49.0439453 C171.288422,52.1221749 131.704102,83.1113281 107.870117,75.5166016 C116.162435,68.7264796 123.826497,60.9699692 130.862305,52.2470703 C141.416016,39.162722 164.154937,45.9657157 167.72168,49.0439453 Z" id="Polygon" fill="#5D250E" mask="url(#mask-3)"></path>
+                    <path d="M182.555664,104 L176.879443,82 C171.423177,82 167,87.391804 167,94.0429312 C167,100.694058 177.099399,104 182.555664,104 Z" id="Oval-4" fill="#77C3CD" opacity="0.284080616" mask="url(#mask-3)"></path>
+                    <path d="M151,106 L147.879443,84 C142.423177,84 138,89.0945463 138,95.3789877 C138,101.663429 145.543735,106 151,106 Z" id="Oval-4" fill="#77C3CD" opacity="0.284080616" mask="url(#mask-3)"></path>
+                    <ellipse id="Oval-2" stroke="#4D4C4C" stroke-width="3" mask="url(#mask-3)" cx="148.5" cy="95" rx="10.5" ry="12"></ellipse>
+                    <ellipse id="Oval-2" stroke="#4D4C4C" stroke-width="3" mask="url(#mask-3)" cx="176.5" cy="92" rx="10.5" ry="12"></ellipse>
+                    <path d="M159,94 L164,94" id="Line-2" stroke="#4D4C4C" stroke-width="2" stroke-linecap="square" mask="url(#mask-3)"></path>
+                    <polygon id="Rectangle-5" fill="#DCB282" mask="url(#mask-3)" points="172.589844 136.161133 170.777832 143.304688 147.736328 140.119141 159.684814 140.119141"></polygon>
+                </g>
+                <g id="Heard" transform="translate(178.000000, 194.000000)">
+                    <polygon id="Combined-Shape" fill="#326CE5" fill-rule="nonzero" points="14.7617188 21.0644531 5.39263275 21.0644531 0.2421875 12.9785156 2.87841797 5.05566406 9.70361328 0.513183594 17.5854492 5.05566406 19.7441406 13.6342773"></polygon>
+                    <ellipse id="Oval-3" stroke="#FFFFFF" cx="10.5" cy="11.5" rx="4.5" ry="5"></ellipse>
+                    <path d="M10.5,11.5 L4.5,6.5" id="Line-3" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M10.5,11.5 L10.5,3.5" id="Line-3" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M10.5,11.5 L16.5,6.5" id="Line-3" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M10.5,11.5 L17.5,13.5" id="Line-3" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M10.5,11.5 L14.5,18.5" id="Line-3" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M10.5,11.5 L7.5,18.5" id="Line-3" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M10.5,11.5 L3.5,12.5" id="Line-3" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

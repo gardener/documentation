@@ -1,0 +1,12 @@
+gardener-cloud:
+  template: 'default'
+  base_definition:
+    repo:
+      name: 'gardener_documentation'
+  variants:
+    head-update:
+      steps:
+        build:
+          registry: 'gcr-readonly'
+          image: 'eu.gcr.io/gardener-project/cpet/node-image:1.0.0'
+          publish_to: ['gardener_documentation']

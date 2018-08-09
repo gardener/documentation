@@ -1,0 +1,225 @@
+$primary-color: rgb(0, 159, 118);
+$primary-dark: #161a22;
+
+
+@mixin debugmessage($message, $color: rgba(255,255,0, 0.9) ){ &::before{ content: $message; font-weight: bold; display: block; text-align: center; background: #{$color}; position: absolute; right: 0; left: 0; top: 0; z-index: 99; } }
+
+.learning {
+
+  .timeline {
+    position: relative;
+    min-width: 660px;
+    margin-top: 20px;
+    padding: 1em 0;
+    list-style-type: none;
+
+    &:before {
+      position: absolute;
+      left: 120px;
+      top: 0;
+      content: ' ';
+      display: block;
+      width: 6px;
+      height: 100%;
+      margin-left: -3px;
+      background: rgb(80, 80, 80);
+      background: -moz-linear-gradient(top, rgba(80, 80, 80, 0) 0%, rgb(80, 80, 80) 8%, rgb(80, 80, 80) 92%, rgba(80, 80, 80, 0) 100%);
+      background: -webkit-linear-gradient(top, rgba(80, 80, 80, 0) 0%, rgb(80, 80, 80) 8%, rgb(80, 80, 80) 92%, rgba(80, 80, 80, 0) 100%);
+      background: -o-linear-gradient(top, rgba(80, 80, 80, 0) 0%, rgb(80, 80, 80) 8%, rgb(80, 80, 80) 92%, rgba(80, 80, 80, 0) 100%);
+      background: -ms-linear-gradient(top, rgba(80, 80, 80, 0) 0%, rgb(80, 80, 80) 8%, rgb(80, 80, 80) 92%, rgba(80, 80, 80, 0) 100%);
+      background: linear-gradient(to bottom, rgba(80, 80, 80, 0) 0%, rgb(80, 80, 80) 8%, rgb(80, 80, 80) 92%, rgba(80, 80, 80, 0) 100%);
+      z-index: 5;
+      transition: all 0.5s ease;
+    }
+
+    .timeline_anchor {
+      padding: 1em 0;
+      padding-left: 135px;
+      margin-left:0px !important;
+      position: relative;
+      transition: all 0.5s ease;
+      &:after {
+        content: "";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+      }
+    }
+
+    .content {
+      position: relative;
+
+      .flag-wrapper {
+
+        position: relative;
+        text-align: center;
+        white-space: nowrap;
+        padding-top:32px;
+        background-color:white;
+        text-align: left;
+
+        /** make the flag-wrapper sticky **/
+        position: -webkit-sticky;
+        position: -moz-sticky;
+        position: -o-sticky;
+        position: -ms-sticky;
+        position: sticky;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: block;
+        z-index:100;
+
+
+
+        .flag {
+          position: relative;
+          display: inline-block;
+          background: $primary-color;
+          padding: 8px 15px;
+          font-weight: 300;
+          text-align: left;
+          color: white;
+          min-width: 125px;
+          height: 40px;
+          -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.15);
+          -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.15);
+          box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.15);
+
+          &:before {
+            position: absolute;
+            top: 50%;
+            right: -40px;
+            content: ' ';
+            display: block;
+            width: 20px;
+            height: 20px;
+            margin-top: -10px;
+            background: $primary-color;
+            border-radius: 10px;
+            z-index: 10;
+            left: -40px;
+          }
+
+          &:after {
+            content: "";
+            position: absolute;
+            right: 100%;
+            top: 50%;
+            height: 0;
+            width: 0;
+            margin-top: -8px;
+            border: solid transparent;
+            border-right-color: $primary-color;
+            border-width: 8px;
+            pointer-events: none;
+          }
+        }
+      }
+    }
+
+    .header {
+      display: inline-block;
+      color: #279f76;
+      background-color: #f3f3f3;
+      text-align: left;
+      padding: 8px 15px;
+      margin-left: 3px;
+      font-weight: 300;
+      font-size: 1.0em;
+      height: 40px;
+      min-width: 600px;
+    }
+
+    .time {
+      display: inline-block;
+      padding: 4px 6px;
+      background: rgb(248, 248, 248);
+    }
+
+    .desc {
+      margin: 1em 0.75em 0 0;
+      font-size: 0.77777em;
+      font-style: italic;
+      line-height: 1.5em;
+    }
+
+    .content .desc {
+      margin: 1em 0 0 0.75em;
+    }
+  }
+  /* ================ Timeline Media Queries ================ */
+
+  .category {
+    margin-left: -5px;
+    margin-top: 15px;
+    ul {
+      padding: 0;
+      margin: 0;
+      margin-left: 40px;
+      list-style: none;
+      a {
+        text-decoration: none;
+        transition: all 0.3s;
+
+
+        color: black;
+        font-size: 1.5rem;
+        padding: 0;
+        margin: 0;
+        padding-top: 5px;
+        letter-spacing: 1px;
+      }
+      a:hover {
+        color: $primary-color;
+        transition: all 0.3s;
+      }
+      .listicon {
+        position: relative;
+        left: -20px;
+        width: 0;
+        padding: 0;
+        margin: 0;
+      }
+    }
+
+  }
+
+}
+
+@media only screen and (max-width: 1050px) {
+/*  body{ @include debugmessage("only screen and (max-width: 1050)"); } */
+  .learning {
+    .timeline {
+        &:before {
+          position: absolute;
+          left: 100px;
+          transition: all 0.5s ease;
+        }
+        .timeline_anchor {
+          padding-left: 115px;
+          transition: all 0.5s ease;
+        }
+      }
+    }
+  }
+
+
+@media only screen and (max-width: 800px) {
+/*  body{ @include debugmessage("only screen and (max-width: 800)"); } */
+  .learning {
+    .timeline {
+      &:before {
+        position: absolute;
+        left: 30px;
+        transition: all 0.5s ease;
+      }
+      .timeline_anchor {
+        padding-left: 45px;
+        transition: all 0.5s ease;
+      }
+    }
+  }
+}
+

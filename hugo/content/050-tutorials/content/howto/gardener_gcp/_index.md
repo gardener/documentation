@@ -1,0 +1,78 @@
+---
+title: Create a kubernetes cluster in GCP with Gardener
+description: "How to create a Kubernetes Cluster with Gardener in GCP"
+type: tutorial-page
+level: beginner
+index: 30
+category: Getting Started
+reviewer:
+status:
+last_reviewed:
+scope: app-developer
+---
+
+## Introduction
+Creating an Kubernetes cluster in the GCP Account is easy and the Gardener UI shall be self-expantory.
+For your convenience you will find screenshots on how to create a cluster here.
+
+# Gardener
+## Create new Project in Gardener
+
+[Create new Project](https://dashboard.garden.canary.k8s.ondemand.com/login)
+
+<img src="new_gardener_project.jpg">
+
+
+## Check which roles are required by the gardener
+<img src="gardenergcpsecret1.jpg">
+
+<img src="gardenergcpsecret2.jpg">
+
+# GCP
+
+## Create a new serviceaccount and assign roles
+[Create a new serviceaccount](https://console.cloud.google.com/iam-admin/serviceaccounts)
+
+<img src="gcpcreateserviceaccount0.jpg">
+
+<img src="{gcpcreateserviceaccount1.jpg">
+
+## Create key for the serviceaccount
+
+<img src="gcpcreatekey.jpg">
+
+## Download the key of the serviceaccount as json
+<img src="gcpdownloadkey.jpg">
+
+save the keys of the user, you will need it later on
+
+## Enable the Google compute API
+[Enable the Google compute API](https://console.developers.google.com/apis/library/compute.googleapis.com)
+<img src="gcpcomputeengineapi.jpg">
+
+
+## Enable the Google IAM API
+[Enable the Google IAM API](https://console.developers.google.com/apis/api/iam.googleapis.com/overview)
+<img src="gcpiamapi.jpg">
+
+# Gardener
+## Add GCP Secret
+<img src="gardeneraddgcpsecret.jpg">
+
+
+## Create a new Cluster
+[Create a new cluster](https://dashboard.garden.canary.k8s.ondemand.com)
+
+<img src="new_cluster.jpg">
+
+<img src="gcpcreatecluster1.jpg">
+
+<img src="gcpcreatecluster2.jpg">
+
+<img src="create_cluster4.jpg">
+
+<img src="gcpcreatecluster2.jpg">
+
+
+## Copy kubeconfig
+<img src="copy_kubeconfig.jpg">

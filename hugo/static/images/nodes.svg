@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300px" height="300px" viewBox="0 0 300 300" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
+    <title>nodes</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="nodes" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M145.818842,43.0341897 C148.210079,41.6536082 152.0928,41.656933 154.478278,43.0341897 L183.967402,60.0597434 C186.35864,61.4403249 188.29712,64.8045217 188.29712,67.5590351 L188.29712,101.610143 C188.29712,104.371305 186.352881,107.732178 183.967402,109.109434 L154.478278,126.134988 C152.087041,127.515569 148.204321,127.512245 145.818842,126.134988 L116.329718,109.109434 C113.938481,107.728853 112,104.364656 112,101.610143 L112,67.5590351 C112,64.7978722 113.94424,61.4370001 116.329718,60.0597434 L145.818842,43.0341897 Z" id="Polygon-3" stroke="#0CA391" stroke-width="10"></path>
+        <path d="M276,237.666667 L25,237.666667" id="Line" stroke="#0CA391" stroke-width="16" stroke-linecap="square"></path>
+        <path d="M179,237.444444 L121,237.444444" id="Line" stroke="#0CA391" stroke-width="26" stroke-linecap="square"></path>
+        <path d="M151.333333,235.666667 L151.333333,147" id="Line" stroke="#0CA391" stroke-width="8" stroke-linecap="square"></path>
+    </g>
+</svg>

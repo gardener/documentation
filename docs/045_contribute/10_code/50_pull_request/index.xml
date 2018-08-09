@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pull Request on Gardener Documentation</title>
+    <link>https://gardener.github.io/website/045_contribute/10_code/50_pull_request/</link>
+    <description>Recent content in Pull Request on Gardener Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 07 Aug 2018 11:10:52 +0200</lastBuildDate>
+    
+	<atom:link href="https://gardener.github.io/website/045_contribute/10_code/50_pull_request/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>
