@@ -77,7 +77,7 @@
                   <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
                   {{ end }}
                   <span class="links">
-                    {{ template "breadcrumb" dict "page" . "value" .Title }}   
+                    {{ template "local_breadcrumb" dict "page" . "value" .Title }}
                   </span>
                 </div>
                 {{ if $toc }}
@@ -93,12 +93,17 @@
         <div id="body-inner">
 
 
-    {{define "breadcrumb"}}
-          {{$parent := .page.Parent }}
-          {{ if $parent }}
-            {{ $value := (printf "<a href='%s'>%s</a> > %s" $parent.URL $parent.Title .value) }}
-            {{ template "breadcrumb" dict "page" $parent "value" $value }} 
-          {{else}}
-            {{.value|safeHTML}}
+          {{define "local_breadcrumb"}}
+            {{$parent := .page.Parent }}
+            {{ if $parent}}
+                {{ if not $parent.Params.hidden}}
+                    {{ $value := (printf "<a href='%s'>%s</a> > %s" $parent.URL $parent.Title .value) }}
+                    {{ template "local_breadcrumb" dict "page" $parent "value" $value }}
+                {{else}}
+                    {{ $value := (printf "%s" .value) }}
+                    {{ template "local_breadcrumb" dict "page" $parent "value" $value }}
+                {{end}}
+            {{else}}
+              {{.value|safeHTML}}
+            {{end}}
           {{end}}
-        {{end}}
