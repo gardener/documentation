@@ -16,9 +16,10 @@ no additional packages to install. A common way to use Hugo while developing a s
 with the `hugo serve` command and watch for changes: 
 
 
-``` 
+```
+npm install
+node ./node/index.js 
 cd hugo
-hugo version 
 hugo serve 
 ```
 
