@@ -6,8 +6,6 @@ type: Blog
 Microservices tend to use smaller runtimes but you can **use what you have** today - and this can be 
 a **problem in kubernetes**.
 
-
-
 Switching your architecture to microservices instead of a single monolith has many advantages, both in the 
 way you write software and the way it is used throughout its lifecycle. In this post, my attempt is to 
 cover one problem which does not get as much attention and discussion - **technology stack size**.
@@ -27,7 +25,6 @@ Due to the lightweight nature of your service, you can run more containers on a 
 machines. The result is higher resource utilization.
 
 {{% blog_img "logo" "blog-service-service-stack.png" %}}
-
 
 Additional, microservices are developed and deployed as containers independently of one another. This means that a development 
 team can be developing, optimizing and deploying a certain microservice without impacting other subsystems.
