@@ -17,7 +17,7 @@ type: Blog
     </td>
 </tr>  
 </table>
-Docker for Mac 17.12 CE (and higher) Edge includes a standalone Kubernetes server that runs on your Mac, 
+Docker for Mac 17.12 CE (and higher) Edge includes a standalone Kubernetes server that runs on Mac, 
 so that you can test deploying your Docker workloads on Kubernetes.
 
 The Kubernetes client command, kubectl, is included and configured to connect to the local Kubernetes server. 
