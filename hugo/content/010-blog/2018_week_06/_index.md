@@ -12,7 +12,7 @@ type: Blog
         <b>Kubernetes is only available in Docker for Mac 17.12 CE and higher</b> on the Edge channel. Kubernetes 
         support is not included in Docker for Mac Stable releases. To find out more about Stable and Edge channels 
         and how to switch between them, see 
-        <a href="https://docs.docker.com/docker-for-mac/#general">General configuration</a>.
+        <a href="https://docs.docker.com/docker-for-mac/#general">general configuration</a>.
         </div>
     </td>
 </tr>  
