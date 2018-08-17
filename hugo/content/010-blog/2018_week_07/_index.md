@@ -26,6 +26,6 @@ machines. The result is higher resource utilization.
 
 {{% blog_img "logo" "blog-service-service-stack.png" %}}
 
-Additional, microservices are developed and deployed as containers independently of one another. This means that a development 
+Additionally, microservices are developed and deployed as containers independently of each another. This means that a development 
 team can be developing, optimizing and deploying a certain microservice without impacting other subsystems.
  
