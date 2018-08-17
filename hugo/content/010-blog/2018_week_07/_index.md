@@ -6,9 +6,9 @@ type: Blog
 Microservices tend to use smaller runtimes but you can **use what you have** today - and this can be 
 a **problem in kubernetes**.
 
-Switching your architecture to microservices instead of a single monolith has many advantages, both in the 
+Switching your architecture from a monolith to microservices has many advantages, both in the 
 way you write software and the way it is used throughout its lifecycle. In this post, my attempt is to 
-cover one problem which does not get as much attention and discussion - **technology stack size**.
+cover one problem which does not get as much attention and discussion - **size of the technology stack**.
 
 ## General purpose technology stack
 {{% blog_img "logo" "blog-service-common-stack.png" %}}
