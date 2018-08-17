@@ -3,7 +3,7 @@ title: Big things come in small packages
 type: Blog
 ---
 
-Microservices should tend to use smaller runtimes but you can **use what you have** today - and this can be 
+Microservices tend to use smaller runtimes but you can **use what you have** today - and this can be 
 a **problem in kubernetes**.
 
 
