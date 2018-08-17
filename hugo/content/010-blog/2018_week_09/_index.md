@@ -6,8 +6,8 @@ type: Blog
 ...or **DENY all traffic from other namespaces**
 
 
-You can configure a **NetworkPolicy** to deny all the traffic from other namespaces while allowing all the traffic 
-coming from the same namespace the pod deployed to. There are many reasons why you may chose to employ Kubernetes 
+You can configure a **NetworkPolicy** to deny all traffic from other namespaces while allowing all traffic 
+coming from the same namespace the pod is deployed to. There are many reasons why you may chose to configure Kubernetes 
 network policies:
  - Isolate multi-tenant deployments
  - Regulatory compliance
