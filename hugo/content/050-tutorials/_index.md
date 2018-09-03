@@ -29,7 +29,7 @@ icon: fa fa-terminal
               <div class="description">
               You don’t have to understand all the internals of Kubernetes; however, basic knowledge of the architecture 
               is helpful for understanding how to deploy and debug your applications. In this section we 
-              offer the best pratices in the context of gardener and service/application developement.
+              offer best practices for service and application development on Kubernetes in the context of Gardener.
               </div>
         </div>
       </div>
