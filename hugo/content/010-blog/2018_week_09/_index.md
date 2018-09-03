@@ -11,7 +11,7 @@ coming from the same namespace the pod is deployed to. There are many reasons wh
 network policies:
  - Isolate multi-tenant deployments
  - Regulatory compliance
- - Ensure containers assigned to different environments (e.g. dev/staging/prod) cannot interfere with one another                                                
+ - Ensure containers assigned to different environments (e.g. dev/staging/prod) cannot interfere with each another                                                
 
 {{% blog_img "logo" "blog-namespaceisolation.png" %}}
 
