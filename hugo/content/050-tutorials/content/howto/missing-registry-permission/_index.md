@@ -14,9 +14,8 @@ scope: app-developer
 
 
 ## Problem
-Two of the most common problems are having the wrong container image specified or trying to use 
-private images without providing registry credentials. These are especially tricky when starting to 
-work with Kubernetes or wiring up the cluster for the first time.
+Two of the most common problems are specifying the wrong container image or trying to use 
+private images without providing registry credentials.
 
 **Note:** There is no observable difference in Pod status between a missing image and incorrect registry permissions. 
 In either case, Kubernetes will report an ErrImagePull status for the Pods. For this reason, this article deals with 
@@ -30,10 +29,10 @@ Let's see an example. We'll create a pod named *fail* referencing a non-existent
 kubectl run -i --tty fail --image=tutum/curl:1.123456
 ```
 
-the command prompt didn't return and you can press `ctrl+c`
+the command prompt doesn't return and you can press `ctrl+c`
 
 
-## Error analyse
+## Error analysis
 
 We can then inspect our Pods and see that we have one Pod with a status of **ErrImagePull** or **ImagePullBackOff**.
 
@@ -80,8 +79,8 @@ Events:
 ```  
   
   
-**So then the question is:** Why couldn't Kubernetes pull the image?  
-There are three primary culprits besides network connectivity issues:
+**Why couldn't Kubernetes pull the image?**
+There are three primary candidates besides network connectivity issues:
  - The image tag is incorrect
  - The image doesn't exist
  - Kubernetes doesn't have permissions to pull that image
@@ -100,11 +99,10 @@ kubectl create secret docker-registry dockersecret --docker-server=https://index
 
 If the exact image tag fails, then I will test without an explicit image tag - ```docker pull 
 tutum/curl``` - which will attempt to pull the latest tag. If this succeeds, then that means 
-the original tag specified doesn't exist. Go to the Docker registry and check which tags for 
-this image are available.
+the originally specified tag doesn't exist. Go to the Docker registry and check which tags are available for this image.
 
 If ```docker pull tutum/curl``` (without an exact tag) fails, then we have a bigger problem - 
 that image does not exist at all in our image registry. By default, Kubernetes uses the Dockerhub 
-registry. If you're using [Artifactory in the DMZ](https://docker.repositories.sap.ondemand.com/webapp/), you'll need to specify 
+registry. If you're using [Artifactory](https://docker.repositories.sap.ondemand.com/webapp/), you'll need to specify 
 the registry URL in the image string. Read [Artifactory How To]({{ site.baseurl }}/doc/2017/01/16/howto-artifactory.html) for more details.
 
