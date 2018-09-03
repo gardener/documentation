@@ -17,14 +17,14 @@ icon: fa fa-terminal
     </div>
     <div class="container">
       <div class="row">
-        <div class="six columns role-button" onclick="document.location='./operator'">
+        <div class="six columns role-button" onclick="document.location='../using-gardener/administrator'">
             <h1>Administrator</h1>
             <div class="description">
             The admin section is for anyone setup or administering a 
             Gardener Landscape. It assumes some familiarity with concepts of IaaS
             </div>
         </div>
-        <div class="six columns role-button" onclick="document.location='./app-developer/topic'">
+        <div class="six columns role-button" onclick="document.location='../using-gardener/developer/topic'">
               <h1>Developer</h1>
               <div class="description">
               You don’t have to understand all the internals of Kubernetes; however, basic knowledge of the architecture 
