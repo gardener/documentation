@@ -29,14 +29,14 @@ storage class.
 1. Sometimes when you think about using a service like EFS, you may also think about **vendor lock-in** and its negative sides 
 1. Making an EFS backup may decrease your production FS performance; the throughput used by backup counts towards 
    your total file system throughput.
-1. EFS is expensive compared to EBS (probably 2x more EBS pricing)
+1. EFS is expensive compared to EBS (roughly twice the price of EBS storage)
 1. EFS is not the magical solution for all your distributed FS problems, it can be slow in many cases. Test, benchmark 
    and measure to ensure your if EFS is a good solution for your use case.
 1. EFS distributed architecture results in a latency overhead for each file read/write operation.
-1. If you have the possibility to use a CDN, don’t use EFS, keep just files that can not be stored in a CDN.
-1. It is evident to say, but don’t use EFS as a caching system, sometimes you could be doing this unintentionally.
-1. Last but not least, even if EFS is a fully managed NFS, you will face performance problems in many cases, resolving 
-   this could take some time and needs some efforts, so brace yourself. 
+1. If you have the possibility to use a CDN, don’t use EFS, use it for the files which can't be stored in a CDN.
+1. Don’t use EFS as a caching system, sometimes you could be doing this unintentionally.
+1. Last but not least, even if EFS is a fully managed NFS, you will face performance problems in many cases, 
+   resolving them takes time and needs effort. 
    
 
 ..read some more on [ReadWriteMany](../readmore/readwritemany).
