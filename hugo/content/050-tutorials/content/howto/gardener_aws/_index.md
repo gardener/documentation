@@ -12,25 +12,24 @@ scope: app-developer
 ---
 
 ## Introduction
-Creating an Kubernetes cluster in the AWS Account is easy and the Gardener UI shall be self-expantory.
-For your convenience you will find screenshots on how to create a cluster here.
+Creating a Kubernetes cluster in an AWS Account is easy and the Gardener UI should be self-explanatory/.
 
 # Gardener
-## Create new Project in Gardener
+## Create a new Project in Gardener
 
 [Create new Project](https://dashboard.garden.canary.k8s.ondemand.com/login)
 
 <img src="new_gardener_project.jpg">
 
 
-## Copy policy from the gardener
+## Copy policy from the Gardener
 
 <img src="gardener_copy_policy.jpg">
 
 # AWS
 
 ## Create new policy
-[Create new oplicy](https://console.aws.amazon.com/iam/home?#/policies)
+[Create new policy](https://console.aws.amazon.com/iam/home?#/policies)
 
 <img src="create_policy.jpg">
 
@@ -44,7 +43,7 @@ For your convenience you will find screenshots on how to create a cluster here.
 <img src="attachpolicy.jpg">
 
 <img src="finishuser.jpg">
-save the keys of the user, you will need it later on
+save the keys of the user, you will need them later on
 
 
 <img src="savekeys.jpg">
