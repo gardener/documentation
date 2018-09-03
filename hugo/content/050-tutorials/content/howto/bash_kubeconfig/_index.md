@@ -18,19 +18,17 @@ Using kubectl, you can inspect cluster resources; create, delete, and update com
 ![port-forward](howto-kubeconfig-bash.gif)
 
 
-By default, kubectl configuration is located at `~/.kube/config`.
+By default, the kubectl configuration is located at `~/.kube/config`.
 
 
 Suppose you have two clusters, one for development work and one for scratch work.
 
-How to handle this easily without copy the used configuration always to the right place? 
+How to handle this easily without copying the used configuration always to the right place? 
 
 ## Export KUBECONFIG
 ```sh 
 bash$ export KUBECONFIG=<PATH-TO-M>-CONFIG>/kubeconfig-dev.yaml
 ```
-
-**All of them above are well known and every Kubernetes developer knowns them well.**
 
 How to determine which cluster is used by the kubectl command?
 
@@ -47,8 +45,9 @@ bash$
 
 
 ## Display cluster in the bash - Linux and alike
-I found this tip on Stackoverflow and find it so good that it is worthwhile to write an HwoTo about it.
-Edit your `~/.bash_profile` and add the code below to it.
+I found this tip on Stackoverflow and find it worth to be added here.
+Edit your `~/.bash_profile` and add the following code snippet to show the current k8s 
+context in the shell's prompt.
 
 ```sh
 prompt_k8s(){
@@ -67,15 +66,11 @@ which cluster is active - *develop* or *production*.
 e.g.
 
 ```sh 
-bash$ 
-bash$ 
-bash$ 
-bash$ 
 bash$ export KUBECONFIG=/Users/d023280/Documents/workspace/gardener-ui/kubeconfig_gardendev.yaml 
 bash (garden_dev)$ 
 ```
 
-Now you have the **(garden_dev)** prefix in the bash command prompt.
+Note the **(garden_dev)** prefix in the bash command prompt.
 
 **This helps immensely to avoid thoughtless mistakes.**
 
