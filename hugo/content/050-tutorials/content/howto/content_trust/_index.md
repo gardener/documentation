@@ -81,6 +81,7 @@ you the ability to verify both the integrity and the publisher of all the data r
 Prior to version 1.8, Docker didn’t have a way to verify the authenticity of a server image. But in v1.8, a new feature 
 called **Docker Content Trust** was introduced to automatically sign and verify the signature of a publisher.
 
-So, as soon as a server image is downloaded, it is cross-checked with the signature of the publisher to see if it 
-tampered in any way. **This solves the problem of trust.**
+So, as soon as a server image is downloaded, it is cross-checked with the signature of the publisher to see 
+if someone tampered with it in any way. **This solves the problem of trust.**
 
+In addition you should scan all images for known vulnerabilities, this can fill another book
