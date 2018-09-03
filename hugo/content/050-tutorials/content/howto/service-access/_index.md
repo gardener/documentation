@@ -1,5 +1,5 @@
 ---
-title: Access my service from outside Kubernetes cluster
+title: Access  service from outside Kubernetes cluster
 description: "Is there an ingress deployed and how is it configured"
 type: tutorial-page
 level: beginner
@@ -13,19 +13,21 @@ scope: app-developer
 
 ## TL;DR
 To expose your application / service for access from outside the cluster, following options exist:
+
 - Kubernetes Service of type `LoadBalancer`
 - Kubernetes Service of type 'NodePort' + Ingress
 
 
 
-This tutorial discusses how to enable access to your application from outside Kubernetes cluster (sometimes called 
-North-South traffic).   For internal communication amongst pods and services (sometimes called East-West traffic) there 
-are many literatures, [here](https://cloudnativelabs.github.io/post/2017-04-18-kubernetes-networking/) is one brief example.
+This tutorial discusses how to enable access to your application from outside the Kubernetes cluster (sometimes called 
+North-South traffic). For internal communication amongst pods and services (sometimes called East-West traffic) there 
+are many examples, [here](https://cloudnativelabs.github.io/post/2017-04-18-kubernetes-networking/) is one brief example.
 
 ## Service Types
-A Service in Kubernetes is an abstraction which defines a logical set of Pods and a policy by which to access them.  
+A Service in Kubernetes is an abstraction defining a logical set of Pods and an access policy.  
 Services can be exposed in different ways by specifying a **type** in the service spec,
 and different types determine accessibility from inside and outside of cluster.
+
 - ClusterIP
 - NodePort
 - LoadBalancer
@@ -34,7 +36,7 @@ Type `ExternalName` is a special case of service and not discussed here.
 
 
 ### Type ClusterIP
-A service of type `ClusterIP` exposes service on an internal IP in the cluster, which makes the service **only reachable** 
+A service of type `ClusterIP` exposes a service on an internal IP in the cluster, which makes the service **only reachable** 
 from within the cluster.  This is the default value if no type is specified.
 
 ```yaml
@@ -74,9 +76,9 @@ spec:
 ```
 
 
-Execute following commands to create deployement and service
+Execute following commands to create deployment and service
 
-```shell
+```bash
 kubectl create -f <Your yaml file name>
 ```
 
@@ -87,13 +89,12 @@ NAME        TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)   AGE
 nginx-svc   ClusterIP   100.66.125.61   <none>        80/TCP    45m
 ```
 
-As shown above, the service is assigned with a cluster ip address and port 80 as defined in yaml file.    You can test 
-the service as below:
+As shown above, the service is assigned with a cluster ip address and port 80 as defined in configuration file.    
+You can test the service like this:
 
-```shell
-
+```bash
 # list all existing pods in cluster
-$ kubectl get po
+$ kubectl get pods
 NAME                                           READY     STATUS        RESTARTS   AGE
 docker-nodejs-app-76b77494-vwv4d               1/1       Running       0          11d
 nginx-deployment-74d949bf69-nvdzs              1/1       Running       0          1h
@@ -124,17 +125,17 @@ working. Further configuration is required.</p>
 ```
 
 >  <i class="fa fa-gittip" aria-hidden="true"></i> Tip
-> - The service is also accessible from any container (even on different pod) within the same cluster, e.g. `kubectl -it exec <another POD_NAME> curl <YourServiceClusterIP:YourPort>`.
+> - The service is also accessible from any other container (even from different pods) within the same cluster, e.g. `kubectl -it exec <another POD_NAME> curl <YourServiceClusterIP:YourPort>`.
 >   You need to make sure command `curl` is installed in the container.
 > - You can also find out the dns name of the ClusterIP by command `kubectl exec -it <POD_NAME> nslookup <ClusterIP>`, 
-then replace the IP address with the resolved name in your test.
+ replace the IP address with the resolved name in your test.
 > The resolved name typically looks like `nginx-svc.default.svc.cluster.local` where `nginx-svc` is the name of your 
-service defined in yaml.
+service defined in the configuration file.
 
 
 
 ### Type NodePort
-Following previous example, just replace the type with `NodePort`
+Follow the previous example, just replace the type with `NodePort`
 
 ```yaml
 ...
@@ -145,27 +146,27 @@ Following previous example, just replace the type with `NodePort`
 ...
 ```
 
-A service of type `NodePort` is **a ClusterIP service with an additional capability: it is reachable at the IP address 
-of the node as well as at the assigned cluster IP on the services network.**
+A service of type `NodePort` is a ClusterIP service with an additional capability: it is reachable at the IP address 
+of the node as well as at the assigned cluster IP on the services network.
 The way this is accomplished is pretty straightforward: when Kubernetes creates a NodePort service kube-proxy allocates
 a port in the range 30000–32767 and opens this port on every node (thus the name “NodePort”).
 Connections to this port are forwarded to the service’s cluster IP. If we create the service above and run 
 `kubectl get svc <your-service>`, we can see the NodePort that has been allocated for it.
 
-Notice in following example, in addition to port 80, port **32521** has been opened as well on node, in contrast to 
+Note that in the in following example, in addition to port 80, port **32521** has been opened as well on the node, in contrast to 
 the output of "ClusterIP" case where only port 80 is opened.
 
-```shell
+```bash
 $ kubectl get svc nginx-svc
 NAME        TYPE       CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
 nginx-svc   NodePort   100.70.105.182   <none>        80:32521/TCP   16m
 ```
 
-Therefore you can access the service *from within the cluster* with two options:
+Therefore you can access the service *from within the cluster* in two ways:
 
 - Access via ClusterIP:port
 
-```shell
+```bash
 #via ClusterIP
 kubectl exec -it nginx-deployment-74d949bf69-7n6bs curl 100.70.105.182:80
 
@@ -175,7 +176,7 @@ kubectl exec -it nginx-deployment-74d949bf69-7n6bs curl nginx-svc.default.svc.cl
 
 - Access via NodeIP:NodePort
 
-```shell
+```bash
 
 # First find out the Node IP address
 $ kubectl describe node
@@ -199,7 +200,7 @@ kubectl exec -it nginx-deployment-74d949bf69-7n6bs curl ip-10-250-20-203.eu-cent
 
 ### Type LoadBalancer
 
-`LoadBalancer` type is the simplest approach, which is created by specifying type as `LoadBalancer`.
+The `LoadBalancer` type is the simplest approach, which is created by specifying type as `LoadBalancer`.
 
 ```yaml
 apiVersion: apps/v1beta2
@@ -237,19 +238,20 @@ spec:
     app: nginx-app
 ```
 
-Once the service is created, it contains an external-ip as following:
+Once the service is created, it has an external IP address as shown here:
 
-```shell
+```bash
 $ kubectl get services -l app=nginx-app -o wide
 NAME        TYPE           CLUSTER-IP       EXTERNAL-IP                                                                  PORT(S)        AGE       SELECTOR
 nginx-svc   LoadBalancer   100.67.182.148   a54a62300696611e88ba00af02406931-1787163476.eu-central-1.elb.amazonaws.com   80:31196/TCP   9m        app=nginx-app
 ```
 
-A service of type LoadBalancer **has all the capabilities of a NodePort service plus the ability to build out a complete 
-ingress path**.  Hence the service can be accessible from outside the cluster without additional components(e.g. Ingress).
-To test the External-IP from outside cluster, try following (note that curl command is triggered locally):
+A service of type LoadBalancer **combines the capabilities of a NodePort with the ability to setup a complete ingress path**.  
+Hence the service can be accessible from outside the cluster without the need for additional components like and Ingress.
 
-```shell
+To test the external IP run this curl command from your local machine:
+
+```bash
 
 $ curl http://a54a62300696611e88ba00af02406931-1787163476.eu-central-1.elb.amazonaws.com
 
@@ -271,34 +273,33 @@ RawContent        : HTTP/1.1 200 OK
 ...
 ```
 
-Obviously the service can also be accessed from within the cluster.  You can tests the same way as described in section `NodePort`.
+Obviously the service can also is accessed from within the cluster.  You can test this in the same way as described in section `NodePort`.
 
 
 ## LoadBalancer vs. Ingress
 
-As presented in previous section,  only `LoadBalancer` type of service can enable access from outside the cluster. 
+As presented in the previous section,  only the service type LoadBalancer enables access from outside the cluster. 
 However this approach has its own limitation.
-You cannot configure load balancer to terminate HTTPS traffic, virtual hosts or path-based routing.   In Kubernetes 1.2 
+You cannot configure a LoadBalancer to terminate HTTPS traffic, virtual hosts or path-based routing.   In Kubernetes 1.2 
 a separate resource called [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/#alternatives) is 
-introduced.
+introduced for this purpose.
 
 ### Why an Ingress
 
-LoadBalancer services are all about extending a single service to support external clients. By contrast an Ingress is a 
-separate resource that configures a load balancer much more flexibly.
+LoadBalancer services are all about extending a service to support external clients. By contrast an Ingress is a 
+a separate resource that configures a LoadBalancer in a more flexible way.
 The Ingress API supports TLS termination, virtual hosts, and path-based routing. It can easily set up a load balancer to
- handle multiple backend services.  In addition, there is also difference
-in how the traffic routing is realized . In the case of the LoadBalancer service, the traffic that enters through the 
+ handle multiple backend services.  In addition routing traffic is realised in a different way. In the case of the LoadBalancer service, the traffic entering through the 
 external load balancer is forwarded to the kube-proxy that in turn forwards
-the traffic to the selected pods. In contrast, the Ingress load balancer forwards the traffic straight to the selected 
+the traffic to the selected pods. In contrast, the Ingress LoadBalancer forwards the traffic straight to the selected 
 pods which is more efficient.
 
-Every service of the "LoadBalancer" type will be charged by the cloud provider for at least 40$/month. Ten Services ends 
-up in 400$/month just for the load balancing.
+Typically a service of type LoadBalancer costs at least 40$ per month. This means if your applications needs 10 of them 
+you already pay 400$ per month just for load balancing.
  
 
 ### How to use the ingress?
-In the cluster, a nginx-ingress controller has been deployed for you as an LB service and also registered the DNS
+In the cluster, a nginx-ingress controller has been deployed for you as an LoadBalancer and also registered the DNS
 record. Depending on how your cluster is defined, the DNS registration is performed under following conventions:
 
 - **k8s-hana.ondemand.com**
@@ -317,7 +318,7 @@ This results in the following default DNS endpoints:
 
 With the configuration below you can reach your service **nginx-svc** with:
  
- **http://test.ingress.&lt;GARDENER-CLUSTER-NAME&gt;.&lt;GARDENER-PROJECT-NAME&gt;.shoot.canary.k8s-hana.ondemand.com**
+ `http://test.ingress.&lt;GARDENER-CLUSTER-NAME&gt;.&lt;GARDENER-PROJECT-NAME&gt;.shoot.canary.k8s-hana.ondemand.com`
 
 
 ```yaml
@@ -370,9 +371,10 @@ spec:
           servicePort: 80
 ```
 
-You can show the created ingress entry and test it.
-```shell
-$ kubectl get ing
+Show the newly created ingress and test it :
+
+```bash
+$ kubectl get ingress
 NAME                    HOSTS                                                               ADDRESS         PORTS     AGE
 nginxsvc-ingress        nginxsvc.ingress.eecluster.cpet.shoot.canary.k8s-hana.ondemand.com  10.250.20.203   80        29s
 
