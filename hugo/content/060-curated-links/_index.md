@@ -16,7 +16,7 @@ type: blank
 
 <div class="padding">
 {{% md %}}
-A curated list for awesome kubernetes sources
+A curated list of awesome kubernetes sources
 Inspired by [@sindresorhus' awesome](https://github.com/sindresorhus/awesome)
 
 
@@ -50,11 +50,12 @@ Inspired by [@sindresorhus' awesome](https://github.com/sindresorhus/awesome)
 * [Kubernetes Bootcamp](http://kubernetesbootcamp.github.io/kubernetes-bootcamp/)
 
 
-## MOOC Courses / Tutorials
+## Massive Open Online Courses / Tutorials
 
 *List of available free online courses([MOOC](https://en.wikipedia.org/wiki/Massive_open_online_course)) and tutorials*
 
 ### Courses
+
   - [Scalable Microservices with Kubernetes at Udacity](http://in.udacity.com/course/scalable-microservices-with-kubernetes--ud615)
   - [Introduction to Kubernetes at edX](http://www.edx.org/course/introduction-kubernetes-linuxfoundationx-lfs158x)
 
@@ -93,6 +94,7 @@ Inspired by [@sindresorhus' awesome](https://github.com/sindresorhus/awesome)
 ## Raspberry Pi
 
 *Some of the awesome findings and experiments on using Kubernetes with Raspberry Pi.*
+
 * [Kubecloud](http://kubecloud.io)
 * [Setting up a Kubernetes on ARM cluster](http://kubecloud.io/kubernetes-on-arm-cluster/)
 * [Setup Kubernetes on a Raspberry Pi Cluster easily the official way!](https://blog.hypriot.com/post/setup-kubernetes-raspberry-pi-cluster/) by [Mathias Renner and Lucas Käldström](https://blog.hypriot.com/crew/)
