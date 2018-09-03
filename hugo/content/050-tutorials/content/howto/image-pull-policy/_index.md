@@ -6,6 +6,7 @@ level: intermediate
 index: 10
 category: Fails
 scope: app-developer
+aliases: ["/howto/imagePullPolicy"]
 ---
 
 

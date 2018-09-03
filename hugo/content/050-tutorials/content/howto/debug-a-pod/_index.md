@@ -19,9 +19,10 @@ or [Debug Pods and Replication Controllers](https://kubernetes.io/docs/tasks/deb
 
 In order to identify pods with potential issus you could e.g. run `kubectl get pods --all-namespaces | grep -iv Running ` to filter 
 out the pods which are not in the state `Running`. One of frequent error state is `CrashLoopBackOff`, which tells that 
-a pod crashes right after the start. Kubernetes then tries to restart the pod but again, but often the pod startup fails again.
+a pod crashes right after the start. Kubernetes then tries to restart the pod, but often the pod startup fails again.
 
-Here is a short list of possible reasons which might lead to a pod crash:
+**Here is a short list of possible reasons which might lead to a pod crash:**
+
 1. error during image pull caused by e.g. wrong/missing secrets or wrong/missing image
 1. the app runs in an error state caused e.g. by missing environmental variables (ConfigMaps) or secrets
 1. liveness probe failed
@@ -30,7 +31,7 @@ Here is a short list of possible reasons which might lead to a pod crash:
 1. the container image is not updated
 
 
-Basically, the commands `kubectl logs ...` and `kubectl describe ...` with different parameters are used to get more 
+Basically, the commands `kubectl logs ...` and `kubectl describe ...` with additional parameters are used to get more 
 detailed information. By calling e.g. `kubectl logs --help` you get more detailed information about the command and its 
 parameters.
 
@@ -56,9 +57,12 @@ The example below is based on [demo in Kubernetes documentation](https://kuberne
 
 First, cleanup  with  
 
-```kubectl delete pod termination-demo```
+```bash
+kubectl delete pod termination-demo
+```
     
 Next, create a resource based on the yaml content below
+
 ```yaml
 apiVersion: v1
 kind: Pod 
@@ -71,9 +75,11 @@ spec:
     command: ["/bin/sh"]
     args: ["-c", "sleep 10 && echo Sleep expired > /dev/termination-log"]
 ```
-`kubectl describe pod termination-demo` lists in the `Event` section the content 
 
-```
+`kubectl describe pod termination-demo` lists the following content in the `Event` section
+
+
+```bash
 Events:
   FirstSeen	LastSeen	Count	From							SubObjectPath					Type		Reason			Message
   ---------	--------	-----	----							-------------					--------	------			-------
@@ -89,9 +95,9 @@ image name indicates a misspelling.
 
 
 
-## Error in the app runs in an error state caused e.g. by missing environmental variables (ConfigMaps) or secrets
+## App runs in an error state caused by missing ConfigMaps or Secrets
 
-This example illustrates the behavior in case of the app expects environment variables but the corresponding 
+This example illustrates the behavior in case of the app expecting environment variables but the corresponding 
 Kubernetes artifacts are missing.
 
 First, cleanup  with  
@@ -188,7 +194,7 @@ spec:
 ```
 
 Note that once you fix the error and re-run the scenario, you might still see the pod in `CrashLoopBackOff` status.
-It is because the container finishes the command `sed ...` and run to completion.  In order to keep the container in `Running` status,
+It is because the container finishes the command `sed ...` and runs to completion.  In order to keep the container in `Running` status,
 a long running task is required, e.g.
 
 ```ymal
@@ -228,20 +234,20 @@ spec:
 ```
 
 
-## Too high resource consumption (memory and/or CPU) or too strict quota settings
+## Too high resource consumption or too strict quota settings
 
 You can optionally specify the amount of memory and/or CPU your container gets during runtime. In case these settings are missing, 
 the default requests settings are taken: CPU: 0m (in Milli CPU) and RAM: 0Gi which indicate no other limits than the 
-ones of the node(s) itself. More details e.g. about to configure limits see e.g. [Configure Default Memory Requests and 
+ones of the node(s) itself. Find more details in [Configure Default Memory Requests and 
 Limits for a Namespace](https://kubernetes.io/docs/tasks/administer-cluster/memory-default-namespace/),
 
 In case your application needs more resources, Kubernetes distinguishes between `requests` and `limit` settings: `requests` 
 specify the guaranteed amount of resource, whereas `limit` tells Kubernetes the maximum amount of resource the container might 
 need.  Mathematically both settings could be described by the relation `0 <= requests <= limit`. For both settings you need to 
-consider the total amount of resources your nodes provide. For a detailed description of the concept see [Resource Quality of 
+consider the total amount of resources the available nodes provide. For a detailed description of the concept see [Resource Quality of 
 Service in Kubernetes](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/node/resource-qos.md).
 
-Use `kubectl describe nodes` to get a first overview of the resource consumption in your cluster. Of special interest are the 
+Use `kubectl describe nodes` to get a first overview of the resource consumption of your cluster. Of special interest are the 
 figures indicating the amount of CPU and Memory Requests at the bottom of the output.
 
 The next example demonstrates what happens in case the CPU request is too high in order to be managed by your cluster.
@@ -253,7 +259,7 @@ kubectl delete deployment termination-demo
 kubectl delete configmaps app-env
 ```
 
-Next, adapt the `cpu` below in the yaml below to be slightly higher than the remaining cpu resources in your cluster and deploy 
+Next, adapt the `cpu` in the yaml below to be slightly higher than the remaining cpu resources in your cluster and deploy 
 this manifest. In this example `600m` (milli CPUs) are requested in a Kubernetes system with a single 2 Core worker 
 node which results in an error message. 
 
@@ -324,21 +330,25 @@ More details in
 
 Remark:   
 -   This example works similarly when specifying a too high request for memory
--   In case you configured a autoscaler range when creating your Kubernetes cluster another worker node will be spinned up automatically if you didn't reach the maximum number of worker nodes
--   In case of your app is running out of memory (the memory settings are too small), you typically find `OOMKilled` (Out Of Memory) message in the `Events` section fo the `kubectl describe pod ...` output
+-   In case you configured an autoscaler range when creating your Kubernetes cluster another worker node will be started automatically if you didn't reach the maximum number of worker nodes
+-   If your app is running out of memory (the memory settings are too small), you typically find `OOMKilled` (Out Of Memory) message in the `Events` section fo the `kubectl describe pod ...` output
 
 
-## The container image is not updated
+## Why was the container image not updated?
 
-You applied a fix in your app, created a new container image and pushed it into your container repository. After redeploying your Kubernetes manifests you expected to get the updated app, but still the same bug is in the new deployment present.
+You applied a fix in your app, created a new container image and pushed it into your container repository. After 
+redeploying your Kubernetes manifests you expected to get the updated app, but still the same bug is in the new 
+deployment present.
 
 This behavior is related to how Kubernetes decides whether to pull a new docker image or to use the cached one. 
 
-In case you didn't change the image tag, the default image policy _IfNotPresent_ tells Kubernetes to use the cached image (see [Images](https://kubernetes.io/docs/concepts/containers/images/)). 
+In case you didn't change the image tag, the default image policy _IfNotPresent_ tells Kubernetes to use the cached 
+image (see [Images](https://kubernetes.io/docs/concepts/containers/images/)). 
 
-As a best practice you should not use the tag `latest` and change the image tag in case you changed anything in your image (see [Configuration Best Practices](https://kubernetes.io/docs/concepts/configuration/overview/#container-images)).
+As a best practice you should not use the tag `latest` and change the image tag whenever you changed anything in your 
+image (see [Configuration Best Practices](https://kubernetes.io/docs/concepts/configuration/overview/#container-images)).
 
-Please have a look at this [FAQ Container Image not updating]({{ site.baseurl }}/doc/2017/01/16/howto-imagePullPolicy.html) for further details.
+Find more details in [FAQ Container Image not updating](/howto/imagePullPolicy)
 
       
 
