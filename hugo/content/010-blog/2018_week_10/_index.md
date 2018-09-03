@@ -6,7 +6,7 @@ type: Blog
 The storage is definitely the most complex and important part of an application setup, once this part is completed, 80% 
 of the tasks are completed.
 
-Mounting an S3 bucket into a pod using FUSE allows you to access the data as if it were on the local disk. The mount 
+Mounting a S3 bucket into a pod using [FUSE](https://github.com/libfuse/libfuse) allows to access data stored in S3 via the filesystem. The mount 
 is a pointer to an S3 location, so the data is never synced locally. Once mounted, any pod can read or even write 
 from that directory without the need for explicit keys.
 
