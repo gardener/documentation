@@ -6,6 +6,7 @@ level: intermediate
 index: 10
 category: Helm
 scope: app-developer
+aliases: ["/howto/helm"]
 ---
 
 
