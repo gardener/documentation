@@ -1,5 +1,5 @@
 ---
-title: ReadWriteMany - Dynamically Provisioned PV’s Using Amazon EFS
+title: ReadWriteMany - Dynamically Provisioned Persistent Volumes Using Amazon EFS
 type: Blog
 ---
 
