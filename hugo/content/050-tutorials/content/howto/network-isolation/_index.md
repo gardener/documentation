@@ -10,25 +10,25 @@ scope: app-developer
 ...or **DENY all traffic from other namespaces**
 
 You can configure a **NetworkPolicy** to deny all the traffic from other namespaces while allowing all the traffic 
-coming from the same namespace the pod deployed to.                                           
+coming from the same namespace the pod was deployed into.                                           
 
 <img src="howto-namespaceisolation.png" width="100%">
 
 **There are many reasons why you may chose to employ Kubernetes network policies:**
  - Isolate multi-tenant deployments
  - Regulatory compliance
- - Ensure containers assigned to different environments (e.g. dev/staging/prod) cannot interfere with one another      
+ - Ensure containers assigned to different environments (e.g. dev/staging/prod) cannot interfere with each other      
  
  
 Kubernetes **network policies** are application centric compared to infrastructure/network centric standard firewalls. 
-**There are no explicit CIDR or IP used** for matching source or destination IP’s. **Network policies build up on labels
-and selectors** which are key concepts of Kubernetes that are used to organize (for e.g all DB tier pods of app) and 
+**There are no explicit CIDRs or IP addresses used** for matching source or destination IP’s. **Network policies build up on labels
+and selectors** which are key concepts of Kubernetes that are used to organize (for e.g all DB tier pods of an app) and 
 select subsets of objects.
 
 
 
 ## Example
-We create two nginx HTTP-Server in two namespaces and block all traffic between the two namespaces. E.g. you are
+We create two nginx HTTP-Servers in two namespaces and block all traffic between the two namespaces. E.g. you are
 unable to get content from *namespace1* if you are sitting in *namespace2*.
 
 ## Setup the namespaces
