@@ -1,6 +1,6 @@
 ---
-title: Create a kubernetes cluster in GCP with Gardener
-description: "How to create a Kubernetes Cluster with Gardener in GCP"
+title: Create a kubernetes cluster on GCP with Gardener
+description: "How to create a Kubernetes Cluster with Gardener on GCP"
 type: tutorial-page
 level: beginner
 index: 30
@@ -12,18 +12,17 @@ scope: app-developer
 ---
 
 ## Introduction
-Creating an Kubernetes cluster in the GCP Account is easy and the Gardener UI shall be self-expantory.
-For your convenience you will find screenshots on how to create a cluster here.
+Creating a Kubernetes cluster in the GCP Account is easy and the Gardener UI should be self-explanatory.
 
 # Gardener
-## Create new Project in Gardener
+## Create a new Project in Gardener
 
 [Create new Project](https://dashboard.garden.canary.k8s.ondemand.com/login)
 
 <img src="new_gardener_project.jpg">
 
 
-## Check which roles are required by the gardener
+## Check which roles are required by the Gardener
 <img src="gardenergcpsecret1.jpg">
 
 <img src="gardenergcpsecret2.jpg">
