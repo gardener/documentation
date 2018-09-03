@@ -1,6 +1,6 @@
 ---
 title: Out-Dated HTML and JS files delivered
-description: "My Content is always out-dated - why?"
+description: "Why is my application always outdated?"
 type: tutorial-page
 level: intermediate
 index: 10
@@ -10,15 +10,15 @@ scope: app-developer
 
 ## Problem
 
-**After updating your HTML and JS sources in your web application, 
+**After updating your HTML and JavaScript sources in your web application, 
 the kubernetes cluster delivers outdated versions - why?**
 
 ## Preamble
-By default, the Kubernetes service pods are not accessible over the external 
-network, but only from other pods within the Kubernetes cluster. 
+By default, Kubernetes service pods are not accessible from the external 
+network, but only from other pods within the same Kubernetes cluster. 
 
 The Gardener cluster has a built-in configuration for HTTP load balancing called **Ingress**, 
-the rules for external connectivity to Kubernetes services. Users who want external access 
+defining rules for external connectivity to Kubernetes services. Users who want external access 
 to their Kubernetes services create an ingress resource that defines rules, 
 including the URI path, backing service name, and other information. The Ingress controller 
 can then automatically program a frontend load balancer to enable Ingress configuration.
@@ -42,19 +42,16 @@ spec:
           servicePort: 8080
 ```
 where:
- - **&lt;GARDENER-CLUSTER&gt;**: The cluster name in the gardener
- - **&lt;GARDENER-PROJECT&gt;**: You project name in the gardener
+ - **&lt;GARDENER-CLUSTER&gt;**: The cluster name in the Gardener
+ - **&lt;GARDENER-PROJECT&gt;**: You project name in the Gardener
 
 
-## That's the crux of the matter.
+## What is the underlying problem?
 
 The ingress controller we are using is **NGINX**.
 
 > NGINX  is a software load balancer, web server, and **content cache** built on top of open 
-source NGINX. NGINX Plus has exclusive production‑ready features on top of what's available 
-in the open source offering, including session persistence, configuration via API, and active 
-health checks. Use NGINX Plus instead of your hardware load balancer and get the freedom to 
-innovate without being constrained by infrastructure.
+source NGINX.
 
 
 **NGINX caches the content as specified in the HTTP header.** If the HTTP header is missing, 
@@ -63,15 +60,16 @@ stupidest case.
 
 ## Solution
 In general you can avoid this pitfall with one of the solutions below:
+
  - use a cache buster + HTTP-Cache-Control(prefered)
- - use HTTP-Cache-Control with a lower timeframe
+ - use HTTP-Cache-Control with a lower retention period
  - disable the caching in the ingress (just for dev purpose)
  
-Please use your preferred search engine to get advice how to set the HTTP Header or setup a cache buster
+Learning how to set the HTTP header or setup a cache buster is left to the read as an exercise
 for your web framework (e.g. Express/NodeJS, SpringBoot,...)
 
-Below is an example how to disable the cache control for your ingress done with an annotation in your
- ingress YAML (just for dev purpose).
+Here an example how to disable the cache control for your ingress done with an annotation in your
+ ingress YAML (during development).
  
 ```yaml
 ---
