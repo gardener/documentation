@@ -1,5 +1,5 @@
 ---
-title: Commit secrets in Github 💀
+title: Storing secrets in git 💀
 description: "Never ever commit a kubeconfig.yaml into github"
 type: tutorial-page
 level: intermediate
@@ -76,6 +76,10 @@ git push origin --force --tags
 One merge commit could reintroduce some or all of the tainted history that you just went to the trouble of purging.
 
 
+References:
+
+ - https://help.github.com/articles/removing-sensitive-data-from-a-repository/
+ 
 <style>
 blockquote {
  border:1px solid red;
