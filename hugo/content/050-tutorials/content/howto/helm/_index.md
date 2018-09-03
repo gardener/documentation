@@ -1,6 +1,6 @@
 ---
-title: How to install Helm Chart in your shoot cluster
-description: "How to install Helm Charts in your shoot cluster"
+title: Use a Helm chart to deploy some application or service
+description: "Use a Helm chart to deploy some application or service"
 type: tutorial-page
 level: intermediate
 index: 10
@@ -11,7 +11,7 @@ scope: app-developer
 
 Basically, [Helm Charts](https://github.com/kubernetes/charts) can be installed as described e.g. in the Helm 
 [QuickStart Guide](https://docs.helm.sh/using_helm/#quickstart-guide). However, our clusters come with 
-[RBAC](https://kubernetes.io/docs/admin/authorization/rbac) enabled by default and Helm must be installed as follows:
+[RBAC](https://kubernetes.io/docs/admin/authorization/rbac) enabled by default hence Helm must be installed as follows:
 
 ## Create a Service Account
  
@@ -41,7 +41,7 @@ subjects:
 EOF
 ```
 
-## Initialise Helm 
+## Initialize Helm 
 
 Initialise Helm via ```helm init --service-account helm```. You can now use `helm`.
 
