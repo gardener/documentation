@@ -8,18 +8,18 @@ category: Setup
 scope: app-developer
 ---
 ## Intro
-Be aware, that the following sections might be opinionated. Kubernetes, and the GPU support in particular, is a 
-rapidly developing environment, which means that this guide is likely to be outdated sometimes. For this reason, 
-**contributions are highly appreciated**.
+Be aware, that the following sections might be opinionated. Kubernetes, and the GPU support in particular, 
+are rapidly evolving, which means that this guide is likely to be outdated sometime soon. For this reason, 
+**contributions are highly appreciated** to update this guide.
 
 ## Create a Cluster
 First thing first, let’s create a k8s cluster with GPU accelerated nodes. In this example we will use AWS 
-**p2.xlarge** EC2 instance because it's the cheapest available option at the moment. If you are also trying 
-this out I'd suggest you using this instance type to avoid hitting your bill heavily. **More or less 1€/hour per GPU**
+**p2.xlarge** EC2 instance because it's the cheapest available option at the moment. Use such cheap instances 
+for learning to limit your resource costs. **This costs around 1€/hour per GPU**
 
 ![gpu-selection](howto-gpu.png)
 
-## Install NVidia Driver as Deamonset
+## Install NVidia Driver as Daemonset
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -180,7 +180,7 @@ spec:
         operator: "Exists"
 ```
 
-Now exec into the container and start an example Keras traing
+Now exec into the container and start an example Keras training
 
 ```bash
 kubectl exec -it deeplearning-workbench-8676458f5d-p4d2v -- /bin/bash
