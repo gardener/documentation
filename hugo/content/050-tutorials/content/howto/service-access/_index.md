@@ -247,7 +247,7 @@ nginx-svc   LoadBalancer   100.67.182.148   a54a62300696611e88ba00af02406931-178
 ```
 
 A service of type LoadBalancer **combines the capabilities of a NodePort with the ability to setup a complete ingress path**.  
-Hence the service can be accessible from outside the cluster without the need for additional components like and Ingress.
+Hence the service can be accessible from outside the cluster without the need for additional components like an Ingress.
 
 To test the external IP run this curl command from your local machine:
 
