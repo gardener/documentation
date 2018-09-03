@@ -13,18 +13,16 @@ scope: app-developer
 real time. It visualizes the in- and outgoing traffic on the terminal using two graphs and 
 provides additional info like the total amount of transfered data and min/max network usage. 
 
-We generate docker container to monitor the traffic of a *Node* within your Kubernetes cluster
+We generate a docker container to monitor the traffic of a *Node* within your Kubernetes cluster
 
 
 ## Why
 Why use such a simple tool when there are excellent monitoring solutions like **Grafana** or 
-**Prometheus** out there? Sometimes it is necessary to do some fast debug sessions in a productive 
-cluster to detect problems. It is not practicable to install and configure Grafana for this 
-"just for a while" and then get used to it.
+**Prometheus** out there? It would be overkill to install and Grafana for a quick debug session.
 
-Sometimes it is the little helpers who can make life easier for you for the first time.
+Sometimes the little helpers can make life easier.
 
-But in the end you are right: [grafana](https://grafana.com/) or [prometheus](https://prometheus.io/) should be the
+But on the long run you are right: [grafana](https://grafana.com/) or [prometheus](https://prometheus.io/) should be the
 tool of choice for monitoring your cluster.
 
 
