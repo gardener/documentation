@@ -5,8 +5,8 @@ type: Blog
 
 
 The efs-provisioner allows you to mount EFS storage as PersistentVolumes in kubernetes. It consists of a container
-that has access to an AWS EFS resource. The container reads a configmap which contains the EFS filesystem ID, the 
-AWS region and the name you want to use for your efs-provisioner. This name will be used later when you create a 
+that has access to an AWS EFS resource. The container reads a configmap containing the EFS filesystem ID, the 
+AWS region and the name identifying the efs-provisioner. This name will be used later when you create a 
 storage class.
 
 
@@ -14,19 +14,19 @@ storage class.
 
 
 ## Why EFS
-1. One app, multiple nodes, same file(s)
+1. When you have application running on multiple nodes which require shared access to a file system
 1. When you have an application that requires multiple virtual machines to access the same file system at the same time, 
    AWS EFS is a tool that you can use.
-1. EFS support encryption.
+1. EFS supports encryption.
 1. EFS is SSD based storage and its storage capacity and pricing will scale in or out as needed, so there is no need 
    for the system administrator to do additional operations. It can grow to a petabyte scale.
 1. EFS now supports NFSv4 lock upgrading and downgrading, so yes, you can use sqlite with EFS… even if it was possible 
-   to do it before.
+   before.
 1. Easy to setup
 
 
 ## Why Not EFS
-1. Sometimes when you think about using a service like EFS, you may also think about **Cloud Lock** and its negative sides 
+1. Sometimes when you think about using a service like EFS, you may also think about **vendor lock-in** and its negative sides 
 1. Making an EFS backup may decrease your production FS performance; the throughput used by backup counts towards 
    your total file system throughput.
 1. EFS is expensive compared to EBS (probably 2x more EBS pricing)
