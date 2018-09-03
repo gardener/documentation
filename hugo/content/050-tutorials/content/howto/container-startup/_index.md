@@ -1,5 +1,5 @@
 ---
-title: Orchestration of containers startup
+title: Orchestration of container startup
 description: "How to orchestrate startup sequence of multiple containers"
 type: tutorial-page
 level: beginner
@@ -10,8 +10,9 @@ scope: app-developer
 
 ## Disclaimer
 
-If application depends on certain services which are packaged and deployed through different containers, instead of relying on certain starting sequence of containers in order to run successfully,
-the application should be implemented in a way to handle unavailability of the depending services.  The approaches described in the tutorial should be used in consultation with your architect.
+If an application depends on other services deployed separately do not rely on a certain start sequence of containers 
+but ensure that the application can cope with unavailability of the services it depends on.
+
 
 ## Introduction
 Kubernetes offers a feature called [InitContainers](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) to perform some tasks during a pod's initialization.
