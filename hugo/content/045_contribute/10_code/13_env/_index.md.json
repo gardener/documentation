@@ -1,5 +1,163 @@
 [
   {
+    "sha": "17ff743864121931dc45278a62021be728643c80",
+    "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOjE3ZmY3NDM4NjQxMjE5MzFkYzQ1Mjc4YTYyMDIxYmU3Mjg2NDNjODA=",
+    "commit": {
+      "author": {
+        "name": "Rafael Franzke",
+        "email": "rafael.franzke@sap.com",
+        "date": "2018-09-03T16:43:09Z"
+      },
+      "committer": {
+        "name": "Rafael Franzke",
+        "email": "rafael.franzke@sap.com",
+        "date": "2018-09-03T16:43:11Z"
+      },
+      "message": "Update local development setup guide",
+      "tree": {
+        "sha": "92842e20459149136dab9137c1499ba8b53d79cd",
+        "url": "https://api.github.com/repos/gardener/gardener/git/trees/92842e20459149136dab9137c1499ba8b53d79cd"
+      },
+      "url": "https://api.github.com/repos/gardener/gardener/git/commits/17ff743864121931dc45278a62021be728643c80",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/gardener/commits/17ff743864121931dc45278a62021be728643c80",
+    "html_url": "https://github.com/gardener/gardener/commit/17ff743864121931dc45278a62021be728643c80",
+    "comments_url": "https://api.github.com/repos/gardener/gardener/commits/17ff743864121931dc45278a62021be728643c80/comments",
+    "author": {
+      "login": "rfranzke",
+      "id": 19169361,
+      "node_id": "MDQ6VXNlcjE5MTY5MzYx",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/19169361?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rfranzke",
+      "html_url": "https://github.com/rfranzke",
+      "followers_url": "https://api.github.com/users/rfranzke/followers",
+      "following_url": "https://api.github.com/users/rfranzke/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rfranzke/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/rfranzke/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rfranzke/subscriptions",
+      "organizations_url": "https://api.github.com/users/rfranzke/orgs",
+      "repos_url": "https://api.github.com/users/rfranzke/repos",
+      "events_url": "https://api.github.com/users/rfranzke/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/rfranzke/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "rfranzke",
+      "id": 19169361,
+      "node_id": "MDQ6VXNlcjE5MTY5MzYx",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/19169361?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rfranzke",
+      "html_url": "https://github.com/rfranzke",
+      "followers_url": "https://api.github.com/users/rfranzke/followers",
+      "following_url": "https://api.github.com/users/rfranzke/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rfranzke/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/rfranzke/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rfranzke/subscriptions",
+      "organizations_url": "https://api.github.com/users/rfranzke/orgs",
+      "repos_url": "https://api.github.com/users/rfranzke/repos",
+      "events_url": "https://api.github.com/users/rfranzke/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/rfranzke/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "ae9be91a14b2f86f1f48e9d9521b81a0feff3f5b",
+        "url": "https://api.github.com/repos/gardener/gardener/commits/ae9be91a14b2f86f1f48e9d9521b81a0feff3f5b",
+        "html_url": "https://github.com/gardener/gardener/commit/ae9be91a14b2f86f1f48e9d9521b81a0feff3f5b"
+      }
+    ]
+  },
+  {
+    "sha": "96380a747e55ece54423b54db29496b8f1554f11",
+    "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOjk2MzgwYTc0N2U1NWVjZTU0NDIzYjU0ZGIyOTQ5NmI4ZjE1NTRmMTE=",
+    "commit": {
+      "author": {
+        "name": "Vladimir Nachev",
+        "email": "vladimir.nachev@sap.com",
+        "date": "2018-08-14T14:29:13Z"
+      },
+      "committer": {
+        "name": "Vladimir Nachev",
+        "email": "vladimir.nachev@sap.com",
+        "date": "2018-08-14T14:29:36Z"
+      },
+      "message": "Improve local development setup\n\n* Provide guideline for minimal minikube resource capacity.\n* Disable `reserveExcessCapacity` in examples.",
+      "tree": {
+        "sha": "a19e2926c71ae451dc13b1ce91dccb91718241ac",
+        "url": "https://api.github.com/repos/gardener/gardener/git/trees/a19e2926c71ae451dc13b1ce91dccb91718241ac"
+      },
+      "url": "https://api.github.com/repos/gardener/gardener/git/commits/96380a747e55ece54423b54db29496b8f1554f11",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v2\n\niQIcBAABCAAGBQJbcuePAAoJENGLA2kAcCX6aNsP/3uPv1QG/EHZq4Mx8QcdhI6t\nOdhSIvvUiG934W1KM2YUtef1iQ1A/kgRQtdh0A5PAm0A/knZCeCulY9q5bG0JBzt\n30ZgfC5G03ld0Tofsj0G4nLq2DqKhXQoY3gJUOApG/sTNTAo2rh3x1aISdH5vL40\n3OMjg+Kcj6Fa5R2BlQyd0XkzbfpNHDsZAJfDZfMe2vdbAlnMVKxDRw7Miv95IKpU\nWicA8bD7C6QD5zJRe2c2uUohGLVl5WtWGpuOybWekxq1SCxFIgBT4qrgFI0bxyQQ\nHXC0Su/pSJTOiKGhSoMKAnB974rHrFNVkfLnZ0onceowXFPMLPM3XKQZuteseSbg\naiXsRDtvkv65XR3qmcIDROJTxCdbuGDBIqTLTZo0GwvYeZOe/lURKUh80ipQOecd\nlbp78/9vALzEyTgE2Bqx2nvRAVnIgrcT2QGGx+qnavdBhwxrJom4hmPOxes20x4H\n1OdGwiyiugN6DjiPdGsw5Tqm202/0uz/sMWPxl/wTj5Ry6IOkTyfJgdMQ1q0NS7b\nCHN3KlEfxIHCRAmPTE0J6aoaQ7DEWFLJvVw0VEEQjMP0vtjDBE3le+ui8m5EF1hr\nrWFAc7GKRFh/1LSdXbVPjOAyCBCwG3pKdhVc8F0WSCbiW3zpUBrnXXihXR3bR3NF\nZKlwm9uMQqG53PcWrycI\n=jmtA\n-----END PGP SIGNATURE-----",
+        "payload": "tree a19e2926c71ae451dc13b1ce91dccb91718241ac\nparent f71156adc566fecb51f84c7fec58b176cc32c81a\nauthor Vladimir Nachev <vladimir.nachev@sap.com> 1534256953 +0300\ncommitter Vladimir Nachev <vladimir.nachev@sap.com> 1534256976 +0300\n\nImprove local development setup\n\n* Provide guideline for minimal minikube resource capacity.\n* Disable `reserveExcessCapacity` in examples.\n"
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/gardener/commits/96380a747e55ece54423b54db29496b8f1554f11",
+    "html_url": "https://github.com/gardener/gardener/commit/96380a747e55ece54423b54db29496b8f1554f11",
+    "comments_url": "https://api.github.com/repos/gardener/gardener/commits/96380a747e55ece54423b54db29496b8f1554f11/comments",
+    "author": {
+      "login": "vpnachev",
+      "id": 6798531,
+      "node_id": "MDQ6VXNlcjY3OTg1MzE=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/6798531?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/vpnachev",
+      "html_url": "https://github.com/vpnachev",
+      "followers_url": "https://api.github.com/users/vpnachev/followers",
+      "following_url": "https://api.github.com/users/vpnachev/following{/other_user}",
+      "gists_url": "https://api.github.com/users/vpnachev/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/vpnachev/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/vpnachev/subscriptions",
+      "organizations_url": "https://api.github.com/users/vpnachev/orgs",
+      "repos_url": "https://api.github.com/users/vpnachev/repos",
+      "events_url": "https://api.github.com/users/vpnachev/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/vpnachev/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "vpnachev",
+      "id": 6798531,
+      "node_id": "MDQ6VXNlcjY3OTg1MzE=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/6798531?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/vpnachev",
+      "html_url": "https://github.com/vpnachev",
+      "followers_url": "https://api.github.com/users/vpnachev/followers",
+      "following_url": "https://api.github.com/users/vpnachev/following{/other_user}",
+      "gists_url": "https://api.github.com/users/vpnachev/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/vpnachev/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/vpnachev/subscriptions",
+      "organizations_url": "https://api.github.com/users/vpnachev/orgs",
+      "repos_url": "https://api.github.com/users/vpnachev/repos",
+      "events_url": "https://api.github.com/users/vpnachev/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/vpnachev/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "f71156adc566fecb51f84c7fec58b176cc32c81a",
+        "url": "https://api.github.com/repos/gardener/gardener/commits/f71156adc566fecb51f84c7fec58b176cc32c81a",
+        "html_url": "https://github.com/gardener/gardener/commit/f71156adc566fecb51f84c7fec58b176cc32c81a"
+      }
+    ]
+  },
+  {
     "sha": "1e5c05da22fd40b8085fefe1f8a4f89551d29f6e",
     "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOjFlNWMwNWRhMjJmZDQwYjgwODVmZWZlMWY4YTRmODk1NTFkMjlmNmU=",
     "commit": {
