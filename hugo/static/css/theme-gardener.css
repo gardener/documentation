@@ -55,7 +55,7 @@ li {
 
 h1, h2, h3, h4, h5 {
     color: var(--MAIN-TITLES-TEXT-color) !important;
-    font-family: Roboto, sans-serif !important;
+    font-family:"Multi", sans-serif !important;
     font-weight: 300;
     text-align: left;
     text-transform: none;
@@ -195,7 +195,7 @@ a:hover {
     font-weight: 100;
     position: relative;
     color: white !important;
-    font-family: Roboto, sans-serif !important;
+    font-family:"Multi", sans-serif  !important;
     text-transform: none;
 }
 
@@ -206,7 +206,7 @@ a:hover {
     padding: 0;
     margin: 0;
     letter-spacing: 0.8px;
-    font-family: Roboto, sans-serif !important;
+    font-family: "Multi", sans-serif  !important;
     text-transform: none;
 }
 
