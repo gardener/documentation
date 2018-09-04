@@ -9,6 +9,7 @@ status: Reviewed
 last_reviewed: 29.05.2018
 category: kubectl
 scope: app-developer
+aliases: ["/howto/kube-shell"]
 ---
 
 

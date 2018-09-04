@@ -1,5 +1,84 @@
 [
   {
+    "sha": "687ee1e5ea686f9024f9b7fbaaef45a3ba68b4e9",
+    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OjY4N2VlMWU1ZWE2ODZmOTAyNGY5YjdmYmFhZWY0NWEzYmE2OGI0ZTk=",
+    "commit": {
+      "author": {
+        "name": "Matthias Sohn",
+        "email": "matthias.sohn@sap.com",
+        "date": "2018-07-25T12:22:55Z"
+      },
+      "committer": {
+        "name": "Matthias Sohn",
+        "email": "matthias.sohn@sap.com",
+        "date": "2018-07-25T12:22:55Z"
+      },
+      "message": "Fix broken link in CONTRIBUTING.md\n\nFixes #17",
+      "tree": {
+        "sha": "0f50e6f36952ed452bbc3600897b1994789ab135",
+        "url": "https://api.github.com/repos/gardener/documentation/git/trees/0f50e6f36952ed452bbc3600897b1994789ab135"
+      },
+      "url": "https://api.github.com/repos/gardener/documentation/git/commits/687ee1e5ea686f9024f9b7fbaaef45a3ba68b4e9",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/documentation/commits/687ee1e5ea686f9024f9b7fbaaef45a3ba68b4e9",
+    "html_url": "https://github.com/gardener/documentation/commit/687ee1e5ea686f9024f9b7fbaaef45a3ba68b4e9",
+    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/687ee1e5ea686f9024f9b7fbaaef45a3ba68b4e9/comments",
+    "author": {
+      "login": "msohn",
+      "id": 143355,
+      "node_id": "MDQ6VXNlcjE0MzM1NQ==",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/143355?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/msohn",
+      "html_url": "https://github.com/msohn",
+      "followers_url": "https://api.github.com/users/msohn/followers",
+      "following_url": "https://api.github.com/users/msohn/following{/other_user}",
+      "gists_url": "https://api.github.com/users/msohn/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/msohn/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/msohn/subscriptions",
+      "organizations_url": "https://api.github.com/users/msohn/orgs",
+      "repos_url": "https://api.github.com/users/msohn/repos",
+      "events_url": "https://api.github.com/users/msohn/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/msohn/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "msohn",
+      "id": 143355,
+      "node_id": "MDQ6VXNlcjE0MzM1NQ==",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/143355?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/msohn",
+      "html_url": "https://github.com/msohn",
+      "followers_url": "https://api.github.com/users/msohn/followers",
+      "following_url": "https://api.github.com/users/msohn/following{/other_user}",
+      "gists_url": "https://api.github.com/users/msohn/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/msohn/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/msohn/subscriptions",
+      "organizations_url": "https://api.github.com/users/msohn/orgs",
+      "repos_url": "https://api.github.com/users/msohn/repos",
+      "events_url": "https://api.github.com/users/msohn/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/msohn/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "22a04eba3413ec5b31d48074699b488e602d3469",
+        "url": "https://api.github.com/repos/gardener/documentation/commits/22a04eba3413ec5b31d48074699b488e602d3469",
+        "html_url": "https://github.com/gardener/documentation/commit/22a04eba3413ec5b31d48074699b488e602d3469"
+      }
+    ]
+  },
+  {
     "sha": "fd15948f0e70bfc4b824cf78b42450116fcd5428",
     "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OmZkMTU5NDhmMGU3MGJmYzRiODI0Y2Y3OGI0MjQ1MDExNmZjZDU0Mjg=",
     "commit": {

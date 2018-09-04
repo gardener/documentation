@@ -16,4 +16,4 @@ network policies:
 {{% blog_img "logo" "blog-namespaceisolation.png" %}}
 
 
-..read on [Namespace Isolation]({{ site.baseurl }}/doc/2017/01/16/howto-networkisolation.html) how to configure it.
+..read on [Namespace Isolation](/howto/networkisolation) how to configure it.

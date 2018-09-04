@@ -26,4 +26,4 @@ be sure to change context so that kubectl is pointing to docker-for-desktop:
 
 ...see more on [Docker.com](https://docs.docker.com/docker-for-mac/#kubernetes)
 
-I recommend to [setup your shell]({{ site.baseurl }}/doc/2017/01/16/howto-bash_kubeconfig.html) to see which KUBECONFIG is active.
+I recommend to [setup your shell](/howto/kube-shell) to see which KUBECONFIG is active.

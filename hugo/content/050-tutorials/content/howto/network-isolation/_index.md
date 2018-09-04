@@ -5,6 +5,7 @@ level: advanced
 index: 10
 category: Networking
 scope: app-developer
+aliases: ["/howto/networkisolation"]
 ---
 
 ...or **DENY all traffic from other namespaces**
