@@ -8,7 +8,7 @@ Security vulnerabilities should be handled quickly and sometimes privately. The 
 
 * Olaf Beier, (**[@olafbeier](https://github.com/olafbeier)**) 
 * Norbert Hamann, (**[@norberthamann](https://github.com/norberthamann)**) 
-* Claudia Hölters, (**[@hoeltcl](https://github.com/hoeltcl)**)
+* Claudia H&ouml;lters, (**[@hoeltcl](https://github.com/hoeltcl)**)
 * Oliver Kling, (**[@oliverkling](https://github.com/oliverkling)**) 
 * Matthias Sohn, (**[@msohn](https://github.com/msohn)**)
 * Dirk Marwinski, (**[@marwinski](https://github.com/marwinski)**)
