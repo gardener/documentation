@@ -31,9 +31,8 @@ difficult, since the maintainer of the Dockerfile didn't actually make any chang
 ### Good Dockerfile
 A digest takes the place of the tag when pulling an image. This will ensure your Dockerfile remains immutable.
 
-```bash
+```Dockerfile
 FROM alpine@sha256:7043076348bf5040220df6ad703798fd8593a0918d06d3ce30c6c93be117e430
-
 ```
    
    
