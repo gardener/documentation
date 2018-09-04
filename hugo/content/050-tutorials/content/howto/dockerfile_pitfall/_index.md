@@ -63,7 +63,7 @@ than most distribution based images (~5MB).  For most popular languages
 and products, there are usually an official Alpine Linux image, e.g. [golang](https://hub.docker.com/_/golang/), 
 [nodejs](https://hub.docker.com/_/node/) and [postgres](https://hub.docker.com/_/postgres/).
 
-```shell
+```bash
 $  docker images
 REPOSITORY                                                      TAG                     IMAGE ID            CREATED             SIZE
 postgres                                                        9.6.9-alpine            6583932564f8        13 days ago         39.26 MB

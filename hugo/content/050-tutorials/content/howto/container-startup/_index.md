@@ -23,7 +23,7 @@ In this tutorial we demonstrate how to use it orchestrate starting sequence of m
 
 This app represents the minimal example where an application relies on another service or database.  In this example, if the application starts before database is ready, the application will fail as shown below:
 
-```shell
+```bash
 $ kubectl logs webapp-958cf5567-h247n
 time="2018-06-12T11:02:42Z" level=info msg="Connecting to Postgres database using: host=`postgres:5432` dbname=`url_shortener_db` username=`user`\n"
 time="2018-06-12T11:02:42Z" level=fatal msg="failed to start: failed to open connection to database: dial tcp: lookup postgres on 100.64.0.10:53: no such host\n"
@@ -88,7 +88,7 @@ This also brings the advantage of not having to include unnecessary tools (e.g. 
 
 With introduction of `InitContainers`, the pod startup will look like following in case database is not available yet:
 
-```shell
+```bash
 $ kubectl get po -w
 NAME                                READY     STATUS    RESTARTS   AGE
 nginx-deployment-5cc79d6bfd-t9n8h   1/1       Running   0          5d

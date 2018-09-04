@@ -136,7 +136,7 @@ Now, the command `kubectl get pods` lists the pod `termination-demo-xxx` in the 
 The command `kubectl describe pod termination-demo-xxx` tells that there is no error during startup but gives no clue
  about what caused the crash.
 
-```shell
+```bash
 Events:
   FirstSeen	LastSeen	Count	From							SubObjectPath					Type		Reason		Message
   ---------	--------	-----	----							-------------					--------	------		-------
@@ -152,7 +152,7 @@ Events:
 The command `kubectl get logs termination-demo-xxx` gives access to the output, the application writes on stderr and 
 stdout. In this case, you get an output like
 
-```shell
+```bash
 /bin/sh: 1: cannot open : No such file
 ```
 
@@ -293,7 +293,7 @@ spec:
 The command `kubectl get pods` lists the pod `termination-demo-xxx` in the state `Pending`. More details on why this happens
 could be found by using the command `kubectl describe pod termination-demo-xxx`:
 
-```shell
+```bash
 $ kubectl describe po termination-demo-fdb7bb7d9-mzvfw
 Name:           termination-demo-fdb7bb7d9-mzvfw
 Namespace:      default
