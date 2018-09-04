@@ -24,7 +24,7 @@ The story goes something like this:
  - Build a new image and push it with the **same tag** (cp-enablement/awesomeapp:1.0)
  - Update your deployment
  - Realize that the bug is still present
- - Repeat 3-5 until you pull your hair out
+ - Rinse and repeat steps 3 to 5 until you recognize this doesn't work
 
 The problem relates to how Kubernetes decides whether to do a *docker pull* when starting a container.
 Since we tagged our image as *:1.0*, the default pull policy is **IfNotPresent**. The Kubelet already has a local 
