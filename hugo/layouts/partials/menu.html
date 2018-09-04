@@ -44,7 +44,9 @@
         {{ if .Params.hidden}}
         {{else}}
           <a href="{{.RelPermalink}}">
-              <i class="{{.Params.icon}} "></i>
+              {{ if .Params.icon}}
+              <img class="navigation-icon" src="/images/{{.Params.icon}}"/>
+              {{end}}
               {{or .Params.menuTitle .LinkTitle .Title}}{{safeHTML .Params.Post}}
           </a>
           {{ $numberOfPages := (add (len .Pages) (len .Sections)) }}

@@ -2,7 +2,7 @@
 title: Tutorials
 url: /tutorials
 type: tutorials
-icon: fa fa-terminal
+icon: navigation_tutorials.svg
 ---
 <div class="hero">
     <div class="container reveal-fast" style="visibility:hidden">

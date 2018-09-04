@@ -1,7 +1,7 @@
 ---
 title: Curated Links
 url: /curated-links
-icon: fa fa-bookmark-o
+icon: navigation_links.svg
 type: blank
 ---
 

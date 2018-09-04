@@ -1,7 +1,7 @@
 ---
 title: Contribute
 url: /contribute/
-icon: fa fa-plus-square-o
+icon: navigation_contribute.svg
 type: padding
 ---
 
