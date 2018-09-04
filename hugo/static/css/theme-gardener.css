@@ -328,6 +328,9 @@ code.hljs + span.copy-to-clipboard{
 div.notices p {
     font-size: 1em;
 }
+section.attachments .attachments-files {
+    font-size: 1em;
+}
 
 pre code {
     white-space: pre !important;
