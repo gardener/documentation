@@ -37,13 +37,13 @@ glob( __dirname+'/../hugo/content/**/*.md', function( err, files ) {
             // transform a normal URL of a file to the RAW version.
             //
             let url = content.attributes.remote
-            console.log("1.",url)
+            markdownUrl = url
 
             // we reference a complete repository. In this case we fetch the README.md and inline them
             //
             if(url.endsWith(".git")){
                 url = url.replace(".git","/blob/master/README.md")
-                console.log("2.",url)
+                markdownUrl = url
             }
 
             // The url points to a github wiki.
@@ -59,7 +59,6 @@ glob( __dirname+'/../hugo/content/**/*.md', function( err, files ) {
                 let project = segments[1]
                 let doc = segments.slice(3).join("/")+".md"
                 url = "https://raw.githubusercontent.com/wiki/"+user+"/"+project+"/"+doc
-                console.log("3.",url)
             }
             else {
                 // Required to fetch the plain MarkDown instead of the rendered version
@@ -68,7 +67,6 @@ glob( __dirname+'/../hugo/content/**/*.md', function( err, files ) {
                         .replace("https://github.com/" ,"https://raw.githubusercontent.com/")
                         .replace("/blob/master/", "/master/")
                         .replace("/tree/master/", "/master/")
-                console.log("4.",url)
             }
 
             // Get the content of the references MD file and append it to the
@@ -78,7 +76,7 @@ glob( __dirname+'/../hugo/content/**/*.md', function( err, files ) {
             if(!clean){
                 try {
                     md = fm(request("GET", url).getBody().toString()).body
-                    md = rewriteAndCheckUrls(url, md)
+                    md = rewriteAndCheckUrls(markdownUrl, md)
                 }catch(err){
                     console.log("unable to get ",url)
                 }
