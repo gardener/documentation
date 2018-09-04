@@ -102,7 +102,5 @@ tutum/curl``` - which will attempt to pull the latest tag. If this succeeds, the
 the originally specified tag doesn't exist. Go to the Docker registry and check which tags are available for this image.
 
 If ```docker pull tutum/curl``` (without an exact tag) fails, then we have a bigger problem - 
-that image does not exist at all in our image registry. By default, Kubernetes uses the Dockerhub 
-registry. If you're using [Artifactory](https://docker.repositories.sap.ondemand.com/webapp/), you'll need to specify 
-the registry URL in the image string. Read [Artifactory How To]({{ site.baseurl }}/doc/2017/01/16/howto-artifactory.html) for more details.
+that image does not exist at all in our image registry.
 
