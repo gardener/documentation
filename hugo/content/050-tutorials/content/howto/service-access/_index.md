@@ -83,7 +83,7 @@ kubectl create -f <Your yaml file name>
 ```
 
 Checking the service status
-```shell
+```bash
 $ kubectl get svc nginx-svc
 NAME        TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)   AGE
 nginx-svc   ClusterIP   100.66.125.61   <none>        80/TCP    45m
