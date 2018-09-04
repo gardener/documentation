@@ -1,5 +1,5 @@
 ---
-title: KUBECONFIG context as bash prompt
+title: Kubeconfig context as bash prompt
 description: "Expose the active kubeconfig into the bash"
 type: tutorial-page
 level: beginner
@@ -25,7 +25,7 @@ Suppose you have two clusters, one for development work and one for scratch work
 
 How to handle this easily without copying the used configuration always to the right place? 
 
-## Export KUBECONFIG
+## Export the KUBECONFIG enviroment variable
 ```sh 
 bash$ export KUBECONFIG=<PATH-TO-M>-CONFIG>/kubeconfig-dev.yaml
 ```
