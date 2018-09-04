@@ -163,6 +163,14 @@ a:hover {
 }
 
 
+.open_github_ticket_header img {
+    width: 32px;
+    position: relative;
+    margin: 0 !important;
+    top: 10px;
+    display: inline-block !important;
+}
+
 .preamble {
     margin-top:20px;
     font-style: italic;
@@ -306,10 +314,17 @@ code{
     border:0;
     cursor:pointer;
 }
+code + span.copy-to-clipboard{
+    display: none;
+}
 
 code.hljs {
     line-height: 1.3;
 }
+code.hljs + span.copy-to-clipboard{
+    display: initial;
+}
+
 
 pre code {
     white-space: pre !important;
