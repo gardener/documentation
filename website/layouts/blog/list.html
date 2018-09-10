@@ -1,0 +1,47 @@
+
+{{ partial "header_blank.html" . }}
+
+{{ $css := resources.Get "sass/blog.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $css.Permalink }}">
+
+<div class="blog-header">
+    <div class="container">
+        <h1>The weekly kube</h1>
+        <div class="preamble reveal-slow"  style="visibility:hidden">
+            We'll update this page to announce
+            major releases and showcase cool stuff being built with Gardener. Have an idea for an article? Suggest it!
+        </div>
+    </div>
+</div>
+
+
+{{ .Content }}
+
+
+<div class="blogs">
+    <div class="list container">
+
+        <!-- Ranges through content/post/*.md -->
+        {{ range $index, $page :=  ((sort (where $.Site.Pages "Section" "010-blog") ".Dir" "desc")) }}
+
+        <article class="post row" data-path="">
+            <div class="one column">
+                <img src="{{ trim (partial "git_avatar.html" .File.Path) " \n" }}"
+                     class="user-icon icons"
+                     alt="user-image">
+            </div>
+            <div class="nine columns">
+                <h2>{{ .Title }}</h2>
+                <h3><div class="last-update">Updated <span>{{ partial "git_date.html" . }}</span> by {{ partial "git_author.html" . }}</div></h3>
+                <p>
+
+                    {{.Content}}
+                </p>
+            </div>
+        </article>
+        {{end}}
+    </div>
+</div>
+
+
+{{ partial "footer.html" . }}

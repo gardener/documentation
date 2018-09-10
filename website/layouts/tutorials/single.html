@@ -1,0 +1,12 @@
+{{ partial "header_blank.html" . }}
+
+{{ $css := resources.Get "sass/hero.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $css.Permalink }}">
+{{ $using := resources.Get "sass/using-gardener.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $using.Permalink }}">
+
+
+{{ .Content }}
+
+
+{{ partial "footer_blank.html" . }}

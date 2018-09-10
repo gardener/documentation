@@ -1,0 +1,82 @@
+<nav id="sidebar" class="">
+{{ $currentNode := . }}
+  <div id="header-wrapper">
+    <div id="header">
+      {{ partial "logo.html" . }}
+    </div>
+    {{ partial "search.html" . }}
+  </div>
+
+
+  <div class="highlightable">
+      <ul class="topics">
+            {{ range $index, $page :=  sort .Site.Home.Sections ".Dir"}}
+                 {{ $c :=add $index 1 }}
+                 {{ template "section-tree-nav" dict "sect" . "currentnode" $currentNode  "index" $c }}
+            {{end}}
+      </ul>
+      <section id="footer">
+        {{ partial "menu-footer.html" . }}
+      </section>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+<!-- templates -->
+{{ define "section-tree-nav" }}
+{{ $currentNode := .currentnode }}
+{{ $index := .index }}
+{{with .sect}}
+
+  {{if .IsSection}}
+    {{safeHTML .Params.head}}
+    <li data-nav-id="{{.URL}}" title="{{.Title}}" class="dd-item
+        {{if .IsAncestor $currentNode }}parent{{end}}
+        {{if eq .UniqueID $currentNode.UniqueID}}active{{end}}
+        {{if .Params.alwaysopen}}parent{{end}}
+        ">
+        {{ if .Params.hidden}}
+        {{else}}
+          <a href="{{.RelPermalink}}">
+              {{ if .Params.icon}}
+              <img class="navigation-icon" src="/images/{{.Params.icon}}"/>
+              {{end}}
+              {{or .Params.menuTitle .LinkTitle .Title}}{{safeHTML .Params.Post}}
+          </a>
+          {{ $numberOfPages := (add (len .Pages) (len .Sections)) }}
+          {{ if (and (not .Params.aggregate) (ne $numberOfPages 0)) }}
+            <ul>
+              {{ $currentNode.Scratch.Set "pages" .Pages }}
+              {{ if .Sections}}
+                {{ $currentNode.Scratch.Set "pages" (.Pages | union .Sections) }}
+              {{end}}
+              {{ $pages := ($currentNode.Scratch.Get "pages") }}
+
+
+              {{ range  sort $pages ".Dir"}}
+                {{ if .Params.hidden}}
+                {{else}}
+                    {{ template "section-tree-nav" dict "sect" . "currentnode" $currentNode }}
+                {{end}}
+              {{ end }}
+
+            </ul>
+        {{ end }}
+      {{ end }}
+    </li>
+  {{else}}
+      <li data-nav-id="{{.URL}}" title="{{.Title}}" class="dd-item {{if eq .UniqueID $currentNode.UniqueID}}active{{end}}">
+        <a href="{{ .RelPermalink}}">
+            {{safeHTML .Params.Pre}}{{or .Params.menuTitle .LinkTitle .Title}}{{safeHTML .Params.Post}}
+        </a>
+    </li>
+  {{end}}
+{{ end }}
+{{ end }}
+

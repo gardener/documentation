@@ -1,0 +1,35 @@
+{{ partial "header_blank.html" . }}
+
+{{ $topic := resources.Get "sass/groupedByTopic.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $topic.Permalink }}">
+{{ $group := resources.Get "sass/hero.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $group.Permalink }}">
+
+
+{{.Content}}
+
+<div class="learning">
+
+
+    {{ range (where (where (where .Site.Pages "Section" .Section) "Type" "in" (slice "tutorial-page" "tutorial-app")) ".Params.scope" .Params.scope ).GroupByParam "category" }}
+    <div class="topic">
+        <h1 class="sticky">{{(index .Pages 0).Params.category}}</h1>
+        {{ range sort .Pages "Params.index" }}
+        <div class="entry">
+            <a href="{{ .Permalink}}">
+                {{ if (strings.HasSuffix  .Params.remote ".git" )}}
+                <i class="fa fa-github listicon" aria-hidden="true"></i>
+                {{else}}
+                <i class="fa fa-file-text listicon" aria-hidden="true"></i>
+                {{end}}
+                {{ .Title }}
+            </a>
+        </div>
+        {{ end }}
+    </div>
+    {{ end }}
+
+</div>
+
+{{ partial "footer.html" . }}
+

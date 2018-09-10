@@ -1,0 +1,381 @@
+@import url(//fonts.googleapis.com/css?family=Muli:300,400,300italic,400italic);
+
+:root {
+    --MAIN-TEXT-color: #323232; /* Color of text by default */
+    --MAIN-TITLES-TEXT-color: #1abc9c; /* Color of titles h2-h3-h4-h5 */
+    --MAIN-LINK-color: #1EAEDB; /* Color of links */
+    --MAIN-LINK-HOVER-color: #00897b; /* Color of hovered links */
+    --MAIN-ANCHOR-color: #00897b; /* color of anchors on titles */
+
+    --MENU-HEADER-BG-color: #19222b; /* Background color of menu header */
+    --MENU-HEADER-BORDER-color: transparent; /*Color of menu header border */
+
+    --MENU-SEARCH-BG-color: white; /* Search field background color (by default borders + icons) */
+    --MENU-SEARCH-BOX-color: #19222b; /* Override search field border color */
+    --MENU-SEARCH-BOX-ICONS-color: #19222b; /* Override search field icons color */
+
+    --MENU-SECTIONS-ACTIVE-BG-color: #424242; /* Background color of the active section and its childs */
+    --MENU-SECTIONS-BG-color: #424242; /* Background color of other sections */
+    --MENU-SECTIONS-LINK-color: white; /* Color of links in menu */
+    --MENU-SECTIONS-LINK-HOVER-color: white; /* Color of links in menu, when hovered */
+    --MENU-SECTION-ACTIVE-CATEGORY-color: white; /* Color of active category text */
+    --MENU-SECTION-ACTIVE-CATEGORY-BG-color: hsla(0, 0%, 100%, .1); /* Color of background for the active category (only) */
+
+    --MENU-VISITED-color: #00897b; /* Color of 'page visited' icons in menu */
+    --MENU-SECTION-HR-color: #18211c; /* Color of <hr> separator in menu */
+
+    --MENU-TOBBAR-BG-color: #f5f5f5;
+
+    --GITHUB-FOOTER-HEIGHT: 100px;
+}
+
+body {
+    color: var(--MAIN-TEXT-color) !important;
+    font-family: "Multi", sans-serif !important;
+}
+
+textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, select[multiple=multiple]:focus {
+    border-color: none;
+    box-shadow: none;
+}
+
+a {
+    color: var(--MAIN-LINK-color);
+}
+
+/* reset skeleton.css setting for li elements */
+li {
+    margin-bottom: 0;
+}
+
+.externalLink i{
+    padding-left: 5px;
+    font-size:80%;
+}
+
+h1, h2, h3, h4, h5 {
+    color: var(--MAIN-TITLES-TEXT-color) !important;
+    font-family:"Multi", sans-serif !important;
+    font-weight: 300;
+    text-align: left;
+    text-transform: none;
+}
+
+
+
+h1, #chapter h1 {
+    font-size: 1.4em;
+}
+
+
+h2, #chapter h2 {
+    font-size: 1.8em;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    padding-top: 1em;
+}
+
+
+#chapter h3 {
+    text-align: left;
+}
+
+#chapter p {
+    text-align: left;
+}
+
+.body-inner-wrapper {
+    min-height: calc(100vh - var(--GITHUB-FOOTER-HEIGHT));
+}
+
+#body-inner {
+    padding-bottom: 3rem;
+    max-width: 100%;
+}
+
+#body-inner p{
+    line-height: 1.8em;
+}
+
+#body-inner li {
+    list-style-position: outside;
+    margin-left: 20px;
+}
+.anchor {
+    color: var(--MAIN-ANCHOR-color);
+}
+
+a:hover {
+    color: var(--MAIN-LINK-HOVER-color);
+}
+
+#body .nav {
+    font-size: 20px;
+}
+
+#body a.highlight:after {
+    display: block;
+    content: "";
+    height: 1px;
+    width: 0%;
+    -webkit-transition: width 0.5s ease;
+    -moz-transition: width 0.5s ease;
+    -ms-transition: width 0.5s ease;
+    transition: width 0.5s ease;
+    background-color: var(--MAIN-LINK-HOVER-color);
+}
+
+#githubFactsheet {
+    text-align: right;
+    padding: 11px;
+    padding-bottom: 0px;
+    background-color: #FCFCFC;
+}
+#githubLink {
+    float: left;
+    padding-left: 10px;
+    line-height: 20px;
+}
+
+#githubLink a {
+  opacity: 0.5;
+}
+
+#githubLink .fa {
+    padding-right: 5px;
+}
+
+
+.howto_tickets {
+    background-color: #DF2353;
+    color:white;
+    padding:10px;
+    padding-top: 1px;
+    height: var(--GITHUB-FOOTER-HEIGHT);
+}
+.howto_tickets a{
+    color: var(--MAIN-LINK-color);
+}
+
+.howto_tickets h3{
+    color: white !important;
+    font-size:20px;
+    margin: 0.60rem 0 1rem 0;
+}
+
+
+.open_github_ticket_header img {
+    width: 32px;
+    position: relative;
+    margin: 0 !important;
+    top: 10px;
+    display: inline-block !important;
+}
+
+.preamble {
+    margin-top:20px;
+    font-style: italic;
+    font-size: 1.0em;
+    letter-spacing: 5px;
+}
+
+#top-bar p{
+    margin:0px;
+}
+
+#sidebar {
+    background-color: var(--MENU-SECTIONS-BG-color) !important;
+    z-index: 100;
+}
+
+#sidebar #header-wrapper {
+    background: var(--MENU-HEADER-BG-color);
+    color: var(--MENU-SEARCH-BOX-color);
+    border-color: var(--MENU-HEADER-BORDER-color);
+}
+
+
+#sidebar h1 {
+    font-size: 40px;
+    line-height: 40px;
+    padding: 10px 0 0;
+    margin: 0;
+    letter-spacing: 4px;
+    font-weight: 100;
+    position: relative;
+    color: white !important;
+    font-family:"Multi", sans-serif  !important;
+    text-transform: none;
+}
+
+#sidebar h2 {
+    color: #00897b !important;
+    font-size: 15px;
+    font-weight: 300;
+    padding: 0;
+    margin: 0;
+    letter-spacing: 0.8px;
+    font-family: "Multi", sans-serif  !important;
+    text-transform: none;
+}
+
+#sidebar  i.fa::before {
+    margin-right:10px;
+    margin-left:10px;
+}
+
+#sidebar .searchbox {
+    border-color: var(--MENU-SEARCH-BOX-color);
+    background: var(--MENU-SEARCH-BG-color);
+}
+
+#sidebar ul.topics > li.parent, #sidebar ul.topics > li.active {
+    background: var(--MENU-SECTIONS-ACTIVE-BG-color);
+}
+
+#sidebar ul.topics li.parent ul, #sidebar ul.topics > li.active ul {
+    padding-left: 30px;
+}
+
+#sidebar ul.topics > li {
+    border-left: 1px solid transparent;
+}
+
+#sidebar ul.topics > li.parent {
+    border-left: 1px solid var(--MAIN-TITLES-TEXT-color);
+    box-shadow: inset 8px 0 11px -8px #1abc9c9e;
+    opacity: 0.8;
+}
+
+#sidebar .searchbox * {
+    color: var(--MENU-SEARCH-BOX-ICONS-color);
+}
+
+#sidebar a {
+    color: var(--MENU-SECTIONS-LINK-color);
+}
+
+#sidebar a:hover {
+    color: var(--MENU-SECTIONS-LINK-HOVER-color);
+}
+
+#sidebar ul li.active > a {
+    background: var(--MENU-SECTION-ACTIVE-CATEGORY-BG-color);
+    color: var(--MENU-SECTION-ACTIVE-CATEGORY-color) !important;
+}
+
+
+#sidebar ul.topics > li > a {
+    line-height: 2rem;
+    font-size: 1.5rem;
+    font-weight:200;
+    padding-top:0;
+}
+
+#sidebar ul.topics > li > a b {
+    opacity: 1;
+    font-weight: 200;
+}
+
+#sidebar .navigation-icon{
+    width:16px;
+    top: 3px;
+    position: relative;
+}
+
+#sidebar hr {
+    border-color: var(--MENU-SECTION-HR-color);
+}
+
+
+.groupedByButton{
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.groupedByButton:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.tutorial-last-update {
+    text-align: right;
+    font-size: 0.7em;
+}
+
+code{
+    background: #eee;
+    color: #747474;
+    border-radius: 4px;
+    display: inline-block;
+    font-size: 80%;
+    line-height: 1;
+    padding: 5px 7px;
+    position: relative;
+    top: -2px;
+    border:0;
+    cursor:pointer;
+}
+code + span.copy-to-clipboard{
+    display: none;
+}
+
+code.hljs {
+    line-height: 1.3;
+}
+code.hljs + span.copy-to-clipboard{
+    display: initial;
+}
+
+div.notices p {
+    font-size: 1em;
+}
+section.attachments .attachments-files {
+    font-size: 1em;
+}
+
+pre code {
+    white-space: pre !important;
+}
+
+blockquote p {
+    font-size: 2.0rem;
+}
+
+
+.tooltipped-center:after {
+    right: 50%;
+    top: 30%;
+    margin-left: -15px;
+    border:1px solid white;
+}
+
+.debugprint td {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+.debugprint .key {
+    font-weight: bold;
+}
+.debugprint .type {
+    /* Hide Type columns in debugprint */
+    /* display: none; */
+    font-size: 0.9em;
+    font-family: monospace;
+    font-style: italic;
+}
+.debugprint .value {
+    font-family: monospace;
+}
+.debugprint .true {
+    color: green;
+}
+.debugprint .false {
+    color: red;
+}
+/* Don't touch the table headers */
+.debugprint th.key,
+.debugprint th.type,
+.debugprint th.value {
+    font-family: normal;
+    font-size: 1em;
+    font-style: normal;
+}

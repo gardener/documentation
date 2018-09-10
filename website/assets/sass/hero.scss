@@ -1,0 +1,25 @@
+.hero {
+  background-color: var(--MENU-TOBBAR-BG-color);
+}
+
+.hero {
+  height:auto;
+  text-align: center;
+  padding:20px;
+}
+
+.hero h1{
+  margin:0;
+  font-size:calc(20px + 2.5vw);
+  font-weight:100;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.hero h2{
+  margin:0 auto;
+  font-size:calc(12px + 0.8vw);
+  font-weight:400;
+  text-align: center;
+  width:90%;
+}

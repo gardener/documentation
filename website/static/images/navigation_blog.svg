@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
+    <title>navigation_blog</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="navigation_blog" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval-4" fill="#FFFFFF" cx="6" cy="26" r="4"></circle>
+        <path d="M18,27 C18,19.8202983 12.1797017,14 5,14" id="Oval-5" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"></path>
+        <path d="M29,28 C29,14.745166 18.254834,4 5,4" id="Oval-5" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"></path>
+    </g>
+</svg>

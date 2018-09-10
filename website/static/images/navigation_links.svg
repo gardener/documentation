@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
+    <title>navigation_links</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="navigation_links" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M6,4.5 C5.72385763,4.5 5.5,4.72385763 5.5,5 L5.5,27.8852557 C5.5,27.987086 5.53109209,28.0864888 5.58911781,28.1701694 C5.74647132,28.3970934 6.05798976,28.4534914 6.28491372,28.2961378 L14.8438228,22.3612233 C16.1223121,21.4746939 17.8325279,21.5385043 19.0413993,22.5178405 L25.6852599,27.9001942 C25.7742979,27.9723261 25.8854104,28.0116859 26,28.0116859 C26.2761424,28.0116859 26.5,27.7878283 26.5,27.5116859 L26.5,5 C26.5,4.72385763 26.2761424,4.5 26,4.5 L6,4.5 Z" id="Rectangle" stroke="#FFFFFF" stroke-width="3"></path>
+    </g>
+</svg>
