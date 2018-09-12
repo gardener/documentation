@@ -58,7 +58,7 @@ Use the following URL to access a service via apiserver proxy. For details about
 
 **Example:**
 
-| ycluster-master  | namespace           | service  | yservice-port  | service-endpoint  | url to access service  |
+| cluster-master  | namespace           | service  | yservice-port  | service-endpoint  | url to access service  |
 | ------------------|:--------------------: | -----------:| ----------------:| ----------------:| ----------------:|
 | api.testclstr.cpet.k8s.sapcloud.io     | default | nginx-svc     |  80                |   /           |  [url](http://api.testclstr.cpet.k8s.sapcloud.io/api/v1/namespaces/default/services/nginx-svc:80/proxy/)
 | api.testclstr.cpet.k8s.sapcloud.io     | default | docker-nodejs-svc |  4500          |   /cpu?baseNumber=4 | [url](https://api.testclstr.cpet.k8s.sapcloud.io/api/v1/namespaces/default/services/docker-nodejs-svc:4500/proxy/cpu?baseNumber=4)
