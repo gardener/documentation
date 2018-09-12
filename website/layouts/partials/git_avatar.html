@@ -1,4 +1,0 @@
-{{ $url := print "content/" . ".json"}}
-{{range  (last 1 (getJSON $url)) }}
-{{.author.avatar_url}}
-{{ end }}
