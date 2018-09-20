@@ -1,28 +1,25 @@
 # Gardener Documentation
 
-The Gardener Landingpage and documentation is generated with the static site tool [Hugo](https://gohugo.io/about/what-is-hugo/)
-In technical terms, Hugo takes a source directory of files and templates and uses these as input to create a complete website.
+## Overview of CI/CD build 
+
+![image](images/overview.png)
 
 
-## Run Local 
+### Website (this repository)
+The Repository https://github.com/gardener/website/ contains the generated
+Landing page. All manual changes get lost.
 
-### Install Hugo
-see "[Install Hugo](https://gohugo.io/getting-started/quick-start/#step-1-install-hugo)" to install hugo on your
-platform. You need at least hugo version 0.45.1 to run this site.
+### Documentation
+https://github.com/gardener/documentation/ contains the real content of the 
+Landing page. Add/Remove/Modify/ pages or content here
 
-### Run hugo
-You must go into the `hugo` directory to generate the documentation. Hugo comes with LiveReload built in. There are 
-no additional packages to install. A common way to use Hugo while developing a site is to have Hugo run a server 
-with the `hugo serve` command and watch for changes: 
+### Generator
+https://github.com/gardener/website-generator contains the site generator *Hugo*
+and all the layout and js stuff.
 
 
-```
-npm install
-node ./node/index.js 
-cd hugo
-hugo serve 
-```
 
+# Contribute
 ## Add a new page`
 
 All content for your website will live inside the `content` directory. Each top-level folder in Hugo is considered a 
