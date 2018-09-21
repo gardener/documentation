@@ -426,6 +426,25 @@ https://github.com/Modernizr/Modernizr/blob/master/LICENSE
 Build: http://modernizr.com/download/#-touch-shiv-cssclasses-addtest-prefixed-teststyles-testprop-testallprops-hasevent-prefixes-domprefixes-load
 MIT license https://github.com/Modernizr/Modernizr/blob/master/LICENSE
 
+moment.js version : 2.18.1 | MIT
+https://github.com/moment/moment/
+Copyright (c) JS Foundation and other contributors
+MIT License https://github.com/moment/moment/blob/2.18.1/LICENSE
+
+ScrollReveal version 3.4.0 | MIT
+https://github.com/scrollreveal/scrollreveal/releases/tag/v3.4.0
+Copyright 2018 Julian Lloyd
+MIT License https://github.com/scrollreveal/scrollreveal/blob/v3.4.0/LICENSE.md
+
+Hugo Static Site Generator v0.45.1 | Apache License 2
+https://github.com/gohugoio/hugo
+Apache License 2 https://github.com/gohugoio/hugo/blob/release-0.45.1/LICENSE
+
+Hugo Learn Theme v. 2.1.0 | MIT
+https://github.com/matcornic/hugo-theme-learn
+Copyright (c) 2014 Grav Copyright (c) 2016 MATHIEU CORNIC Copyright (c) 2017 Valere JEANTET
+MIT License https://github.com/matcornic/hugo-theme-learn/blob/2.1.0/LICENSE.md
+
 =======================================================================
 MIT License
 SPDX short identifier: MIT
