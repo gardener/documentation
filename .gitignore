@@ -1,0 +1,5 @@
+.idea
+hugo/public
+node_modules
+hugo/resources/_gen
+hugo/.forestry
