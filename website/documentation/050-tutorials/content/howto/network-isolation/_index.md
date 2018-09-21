@@ -98,7 +98,7 @@ kubectl apply -f ./network-policy.yaml -n=customer1
 kubectl apply -f ./network-policy.yaml -n=customer2
 ```
 
-after this `curl http://ngin.customer2` shouldn't work anymore if you are a service inside the namespace *customer1* and 
+after this `curl http://nginx.customer2` shouldn't work anymore if you are a service inside the namespace *customer1* and 
 vice versa
   
 
