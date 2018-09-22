@@ -5,11 +5,7 @@
 ![image](images/overview.png)
 
 
-### Website (this repository)
-The Repository https://github.com/gardener/website/ contains the generated
-Landing page. All manual changes get lost.
-
-### Documentation
+### Documentation (this repository)
 https://github.com/gardener/documentation/ contains the real content of the 
 Landing page. Add/Remove/Modify/ pages or content here
 
@@ -17,10 +13,12 @@ Landing page. Add/Remove/Modify/ pages or content here
 https://github.com/gardener/website-generator contains the site generator *Hugo*
 and all the layout and js stuff.
 
-
+### Website
+The Repository https://github.com/gardener/website/ contains the generated
+Landing page. All manual changes get lost.
 
 # Contribute
-## Add a new page`
+## Add a new page
 
 All content for your website will live inside the `content` directory. Each top-level folder in Hugo is considered a 
 content section. For example, if your site has three main sections—blog, articles, and tutorials—you will have 
