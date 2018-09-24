@@ -1,5 +1,242 @@
 [
   {
+    "sha": "e761468e0ff5c3347b231e3957fce3d7206e50e8",
+    "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOmU3NjE0NjhlMGZmNWMzMzQ3YjIzMWUzOTU3ZmNlM2Q3MjA2ZTUwZTg=",
+    "commit": {
+      "author": {
+        "name": "zanetworker",
+        "email": "adel.zalok.89@gmail.com",
+        "date": "2018-09-11T14:45:39Z"
+      },
+      "committer": {
+        "name": "zanetworker",
+        "email": "adel.zalok.89@gmail.com",
+        "date": "2018-09-20T17:28:26Z"
+      },
+      "message": "Replace kube-dns with CoreDNS\n\nThis commit should replace kube-dns with CoreDNS as a core addon",
+      "tree": {
+        "sha": "47d199d5b79ed635305871cf54336fc82646d797",
+        "url": "https://api.github.com/repos/gardener/gardener/git/trees/47d199d5b79ed635305871cf54336fc82646d797"
+      },
+      "url": "https://api.github.com/repos/gardener/gardener/git/commits/e761468e0ff5c3347b231e3957fce3d7206e50e8",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/gardener/commits/e761468e0ff5c3347b231e3957fce3d7206e50e8",
+    "html_url": "https://github.com/gardener/gardener/commit/e761468e0ff5c3347b231e3957fce3d7206e50e8",
+    "comments_url": "https://api.github.com/repos/gardener/gardener/commits/e761468e0ff5c3347b231e3957fce3d7206e50e8/comments",
+    "author": {
+      "login": "zanetworker",
+      "id": 4193095,
+      "node_id": "MDQ6VXNlcjQxOTMwOTU=",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/4193095?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/zanetworker",
+      "html_url": "https://github.com/zanetworker",
+      "followers_url": "https://api.github.com/users/zanetworker/followers",
+      "following_url": "https://api.github.com/users/zanetworker/following{/other_user}",
+      "gists_url": "https://api.github.com/users/zanetworker/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/zanetworker/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/zanetworker/subscriptions",
+      "organizations_url": "https://api.github.com/users/zanetworker/orgs",
+      "repos_url": "https://api.github.com/users/zanetworker/repos",
+      "events_url": "https://api.github.com/users/zanetworker/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/zanetworker/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "zanetworker",
+      "id": 4193095,
+      "node_id": "MDQ6VXNlcjQxOTMwOTU=",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/4193095?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/zanetworker",
+      "html_url": "https://github.com/zanetworker",
+      "followers_url": "https://api.github.com/users/zanetworker/followers",
+      "following_url": "https://api.github.com/users/zanetworker/following{/other_user}",
+      "gists_url": "https://api.github.com/users/zanetworker/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/zanetworker/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/zanetworker/subscriptions",
+      "organizations_url": "https://api.github.com/users/zanetworker/orgs",
+      "repos_url": "https://api.github.com/users/zanetworker/repos",
+      "events_url": "https://api.github.com/users/zanetworker/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/zanetworker/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "3f93cedcd8c0bb35d7b8bea3b7ec5a653eb062b2",
+        "url": "https://api.github.com/repos/gardener/gardener/commits/3f93cedcd8c0bb35d7b8bea3b7ec5a653eb062b2",
+        "html_url": "https://github.com/gardener/gardener/commit/3f93cedcd8c0bb35d7b8bea3b7ec5a653eb062b2"
+      }
+    ]
+  },
+  {
+    "sha": "98df16429449607fd9e9be6cf57144806b225b0f",
+    "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOjk4ZGYxNjQyOTQ0OTYwN2ZkOWU5YmU2Y2Y1NzE0NDgwNmIyMjViMGY=",
+    "commit": {
+      "author": {
+        "name": "Swapnil Mhamane",
+        "email": "swapnil.mhamane@sap.com",
+        "date": "2018-09-06T14:39:31Z"
+      },
+      "committer": {
+        "name": "Swapnil Mhamane",
+        "email": "swapnil.mhamane@sap.com",
+        "date": "2018-09-06T18:20:06Z"
+      },
+      "message": "Fix dev-setup script\n\nSigned-off-by: Swapnil Mhamane <swapnil.mhamane@sap.com>",
+      "tree": {
+        "sha": "d9249205a80783c694d6b843df5d3e1c74345de4",
+        "url": "https://api.github.com/repos/gardener/gardener/git/trees/d9249205a80783c694d6b843df5d3e1c74345de4"
+      },
+      "url": "https://api.github.com/repos/gardener/gardener/git/commits/98df16429449607fd9e9be6cf57144806b225b0f",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/gardener/commits/98df16429449607fd9e9be6cf57144806b225b0f",
+    "html_url": "https://github.com/gardener/gardener/commit/98df16429449607fd9e9be6cf57144806b225b0f",
+    "comments_url": "https://api.github.com/repos/gardener/gardener/commits/98df16429449607fd9e9be6cf57144806b225b0f/comments",
+    "author": {
+      "login": "swapnilgm",
+      "id": 5590545,
+      "node_id": "MDQ6VXNlcjU1OTA1NDU=",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/5590545?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/swapnilgm",
+      "html_url": "https://github.com/swapnilgm",
+      "followers_url": "https://api.github.com/users/swapnilgm/followers",
+      "following_url": "https://api.github.com/users/swapnilgm/following{/other_user}",
+      "gists_url": "https://api.github.com/users/swapnilgm/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/swapnilgm/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/swapnilgm/subscriptions",
+      "organizations_url": "https://api.github.com/users/swapnilgm/orgs",
+      "repos_url": "https://api.github.com/users/swapnilgm/repos",
+      "events_url": "https://api.github.com/users/swapnilgm/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/swapnilgm/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "swapnilgm",
+      "id": 5590545,
+      "node_id": "MDQ6VXNlcjU1OTA1NDU=",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/5590545?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/swapnilgm",
+      "html_url": "https://github.com/swapnilgm",
+      "followers_url": "https://api.github.com/users/swapnilgm/followers",
+      "following_url": "https://api.github.com/users/swapnilgm/following{/other_user}",
+      "gists_url": "https://api.github.com/users/swapnilgm/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/swapnilgm/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/swapnilgm/subscriptions",
+      "organizations_url": "https://api.github.com/users/swapnilgm/orgs",
+      "repos_url": "https://api.github.com/users/swapnilgm/repos",
+      "events_url": "https://api.github.com/users/swapnilgm/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/swapnilgm/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "68b6a1cd1031705b30087a5dc1a75897e1f5eb11",
+        "url": "https://api.github.com/repos/gardener/gardener/commits/68b6a1cd1031705b30087a5dc1a75897e1f5eb11",
+        "html_url": "https://github.com/gardener/gardener/commit/68b6a1cd1031705b30087a5dc1a75897e1f5eb11"
+      }
+    ]
+  },
+  {
+    "sha": "90af049d122d678a5a41bdcbbc541e091aa95eaf",
+    "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOjkwYWYwNDlkMTIyZDY3OGE1YTQxYmRjYmJjNTQxZTA5MWFhOTVlYWY=",
+    "commit": {
+      "author": {
+        "name": "Rafael Franzke",
+        "email": "rafael.franzke@sap.com",
+        "date": "2018-09-05T12:33:30Z"
+      },
+      "committer": {
+        "name": "Rafael Franzke",
+        "email": "rafael.franzke@sap.com",
+        "date": "2018-09-06T05:36:26Z"
+      },
+      "message": "Require deletion confirmation annotation for Project resources",
+      "tree": {
+        "sha": "799f568c49b8b641d77c6e14ab1d6ee6ca9e7a81",
+        "url": "https://api.github.com/repos/gardener/gardener/git/trees/799f568c49b8b641d77c6e14ab1d6ee6ca9e7a81"
+      },
+      "url": "https://api.github.com/repos/gardener/gardener/git/commits/90af049d122d678a5a41bdcbbc541e091aa95eaf",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/gardener/commits/90af049d122d678a5a41bdcbbc541e091aa95eaf",
+    "html_url": "https://github.com/gardener/gardener/commit/90af049d122d678a5a41bdcbbc541e091aa95eaf",
+    "comments_url": "https://api.github.com/repos/gardener/gardener/commits/90af049d122d678a5a41bdcbbc541e091aa95eaf/comments",
+    "author": {
+      "login": "rfranzke",
+      "id": 19169361,
+      "node_id": "MDQ6VXNlcjE5MTY5MzYx",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/19169361?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rfranzke",
+      "html_url": "https://github.com/rfranzke",
+      "followers_url": "https://api.github.com/users/rfranzke/followers",
+      "following_url": "https://api.github.com/users/rfranzke/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rfranzke/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/rfranzke/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rfranzke/subscriptions",
+      "organizations_url": "https://api.github.com/users/rfranzke/orgs",
+      "repos_url": "https://api.github.com/users/rfranzke/repos",
+      "events_url": "https://api.github.com/users/rfranzke/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/rfranzke/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "rfranzke",
+      "id": 19169361,
+      "node_id": "MDQ6VXNlcjE5MTY5MzYx",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/19169361?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rfranzke",
+      "html_url": "https://github.com/rfranzke",
+      "followers_url": "https://api.github.com/users/rfranzke/followers",
+      "following_url": "https://api.github.com/users/rfranzke/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rfranzke/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/rfranzke/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rfranzke/subscriptions",
+      "organizations_url": "https://api.github.com/users/rfranzke/orgs",
+      "repos_url": "https://api.github.com/users/rfranzke/repos",
+      "events_url": "https://api.github.com/users/rfranzke/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/rfranzke/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "eac710938793e4dcc27d2ab07116ce43514e348e",
+        "url": "https://api.github.com/repos/gardener/gardener/commits/eac710938793e4dcc27d2ab07116ce43514e348e",
+        "html_url": "https://github.com/gardener/gardener/commit/eac710938793e4dcc27d2ab07116ce43514e348e"
+      }
+    ]
+  },
+  {
     "sha": "dfd07be83dbf8b930007affce575341a17a18056",
     "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOmRmZDA3YmU4M2RiZjhiOTMwMDA3YWZmY2U1NzUzNDFhMTdhMTgwNTY=",
     "commit": {
