@@ -1,5 +1,242 @@
 [
   {
+    "sha": "fb9531b21891bdd4998572245a52388ba48d0149",
+    "node_id": "MDY6Q29tbWl0MTMxMzEzNTY1OmZiOTUzMWIyMTg5MWJkZDQ5OTg1NzIyNDVhNTIzODhiYTQ4ZDAxNDk=",
+    "commit": {
+      "author": {
+        "name": "Johannes Aubart",
+        "email": "johannes.aubart@sap.com",
+        "date": "2018-07-26T10:16:42Z"
+      },
+      "committer": {
+        "name": "Johannes Aubart",
+        "email": "johannes.aubart@sap.com",
+        "date": "2018-08-09T12:09:38Z"
+      },
+      "message": "fixed README\n\n- removed a broken and unused link anchor\n- fixed an invalid link to the example shoot manifest",
+      "tree": {
+        "sha": "69ab16544dc096d79db97c506812cbdcc32706fb",
+        "url": "https://api.github.com/repos/gardener/landscape-setup/git/trees/69ab16544dc096d79db97c506812cbdcc32706fb"
+      },
+      "url": "https://api.github.com/repos/gardener/landscape-setup/git/commits/fb9531b21891bdd4998572245a52388ba48d0149",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/landscape-setup/commits/fb9531b21891bdd4998572245a52388ba48d0149",
+    "html_url": "https://github.com/gardener/landscape-setup/commit/fb9531b21891bdd4998572245a52388ba48d0149",
+    "comments_url": "https://api.github.com/repos/gardener/landscape-setup/commits/fb9531b21891bdd4998572245a52388ba48d0149/comments",
+    "author": {
+      "login": "Diaphteiros",
+      "id": 28540014,
+      "node_id": "MDQ6VXNlcjI4NTQwMDE0",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/28540014?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Diaphteiros",
+      "html_url": "https://github.com/Diaphteiros",
+      "followers_url": "https://api.github.com/users/Diaphteiros/followers",
+      "following_url": "https://api.github.com/users/Diaphteiros/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Diaphteiros/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Diaphteiros/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Diaphteiros/subscriptions",
+      "organizations_url": "https://api.github.com/users/Diaphteiros/orgs",
+      "repos_url": "https://api.github.com/users/Diaphteiros/repos",
+      "events_url": "https://api.github.com/users/Diaphteiros/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Diaphteiros/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "Diaphteiros",
+      "id": 28540014,
+      "node_id": "MDQ6VXNlcjI4NTQwMDE0",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/28540014?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Diaphteiros",
+      "html_url": "https://github.com/Diaphteiros",
+      "followers_url": "https://api.github.com/users/Diaphteiros/followers",
+      "following_url": "https://api.github.com/users/Diaphteiros/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Diaphteiros/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Diaphteiros/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Diaphteiros/subscriptions",
+      "organizations_url": "https://api.github.com/users/Diaphteiros/orgs",
+      "repos_url": "https://api.github.com/users/Diaphteiros/repos",
+      "events_url": "https://api.github.com/users/Diaphteiros/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Diaphteiros/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "480f329b06d8bf05eee4aae8946251a39480961a",
+        "url": "https://api.github.com/repos/gardener/landscape-setup/commits/480f329b06d8bf05eee4aae8946251a39480961a",
+        "html_url": "https://github.com/gardener/landscape-setup/commit/480f329b06d8bf05eee4aae8946251a39480961a"
+      }
+    ]
+  },
+  {
+    "sha": "0a632ae10fad337d9d6bedc43e9ec61444facae7",
+    "node_id": "MDY6Q29tbWl0MTMxMzEzNTY1OjBhNjMyYWUxMGZhZDMzN2Q5ZDZiZWRjNDNlOWVjNjE0NDRmYWNhZTc=",
+    "commit": {
+      "author": {
+        "name": "Johannes Aubart",
+        "email": "johannes.aubart@sap.com",
+        "date": "2018-07-24T11:15:55Z"
+      },
+      "committer": {
+        "name": "Johannes Aubart",
+        "email": "johannes.aubart@sap.com",
+        "date": "2018-08-09T12:09:21Z"
+      },
+      "message": "added modular seed configuration\n\nIt is now possible to deploy several seeds on the cluster. There are several ways to do this:\n\n1. On \"deploy_gardener.sh\", all seeds that are listed in seed_config.seeds in the landscape.yaml\nare automatically deployed. On \"undeploy_gardener.sh\", all possible seeds are deleted to clean up\nseed that were added manually (see below) and not leave any resources behind.\n\n2. The seed-config deploy script now takes seeds as arguments. To create a seed, go to the\ncomponents folder and call './deploy.sh seed-config <seed>'. It is possible to provide multiple\nseed arguments to create several seeds at once. If no arguments are given, the script uses the\nseeds specified in the landscape.yaml, see above. Only the specified seeds are created, already\nexisting other seeds are not affected. This works the same way when the \"-u\"/\"--uninstall\" option\nis given. The order of the arguments is not relevant.\n\nValid values for seeds are \"aws\", \"az\" (for Azure), \"gcp\", and \"openstack\". For every seed the\ncorresponding variants in the authentication and seed-config nodes in landscape.yaml have to exist\nand be filled out.\n\nPlease note that while it is possible to create seeds for any cloud provider on any cloud provider,\nactual shoot creation may not always work across the cloud providers. For example, creating an Azure\nshoot from a seed on AWS works without problems, but creating a GCP shoot doesn't right now.",
+      "tree": {
+        "sha": "53c8525da4d67f0dbe5a4baf0526ec06383c9d1d",
+        "url": "https://api.github.com/repos/gardener/landscape-setup/git/trees/53c8525da4d67f0dbe5a4baf0526ec06383c9d1d"
+      },
+      "url": "https://api.github.com/repos/gardener/landscape-setup/git/commits/0a632ae10fad337d9d6bedc43e9ec61444facae7",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/landscape-setup/commits/0a632ae10fad337d9d6bedc43e9ec61444facae7",
+    "html_url": "https://github.com/gardener/landscape-setup/commit/0a632ae10fad337d9d6bedc43e9ec61444facae7",
+    "comments_url": "https://api.github.com/repos/gardener/landscape-setup/commits/0a632ae10fad337d9d6bedc43e9ec61444facae7/comments",
+    "author": {
+      "login": "Diaphteiros",
+      "id": 28540014,
+      "node_id": "MDQ6VXNlcjI4NTQwMDE0",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/28540014?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Diaphteiros",
+      "html_url": "https://github.com/Diaphteiros",
+      "followers_url": "https://api.github.com/users/Diaphteiros/followers",
+      "following_url": "https://api.github.com/users/Diaphteiros/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Diaphteiros/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Diaphteiros/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Diaphteiros/subscriptions",
+      "organizations_url": "https://api.github.com/users/Diaphteiros/orgs",
+      "repos_url": "https://api.github.com/users/Diaphteiros/repos",
+      "events_url": "https://api.github.com/users/Diaphteiros/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Diaphteiros/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "Diaphteiros",
+      "id": 28540014,
+      "node_id": "MDQ6VXNlcjI4NTQwMDE0",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/28540014?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Diaphteiros",
+      "html_url": "https://github.com/Diaphteiros",
+      "followers_url": "https://api.github.com/users/Diaphteiros/followers",
+      "following_url": "https://api.github.com/users/Diaphteiros/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Diaphteiros/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Diaphteiros/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Diaphteiros/subscriptions",
+      "organizations_url": "https://api.github.com/users/Diaphteiros/orgs",
+      "repos_url": "https://api.github.com/users/Diaphteiros/repos",
+      "events_url": "https://api.github.com/users/Diaphteiros/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Diaphteiros/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "50bc319a8faaf65b109e055337c30c468b1a0980",
+        "url": "https://api.github.com/repos/gardener/landscape-setup/commits/50bc319a8faaf65b109e055337c30c468b1a0980",
+        "html_url": "https://github.com/gardener/landscape-setup/commit/50bc319a8faaf65b109e055337c30c468b1a0980"
+      }
+    ]
+  },
+  {
+    "sha": "d277f3f72c7c84ca23aeb0f48efcbe2380f6711b",
+    "node_id": "MDY6Q29tbWl0MTMxMzEzNTY1OmQyNzdmM2Y3MmM3Yzg0Y2EyM2FlYjBmNDhlZmNiZTIzODBmNjcxMWI=",
+    "commit": {
+      "author": {
+        "name": "Johannes Aubart",
+        "email": "johannes.aubart@sap.com",
+        "date": "2018-07-24T08:59:49Z"
+      },
+      "committer": {
+        "name": "Johannes Aubart",
+        "email": "johannes.aubart@sap.com",
+        "date": "2018-07-24T12:57:12Z"
+      },
+      "message": "adapted aliases and added bash completion\n\nThe following aliases can now be used within the docker images:\nk => kubectl\nks => kubectl -n kube-system\nkg => kubectl -n garden\nkn => kubectl -n\nka => kubectl get --all-namespaces\n\nBash completion will work for all except the \"ka\" alias.",
+      "tree": {
+        "sha": "2d3aa5936836862477b695a91db19812320040d1",
+        "url": "https://api.github.com/repos/gardener/landscape-setup/git/trees/2d3aa5936836862477b695a91db19812320040d1"
+      },
+      "url": "https://api.github.com/repos/gardener/landscape-setup/git/commits/d277f3f72c7c84ca23aeb0f48efcbe2380f6711b",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/landscape-setup/commits/d277f3f72c7c84ca23aeb0f48efcbe2380f6711b",
+    "html_url": "https://github.com/gardener/landscape-setup/commit/d277f3f72c7c84ca23aeb0f48efcbe2380f6711b",
+    "comments_url": "https://api.github.com/repos/gardener/landscape-setup/commits/d277f3f72c7c84ca23aeb0f48efcbe2380f6711b/comments",
+    "author": {
+      "login": "Diaphteiros",
+      "id": 28540014,
+      "node_id": "MDQ6VXNlcjI4NTQwMDE0",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/28540014?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Diaphteiros",
+      "html_url": "https://github.com/Diaphteiros",
+      "followers_url": "https://api.github.com/users/Diaphteiros/followers",
+      "following_url": "https://api.github.com/users/Diaphteiros/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Diaphteiros/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Diaphteiros/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Diaphteiros/subscriptions",
+      "organizations_url": "https://api.github.com/users/Diaphteiros/orgs",
+      "repos_url": "https://api.github.com/users/Diaphteiros/repos",
+      "events_url": "https://api.github.com/users/Diaphteiros/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Diaphteiros/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "Diaphteiros",
+      "id": 28540014,
+      "node_id": "MDQ6VXNlcjI4NTQwMDE0",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/28540014?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Diaphteiros",
+      "html_url": "https://github.com/Diaphteiros",
+      "followers_url": "https://api.github.com/users/Diaphteiros/followers",
+      "following_url": "https://api.github.com/users/Diaphteiros/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Diaphteiros/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Diaphteiros/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Diaphteiros/subscriptions",
+      "organizations_url": "https://api.github.com/users/Diaphteiros/orgs",
+      "repos_url": "https://api.github.com/users/Diaphteiros/repos",
+      "events_url": "https://api.github.com/users/Diaphteiros/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Diaphteiros/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "1a11aaa4fa334c537ef18dfcd0cfefa4971266ac",
+        "url": "https://api.github.com/repos/gardener/landscape-setup/commits/1a11aaa4fa334c537ef18dfcd0cfefa4971266ac",
+        "html_url": "https://github.com/gardener/landscape-setup/commit/1a11aaa4fa334c537ef18dfcd0cfefa4971266ac"
+      }
+    ]
+  },
+  {
     "sha": "38d67414eee441b1acba6739aa105c95380cc075",
     "node_id": "MDY6Q29tbWl0MTMxMzEzNTY1OjM4ZDY3NDE0ZWVlNDQxYjFhY2JhNjczOWFhMTA1Yzk1MzgwY2MwNzU=",
     "commit": {
