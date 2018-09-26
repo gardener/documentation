@@ -40,6 +40,7 @@ If you have questions about one of the issues, with or without the tag, please c
 You are welcome to contribute code to Gardener in order to fix a bug or to implement a new feature.
 
 The following rules govern code contributions:
+
 * Contributions must be licensed under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0)
 * You need to sign the Contributor License Agreement. We are using *[CLA assistant](https://cla-assistant.io/)* providing a click-through workflow for accepting the CLA. For company contributors additionally the company needs to sign a corporate license agreement. See the following sections for details.
 
@@ -48,6 +49,7 @@ The following rules govern code contributions:
 You are welcome to contribute documentation to Gardener.
 
 The following rules govern documentation contributions:
+
 * Contributions must be licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/legalcode)
 * You need to sign the Contributor License Agreement. We are using *[CLA assistant](https://cla-assistant.io/)* providing a click-through workflow for accepting the CLA. For company contributors additionally the company needs to sign a corporate license agreement. See the following sections for details.
 
@@ -65,9 +67,9 @@ If employees of a company contribute code, in **addition** to the individual agr
 An authorized company representative needs to download, fill, and print
 the [Corporate Contributor License Agreement](/doc/cla/SAP%20Corporate%20Contributor%20License%20Agreement%20(5-26-15).pdf) form. Then either:
 
--   Scan it and e-mail it to [opensource@sap.com](mailto:opensource@sap.com) and [gardener.opensource@sap.com](mailto:gardener.opensource@sap.com)
--   Fax it to: +49 6227 78-45813
--   Send it by letter to: *Industry Standards & Open Source Team, Dietmar-Hopp-Allee 16, 69190 Walldorf, Germany*
+* Scan it and e-mail it to [opensource@sap.com](mailto:opensource@sap.com) and [gardener.opensource@sap.com](mailto:gardener.opensource@sap.com)
+* Fax it to: +49 6227 78-45813
+* Send it by letter to: *Industry Standards & Open Source Team, Dietmar-Hopp-Allee 16, 69190 Walldorf, Germany*
 
 The form contains a list of employees who are authorized to contribute on behalf of your company. When this list changes, please let us know.
 
@@ -84,6 +86,7 @@ The form contains a list of employees who are authorized to contribute on behalf
 ## Issues and Planning
 
 We use GitHub issues to track bugs and enhancement requests and ZenHub for planning.
+
 * Install the [ZenHub Chrome plugin](https://chrome.google.com/webstore/detail/zenhub-for-github/ogcgkffhplmphkaahpmffcafajaocjbd)
 * Login to [ZenHub](https://www.zenhub.com/)
 * Open the [Gardener ZenHub workspace](https://app.zenhub.com/workspace/o/gardener/gardener)
