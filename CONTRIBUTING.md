@@ -91,3 +91,30 @@ We use GitHub issues to track bugs and enhancement requests and ZenHub for plann
 ## Security Release Process
 
 See [Security Release Process](https://github.com/gardener/documentation/blob/master/security-release-process.md)
+
+## Community
+
+### Slack Channel
+
+[#gardener](https://kubernetes.slack.com/messages/gardener), sign up [here](http://slack.k8s.io/)
+
+### Mailing List
+
+[gardener@googlegroups.com](https://groups.google.com/forum/?fromgroups#!forum/gardener)
+
+The mailing list is hosted through Google Groups. To receive the lists' emails, [join](https://support.google.com/groups/answer/1067205) the group, as you would any other Google Group.
+
+### Accessing community documents
+
+In order to foster real time collaboration there are working documents and notes that are taken in Google Docs, and then transferred to this repository if appropriate.
+
+To access these documents, you must subscribe to the gardener mailing list as outlined above, as these documents are shared automatically with anyone who subscribes to that list.
+
+### Bi-weekly Meeting
+
+We have a PUBLIC and RECORDED bi-weekly meeting every second Thursday at 16:00 CET over Zoom.  
+Map that to your [local time](http://www.thetimezoneconverter.com/?t=16:00&tz=CET).
+
+See it on the web at [calendar.google.com](https://calendar.google.com/calendar/embed?src=gardener.cloud.community%40gmail.com&ctz=Europe%2FBerlin), or paste this [iCal url](https://calendar.google.com/calendar/ical/gardener.cloud.community%40gmail.com/public/basic.ics) into any iCal client.
+
+If you have a topic you'd like to present or would like to see discussed, please propose a specific date on the [Gardener Community Meeting Agenda](https://docs.google.com/document/d/1314v8ziVNQPjdBrWp-Y4BYrTDlv7dq2cWDFIa9SMaP4). Find minutes in the same document. Subscribe to the gardener mailing list to get edit permissions.
