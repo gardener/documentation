@@ -40,6 +40,7 @@ If you have questions about one of the issues, with or without the tag, please c
 You are welcome to contribute code to Gardener in order to fix a bug or to implement a new feature.
 
 The following rules govern code contributions:
+
 * Contributions must be licensed under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0)
 * You need to sign the Contributor License Agreement. We are using *[CLA assistant](https://cla-assistant.io/)* providing a click-through workflow for accepting the CLA. For company contributors additionally the company needs to sign a corporate license agreement. See the following sections for details.
 
@@ -48,6 +49,7 @@ The following rules govern code contributions:
 You are welcome to contribute documentation to Gardener.
 
 The following rules govern documentation contributions:
+
 * Contributions must be licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/legalcode)
 * You need to sign the Contributor License Agreement. We are using *[CLA assistant](https://cla-assistant.io/)* providing a click-through workflow for accepting the CLA. For company contributors additionally the company needs to sign a corporate license agreement. See the following sections for details.
 
@@ -65,9 +67,9 @@ If employees of a company contribute code, in **addition** to the individual agr
 An authorized company representative needs to download, fill, and print
 the [Corporate Contributor License Agreement](/doc/cla/SAP%20Corporate%20Contributor%20License%20Agreement%20(5-26-15).pdf) form. Then either:
 
--   Scan it and e-mail it to [opensource@sap.com](mailto:opensource@sap.com) and [gardener.opensource@sap.com](mailto:gardener.opensource@sap.com)
--   Fax it to: +49 6227 78-45813
--   Send it by letter to: *Industry Standards & Open Source Team, Dietmar-Hopp-Allee 16, 69190 Walldorf, Germany*
+* Scan it and e-mail it to [opensource@sap.com](mailto:opensource@sap.com) and [gardener.opensource@sap.com](mailto:gardener.opensource@sap.com)
+* Fax it to: +49 6227 78-45813
+* Send it by letter to: *Industry Standards & Open Source Team, Dietmar-Hopp-Allee 16, 69190 Walldorf, Germany*
 
 The form contains a list of employees who are authorized to contribute on behalf of your company. When this list changes, please let us know.
 
@@ -84,6 +86,7 @@ The form contains a list of employees who are authorized to contribute on behalf
 ## Issues and Planning
 
 We use GitHub issues to track bugs and enhancement requests and ZenHub for planning.
+
 * Install the [ZenHub Chrome plugin](https://chrome.google.com/webstore/detail/zenhub-for-github/ogcgkffhplmphkaahpmffcafajaocjbd)
 * Login to [ZenHub](https://www.zenhub.com/)
 * Open the [Gardener ZenHub workspace](https://app.zenhub.com/workspace/o/gardener/gardener)
@@ -91,3 +94,30 @@ We use GitHub issues to track bugs and enhancement requests and ZenHub for plann
 ## Security Release Process
 
 See [Security Release Process](https://github.com/gardener/documentation/blob/master/security-release-process.md)
+
+## Community
+
+### Slack Channel
+
+[#gardener](https://kubernetes.slack.com/messages/gardener), sign up [here](http://slack.k8s.io/)
+
+### Mailing List
+
+[gardener@googlegroups.com](https://groups.google.com/forum/?fromgroups#!forum/gardener)
+
+The mailing list is hosted through Google Groups. To receive the lists' emails, [join](https://support.google.com/groups/answer/1067205) the group, as you would any other Google Group.
+
+### Accessing community documents
+
+In order to foster real time collaboration there are working documents and notes that are taken in Google Docs, and then transferred to this repository if appropriate.
+
+To access these documents, you must subscribe to the gardener mailing list as outlined above, as these documents are shared automatically with anyone who subscribes to that list.
+
+### Bi-weekly Meeting
+
+We have a PUBLIC and RECORDED bi-weekly meeting every second Thursday at 16:00 CET over Zoom.  
+Map that to your [local time](http://www.thetimezoneconverter.com/?t=16:00&tz=CET).
+
+See it on the web at [calendar.google.com](https://calendar.google.com/calendar/embed?src=gardener.cloud.community%40gmail.com&ctz=Europe%2FBerlin), or paste this [iCal url](https://calendar.google.com/calendar/ical/gardener.cloud.community%40gmail.com/public/basic.ics) into any iCal client.
+
+If you have a topic you'd like to present or would like to see discussed, please propose a specific date on the [Gardener Community Meeting Agenda](https://docs.google.com/document/d/1314v8ziVNQPjdBrWp-Y4BYrTDlv7dq2cWDFIa9SMaP4). Find minutes in the same document. Subscribe to the gardener mailing list to get edit permissions.
