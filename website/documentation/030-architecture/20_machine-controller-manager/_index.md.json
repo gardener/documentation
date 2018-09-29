@@ -1,5 +1,84 @@
 [
   {
+    "sha": "db3f1f8627ad38452df190faa08f7adf9add337f",
+    "node_id": "MDY6Q29tbWl0MTE1MTIyMjc0OmRiM2YxZjg2MjdhZDM4NDUyZGYxOTBmYWEwOGY3YWRmOWFkZDMzN2Y=",
+    "commit": {
+      "author": {
+        "name": "Hardik Dodiya",
+        "email": "hardik.dodiya@sap.com",
+        "date": "2018-09-17T04:33:44Z"
+      },
+      "committer": {
+        "name": "Prashanth",
+        "email": "prashanth@sap.com",
+        "date": "2018-09-17T04:33:44Z"
+      },
+      "message": "Adding cluster-api ref in readme (#153)",
+      "tree": {
+        "sha": "c4ece2b92cf412a6067c92aa6acc99d5a71f5935",
+        "url": "https://api.github.com/repos/gardener/machine-controller-manager/git/trees/c4ece2b92cf412a6067c92aa6acc99d5a71f5935"
+      },
+      "url": "https://api.github.com/repos/gardener/machine-controller-manager/git/commits/db3f1f8627ad38452df190faa08f7adf9add337f",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/machine-controller-manager/commits/db3f1f8627ad38452df190faa08f7adf9add337f",
+    "html_url": "https://github.com/gardener/machine-controller-manager/commit/db3f1f8627ad38452df190faa08f7adf9add337f",
+    "comments_url": "https://api.github.com/repos/gardener/machine-controller-manager/commits/db3f1f8627ad38452df190faa08f7adf9add337f/comments",
+    "author": {
+      "login": "hardikdr",
+      "id": 12736827,
+      "node_id": "MDQ6VXNlcjEyNzM2ODI3",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/12736827?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hardikdr",
+      "html_url": "https://github.com/hardikdr",
+      "followers_url": "https://api.github.com/users/hardikdr/followers",
+      "following_url": "https://api.github.com/users/hardikdr/following{/other_user}",
+      "gists_url": "https://api.github.com/users/hardikdr/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/hardikdr/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/hardikdr/subscriptions",
+      "organizations_url": "https://api.github.com/users/hardikdr/orgs",
+      "repos_url": "https://api.github.com/users/hardikdr/repos",
+      "events_url": "https://api.github.com/users/hardikdr/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/hardikdr/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "prashanth26",
+      "id": 34744389,
+      "node_id": "MDQ6VXNlcjM0NzQ0Mzg5",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/34744389?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/prashanth26",
+      "html_url": "https://github.com/prashanth26",
+      "followers_url": "https://api.github.com/users/prashanth26/followers",
+      "following_url": "https://api.github.com/users/prashanth26/following{/other_user}",
+      "gists_url": "https://api.github.com/users/prashanth26/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/prashanth26/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/prashanth26/subscriptions",
+      "organizations_url": "https://api.github.com/users/prashanth26/orgs",
+      "repos_url": "https://api.github.com/users/prashanth26/repos",
+      "events_url": "https://api.github.com/users/prashanth26/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/prashanth26/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "3a6c035185af0738a8204d4731446287b2802c56",
+        "url": "https://api.github.com/repos/gardener/machine-controller-manager/commits/3a6c035185af0738a8204d4731446287b2802c56",
+        "html_url": "https://github.com/gardener/machine-controller-manager/commit/3a6c035185af0738a8204d4731446287b2802c56"
+      }
+    ]
+  },
+  {
     "sha": "bd2ce3438deaf2a5cd579a9726e7be6868e70806",
     "node_id": "MDY6Q29tbWl0MTE1MTIyMjc0OmJkMmNlMzQzOGRlYWYyYTVjZDU3OWE5NzI2ZTdiZTY4NjhlNzA4MDY=",
     "commit": {
