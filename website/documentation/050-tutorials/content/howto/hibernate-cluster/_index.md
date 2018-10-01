@@ -23,7 +23,7 @@ time depending on the infrastructure. Furthermore not all 3rd party services are
 
 ## Set a Gardener Cluster in Hibernate Mode
 Fortunately the Gardener offers the possibility to scale the Worker Nodes down to *"Zero"* without much effort.
-Follow the slide deck below to bring your Gardner Clsuter in Hibernate Mode
+Follow the slide deck below to bring your Gardner Cluster in Hibernate Mode
 
 
 {{< slide dir="./slider/" >}}
