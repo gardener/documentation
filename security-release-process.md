@@ -49,10 +49,7 @@ If the CVSS score is under 7.0 (a [medium severity score](https://www.first.org/
 
 ### Fix Disclosure Process
 
-With the fix development underway, the Fix Lead needs to come up with an overall communication plan for the wider community. This Disclosure process should begin after the Fix Team has developed a Fix or mitigation so that a realistic time line can be communicated to users.
-
-Disclosure of Forthcoming Fix to Users 
-The Fix Lead will inform the [Gardener mailing list](#communication-channel) informing users that a security vulnerability has been disclosed and that a fix will be made available in the future on a certain release date. The Fix Lead will include any mitigating steps users can take until a fix is available. The communication to Gardener users should be actionable. They should know when to block time to apply patches, understand exact mitigation steps, etc.
+With the fix development underway, the Fix Lead needs to come up with an overall communication plan for the wider community. This Disclosure process should begin after the Fix Team has developed a Fix or mitigation so that a realistic time line can be communicated to users. The Fix Lead will inform the [Gardener mailing list](#communication-channel) that a security vulnerability has been disclosed and that a fix will be made available in the future on a certain release date. The Fix Lead will include any mitigating steps users can take until a fix is available. The communication to Gardener users should be actionable. They should know when to block time to apply patches, understand exact mitigation steps, etc.
 
 ### Fix Release Day
 
