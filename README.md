@@ -59,3 +59,62 @@ A `remote repo` contains just the front matter section. The real content is craw
 A good example is the [./website/documentation/050-tutorials/content/app/https/_index.md](./website/documentation/050-tutorials/content/app/https/_index.md) page. 
 
 The remote repo is referenced by the `remote` attribute in the front matter.
+
+
+# Local setup 
+
+## Install Required command line tools
+
+You need [Hugo](https://github.com/gohugoio/hugo/releases) and [npm](https://www.npmjs.com/get-npm) installed.
+Check that you have the correct hugo version (you need at least 0.45.1 which is used on our CI/CD)
+
+```
+hugo version
+
+# Hugo Static Site Generator v0.45.1/extended darwin/amd64 BuildDate: unknown
+
+```
+
+## Setup development environment
+
+```sh
+# create development directory
+#
+mkdir gardener-site
+cd gardener-site
+
+# clone required repos
+#
+git clone https://github.com/gardener/documentation.git
+git clone https://github.com/gardener/website-generator.git
+
+# make a symbolic link of the pure "markdown" files into the hugo directory structure
+#
+ln -s ../documentation/website/documentation/ ./hugo/content
+
+# install NPM package. required for the "fetch" job of external content
+#
+cd website-generator/
+npm install
+
+# crawl remote markdown content 
+#
+node ./node/index.js 
+
+
+# serve the documentation with hugo
+#
+cd hugo
+hugo serve
+
+# Open the displayed URL and enjoy the documentation :-)
+# write some pages and HUGO serve them with live update of your browser
+# 
+
+
+
+# ctrl+c to end the hugo server and cleanup the crawled remote pages before you "git add" something
+#
+node ./node/index.js clean
+
+```
