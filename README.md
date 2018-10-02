@@ -51,7 +51,7 @@ the [./website/documentation/060-curated-links/_index.md](./website/documentatio
 
 #### Remote Page
 a `remote page` contains the front matter section with the reference to the remote `md` file.
-Good example is [./website/documentation/020_getting_started/_index.md](./website/documentation/020_getting_started/_index.md)
+Good example is [./website/documentation/020_getting-started/_index.md](./website/documentation/020_getting-started/_index.md)
 
 
 #### Remote Repository
