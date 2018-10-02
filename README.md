@@ -115,6 +115,7 @@ hugo serve
 
 # ctrl+c to end the hugo server and cleanup the crawled remote pages before you "git add" something
 #
+cd ..
 node ./node/index.js clean
 
 ```
