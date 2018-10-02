@@ -51,18 +51,16 @@ If the CVSS score is under 7.0 (a [medium severity score](https://www.first.org/
 With the fix development underway, the Fix Lead needs to come up with an overall communication plan for the wider community. This Disclosure process should begin after the Fix Team has developed a Fix or mitigation so that a realistic time line can be communicated to users.
 
 Disclosure of Forthcoming Fix to Users 
-The Fix Lead will e-mail the Gardener mailing list [gardener@googlegroups.com](mailto:gardener@googlegroups.com) informing users that a security vulnerability has been disclosed and that a fix will be made available at YYYY-MM-DD HH:MM UTC in the future via this list. This time is the Release Date.
-The Fix Lead will include any mitigating steps users can take until a fix is available.
-The communication to users should be actionable. They should know when to block time to apply patches, understand exact mitigation steps, etc.
+The Fix Lead will e-mail the [Gardener Google group](https://groups.google.com/forum/#!forum/gardener) via the Gardener mailing list [gardener@googlegroups.com](mailto:gardener@googlegroups.com) and post a link in the [Gardener Slack channel](https://kubernetes.slack.com/messages/CB57N0BFG/details/) informing users that a security vulnerability has been disclosed and that a fix will be made available in the future on a certain Release Date. The Fix Lead will include any mitigating steps users can take until a fix is available. The communication to Gardener users should be actionable. They should know when to block time to apply patches, understand exact mitigation steps, etc.
 
 ### Fix Release Day
 
 The Release Managers will ensure all the binaries are built, publicly available, and functional before the Release Date. 
-The Release Managers will create a new patch release branch from the latest patch release tag + the fix from the security branch. As a practical example if v1.5.3 is the latest patch release in gardener.git a new branch will be created called v1.5.4 which includes only patches required to fix the issue.
+The Release Managers will create a new patch release branch from the latest patch release tag + the fix from the security branch. As a practical example if v0.12.0 is the latest patch release in gardener.git a new branch will be created called v0.12.1 which includes only patches required to fix the issue.
 The Fix Lead will cherry-pick the patches onto the master branch and all relevant release branches. The Fix Team will [LGTM](https://github.com/lgtmco/lgtm) and merge.
 The Release Managers will merge these PRs as quickly as possible. Changes shouldn't be made to the commits even for a typo in the CHANGELOG as this will change the git sha of the already built and commits leading to confusion and potentially conflicts as the fix is cherry-picked around branches.
-The Fix Lead will request a CVE from SAP Global Security via email to [cna@sap.com](mailto:cna@sap.com) with all the relevant information (description, potential impact, affected version, fixed version, CVSS v3 base score and supporting documentation for the CVSS score) for every vulnerability.
-The Fix Lead will e-mail the Gardener mailing list [gardener@googlegroups.com](mailto:gardener@googlegroups.com) now that everything is public announcing the new releases, the CVE number, the location of the binaries, and the relevant merged PRs to get wide distribution and user action. As much as possible this e-mail should be actionable and include links how to apply the fix to users environments; this can include links to external distributor documentation. The recommended target time is 4pm UTC on a non-Friday weekday. This means the announcement will be seen morning Pacific, early evening Europe, and late evening Asia.
+The Fix Lead will request a CVE from the SAP Product Security Response Team via email to [cna@sap.com](mailto:cna@sap.com) with all the relevant information (description, potential impact, affected version, fixed version, CVSS v3 base score and supporting documentation for the CVSS score) for every vulnerability.
+The Fix Lead will inform the [Gardener Google group](https://groups.google.com/forum/#!forum/gardener) via the Gardener mailing list [gardener@googlegroups.com](mailto:gardener@googlegroups.com) and post a link in the [Gardener Slack channel](https://kubernetes.slack.com/messages/CB57N0BFG/details/) that everything is public announcing the new releases, the CVE number (if available), the location of the binaries, and the relevant merged PRs to get wide distribution and user action. As much as possible this e-mail should be actionable and include links how to apply the fix to users environments; this can include links to external distributor documentation. The recommended target time is 4pm UTC on a non-Friday weekday. This means the announcement will be seen morning Pacific, early evening Europe, and late evening Asia.
 The Fix Lead will remove the Fix Team from the private security repository. 
 
 ### Retrospective
@@ -71,3 +69,8 @@ These steps should be completed after the Release Date. The retrospective proces
 
 The Fix Lead will send a retrospective of the process to the Gardener mailing list [gardener@googlegroups.com](mailto:gardener@googlegroups.com) including details on everyone involved, the time line of the process, links to relevant PRs that introduced the issue, if relevant, and any critiques of the response and release process.
 The Release Managers and Fix Team are also encouraged to send their own feedback on the process to  the Gardener mailing list [gardener@googlegroups.com](mailto:gardener@googlegroups.com). Honest critique is the only way we are going to get good at this as a community.
+
+
+### Primary Communication Channel
+
+Gardener security announcements will be communicated via the [Gardener Google group](https://groups.google.com/forum/#!forum/gardener) as well as via the [Gardener Slack channel](https://kubernetes.slack.com/messages/CB57N0BFG/details/). But public community discussion about Gardener security announcements and the retrospective, should happen in the [Gardener Google Group](https://groups.google.com/forum/#!forum/gardener). Thus, the [Gardener Google Group](https://groups.google.com/forum/#!forum/gardener) is the primary communication channel in the context of the Gardener Security Release Process.
