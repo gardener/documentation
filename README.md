@@ -56,6 +56,6 @@ Good example is [./website/documentation/020_getting-started/_index.md](./websit
 
 #### Remote Repository
 A `remote repo` contains just the front matter section. The real content is crawled during the build process.
-A good example is the `./content/050-tutorials/content/app/https/_index.md` page. 
+A good example is the [./website/documentation/050-tutorials/content/app/https/_index.md](./website/documentation/050-tutorials/content/app/https/_index.md) page. 
 
 The remote repo is referenced by the `remote` attribute in the front matter.
