@@ -1,24 +1,24 @@
 [
   {
-    "sha": "2a8fb1eca1f341b2cf267456d338fca06c156772",
-    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OjJhOGZiMWVjYTFmMzQxYjJjZjI2NzQ1NmQzMzhmY2EwNmMxNTY3NzI=",
+    "sha": "760780d1bbf08e89ebe446e4b21820c5cfeadfad",
+    "node_id": "MDY6Q29tbWl0MjEzMDIxOjc2MDc4MGQxYmJmMDhlODllYmU0NDZlNGIyMTgyMGM1Y2ZlYWRmYWQ=",
     "commit": {
       "author": {
         "name": "Herz, Andreas",
         "email": "andreas.herz@sap.com",
-        "date": "2018-10-01T10:49:14Z"
+        "date": "2018-10-01T11:51:35Z"
       },
       "committer": {
         "name": "Herz, Andreas",
         "email": "andreas.herz@sap.com",
-        "date": "2018-10-01T10:49:20Z"
+        "date": "2018-10-01T11:51:38Z"
       },
-      "message": "add \"hibernate a cluster\" to the howto section",
+      "message": "fix broken relative link blog -> howto",
       "tree": {
-        "sha": "720522cbe8e9f20250a9ff2f92ef6c4707e3babb",
-        "url": "https://api.github.com/repos/gardener/documentation/git/trees/720522cbe8e9f20250a9ff2f92ef6c4707e3babb"
+        "sha": "c72f1d0677f00970c3241c039431841894fd22a7",
+        "url": "https://github.wdf.sap.corp/api/v3/repos/kubernetes/documentation/git/trees/c72f1d0677f00970c3241c039431841894fd22a7"
       },
-      "url": "https://api.github.com/repos/gardener/documentation/git/commits/2a8fb1eca1f341b2cf267456d338fca06c156772",
+      "url": "https://github.wdf.sap.corp/api/v3/repos/kubernetes/documentation/git/commits/760780d1bbf08e89ebe446e4b21820c5cfeadfad",
       "comment_count": 0,
       "verification": {
         "verified": false,
@@ -27,54 +27,133 @@
         "payload": null
       }
     },
-    "url": "https://api.github.com/repos/gardener/documentation/commits/2a8fb1eca1f341b2cf267456d338fca06c156772",
-    "html_url": "https://github.com/gardener/documentation/commit/2a8fb1eca1f341b2cf267456d338fca06c156772",
-    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/2a8fb1eca1f341b2cf267456d338fca06c156772/comments",
+    "url": "https://github.wdf.sap.corp/api/v3/repos/kubernetes/documentation/commits/760780d1bbf08e89ebe446e4b21820c5cfeadfad",
+    "html_url": "https://github.wdf.sap.corp/kubernetes/documentation/commit/760780d1bbf08e89ebe446e4b21820c5cfeadfad",
+    "comments_url": "https://github.wdf.sap.corp/api/v3/repos/kubernetes/documentation/commits/760780d1bbf08e89ebe446e4b21820c5cfeadfad/comments",
     "author": {
-      "login": "freegroup",
-      "id": 1155039,
-      "node_id": "MDQ6VXNlcjExNTUwMzk=",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/1155039?v=4",
+      "login": "d023280",
+      "id": 1322,
+      "node_id": "MDQ6VXNlcjEzMjI=",
+      "avatar_url": "https://github.wdf.sap.corp/avatars/u/1322?",
       "gravatar_id": "",
-      "url": "https://api.github.com/users/freegroup",
-      "html_url": "https://github.com/freegroup",
-      "followers_url": "https://api.github.com/users/freegroup/followers",
-      "following_url": "https://api.github.com/users/freegroup/following{/other_user}",
-      "gists_url": "https://api.github.com/users/freegroup/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/freegroup/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/freegroup/subscriptions",
-      "organizations_url": "https://api.github.com/users/freegroup/orgs",
-      "repos_url": "https://api.github.com/users/freegroup/repos",
-      "events_url": "https://api.github.com/users/freegroup/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/freegroup/received_events",
+      "url": "https://github.wdf.sap.corp/api/v3/users/d023280",
+      "html_url": "https://github.wdf.sap.corp/d023280",
+      "followers_url": "https://github.wdf.sap.corp/api/v3/users/d023280/followers",
+      "following_url": "https://github.wdf.sap.corp/api/v3/users/d023280/following{/other_user}",
+      "gists_url": "https://github.wdf.sap.corp/api/v3/users/d023280/gists{/gist_id}",
+      "starred_url": "https://github.wdf.sap.corp/api/v3/users/d023280/starred{/owner}{/repo}",
+      "subscriptions_url": "https://github.wdf.sap.corp/api/v3/users/d023280/subscriptions",
+      "organizations_url": "https://github.wdf.sap.corp/api/v3/users/d023280/orgs",
+      "repos_url": "https://github.wdf.sap.corp/api/v3/users/d023280/repos",
+      "events_url": "https://github.wdf.sap.corp/api/v3/users/d023280/events{/privacy}",
+      "received_events_url": "https://github.wdf.sap.corp/api/v3/users/d023280/received_events",
       "type": "User",
       "site_admin": false
     },
     "committer": {
-      "login": "freegroup",
-      "id": 1155039,
-      "node_id": "MDQ6VXNlcjExNTUwMzk=",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/1155039?v=4",
+      "login": "d023280",
+      "id": 1322,
+      "node_id": "MDQ6VXNlcjEzMjI=",
+      "avatar_url": "https://github.wdf.sap.corp/avatars/u/1322?",
       "gravatar_id": "",
-      "url": "https://api.github.com/users/freegroup",
-      "html_url": "https://github.com/freegroup",
-      "followers_url": "https://api.github.com/users/freegroup/followers",
-      "following_url": "https://api.github.com/users/freegroup/following{/other_user}",
-      "gists_url": "https://api.github.com/users/freegroup/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/freegroup/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/freegroup/subscriptions",
-      "organizations_url": "https://api.github.com/users/freegroup/orgs",
-      "repos_url": "https://api.github.com/users/freegroup/repos",
-      "events_url": "https://api.github.com/users/freegroup/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/freegroup/received_events",
+      "url": "https://github.wdf.sap.corp/api/v3/users/d023280",
+      "html_url": "https://github.wdf.sap.corp/d023280",
+      "followers_url": "https://github.wdf.sap.corp/api/v3/users/d023280/followers",
+      "following_url": "https://github.wdf.sap.corp/api/v3/users/d023280/following{/other_user}",
+      "gists_url": "https://github.wdf.sap.corp/api/v3/users/d023280/gists{/gist_id}",
+      "starred_url": "https://github.wdf.sap.corp/api/v3/users/d023280/starred{/owner}{/repo}",
+      "subscriptions_url": "https://github.wdf.sap.corp/api/v3/users/d023280/subscriptions",
+      "organizations_url": "https://github.wdf.sap.corp/api/v3/users/d023280/orgs",
+      "repos_url": "https://github.wdf.sap.corp/api/v3/users/d023280/repos",
+      "events_url": "https://github.wdf.sap.corp/api/v3/users/d023280/events{/privacy}",
+      "received_events_url": "https://github.wdf.sap.corp/api/v3/users/d023280/received_events",
       "type": "User",
       "site_admin": false
     },
     "parents": [
       {
-        "sha": "74e7f5f0d8227907dd4f0fe177d59b518aa546c4",
-        "url": "https://api.github.com/repos/gardener/documentation/commits/74e7f5f0d8227907dd4f0fe177d59b518aa546c4",
-        "html_url": "https://github.com/gardener/documentation/commit/74e7f5f0d8227907dd4f0fe177d59b518aa546c4"
+        "sha": "8f87b8a43b6a6f78df52e3c1eb9c8e17e219b4ff",
+        "url": "https://github.wdf.sap.corp/api/v3/repos/kubernetes/documentation/commits/8f87b8a43b6a6f78df52e3c1eb9c8e17e219b4ff",
+        "html_url": "https://github.wdf.sap.corp/kubernetes/documentation/commit/8f87b8a43b6a6f78df52e3c1eb9c8e17e219b4ff"
+      }
+    ]
+  },
+  {
+    "sha": "308a5b311ebfe796d1fd6a39e7d7d83b607c489d",
+    "node_id": "MDY6Q29tbWl0MjEzMDIxOjMwOGE1YjMxMWViZmU3OTZkMWZkNmEzOWU3ZDdkODNiNjA3YzQ4OWQ=",
+    "commit": {
+      "author": {
+        "name": "Herz, Andreas",
+        "email": "andreas.herz@sap.com",
+        "date": "2018-10-01T11:44:33Z"
+      },
+      "committer": {
+        "name": "Herz, Andreas",
+        "email": "andreas.herz@sap.com",
+        "date": "2018-10-01T11:44:36Z"
+      },
+      "message": "add blog entry and howto for \"hibernate a cluster\"",
+      "tree": {
+        "sha": "357c5fd17042408f072fde69bd97d5fa15944e18",
+        "url": "https://github.wdf.sap.corp/api/v3/repos/kubernetes/documentation/git/trees/357c5fd17042408f072fde69bd97d5fa15944e18"
+      },
+      "url": "https://github.wdf.sap.corp/api/v3/repos/kubernetes/documentation/git/commits/308a5b311ebfe796d1fd6a39e7d7d83b607c489d",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://github.wdf.sap.corp/api/v3/repos/kubernetes/documentation/commits/308a5b311ebfe796d1fd6a39e7d7d83b607c489d",
+    "html_url": "https://github.wdf.sap.corp/kubernetes/documentation/commit/308a5b311ebfe796d1fd6a39e7d7d83b607c489d",
+    "comments_url": "https://github.wdf.sap.corp/api/v3/repos/kubernetes/documentation/commits/308a5b311ebfe796d1fd6a39e7d7d83b607c489d/comments",
+    "author": {
+      "login": "d023280",
+      "id": 1322,
+      "node_id": "MDQ6VXNlcjEzMjI=",
+      "avatar_url": "https://github.wdf.sap.corp/avatars/u/1322?",
+      "gravatar_id": "",
+      "url": "https://github.wdf.sap.corp/api/v3/users/d023280",
+      "html_url": "https://github.wdf.sap.corp/d023280",
+      "followers_url": "https://github.wdf.sap.corp/api/v3/users/d023280/followers",
+      "following_url": "https://github.wdf.sap.corp/api/v3/users/d023280/following{/other_user}",
+      "gists_url": "https://github.wdf.sap.corp/api/v3/users/d023280/gists{/gist_id}",
+      "starred_url": "https://github.wdf.sap.corp/api/v3/users/d023280/starred{/owner}{/repo}",
+      "subscriptions_url": "https://github.wdf.sap.corp/api/v3/users/d023280/subscriptions",
+      "organizations_url": "https://github.wdf.sap.corp/api/v3/users/d023280/orgs",
+      "repos_url": "https://github.wdf.sap.corp/api/v3/users/d023280/repos",
+      "events_url": "https://github.wdf.sap.corp/api/v3/users/d023280/events{/privacy}",
+      "received_events_url": "https://github.wdf.sap.corp/api/v3/users/d023280/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "d023280",
+      "id": 1322,
+      "node_id": "MDQ6VXNlcjEzMjI=",
+      "avatar_url": "https://github.wdf.sap.corp/avatars/u/1322?",
+      "gravatar_id": "",
+      "url": "https://github.wdf.sap.corp/api/v3/users/d023280",
+      "html_url": "https://github.wdf.sap.corp/d023280",
+      "followers_url": "https://github.wdf.sap.corp/api/v3/users/d023280/followers",
+      "following_url": "https://github.wdf.sap.corp/api/v3/users/d023280/following{/other_user}",
+      "gists_url": "https://github.wdf.sap.corp/api/v3/users/d023280/gists{/gist_id}",
+      "starred_url": "https://github.wdf.sap.corp/api/v3/users/d023280/starred{/owner}{/repo}",
+      "subscriptions_url": "https://github.wdf.sap.corp/api/v3/users/d023280/subscriptions",
+      "organizations_url": "https://github.wdf.sap.corp/api/v3/users/d023280/orgs",
+      "repos_url": "https://github.wdf.sap.corp/api/v3/users/d023280/repos",
+      "events_url": "https://github.wdf.sap.corp/api/v3/users/d023280/events{/privacy}",
+      "received_events_url": "https://github.wdf.sap.corp/api/v3/users/d023280/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "ac44f9d4e20b8217469449a7b9243d930d5723fa",
+        "url": "https://github.wdf.sap.corp/api/v3/repos/kubernetes/documentation/commits/ac44f9d4e20b8217469449a7b9243d930d5723fa",
+        "html_url": "https://github.wdf.sap.corp/kubernetes/documentation/commit/ac44f9d4e20b8217469449a7b9243d930d5723fa"
       }
     ]
   }

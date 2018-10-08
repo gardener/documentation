@@ -15,7 +15,8 @@ If you have built a customer scenario for demo purposes, you don't want to run t
 would exceed here very fast. You can setup the cluster again for each demo, thanks to *Helm* this works relatively well, but takes a long 
 time depending on the infrastructure. Furthermore not all 3rd party services are connected yet.
 
-![teaser](teaser.png)
+
+{{% inline_svg "overview" "teaser_patched.svg" %}}
 
 
 
