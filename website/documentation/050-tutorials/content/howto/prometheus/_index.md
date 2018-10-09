@@ -74,7 +74,7 @@ in case you use the service type `LoadBalancer`.
 The deployment of [Prometheus](https://github.com/kubernetes/charts/tree/master/stable/prometheus) and [Grafana](https://github.com/kubernetes/charts/tree/master/stable/grafana) is based on Helm charts.  
 Make sure to implement the [Helm settings](/howto/helm) before deploying the Helm charts.
 
-The Kubernetes clusters provided by [Gardener](https://github.wdf.sap.corp/pages/kubernetes/gardener/) use role based 
+The Kubernetes clusters provided by [Gardener](https://github.com/gardener) use role based 
 access control ([RBAC](https://kubernetes.io/docs/admin/authorization/rbac/)). To authorize the Prometheus 
 node-exporter to access hardware and OS relevant metrics of your cluster's worker nodes specific artifacts need to be 
 deployed. 
