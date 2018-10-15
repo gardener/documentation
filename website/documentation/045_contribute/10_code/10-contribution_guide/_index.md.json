@@ -1,5 +1,84 @@
 [
   {
+    "sha": "a4adaba537475369f220d1f53a54963c25ec7782",
+    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OmE0YWRhYmE1Mzc0NzUzNjlmMjIwZDFmNTNhNTQ5NjNjMjVlYzc3ODI=",
+    "commit": {
+      "author": {
+        "name": "Matthias Sohn",
+        "email": "matthias.sohn@sap.com",
+        "date": "2018-10-10T14:17:42Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2018-10-10T14:17:42Z"
+      },
+      "message": "Fix meeting time\n\n- currently we have summer time with daylight savings\r\n- map to timezone using Google search",
+      "tree": {
+        "sha": "d5305d953d882d416cc3dc63f304ffc7a71ba143",
+        "url": "https://api.github.com/repos/gardener/documentation/git/trees/d5305d953d882d416cc3dc63f304ffc7a71ba143"
+      },
+      "url": "https://api.github.com/repos/gardener/documentation/git/commits/a4adaba537475369f220d1f53a54963c25ec7782",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJbvgoGCRBK7hj4Ov3rIwAAdHIIAJVBvMHh9tNll/rnEmjOqlrP\nMmSIyPo8hL4Ak/2lD2b4r8AzQD2WVsR/2YX6HP/Xh66axb87EL/jH70Ydvi3d1mR\nsDpoEqfEK7TqNvxE0XDQS1um/XQFFU+th7KkQdup7U04m9zoAsVUppUygPpsx5a8\nBrUSF4HR19gg6MiXj47mPi8gvXQrr9gduzVpwbmPsiue8gbkC8hJKzfx+e17SWWB\nOCTgILTxzaIJ3JL3iO8QR6Z2w6Zv7oo2GDVqiC1g2n3pBKrYUJS6dp6t8zdCKGZM\n9fwF1qhmlnL2sQa4gVe6HyqTsznCmTqTPcsjyLFLdZy686vpHWOeBzW9aWSdVKw=\n=gCFO\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree d5305d953d882d416cc3dc63f304ffc7a71ba143\nparent 6e2ab589bb6cd227e6b447cde02594fc40e6967c\nauthor Matthias Sohn <matthias.sohn@sap.com> 1539181062 +0200\ncommitter GitHub <noreply@github.com> 1539181062 +0200\n\nFix meeting time\n\n- currently we have summer time with daylight savings\r\n- map to timezone using Google search"
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/documentation/commits/a4adaba537475369f220d1f53a54963c25ec7782",
+    "html_url": "https://github.com/gardener/documentation/commit/a4adaba537475369f220d1f53a54963c25ec7782",
+    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/a4adaba537475369f220d1f53a54963c25ec7782/comments",
+    "author": {
+      "login": "msohn",
+      "id": 143355,
+      "node_id": "MDQ6VXNlcjE0MzM1NQ==",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/143355?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/msohn",
+      "html_url": "https://github.com/msohn",
+      "followers_url": "https://api.github.com/users/msohn/followers",
+      "following_url": "https://api.github.com/users/msohn/following{/other_user}",
+      "gists_url": "https://api.github.com/users/msohn/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/msohn/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/msohn/subscriptions",
+      "organizations_url": "https://api.github.com/users/msohn/orgs",
+      "repos_url": "https://api.github.com/users/msohn/repos",
+      "events_url": "https://api.github.com/users/msohn/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/msohn/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "6e2ab589bb6cd227e6b447cde02594fc40e6967c",
+        "url": "https://api.github.com/repos/gardener/documentation/commits/6e2ab589bb6cd227e6b447cde02594fc40e6967c",
+        "html_url": "https://github.com/gardener/documentation/commit/6e2ab589bb6cd227e6b447cde02594fc40e6967c"
+      }
+    ]
+  },
+  {
     "sha": "e37024c71e292397dbb809c364c381a39da8c906",
     "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OmUzNzAyNGM3MWUyOTIzOTdkYmI4MDljMzY0YzM4MWEzOWRhOGM5MDY=",
     "commit": {
