@@ -88,6 +88,8 @@ cd gardener-site
 git clone https://github.com/gardener/documentation.git
 git clone https://github.com/gardener/website-generator.git
 
+cd website-generator
+
 # make a symbolic link of the pure "markdown" files into the hugo directory structure
 #
 ln -s ../documentation/website/documentation/ ./hugo/content
