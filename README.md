@@ -96,7 +96,6 @@ ln -s ../documentation/website/documentation/ ./hugo/content
 
 # install NPM package. required for the "fetch" job of external content
 #
-cd website-generator/
 npm install
 
 # crawl remote markdown content 
