@@ -1,5 +1,163 @@
 [
   {
+    "sha": "cd11606920cd4988e3d7a4f65d68932b061fc9ea",
+    "node_id": "MDY6Q29tbWl0MTE2NDI5NDAxOmNkMTE2MDY5MjBjZDQ5ODhlM2Q3YTRmNjVkNjg5MzJiMDYxZmM5ZWE=",
+    "commit": {
+      "author": {
+        "name": "Uwe Krueger",
+        "email": "uwe.krueger@sap.com",
+        "date": "2018-05-23T13:03:29Z"
+      },
+      "committer": {
+        "name": "Andreas Fritzler",
+        "email": "andreas.fritzler@sap.com",
+        "date": "2018-10-16T15:25:12Z"
+      },
+      "message": "ETCD Migration docu",
+      "tree": {
+        "sha": "ef2937b177cee96df85f5581d41465466beea398",
+        "url": "https://api.github.com/repos/gardener/kubify/git/trees/ef2937b177cee96df85f5581d41465466beea398"
+      },
+      "url": "https://api.github.com/repos/gardener/kubify/git/commits/cd11606920cd4988e3d7a4f65d68932b061fc9ea",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/kubify/commits/cd11606920cd4988e3d7a4f65d68932b061fc9ea",
+    "html_url": "https://github.com/gardener/kubify/commit/cd11606920cd4988e3d7a4f65d68932b061fc9ea",
+    "comments_url": "https://api.github.com/repos/gardener/kubify/commits/cd11606920cd4988e3d7a4f65d68932b061fc9ea/comments",
+    "author": {
+      "login": "mandelsoft",
+      "id": 553075,
+      "node_id": "MDQ6VXNlcjU1MzA3NQ==",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/553075?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/mandelsoft",
+      "html_url": "https://github.com/mandelsoft",
+      "followers_url": "https://api.github.com/users/mandelsoft/followers",
+      "following_url": "https://api.github.com/users/mandelsoft/following{/other_user}",
+      "gists_url": "https://api.github.com/users/mandelsoft/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/mandelsoft/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/mandelsoft/subscriptions",
+      "organizations_url": "https://api.github.com/users/mandelsoft/orgs",
+      "repos_url": "https://api.github.com/users/mandelsoft/repos",
+      "events_url": "https://api.github.com/users/mandelsoft/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/mandelsoft/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "afritzler",
+      "id": 1922939,
+      "node_id": "MDQ6VXNlcjE5MjI5Mzk=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1922939?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/afritzler",
+      "html_url": "https://github.com/afritzler",
+      "followers_url": "https://api.github.com/users/afritzler/followers",
+      "following_url": "https://api.github.com/users/afritzler/following{/other_user}",
+      "gists_url": "https://api.github.com/users/afritzler/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/afritzler/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/afritzler/subscriptions",
+      "organizations_url": "https://api.github.com/users/afritzler/orgs",
+      "repos_url": "https://api.github.com/users/afritzler/repos",
+      "events_url": "https://api.github.com/users/afritzler/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/afritzler/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "b4eb60adbdffa570f888d333ecfebaaca9268915",
+        "url": "https://api.github.com/repos/gardener/kubify/commits/b4eb60adbdffa570f888d333ecfebaaca9268915",
+        "html_url": "https://github.com/gardener/kubify/commit/b4eb60adbdffa570f888d333ecfebaaca9268915"
+      }
+    ]
+  },
+  {
+    "sha": "a3dd4b326471626ea013ccd296ca315ae717222d",
+    "node_id": "MDY6Q29tbWl0MTE2NDI5NDAxOmEzZGQ0YjMyNjQ3MTYyNmVhMDEzY2NkMjk2Y2EzMTVhZTcxNzIyMmQ=",
+    "commit": {
+      "author": {
+        "name": "Uwe Krueger",
+        "email": "uwe.krueger@sap.com",
+        "date": "2018-05-15T13:24:56Z"
+      },
+      "committer": {
+        "name": "Andreas Fritzler",
+        "email": "andreas.fritzler@sap.com",
+        "date": "2018-10-16T15:25:12Z"
+      },
+      "message": "recover migration to static etcd",
+      "tree": {
+        "sha": "66b6cefeb393d9c42ddb7bbffc50aa1f571130d3",
+        "url": "https://api.github.com/repos/gardener/kubify/git/trees/66b6cefeb393d9c42ddb7bbffc50aa1f571130d3"
+      },
+      "url": "https://api.github.com/repos/gardener/kubify/git/commits/a3dd4b326471626ea013ccd296ca315ae717222d",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/kubify/commits/a3dd4b326471626ea013ccd296ca315ae717222d",
+    "html_url": "https://github.com/gardener/kubify/commit/a3dd4b326471626ea013ccd296ca315ae717222d",
+    "comments_url": "https://api.github.com/repos/gardener/kubify/commits/a3dd4b326471626ea013ccd296ca315ae717222d/comments",
+    "author": {
+      "login": "mandelsoft",
+      "id": 553075,
+      "node_id": "MDQ6VXNlcjU1MzA3NQ==",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/553075?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/mandelsoft",
+      "html_url": "https://github.com/mandelsoft",
+      "followers_url": "https://api.github.com/users/mandelsoft/followers",
+      "following_url": "https://api.github.com/users/mandelsoft/following{/other_user}",
+      "gists_url": "https://api.github.com/users/mandelsoft/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/mandelsoft/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/mandelsoft/subscriptions",
+      "organizations_url": "https://api.github.com/users/mandelsoft/orgs",
+      "repos_url": "https://api.github.com/users/mandelsoft/repos",
+      "events_url": "https://api.github.com/users/mandelsoft/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/mandelsoft/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "afritzler",
+      "id": 1922939,
+      "node_id": "MDQ6VXNlcjE5MjI5Mzk=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1922939?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/afritzler",
+      "html_url": "https://github.com/afritzler",
+      "followers_url": "https://api.github.com/users/afritzler/followers",
+      "following_url": "https://api.github.com/users/afritzler/following{/other_user}",
+      "gists_url": "https://api.github.com/users/afritzler/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/afritzler/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/afritzler/subscriptions",
+      "organizations_url": "https://api.github.com/users/afritzler/orgs",
+      "repos_url": "https://api.github.com/users/afritzler/repos",
+      "events_url": "https://api.github.com/users/afritzler/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/afritzler/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "eddab3034eeb86f73e7af467e438ffb8a235a0ac",
+        "url": "https://api.github.com/repos/gardener/kubify/commits/eddab3034eeb86f73e7af467e438ffb8a235a0ac",
+        "html_url": "https://github.com/gardener/kubify/commit/eddab3034eeb86f73e7af467e438ffb8a235a0ac"
+      }
+    ]
+  },
+  {
     "sha": "90ec19f22c77834daa2845c3caa3c9f213a82133",
     "node_id": "MDY6Q29tbWl0MTE2NDI5NDAxOjkwZWMxOWYyMmM3NzgzNGRhYTI4NDVjM2NhYTNjOWYyMTNhODIxMzM=",
     "commit": {
