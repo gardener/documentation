@@ -102,5 +102,3 @@ webapp-fdcb49cbc-4gs4n   0/1       Init:0/1   0         1s
 $ kubectl  logs webapp-fdcb49cbc-4gs4n
 Error from server (BadRequest): container "go-url-shortener" in pod "webapp-fdcb49cbc-4gs4n" is waiting to start: PodInitializing
 ```
-
-To try out yourself, the complete deployment definition can be found [here](https://github.wdf.sap.corp/kubernetes/gardener/tree/master/examples/shortenurl).
