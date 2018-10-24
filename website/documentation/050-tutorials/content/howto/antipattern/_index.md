@@ -105,9 +105,7 @@ and pushed to the repository. This image:tag should be used for different enviro
 Applications often depend on containers being started in a certain order. 
 For example, a database container must be up and running before an application can connect to it. The application 
 should be resilient to such changes, as the db pod can be unreachable or restarted at any time. The 
-application container should be able to handle such situations without terminating or crashing. A
-good pattern here is to configure ["readiness probes"](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) accordingly and 
-to inform Kubernetes if an app's pod is operable. [InitContainers](https://github.wdf.sap.corp/pages/kubernetes/gardener/doc/2018/06/11/howto-orchestration-containers-startup.html) can be used to control the start sequence if dependencies exist among multiple pods
+application container should be able to handle such situations without terminating or crashing. 
 
 ## Additional anti-patterns and patterns...
 In the community vast experience have been collected to improve stability and usability of Docker and Kubernetes.

@@ -285,8 +285,7 @@ and password of the Grafana Admin user. The credentials are stored as secrets in
 and could be decoded via `kubectl get secret --namespace <my-grafana-namespace> grafana-grafana -o jsonpath="{.data.grafana-admin-password}" | base64 --decode ; echo`.
 
 ## Basic functional tests
-To access the web UI of both applications use port forwarding of port 9090, since Prometheus web UI is broken when 
-used via K8s HTTP proxy as of November, 2017. More details in this [HowTo](https://github.wdf.sap.corp/pages/kubernetes/gardener/doc/2017/01/16/howto-access-internal-web-ui.html). 
+To access the web UI of both applications use port forwarding of port 9090. 
 
 Setup port forwarding for port 9090:
 
