@@ -37,12 +37,12 @@ the command prompt doesn't return and you can press `ctrl+c`
 We can then inspect our Pods and see that we have one Pod with a status of **ErrImagePull** or **ImagePullBackOff**.
 
 ```sh
-WDFM33957623A:$ (minikube) kubectl get pods
+$ (minikube) kubectl get pods
 NAME                      READY     STATUS         RESTARTS   AGE
 client-5b65b6c866-cs4ch   1/1       Running        1          1m
 fail-6667d7685d-7v6w8     0/1       ErrImagePull   0          <invalid>
 vuejs-578574b75f-5x98z    1/1       Running        0          1d
-WDFM33957623A:$ (minikube) 
+$ (minikube) 
 
 ```
 
