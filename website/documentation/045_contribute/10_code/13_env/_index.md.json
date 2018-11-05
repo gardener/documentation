@@ -1,5 +1,163 @@
 [
   {
+    "sha": "756431b272829616a26f05f75a02dca28e373384",
+    "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOjc1NjQzMWIyNzI4Mjk2MTZhMjZmMDVmNzVhMDJkY2EyOGUzNzMzODQ=",
+    "commit": {
+      "author": {
+        "name": "Rafael Franzke",
+        "email": "rafael.franzke@sap.com",
+        "date": "2018-10-30T09:34:59Z"
+      },
+      "committer": {
+        "name": "Rafael Franzke",
+        "email": "rafael.franzke@sap.com",
+        "date": "2018-10-30T09:36:38Z"
+      },
+      "message": "Bump golang to v1.11.1\n\nNew formatting rules applied on the way.",
+      "tree": {
+        "sha": "71ca9362850b29ceddaf8f6c738bb68e2f5b2c38",
+        "url": "https://api.github.com/repos/gardener/gardener/git/trees/71ca9362850b29ceddaf8f6c738bb68e2f5b2c38"
+      },
+      "url": "https://api.github.com/repos/gardener/gardener/git/commits/756431b272829616a26f05f75a02dca28e373384",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/gardener/commits/756431b272829616a26f05f75a02dca28e373384",
+    "html_url": "https://github.com/gardener/gardener/commit/756431b272829616a26f05f75a02dca28e373384",
+    "comments_url": "https://api.github.com/repos/gardener/gardener/commits/756431b272829616a26f05f75a02dca28e373384/comments",
+    "author": {
+      "login": "rfranzke",
+      "id": 19169361,
+      "node_id": "MDQ6VXNlcjE5MTY5MzYx",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/19169361?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rfranzke",
+      "html_url": "https://github.com/rfranzke",
+      "followers_url": "https://api.github.com/users/rfranzke/followers",
+      "following_url": "https://api.github.com/users/rfranzke/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rfranzke/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/rfranzke/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rfranzke/subscriptions",
+      "organizations_url": "https://api.github.com/users/rfranzke/orgs",
+      "repos_url": "https://api.github.com/users/rfranzke/repos",
+      "events_url": "https://api.github.com/users/rfranzke/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/rfranzke/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "rfranzke",
+      "id": 19169361,
+      "node_id": "MDQ6VXNlcjE5MTY5MzYx",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/19169361?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rfranzke",
+      "html_url": "https://github.com/rfranzke",
+      "followers_url": "https://api.github.com/users/rfranzke/followers",
+      "following_url": "https://api.github.com/users/rfranzke/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rfranzke/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/rfranzke/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rfranzke/subscriptions",
+      "organizations_url": "https://api.github.com/users/rfranzke/orgs",
+      "repos_url": "https://api.github.com/users/rfranzke/repos",
+      "events_url": "https://api.github.com/users/rfranzke/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/rfranzke/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "b49528792d446be91f10c1f71d26955144af9a23",
+        "url": "https://api.github.com/repos/gardener/gardener/commits/b49528792d446be91f10c1f71d26955144af9a23",
+        "html_url": "https://github.com/gardener/gardener/commit/b49528792d446be91f10c1f71d26955144af9a23"
+      }
+    ]
+  },
+  {
+    "sha": "7f334d19d6a9c01ba3fcdd1c259d2cba537fe1d1",
+    "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOjdmMzM0ZDE5ZDZhOWMwMWJhM2ZjZGQxYzI1OWQyY2JhNTM3ZmUxZDE=",
+    "commit": {
+      "author": {
+        "name": "Vladimir Nachev",
+        "email": "vladimir.nachev@sap.com",
+        "date": "2018-10-29T14:25:23Z"
+      },
+      "committer": {
+        "name": "Vladimir Nachev",
+        "email": "vladimir.nachev@sap.com",
+        "date": "2018-10-29T14:25:23Z"
+      },
+      "message": "Fix docs for local setup\n\nAdd statement for manual daployment of internal domain secret.",
+      "tree": {
+        "sha": "9d3164ac38915e638a5c02fb9763e876fac602ef",
+        "url": "https://api.github.com/repos/gardener/gardener/git/trees/9d3164ac38915e638a5c02fb9763e876fac602ef"
+      },
+      "url": "https://api.github.com/repos/gardener/gardener/git/commits/7f334d19d6a9c01ba3fcdd1c259d2cba537fe1d1",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v2\n\niQIcBAABCAAGBQJb1xhvAAoJENGLA2kAcCX6oB8P+QF24LbYPDzqwFegYEF4jEwC\nm2hoFtBpYT/pmKuoYWCFSTRjHbRJuHvgnIgM0R1MSiuDdSW2nx4CrUFkLY0NmNu9\nL4rArMZdDGs6Rqqhe+EP3OLmAJa40eQaIYHRCDqsYBm61Sfl7fsF5EVUxobBPT5H\nN/vzfMD5nTY8J9hmIhxWwWjOcM2cArWC6sL8wOPu82rqnsQf8KfdQXczfKtCKZ+n\n+yJn0+s17Lf4ALRZIASVO/GX1UrW1onm96v4SrzLJUiD/sipniuOVxLA/GffDqCm\n5Cwcei8TgJqjcWcVtUPAxGRINKPhBuyuKwydwk46QKikwjDrF75UHRDGSQBTbDVH\noyNIuWy6f/nD3Z/Mwnc7wclJFENqP69Wzo5XoGn4fWYXw3Uv3jvuFUlb+oaOSktC\nLBs0yixXyVrMYrlz5dmqeuRiKzVzdc8bgSvxqRsYb8JB2J53kE5u7IFHls7wzH0a\nc+/Jisx/6bvh7uf5PswUyKg+B8muG5MRtgWJGyKoEQwDJ6+de3SZIgMJffU2XPAt\nkiCsB7Fj8SI86MmG/4ZFqVppUldh+5FWbZRYKB7L21jiyeIajvNJg/eyhpKcWUxG\n/HqvXmFKnlSGIPzTWJXIxROrrwWf/l3VEdYhLK4HC4W0fID1292tlNnMuqJBLgmz\nIrPyHdF8b8otcD8Fv7o0\n=Uxzo\n-----END PGP SIGNATURE-----",
+        "payload": "tree 9d3164ac38915e638a5c02fb9763e876fac602ef\nparent 23f68848b70dc431552f2ebbbc6097ebd44bfa7f\nauthor Vladimir Nachev <vladimir.nachev@sap.com> 1540823123 +0200\ncommitter Vladimir Nachev <vladimir.nachev@sap.com> 1540823123 +0200\n\nFix docs for local setup\n\nAdd statement for manual daployment of internal domain secret.\n"
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/gardener/commits/7f334d19d6a9c01ba3fcdd1c259d2cba537fe1d1",
+    "html_url": "https://github.com/gardener/gardener/commit/7f334d19d6a9c01ba3fcdd1c259d2cba537fe1d1",
+    "comments_url": "https://api.github.com/repos/gardener/gardener/commits/7f334d19d6a9c01ba3fcdd1c259d2cba537fe1d1/comments",
+    "author": {
+      "login": "vpnachev",
+      "id": 6798531,
+      "node_id": "MDQ6VXNlcjY3OTg1MzE=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/6798531?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/vpnachev",
+      "html_url": "https://github.com/vpnachev",
+      "followers_url": "https://api.github.com/users/vpnachev/followers",
+      "following_url": "https://api.github.com/users/vpnachev/following{/other_user}",
+      "gists_url": "https://api.github.com/users/vpnachev/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/vpnachev/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/vpnachev/subscriptions",
+      "organizations_url": "https://api.github.com/users/vpnachev/orgs",
+      "repos_url": "https://api.github.com/users/vpnachev/repos",
+      "events_url": "https://api.github.com/users/vpnachev/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/vpnachev/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "vpnachev",
+      "id": 6798531,
+      "node_id": "MDQ6VXNlcjY3OTg1MzE=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/6798531?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/vpnachev",
+      "html_url": "https://github.com/vpnachev",
+      "followers_url": "https://api.github.com/users/vpnachev/followers",
+      "following_url": "https://api.github.com/users/vpnachev/following{/other_user}",
+      "gists_url": "https://api.github.com/users/vpnachev/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/vpnachev/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/vpnachev/subscriptions",
+      "organizations_url": "https://api.github.com/users/vpnachev/orgs",
+      "repos_url": "https://api.github.com/users/vpnachev/repos",
+      "events_url": "https://api.github.com/users/vpnachev/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/vpnachev/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "23f68848b70dc431552f2ebbbc6097ebd44bfa7f",
+        "url": "https://api.github.com/repos/gardener/gardener/commits/23f68848b70dc431552f2ebbbc6097ebd44bfa7f",
+        "html_url": "https://github.com/gardener/gardener/commit/23f68848b70dc431552f2ebbbc6097ebd44bfa7f"
+      }
+    ]
+  },
+  {
     "sha": "dc42f1fc45252677357b8bbc41d7b047181a2a7c",
     "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOmRjNDJmMWZjNDUyNTI2NzczNTdiOGJiYzQxZDdiMDQ3MTgxYTJhN2M=",
     "commit": {
@@ -2208,164 +2366,6 @@
         "sha": "df399edb291bcd1209ebe943d5113f748e5dfbd7",
         "url": "https://api.github.com/repos/gardener/gardener/commits/df399edb291bcd1209ebe943d5113f748e5dfbd7",
         "html_url": "https://github.com/gardener/gardener/commit/df399edb291bcd1209ebe943d5113f748e5dfbd7"
-      }
-    ]
-  },
-  {
-    "sha": "df399edb291bcd1209ebe943d5113f748e5dfbd7",
-    "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOmRmMzk5ZWRiMjkxYmNkMTIwOWViZTk0M2Q1MTEzZjc0OGU1ZGZiZDc=",
-    "commit": {
-      "author": {
-        "name": "Martin Vladev",
-        "email": "martin.vladev@sap.com",
-        "date": "2018-01-29T08:17:32Z"
-      },
-      "committer": {
-        "name": "Martin Vladev",
-        "email": "martin.vladev@sap.com",
-        "date": "2018-02-05T08:28:08Z"
-      },
-      "message": "documentation for complete local setup\n\nFix typos and remove not need blocks.",
-      "tree": {
-        "sha": "d0a774d3613194631d3151c2fd0d20f35ef5e790",
-        "url": "https://api.github.com/repos/gardener/gardener/git/trees/d0a774d3613194631d3151c2fd0d20f35ef5e790"
-      },
-      "url": "https://api.github.com/repos/gardener/gardener/git/commits/df399edb291bcd1209ebe943d5113f748e5dfbd7",
-      "comment_count": 0,
-      "verification": {
-        "verified": false,
-        "reason": "unsigned",
-        "signature": null,
-        "payload": null
-      }
-    },
-    "url": "https://api.github.com/repos/gardener/gardener/commits/df399edb291bcd1209ebe943d5113f748e5dfbd7",
-    "html_url": "https://github.com/gardener/gardener/commit/df399edb291bcd1209ebe943d5113f748e5dfbd7",
-    "comments_url": "https://api.github.com/repos/gardener/gardener/commits/df399edb291bcd1209ebe943d5113f748e5dfbd7/comments",
-    "author": {
-      "login": "mvladev",
-      "id": 33343952,
-      "node_id": "MDQ6VXNlcjMzMzQzOTUy",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/33343952?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/mvladev",
-      "html_url": "https://github.com/mvladev",
-      "followers_url": "https://api.github.com/users/mvladev/followers",
-      "following_url": "https://api.github.com/users/mvladev/following{/other_user}",
-      "gists_url": "https://api.github.com/users/mvladev/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/mvladev/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/mvladev/subscriptions",
-      "organizations_url": "https://api.github.com/users/mvladev/orgs",
-      "repos_url": "https://api.github.com/users/mvladev/repos",
-      "events_url": "https://api.github.com/users/mvladev/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/mvladev/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "committer": {
-      "login": "mvladev",
-      "id": 33343952,
-      "node_id": "MDQ6VXNlcjMzMzQzOTUy",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/33343952?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/mvladev",
-      "html_url": "https://github.com/mvladev",
-      "followers_url": "https://api.github.com/users/mvladev/followers",
-      "following_url": "https://api.github.com/users/mvladev/following{/other_user}",
-      "gists_url": "https://api.github.com/users/mvladev/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/mvladev/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/mvladev/subscriptions",
-      "organizations_url": "https://api.github.com/users/mvladev/orgs",
-      "repos_url": "https://api.github.com/users/mvladev/repos",
-      "events_url": "https://api.github.com/users/mvladev/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/mvladev/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "parents": [
-      {
-        "sha": "06b01dad1fda3d043042aa7da632b3c1e260746e",
-        "url": "https://api.github.com/repos/gardener/gardener/commits/06b01dad1fda3d043042aa7da632b3c1e260746e",
-        "html_url": "https://github.com/gardener/gardener/commit/06b01dad1fda3d043042aa7da632b3c1e260746e"
-      }
-    ]
-  },
-  {
-    "sha": "71213a720628da26d4ad4b55cb8b495b1bbb70b9",
-    "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOjcxMjEzYTcyMDYyOGRhMjZkNGFkNGI1NWNiOGI0OTViMWJiYjcwYjk=",
-    "commit": {
-      "author": {
-        "name": "Rafael Franzke",
-        "email": "rafael.franzke@sap.com",
-        "date": "2018-01-31T13:20:22Z"
-      },
-      "committer": {
-        "name": "Rafael Franzke",
-        "email": "rafael.franzke@sap.com",
-        "date": "2018-01-31T13:20:22Z"
-      },
-      "message": "Rename garden-[apiserver|controller-manager] to gardener-[apiserver|controller-manager]",
-      "tree": {
-        "sha": "83a423a91e3cfdc48241a9fc84aec2dfb367bf82",
-        "url": "https://api.github.com/repos/gardener/gardener/git/trees/83a423a91e3cfdc48241a9fc84aec2dfb367bf82"
-      },
-      "url": "https://api.github.com/repos/gardener/gardener/git/commits/71213a720628da26d4ad4b55cb8b495b1bbb70b9",
-      "comment_count": 0,
-      "verification": {
-        "verified": false,
-        "reason": "unsigned",
-        "signature": null,
-        "payload": null
-      }
-    },
-    "url": "https://api.github.com/repos/gardener/gardener/commits/71213a720628da26d4ad4b55cb8b495b1bbb70b9",
-    "html_url": "https://github.com/gardener/gardener/commit/71213a720628da26d4ad4b55cb8b495b1bbb70b9",
-    "comments_url": "https://api.github.com/repos/gardener/gardener/commits/71213a720628da26d4ad4b55cb8b495b1bbb70b9/comments",
-    "author": {
-      "login": "rfranzke",
-      "id": 19169361,
-      "node_id": "MDQ6VXNlcjE5MTY5MzYx",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/19169361?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/rfranzke",
-      "html_url": "https://github.com/rfranzke",
-      "followers_url": "https://api.github.com/users/rfranzke/followers",
-      "following_url": "https://api.github.com/users/rfranzke/following{/other_user}",
-      "gists_url": "https://api.github.com/users/rfranzke/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/rfranzke/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/rfranzke/subscriptions",
-      "organizations_url": "https://api.github.com/users/rfranzke/orgs",
-      "repos_url": "https://api.github.com/users/rfranzke/repos",
-      "events_url": "https://api.github.com/users/rfranzke/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/rfranzke/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "committer": {
-      "login": "rfranzke",
-      "id": 19169361,
-      "node_id": "MDQ6VXNlcjE5MTY5MzYx",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/19169361?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/rfranzke",
-      "html_url": "https://github.com/rfranzke",
-      "followers_url": "https://api.github.com/users/rfranzke/followers",
-      "following_url": "https://api.github.com/users/rfranzke/following{/other_user}",
-      "gists_url": "https://api.github.com/users/rfranzke/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/rfranzke/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/rfranzke/subscriptions",
-      "organizations_url": "https://api.github.com/users/rfranzke/orgs",
-      "repos_url": "https://api.github.com/users/rfranzke/repos",
-      "events_url": "https://api.github.com/users/rfranzke/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/rfranzke/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "parents": [
-      {
-        "sha": "7d6948c14af641aa64874b3ddc0b00198ded90df",
-        "url": "https://api.github.com/repos/gardener/gardener/commits/7d6948c14af641aa64874b3ddc0b00198ded90df",
-        "html_url": "https://github.com/gardener/gardener/commit/7d6948c14af641aa64874b3ddc0b00198ded90df"
       }
     ]
   }
