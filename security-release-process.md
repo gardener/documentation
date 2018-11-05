@@ -15,7 +15,7 @@ The Gardener Security Team is responsible for organizing the entire response inc
 * Oliver Kling, (**[@oliverkling](https://github.com/oliverkling)**) 
 * Vedran Lerenc, (**[@vlerenc](https://github.com/vlerenc)**)
 * Dirk Marwinski, (**[@marwinski](https://github.com/marwinski)**)
-* Michael Schubert, (**[@schu](https://github.com/shu)**)
+* Michael Schubert, (**[@schu](https://github.com/schu)**)
 * Matthias Sohn, (**[@msohn](https://github.com/msohn)**)
 * Frederik Thormaehlen, (**[@ThormaehlenFred](https://github.com/ThormaehlenFred)**)
 
