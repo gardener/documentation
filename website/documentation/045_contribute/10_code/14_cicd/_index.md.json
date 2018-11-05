@@ -1,0 +1,81 @@
+[
+  {
+    "sha": "fa220edc940a3e86b420cd46b4f5f5a6ccc48155",
+    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OmZhMjIwZWRjOTQwYTNlODZiNDIwY2Q0NmI0ZjVmNWE2Y2NjNDgxNTU=",
+    "commit": {
+      "author": {
+        "name": "Andreas Burger",
+        "email": "andreas.burger@sap.com",
+        "date": "2018-10-30T14:48:08Z"
+      },
+      "committer": {
+        "name": "Andreas Burger",
+        "email": "andreas.burger@sap.com",
+        "date": "2018-10-30T15:29:05Z"
+      },
+      "message": "add section concerning our CI/CD",
+      "tree": {
+        "sha": "1a1284a3cd90ac74418564904a1f16b26a822e1d",
+        "url": "https://api.github.com/repos/gardener/documentation/git/trees/1a1284a3cd90ac74418564904a1f16b26a822e1d"
+      },
+      "url": "https://api.github.com/repos/gardener/documentation/git/commits/fa220edc940a3e86b420cd46b4f5f5a6ccc48155",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/documentation/commits/fa220edc940a3e86b420cd46b4f5f5a6ccc48155",
+    "html_url": "https://github.com/gardener/documentation/commit/fa220edc940a3e86b420cd46b4f5f5a6ccc48155",
+    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/fa220edc940a3e86b420cd46b4f5f5a6ccc48155/comments",
+    "author": {
+      "login": "AndreasBurger",
+      "id": 5523902,
+      "node_id": "MDQ6VXNlcjU1MjM5MDI=",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/5523902?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/AndreasBurger",
+      "html_url": "https://github.com/AndreasBurger",
+      "followers_url": "https://api.github.com/users/AndreasBurger/followers",
+      "following_url": "https://api.github.com/users/AndreasBurger/following{/other_user}",
+      "gists_url": "https://api.github.com/users/AndreasBurger/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/AndreasBurger/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/AndreasBurger/subscriptions",
+      "organizations_url": "https://api.github.com/users/AndreasBurger/orgs",
+      "repos_url": "https://api.github.com/users/AndreasBurger/repos",
+      "events_url": "https://api.github.com/users/AndreasBurger/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/AndreasBurger/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "AndreasBurger",
+      "id": 5523902,
+      "node_id": "MDQ6VXNlcjU1MjM5MDI=",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/5523902?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/AndreasBurger",
+      "html_url": "https://github.com/AndreasBurger",
+      "followers_url": "https://api.github.com/users/AndreasBurger/followers",
+      "following_url": "https://api.github.com/users/AndreasBurger/following{/other_user}",
+      "gists_url": "https://api.github.com/users/AndreasBurger/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/AndreasBurger/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/AndreasBurger/subscriptions",
+      "organizations_url": "https://api.github.com/users/AndreasBurger/orgs",
+      "repos_url": "https://api.github.com/users/AndreasBurger/repos",
+      "events_url": "https://api.github.com/users/AndreasBurger/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/AndreasBurger/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "aa8ba2d33dac4fb2c8e7b0eca7392c833e1ccd6a",
+        "url": "https://api.github.com/repos/gardener/documentation/commits/aa8ba2d33dac4fb2c8e7b0eca7392c833e1ccd6a",
+        "html_url": "https://github.com/gardener/documentation/commit/aa8ba2d33dac4fb2c8e7b0eca7392c833e1ccd6a"
+      }
+    ]
+  }
+]
