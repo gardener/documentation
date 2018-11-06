@@ -1,5 +1,84 @@
 [
   {
+    "sha": "27d6f9771d991c4446f300bdab0024da9078d288",
+    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OjI3ZDZmOTc3MWQ5OTFjNDQ0NmYzMDBiZGFiMDAyNGRhOTA3OGQyODg=",
+    "commit": {
+      "author": {
+        "name": "Michael Schubert",
+        "email": "michael@kinvolk.io",
+        "date": "2018-11-05T13:38:55Z"
+      },
+      "committer": {
+        "name": "Michael Schubert",
+        "email": "michael@kinvolk.io",
+        "date": "2018-11-05T13:38:55Z"
+      },
+      "message": "security-release-process: fix typo in GitHub link",
+      "tree": {
+        "sha": "1b65782753550aa8514c4c1d882c1ca6eaddb20a",
+        "url": "https://api.github.com/repos/gardener/documentation/git/trees/1b65782753550aa8514c4c1d882c1ca6eaddb20a"
+      },
+      "url": "https://api.github.com/repos/gardener/documentation/git/commits/27d6f9771d991c4446f300bdab0024da9078d288",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/documentation/commits/27d6f9771d991c4446f300bdab0024da9078d288",
+    "html_url": "https://github.com/gardener/documentation/commit/27d6f9771d991c4446f300bdab0024da9078d288",
+    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/27d6f9771d991c4446f300bdab0024da9078d288/comments",
+    "author": {
+      "login": "schu",
+      "id": 366468,
+      "node_id": "MDQ6VXNlcjM2NjQ2OA==",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/366468?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/schu",
+      "html_url": "https://github.com/schu",
+      "followers_url": "https://api.github.com/users/schu/followers",
+      "following_url": "https://api.github.com/users/schu/following{/other_user}",
+      "gists_url": "https://api.github.com/users/schu/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/schu/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/schu/subscriptions",
+      "organizations_url": "https://api.github.com/users/schu/orgs",
+      "repos_url": "https://api.github.com/users/schu/repos",
+      "events_url": "https://api.github.com/users/schu/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/schu/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "schu",
+      "id": 366468,
+      "node_id": "MDQ6VXNlcjM2NjQ2OA==",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/366468?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/schu",
+      "html_url": "https://github.com/schu",
+      "followers_url": "https://api.github.com/users/schu/followers",
+      "following_url": "https://api.github.com/users/schu/following{/other_user}",
+      "gists_url": "https://api.github.com/users/schu/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/schu/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/schu/subscriptions",
+      "organizations_url": "https://api.github.com/users/schu/orgs",
+      "repos_url": "https://api.github.com/users/schu/repos",
+      "events_url": "https://api.github.com/users/schu/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/schu/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "66dc01d34e9b6031ac654f2bdefa70161eaa48ec",
+        "url": "https://api.github.com/repos/gardener/documentation/commits/66dc01d34e9b6031ac654f2bdefa70161eaa48ec",
+        "html_url": "https://github.com/gardener/documentation/commit/66dc01d34e9b6031ac654f2bdefa70161eaa48ec"
+      }
+    ]
+  },
+  {
     "sha": "6029aea5ef961f530ac2dfb18ccbeec565675589",
     "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OjYwMjlhZWE1ZWY5NjFmNTMwYWMyZGZiMThjY2JlZWM1NjU2NzU1ODk=",
     "commit": {
