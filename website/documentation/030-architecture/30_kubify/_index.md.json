@@ -1,5 +1,163 @@
 [
   {
+    "sha": "6fe63b7c5da3ecb4759276cf414cae0e1494940c",
+    "node_id": "MDY6Q29tbWl0MTE2NDI5NDAxOjZmZTYzYjdjNWRhM2VjYjQ3NTkyNzZjZjQxNGNhZTBlMTQ5NDk0MGM=",
+    "commit": {
+      "author": {
+        "name": "Andreas Fritzler",
+        "email": "andreas.fritzler@gmail.com",
+        "date": "2018-11-05T16:18:58Z"
+      },
+      "committer": {
+        "name": "Andreas Fritzler",
+        "email": "andreas.fritzler@gmail.com",
+        "date": "2018-11-05T16:18:58Z"
+      },
+      "message": "Fixed main documentation link and .gitignore",
+      "tree": {
+        "sha": "7f79487cd4fd97675133e7c3eb5909d7ed8fede3",
+        "url": "https://api.github.com/repos/gardener/kubify/git/trees/7f79487cd4fd97675133e7c3eb5909d7ed8fede3"
+      },
+      "url": "https://api.github.com/repos/gardener/kubify/git/commits/6fe63b7c5da3ecb4759276cf414cae0e1494940c",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/kubify/commits/6fe63b7c5da3ecb4759276cf414cae0e1494940c",
+    "html_url": "https://github.com/gardener/kubify/commit/6fe63b7c5da3ecb4759276cf414cae0e1494940c",
+    "comments_url": "https://api.github.com/repos/gardener/kubify/commits/6fe63b7c5da3ecb4759276cf414cae0e1494940c/comments",
+    "author": {
+      "login": "afritzler",
+      "id": 1922939,
+      "node_id": "MDQ6VXNlcjE5MjI5Mzk=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1922939?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/afritzler",
+      "html_url": "https://github.com/afritzler",
+      "followers_url": "https://api.github.com/users/afritzler/followers",
+      "following_url": "https://api.github.com/users/afritzler/following{/other_user}",
+      "gists_url": "https://api.github.com/users/afritzler/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/afritzler/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/afritzler/subscriptions",
+      "organizations_url": "https://api.github.com/users/afritzler/orgs",
+      "repos_url": "https://api.github.com/users/afritzler/repos",
+      "events_url": "https://api.github.com/users/afritzler/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/afritzler/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "afritzler",
+      "id": 1922939,
+      "node_id": "MDQ6VXNlcjE5MjI5Mzk=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1922939?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/afritzler",
+      "html_url": "https://github.com/afritzler",
+      "followers_url": "https://api.github.com/users/afritzler/followers",
+      "following_url": "https://api.github.com/users/afritzler/following{/other_user}",
+      "gists_url": "https://api.github.com/users/afritzler/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/afritzler/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/afritzler/subscriptions",
+      "organizations_url": "https://api.github.com/users/afritzler/orgs",
+      "repos_url": "https://api.github.com/users/afritzler/repos",
+      "events_url": "https://api.github.com/users/afritzler/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/afritzler/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "183103da80e361b910d5d354e407cb3437512dcf",
+        "url": "https://api.github.com/repos/gardener/kubify/commits/183103da80e361b910d5d354e407cb3437512dcf",
+        "html_url": "https://github.com/gardener/kubify/commit/183103da80e361b910d5d354e407cb3437512dcf"
+      }
+    ]
+  },
+  {
+    "sha": "183103da80e361b910d5d354e407cb3437512dcf",
+    "node_id": "MDY6Q29tbWl0MTE2NDI5NDAxOjE4MzEwM2RhODBlMzYxYjkxMGQ1ZDM1NGU0MDdjYjM0Mzc1MTJkY2Y=",
+    "commit": {
+      "author": {
+        "name": "Andreas Fritzler",
+        "email": "andreas.fritzler@gmail.com",
+        "date": "2018-10-29T13:24:22Z"
+      },
+      "committer": {
+        "name": "Andreas Fritzler",
+        "email": "andreas.fritzler@gmail.com",
+        "date": "2018-10-29T13:24:22Z"
+      },
+      "message": "Restructured documentation and landing page",
+      "tree": {
+        "sha": "9eb9027f8ee4f17461e783c6951036753e5b0e3c",
+        "url": "https://api.github.com/repos/gardener/kubify/git/trees/9eb9027f8ee4f17461e783c6951036753e5b0e3c"
+      },
+      "url": "https://api.github.com/repos/gardener/kubify/git/commits/183103da80e361b910d5d354e407cb3437512dcf",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/kubify/commits/183103da80e361b910d5d354e407cb3437512dcf",
+    "html_url": "https://github.com/gardener/kubify/commit/183103da80e361b910d5d354e407cb3437512dcf",
+    "comments_url": "https://api.github.com/repos/gardener/kubify/commits/183103da80e361b910d5d354e407cb3437512dcf/comments",
+    "author": {
+      "login": "afritzler",
+      "id": 1922939,
+      "node_id": "MDQ6VXNlcjE5MjI5Mzk=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1922939?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/afritzler",
+      "html_url": "https://github.com/afritzler",
+      "followers_url": "https://api.github.com/users/afritzler/followers",
+      "following_url": "https://api.github.com/users/afritzler/following{/other_user}",
+      "gists_url": "https://api.github.com/users/afritzler/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/afritzler/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/afritzler/subscriptions",
+      "organizations_url": "https://api.github.com/users/afritzler/orgs",
+      "repos_url": "https://api.github.com/users/afritzler/repos",
+      "events_url": "https://api.github.com/users/afritzler/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/afritzler/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "afritzler",
+      "id": 1922939,
+      "node_id": "MDQ6VXNlcjE5MjI5Mzk=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1922939?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/afritzler",
+      "html_url": "https://github.com/afritzler",
+      "followers_url": "https://api.github.com/users/afritzler/followers",
+      "following_url": "https://api.github.com/users/afritzler/following{/other_user}",
+      "gists_url": "https://api.github.com/users/afritzler/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/afritzler/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/afritzler/subscriptions",
+      "organizations_url": "https://api.github.com/users/afritzler/orgs",
+      "repos_url": "https://api.github.com/users/afritzler/repos",
+      "events_url": "https://api.github.com/users/afritzler/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/afritzler/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "d810fb68e1909a4ff0ff5129e4dc02f1e77bbf99",
+        "url": "https://api.github.com/repos/gardener/kubify/commits/d810fb68e1909a4ff0ff5129e4dc02f1e77bbf99",
+        "html_url": "https://github.com/gardener/kubify/commit/d810fb68e1909a4ff0ff5129e4dc02f1e77bbf99"
+      }
+    ]
+  },
+  {
     "sha": "cd11606920cd4988e3d7a4f65d68932b061fc9ea",
     "node_id": "MDY6Q29tbWl0MTE2NDI5NDAxOmNkMTE2MDY5MjBjZDQ5ODhlM2Q3YTRmNjVkNjg5MzJiMDYxZmM5ZWE=",
     "commit": {
