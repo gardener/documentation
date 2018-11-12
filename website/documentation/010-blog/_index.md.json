@@ -1,7 +1,7 @@
 [
   {
-    "sha": "0f3d483d99b89ee550ba2f9ee3199b179203958d",
-    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OjBmM2Q0ODNkOTliODllZTU1MGJhMmY5ZWUzMTk5YjE3OTIwMzk1OGQ=",
+    "sha": "d9057a988fa78e4e2beae3a2435203b2b799335a",
+    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OmQ5MDU3YTk4OGZhNzhlNGUyYmVhZTNhMjQzNTIwM2IyYjc5OTMzNWE=",
     "commit": {
       "author": {
         "name": "Andreas Herz",
@@ -18,18 +18,18 @@
         "sha": "9c21bd101ee2d7cab6f756c09c752f86b6a12e23",
         "url": "https://api.github.com/repos/gardener/documentation/git/trees/9c21bd101ee2d7cab6f756c09c752f86b6a12e23"
       },
-      "url": "https://api.github.com/repos/gardener/documentation/git/commits/0f3d483d99b89ee550ba2f9ee3199b179203958d",
+      "url": "https://api.github.com/repos/gardener/documentation/git/commits/d9057a988fa78e4e2beae3a2435203b2b799335a",
       "comment_count": 0,
       "verification": {
-        "verified": true,
-        "reason": "valid",
-        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJbqP5hCRBK7hj4Ov3rIwAAdHIIAAkEo1e4CziBsDAc3hmA5LwB\nqn3lMO5RJlg3Z7xQ/9OkGhEtumiixm8JrzjSEFjQL6IREluam5iItqg9HU1WUGo9\nX/0IBiysOLiADMVYyowFCXM5+3qQGzTWF7OHkKGEKu66z9jrMVyb6KCIdppmFvwK\nzD8gkf9Tzpypdxe5GJWcGnUOmQ+kVonIB2Vf6cPGPih/awYypshZfcHznGo3ce/c\nF0kf8jSKnqhjKqkpG+yh++U+8fu/aGf13nP/v6Sg8FGQ76hlTIbj3E9BKsjt8OL4\nLzgmvW6o++kk+CukB608mTxtdbp5iHqBw/9Z9GgpCOD9b9uQEkCel5MG4KuvvEc=\n=6NHU\n-----END PGP SIGNATURE-----\n",
-        "payload": "tree 9c21bd101ee2d7cab6f756c09c752f86b6a12e23\nparent 8ada0eee056c194a9266d214f92f970b7f5461bc\nauthor Andreas Herz <a.herz@freegroup.de> 1537801825 +0200\ncommitter GitHub <noreply@github.com> 1537801825 +0200\n\njust to the the new CI/CD infra"
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
       }
     },
-    "url": "https://api.github.com/repos/gardener/documentation/commits/0f3d483d99b89ee550ba2f9ee3199b179203958d",
-    "html_url": "https://github.com/gardener/documentation/commit/0f3d483d99b89ee550ba2f9ee3199b179203958d",
-    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/0f3d483d99b89ee550ba2f9ee3199b179203958d/comments",
+    "url": "https://api.github.com/repos/gardener/documentation/commits/d9057a988fa78e4e2beae3a2435203b2b799335a",
+    "html_url": "https://github.com/gardener/documentation/commit/d9057a988fa78e4e2beae3a2435203b2b799335a",
+    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/d9057a988fa78e4e2beae3a2435203b2b799335a/comments",
     "author": {
       "login": "freegroup",
       "id": 1155039,
@@ -72,15 +72,15 @@
     },
     "parents": [
       {
-        "sha": "8ada0eee056c194a9266d214f92f970b7f5461bc",
-        "url": "https://api.github.com/repos/gardener/documentation/commits/8ada0eee056c194a9266d214f92f970b7f5461bc",
-        "html_url": "https://github.com/gardener/documentation/commit/8ada0eee056c194a9266d214f92f970b7f5461bc"
+        "sha": "3adebcfe986d93dd355d86b1e0693cc65c1a25b9",
+        "url": "https://api.github.com/repos/gardener/documentation/commits/3adebcfe986d93dd355d86b1e0693cc65c1a25b9",
+        "html_url": "https://github.com/gardener/documentation/commit/3adebcfe986d93dd355d86b1e0693cc65c1a25b9"
       }
     ]
   },
   {
-    "sha": "e4c35a1b828cea548b8c9ee77c94e83e949a085f",
-    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OmU0YzM1YTFiODI4Y2VhNTQ4YjhjOWVlNzdjOTRlODNlOTQ5YTA4NWY=",
+    "sha": "289497ee94814a40a9d135f467530a5a8de9fa9d",
+    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OjI4OTQ5N2VlOTQ4MTRhNDBhOWQxMzVmNDY3NTMwYTVhOGRlOWZhOWQ=",
     "commit": {
       "author": {
         "name": "Andreas Herz",
@@ -97,7 +97,7 @@
         "sha": "4bc9bd2756eea08ce3b7f685b8d183c8d37e8731",
         "url": "https://api.github.com/repos/gardener/documentation/git/trees/4bc9bd2756eea08ce3b7f685b8d183c8d37e8731"
       },
-      "url": "https://api.github.com/repos/gardener/documentation/git/commits/e4c35a1b828cea548b8c9ee77c94e83e949a085f",
+      "url": "https://api.github.com/repos/gardener/documentation/git/commits/289497ee94814a40a9d135f467530a5a8de9fa9d",
       "comment_count": 0,
       "verification": {
         "verified": false,
@@ -106,9 +106,9 @@
         "payload": null
       }
     },
-    "url": "https://api.github.com/repos/gardener/documentation/commits/e4c35a1b828cea548b8c9ee77c94e83e949a085f",
-    "html_url": "https://github.com/gardener/documentation/commit/e4c35a1b828cea548b8c9ee77c94e83e949a085f",
-    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/e4c35a1b828cea548b8c9ee77c94e83e949a085f/comments",
+    "url": "https://api.github.com/repos/gardener/documentation/commits/289497ee94814a40a9d135f467530a5a8de9fa9d",
+    "html_url": "https://github.com/gardener/documentation/commit/289497ee94814a40a9d135f467530a5a8de9fa9d",
+    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/289497ee94814a40a9d135f467530a5a8de9fa9d/comments",
     "author": {
       "login": "freegroup",
       "id": 1155039,
@@ -151,9 +151,9 @@
     },
     "parents": [
       {
-        "sha": "681b20c169fbafd8ecbad96f52e2130c2f2eaa80",
-        "url": "https://api.github.com/repos/gardener/documentation/commits/681b20c169fbafd8ecbad96f52e2130c2f2eaa80",
-        "html_url": "https://github.com/gardener/documentation/commit/681b20c169fbafd8ecbad96f52e2130c2f2eaa80"
+        "sha": "ac87e7f6ec88db0bd036ff7ed44960fdadfa5483",
+        "url": "https://api.github.com/repos/gardener/documentation/commits/ac87e7f6ec88db0bd036ff7ed44960fdadfa5483",
+        "html_url": "https://github.com/gardener/documentation/commit/ac87e7f6ec88db0bd036ff7ed44960fdadfa5483"
       }
     ]
   }
