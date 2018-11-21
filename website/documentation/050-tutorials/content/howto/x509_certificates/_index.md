@@ -4,14 +4,16 @@ description: "X.509 Certificates For TLS Communication"
 type: tutorial-page
 level: beginner
 index: 10
-category: certificates
+category: Certificates
 scope: app-developer
 ---
 
 # Request X.509 Certificates 
 
 ## Introduction
-Dealing with applications on Kubernetes which offer service endpoints (e.g. HTTP) may also require you to enable a secured communication via SSL/TLS. Gardener let's you request a commonly trusted X.509 certificate for your application endpoint. Furthermore, Gardener takes care about the renewal process for your requested certificate.
+Dealing with applications on Kubernetes which offer service endpoints (e.g. HTTP) may also require you to enable a 
+secured communication via SSL/TLS. Gardener let's you request a commonly trusted X.509 certificate for your application 
+endpoint. Furthermore, Gardener takes care about the renewal process for your requested certificate.
 
 ## Restrictions
 
@@ -23,7 +25,8 @@ Due to the ACME protocol specification, certificates for domains exceeding a lim
 
 ## Process
 ### 1. Create Ingress Resource (optional)
-In order to request a certificate for a domain managed by Gardener an **Ingress** is required. In case you don't already have one, take the following as an example:
+In order to request a certificate for a domain managed by Gardener an **Ingress** is required. In case you don't 
+already have one, take the following as an example:
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -47,10 +50,12 @@ spec:
           servicePort: 8080
 ```
 
-Please note, Ingress resources aren't required to be properly functional in this context. They can also be used to solely request certificates, which in turn can be used for further scenarios.
+Please note, Ingress resources aren't required to be properly functional in this context. They can also be used to 
+solely request certificates, which in turn can be used for further scenarios.
 
 ### 2. Label Ingress Resource
 The label `garden.sapcloud.io/purpose: managed-cert` instructs Gardener to handle certificate issuance for the domains found in labeled Ingress.
+
 > Domains not managed by Gardener are ignored.
 
 ```yaml
@@ -69,7 +74,7 @@ metadata:
 
 Follow the **Events** of the **Ingress** resource to get latest updates about the request progress:
 
-```
+```sh
 $ kubectl -n <Namespace> describe ingress <Ingress Name>
 Events:
   Type     Reason          Age                  From                         Message
@@ -84,7 +89,7 @@ Events:
 
 The following events will appear as soon as the certificate has been issued to your cluster:
 
-```
+```sh
 Events:
   ...
   Normal   CertObtained    14s                  Cert-Broker-Ingress-Control  Obtained certificate from ACME server

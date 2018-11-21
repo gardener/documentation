@@ -5,7 +5,7 @@ type: tutorial-app
 remote: https://github.com/freegroup/kube-https.git
 level: intermediate
 index: 20
-category: Services
+category: Certificates
 scope: app-developer
 aliases: ["readmore/https"]
 ---
