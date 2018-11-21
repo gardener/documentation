@@ -54,7 +54,8 @@ Please note, Ingress resources aren't required to be properly functional in this
 solely request certificates, which in turn can be used for further scenarios.
 
 ### 2. Label Ingress Resource
-The label `garden.sapcloud.io/purpose: managed-cert` instructs Gardener to handle certificate issuance for the domains found in labeled Ingress.
+The label `garden.sapcloud.io/purpose: managed-cert` instructs Gardener to handle certificate issuance for the domains 
+found in labeled Ingress.
 
 > Domains not managed by Gardener are ignored.
 
@@ -97,4 +98,38 @@ Events:
 ```
 
 ## Ingress Changes
-Changes to the `.spec.tls` section of your Ingress will subsequently affect certificate management. Thus, it is possible to request certificates for changed or extended domains any time. Changing the `secretName` in your Ingress is not encouraged, though.
+Changes to the `.spec.tls` section of your Ingress will subsequently affect certificate management. Thus, it is 
+possible to request certificates for changed or extended domains any time. Changing the `secretName` in your Ingress 
+is not encouraged, though.
+
+
+
+
+<style>
+#body-inner blockquote {
+    border: 0;
+    padding: 10px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    border-radius: 4px;
+    background-color: rgba(0,0,0,0.05);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    position:relative;
+    padding-left:60px;
+}
+#body-inner blockquote:before {
+    content: "!";
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #00a273;
+    color: white;
+    vertical-align: middle;
+    margin: auto;
+    width: 36px;
+    font-size: 30px;
+    text-align: center;
+}
+</style>
