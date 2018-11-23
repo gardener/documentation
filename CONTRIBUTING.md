@@ -116,7 +116,7 @@ To access these documents, you must subscribe to the gardener mailing list as ou
 ### Bi-weekly Meeting
 
 We have a PUBLIC and RECORDED bi-weekly meeting every second Friday at 10:00 CET over Zoom.  
-Map that to your [local time](https://www.google.de/search?q=10+CET+to+local+time).
+Map that to your [local time](https://www.google.de/search?q=10+CET+to+local+time). Find recordings in the [Gardener Youtube channel](https://www.youtube.com/playlist?list=PLozz-rrEP0dt-EJ7N9fuQGtX7t5u9LX9u)
 
 See it on the web at [calendar.google.com](https://calendar.google.com/calendar/embed?src=gardener.cloud.community%40gmail.com&ctz=Europe%2FBerlin), or paste this [iCal url](https://calendar.google.com/calendar/ical/gardener.cloud.community%40gmail.com/public/basic.ics) into any iCal client.
 
