@@ -29,7 +29,7 @@ architecture.
 From this experience, we’d like to share a few examples of security issues that could happen on a Kubernetes
 installation and how to fix them.
 
-Alban Crequy [Kinvolk](https://kinvolk.io/) and Dirk Marwinski ([SAP SE](https://www.sap.com)) gave a presentation entitled [Hardening Multi-Cloud Kubernetes Clusters as a Service](https://kccncchina2018english.sched.com/event/H2Hd/hardening-multi-cloud-kubernetes-clusters-as-a-service-dirk-marwinski-sap-se-alban-crequy-kinvolk-gmbh) at KubeCon 2018 in Shanghai presenting some of the findings.
+Alban Crequy ([Kinvolk](https://kinvolk.io/)) and Dirk Marwinski ([SAP SE](https://www.sap.com)) gave a presentation entitled [Hardening Multi-Cloud Kubernetes Clusters as a Service](https://kccncchina2018english.sched.com/event/H2Hd/hardening-multi-cloud-kubernetes-clusters-as-a-service-dirk-marwinski-sap-se-alban-crequy-kinvolk-gmbh) at KubeCon 2018 in Shanghai presenting some of the findings.
 
 Here is a summary of the findings:
 -   Privilege escalation due to insecure configuration of the Kubernetes
