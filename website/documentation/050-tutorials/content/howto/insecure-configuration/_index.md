@@ -14,9 +14,8 @@ aliases: ["readmore/insecure"]
 {{% howto_img "" "./images/teaser.svg" %}}
 
 ## Increasing the Security of all Gardener Stakeholders
-In the last summer, the [Gardener team](https://github.com/gardener/gardener) worked on assessing the security of
-different Gardener managed Kubernetes installations. The goal of this ongoing work is to increase the security of
-all Gardener stakeholders in the Open Source community. Following the Gardener architecture, the control plane of a
+In summer 2018, the [Gardener project team](https://github.com/gardener/gardener) asked [Kinvolk](https://kinvolk.io/) to execute several penetration tests in its role as third-party contractor. The goal of this ongoing work is to increase the security of
+all Gardener stakeholders in the open source community. Following the Gardener architecture, the control plane of a
 Gardener managed shoot cluster resides in the corresponding seed cluster. This is a
 [Control-Plane-as-a-Service](https://kubernetes.io/blog/2018/05/17/gardener/#kubernetes-control-plane) with
 a [network air gap](https://kubernetes.io/blog/2018/05/17/gardener/#network-air-gap).
@@ -26,11 +25,13 @@ Along the way we found various kinds of security issues, for example, due to mis
 as well as two special problems with upstream Kubernetes and its Control-Plane-as-a-Service
 architecture.
 
-## Major Findings until now
+## Major Findings
 From this experience, we’d like to share a few examples of security issues that could happen on a Kubernetes
 installation and how to fix them.
 
-Here is a summary of our findings:
+Alban Crequy [Kinvolk](https://kinvolk.io/) and Dirk Marwinski ([SAP SE](https://www.sap.com)) gave a presentation entitled [Hardening Multi-Cloud Kubernetes Clusters as a Service](https://kccncchina2018english.sched.com/event/H2Hd/hardening-multi-cloud-kubernetes-clusters-as-a-service-dirk-marwinski-sap-se-alban-crequy-kinvolk-gmbh) at KubeCon 2018 in Shanghai presenting some of the findings.
+
+Here is a summary of the findings:
 -   Privilege escalation due to insecure configuration of the Kubernetes
     API server
     -   Root cause: Same certificate authority (CA) is used for both the
