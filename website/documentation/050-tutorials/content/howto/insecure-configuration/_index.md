@@ -89,7 +89,7 @@ The API server will check whether the client certificate presented by kubectl, k
 is really signed by the configured certificate authority for clients.
 
 
-{{% howto_img "The API server can have many clients of various kinds" "./images/image1.png" %}}
+{{% howto_img "The API server can have many clients of various kinds" "./images/image3.png" %}}
 
 However, it is possible to configure the API server differently for use with an intermediate authenticating proxy. The
 proxy will authenticate the client with its own custom method and then issue HTTP requests to the API server with
@@ -111,7 +111,7 @@ So far, so good. But what happens if malicious user “Mallory” tries to conne
 the HTTP headers to pretend to be someone else?
 
 
-{{% howto_img "What happens when a client bypasses the proxy, connecting directly to the API server?" "./images/image3.png" %}}
+{{% howto_img "What happens when a client bypasses the proxy, connecting directly to the API server?" "./images/image8.png" %}}
 
 
 With a correct configuration, Mallory’s kubeconfig will have a certificate signed by the API server certificate authority
@@ -140,7 +140,7 @@ running on worker nodes. Most of the requests from those clients will end up upd
 deployments, and so on) in the etcd database but the API server usually does not need to initiate TCP connections itself.
 
 
-{{% howto_img "The API server is mostly a component that receives requests" "./images/image4.png" %}}
+{{% howto_img "The API server is mostly a component that receives requests" "./images/image7.png" %}}
 
 
 However, there are exceptions. Some `kubectl` commands will trigger the API server to open a new
@@ -154,7 +154,7 @@ the Kubelet and the CRI component run on the same worker node.
 
 
 
-{{% howto_img " but the API server also initiates some connections, e.g. to worker nodes" "./images/image5.png" %}}
+{{% howto_img "But the API server also initiates some connections, for example, to worker nodes" "./images/image1.png" %}}
 
 
 It’s often quite easy for users of a Kubernetes cluster to get access to worker nodes and tamper with the Kubelet. They
@@ -218,7 +218,7 @@ plane is managed and users don’t have access to the nodes that it runs. They c
 via a load balancer. The internal network of the control plane is therefore hidden to users.
 
 
-{{% howto_img "Prometheus and Grafana can be used to monitor worker nodes" "./images/image7.png" %}}
+{{% howto_img "Prometheus and Grafana can be used to monitor worker nodes" "./images/image5.png" %}}
 
 
 Unfortunately, that setup was not protecting the control plane network from nosy users. By configuring a new custom
@@ -227,10 +227,10 @@ service. The reply payload is not displayed on the Grafana Web UI but it is poss
 console of the Chrome browser.
 
 
-{{% howto_img "Credentials can be retrieved from the debugging console of Chrome" "./images/image8.png" %}}
+{{% howto_img "Credentials can be retrieved from the debugging console of Chrome" "./images/image9.png" %}}
 
 
-{{% howto_img "Adding a Grafana data source is a way to issue HTTP requests to arbitrary targets" "./images/image9.png" %}}
+{{% howto_img "Adding a Grafana data source is a way to issue HTTP requests to arbitrary targets" "./images/image4.png" %}}
 
 In that installation, users could get the “user-data” for the seed cluster from the metadata service and retrieve a
 kubeconfig for that Kubernetes cluster.
