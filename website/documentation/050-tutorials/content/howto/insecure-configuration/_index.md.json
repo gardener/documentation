@@ -1,5 +1,84 @@
 [
   {
+    "sha": "c2de0b37bcc3edd49041b4de759e0cd1e1da311b",
+    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OmMyZGUwYjM3YmNjM2VkZDQ5MDQxYjRkZTc1OWUwY2QxZTFkYTMxMWI=",
+    "commit": {
+      "author": {
+        "name": "Alban Crequy",
+        "email": "alban@kinvolk.io",
+        "date": "2018-11-29T09:58:43Z"
+      },
+      "committer": {
+        "name": "Alban Crequy",
+        "email": "alban@kinvolk.io",
+        "date": "2018-11-29T09:58:43Z"
+      },
+      "message": "style fix: add new line before list\n\nOtherwise, it appears in a black background.",
+      "tree": {
+        "sha": "bfb2bd28aa4f40ece4a2a1efeca8d2714e8def82",
+        "url": "https://api.github.com/repos/gardener/documentation/git/trees/bfb2bd28aa4f40ece4a2a1efeca8d2714e8def82"
+      },
+      "url": "https://api.github.com/repos/gardener/documentation/git/commits/c2de0b37bcc3edd49041b4de759e0cd1e1da311b",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/documentation/commits/c2de0b37bcc3edd49041b4de759e0cd1e1da311b",
+    "html_url": "https://github.com/gardener/documentation/commit/c2de0b37bcc3edd49041b4de759e0cd1e1da311b",
+    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/c2de0b37bcc3edd49041b4de759e0cd1e1da311b/comments",
+    "author": {
+      "login": "alban",
+      "id": 27575,
+      "node_id": "MDQ6VXNlcjI3NTc1",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/27575?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/alban",
+      "html_url": "https://github.com/alban",
+      "followers_url": "https://api.github.com/users/alban/followers",
+      "following_url": "https://api.github.com/users/alban/following{/other_user}",
+      "gists_url": "https://api.github.com/users/alban/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/alban/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/alban/subscriptions",
+      "organizations_url": "https://api.github.com/users/alban/orgs",
+      "repos_url": "https://api.github.com/users/alban/repos",
+      "events_url": "https://api.github.com/users/alban/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/alban/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "alban",
+      "id": 27575,
+      "node_id": "MDQ6VXNlcjI3NTc1",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/27575?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/alban",
+      "html_url": "https://github.com/alban",
+      "followers_url": "https://api.github.com/users/alban/followers",
+      "following_url": "https://api.github.com/users/alban/following{/other_user}",
+      "gists_url": "https://api.github.com/users/alban/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/alban/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/alban/subscriptions",
+      "organizations_url": "https://api.github.com/users/alban/orgs",
+      "repos_url": "https://api.github.com/users/alban/repos",
+      "events_url": "https://api.github.com/users/alban/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/alban/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "5e2543938cf6cf0258efbcc7080ac72de698fbd8",
+        "url": "https://api.github.com/repos/gardener/documentation/commits/5e2543938cf6cf0258efbcc7080ac72de698fbd8",
+        "html_url": "https://github.com/gardener/documentation/commit/5e2543938cf6cf0258efbcc7080ac72de698fbd8"
+      }
+    ]
+  },
+  {
     "sha": "76dd29d7167988d89f7f637eea8f8a4cf84e01cd",
     "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1Ojc2ZGQyOWQ3MTY3OTg4ZDg5ZjdmNjM3ZWVhOGY4YTRjZjg0ZTAxY2Q=",
     "commit": {
