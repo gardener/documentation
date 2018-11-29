@@ -34,6 +34,7 @@ Alban Crequy ([Kinvolk](https://kinvolk.io/)) and Dirk Marwinski ([SAP SE](https
 Here is a summary of the findings:
 -   Privilege escalation due to insecure configuration of the Kubernetes
     API server
+
     -   Root cause: Same certificate authority (CA) is used for both the
         API server and the proxy that allows accessing the API server.
 
