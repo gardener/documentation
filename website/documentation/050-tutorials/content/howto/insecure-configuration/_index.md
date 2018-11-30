@@ -34,28 +34,22 @@ Alban Crequy ([Kinvolk](https://kinvolk.io/)) and Dirk Marwinski ([SAP SE](https
 Here is a summary of the findings:
 -   Privilege escalation due to insecure configuration of the Kubernetes
     API server
-
     -   Root cause: Same certificate authority (CA) is used for both the
         API server and the proxy that allows accessing the API server.
-
     -   Risk: Users can get access to the API server.
-
     -   Recommendation: Always use different CAs.
 
 -   Exploration of the control plane network with malicious
     HTTP-redirects
 
     -   Root cause: See detailed description below.
-
     -   Risk: Provoked error message contains full HTTP payload from an
         existing endpoint which can be exploited. The contents of the
         payload depends on your setup, but can potentially be user data,
         configuration data, and credentials.
-
     -   Recommendation:
 
         -   Use the latest version of Gardener
-
         -   Ensure the seed cluster's container network supports
             network policies. Clusters that have been created with
             [Kubify](https://github.com/gardener/kubify) are not
@@ -63,20 +57,16 @@ Here is a summary of the findings:
             network policies.
 
 -   Reading private AWS metadata via Grafana
-
     -   Root cause: It is possible to configuring a new custom data
         source in Grafana, we could send HTTP requests to target the
         control
-
     -   Risk: Users can get the "user-data" for the seed cluster from
         the metadata service and retrieve a kubeconfig for that
         Kubernetes cluster
-
     -   Recommendation: Lockdown Grafana features to only what's
         necessary in this setup, block all unnecessary outgoing traffic,
         move Grafana to a different network, lockdown unauthenticated
         endpoints
-
 
 ## Scenario 1: Privilege Escalation with Insecure API Server
 In most configurations, different components connect directly to the Kubernetes API server, often using a `kubeconfig` with a client
@@ -131,7 +121,6 @@ requests manually.
 
 We worked on [improving the Kubernetes documentation](https://github.com/kubernetes/website/pull/10093) to make clearer
 that this configuration should be avoided.
-
 
 
 
