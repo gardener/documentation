@@ -54,7 +54,7 @@ of containers. Using an [ELK stack](https://www.elastic.co/de/elk-stack) is anot
 Each pod is assigned an IP address. It is necessary 
 for pods to communicate with each other to build an application, e.g. an application 
 must communicate with a database. Existing pods are terminated and new pods are 
-constantly started. f you would rely on the IP address of a pod or container, you would need to update the application
+constantly started. If you would rely on the IP address of a pod or container, you would need to update the application
 configuration constantly. This makes the application fragile. Create 
 services instead. They provide a logical name that can be assigned independently of the 
 varying number and IP addresses of containers. Services are the basic concept for load 
