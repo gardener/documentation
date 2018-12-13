@@ -1,0 +1,160 @@
+[
+  {
+    "sha": "5e757bcf427627def45627315242fa217f37c774",
+    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OjVlNzU3YmNmNDI3NjI3ZGVmNDU2MjczMTUyNDJmYTIxN2YzN2M3NzQ=",
+    "commit": {
+      "author": {
+        "name": "Frederik Thormaehlen",
+        "email": "frederik.thormaehlen@sap.com",
+        "date": "2018-12-13T14:34:10Z"
+      },
+      "committer": {
+        "name": "Frederik Thormaehlen",
+        "email": "frederik.thormaehlen@sap.com",
+        "date": "2018-12-13T14:34:10Z"
+      },
+      "message": "Changes after marwinski's revieew",
+      "tree": {
+        "sha": "472573d9ae2928ae268993a3f582fe284ad51d90",
+        "url": "https://api.github.com/repos/gardener/documentation/git/trees/472573d9ae2928ae268993a3f582fe284ad51d90"
+      },
+      "url": "https://api.github.com/repos/gardener/documentation/git/commits/5e757bcf427627def45627315242fa217f37c774",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/documentation/commits/5e757bcf427627def45627315242fa217f37c774",
+    "html_url": "https://github.com/gardener/documentation/commit/5e757bcf427627def45627315242fa217f37c774",
+    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/5e757bcf427627def45627315242fa217f37c774/comments",
+    "author": {
+      "login": "ThormaehlenFred",
+      "id": 2735776,
+      "node_id": "MDQ6VXNlcjI3MzU3NzY=",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/2735776?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ThormaehlenFred",
+      "html_url": "https://github.com/ThormaehlenFred",
+      "followers_url": "https://api.github.com/users/ThormaehlenFred/followers",
+      "following_url": "https://api.github.com/users/ThormaehlenFred/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ThormaehlenFred/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ThormaehlenFred/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ThormaehlenFred/subscriptions",
+      "organizations_url": "https://api.github.com/users/ThormaehlenFred/orgs",
+      "repos_url": "https://api.github.com/users/ThormaehlenFred/repos",
+      "events_url": "https://api.github.com/users/ThormaehlenFred/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ThormaehlenFred/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "ThormaehlenFred",
+      "id": 2735776,
+      "node_id": "MDQ6VXNlcjI3MzU3NzY=",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/2735776?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ThormaehlenFred",
+      "html_url": "https://github.com/ThormaehlenFred",
+      "followers_url": "https://api.github.com/users/ThormaehlenFred/followers",
+      "following_url": "https://api.github.com/users/ThormaehlenFred/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ThormaehlenFred/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ThormaehlenFred/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ThormaehlenFred/subscriptions",
+      "organizations_url": "https://api.github.com/users/ThormaehlenFred/orgs",
+      "repos_url": "https://api.github.com/users/ThormaehlenFred/repos",
+      "events_url": "https://api.github.com/users/ThormaehlenFred/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ThormaehlenFred/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "dbf6d7501c8c59ce333f28b21b2633c41e721c92",
+        "url": "https://api.github.com/repos/gardener/documentation/commits/dbf6d7501c8c59ce333f28b21b2633c41e721c92",
+        "html_url": "https://github.com/gardener/documentation/commit/dbf6d7501c8c59ce333f28b21b2633c41e721c92"
+      }
+    ]
+  },
+  {
+    "sha": "dbf6d7501c8c59ce333f28b21b2633c41e721c92",
+    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OmRiZjZkNzUwMWM4YzU5Y2UzMzNmMjhiMjFiMjYzM2M0MWU3MjFjOTI=",
+    "commit": {
+      "author": {
+        "name": "Frederik Thormaehlen",
+        "email": "frederik.thormaehlen@sap.com",
+        "date": "2018-12-13T13:02:16Z"
+      },
+      "committer": {
+        "name": "Frederik Thormaehlen",
+        "email": "frederik.thormaehlen@sap.com",
+        "date": "2018-12-13T13:23:40Z"
+      },
+      "message": "Initial Commit\n\nInitial commit: Hardening the Gardener Community Setup",
+      "tree": {
+        "sha": "a1726fc85e885521329f9a92f141beffcedc33d3",
+        "url": "https://api.github.com/repos/gardener/documentation/git/trees/a1726fc85e885521329f9a92f141beffcedc33d3"
+      },
+      "url": "https://api.github.com/repos/gardener/documentation/git/commits/dbf6d7501c8c59ce333f28b21b2633c41e721c92",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/documentation/commits/dbf6d7501c8c59ce333f28b21b2633c41e721c92",
+    "html_url": "https://github.com/gardener/documentation/commit/dbf6d7501c8c59ce333f28b21b2633c41e721c92",
+    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/dbf6d7501c8c59ce333f28b21b2633c41e721c92/comments",
+    "author": {
+      "login": "ThormaehlenFred",
+      "id": 2735776,
+      "node_id": "MDQ6VXNlcjI3MzU3NzY=",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/2735776?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ThormaehlenFred",
+      "html_url": "https://github.com/ThormaehlenFred",
+      "followers_url": "https://api.github.com/users/ThormaehlenFred/followers",
+      "following_url": "https://api.github.com/users/ThormaehlenFred/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ThormaehlenFred/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ThormaehlenFred/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ThormaehlenFred/subscriptions",
+      "organizations_url": "https://api.github.com/users/ThormaehlenFred/orgs",
+      "repos_url": "https://api.github.com/users/ThormaehlenFred/repos",
+      "events_url": "https://api.github.com/users/ThormaehlenFred/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ThormaehlenFred/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "ThormaehlenFred",
+      "id": 2735776,
+      "node_id": "MDQ6VXNlcjI3MzU3NzY=",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/2735776?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ThormaehlenFred",
+      "html_url": "https://github.com/ThormaehlenFred",
+      "followers_url": "https://api.github.com/users/ThormaehlenFred/followers",
+      "following_url": "https://api.github.com/users/ThormaehlenFred/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ThormaehlenFred/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ThormaehlenFred/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ThormaehlenFred/subscriptions",
+      "organizations_url": "https://api.github.com/users/ThormaehlenFred/orgs",
+      "repos_url": "https://api.github.com/users/ThormaehlenFred/repos",
+      "events_url": "https://api.github.com/users/ThormaehlenFred/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ThormaehlenFred/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "0312cb257a0800a1cb6309b11cd0aead157a4d72",
+        "url": "https://api.github.com/repos/gardener/documentation/commits/0312cb257a0800a1cb6309b11cd0aead157a4d72",
+        "html_url": "https://github.com/gardener/documentation/commit/0312cb257a0800a1cb6309b11cd0aead157a4d72"
+      }
+    ]
+  }
+]
