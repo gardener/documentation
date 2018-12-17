@@ -6,7 +6,7 @@ level: advanced
 index: 5
 category: Security
 scope: operator
-aliases: ["hardening"]
+aliases: ["readmore/hardening"]
 ---
 
 # Hardening the Gardener Community Setup
@@ -20,9 +20,7 @@ As Alban Crequy from Kinvolk has recommended in his recent Gardener blog [Auditi
 ## Recommendations
 ### Mitigation for Gardener CVE-2018-2475
 The following recommendations describe how you can harden your Gardener Community Setup by adding a Seed cluster hardened with network policies.
-
 - Use the Gardener Setup Scripts to create a Garden cluster in a dedicated IaaS account
-- Register the Garden cluster itself as Seed cluster 
 - Create a Shoot cluster in a different IaaS account
 - As a precaution you should not deploy the Kubernetes dashboard on this Shoot cluster
 - Register this newly created Shoot cluster as a Seed cluster in the Gardener
