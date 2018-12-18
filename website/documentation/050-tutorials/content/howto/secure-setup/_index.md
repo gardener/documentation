@@ -12,6 +12,7 @@ aliases: ["readmore/hardening"]
 # Hardening the Gardener Community Setup
 ## Context
 Gardener stakeholders in the Open Source community usually use the [Gardener Setup Scripts](https://github.com/gardener/landscape-setup), to create a Garden cluster based on Kubernetes v1.9 which then can be used to create Shoot clusters based on Kubernetes v1.10, v1.11 and v1.12. Shoot clusters can play the following roles in a Gardener landscape: 
+
 - Seed cluster
 - Shoot cluster 
 
@@ -20,11 +21,14 @@ As Alban Crequy from Kinvolk has recommended in his recent Gardener blog [Auditi
 ## Recommendations
 ### Mitigation for Gardener CVE-2018-2475
 The following recommendations describe how you can harden your Gardener Community Setup by adding a Seed cluster hardened with network policies.
+
 - Use the Gardener Setup Scripts to create a Garden cluster in a dedicated IaaS account
 - Create a Shoot cluster in a different IaaS account
 - As a precaution you should not deploy the Kubernetes dashboard on this Shoot cluster
 - Register this newly created Shoot cluster as a Seed cluster in the Gardener
 - End user Shoot clusters can then be created using this newly created Seed cluster (which in turn is a Shoot cluster). 
+
+A tutorial on how to create a shooted seed cluster can be found [here](/readmore/seed).
 
 The rational behind this activity is, that Calico network policies harden this Seed cluster but the community installer uses Flannel which does not offer these features for the Garden cluster. 
 
