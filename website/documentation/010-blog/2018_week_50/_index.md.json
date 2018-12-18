@@ -79,25 +79,25 @@
     ]
   },
   {
-    "sha": "5e757bcf427627def45627315242fa217f37c774",
-    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OjVlNzU3YmNmNDI3NjI3ZGVmNDU2MjczMTUyNDJmYTIxN2YzN2M3NzQ=",
+    "sha": "7059fe7f69e8df0bc09ac0cc603487e8eac4de59",
+    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OjcwNTlmZTdmNjllOGRmMGJjMDlhYzBjYzYwMzQ4N2U4ZWFjNGRlNTk=",
     "commit": {
       "author": {
         "name": "Frederik Thormaehlen",
         "email": "frederik.thormaehlen@sap.com",
-        "date": "2018-12-13T14:34:10Z"
+        "date": "2018-12-14T14:17:52Z"
       },
       "committer": {
         "name": "Frederik Thormaehlen",
         "email": "frederik.thormaehlen@sap.com",
-        "date": "2018-12-13T14:34:10Z"
+        "date": "2018-12-14T14:17:52Z"
       },
-      "message": "Changes after marwinski's revieew",
+      "message": "alias corrected",
       "tree": {
-        "sha": "472573d9ae2928ae268993a3f582fe284ad51d90",
-        "url": "https://api.github.com/repos/gardener/documentation/git/trees/472573d9ae2928ae268993a3f582fe284ad51d90"
+        "sha": "c2b24f56b4a3fe9b5a6422e62c89219e27472deb",
+        "url": "https://api.github.com/repos/gardener/documentation/git/trees/c2b24f56b4a3fe9b5a6422e62c89219e27472deb"
       },
-      "url": "https://api.github.com/repos/gardener/documentation/git/commits/5e757bcf427627def45627315242fa217f37c774",
+      "url": "https://api.github.com/repos/gardener/documentation/git/commits/7059fe7f69e8df0bc09ac0cc603487e8eac4de59",
       "comment_count": 0,
       "verification": {
         "verified": false,
@@ -106,9 +106,9 @@
         "payload": null
       }
     },
-    "url": "https://api.github.com/repos/gardener/documentation/commits/5e757bcf427627def45627315242fa217f37c774",
-    "html_url": "https://github.com/gardener/documentation/commit/5e757bcf427627def45627315242fa217f37c774",
-    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/5e757bcf427627def45627315242fa217f37c774/comments",
+    "url": "https://api.github.com/repos/gardener/documentation/commits/7059fe7f69e8df0bc09ac0cc603487e8eac4de59",
+    "html_url": "https://github.com/gardener/documentation/commit/7059fe7f69e8df0bc09ac0cc603487e8eac4de59",
+    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/7059fe7f69e8df0bc09ac0cc603487e8eac4de59/comments",
     "author": {
       "login": "ThormaehlenFred",
       "id": 2735776,
@@ -151,32 +151,32 @@
     },
     "parents": [
       {
-        "sha": "dbf6d7501c8c59ce333f28b21b2633c41e721c92",
-        "url": "https://api.github.com/repos/gardener/documentation/commits/dbf6d7501c8c59ce333f28b21b2633c41e721c92",
-        "html_url": "https://github.com/gardener/documentation/commit/dbf6d7501c8c59ce333f28b21b2633c41e721c92"
+        "sha": "bb9187b0664b60a09b451439e92d78ebbb6a6f74",
+        "url": "https://api.github.com/repos/gardener/documentation/commits/bb9187b0664b60a09b451439e92d78ebbb6a6f74",
+        "html_url": "https://github.com/gardener/documentation/commit/bb9187b0664b60a09b451439e92d78ebbb6a6f74"
       }
     ]
   },
   {
-    "sha": "dbf6d7501c8c59ce333f28b21b2633c41e721c92",
-    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OmRiZjZkNzUwMWM4YzU5Y2UzMzNmMjhiMjFiMjYzM2M0MWU3MjFjOTI=",
+    "sha": "bb9187b0664b60a09b451439e92d78ebbb6a6f74",
+    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OmJiOTE4N2IwNjY0YjYwYTA5YjQ1MTQzOWU5MmQ3OGViYmI2YTZmNzQ=",
     "commit": {
       "author": {
         "name": "Frederik Thormaehlen",
         "email": "frederik.thormaehlen@sap.com",
-        "date": "2018-12-13T13:02:16Z"
+        "date": "2018-12-14T09:59:06Z"
       },
       "committer": {
         "name": "Frederik Thormaehlen",
         "email": "frederik.thormaehlen@sap.com",
-        "date": "2018-12-13T13:23:40Z"
+        "date": "2018-12-14T09:59:06Z"
       },
-      "message": "Initial Commit\n\nInitial commit: Hardening the Gardener Community Setup",
+      "message": "week 50 Blog entry initial commit: hardening community setup",
       "tree": {
-        "sha": "a1726fc85e885521329f9a92f141beffcedc33d3",
-        "url": "https://api.github.com/repos/gardener/documentation/git/trees/a1726fc85e885521329f9a92f141beffcedc33d3"
+        "sha": "2c5057cdffbe8989b7f75a2f0c9dee3efdb0616a",
+        "url": "https://api.github.com/repos/gardener/documentation/git/trees/2c5057cdffbe8989b7f75a2f0c9dee3efdb0616a"
       },
-      "url": "https://api.github.com/repos/gardener/documentation/git/commits/dbf6d7501c8c59ce333f28b21b2633c41e721c92",
+      "url": "https://api.github.com/repos/gardener/documentation/git/commits/bb9187b0664b60a09b451439e92d78ebbb6a6f74",
       "comment_count": 0,
       "verification": {
         "verified": false,
@@ -185,9 +185,9 @@
         "payload": null
       }
     },
-    "url": "https://api.github.com/repos/gardener/documentation/commits/dbf6d7501c8c59ce333f28b21b2633c41e721c92",
-    "html_url": "https://github.com/gardener/documentation/commit/dbf6d7501c8c59ce333f28b21b2633c41e721c92",
-    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/dbf6d7501c8c59ce333f28b21b2633c41e721c92/comments",
+    "url": "https://api.github.com/repos/gardener/documentation/commits/bb9187b0664b60a09b451439e92d78ebbb6a6f74",
+    "html_url": "https://github.com/gardener/documentation/commit/bb9187b0664b60a09b451439e92d78ebbb6a6f74",
+    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/bb9187b0664b60a09b451439e92d78ebbb6a6f74/comments",
     "author": {
       "login": "ThormaehlenFred",
       "id": 2735776,
@@ -230,9 +230,9 @@
     },
     "parents": [
       {
-        "sha": "0312cb257a0800a1cb6309b11cd0aead157a4d72",
-        "url": "https://api.github.com/repos/gardener/documentation/commits/0312cb257a0800a1cb6309b11cd0aead157a4d72",
-        "html_url": "https://github.com/gardener/documentation/commit/0312cb257a0800a1cb6309b11cd0aead157a4d72"
+        "sha": "5e757bcf427627def45627315242fa217f37c774",
+        "url": "https://api.github.com/repos/gardener/documentation/commits/5e757bcf427627def45627315242fa217f37c774",
+        "html_url": "https://github.com/gardener/documentation/commit/5e757bcf427627def45627315242fa217f37c774"
       }
     ]
   }
