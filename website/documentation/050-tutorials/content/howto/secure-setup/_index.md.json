@@ -1,5 +1,84 @@
 [
   {
+    "sha": "adc146e93f732c579dcbb868b6d5858bf5a7b301",
+    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OmFkYzE0NmU5M2Y3MzJjNTc5ZGNiYjg2OGI2ZDU4NThiZjVhN2IzMDE=",
+    "commit": {
+      "author": {
+        "name": "Johannes Aubart",
+        "email": "johannes.aubart@sap.com",
+        "date": "2018-12-18T13:30:51Z"
+      },
+      "committer": {
+        "name": "Johannes Aubart",
+        "email": "johannes.aubart@sap.com",
+        "date": "2018-12-18T16:09:40Z"
+      },
+      "message": "add shooted seed description\n\nAlso added a link to the new entry from \"Hardening community setup ...\"\nand fixed the lists in that one.",
+      "tree": {
+        "sha": "23d027d794e1023807ea1524a56abbdce9b99bdf",
+        "url": "https://api.github.com/repos/gardener/documentation/git/trees/23d027d794e1023807ea1524a56abbdce9b99bdf"
+      },
+      "url": "https://api.github.com/repos/gardener/documentation/git/commits/adc146e93f732c579dcbb868b6d5858bf5a7b301",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/documentation/commits/adc146e93f732c579dcbb868b6d5858bf5a7b301",
+    "html_url": "https://github.com/gardener/documentation/commit/adc146e93f732c579dcbb868b6d5858bf5a7b301",
+    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/adc146e93f732c579dcbb868b6d5858bf5a7b301/comments",
+    "author": {
+      "login": "Diaphteiros",
+      "id": 28540014,
+      "node_id": "MDQ6VXNlcjI4NTQwMDE0",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/28540014?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Diaphteiros",
+      "html_url": "https://github.com/Diaphteiros",
+      "followers_url": "https://api.github.com/users/Diaphteiros/followers",
+      "following_url": "https://api.github.com/users/Diaphteiros/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Diaphteiros/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Diaphteiros/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Diaphteiros/subscriptions",
+      "organizations_url": "https://api.github.com/users/Diaphteiros/orgs",
+      "repos_url": "https://api.github.com/users/Diaphteiros/repos",
+      "events_url": "https://api.github.com/users/Diaphteiros/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Diaphteiros/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "Diaphteiros",
+      "id": 28540014,
+      "node_id": "MDQ6VXNlcjI4NTQwMDE0",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/28540014?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Diaphteiros",
+      "html_url": "https://github.com/Diaphteiros",
+      "followers_url": "https://api.github.com/users/Diaphteiros/followers",
+      "following_url": "https://api.github.com/users/Diaphteiros/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Diaphteiros/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Diaphteiros/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Diaphteiros/subscriptions",
+      "organizations_url": "https://api.github.com/users/Diaphteiros/orgs",
+      "repos_url": "https://api.github.com/users/Diaphteiros/repos",
+      "events_url": "https://api.github.com/users/Diaphteiros/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Diaphteiros/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "5470d93b84fef861adb85834e130f1cca2a46410",
+        "url": "https://api.github.com/repos/gardener/documentation/commits/5470d93b84fef861adb85834e130f1cca2a46410",
+        "html_url": "https://github.com/gardener/documentation/commit/5470d93b84fef861adb85834e130f1cca2a46410"
+      }
+    ]
+  },
+  {
     "sha": "ef4fa8eb02f3eef1c46c440795edd49b476c80ba",
     "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OmVmNGZhOGViMDJmM2VlZjFjNDZjNDQwNzk1ZWRkNDliNDc2YzgwYmE=",
     "commit": {
