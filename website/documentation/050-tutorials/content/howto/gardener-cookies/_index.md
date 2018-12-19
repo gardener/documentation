@@ -16,6 +16,11 @@ For a team event during the Christmas season we decided to completely reinterpre
 
 {{< slide dir="./slider/" >}}
 
+<style>
+.sh__item img {
+    object-fit: cover !important;
+}
+</style>
 
 Matcha cookies have the delicate flavor and color of green tea. These soft, pillowy and chewy green tea cookies 
 are perfect with tea. And of course they fit perfectly to our logo
