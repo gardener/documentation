@@ -1,5 +1,84 @@
 [
   {
+    "sha": "56c5f8274ce36245b753ce197accaa7df3188e12",
+    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OjU2YzVmODI3NGNlMzYyNDViNzUzY2UxOTdhY2NhYTdkZjMxODhlMTI=",
+    "commit": {
+      "author": {
+        "name": "Herz, Andreas",
+        "email": "andreas.herz@sap.com",
+        "date": "2018-12-19T09:33:03Z"
+      },
+      "committer": {
+        "name": "Herz, Andreas",
+        "email": "andreas.herz@sap.com",
+        "date": "2018-12-19T09:33:08Z"
+      },
+      "message": "add text of the \"gardener cookies\"",
+      "tree": {
+        "sha": "a40c50323243b8ce380a425d441f8a30871afd58",
+        "url": "https://api.github.com/repos/gardener/documentation/git/trees/a40c50323243b8ce380a425d441f8a30871afd58"
+      },
+      "url": "https://api.github.com/repos/gardener/documentation/git/commits/56c5f8274ce36245b753ce197accaa7df3188e12",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/documentation/commits/56c5f8274ce36245b753ce197accaa7df3188e12",
+    "html_url": "https://github.com/gardener/documentation/commit/56c5f8274ce36245b753ce197accaa7df3188e12",
+    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/56c5f8274ce36245b753ce197accaa7df3188e12/comments",
+    "author": {
+      "login": "freegroup",
+      "id": 1155039,
+      "node_id": "MDQ6VXNlcjExNTUwMzk=",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1155039?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/freegroup",
+      "html_url": "https://github.com/freegroup",
+      "followers_url": "https://api.github.com/users/freegroup/followers",
+      "following_url": "https://api.github.com/users/freegroup/following{/other_user}",
+      "gists_url": "https://api.github.com/users/freegroup/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/freegroup/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/freegroup/subscriptions",
+      "organizations_url": "https://api.github.com/users/freegroup/orgs",
+      "repos_url": "https://api.github.com/users/freegroup/repos",
+      "events_url": "https://api.github.com/users/freegroup/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/freegroup/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "freegroup",
+      "id": 1155039,
+      "node_id": "MDQ6VXNlcjExNTUwMzk=",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1155039?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/freegroup",
+      "html_url": "https://github.com/freegroup",
+      "followers_url": "https://api.github.com/users/freegroup/followers",
+      "following_url": "https://api.github.com/users/freegroup/following{/other_user}",
+      "gists_url": "https://api.github.com/users/freegroup/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/freegroup/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/freegroup/subscriptions",
+      "organizations_url": "https://api.github.com/users/freegroup/orgs",
+      "repos_url": "https://api.github.com/users/freegroup/repos",
+      "events_url": "https://api.github.com/users/freegroup/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/freegroup/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "3e5bc9b56651a393db9233a6361bf62c572eab56",
+        "url": "https://api.github.com/repos/gardener/documentation/commits/3e5bc9b56651a393db9233a6361bf62c572eab56",
+        "html_url": "https://github.com/gardener/documentation/commit/3e5bc9b56651a393db9233a6361bf62c572eab56"
+      }
+    ]
+  },
+  {
     "sha": "78d8f7759505da4611d4567a69929cc1d396b1da",
     "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1Ojc4ZDhmNzc1OTUwNWRhNDYxMWQ0NTY3YTY5OTI5Y2MxZDM5NmIxZGE=",
     "commit": {
