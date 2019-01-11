@@ -1,5 +1,84 @@
 [
   {
+    "sha": "9a06e4d623be98aeca8b7fd7c5e19dab2198f722",
+    "node_id": "MDY6Q29tbWl0MTE2NDI5NDAxOjlhMDZlNGQ2MjNiZTk4YWVjYThiN2ZkN2M1ZTE5ZGFiMjE5OGY3MjI=",
+    "commit": {
+      "author": {
+        "name": "Andreas Fritzler",
+        "email": "andreas.fritzler@sap.com",
+        "date": "2019-01-11T11:21:55Z"
+      },
+      "committer": {
+        "name": "Andreas Fritzler",
+        "email": "andreas.fritzler@sap.com",
+        "date": "2019-01-11T11:21:55Z"
+      },
+      "message": "Added support for Kuberenetes v1.10.12",
+      "tree": {
+        "sha": "98a1e58beafbdb70cade010dbf80a9f076b68619",
+        "url": "https://api.github.com/repos/gardener/kubify/git/trees/98a1e58beafbdb70cade010dbf80a9f076b68619"
+      },
+      "url": "https://api.github.com/repos/gardener/kubify/git/commits/9a06e4d623be98aeca8b7fd7c5e19dab2198f722",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/kubify/commits/9a06e4d623be98aeca8b7fd7c5e19dab2198f722",
+    "html_url": "https://github.com/gardener/kubify/commit/9a06e4d623be98aeca8b7fd7c5e19dab2198f722",
+    "comments_url": "https://api.github.com/repos/gardener/kubify/commits/9a06e4d623be98aeca8b7fd7c5e19dab2198f722/comments",
+    "author": {
+      "login": "afritzler",
+      "id": 1922939,
+      "node_id": "MDQ6VXNlcjE5MjI5Mzk=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1922939?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/afritzler",
+      "html_url": "https://github.com/afritzler",
+      "followers_url": "https://api.github.com/users/afritzler/followers",
+      "following_url": "https://api.github.com/users/afritzler/following{/other_user}",
+      "gists_url": "https://api.github.com/users/afritzler/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/afritzler/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/afritzler/subscriptions",
+      "organizations_url": "https://api.github.com/users/afritzler/orgs",
+      "repos_url": "https://api.github.com/users/afritzler/repos",
+      "events_url": "https://api.github.com/users/afritzler/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/afritzler/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "afritzler",
+      "id": 1922939,
+      "node_id": "MDQ6VXNlcjE5MjI5Mzk=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1922939?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/afritzler",
+      "html_url": "https://github.com/afritzler",
+      "followers_url": "https://api.github.com/users/afritzler/followers",
+      "following_url": "https://api.github.com/users/afritzler/following{/other_user}",
+      "gists_url": "https://api.github.com/users/afritzler/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/afritzler/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/afritzler/subscriptions",
+      "organizations_url": "https://api.github.com/users/afritzler/orgs",
+      "repos_url": "https://api.github.com/users/afritzler/repos",
+      "events_url": "https://api.github.com/users/afritzler/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/afritzler/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "704291e103aaa5cadbe315cf008114b8601dda63",
+        "url": "https://api.github.com/repos/gardener/kubify/commits/704291e103aaa5cadbe315cf008114b8601dda63",
+        "html_url": "https://github.com/gardener/kubify/commit/704291e103aaa5cadbe315cf008114b8601dda63"
+      }
+    ]
+  },
+  {
     "sha": "6fe63b7c5da3ecb4759276cf414cae0e1494940c",
     "node_id": "MDY6Q29tbWl0MTE2NDI5NDAxOjZmZTYzYjdjNWRhM2VjYjQ3NTkyNzZjZjQxNGNhZTBlMTQ5NDk0MGM=",
     "commit": {
