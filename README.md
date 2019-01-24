@@ -4,7 +4,6 @@
 
 ![image](images/overview.png)
 
-
 ### Documentation (this repository)
 https://github.com/gardener/documentation/ contains the real content of the 
 Landing page. Add/Remove/Modify/ pages or content here
