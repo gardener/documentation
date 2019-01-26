@@ -1,5 +1,84 @@
 [
   {
+    "sha": "553ae2954cdbf82c406728ec825e344785767fcc",
+    "node_id": "MDY6Q29tbWl0MTE2NDI5NDAxOjU1M2FlMjk1NGNkYmY4MmM0MDY3MjhlYzgyNWUzNDQ3ODU3NjdmY2M=",
+    "commit": {
+      "author": {
+        "name": "dherman",
+        "email": "daniel.c.herman@gmail.com",
+        "date": "2019-01-25T11:12:59Z"
+      },
+      "committer": {
+        "name": "Andreas Fritzler",
+        "email": "afritzler@users.noreply.github.com",
+        "date": "2019-01-25T11:12:59Z"
+      },
+      "message": "Correct the spelling of Terraform (#62)\n\nMerged!",
+      "tree": {
+        "sha": "89dc258abc3170d0b27df3571ee32f41207fc7ff",
+        "url": "https://api.github.com/repos/gardener/kubify/git/trees/89dc258abc3170d0b27df3571ee32f41207fc7ff"
+      },
+      "url": "https://api.github.com/repos/gardener/kubify/git/commits/553ae2954cdbf82c406728ec825e344785767fcc",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/kubify/commits/553ae2954cdbf82c406728ec825e344785767fcc",
+    "html_url": "https://github.com/gardener/kubify/commit/553ae2954cdbf82c406728ec825e344785767fcc",
+    "comments_url": "https://api.github.com/repos/gardener/kubify/commits/553ae2954cdbf82c406728ec825e344785767fcc/comments",
+    "author": {
+      "login": "dcherman",
+      "id": 976608,
+      "node_id": "MDQ6VXNlcjk3NjYwOA==",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/976608?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/dcherman",
+      "html_url": "https://github.com/dcherman",
+      "followers_url": "https://api.github.com/users/dcherman/followers",
+      "following_url": "https://api.github.com/users/dcherman/following{/other_user}",
+      "gists_url": "https://api.github.com/users/dcherman/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/dcherman/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/dcherman/subscriptions",
+      "organizations_url": "https://api.github.com/users/dcherman/orgs",
+      "repos_url": "https://api.github.com/users/dcherman/repos",
+      "events_url": "https://api.github.com/users/dcherman/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/dcherman/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "afritzler",
+      "id": 1922939,
+      "node_id": "MDQ6VXNlcjE5MjI5Mzk=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1922939?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/afritzler",
+      "html_url": "https://github.com/afritzler",
+      "followers_url": "https://api.github.com/users/afritzler/followers",
+      "following_url": "https://api.github.com/users/afritzler/following{/other_user}",
+      "gists_url": "https://api.github.com/users/afritzler/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/afritzler/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/afritzler/subscriptions",
+      "organizations_url": "https://api.github.com/users/afritzler/orgs",
+      "repos_url": "https://api.github.com/users/afritzler/repos",
+      "events_url": "https://api.github.com/users/afritzler/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/afritzler/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "7876b13e17118a7600161c7c63f0c13fd07e90fa",
+        "url": "https://api.github.com/repos/gardener/kubify/commits/7876b13e17118a7600161c7c63f0c13fd07e90fa",
+        "html_url": "https://github.com/gardener/kubify/commit/7876b13e17118a7600161c7c63f0c13fd07e90fa"
+      }
+    ]
+  },
+  {
     "sha": "9a06e4d623be98aeca8b7fd7c5e19dab2198f722",
     "node_id": "MDY6Q29tbWl0MTE2NDI5NDAxOjlhMDZlNGQ2MjNiZTk4YWVjYThiN2ZkN2M1ZTE5ZGFiMjE5OGY3MjI=",
     "commit": {
