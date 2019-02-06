@@ -1,2 +1,160 @@
 [
+  {
+    "sha": "bdf4be2d48ebba959ad718cf7945ec0797f11b7d",
+    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OmJkZjRiZTJkNDhlYmJhOTU5YWQ3MThjZjc5NDVlYzA3OTdmMTFiN2Q=",
+    "commit": {
+      "author": {
+        "name": "ggaurav10",
+        "email": "gaurav.gupta07@sap.com",
+        "date": "2019-01-24T11:21:12Z"
+      },
+      "committer": {
+        "name": "ggaurav10",
+        "email": "gaurav.gupta07@sap.com",
+        "date": "2019-01-28T04:21:21Z"
+      },
+      "message": "Addressing review comments",
+      "tree": {
+        "sha": "4906bf3f327a1614bb52a4ddf848db666b9569a4",
+        "url": "https://api.github.com/repos/gardener/documentation/git/trees/4906bf3f327a1614bb52a4ddf848db666b9569a4"
+      },
+      "url": "https://api.github.com/repos/gardener/documentation/git/commits/bdf4be2d48ebba959ad718cf7945ec0797f11b7d",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/documentation/commits/bdf4be2d48ebba959ad718cf7945ec0797f11b7d",
+    "html_url": "https://github.com/gardener/documentation/commit/bdf4be2d48ebba959ad718cf7945ec0797f11b7d",
+    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/bdf4be2d48ebba959ad718cf7945ec0797f11b7d/comments",
+    "author": {
+      "login": "ggaurav10",
+      "id": 31065672,
+      "node_id": "MDQ6VXNlcjMxMDY1Njcy",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/31065672?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ggaurav10",
+      "html_url": "https://github.com/ggaurav10",
+      "followers_url": "https://api.github.com/users/ggaurav10/followers",
+      "following_url": "https://api.github.com/users/ggaurav10/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ggaurav10/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ggaurav10/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ggaurav10/subscriptions",
+      "organizations_url": "https://api.github.com/users/ggaurav10/orgs",
+      "repos_url": "https://api.github.com/users/ggaurav10/repos",
+      "events_url": "https://api.github.com/users/ggaurav10/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ggaurav10/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "ggaurav10",
+      "id": 31065672,
+      "node_id": "MDQ6VXNlcjMxMDY1Njcy",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/31065672?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ggaurav10",
+      "html_url": "https://github.com/ggaurav10",
+      "followers_url": "https://api.github.com/users/ggaurav10/followers",
+      "following_url": "https://api.github.com/users/ggaurav10/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ggaurav10/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ggaurav10/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ggaurav10/subscriptions",
+      "organizations_url": "https://api.github.com/users/ggaurav10/orgs",
+      "repos_url": "https://api.github.com/users/ggaurav10/repos",
+      "events_url": "https://api.github.com/users/ggaurav10/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ggaurav10/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "1349add855264ae1c6664caf95d3cefe170df4ff",
+        "url": "https://api.github.com/repos/gardener/documentation/commits/1349add855264ae1c6664caf95d3cefe170df4ff",
+        "html_url": "https://github.com/gardener/documentation/commit/1349add855264ae1c6664caf95d3cefe170df4ff"
+      }
+    ]
+  },
+  {
+    "sha": "1349add855264ae1c6664caf95d3cefe170df4ff",
+    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OjEzNDlhZGQ4NTUyNjRhZTFjNjY2NGNhZjk1ZDNjZWZlMTcwZGY0ZmY=",
+    "commit": {
+      "author": {
+        "name": "ggaurav10",
+        "email": "gaurav.gupta07@sap.com",
+        "date": "2019-01-24T09:30:21Z"
+      },
+      "committer": {
+        "name": "ggaurav10",
+        "email": "gaurav.gupta07@sap.com",
+        "date": "2019-01-24T09:40:29Z"
+      },
+      "message": "Added steps to manually add a node to an existing cluster.",
+      "tree": {
+        "sha": "f54c2d4fb57ad109771e72bc0c8ac72ba9627e67",
+        "url": "https://api.github.com/repos/gardener/documentation/git/trees/f54c2d4fb57ad109771e72bc0c8ac72ba9627e67"
+      },
+      "url": "https://api.github.com/repos/gardener/documentation/git/commits/1349add855264ae1c6664caf95d3cefe170df4ff",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/documentation/commits/1349add855264ae1c6664caf95d3cefe170df4ff",
+    "html_url": "https://github.com/gardener/documentation/commit/1349add855264ae1c6664caf95d3cefe170df4ff",
+    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/1349add855264ae1c6664caf95d3cefe170df4ff/comments",
+    "author": {
+      "login": "ggaurav10",
+      "id": 31065672,
+      "node_id": "MDQ6VXNlcjMxMDY1Njcy",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/31065672?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ggaurav10",
+      "html_url": "https://github.com/ggaurav10",
+      "followers_url": "https://api.github.com/users/ggaurav10/followers",
+      "following_url": "https://api.github.com/users/ggaurav10/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ggaurav10/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ggaurav10/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ggaurav10/subscriptions",
+      "organizations_url": "https://api.github.com/users/ggaurav10/orgs",
+      "repos_url": "https://api.github.com/users/ggaurav10/repos",
+      "events_url": "https://api.github.com/users/ggaurav10/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ggaurav10/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "ggaurav10",
+      "id": 31065672,
+      "node_id": "MDQ6VXNlcjMxMDY1Njcy",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/31065672?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ggaurav10",
+      "html_url": "https://github.com/ggaurav10",
+      "followers_url": "https://api.github.com/users/ggaurav10/followers",
+      "following_url": "https://api.github.com/users/ggaurav10/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ggaurav10/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ggaurav10/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ggaurav10/subscriptions",
+      "organizations_url": "https://api.github.com/users/ggaurav10/orgs",
+      "repos_url": "https://api.github.com/users/ggaurav10/repos",
+      "events_url": "https://api.github.com/users/ggaurav10/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ggaurav10/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "11fc07a85687541fcadcecb46e8bfa1ff37e19d9",
+        "url": "https://api.github.com/repos/gardener/documentation/commits/11fc07a85687541fcadcecb46e8bfa1ff37e19d9",
+        "html_url": "https://github.com/gardener/documentation/commit/11fc07a85687541fcadcecb46e8bfa1ff37e19d9"
+      }
+    ]
+  }
 ]

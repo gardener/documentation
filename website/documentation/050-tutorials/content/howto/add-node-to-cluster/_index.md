@@ -10,12 +10,22 @@ last_reviewed:
 category: Operation
 scope: app-developer
 ---
+# Manually adding a node to an existing cluster
+Gardener has an excellent ability to [automatically scale machines](/components/mcm/) for the cluster. From the point of view 
+of scalability, there is no need for manual intervention. 
 
-## Term clarification
-Here we will look at the steps on how to add a node to an existing cluster without the support of Gardener. Such a node will not be managed by Gardener, and if it goes down for any reason, Gardener will not be responsible to replace it.
+This tutorial is useful for those end-users who need specifically configured nodes, which are not yet supported 
+by Gardener. For example: an end-user who wants some workload that requires `runnc` instead of `runc` as container 
+runtime.
 
-## Why
-This tutorial is useful for those end-users who need specifically configured nodes, which are not yet supported by Gardener. For example: an end-user who wants some workload that requires runnc instead of runc as container runtime.
+![teaser](teaser.svg)
+
+## Disclaimer
+
+> Here we will look at the steps on how to add a node to an existing cluster without the support of Gardener. 
+Such a node will not be managed by Gardener, and if it goes down for any reason, Gardener will not be 
+responsible to replace it.
+
 
 ## How
 1. Create a new instance in the same VPC/network as other machines in the cluster. You should be able to ssh into the machine. So save its private key, and assign a public IP to it. If adding a public IP is not preferred, then ssh into any other machine in the cluster, and then ssh from there into the new machine using its private key.
