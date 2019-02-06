@@ -9,6 +9,7 @@ status:
 last_reviewed: 
 category: Operation
 scope: app-developer
+aliases: ["readmore/adding-nodes"]
 ---
 # Manually adding a node to an existing cluster
 Gardener has an excellent ability to [automatically scale machines](/components/mcm/) for the cluster. From the point of view 
