@@ -107,17 +107,26 @@ See [Security Release Process](https://github.com/gardener/documentation/blob/ma
 
 The mailing list is hosted through Google Groups. To receive the lists' emails, [join](https://support.google.com/groups/answer/1067205) the group, as you would any other Google Group.
 
+### Twitter
+
+[@GardenerProject](https://twitter.com/GardenerProject) is the Gardener Twitter account.
+
 ### Accessing community documents
 
-In order to foster real time collaboration there are working documents and notes that are taken in Google Docs, and then transferred to this repository if appropriate.
+In order to foster real time collaboration there are working documents and notes that are taken in Google Docs,
+and then transferred to this repository if appropriate.
 
-To access these documents, you must subscribe to the gardener mailing list as outlined above, as these documents are shared automatically with anyone who subscribes to that list.
+To gain edit access for these documents, you must subscribe to the
+[gardener mailing list](https://groups.google.com/forum/?fromgroups#!forum/gardener),
+as these documents are shared automatically with anyone who subscribes to that list.
 
-### Bi-weekly Meeting
+### Weekly Meeting
 
-We have a PUBLIC and RECORDED bi-weekly meeting every second Friday at 10:00 CET over Zoom.  
-Map that to your [local time](https://www.google.de/search?q=10+CET+to+local+time). Find recordings in the [Gardener Youtube channel](https://www.youtube.com/playlist?list=PLozz-rrEP0dt-EJ7N9fuQGtX7t5u9LX9u)
+We have a PUBLIC and RECORDED weekly meeting. We meet alternating every
+second Friday at [10:00 CET](https://www.google.de/search?q=10+CET+to+local+time)
+and the other weeks Thursday at [17:00 CET](https://www.google.de/search?q=17+CET+to+local+time) over Zoom.
+Find recordings in the [Gardener Youtube channel](https://www.youtube.com/playlist?list=PLozz-rrEP0dt-EJ7N9fuQGtX7t5u9LX9u)
 
-See it on the web at [calendar.google.com](https://calendar.google.com/calendar/embed?src=gardener.cloud.community%40gmail.com&ctz=Europe%2FBerlin), or paste this [iCal url](https://calendar.google.com/calendar/ical/gardener.cloud.community%40gmail.com/public/basic.ics) into any iCal client.
+See it on the web at [calendar.google.com](https://calendar.google.com/calendar/embed?src=gardener.cloud.community%40gmail.com), or paste this [iCal url](https://calendar.google.com/calendar/ical/gardener.cloud.community%40gmail.com/public/basic.ics) into any iCal client.
 
-If you have a topic you'd like to present or would like to see discussed, please propose a specific date on the [Gardener Community Meeting Agenda](https://docs.google.com/document/d/1314v8ziVNQPjdBrWp-Y4BYrTDlv7dq2cWDFIa9SMaP4). Find minutes in the same document. Subscribe to the gardener mailing list to get edit permissions.
+If you have a topic you'd like to present or would like to see discussed, please propose a specific date on the [Gardener Community Meeting Agenda](https://docs.google.com/document/d/1314v8ziVNQPjdBrWp-Y4BYrTDlv7dq2cWDFIa9SMaP4). Find minutes in the same document. Subscribe to the [gardener mailing list](https://groups.google.com/forum/?fromgroups#!forum/gardener) to get edit permissions.
