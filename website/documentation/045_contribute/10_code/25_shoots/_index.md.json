@@ -1,5 +1,84 @@
 [
   {
+    "sha": "de04159a34bc5c599d455048c7ce323c2713641d",
+    "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOmRlMDQxNTlhMzRiYzVjNTk5ZDQ1NTA0OGM3Y2UzMjNjMjcxMzY0MWQ=",
+    "commit": {
+      "author": {
+        "name": "Kistner, Dominic",
+        "email": "dominic.kistner@sap.com",
+        "date": "2019-02-04T08:45:34Z"
+      },
+      "committer": {
+        "name": "Kistner, Dominic",
+        "email": "dominic.kistner@sap.com",
+        "date": "2019-02-07T13:12:12Z"
+      },
+      "message": "Deploy alertmanager only when shoot has an operatedBy annotation",
+      "tree": {
+        "sha": "2afff52c8363e6ed435eecf9ca06ba8765a52650",
+        "url": "https://api.github.com/repos/gardener/gardener/git/trees/2afff52c8363e6ed435eecf9ca06ba8765a52650"
+      },
+      "url": "https://api.github.com/repos/gardener/gardener/git/commits/de04159a34bc5c599d455048c7ce323c2713641d",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/gardener/commits/de04159a34bc5c599d455048c7ce323c2713641d",
+    "html_url": "https://github.com/gardener/gardener/commit/de04159a34bc5c599d455048c7ce323c2713641d",
+    "comments_url": "https://api.github.com/repos/gardener/gardener/commits/de04159a34bc5c599d455048c7ce323c2713641d/comments",
+    "author": {
+      "login": "dkistner",
+      "id": 4513134,
+      "node_id": "MDQ6VXNlcjQ1MTMxMzQ=",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/4513134?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/dkistner",
+      "html_url": "https://github.com/dkistner",
+      "followers_url": "https://api.github.com/users/dkistner/followers",
+      "following_url": "https://api.github.com/users/dkistner/following{/other_user}",
+      "gists_url": "https://api.github.com/users/dkistner/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/dkistner/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/dkistner/subscriptions",
+      "organizations_url": "https://api.github.com/users/dkistner/orgs",
+      "repos_url": "https://api.github.com/users/dkistner/repos",
+      "events_url": "https://api.github.com/users/dkistner/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/dkistner/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "dkistner",
+      "id": 4513134,
+      "node_id": "MDQ6VXNlcjQ1MTMxMzQ=",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/4513134?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/dkistner",
+      "html_url": "https://github.com/dkistner",
+      "followers_url": "https://api.github.com/users/dkistner/followers",
+      "following_url": "https://api.github.com/users/dkistner/following{/other_user}",
+      "gists_url": "https://api.github.com/users/dkistner/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/dkistner/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/dkistner/subscriptions",
+      "organizations_url": "https://api.github.com/users/dkistner/orgs",
+      "repos_url": "https://api.github.com/users/dkistner/repos",
+      "events_url": "https://api.github.com/users/dkistner/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/dkistner/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "1199ca8a1b70e9886fdc3520f4cb4358806f1ff2",
+        "url": "https://api.github.com/repos/gardener/gardener/commits/1199ca8a1b70e9886fdc3520f4cb4358806f1ff2",
+        "html_url": "https://github.com/gardener/gardener/commit/1199ca8a1b70e9886fdc3520f4cb4358806f1ff2"
+      }
+    ]
+  },
+  {
     "sha": "90af049d122d678a5a41bdcbbc541e091aa95eaf",
     "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOjkwYWYwNDlkMTIyZDY3OGE1YTQxYmRjYmJjNTQxZTA5MWFhOTVlYWY=",
     "commit": {
