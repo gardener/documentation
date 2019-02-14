@@ -1,5 +1,84 @@
 [
   {
+    "sha": "35624c58e9b40b9280e4b98742a3b56373ab8db9",
+    "node_id": "MDY6Q29tbWl0MTE4NjE1OTYzOjM1NjI0YzU4ZTliNDBiOTI4MGU0Yjk4NzQyYTNiNTYzNzNhYjhkYjk=",
+    "commit": {
+      "author": {
+        "name": "Lukas Gross",
+        "email": "lukas.gross@sap.com",
+        "date": "2019-02-14T16:04:02Z"
+      },
+      "committer": {
+        "name": "Lukas Gross",
+        "email": "lukas.gross@sap.com",
+        "date": "2019-02-14T16:04:02Z"
+      },
+      "message": "some more copyright year fixes",
+      "tree": {
+        "sha": "9c9d73d6405a6d8f2b1812e7c6657a0e491cb03e",
+        "url": "https://api.github.com/repos/gardener/dashboard/git/trees/9c9d73d6405a6d8f2b1812e7c6657a0e491cb03e"
+      },
+      "url": "https://api.github.com/repos/gardener/dashboard/git/commits/35624c58e9b40b9280e4b98742a3b56373ab8db9",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\niQEzBAABCAAdFiEE9XbAcPOPBG2F778kxxtnfy8Lz0UFAlxlkXIACgkQxxtnfy8L\nz0UYDggAkJ/dIDBsqWsByxCAEIdEyjGTwnl5kGS4spNY64BVDbbBEotGxFc86dsS\nikn4iUXibqJSdFi7F3LMX8qRYwxJ4q3qq3q3EJlPvzjlpWmrHT33IpWNWjcAnp7O\nCY4cuHzJuax17xYpBb0WkPEoHWpRDpylCRewJcmCtf+UZuAtR5w7c5Qy0pDH9WRP\nDH5Q726TFLmP7f65rGe4a/KyPofn1UqHBO5t5SKW/AH8+Zn6iI9/k1rOKpkCrnkQ\nVScfmCo+jhMNTVOrz+8J8307ZAQxFToGtMp2DM1PHE1RnfasvoXUeKuaIalCZiVU\neCSvLVlvYcpiZcL2KFqw2WUREs/WLA==\n=JE5o\n-----END PGP SIGNATURE-----",
+        "payload": "tree 9c9d73d6405a6d8f2b1812e7c6657a0e491cb03e\nparent bc4682bf27508c7e1cc3ea37d9d24369c6d1f17a\nauthor Lukas Gross <lukas.gross@sap.com> 1550160242 +0100\ncommitter Lukas Gross <lukas.gross@sap.com> 1550160242 +0100\n\nsome more copyright year fixes\n"
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/dashboard/commits/35624c58e9b40b9280e4b98742a3b56373ab8db9",
+    "html_url": "https://github.com/gardener/dashboard/commit/35624c58e9b40b9280e4b98742a3b56373ab8db9",
+    "comments_url": "https://api.github.com/repos/gardener/dashboard/commits/35624c58e9b40b9280e4b98742a3b56373ab8db9/comments",
+    "author": {
+      "login": "grolu",
+      "id": 35373687,
+      "node_id": "MDQ6VXNlcjM1MzczNjg3",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/35373687?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/grolu",
+      "html_url": "https://github.com/grolu",
+      "followers_url": "https://api.github.com/users/grolu/followers",
+      "following_url": "https://api.github.com/users/grolu/following{/other_user}",
+      "gists_url": "https://api.github.com/users/grolu/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/grolu/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/grolu/subscriptions",
+      "organizations_url": "https://api.github.com/users/grolu/orgs",
+      "repos_url": "https://api.github.com/users/grolu/repos",
+      "events_url": "https://api.github.com/users/grolu/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/grolu/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "grolu",
+      "id": 35373687,
+      "node_id": "MDQ6VXNlcjM1MzczNjg3",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/35373687?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/grolu",
+      "html_url": "https://github.com/grolu",
+      "followers_url": "https://api.github.com/users/grolu/followers",
+      "following_url": "https://api.github.com/users/grolu/following{/other_user}",
+      "gists_url": "https://api.github.com/users/grolu/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/grolu/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/grolu/subscriptions",
+      "organizations_url": "https://api.github.com/users/grolu/orgs",
+      "repos_url": "https://api.github.com/users/grolu/repos",
+      "events_url": "https://api.github.com/users/grolu/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/grolu/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "bc4682bf27508c7e1cc3ea37d9d24369c6d1f17a",
+        "url": "https://api.github.com/repos/gardener/dashboard/commits/bc4682bf27508c7e1cc3ea37d9d24369c6d1f17a",
+        "html_url": "https://github.com/gardener/dashboard/commit/bc4682bf27508c7e1cc3ea37d9d24369c6d1f17a"
+      }
+    ]
+  },
+  {
     "sha": "bf5c219f6751ebb2166f1d8951ecf43eb7b0479d",
     "node_id": "MDY6Q29tbWl0MTE4NjE1OTYzOmJmNWMyMTlmNjc1MWViYjIxNjZmMWQ4OTUxZWNmNDNlYjdiMDQ3OWQ=",
     "commit": {
