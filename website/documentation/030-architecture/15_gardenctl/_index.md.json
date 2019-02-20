@@ -1,5 +1,84 @@
 [
   {
+    "sha": "47421d2025194aeea7f2f5c8aae67bdfabc4d056",
+    "node_id": "MDY6Q29tbWl0MTE4MDE3MzQ5OjQ3NDIxZDIwMjUxOTRhZWVhN2YyZjVjOGFhZTY3YmRmYWJjNGQwNTY=",
+    "commit": {
+      "author": {
+        "name": "KristianZH",
+        "email": "kristianzh@abv.bg",
+        "date": "2019-02-16T10:08:03Z"
+      },
+      "committer": {
+        "name": "Sebastian Stauch",
+        "email": "30324854+docktofuture@users.noreply.github.com",
+        "date": "2019-02-19T09:05:43Z"
+      },
+      "message": "gardenctl logs improvements",
+      "tree": {
+        "sha": "1e12182888fe805f1e48c418d4a48c08a584b761",
+        "url": "https://api.github.com/repos/gardener/gardenctl/git/trees/1e12182888fe805f1e48c418d4a48c08a584b761"
+      },
+      "url": "https://api.github.com/repos/gardener/gardenctl/git/commits/47421d2025194aeea7f2f5c8aae67bdfabc4d056",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/gardenctl/commits/47421d2025194aeea7f2f5c8aae67bdfabc4d056",
+    "html_url": "https://github.com/gardener/gardenctl/commit/47421d2025194aeea7f2f5c8aae67bdfabc4d056",
+    "comments_url": "https://api.github.com/repos/gardener/gardenctl/commits/47421d2025194aeea7f2f5c8aae67bdfabc4d056/comments",
+    "author": {
+      "login": "KristianZH",
+      "id": 16671526,
+      "node_id": "MDQ6VXNlcjE2NjcxNTI2",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/16671526?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/KristianZH",
+      "html_url": "https://github.com/KristianZH",
+      "followers_url": "https://api.github.com/users/KristianZH/followers",
+      "following_url": "https://api.github.com/users/KristianZH/following{/other_user}",
+      "gists_url": "https://api.github.com/users/KristianZH/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/KristianZH/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/KristianZH/subscriptions",
+      "organizations_url": "https://api.github.com/users/KristianZH/orgs",
+      "repos_url": "https://api.github.com/users/KristianZH/repos",
+      "events_url": "https://api.github.com/users/KristianZH/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/KristianZH/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "DockToFuture",
+      "id": 30324854,
+      "node_id": "MDQ6VXNlcjMwMzI0ODU0",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/30324854?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/DockToFuture",
+      "html_url": "https://github.com/DockToFuture",
+      "followers_url": "https://api.github.com/users/DockToFuture/followers",
+      "following_url": "https://api.github.com/users/DockToFuture/following{/other_user}",
+      "gists_url": "https://api.github.com/users/DockToFuture/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/DockToFuture/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/DockToFuture/subscriptions",
+      "organizations_url": "https://api.github.com/users/DockToFuture/orgs",
+      "repos_url": "https://api.github.com/users/DockToFuture/repos",
+      "events_url": "https://api.github.com/users/DockToFuture/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/DockToFuture/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "ed2c381a54d62e730ea869d77a92aae656e40b8b",
+        "url": "https://api.github.com/repos/gardener/gardenctl/commits/ed2c381a54d62e730ea869d77a92aae656e40b8b",
+        "html_url": "https://github.com/gardener/gardenctl/commit/ed2c381a54d62e730ea869d77a92aae656e40b8b"
+      }
+    ]
+  },
+  {
     "sha": "b28f23003a8f9513eaca0976f5ff0327f918a590",
     "node_id": "MDY6Q29tbWl0MTE4MDE3MzQ5OmIyOGYyMzAwM2E4Zjk1MTNlYWNhMDk3NmY1ZmYwMzI3ZjkxOGE1OTA=",
     "commit": {
