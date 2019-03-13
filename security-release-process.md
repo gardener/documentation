@@ -18,6 +18,7 @@ The Gardener Security Team is responsible for organizing the entire response inc
 * Michael Schubert, (**[@schu](https://github.com/schu)**)
 * Matthias Sohn, (**[@msohn](https://github.com/msohn)**)
 * Frederik Thormaehlen, (**[@ThormaehlenFred](https://github.com/ThormaehlenFred)**)
+* Christian Cwienk (**[@ccwienk](https://github.com/ccwienk)**)
 
 
 ## Disclosures
