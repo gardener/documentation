@@ -4,15 +4,15 @@ Gardener is a growing community of volunteers and users. The Gardener community 
 
 ## Gardener Security Team
 
-Security vulnerabilities should be handled quickly and sometimes privately. The primary goal of this process is to reduce the total time users are vulnerable to publicly known exploits. 
-The Gardener Security Team is responsible for organizing the entire response including internal communication and external disclosure but will need help from relevant developers and release managers to successfully run this process. The initial Gardener Security Team will consist of the following volunteers: 
+Security vulnerabilities should be handled quickly and sometimes privately. The primary goal of this process is to reduce the total time users are vulnerable to publicly known exploits.
+The Gardener Security Team is responsible for organizing the entire response including internal communication and external disclosure but will need help from relevant developers and release managers to successfully run this process. The initial Gardener Security Team will consist of the following volunteers:
 
-* Olaf Beier, (**[@olafbeier](https://github.com/olafbeier)**) 
+* Olaf Beier, (**[@olafbeier](https://github.com/olafbeier)**)
 * Vasu Chandrasekhara, (**[@vasu1124](https://github.com/vasu1124)**)
 * Alban Crequy, (**[@alban](https://github.com/alban)**)
-* Norbert Hamann, (**[@norberthamann](https://github.com/norberthamann)**) 
+* Norbert Hamann, (**[@norberthamann](https://github.com/norberthamann)**)
 * Claudia H&ouml;lters, (**[@hoeltcl](https://github.com/hoeltcl)**)
-* Oliver Kling, (**[@oliverkling](https://github.com/oliverkling)**) 
+* Oliver Kling, (**[@oliverkling](https://github.com/oliverkling)**)
 * Vedran Lerenc, (**[@vlerenc](https://github.com/vlerenc)**)
 * Dirk Marwinski, (**[@marwinski](https://github.com/marwinski)**)
 * Michael Schubert, (**[@schu](https://github.com/schu)**)
@@ -54,14 +54,14 @@ With the fix development underway, the Fix Lead needs to come up with an overall
 
 ### Fix Release Day
 
-The Release Managers will ensure all the binaries are built, publicly available, and functional before the Release Date. 
+The Release Managers will ensure all the binaries are built, publicly available, and functional before the Release Date.
 The Release Managers will create a new patch release branch from the latest patch release tag + the fix from the security branch. As a practical example if v0.12.0 is the latest patch release in gardener.git a new branch will be created called v0.12.1 which includes only patches required to fix the issue.
 The Fix Lead will cherry-pick the patches onto the master branch and all relevant release branches. The Fix Team will [LGTM](https://github.com/lgtmco/lgtm) and merge.
 The Release Managers will merge these PRs as quickly as possible. Changes shouldn't be made to the commits even for a typo in the CHANGELOG as this will change the git sha of the already built and commits leading to confusion and potentially conflicts as the fix is cherry-picked around branches.
 The Fix Lead will request a CVE from the SAP Product Security Response Team via email to [cna@sap.com](mailto:cna@sap.com) with all the relevant information (description, potential impact, affected version, fixed version, CVSS v3 base score and supporting documentation for the CVSS score) for every vulnerability. The Fix Lead will inform the [Gardener mailing list](#communication-channel) and announce the new releases, the CVE number (if available), the location of the binaries, and the relevant merged PRs to get wide distribution and user action.
 
 As much as possible this e-mail should be actionable and include links how to apply the fix to users environments; this can include links to external distributor documentation. The recommended target time is 4pm UTC on a non-Friday weekday. This means the announcement will be seen morning Pacific, early evening Europe, and late evening Asia.
-The Fix Lead will remove the Fix Team from the private security repository. 
+The Fix Lead will remove the Fix Team from the private security repository.
 
 ### Retrospective
 
@@ -77,4 +77,4 @@ The [private](#private-disclosure-process) or [public disclosure process](#publi
 
 Gardener security announcements will be communicated by the Fix Lead sending an e-mail to the [Gardener mailing list](https://groups.google.com/forum/#!forum/gardener) (reachable via [gardener@googlegroups.com](mailto:gardener@googlegroups.com)) as well as posting a link in the [Gardener Slack channel](https://kubernetes.slack.com/messages/CB57N0BFG/details/). Public discussions about Gardener security announcements and retrospectives, will primarily happen in the Gardener mailing list. Thus Gardener community members who are interested in participating in discussions related to the Gardener Security Release Process are encouraged to join the Gardener mailing list ([how to find and join a group](https://support.google.com/groups/answer/1067205?hl=en))
 
-The members of the [Gardener Security Team](#gardener-security-team) are subscribed to the private [Gardener Security mailing list](https://groups.google.com/forum/#!forum/gardener-security) (reachable via [gardener-security@googlegroups.com](mailto:gardener-security@googlegroups.com)). 
+The members of the [Gardener Security Team](#gardener-security-team) are subscribed to the private [Gardener Security mailing list](https://groups.google.com/forum/#!forum/gardener-security) (reachable via [gardener-security@googlegroups.com](mailto:gardener-security@googlegroups.com)).
