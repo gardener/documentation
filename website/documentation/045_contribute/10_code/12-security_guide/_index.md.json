@@ -1,5 +1,163 @@
 [
   {
+    "sha": "40d8f104c5a25b11b4d8f38aeae61b3bdd713c41",
+    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OjQwZDhmMTA0YzVhMjViMTFiNGQ4ZjM4YWVhZTYxYjNiZGQ3MTNjNDE=",
+    "commit": {
+      "author": {
+        "name": "Christian Cwienk (d051236)",
+        "email": "christian.cwienk@sap.com",
+        "date": "2019-03-13T08:53:30Z"
+      },
+      "committer": {
+        "name": "Christian Cwienk (d051236)",
+        "email": "christian.cwienk@sap.com",
+        "date": "2019-03-13T08:53:30Z"
+      },
+      "message": "unix line endings; trim trailing whitespace",
+      "tree": {
+        "sha": "8d40775e776a3189633ad27fcb2cb5dc933db966",
+        "url": "https://api.github.com/repos/gardener/documentation/git/trees/8d40775e776a3189633ad27fcb2cb5dc933db966"
+      },
+      "url": "https://api.github.com/repos/gardener/documentation/git/commits/40d8f104c5a25b11b4d8f38aeae61b3bdd713c41",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/documentation/commits/40d8f104c5a25b11b4d8f38aeae61b3bdd713c41",
+    "html_url": "https://github.com/gardener/documentation/commit/40d8f104c5a25b11b4d8f38aeae61b3bdd713c41",
+    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/40d8f104c5a25b11b4d8f38aeae61b3bdd713c41/comments",
+    "author": {
+      "login": "ccwienk",
+      "id": 17196774,
+      "node_id": "MDQ6VXNlcjE3MTk2Nzc0",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/17196774?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ccwienk",
+      "html_url": "https://github.com/ccwienk",
+      "followers_url": "https://api.github.com/users/ccwienk/followers",
+      "following_url": "https://api.github.com/users/ccwienk/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ccwienk/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ccwienk/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ccwienk/subscriptions",
+      "organizations_url": "https://api.github.com/users/ccwienk/orgs",
+      "repos_url": "https://api.github.com/users/ccwienk/repos",
+      "events_url": "https://api.github.com/users/ccwienk/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ccwienk/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "ccwienk",
+      "id": 17196774,
+      "node_id": "MDQ6VXNlcjE3MTk2Nzc0",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/17196774?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ccwienk",
+      "html_url": "https://github.com/ccwienk",
+      "followers_url": "https://api.github.com/users/ccwienk/followers",
+      "following_url": "https://api.github.com/users/ccwienk/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ccwienk/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ccwienk/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ccwienk/subscriptions",
+      "organizations_url": "https://api.github.com/users/ccwienk/orgs",
+      "repos_url": "https://api.github.com/users/ccwienk/repos",
+      "events_url": "https://api.github.com/users/ccwienk/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ccwienk/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "5e613e90b5ff896f28e6a4202a83b6e76e01669d",
+        "url": "https://api.github.com/repos/gardener/documentation/commits/5e613e90b5ff896f28e6a4202a83b6e76e01669d",
+        "html_url": "https://github.com/gardener/documentation/commit/5e613e90b5ff896f28e6a4202a83b6e76e01669d"
+      }
+    ]
+  },
+  {
+    "sha": "5e613e90b5ff896f28e6a4202a83b6e76e01669d",
+    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OjVlNjEzZTkwYjVmZjg5NmYyOGU2YTQyMDJhODNiNmU3NmUwMTY2OWQ=",
+    "commit": {
+      "author": {
+        "name": "Christian Cwienk (d051236)",
+        "email": "christian.cwienk@sap.com",
+        "date": "2019-03-13T08:52:21Z"
+      },
+      "committer": {
+        "name": "Christian Cwienk (d051236)",
+        "email": "christian.cwienk@sap.com",
+        "date": "2019-03-13T08:52:21Z"
+      },
+      "message": "add myself to security team",
+      "tree": {
+        "sha": "d313be7991673b3c9dd66a2d111ab98be6b27561",
+        "url": "https://api.github.com/repos/gardener/documentation/git/trees/d313be7991673b3c9dd66a2d111ab98be6b27561"
+      },
+      "url": "https://api.github.com/repos/gardener/documentation/git/commits/5e613e90b5ff896f28e6a4202a83b6e76e01669d",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/documentation/commits/5e613e90b5ff896f28e6a4202a83b6e76e01669d",
+    "html_url": "https://github.com/gardener/documentation/commit/5e613e90b5ff896f28e6a4202a83b6e76e01669d",
+    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/5e613e90b5ff896f28e6a4202a83b6e76e01669d/comments",
+    "author": {
+      "login": "ccwienk",
+      "id": 17196774,
+      "node_id": "MDQ6VXNlcjE3MTk2Nzc0",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/17196774?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ccwienk",
+      "html_url": "https://github.com/ccwienk",
+      "followers_url": "https://api.github.com/users/ccwienk/followers",
+      "following_url": "https://api.github.com/users/ccwienk/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ccwienk/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ccwienk/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ccwienk/subscriptions",
+      "organizations_url": "https://api.github.com/users/ccwienk/orgs",
+      "repos_url": "https://api.github.com/users/ccwienk/repos",
+      "events_url": "https://api.github.com/users/ccwienk/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ccwienk/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "ccwienk",
+      "id": 17196774,
+      "node_id": "MDQ6VXNlcjE3MTk2Nzc0",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/17196774?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ccwienk",
+      "html_url": "https://github.com/ccwienk",
+      "followers_url": "https://api.github.com/users/ccwienk/followers",
+      "following_url": "https://api.github.com/users/ccwienk/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ccwienk/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ccwienk/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ccwienk/subscriptions",
+      "organizations_url": "https://api.github.com/users/ccwienk/orgs",
+      "repos_url": "https://api.github.com/users/ccwienk/repos",
+      "events_url": "https://api.github.com/users/ccwienk/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ccwienk/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "8191ec6ecc431cb3f2e148fb76ac98cd0f38a7fe",
+        "url": "https://api.github.com/repos/gardener/documentation/commits/8191ec6ecc431cb3f2e148fb76ac98cd0f38a7fe",
+        "html_url": "https://github.com/gardener/documentation/commit/8191ec6ecc431cb3f2e148fb76ac98cd0f38a7fe"
+      }
+    ]
+  },
+  {
     "sha": "7958ef6aa382046f922d10c00dd6bd9ffe8104e3",
     "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1Ojc5NThlZjZhYTM4MjA0NmY5MjJkMTBjMDBkZDZiZDlmZmU4MTA0ZTM=",
     "commit": {
