@@ -1,5 +1,84 @@
 [
   {
+    "sha": "199eaa37cc507cb7039d518c991f7e2aea6b3f62",
+    "node_id": "MDY6Q29tbWl0MTQyMTgxMzQ0OjE5OWVhYTM3Y2M1MDdjYjcwMzlkNTE4Yzk5MWY3ZTJhZWE2YjNmNjI=",
+    "commit": {
+      "author": {
+        "name": "Martin Weindel",
+        "email": "martin.weindel@sap.com",
+        "date": "2019-02-06T16:41:36Z"
+      },
+      "committer": {
+        "name": "Uwe Krueger",
+        "email": "uwe.krueger@sap.com",
+        "date": "2019-03-14T11:54:03Z"
+      },
+      "message": "using gardener controller-manager-library and external-dns-management",
+      "tree": {
+        "sha": "f5f16b231756a8c8ad2b0ba11386779691c4a7a1",
+        "url": "https://api.github.com/repos/gardener/dnslb-controller-manager/git/trees/f5f16b231756a8c8ad2b0ba11386779691c4a7a1"
+      },
+      "url": "https://api.github.com/repos/gardener/dnslb-controller-manager/git/commits/199eaa37cc507cb7039d518c991f7e2aea6b3f62",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/dnslb-controller-manager/commits/199eaa37cc507cb7039d518c991f7e2aea6b3f62",
+    "html_url": "https://github.com/gardener/dnslb-controller-manager/commit/199eaa37cc507cb7039d518c991f7e2aea6b3f62",
+    "comments_url": "https://api.github.com/repos/gardener/dnslb-controller-manager/commits/199eaa37cc507cb7039d518c991f7e2aea6b3f62/comments",
+    "author": {
+      "login": "MartinWeindel",
+      "id": 3703277,
+      "node_id": "MDQ6VXNlcjM3MDMyNzc=",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/3703277?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/MartinWeindel",
+      "html_url": "https://github.com/MartinWeindel",
+      "followers_url": "https://api.github.com/users/MartinWeindel/followers",
+      "following_url": "https://api.github.com/users/MartinWeindel/following{/other_user}",
+      "gists_url": "https://api.github.com/users/MartinWeindel/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/MartinWeindel/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/MartinWeindel/subscriptions",
+      "organizations_url": "https://api.github.com/users/MartinWeindel/orgs",
+      "repos_url": "https://api.github.com/users/MartinWeindel/repos",
+      "events_url": "https://api.github.com/users/MartinWeindel/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/MartinWeindel/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "mandelsoft",
+      "id": 553075,
+      "node_id": "MDQ6VXNlcjU1MzA3NQ==",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/553075?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/mandelsoft",
+      "html_url": "https://github.com/mandelsoft",
+      "followers_url": "https://api.github.com/users/mandelsoft/followers",
+      "following_url": "https://api.github.com/users/mandelsoft/following{/other_user}",
+      "gists_url": "https://api.github.com/users/mandelsoft/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/mandelsoft/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/mandelsoft/subscriptions",
+      "organizations_url": "https://api.github.com/users/mandelsoft/orgs",
+      "repos_url": "https://api.github.com/users/mandelsoft/repos",
+      "events_url": "https://api.github.com/users/mandelsoft/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/mandelsoft/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "d970c717425978cfcb7840b2f498b97e5718fd67",
+        "url": "https://api.github.com/repos/gardener/dnslb-controller-manager/commits/d970c717425978cfcb7840b2f498b97e5718fd67",
+        "html_url": "https://github.com/gardener/dnslb-controller-manager/commit/d970c717425978cfcb7840b2f498b97e5718fd67"
+      }
+    ]
+  },
+  {
     "sha": "aee33851f9ac18d9ec6bdbce170604c055f647ee",
     "node_id": "MDY6Q29tbWl0MTQyMTgxMzQ0OmFlZTMzODUxZjlhYzE4ZDllYzZiZGJjZTE3MDYwNGMwNTVmNjQ3ZWU=",
     "commit": {
