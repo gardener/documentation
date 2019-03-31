@@ -71,15 +71,16 @@ in case you use the service type `LoadBalancer`.
 
 
 ## Preparation
+
 The deployment of [Prometheus](https://github.com/kubernetes/charts/tree/master/stable/prometheus) and [Grafana](https://github.com/kubernetes/charts/tree/master/stable/grafana) is based on Helm charts.  
 Make sure to implement the [Helm settings](/howto/helm) before deploying the Helm charts.
 
 The Kubernetes clusters provided by [Gardener](https://github.com/gardener) use role based 
 access control ([RBAC](https://kubernetes.io/docs/admin/authorization/rbac/)). To authorize the Prometheus 
 node-exporter to access hardware and OS relevant metrics of your cluster's worker nodes specific artifacts need to be 
-deployed. 
+deployed.
 
-Bind the prometheus service account to the `sapcloud:monitoring:prometheus` cluster role by running the command 
+Bind the prometheus service account to the `garden.sapcloud.io:monitoring:prometheus` cluster role by running the command 
 `kubectl apply -f crbinding.yaml`.
 
 Content of `crbinding.yaml`   
@@ -87,14 +88,14 @@ Content of `crbinding.yaml`
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
 metadata:
-  name: <your-prometheus-name>
+  name: <your-prometheus-name>-server
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: sapcloud:monitoring:prometheus
+  name: garden.sapcloud.io:monitoring:prometheus
 subjects:
 - kind: ServiceAccount
-  name: prometheus-prometheus-server # Given by Helm chart
+  name: <your-prometheus-name>-server
   namespace: <your-prometheus-namespace>
 ```
 
@@ -111,15 +112,17 @@ free to choose different namespaces.
 Content of `values.yaml` for Prometheus: 
 ```yaml
 rbac:
-  create: true # K8s Shoot clusters run RBAC enabled
+  create: false # Already created in Preparation step
 nodeExporter:
   enabled: false # The node-exporter is already deployed by default
 
+server:
+  global:
+    scrape_interval: 30s
+    scrape_timeout: 30s
+
 serverFiles:
-  prometheus.yml: 
-    global:
-      scrape_interval: 30s
-      scrape_timeout: 30s
+  prometheus.yml:
     rule_files:
       - /etc/config/rules
       - /etc/config/alerts      
@@ -282,7 +285,7 @@ In case of errors check the log files of the pod(s) in question.
 
 The text output of Helm after the deployment of Prometheus and Grafana contains very useful information, e.g. the user 
 and password of the Grafana Admin user. The credentials are stored as secrets in the namespace `<your-prometheus-namespace>` 
-and could be decoded via `kubectl get secret --namespace <my-grafana-namespace> grafana-grafana -o jsonpath="{.data.grafana-admin-password}" | base64 --decode ; echo`.
+and could be decoded via `kubectl get secret --namespace <my-grafana-namespace> grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo`.
 
 ## Basic functional tests
 To access the web UI of both applications use port forwarding of port 9090. 
@@ -314,7 +317,7 @@ Run
 ```bash
 helm status <your-prometheus-name>
 ```
-to find this name. Below this server name is referenced by `<your-preometheus-server-name>`.
+to find this name. Below this server name is referenced by `<your-prometheus-server-name>`.
 
 First, you need to add your Prometheus server as data source. 
 
