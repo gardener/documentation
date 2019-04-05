@@ -1,5 +1,84 @@
 [
   {
+    "sha": "03059189bad3422e024f6282ebb7acd08ad16a89",
+    "node_id": "MDY6Q29tbWl0MTE4NjE1OTYzOjAzMDU5MTg5YmFkMzQyMmUwMjRmNjI4MmViYjdhY2QwOGFkMTZhODk=",
+    "commit": {
+      "author": {
+        "name": "Holger Koser",
+        "email": "holgerkoser@users.noreply.github.com",
+        "date": "2019-04-04T08:32:41Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2019-04-04T08:32:41Z"
+      },
+      "message": "Remove OIDC dependency (#328)\n\n* Validate token via tokenreviews resource\r\n\r\n* Remove global jwt middleware and replace with local token review\r\n\r\n* async refactoring\r\n\r\n* Remove OIDC in frontend\r\n\r\n* Remove OIDC dependency - backend\r\n\r\n* Remove OIDC dependency - tests\r\n\r\n* Remove OIDC dependency - lint errors\r\n\r\n* remove prometheus secret\r\n\r\n* Remove OIDC dependency - more tests\r\n\r\n* PR review improvements 1\r\n\r\n* PR review improvements 2\r\n\r\n* PR review improvements 3\r\n\r\n* Update READMEs\r\n\r\n* Remove proxy table for /keys\r\n\r\n* fixed push command in readme\r\n\r\n* PR review improvements 4\r\n\r\n* Added some comments in the default chart values\r\n\r\n* assert for required config properties\r\n\r\n* some final fixes\r\n- Accounts Page: disable Groups (non-clickable)\r\n- Accounts Page: token tooltip\r\n- Login with token: focus inputfield\r\n\r\n* Correct english\r\n\r\n* Login redirect via query\r\n\r\n* fix unit test for required configuration properties",
+      "tree": {
+        "sha": "08b60d7dc1cd90d1e1dbef8464f1fa285c56f8f6",
+        "url": "https://api.github.com/repos/gardener/dashboard/git/trees/08b60d7dc1cd90d1e1dbef8464f1fa285c56f8f6"
+      },
+      "url": "https://api.github.com/repos/gardener/dashboard/git/commits/03059189bad3422e024f6282ebb7acd08ad16a89",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJcpcEpCRBK7hj4Ov3rIwAAdHIIAFZXWy+zj7m20c9asR5jfQZP\nsqZVhinmtM7mGcui2A361hhUJ1J2/widulkpVZpCZJaZ63PtudCy5ZJvstHhbBep\nVMV4WAo3Z1ecQ1t9izExbY3hvD/KACbDJEzs0HY7XgIP4uWi9iy9yhrQX6tXUk5X\nItYhJk8yKsTVI1hvO7VXg48mffLoAvweeavMCw1XSKvZY32lWdQ/SXB2zQ16ST2u\nEcmbeFP0eQXD4yQ8IQ/rtZilUVOybh6LuN46ABmJ6mYVBev0MlasPUxV9K6RBPSL\nGrTWn2yC5rx8lMyzfzG9Txk1Klhn/JIv7vfUz88rf9z4XLTOMYRc8Wa0XaCfO7o=\n=9sIi\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 08b60d7dc1cd90d1e1dbef8464f1fa285c56f8f6\nparent 52c672e7aeee30024ea7846e6c2d43bbfe48498e\nauthor Holger Koser <holgerkoser@users.noreply.github.com> 1554366761 +0200\ncommitter GitHub <noreply@github.com> 1554366761 +0200\n\nRemove OIDC dependency (#328)\n\n* Validate token via tokenreviews resource\r\n\r\n* Remove global jwt middleware and replace with local token review\r\n\r\n* async refactoring\r\n\r\n* Remove OIDC in frontend\r\n\r\n* Remove OIDC dependency - backend\r\n\r\n* Remove OIDC dependency - tests\r\n\r\n* Remove OIDC dependency - lint errors\r\n\r\n* remove prometheus secret\r\n\r\n* Remove OIDC dependency - more tests\r\n\r\n* PR review improvements 1\r\n\r\n* PR review improvements 2\r\n\r\n* PR review improvements 3\r\n\r\n* Update READMEs\r\n\r\n* Remove proxy table for /keys\r\n\r\n* fixed push command in readme\r\n\r\n* PR review improvements 4\r\n\r\n* Added some comments in the default chart values\r\n\r\n* assert for required config properties\r\n\r\n* some final fixes\r\n- Accounts Page: disable Groups (non-clickable)\r\n- Accounts Page: token tooltip\r\n- Login with token: focus inputfield\r\n\r\n* Correct english\r\n\r\n* Login redirect via query\r\n\r\n* fix unit test for required configuration properties\r\n"
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/dashboard/commits/03059189bad3422e024f6282ebb7acd08ad16a89",
+    "html_url": "https://github.com/gardener/dashboard/commit/03059189bad3422e024f6282ebb7acd08ad16a89",
+    "comments_url": "https://api.github.com/repos/gardener/dashboard/commits/03059189bad3422e024f6282ebb7acd08ad16a89/comments",
+    "author": {
+      "login": "holgerkoser",
+      "id": 1574023,
+      "node_id": "MDQ6VXNlcjE1NzQwMjM=",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/1574023?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/holgerkoser",
+      "html_url": "https://github.com/holgerkoser",
+      "followers_url": "https://api.github.com/users/holgerkoser/followers",
+      "following_url": "https://api.github.com/users/holgerkoser/following{/other_user}",
+      "gists_url": "https://api.github.com/users/holgerkoser/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/holgerkoser/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/holgerkoser/subscriptions",
+      "organizations_url": "https://api.github.com/users/holgerkoser/orgs",
+      "repos_url": "https://api.github.com/users/holgerkoser/repos",
+      "events_url": "https://api.github.com/users/holgerkoser/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/holgerkoser/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "52c672e7aeee30024ea7846e6c2d43bbfe48498e",
+        "url": "https://api.github.com/repos/gardener/dashboard/commits/52c672e7aeee30024ea7846e6c2d43bbfe48498e",
+        "html_url": "https://github.com/gardener/dashboard/commit/52c672e7aeee30024ea7846e6c2d43bbfe48498e"
+      }
+    ]
+  },
+  {
     "sha": "9d5941ff0c54fe91a8919adddc544de996eca9c5",
     "node_id": "MDY6Q29tbWl0MTE4NjE1OTYzOjlkNTk0MWZmMGM1NGZlOTFhODkxOWFkZGRjNTQ0ZGU5OTZlY2E5YzU=",
     "commit": {

@@ -1,5 +1,84 @@
 [
   {
+    "sha": "b36f7f8d80c1a62ec0c986193ba7f7b5736eb3fe",
+    "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOmIzNmY3ZjhkODBjMWE2MmVjMGM5ODYxOTNiYTdmN2I1NzM2ZWIzZmU=",
+    "commit": {
+      "author": {
+        "name": "Rafael Franzke",
+        "email": "rafael.franzke@sap.com",
+        "date": "2019-03-21T15:28:45Z"
+      },
+      "committer": {
+        "name": "Rafael Franzke",
+        "email": "rafael.franzke@sap.com",
+        "date": "2019-03-29T07:05:41Z"
+      },
+      "message": "Adapt example manifests and documentation",
+      "tree": {
+        "sha": "81056b481ef57ce68ee547773978fdbad9c769d8",
+        "url": "https://api.github.com/repos/gardener/gardener/git/trees/81056b481ef57ce68ee547773978fdbad9c769d8"
+      },
+      "url": "https://api.github.com/repos/gardener/gardener/git/commits/b36f7f8d80c1a62ec0c986193ba7f7b5736eb3fe",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/gardener/commits/b36f7f8d80c1a62ec0c986193ba7f7b5736eb3fe",
+    "html_url": "https://github.com/gardener/gardener/commit/b36f7f8d80c1a62ec0c986193ba7f7b5736eb3fe",
+    "comments_url": "https://api.github.com/repos/gardener/gardener/commits/b36f7f8d80c1a62ec0c986193ba7f7b5736eb3fe/comments",
+    "author": {
+      "login": "rfranzke",
+      "id": 19169361,
+      "node_id": "MDQ6VXNlcjE5MTY5MzYx",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/19169361?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rfranzke",
+      "html_url": "https://github.com/rfranzke",
+      "followers_url": "https://api.github.com/users/rfranzke/followers",
+      "following_url": "https://api.github.com/users/rfranzke/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rfranzke/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/rfranzke/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rfranzke/subscriptions",
+      "organizations_url": "https://api.github.com/users/rfranzke/orgs",
+      "repos_url": "https://api.github.com/users/rfranzke/repos",
+      "events_url": "https://api.github.com/users/rfranzke/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/rfranzke/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "rfranzke",
+      "id": 19169361,
+      "node_id": "MDQ6VXNlcjE5MTY5MzYx",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/19169361?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rfranzke",
+      "html_url": "https://github.com/rfranzke",
+      "followers_url": "https://api.github.com/users/rfranzke/followers",
+      "following_url": "https://api.github.com/users/rfranzke/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rfranzke/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/rfranzke/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rfranzke/subscriptions",
+      "organizations_url": "https://api.github.com/users/rfranzke/orgs",
+      "repos_url": "https://api.github.com/users/rfranzke/repos",
+      "events_url": "https://api.github.com/users/rfranzke/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/rfranzke/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "091c2801b3c868c82b32d8e475579ad113eb0607",
+        "url": "https://api.github.com/repos/gardener/gardener/commits/091c2801b3c868c82b32d8e475579ad113eb0607",
+        "html_url": "https://github.com/gardener/gardener/commit/091c2801b3c868c82b32d8e475579ad113eb0607"
+      }
+    ]
+  },
+  {
     "sha": "a27cf981683682519735393f7976057dbe5f61c9",
     "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOmEyN2NmOTgxNjgzNjgyNTE5NzM1MzkzZjc5NzYwNTdkYmU1ZjYxYzk=",
     "commit": {
