@@ -1,0 +1,29 @@
+---
+url: /installer
+type: installer
+---
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="./css/custom.css">
+	</head>
+
+	<body>
+		<div>
+			<!-- check that the relative URL works well in the generated site -->
+			<img src="./images/logo.svg">
+		</div>
+
+		<div class="jquery_loaded">jQuery lib not found :-/</div>
+
+	</body>
+
+	<!-- check that the JS files are copied -->
+	<script src="./js/jquery.js"></script>
+	<script>
+		$(".jquery_loaded").hide()
+	</script>
+
+</html>
