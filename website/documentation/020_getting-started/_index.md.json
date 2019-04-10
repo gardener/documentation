@@ -1,5 +1,84 @@
 [
   {
+    "sha": "d3ae8712eb02df5e994076fcad4590922209e991",
+    "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOmQzYWU4NzEyZWIwMmRmNWU5OTQwNzZmY2FkNDU5MDkyMjIwOWU5OTE=",
+    "commit": {
+      "author": {
+        "name": "Andreas Fritzler",
+        "email": "andreas.fritzler@gmail.com",
+        "date": "2019-04-10T13:26:52Z"
+      },
+      "committer": {
+        "name": "Andreas Fritzler",
+        "email": "andreas.fritzler@gmail.com",
+        "date": "2019-04-10T13:26:52Z"
+      },
+      "message": "Added reference to new garden setup project",
+      "tree": {
+        "sha": "9678bd2ea73f0593099b6df6ff383a3ef9ca29e1",
+        "url": "https://api.github.com/repos/gardener/gardener/git/trees/9678bd2ea73f0593099b6df6ff383a3ef9ca29e1"
+      },
+      "url": "https://api.github.com/repos/gardener/gardener/git/commits/d3ae8712eb02df5e994076fcad4590922209e991",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/gardener/commits/d3ae8712eb02df5e994076fcad4590922209e991",
+    "html_url": "https://github.com/gardener/gardener/commit/d3ae8712eb02df5e994076fcad4590922209e991",
+    "comments_url": "https://api.github.com/repos/gardener/gardener/commits/d3ae8712eb02df5e994076fcad4590922209e991/comments",
+    "author": {
+      "login": "afritzler",
+      "id": 1922939,
+      "node_id": "MDQ6VXNlcjE5MjI5Mzk=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1922939?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/afritzler",
+      "html_url": "https://github.com/afritzler",
+      "followers_url": "https://api.github.com/users/afritzler/followers",
+      "following_url": "https://api.github.com/users/afritzler/following{/other_user}",
+      "gists_url": "https://api.github.com/users/afritzler/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/afritzler/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/afritzler/subscriptions",
+      "organizations_url": "https://api.github.com/users/afritzler/orgs",
+      "repos_url": "https://api.github.com/users/afritzler/repos",
+      "events_url": "https://api.github.com/users/afritzler/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/afritzler/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "afritzler",
+      "id": 1922939,
+      "node_id": "MDQ6VXNlcjE5MjI5Mzk=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1922939?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/afritzler",
+      "html_url": "https://github.com/afritzler",
+      "followers_url": "https://api.github.com/users/afritzler/followers",
+      "following_url": "https://api.github.com/users/afritzler/following{/other_user}",
+      "gists_url": "https://api.github.com/users/afritzler/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/afritzler/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/afritzler/subscriptions",
+      "organizations_url": "https://api.github.com/users/afritzler/orgs",
+      "repos_url": "https://api.github.com/users/afritzler/repos",
+      "events_url": "https://api.github.com/users/afritzler/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/afritzler/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "1a8720821dd162afc608d1f3252b00f971485822",
+        "url": "https://api.github.com/repos/gardener/gardener/commits/1a8720821dd162afc608d1f3252b00f971485822",
+        "html_url": "https://github.com/gardener/gardener/commit/1a8720821dd162afc608d1f3252b00f971485822"
+      }
+    ]
+  },
+  {
     "sha": "06e3e9915bb13635b69c19561f13841310c072e4",
     "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOjA2ZTNlOTkxNWJiMTM2MzViNjljMTk1NjFmMTM4NDEzMTBjMDcyZTQ=",
     "commit": {
