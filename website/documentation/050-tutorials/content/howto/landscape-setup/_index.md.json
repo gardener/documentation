@@ -1,5 +1,84 @@
 [
   {
+    "sha": "edeba8b0c5e12a820a78f8d25e4e11f75232af0b",
+    "node_id": "MDY6Q29tbWl0MTMxMzEzNTY1OmVkZWJhOGIwYzVlMTJhODIwYTc4ZjhkMjVlNGUxMWY3NTIzMmFmMGI=",
+    "commit": {
+      "author": {
+        "name": "Johannes Aubart",
+        "email": "johannes.aubart@sap.com",
+        "date": "2019-04-11T07:09:50Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2019-04-11T07:09:50Z"
+      },
+      "message": "deprecate project",
+      "tree": {
+        "sha": "3b65fdebdaa330bfe0db02d30c9fa9637f1a5a06",
+        "url": "https://api.github.com/repos/gardener/landscape-setup/git/trees/3b65fdebdaa330bfe0db02d30c9fa9637f1a5a06"
+      },
+      "url": "https://api.github.com/repos/gardener/landscape-setup/git/commits/edeba8b0c5e12a820a78f8d25e4e11f75232af0b",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJcrug+CRBK7hj4Ov3rIwAAdHIIACQoypO633kztwuN0GRFNKWu\nMh4PlCfR4sl5MXwogGiJUL4cdvPUfd6IsrQt+v9lI8sOoSUEIc6Iz4qnX2onna0m\nObo8as0wl2fjtLHD2jYBNHj/l6PfBdkB1hAOsfITd+LaSOXG5MliNwUynthGrqlh\n3JdVjd4rumwOWcrKXQgPCnnig7JdDP7xHNU+tE5GBd1ZjFF8AfUz7P5z8v4I5xFe\n5/tNN6vijr6QPO2w5qjov/m6Jo7kqn8TFrH6G7gG1Ds2do1frQWy8KeULAY8MLt1\nfnLvglGJEfcK/ppeVWhjQVsjIVrJdz8cGTE3GXz1ix7T6mw2OR12e5yrfyXmWOA=\n=/rUh\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 3b65fdebdaa330bfe0db02d30c9fa9637f1a5a06\nparent 1df084658472fcd81b7643805aa5dd3eb835e17a\nauthor Johannes Aubart <johannes.aubart@sap.com> 1554966590 +0200\ncommitter GitHub <noreply@github.com> 1554966590 +0200\n\ndeprecate project"
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/landscape-setup/commits/edeba8b0c5e12a820a78f8d25e4e11f75232af0b",
+    "html_url": "https://github.com/gardener/landscape-setup/commit/edeba8b0c5e12a820a78f8d25e4e11f75232af0b",
+    "comments_url": "https://api.github.com/repos/gardener/landscape-setup/commits/edeba8b0c5e12a820a78f8d25e4e11f75232af0b/comments",
+    "author": {
+      "login": "Diaphteiros",
+      "id": 28540014,
+      "node_id": "MDQ6VXNlcjI4NTQwMDE0",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/28540014?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Diaphteiros",
+      "html_url": "https://github.com/Diaphteiros",
+      "followers_url": "https://api.github.com/users/Diaphteiros/followers",
+      "following_url": "https://api.github.com/users/Diaphteiros/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Diaphteiros/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Diaphteiros/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Diaphteiros/subscriptions",
+      "organizations_url": "https://api.github.com/users/Diaphteiros/orgs",
+      "repos_url": "https://api.github.com/users/Diaphteiros/repos",
+      "events_url": "https://api.github.com/users/Diaphteiros/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Diaphteiros/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "1df084658472fcd81b7643805aa5dd3eb835e17a",
+        "url": "https://api.github.com/repos/gardener/landscape-setup/commits/1df084658472fcd81b7643805aa5dd3eb835e17a",
+        "html_url": "https://github.com/gardener/landscape-setup/commit/1df084658472fcd81b7643805aa5dd3eb835e17a"
+      }
+    ]
+  },
+  {
     "sha": "b175a6df01201ef141f88378f0acde51f44caced",
     "node_id": "MDY6Q29tbWl0MTMxMzEzNTY1OmIxNzVhNmRmMDEyMDFlZjE0MWY4ODM3OGYwYWNkZTUxZjQ0Y2FjZWQ=",
     "commit": {
