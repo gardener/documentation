@@ -39,7 +39,7 @@ You can use kubectl and connect to the API-server of your cluster.
 
 4. Get the service account
    ```
-   SERVICEACCOUNT=$(kubectl get serviceaccount deploy-user -n default -o=jsonpath={.secrets[0].name}
+   SERVICEACCOUNT=$(kubectl get serviceaccount deploy-user -n default -o=jsonpath={.secrets[0].name})
    ```
 
 5. Generate a token for the serviceaccount
