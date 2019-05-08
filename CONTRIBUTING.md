@@ -123,10 +123,7 @@ as these documents are shared automatically with anyone who subscribes to that l
 
 ### Weekly Meeting
 
-We have a PUBLIC and RECORDED weekly meeting. We meet alternating every
-second Friday at [10:00 CET](https://www.google.de/search?q=10+CET+to+local+time)
-and the other weeks Thursday at [17:00 CET](https://www.google.de/search?q=17+CET+to+local+time) over Zoom.
-Find recordings in the [Gardener Youtube channel](https://www.youtube.com/playlist?list=PLozz-rrEP0dt-EJ7N9fuQGtX7t5u9LX9u)
+We have a PUBLIC and RECORDED weekly meeting. We meet every Friday at [10:00 CET](https://www.google.de/search?q=10+CET+to+local+time) over Zoom. Find recordings in the [Gardener Youtube channel](https://www.youtube.com/playlist?list=PLozz-rrEP0dt-EJ7N9fuQGtX7t5u9LX9u)
 
 See the meeting calendar on the web at [calendar.google.com](https://calendar.google.com/calendar/embed?src=gardener.cloud.community%40gmail.com), or paste this [iCal url](https://calendar.google.com/calendar/ical/gardener.cloud.community%40gmail.com/public/basic.ics) into any iCal client.
 
