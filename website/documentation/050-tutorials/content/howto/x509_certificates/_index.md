@@ -50,6 +50,10 @@ spec:
           servicePort: 8080
 ```
 
+`spec.tls[].hosts` specifies for which domains a certificate request will be created. Wildcard domains can also be handled but should be used with caution since overlapping domain names are not permitted in the request.
+
+`spec.tls[].secretName` specifies the secret which contains the certificate/key pair to be used by this Ingress. If the secret is not available yet, it'll be created automatically as soon as the certificate has been issued.
+
 Please note, Ingress resources aren't required to be properly functional in this context. They can also be used to 
 solely request certificates, which in turn can be used for further scenarios.
 
