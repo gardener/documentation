@@ -1,5 +1,84 @@
 [
   {
+    "sha": "ea69bcf6fcf36e7b0109643e960e4a4e0aebb079",
+    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OmVhNjliY2Y2ZmNmMzZlN2IwMTA5NjQzZTk2MGU0YTRlMGFlYmIwNzk=",
+    "commit": {
+      "author": {
+        "name": "Tim Usner",
+        "email": "tim.usner@sap.com",
+        "date": "2019-04-30T10:40:58Z"
+      },
+      "committer": {
+        "name": "Tim Usner",
+        "email": "tim.usner@sap.com",
+        "date": "2019-04-30T10:40:58Z"
+      },
+      "message": "Refine Shoot certificate howto",
+      "tree": {
+        "sha": "774ad3e77fda2e82de99e662942190f93fef1009",
+        "url": "https://api.github.com/repos/gardener/documentation/git/trees/774ad3e77fda2e82de99e662942190f93fef1009"
+      },
+      "url": "https://api.github.com/repos/gardener/documentation/git/commits/ea69bcf6fcf36e7b0109643e960e4a4e0aebb079",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/documentation/commits/ea69bcf6fcf36e7b0109643e960e4a4e0aebb079",
+    "html_url": "https://github.com/gardener/documentation/commit/ea69bcf6fcf36e7b0109643e960e4a4e0aebb079",
+    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/ea69bcf6fcf36e7b0109643e960e4a4e0aebb079/comments",
+    "author": {
+      "login": "timuthy",
+      "id": 40451181,
+      "node_id": "MDQ6VXNlcjQwNDUxMTgx",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/40451181?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/timuthy",
+      "html_url": "https://github.com/timuthy",
+      "followers_url": "https://api.github.com/users/timuthy/followers",
+      "following_url": "https://api.github.com/users/timuthy/following{/other_user}",
+      "gists_url": "https://api.github.com/users/timuthy/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/timuthy/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/timuthy/subscriptions",
+      "organizations_url": "https://api.github.com/users/timuthy/orgs",
+      "repos_url": "https://api.github.com/users/timuthy/repos",
+      "events_url": "https://api.github.com/users/timuthy/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/timuthy/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "timuthy",
+      "id": 40451181,
+      "node_id": "MDQ6VXNlcjQwNDUxMTgx",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/40451181?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/timuthy",
+      "html_url": "https://github.com/timuthy",
+      "followers_url": "https://api.github.com/users/timuthy/followers",
+      "following_url": "https://api.github.com/users/timuthy/following{/other_user}",
+      "gists_url": "https://api.github.com/users/timuthy/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/timuthy/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/timuthy/subscriptions",
+      "organizations_url": "https://api.github.com/users/timuthy/orgs",
+      "repos_url": "https://api.github.com/users/timuthy/repos",
+      "events_url": "https://api.github.com/users/timuthy/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/timuthy/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "adcc72910e67df55fce08334df66545e8fe9bfc4",
+        "url": "https://api.github.com/repos/gardener/documentation/commits/adcc72910e67df55fce08334df66545e8fe9bfc4",
+        "html_url": "https://github.com/gardener/documentation/commit/adcc72910e67df55fce08334df66545e8fe9bfc4"
+      }
+    ]
+  },
+  {
     "sha": "a53922178736b9284074d3a99e11f643c1fe0f79",
     "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OmE1MzkyMjE3ODczNmI5Mjg0MDc0ZDNhOTllMTFmNjQzYzFmZTBmNzk=",
     "commit": {
