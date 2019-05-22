@@ -1,24 +1,24 @@
 [
   {
-    "sha": "adc146e93f732c579dcbb868b6d5858bf5a7b301",
-    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OmFkYzE0NmU5M2Y3MzJjNTc5ZGNiYjg2OGI2ZDU4NThiZjVhN2IzMDE=",
+    "sha": "e2ad1b084871d788e9fd47ce5575d15f3468139b",
+    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OmUyYWQxYjA4NDg3MWQ3ODhlOWZkNDdjZTU1NzVkMTVmMzQ2ODEzOWI=",
     "commit": {
       "author": {
-        "name": "Johannes Aubart",
-        "email": "johannes.aubart@sap.com",
-        "date": "2018-12-18T13:30:51Z"
+        "name": "Herz, Andreas",
+        "email": "andreas.herz@sap.com",
+        "date": "2019-05-22T09:06:50Z"
       },
       "committer": {
-        "name": "Johannes Aubart",
-        "email": "johannes.aubart@sap.com",
-        "date": "2018-12-18T16:09:40Z"
+        "name": "Herz, Andreas",
+        "email": "andreas.herz@sap.com",
+        "date": "2019-05-22T09:06:50Z"
       },
-      "message": "add shooted seed description\n\nAlso added a link to the new entry from \"Hardening community setup ...\"\nand fixed the lists in that one.",
+      "message": "add tutorial for create/update shott with the purpose to replace the districuted wiki docs",
       "tree": {
-        "sha": "23d027d794e1023807ea1524a56abbdce9b99bdf",
-        "url": "https://api.github.com/repos/gardener/documentation/git/trees/23d027d794e1023807ea1524a56abbdce9b99bdf"
+        "sha": "c4a5a68a2add88fbd33b574eb306c3d3f0a666f5",
+        "url": "https://api.github.com/repos/gardener/documentation/git/trees/c4a5a68a2add88fbd33b574eb306c3d3f0a666f5"
       },
-      "url": "https://api.github.com/repos/gardener/documentation/git/commits/adc146e93f732c579dcbb868b6d5858bf5a7b301",
+      "url": "https://api.github.com/repos/gardener/documentation/git/commits/e2ad1b084871d788e9fd47ce5575d15f3468139b",
       "comment_count": 0,
       "verification": {
         "verified": false,
@@ -27,54 +27,54 @@
         "payload": null
       }
     },
-    "url": "https://api.github.com/repos/gardener/documentation/commits/adc146e93f732c579dcbb868b6d5858bf5a7b301",
-    "html_url": "https://github.com/gardener/documentation/commit/adc146e93f732c579dcbb868b6d5858bf5a7b301",
-    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/adc146e93f732c579dcbb868b6d5858bf5a7b301/comments",
+    "url": "https://api.github.com/repos/gardener/documentation/commits/e2ad1b084871d788e9fd47ce5575d15f3468139b",
+    "html_url": "https://github.com/gardener/documentation/commit/e2ad1b084871d788e9fd47ce5575d15f3468139b",
+    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/e2ad1b084871d788e9fd47ce5575d15f3468139b/comments",
     "author": {
-      "login": "Diaphteiros",
-      "id": 28540014,
-      "node_id": "MDQ6VXNlcjI4NTQwMDE0",
-      "avatar_url": "https://avatars3.githubusercontent.com/u/28540014?v=4",
+      "login": "freegroup",
+      "id": 1155039,
+      "node_id": "MDQ6VXNlcjExNTUwMzk=",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1155039?v=4",
       "gravatar_id": "",
-      "url": "https://api.github.com/users/Diaphteiros",
-      "html_url": "https://github.com/Diaphteiros",
-      "followers_url": "https://api.github.com/users/Diaphteiros/followers",
-      "following_url": "https://api.github.com/users/Diaphteiros/following{/other_user}",
-      "gists_url": "https://api.github.com/users/Diaphteiros/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/Diaphteiros/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/Diaphteiros/subscriptions",
-      "organizations_url": "https://api.github.com/users/Diaphteiros/orgs",
-      "repos_url": "https://api.github.com/users/Diaphteiros/repos",
-      "events_url": "https://api.github.com/users/Diaphteiros/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/Diaphteiros/received_events",
+      "url": "https://api.github.com/users/freegroup",
+      "html_url": "https://github.com/freegroup",
+      "followers_url": "https://api.github.com/users/freegroup/followers",
+      "following_url": "https://api.github.com/users/freegroup/following{/other_user}",
+      "gists_url": "https://api.github.com/users/freegroup/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/freegroup/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/freegroup/subscriptions",
+      "organizations_url": "https://api.github.com/users/freegroup/orgs",
+      "repos_url": "https://api.github.com/users/freegroup/repos",
+      "events_url": "https://api.github.com/users/freegroup/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/freegroup/received_events",
       "type": "User",
       "site_admin": false
     },
     "committer": {
-      "login": "Diaphteiros",
-      "id": 28540014,
-      "node_id": "MDQ6VXNlcjI4NTQwMDE0",
-      "avatar_url": "https://avatars3.githubusercontent.com/u/28540014?v=4",
+      "login": "freegroup",
+      "id": 1155039,
+      "node_id": "MDQ6VXNlcjExNTUwMzk=",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1155039?v=4",
       "gravatar_id": "",
-      "url": "https://api.github.com/users/Diaphteiros",
-      "html_url": "https://github.com/Diaphteiros",
-      "followers_url": "https://api.github.com/users/Diaphteiros/followers",
-      "following_url": "https://api.github.com/users/Diaphteiros/following{/other_user}",
-      "gists_url": "https://api.github.com/users/Diaphteiros/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/Diaphteiros/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/Diaphteiros/subscriptions",
-      "organizations_url": "https://api.github.com/users/Diaphteiros/orgs",
-      "repos_url": "https://api.github.com/users/Diaphteiros/repos",
-      "events_url": "https://api.github.com/users/Diaphteiros/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/Diaphteiros/received_events",
+      "url": "https://api.github.com/users/freegroup",
+      "html_url": "https://github.com/freegroup",
+      "followers_url": "https://api.github.com/users/freegroup/followers",
+      "following_url": "https://api.github.com/users/freegroup/following{/other_user}",
+      "gists_url": "https://api.github.com/users/freegroup/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/freegroup/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/freegroup/subscriptions",
+      "organizations_url": "https://api.github.com/users/freegroup/orgs",
+      "repos_url": "https://api.github.com/users/freegroup/repos",
+      "events_url": "https://api.github.com/users/freegroup/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/freegroup/received_events",
       "type": "User",
       "site_admin": false
     },
     "parents": [
       {
-        "sha": "5470d93b84fef861adb85834e130f1cca2a46410",
-        "url": "https://api.github.com/repos/gardener/documentation/commits/5470d93b84fef861adb85834e130f1cca2a46410",
-        "html_url": "https://github.com/gardener/documentation/commit/5470d93b84fef861adb85834e130f1cca2a46410"
+        "sha": "6d77972c13ae6ea510ae46b6b517518d963c4869",
+        "url": "https://api.github.com/repos/gardener/documentation/commits/6d77972c13ae6ea510ae46b6b517518d963c4869",
+        "html_url": "https://github.com/gardener/documentation/commit/6d77972c13ae6ea510ae46b6b517518d963c4869"
       }
     ]
   }
