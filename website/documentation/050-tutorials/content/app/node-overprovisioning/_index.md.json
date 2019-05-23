@@ -1,5 +1,84 @@
 [
   {
+    "sha": "c49d63d76b592c2a7d0023d569ca5e0afa4fe6d5",
+    "node_id": "MDY6Q29tbWl0MTg4MjA5NDc1OmM0OWQ2M2Q3NmI1OTJjMmE3ZDAwMjNkNTY5Y2E1ZTBhZmE0ZmU2ZDU=",
+    "commit": {
+      "author": {
+        "name": "Andreas Herz",
+        "email": "andreas.herz@sap.com",
+        "date": "2019-05-23T12:20:23Z"
+      },
+      "committer": {
+        "name": "Andreas Herz",
+        "email": "andreas.herz@sap.com",
+        "date": "2019-05-23T12:20:23Z"
+      },
+      "message": "style the bullet images",
+      "tree": {
+        "sha": "2b44a85679c31354e7e2fb94d4961a26135c33ee",
+        "url": "https://api.github.com/repos/gardener-samples/kube-overprovisioning/git/trees/2b44a85679c31354e7e2fb94d4961a26135c33ee"
+      },
+      "url": "https://api.github.com/repos/gardener-samples/kube-overprovisioning/git/commits/c49d63d76b592c2a7d0023d569ca5e0afa4fe6d5",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener-samples/kube-overprovisioning/commits/c49d63d76b592c2a7d0023d569ca5e0afa4fe6d5",
+    "html_url": "https://github.com/gardener-samples/kube-overprovisioning/commit/c49d63d76b592c2a7d0023d569ca5e0afa4fe6d5",
+    "comments_url": "https://api.github.com/repos/gardener-samples/kube-overprovisioning/commits/c49d63d76b592c2a7d0023d569ca5e0afa4fe6d5/comments",
+    "author": {
+      "login": "freegroup",
+      "id": 1155039,
+      "node_id": "MDQ6VXNlcjExNTUwMzk=",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1155039?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/freegroup",
+      "html_url": "https://github.com/freegroup",
+      "followers_url": "https://api.github.com/users/freegroup/followers",
+      "following_url": "https://api.github.com/users/freegroup/following{/other_user}",
+      "gists_url": "https://api.github.com/users/freegroup/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/freegroup/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/freegroup/subscriptions",
+      "organizations_url": "https://api.github.com/users/freegroup/orgs",
+      "repos_url": "https://api.github.com/users/freegroup/repos",
+      "events_url": "https://api.github.com/users/freegroup/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/freegroup/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "freegroup",
+      "id": 1155039,
+      "node_id": "MDQ6VXNlcjExNTUwMzk=",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1155039?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/freegroup",
+      "html_url": "https://github.com/freegroup",
+      "followers_url": "https://api.github.com/users/freegroup/followers",
+      "following_url": "https://api.github.com/users/freegroup/following{/other_user}",
+      "gists_url": "https://api.github.com/users/freegroup/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/freegroup/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/freegroup/subscriptions",
+      "organizations_url": "https://api.github.com/users/freegroup/orgs",
+      "repos_url": "https://api.github.com/users/freegroup/repos",
+      "events_url": "https://api.github.com/users/freegroup/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/freegroup/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "277f296cb9572d83bf6df55ffd352715c4577e05",
+        "url": "https://api.github.com/repos/gardener-samples/kube-overprovisioning/commits/277f296cb9572d83bf6df55ffd352715c4577e05",
+        "html_url": "https://github.com/gardener-samples/kube-overprovisioning/commit/277f296cb9572d83bf6df55ffd352715c4577e05"
+      }
+    ]
+  },
+  {
     "sha": "277f296cb9572d83bf6df55ffd352715c4577e05",
     "node_id": "MDY6Q29tbWl0MTg4MjA5NDc1OjI3N2YyOTZjYjk1NzJkODNiZjZkZjU1ZmZkMzUyNzE1YzQ1NzdlMDU=",
     "commit": {
