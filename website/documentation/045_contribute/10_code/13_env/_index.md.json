@@ -1,5 +1,84 @@
 [
   {
+    "sha": "1511d63570fff78d4adb04d101b317812324746e",
+    "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOjE1MTFkNjM1NzBmZmY3OGQ0YWRiMDRkMTAxYjMxNzgxMjMyNDc0NmU=",
+    "commit": {
+      "author": {
+        "name": "Rafael Franzke",
+        "email": "rafael.franzke@sap.com",
+        "date": "2019-04-23T11:19:32Z"
+      },
+      "committer": {
+        "name": "Rafael Franzke",
+        "email": "rafael.franzke@sap.com",
+        "date": "2019-05-31T12:42:12Z"
+      },
+      "message": "Entirely remove local provider\n\nYou can run Gardener (API server and controller manager) against any local Kubernetes cluster, however, your seed and shoot clusters must be deployed to a \"real\" provider.\nCurrently, it is not possible to run Gardener entirely isolated from any cloud provider. We are planning to support such a setup based on KubeVirt (see [this for details](https://github.com/gardener/gardener/issues/827)), however, it does not yet exist.\nThis means that - after you have setup Gardener - you need to register an external seed cluster (e.g., one created in AWS).\nOnly after that step you can start creating shoot clusters with your locally running Gardener.\n\nSome time ago, we had a local setup based on VirtualBox/Vagrant.\nHowever, as we have progressed with the [Extensibility epic](https://github.com/gardener/gardener/issues/308) we noticed that this implementation/setup does no longer fit into how we envision external providers to be.\nMoreover, it hid too many things and came with a bunch of limitations, making the development scenario too \"artificial\":\n\n- No integration with machine-controller-manager.\n- The Shoot API Server is exposed via a NodePort. In a cloud setup a LoadBalancer would be used.\n- It was not possible to create Shoot clusters consisting of more than one worker node. Cluster auto-scaling therefore is not supported.\n- It was not possible to create two or more Shoot clusters in parallel.\n- The communication between the Seed and the Shoot Clusters uses VPN tunnel. In this setup tunnels are not needed since all components run on localhost.",
+      "tree": {
+        "sha": "631511cc863b1ee171926f9d4ff7337e90b2d274",
+        "url": "https://api.github.com/repos/gardener/gardener/git/trees/631511cc863b1ee171926f9d4ff7337e90b2d274"
+      },
+      "url": "https://api.github.com/repos/gardener/gardener/git/commits/1511d63570fff78d4adb04d101b317812324746e",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/gardener/commits/1511d63570fff78d4adb04d101b317812324746e",
+    "html_url": "https://github.com/gardener/gardener/commit/1511d63570fff78d4adb04d101b317812324746e",
+    "comments_url": "https://api.github.com/repos/gardener/gardener/commits/1511d63570fff78d4adb04d101b317812324746e/comments",
+    "author": {
+      "login": "rfranzke",
+      "id": 19169361,
+      "node_id": "MDQ6VXNlcjE5MTY5MzYx",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/19169361?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rfranzke",
+      "html_url": "https://github.com/rfranzke",
+      "followers_url": "https://api.github.com/users/rfranzke/followers",
+      "following_url": "https://api.github.com/users/rfranzke/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rfranzke/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/rfranzke/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rfranzke/subscriptions",
+      "organizations_url": "https://api.github.com/users/rfranzke/orgs",
+      "repos_url": "https://api.github.com/users/rfranzke/repos",
+      "events_url": "https://api.github.com/users/rfranzke/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/rfranzke/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "rfranzke",
+      "id": 19169361,
+      "node_id": "MDQ6VXNlcjE5MTY5MzYx",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/19169361?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rfranzke",
+      "html_url": "https://github.com/rfranzke",
+      "followers_url": "https://api.github.com/users/rfranzke/followers",
+      "following_url": "https://api.github.com/users/rfranzke/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rfranzke/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/rfranzke/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rfranzke/subscriptions",
+      "organizations_url": "https://api.github.com/users/rfranzke/orgs",
+      "repos_url": "https://api.github.com/users/rfranzke/repos",
+      "events_url": "https://api.github.com/users/rfranzke/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/rfranzke/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "704aea461eaba9d8128abd83f38176c2b3488491",
+        "url": "https://api.github.com/repos/gardener/gardener/commits/704aea461eaba9d8128abd83f38176c2b3488491",
+        "html_url": "https://github.com/gardener/gardener/commit/704aea461eaba9d8128abd83f38176c2b3488491"
+      }
+    ]
+  },
+  {
     "sha": "d1fd59a4adb22505a22f204fef7348d15af771d6",
     "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOmQxZmQ1OWE0YWRiMjI1MDVhMjJmMjA0ZmVmNzM0OGQxNWFmNzcxZDY=",
     "commit": {
@@ -2287,85 +2366,6 @@
         "sha": "40f5116cd68993340c209d1b1913eaba2a8c7691",
         "url": "https://api.github.com/repos/gardener/gardener/commits/40f5116cd68993340c209d1b1913eaba2a8c7691",
         "html_url": "https://github.com/gardener/gardener/commit/40f5116cd68993340c209d1b1913eaba2a8c7691"
-      }
-    ]
-  },
-  {
-    "sha": "7e841bd739ed23ba3fc76feeb1e1ef8b759df0fa",
-    "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOjdlODQxYmQ3MzllZDIzYmEzZmM3NmZlZWIxZTFlZjhiNzU5ZGYwZmE=",
-    "commit": {
-      "author": {
-        "name": "Martin Vladev",
-        "email": "martin.vladev@sap.com",
-        "date": "2018-04-30T18:18:59Z"
-      },
-      "committer": {
-        "name": "Martin Vladev",
-        "email": "martin.vladev@sap.com",
-        "date": "2018-04-30T18:18:59Z"
-      },
-      "message": "fix typos in comments",
-      "tree": {
-        "sha": "ab00b56eedd21f40af56e4f4e0a47872529f2710",
-        "url": "https://api.github.com/repos/gardener/gardener/git/trees/ab00b56eedd21f40af56e4f4e0a47872529f2710"
-      },
-      "url": "https://api.github.com/repos/gardener/gardener/git/commits/7e841bd739ed23ba3fc76feeb1e1ef8b759df0fa",
-      "comment_count": 0,
-      "verification": {
-        "verified": false,
-        "reason": "unsigned",
-        "signature": null,
-        "payload": null
-      }
-    },
-    "url": "https://api.github.com/repos/gardener/gardener/commits/7e841bd739ed23ba3fc76feeb1e1ef8b759df0fa",
-    "html_url": "https://github.com/gardener/gardener/commit/7e841bd739ed23ba3fc76feeb1e1ef8b759df0fa",
-    "comments_url": "https://api.github.com/repos/gardener/gardener/commits/7e841bd739ed23ba3fc76feeb1e1ef8b759df0fa/comments",
-    "author": {
-      "login": "mvladev",
-      "id": 33343952,
-      "node_id": "MDQ6VXNlcjMzMzQzOTUy",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/33343952?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/mvladev",
-      "html_url": "https://github.com/mvladev",
-      "followers_url": "https://api.github.com/users/mvladev/followers",
-      "following_url": "https://api.github.com/users/mvladev/following{/other_user}",
-      "gists_url": "https://api.github.com/users/mvladev/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/mvladev/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/mvladev/subscriptions",
-      "organizations_url": "https://api.github.com/users/mvladev/orgs",
-      "repos_url": "https://api.github.com/users/mvladev/repos",
-      "events_url": "https://api.github.com/users/mvladev/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/mvladev/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "committer": {
-      "login": "mvladev",
-      "id": 33343952,
-      "node_id": "MDQ6VXNlcjMzMzQzOTUy",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/33343952?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/mvladev",
-      "html_url": "https://github.com/mvladev",
-      "followers_url": "https://api.github.com/users/mvladev/followers",
-      "following_url": "https://api.github.com/users/mvladev/following{/other_user}",
-      "gists_url": "https://api.github.com/users/mvladev/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/mvladev/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/mvladev/subscriptions",
-      "organizations_url": "https://api.github.com/users/mvladev/orgs",
-      "repos_url": "https://api.github.com/users/mvladev/repos",
-      "events_url": "https://api.github.com/users/mvladev/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/mvladev/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "parents": [
-      {
-        "sha": "7a62dbf4fdfb8cdc9eea4b723d5d292dd2212c2d",
-        "url": "https://api.github.com/repos/gardener/gardener/commits/7a62dbf4fdfb8cdc9eea4b723d5d292dd2212c2d",
-        "html_url": "https://github.com/gardener/gardener/commit/7a62dbf4fdfb8cdc9eea4b723d5d292dd2212c2d"
       }
     ]
   }
