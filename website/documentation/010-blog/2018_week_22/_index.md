@@ -3,7 +3,7 @@ title: Anti Patterns
 type: Blog
 ---
 
-{{% blog_img "logo" "blog-antipattern.png" %}}
+{{< blog_img "logo" "blog-antipattern.png" >}}
 
 
 ## Running as root user

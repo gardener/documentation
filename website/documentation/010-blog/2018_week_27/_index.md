@@ -10,7 +10,7 @@ AWS region and the name identifying the efs-provisioner. This name will be used 
 storage class.
 
 
-{{% blog_img "overview" "blog-aws-efs.png" %}}
+{{< blog_img "overview" "blog-aws-efs.png" >}}
 
 
 ## Why EFS

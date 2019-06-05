@@ -9,7 +9,7 @@ Gardener managed shoot cluster resides in the corresponding seed cluster. This i
 [Control-Plane-as-a-Service](https://kubernetes.io/blog/2018/05/17/gardener/#kubernetes-control-plane) with
 a [network air gap](https://kubernetes.io/blog/2018/05/17/gardener/#network-air-gap).
 
-{{% blog_img "overview" "teaser.svg" %}}
+{{< blog_img "overview" "teaser.svg" >}}
 
 
 Along the way we found various kinds of security issues, for example, due to misconfiguration or missing isolation,
