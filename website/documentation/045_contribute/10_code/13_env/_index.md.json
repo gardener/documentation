@@ -1,5 +1,84 @@
 [
   {
+    "sha": "21a999b040f192dc84a644eefd36e76ad11d0624",
+    "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOjIxYTk5OWIwNDBmMTkyZGM4NGE2NDRlZWZkMzZlNzZhZDExZDA2MjQ=",
+    "commit": {
+      "author": {
+        "name": "d060239",
+        "email": "daniel.foehr@sap.com",
+        "date": "2019-04-30T13:45:17Z"
+      },
+      "committer": {
+        "name": "d060239",
+        "email": "daniel.foehr@sap.com",
+        "date": "2019-06-06T08:56:48Z"
+      },
+      "message": "Initial commit of the Gardener Scheduler",
+      "tree": {
+        "sha": "3b912c12854c343ed01d72c2d14cf2c97dc53d6c",
+        "url": "https://api.github.com/repos/gardener/gardener/git/trees/3b912c12854c343ed01d72c2d14cf2c97dc53d6c"
+      },
+      "url": "https://api.github.com/repos/gardener/gardener/git/commits/21a999b040f192dc84a644eefd36e76ad11d0624",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/gardener/commits/21a999b040f192dc84a644eefd36e76ad11d0624",
+    "html_url": "https://github.com/gardener/gardener/commit/21a999b040f192dc84a644eefd36e76ad11d0624",
+    "comments_url": "https://api.github.com/repos/gardener/gardener/commits/21a999b040f192dc84a644eefd36e76ad11d0624/comments",
+    "author": {
+      "login": "danielfoehrKn",
+      "id": 33809186,
+      "node_id": "MDQ6VXNlcjMzODA5MTg2",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/33809186?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/danielfoehrKn",
+      "html_url": "https://github.com/danielfoehrKn",
+      "followers_url": "https://api.github.com/users/danielfoehrKn/followers",
+      "following_url": "https://api.github.com/users/danielfoehrKn/following{/other_user}",
+      "gists_url": "https://api.github.com/users/danielfoehrKn/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/danielfoehrKn/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/danielfoehrKn/subscriptions",
+      "organizations_url": "https://api.github.com/users/danielfoehrKn/orgs",
+      "repos_url": "https://api.github.com/users/danielfoehrKn/repos",
+      "events_url": "https://api.github.com/users/danielfoehrKn/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/danielfoehrKn/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "danielfoehrKn",
+      "id": 33809186,
+      "node_id": "MDQ6VXNlcjMzODA5MTg2",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/33809186?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/danielfoehrKn",
+      "html_url": "https://github.com/danielfoehrKn",
+      "followers_url": "https://api.github.com/users/danielfoehrKn/followers",
+      "following_url": "https://api.github.com/users/danielfoehrKn/following{/other_user}",
+      "gists_url": "https://api.github.com/users/danielfoehrKn/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/danielfoehrKn/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/danielfoehrKn/subscriptions",
+      "organizations_url": "https://api.github.com/users/danielfoehrKn/orgs",
+      "repos_url": "https://api.github.com/users/danielfoehrKn/repos",
+      "events_url": "https://api.github.com/users/danielfoehrKn/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/danielfoehrKn/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "2044ab04b8d0bf19c88d1990bea6ddd69ca8d5f6",
+        "url": "https://api.github.com/repos/gardener/gardener/commits/2044ab04b8d0bf19c88d1990bea6ddd69ca8d5f6",
+        "html_url": "https://github.com/gardener/gardener/commit/2044ab04b8d0bf19c88d1990bea6ddd69ca8d5f6"
+      }
+    ]
+  },
+  {
     "sha": "2a0734b4c8b8ab92bbbf05c2f4578c902547ea70",
     "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOjJhMDczNGI0YzhiOGFiOTJiYmJmMDVjMmY0NTc4YzkwMjU0N2VhNzA=",
     "commit": {
@@ -2287,85 +2366,6 @@
         "sha": "c727bceac7d4e9df1455c5d4e47c76f7bb670305",
         "url": "https://api.github.com/repos/gardener/gardener/commits/c727bceac7d4e9df1455c5d4e47c76f7bb670305",
         "html_url": "https://github.com/gardener/gardener/commit/c727bceac7d4e9df1455c5d4e47c76f7bb670305"
-      }
-    ]
-  },
-  {
-    "sha": "c7f34bce7539c3c90398d985b9a81d8e34c3994f",
-    "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOmM3ZjM0YmNlNzUzOWMzYzkwMzk4ZDk4NWI5YTgxZDhlMzRjMzk5NGY=",
-    "commit": {
-      "author": {
-        "name": "Rafael Franzke",
-        "email": "rafael.franzke@sap.com",
-        "date": "2018-05-07T14:05:44Z"
-      },
-      "committer": {
-        "name": "Rafael Franzke",
-        "email": "rafael.franzke@sap.com",
-        "date": "2018-05-08T10:45:53Z"
-      },
-      "message": "Compute dedicated OpenVPN TLS auth key per Shoot\n\n* This requires that the controller-manager can execute the `openvpn` binary.\n* The Docker image of the controller-manager is extended by the `openvpn` binary.\n* The local-setup guide has been extended with instructions how to install the `openvpn` binary.",
-      "tree": {
-        "sha": "bfa6041aa42ae6fd5965bf2153f28a4708e93e04",
-        "url": "https://api.github.com/repos/gardener/gardener/git/trees/bfa6041aa42ae6fd5965bf2153f28a4708e93e04"
-      },
-      "url": "https://api.github.com/repos/gardener/gardener/git/commits/c7f34bce7539c3c90398d985b9a81d8e34c3994f",
-      "comment_count": 0,
-      "verification": {
-        "verified": false,
-        "reason": "unsigned",
-        "signature": null,
-        "payload": null
-      }
-    },
-    "url": "https://api.github.com/repos/gardener/gardener/commits/c7f34bce7539c3c90398d985b9a81d8e34c3994f",
-    "html_url": "https://github.com/gardener/gardener/commit/c7f34bce7539c3c90398d985b9a81d8e34c3994f",
-    "comments_url": "https://api.github.com/repos/gardener/gardener/commits/c7f34bce7539c3c90398d985b9a81d8e34c3994f/comments",
-    "author": {
-      "login": "rfranzke",
-      "id": 19169361,
-      "node_id": "MDQ6VXNlcjE5MTY5MzYx",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/19169361?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/rfranzke",
-      "html_url": "https://github.com/rfranzke",
-      "followers_url": "https://api.github.com/users/rfranzke/followers",
-      "following_url": "https://api.github.com/users/rfranzke/following{/other_user}",
-      "gists_url": "https://api.github.com/users/rfranzke/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/rfranzke/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/rfranzke/subscriptions",
-      "organizations_url": "https://api.github.com/users/rfranzke/orgs",
-      "repos_url": "https://api.github.com/users/rfranzke/repos",
-      "events_url": "https://api.github.com/users/rfranzke/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/rfranzke/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "committer": {
-      "login": "rfranzke",
-      "id": 19169361,
-      "node_id": "MDQ6VXNlcjE5MTY5MzYx",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/19169361?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/rfranzke",
-      "html_url": "https://github.com/rfranzke",
-      "followers_url": "https://api.github.com/users/rfranzke/followers",
-      "following_url": "https://api.github.com/users/rfranzke/following{/other_user}",
-      "gists_url": "https://api.github.com/users/rfranzke/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/rfranzke/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/rfranzke/subscriptions",
-      "organizations_url": "https://api.github.com/users/rfranzke/orgs",
-      "repos_url": "https://api.github.com/users/rfranzke/repos",
-      "events_url": "https://api.github.com/users/rfranzke/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/rfranzke/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "parents": [
-      {
-        "sha": "98a834df97e94248251e9897dc70c8e39c6c65a0",
-        "url": "https://api.github.com/repos/gardener/gardener/commits/98a834df97e94248251e9897dc70c8e39c6c65a0",
-        "html_url": "https://github.com/gardener/gardener/commit/98a834df97e94248251e9897dc70c8e39c6c65a0"
       }
     ]
   }
