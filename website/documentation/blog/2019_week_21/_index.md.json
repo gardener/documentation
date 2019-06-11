@@ -1,24 +1,24 @@
 [
   {
-    "sha": "b251f4183dd46173f8cc2e138ed1db21e89a9731",
-    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OmIyNTFmNDE4M2RkNDYxNzNmOGNjMmUxMzhlZDFkYjIxZTg5YTk3MzE=",
+    "sha": "116e4873324b257c94201afdacad6379e1876563",
+    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OjExNmU0ODczMzI0YjI1N2M5NDIwMWFmZGFjYWQ2Mzc5ZTE4NzY1NjM=",
     "commit": {
       "author": {
         "name": "Andreas Herz",
         "email": "andreas.herz@sap.com",
-        "date": "2019-05-23T12:46:16Z"
+        "date": "2019-06-11T15:39:51Z"
       },
       "committer": {
         "name": "Andreas Herz",
         "email": "andreas.herz@sap.com",
-        "date": "2019-05-23T12:46:16Z"
+        "date": "2019-06-11T15:39:51Z"
       },
-      "message": "blog entry for node overprovisioning",
+      "message": "rafactoring of the blog section. move them to the top navigation bar instead of the document sub-size",
       "tree": {
-        "sha": "2c75247016002f72e25cb3b614580f8053a15537",
-        "url": "https://api.github.com/repos/gardener/documentation/git/trees/2c75247016002f72e25cb3b614580f8053a15537"
+        "sha": "74ef1a52e9a93451884752ad2482cab7ce363cd2",
+        "url": "https://api.github.com/repos/gardener/documentation/git/trees/74ef1a52e9a93451884752ad2482cab7ce363cd2"
       },
-      "url": "https://api.github.com/repos/gardener/documentation/git/commits/b251f4183dd46173f8cc2e138ed1db21e89a9731",
+      "url": "https://api.github.com/repos/gardener/documentation/git/commits/116e4873324b257c94201afdacad6379e1876563",
       "comment_count": 0,
       "verification": {
         "verified": false,
@@ -27,9 +27,9 @@
         "payload": null
       }
     },
-    "url": "https://api.github.com/repos/gardener/documentation/commits/b251f4183dd46173f8cc2e138ed1db21e89a9731",
-    "html_url": "https://github.com/gardener/documentation/commit/b251f4183dd46173f8cc2e138ed1db21e89a9731",
-    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/b251f4183dd46173f8cc2e138ed1db21e89a9731/comments",
+    "url": "https://api.github.com/repos/gardener/documentation/commits/116e4873324b257c94201afdacad6379e1876563",
+    "html_url": "https://github.com/gardener/documentation/commit/116e4873324b257c94201afdacad6379e1876563",
+    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/116e4873324b257c94201afdacad6379e1876563/comments",
     "author": {
       "login": "freegroup",
       "id": 1155039,
@@ -72,9 +72,9 @@
     },
     "parents": [
       {
-        "sha": "ef0839a829a67b103ae3e0fbf21035b1901f1370",
-        "url": "https://api.github.com/repos/gardener/documentation/commits/ef0839a829a67b103ae3e0fbf21035b1901f1370",
-        "html_url": "https://github.com/gardener/documentation/commit/ef0839a829a67b103ae3e0fbf21035b1901f1370"
+        "sha": "a5436c98df2df034b20e2d0059e162c4fe89cbd2",
+        "url": "https://api.github.com/repos/gardener/documentation/commits/a5436c98df2df034b20e2d0059e162c4fe89cbd2",
+        "html_url": "https://github.com/gardener/documentation/commit/a5436c98df2df034b20e2d0059e162c4fe89cbd2"
       }
     ]
   }
