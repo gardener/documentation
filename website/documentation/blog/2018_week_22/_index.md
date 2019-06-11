@@ -12,9 +12,7 @@ tempted to say that Kubernetes Pods and Node are well separated. The host and th
 share the same kernel. If the container is compromised, a root user can damage the underlying 
 node. Use `RUN groupadd -r anygroup && useradd -r -g anygroup myuser` to create a group 
 and a user in it. Use the `USER` command to switch to this user. 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ltrV-Qmh3oY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
- 
- 
+
  
 ## Storing data or logs in containers
 Containers are ideal for stateless applications 
