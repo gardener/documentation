@@ -7,7 +7,7 @@ when you have work load that need to scale up quickly without waiting for the ne
 and join the cluster.
 
 
-{{% blog_img "overview" "teaser.png" %}}
+{{< blog_img "overview" "teaser.png" >}}
 
 A similar problem occurs when crashing a node from the Hyperscaler. This must be replaced by Kubernetes as fast 
 as possible. The solution can be **overprovisioning** of nodes
