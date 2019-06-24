@@ -1,24 +1,103 @@
 [
   {
-    "sha": "199eaa37cc507cb7039d518c991f7e2aea6b3f62",
-    "node_id": "MDY6Q29tbWl0MTQyMTgxMzQ0OjE5OWVhYTM3Y2M1MDdjYjcwMzlkNTE4Yzk5MWY3ZTJhZWE2YjNmNjI=",
+    "sha": "fc2ab9d83cf1c5541352a41a40e3af44a65c7d49",
+    "node_id": "MDY6Q29tbWl0MTY2ODA3NzQ4OmZjMmFiOWQ4M2NmMWM1NTQxMzUyYTQxYTQwZTNhZjQ0YTY1YzdkNDk=",
+    "commit": {
+      "author": {
+        "name": "Uwe Krueger",
+        "email": "uwe.krueger@sap.com",
+        "date": "2019-06-19T13:39:26Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2019-06-19T13:39:26Z"
+      },
+      "message": "Update README.md",
+      "tree": {
+        "sha": "f3ea91e2dde98f7854b121b9661fc072952977fe",
+        "url": "https://api.github.com/repos/gardener/external-dns-management/git/trees/f3ea91e2dde98f7854b121b9661fc072952977fe"
+      },
+      "url": "https://api.github.com/repos/gardener/external-dns-management/git/commits/fc2ab9d83cf1c5541352a41a40e3af44a65c7d49",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJdCjsOCRBK7hj4Ov3rIwAAdHIIAARKVmgAmBCmoT+10nHXKTNK\n+4Wzv4kLWv6DtCFOEc6ecbingNGY0ZIzsMq0bxhOseH4YUEzmhNjqC3g6be+Nov1\nfnxxZdkGAGRboVa3lRWLRbjf9Ff9uA11peT8mlpCQDd/xcCkhT9RFeID6TrQY1cw\nV6Jse2AtJfKa6iAoeBEEo7S8Uki9eUZGGzq/xBBgSvCLVzKbqx5idcgr/mPL7fSq\n4GXIXj1fGPm17uU7rQkLf4UWkK/re0vFqwyfYohOjFlY1QVqkre+zEPZBQOvmHKv\nNp8/nmWGfvFYra5Yqkq1EA+ERFpftNokOsT2SGgRcWhCEb2E7zLpKsTPxEYXQko=\n=8SwL\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree f3ea91e2dde98f7854b121b9661fc072952977fe\nparent 9aae9a268f2221d8187f51ac531d1778d7aeb0d8\nauthor Uwe Krueger <uwe.krueger@sap.com> 1560951566 +0200\ncommitter GitHub <noreply@github.com> 1560951566 +0200\n\nUpdate README.md"
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/external-dns-management/commits/fc2ab9d83cf1c5541352a41a40e3af44a65c7d49",
+    "html_url": "https://github.com/gardener/external-dns-management/commit/fc2ab9d83cf1c5541352a41a40e3af44a65c7d49",
+    "comments_url": "https://api.github.com/repos/gardener/external-dns-management/commits/fc2ab9d83cf1c5541352a41a40e3af44a65c7d49/comments",
+    "author": {
+      "login": "mandelsoft",
+      "id": 553075,
+      "node_id": "MDQ6VXNlcjU1MzA3NQ==",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/553075?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/mandelsoft",
+      "html_url": "https://github.com/mandelsoft",
+      "followers_url": "https://api.github.com/users/mandelsoft/followers",
+      "following_url": "https://api.github.com/users/mandelsoft/following{/other_user}",
+      "gists_url": "https://api.github.com/users/mandelsoft/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/mandelsoft/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/mandelsoft/subscriptions",
+      "organizations_url": "https://api.github.com/users/mandelsoft/orgs",
+      "repos_url": "https://api.github.com/users/mandelsoft/repos",
+      "events_url": "https://api.github.com/users/mandelsoft/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/mandelsoft/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "9aae9a268f2221d8187f51ac531d1778d7aeb0d8",
+        "url": "https://api.github.com/repos/gardener/external-dns-management/commits/9aae9a268f2221d8187f51ac531d1778d7aeb0d8",
+        "html_url": "https://github.com/gardener/external-dns-management/commit/9aae9a268f2221d8187f51ac531d1778d7aeb0d8"
+      }
+    ]
+  },
+  {
+    "sha": "aa2545c73b26148c9d72ed673deb2daeb9a286cb",
+    "node_id": "MDY6Q29tbWl0MTY2ODA3NzQ4OmFhMjU0NWM3M2IyNjE0OGM5ZDcyZWQ2NzNkZWIyZGFlYjlhMjg2Y2I=",
     "commit": {
       "author": {
         "name": "Martin Weindel",
         "email": "martin.weindel@sap.com",
-        "date": "2019-02-06T16:41:36Z"
+        "date": "2019-05-22T07:14:15Z"
       },
       "committer": {
-        "name": "Uwe Krueger",
-        "email": "uwe.krueger@sap.com",
-        "date": "2019-03-14T11:54:03Z"
+        "name": "Martin Weindel",
+        "email": "martin.weindel@sap.com",
+        "date": "2019-05-22T07:14:15Z"
       },
-      "message": "using gardener controller-manager-library and external-dns-management",
+      "message": "Helm chart: ensure that identifier is set explicitly\nAdded note to README about unique owner identity",
       "tree": {
-        "sha": "f5f16b231756a8c8ad2b0ba11386779691c4a7a1",
-        "url": "https://api.github.com/repos/gardener/dnslb-controller-manager/git/trees/f5f16b231756a8c8ad2b0ba11386779691c4a7a1"
+        "sha": "746494cf2a4d42eee0aeb39e30ec8683b15cfbb0",
+        "url": "https://api.github.com/repos/gardener/external-dns-management/git/trees/746494cf2a4d42eee0aeb39e30ec8683b15cfbb0"
       },
-      "url": "https://api.github.com/repos/gardener/dnslb-controller-manager/git/commits/199eaa37cc507cb7039d518c991f7e2aea6b3f62",
+      "url": "https://api.github.com/repos/gardener/external-dns-management/git/commits/aa2545c73b26148c9d72ed673deb2daeb9a286cb",
       "comment_count": 0,
       "verification": {
         "verified": false,
@@ -27,9 +106,325 @@
         "payload": null
       }
     },
-    "url": "https://api.github.com/repos/gardener/dnslb-controller-manager/commits/199eaa37cc507cb7039d518c991f7e2aea6b3f62",
-    "html_url": "https://github.com/gardener/dnslb-controller-manager/commit/199eaa37cc507cb7039d518c991f7e2aea6b3f62",
-    "comments_url": "https://api.github.com/repos/gardener/dnslb-controller-manager/commits/199eaa37cc507cb7039d518c991f7e2aea6b3f62/comments",
+    "url": "https://api.github.com/repos/gardener/external-dns-management/commits/aa2545c73b26148c9d72ed673deb2daeb9a286cb",
+    "html_url": "https://github.com/gardener/external-dns-management/commit/aa2545c73b26148c9d72ed673deb2daeb9a286cb",
+    "comments_url": "https://api.github.com/repos/gardener/external-dns-management/commits/aa2545c73b26148c9d72ed673deb2daeb9a286cb/comments",
+    "author": {
+      "login": "MartinWeindel",
+      "id": 3703277,
+      "node_id": "MDQ6VXNlcjM3MDMyNzc=",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/3703277?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/MartinWeindel",
+      "html_url": "https://github.com/MartinWeindel",
+      "followers_url": "https://api.github.com/users/MartinWeindel/followers",
+      "following_url": "https://api.github.com/users/MartinWeindel/following{/other_user}",
+      "gists_url": "https://api.github.com/users/MartinWeindel/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/MartinWeindel/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/MartinWeindel/subscriptions",
+      "organizations_url": "https://api.github.com/users/MartinWeindel/orgs",
+      "repos_url": "https://api.github.com/users/MartinWeindel/repos",
+      "events_url": "https://api.github.com/users/MartinWeindel/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/MartinWeindel/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "MartinWeindel",
+      "id": 3703277,
+      "node_id": "MDQ6VXNlcjM3MDMyNzc=",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/3703277?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/MartinWeindel",
+      "html_url": "https://github.com/MartinWeindel",
+      "followers_url": "https://api.github.com/users/MartinWeindel/followers",
+      "following_url": "https://api.github.com/users/MartinWeindel/following{/other_user}",
+      "gists_url": "https://api.github.com/users/MartinWeindel/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/MartinWeindel/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/MartinWeindel/subscriptions",
+      "organizations_url": "https://api.github.com/users/MartinWeindel/orgs",
+      "repos_url": "https://api.github.com/users/MartinWeindel/repos",
+      "events_url": "https://api.github.com/users/MartinWeindel/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/MartinWeindel/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "e7920e9348b8393bd75a45c373b8c3f5c4733fc4",
+        "url": "https://api.github.com/repos/gardener/external-dns-management/commits/e7920e9348b8393bd75a45c373b8c3f5c4733fc4",
+        "html_url": "https://github.com/gardener/external-dns-management/commit/e7920e9348b8393bd75a45c373b8c3f5c4733fc4"
+      }
+    ]
+  },
+  {
+    "sha": "c5b137c1ce4d45473423220416eac026ed74660a",
+    "node_id": "MDY6Q29tbWl0MTY2ODA3NzQ4OmM1YjEzN2MxY2U0ZDQ1NDczNDIzMjIwNDE2ZWFjMDI2ZWQ3NDY2MGE=",
+    "commit": {
+      "author": {
+        "name": "Martin Weindel",
+        "email": "martin.weindel@sap.com",
+        "date": "2019-04-29T14:29:44Z"
+      },
+      "committer": {
+        "name": "Martin Weindel",
+        "email": "martin.weindel@sap.com",
+        "date": "2019-04-29T14:29:44Z"
+      },
+      "message": "example and doc update for provider includes/excludes by DNS zone ids",
+      "tree": {
+        "sha": "784e2b4cfec6b6382887d6db28c1828a0debd65b",
+        "url": "https://api.github.com/repos/gardener/external-dns-management/git/trees/784e2b4cfec6b6382887d6db28c1828a0debd65b"
+      },
+      "url": "https://api.github.com/repos/gardener/external-dns-management/git/commits/c5b137c1ce4d45473423220416eac026ed74660a",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/external-dns-management/commits/c5b137c1ce4d45473423220416eac026ed74660a",
+    "html_url": "https://github.com/gardener/external-dns-management/commit/c5b137c1ce4d45473423220416eac026ed74660a",
+    "comments_url": "https://api.github.com/repos/gardener/external-dns-management/commits/c5b137c1ce4d45473423220416eac026ed74660a/comments",
+    "author": {
+      "login": "MartinWeindel",
+      "id": 3703277,
+      "node_id": "MDQ6VXNlcjM3MDMyNzc=",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/3703277?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/MartinWeindel",
+      "html_url": "https://github.com/MartinWeindel",
+      "followers_url": "https://api.github.com/users/MartinWeindel/followers",
+      "following_url": "https://api.github.com/users/MartinWeindel/following{/other_user}",
+      "gists_url": "https://api.github.com/users/MartinWeindel/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/MartinWeindel/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/MartinWeindel/subscriptions",
+      "organizations_url": "https://api.github.com/users/MartinWeindel/orgs",
+      "repos_url": "https://api.github.com/users/MartinWeindel/repos",
+      "events_url": "https://api.github.com/users/MartinWeindel/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/MartinWeindel/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "MartinWeindel",
+      "id": 3703277,
+      "node_id": "MDQ6VXNlcjM3MDMyNzc=",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/3703277?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/MartinWeindel",
+      "html_url": "https://github.com/MartinWeindel",
+      "followers_url": "https://api.github.com/users/MartinWeindel/followers",
+      "following_url": "https://api.github.com/users/MartinWeindel/following{/other_user}",
+      "gists_url": "https://api.github.com/users/MartinWeindel/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/MartinWeindel/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/MartinWeindel/subscriptions",
+      "organizations_url": "https://api.github.com/users/MartinWeindel/orgs",
+      "repos_url": "https://api.github.com/users/MartinWeindel/repos",
+      "events_url": "https://api.github.com/users/MartinWeindel/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/MartinWeindel/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "c05a762255d402af61f10cf4d2d6bd49c14edd6f",
+        "url": "https://api.github.com/repos/gardener/external-dns-management/commits/c05a762255d402af61f10cf4d2d6bd49c14edd6f",
+        "html_url": "https://github.com/gardener/external-dns-management/commit/c05a762255d402af61f10cf4d2d6bd49c14edd6f"
+      }
+    ]
+  },
+  {
+    "sha": "57b927981e8efa0b13018b5285685c9233a9fc54",
+    "node_id": "MDY6Q29tbWl0MTY2ODA3NzQ4OjU3YjkyNzk4MWU4ZWZhMGIxMzAxOGI1Mjg1Njg1YzkyMzNhOWZjNTQ=",
+    "commit": {
+      "author": {
+        "name": "Uwe Krueger",
+        "email": "uwe.krueger@sap.com",
+        "date": "2019-04-23T11:06:44Z"
+      },
+      "committer": {
+        "name": "Uwe Krueger",
+        "email": "uwe.krueger@sap.com",
+        "date": "2019-04-25T12:35:04Z"
+      },
+      "message": "compound controller + docu",
+      "tree": {
+        "sha": "0d64a8f8e1ec3b544bd062c2bfb80938dfbd9ca7",
+        "url": "https://api.github.com/repos/gardener/external-dns-management/git/trees/0d64a8f8e1ec3b544bd062c2bfb80938dfbd9ca7"
+      },
+      "url": "https://api.github.com/repos/gardener/external-dns-management/git/commits/57b927981e8efa0b13018b5285685c9233a9fc54",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/external-dns-management/commits/57b927981e8efa0b13018b5285685c9233a9fc54",
+    "html_url": "https://github.com/gardener/external-dns-management/commit/57b927981e8efa0b13018b5285685c9233a9fc54",
+    "comments_url": "https://api.github.com/repos/gardener/external-dns-management/commits/57b927981e8efa0b13018b5285685c9233a9fc54/comments",
+    "author": {
+      "login": "mandelsoft",
+      "id": 553075,
+      "node_id": "MDQ6VXNlcjU1MzA3NQ==",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/553075?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/mandelsoft",
+      "html_url": "https://github.com/mandelsoft",
+      "followers_url": "https://api.github.com/users/mandelsoft/followers",
+      "following_url": "https://api.github.com/users/mandelsoft/following{/other_user}",
+      "gists_url": "https://api.github.com/users/mandelsoft/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/mandelsoft/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/mandelsoft/subscriptions",
+      "organizations_url": "https://api.github.com/users/mandelsoft/orgs",
+      "repos_url": "https://api.github.com/users/mandelsoft/repos",
+      "events_url": "https://api.github.com/users/mandelsoft/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/mandelsoft/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "mandelsoft",
+      "id": 553075,
+      "node_id": "MDQ6VXNlcjU1MzA3NQ==",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/553075?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/mandelsoft",
+      "html_url": "https://github.com/mandelsoft",
+      "followers_url": "https://api.github.com/users/mandelsoft/followers",
+      "following_url": "https://api.github.com/users/mandelsoft/following{/other_user}",
+      "gists_url": "https://api.github.com/users/mandelsoft/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/mandelsoft/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/mandelsoft/subscriptions",
+      "organizations_url": "https://api.github.com/users/mandelsoft/orgs",
+      "repos_url": "https://api.github.com/users/mandelsoft/repos",
+      "events_url": "https://api.github.com/users/mandelsoft/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/mandelsoft/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "741ba3e9ffccd5f22d0a9b3928718ba495f2e747",
+        "url": "https://api.github.com/repos/gardener/external-dns-management/commits/741ba3e9ffccd5f22d0a9b3928718ba495f2e747",
+        "html_url": "https://github.com/gardener/external-dns-management/commit/741ba3e9ffccd5f22d0a9b3928718ba495f2e747"
+      }
+    ]
+  },
+  {
+    "sha": "de55f21f90090bc0cc9c148af5f89f62b59db4a8",
+    "node_id": "MDY6Q29tbWl0MTY2ODA3NzQ4OmRlNTVmMjFmOTAwOTBiYzBjYzljMTQ4YWY1Zjg5ZjYyYjU5ZGI0YTg=",
+    "commit": {
+      "author": {
+        "name": "Uwe Krueger",
+        "email": "uwe.krueger@sap.com",
+        "date": "2019-04-16T15:52:37Z"
+      },
+      "committer": {
+        "name": "Uwe Krueger",
+        "email": "uwe.krueger@sap.com",
+        "date": "2019-04-16T15:53:41Z"
+      },
+      "message": "docu",
+      "tree": {
+        "sha": "dbff7796e93af694de6876ada0bbd3a0c42d41db",
+        "url": "https://api.github.com/repos/gardener/external-dns-management/git/trees/dbff7796e93af694de6876ada0bbd3a0c42d41db"
+      },
+      "url": "https://api.github.com/repos/gardener/external-dns-management/git/commits/de55f21f90090bc0cc9c148af5f89f62b59db4a8",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/external-dns-management/commits/de55f21f90090bc0cc9c148af5f89f62b59db4a8",
+    "html_url": "https://github.com/gardener/external-dns-management/commit/de55f21f90090bc0cc9c148af5f89f62b59db4a8",
+    "comments_url": "https://api.github.com/repos/gardener/external-dns-management/commits/de55f21f90090bc0cc9c148af5f89f62b59db4a8/comments",
+    "author": {
+      "login": "mandelsoft",
+      "id": 553075,
+      "node_id": "MDQ6VXNlcjU1MzA3NQ==",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/553075?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/mandelsoft",
+      "html_url": "https://github.com/mandelsoft",
+      "followers_url": "https://api.github.com/users/mandelsoft/followers",
+      "following_url": "https://api.github.com/users/mandelsoft/following{/other_user}",
+      "gists_url": "https://api.github.com/users/mandelsoft/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/mandelsoft/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/mandelsoft/subscriptions",
+      "organizations_url": "https://api.github.com/users/mandelsoft/orgs",
+      "repos_url": "https://api.github.com/users/mandelsoft/repos",
+      "events_url": "https://api.github.com/users/mandelsoft/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/mandelsoft/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "mandelsoft",
+      "id": 553075,
+      "node_id": "MDQ6VXNlcjU1MzA3NQ==",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/553075?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/mandelsoft",
+      "html_url": "https://github.com/mandelsoft",
+      "followers_url": "https://api.github.com/users/mandelsoft/followers",
+      "following_url": "https://api.github.com/users/mandelsoft/following{/other_user}",
+      "gists_url": "https://api.github.com/users/mandelsoft/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/mandelsoft/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/mandelsoft/subscriptions",
+      "organizations_url": "https://api.github.com/users/mandelsoft/orgs",
+      "repos_url": "https://api.github.com/users/mandelsoft/repos",
+      "events_url": "https://api.github.com/users/mandelsoft/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/mandelsoft/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "2348452beb8d156f84196be44f7d96b0dcbf241c",
+        "url": "https://api.github.com/repos/gardener/external-dns-management/commits/2348452beb8d156f84196be44f7d96b0dcbf241c",
+        "html_url": "https://github.com/gardener/external-dns-management/commit/2348452beb8d156f84196be44f7d96b0dcbf241c"
+      }
+    ]
+  },
+  {
+    "sha": "4e018bbcdec80f7228d7e2dd2eb5cb1b638ba44c",
+    "node_id": "MDY6Q29tbWl0MTY2ODA3NzQ4OjRlMDE4YmJjZGVjODBmNzIyOGQ3ZTJkZDJlYjVjYjFiNjM4YmE0NGM=",
+    "commit": {
+      "author": {
+        "name": "Martin Weindel",
+        "email": "martin.weindel@sap.com",
+        "date": "2019-01-30T15:06:01Z"
+      },
+      "committer": {
+        "name": "Uwe Krueger",
+        "email": "uwe.krueger@sap.com",
+        "date": "2019-01-31T13:26:05Z"
+      },
+      "message": "Updated README.md for Azure provisioning controller",
+      "tree": {
+        "sha": "336306a60e3128d9f78650625e397c99df946201",
+        "url": "https://api.github.com/repos/gardener/external-dns-management/git/trees/336306a60e3128d9f78650625e397c99df946201"
+      },
+      "url": "https://api.github.com/repos/gardener/external-dns-management/git/commits/4e018bbcdec80f7228d7e2dd2eb5cb1b638ba44c",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/external-dns-management/commits/4e018bbcdec80f7228d7e2dd2eb5cb1b638ba44c",
+    "html_url": "https://github.com/gardener/external-dns-management/commit/4e018bbcdec80f7228d7e2dd2eb5cb1b638ba44c",
+    "comments_url": "https://api.github.com/repos/gardener/external-dns-management/commits/4e018bbcdec80f7228d7e2dd2eb5cb1b638ba44c/comments",
     "author": {
       "login": "MartinWeindel",
       "id": 3703277,
@@ -72,32 +467,32 @@
     },
     "parents": [
       {
-        "sha": "d970c717425978cfcb7840b2f498b97e5718fd67",
-        "url": "https://api.github.com/repos/gardener/dnslb-controller-manager/commits/d970c717425978cfcb7840b2f498b97e5718fd67",
-        "html_url": "https://github.com/gardener/dnslb-controller-manager/commit/d970c717425978cfcb7840b2f498b97e5718fd67"
+        "sha": "622f85643795df60a46300e7dcc2458624b47209",
+        "url": "https://api.github.com/repos/gardener/external-dns-management/commits/622f85643795df60a46300e7dcc2458624b47209",
+        "html_url": "https://github.com/gardener/external-dns-management/commit/622f85643795df60a46300e7dcc2458624b47209"
       }
     ]
   },
   {
-    "sha": "aee33851f9ac18d9ec6bdbce170604c055f647ee",
-    "node_id": "MDY6Q29tbWl0MTQyMTgxMzQ0OmFlZTMzODUxZjlhYzE4ZDllYzZiZGJjZTE3MDYwNGMwNTVmNjQ3ZWU=",
+    "sha": "703ed2411eba906a524b5800f89fed1d21cebf54",
+    "node_id": "MDY6Q29tbWl0MTY2ODA3NzQ4OjcwM2VkMjQxMWViYTkwNmE1MjRiNTgwMGY4OWZlZDFkMjFjZWJmNTQ=",
     "commit": {
       "author": {
         "name": "Uwe Krueger",
         "email": "uwe.krueger@sap.com",
-        "date": "2018-08-01T11:42:34Z"
+        "date": "2019-01-24T12:29:54Z"
       },
       "committer": {
         "name": "Uwe Krueger",
         "email": "uwe.krueger@sap.com",
-        "date": "2018-08-01T11:42:34Z"
+        "date": "2019-01-24T12:31:25Z"
       },
-      "message": "dns reconsilation metrics",
+      "message": "restructure dns provider code",
       "tree": {
-        "sha": "247c12b10a8bc3814f8938ed30e2d423f6d7fbe4",
-        "url": "https://api.github.com/repos/gardener/dnslb-controller-manager/git/trees/247c12b10a8bc3814f8938ed30e2d423f6d7fbe4"
+        "sha": "80be7be8a835a3c70d6a0958a87332b0b26914a3",
+        "url": "https://api.github.com/repos/gardener/external-dns-management/git/trees/80be7be8a835a3c70d6a0958a87332b0b26914a3"
       },
-      "url": "https://api.github.com/repos/gardener/dnslb-controller-manager/git/commits/aee33851f9ac18d9ec6bdbce170604c055f647ee",
+      "url": "https://api.github.com/repos/gardener/external-dns-management/git/commits/703ed2411eba906a524b5800f89fed1d21cebf54",
       "comment_count": 0,
       "verification": {
         "verified": false,
@@ -106,9 +501,9 @@
         "payload": null
       }
     },
-    "url": "https://api.github.com/repos/gardener/dnslb-controller-manager/commits/aee33851f9ac18d9ec6bdbce170604c055f647ee",
-    "html_url": "https://github.com/gardener/dnslb-controller-manager/commit/aee33851f9ac18d9ec6bdbce170604c055f647ee",
-    "comments_url": "https://api.github.com/repos/gardener/dnslb-controller-manager/commits/aee33851f9ac18d9ec6bdbce170604c055f647ee/comments",
+    "url": "https://api.github.com/repos/gardener/external-dns-management/commits/703ed2411eba906a524b5800f89fed1d21cebf54",
+    "html_url": "https://github.com/gardener/external-dns-management/commit/703ed2411eba906a524b5800f89fed1d21cebf54",
+    "comments_url": "https://api.github.com/repos/gardener/external-dns-management/commits/703ed2411eba906a524b5800f89fed1d21cebf54/comments",
     "author": {
       "login": "mandelsoft",
       "id": 553075,
@@ -151,32 +546,32 @@
     },
     "parents": [
       {
-        "sha": "4d917afa53d770220f2d0dddbf6df8125662a7b0",
-        "url": "https://api.github.com/repos/gardener/dnslb-controller-manager/commits/4d917afa53d770220f2d0dddbf6df8125662a7b0",
-        "html_url": "https://github.com/gardener/dnslb-controller-manager/commit/4d917afa53d770220f2d0dddbf6df8125662a7b0"
+        "sha": "a9d021915b1f554a31d9b07e5d8f4e7933253a49",
+        "url": "https://api.github.com/repos/gardener/external-dns-management/commits/a9d021915b1f554a31d9b07e5d8f4e7933253a49",
+        "html_url": "https://github.com/gardener/external-dns-management/commit/a9d021915b1f554a31d9b07e5d8f4e7933253a49"
       }
     ]
   },
   {
-    "sha": "5f1600f1152a70739a24b800369e6dbcb9451316",
-    "node_id": "MDY6Q29tbWl0MTQyMTgxMzQ0OjVmMTYwMGYxMTUyYTcwNzM5YTI0YjgwMDM2OWU2ZGJjYjk0NTEzMTY=",
+    "sha": "b82706d6e196913394bbf7bf0a7f4f9eeba5b48d",
+    "node_id": "MDY6Q29tbWl0MTY2ODA3NzQ4OmI4MjcwNmQ2ZTE5NjkxMzM5NGJiZjdiZjBhN2Y0ZjllZWJhNWI0OGQ=",
     "commit": {
       "author": {
         "name": "Uwe Krueger",
         "email": "uwe.krueger@sap.com",
-        "date": "2018-07-30T13:06:34Z"
+        "date": "2019-01-21T17:41:46Z"
       },
       "committer": {
         "name": "Uwe Krueger",
         "email": "uwe.krueger@sap.com",
-        "date": "2018-07-30T15:51:21Z"
+        "date": "2019-01-21T17:41:46Z"
       },
-      "message": "Provider scopes",
+      "message": "change signature of target extractor + rearrange rescheduling",
       "tree": {
-        "sha": "2385689182de61153035cac0be14ce3fe0b137d4",
-        "url": "https://api.github.com/repos/gardener/dnslb-controller-manager/git/trees/2385689182de61153035cac0be14ce3fe0b137d4"
+        "sha": "1cbeb9e76ff973a96a1940e65fc8c81ebcd8ecdd",
+        "url": "https://api.github.com/repos/gardener/external-dns-management/git/trees/1cbeb9e76ff973a96a1940e65fc8c81ebcd8ecdd"
       },
-      "url": "https://api.github.com/repos/gardener/dnslb-controller-manager/git/commits/5f1600f1152a70739a24b800369e6dbcb9451316",
+      "url": "https://api.github.com/repos/gardener/external-dns-management/git/commits/b82706d6e196913394bbf7bf0a7f4f9eeba5b48d",
       "comment_count": 0,
       "verification": {
         "verified": false,
@@ -185,9 +580,9 @@
         "payload": null
       }
     },
-    "url": "https://api.github.com/repos/gardener/dnslb-controller-manager/commits/5f1600f1152a70739a24b800369e6dbcb9451316",
-    "html_url": "https://github.com/gardener/dnslb-controller-manager/commit/5f1600f1152a70739a24b800369e6dbcb9451316",
-    "comments_url": "https://api.github.com/repos/gardener/dnslb-controller-manager/commits/5f1600f1152a70739a24b800369e6dbcb9451316/comments",
+    "url": "https://api.github.com/repos/gardener/external-dns-management/commits/b82706d6e196913394bbf7bf0a7f4f9eeba5b48d",
+    "html_url": "https://github.com/gardener/external-dns-management/commit/b82706d6e196913394bbf7bf0a7f4f9eeba5b48d",
+    "comments_url": "https://api.github.com/repos/gardener/external-dns-management/commits/b82706d6e196913394bbf7bf0a7f4f9eeba5b48d/comments",
     "author": {
       "login": "mandelsoft",
       "id": 553075,
@@ -230,32 +625,32 @@
     },
     "parents": [
       {
-        "sha": "1a87bd712e0a561274450978251f0df8f2e3bcc1",
-        "url": "https://api.github.com/repos/gardener/dnslb-controller-manager/commits/1a87bd712e0a561274450978251f0df8f2e3bcc1",
-        "html_url": "https://github.com/gardener/dnslb-controller-manager/commit/1a87bd712e0a561274450978251f0df8f2e3bcc1"
+        "sha": "49ccb936fc7ddf8a8ddf67ee46e4eb85253abb01",
+        "url": "https://api.github.com/repos/gardener/external-dns-management/commits/49ccb936fc7ddf8a8ddf67ee46e4eb85253abb01",
+        "html_url": "https://github.com/gardener/external-dns-management/commit/49ccb936fc7ddf8a8ddf67ee46e4eb85253abb01"
       }
     ]
   },
   {
-    "sha": "81bedcad0df4d618cabf83672fcf7183f293de06",
-    "node_id": "MDY6Q29tbWl0MTQyMTgxMzQ0OjgxYmVkY2FkMGRmNGQ2MThjYWJmODM2NzJmY2Y3MTgzZjI5M2RlMDY=",
+    "sha": "49ccb936fc7ddf8a8ddf67ee46e4eb85253abb01",
+    "node_id": "MDY6Q29tbWl0MTY2ODA3NzQ4OjQ5Y2NiOTM2ZmM3ZGRmOGE4ZGRmNjdlZTQ2ZTRlYjg1MjUzYWJiMDE=",
     "commit": {
       "author": {
         "name": "Uwe Krueger",
         "email": "uwe.krueger@sap.com",
-        "date": "2018-07-25T10:37:45Z"
+        "date": "2019-01-17T17:36:53Z"
       },
       "committer": {
-        "name": "Uwe Krueger",
-        "email": "uwe.krueger@sap.com",
-        "date": "2018-07-25T10:59:47Z"
+        "name": "Matthias Sohn",
+        "email": "matthias.sohn@sap.com",
+        "date": "2019-01-21T16:39:40Z"
       },
-      "message": "plugin support",
+      "message": "Initial contribution of external-dns-management\n\nThis commit contains a first version of:\n- The API Group objects for DNSEntry and DNSProvider\n- A library that can be used to implement DNS Source Controllers\n- A library that can be used to implement DNS Provisioning Controllers\n- Source controllers for Services and Ingresses based on annotations.\n- Provisioning Controllers for Amazon Route53 and Google CloudDNS.\n- A controller manager hosting all these controllers.\n\nFind details in the README.md.",
       "tree": {
-        "sha": "2cc7b6ffe4d7716a5fe2bf15b10dffdf4847e6e0",
-        "url": "https://api.github.com/repos/gardener/dnslb-controller-manager/git/trees/2cc7b6ffe4d7716a5fe2bf15b10dffdf4847e6e0"
+        "sha": "bfa5821d48a3a44c5f3c279f963fd1cb0ee14360",
+        "url": "https://api.github.com/repos/gardener/external-dns-management/git/trees/bfa5821d48a3a44c5f3c279f963fd1cb0ee14360"
       },
-      "url": "https://api.github.com/repos/gardener/dnslb-controller-manager/git/commits/81bedcad0df4d618cabf83672fcf7183f293de06",
+      "url": "https://api.github.com/repos/gardener/external-dns-management/git/commits/49ccb936fc7ddf8a8ddf67ee46e4eb85253abb01",
       "comment_count": 0,
       "verification": {
         "verified": false,
@@ -264,9 +659,9 @@
         "payload": null
       }
     },
-    "url": "https://api.github.com/repos/gardener/dnslb-controller-manager/commits/81bedcad0df4d618cabf83672fcf7183f293de06",
-    "html_url": "https://github.com/gardener/dnslb-controller-manager/commit/81bedcad0df4d618cabf83672fcf7183f293de06",
-    "comments_url": "https://api.github.com/repos/gardener/dnslb-controller-manager/commits/81bedcad0df4d618cabf83672fcf7183f293de06/comments",
+    "url": "https://api.github.com/repos/gardener/external-dns-management/commits/49ccb936fc7ddf8a8ddf67ee46e4eb85253abb01",
+    "html_url": "https://github.com/gardener/external-dns-management/commit/49ccb936fc7ddf8a8ddf67ee46e4eb85253abb01",
+    "comments_url": "https://api.github.com/repos/gardener/external-dns-management/commits/49ccb936fc7ddf8a8ddf67ee46e4eb85253abb01/comments",
     "author": {
       "login": "mandelsoft",
       "id": 553075,
@@ -288,101 +683,22 @@
       "site_admin": false
     },
     "committer": {
-      "login": "mandelsoft",
-      "id": 553075,
-      "node_id": "MDQ6VXNlcjU1MzA3NQ==",
-      "avatar_url": "https://avatars3.githubusercontent.com/u/553075?v=4",
+      "login": "msohn",
+      "id": 143355,
+      "node_id": "MDQ6VXNlcjE0MzM1NQ==",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/143355?v=4",
       "gravatar_id": "",
-      "url": "https://api.github.com/users/mandelsoft",
-      "html_url": "https://github.com/mandelsoft",
-      "followers_url": "https://api.github.com/users/mandelsoft/followers",
-      "following_url": "https://api.github.com/users/mandelsoft/following{/other_user}",
-      "gists_url": "https://api.github.com/users/mandelsoft/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/mandelsoft/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/mandelsoft/subscriptions",
-      "organizations_url": "https://api.github.com/users/mandelsoft/orgs",
-      "repos_url": "https://api.github.com/users/mandelsoft/repos",
-      "events_url": "https://api.github.com/users/mandelsoft/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/mandelsoft/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "parents": [
-      {
-        "sha": "4b41d1f6d395b5304d8d2cf88365151d418b1d87",
-        "url": "https://api.github.com/repos/gardener/dnslb-controller-manager/commits/4b41d1f6d395b5304d8d2cf88365151d418b1d87",
-        "html_url": "https://github.com/gardener/dnslb-controller-manager/commit/4b41d1f6d395b5304d8d2cf88365151d418b1d87"
-      }
-    ]
-  },
-  {
-    "sha": "4b41d1f6d395b5304d8d2cf88365151d418b1d87",
-    "node_id": "MDY6Q29tbWl0MTQyMTgxMzQ0OjRiNDFkMWY2ZDM5NWI1MzA0ZDhkMmNmODgzNjUxNTFkNDE4YjFkODc=",
-    "commit": {
-      "author": {
-        "name": "Uwe Krueger",
-        "email": "uwe.krueger@sap.com",
-        "date": "2018-07-24T15:51:15Z"
-      },
-      "committer": {
-        "name": "Uwe Krueger",
-        "email": "uwe.krueger@sap.com",
-        "date": "2018-07-24T16:12:45Z"
-      },
-      "message": "initial public version",
-      "tree": {
-        "sha": "e80a25a1796d438b5a765ffb526b60e567421b34",
-        "url": "https://api.github.com/repos/gardener/dnslb-controller-manager/git/trees/e80a25a1796d438b5a765ffb526b60e567421b34"
-      },
-      "url": "https://api.github.com/repos/gardener/dnslb-controller-manager/git/commits/4b41d1f6d395b5304d8d2cf88365151d418b1d87",
-      "comment_count": 0,
-      "verification": {
-        "verified": false,
-        "reason": "unsigned",
-        "signature": null,
-        "payload": null
-      }
-    },
-    "url": "https://api.github.com/repos/gardener/dnslb-controller-manager/commits/4b41d1f6d395b5304d8d2cf88365151d418b1d87",
-    "html_url": "https://github.com/gardener/dnslb-controller-manager/commit/4b41d1f6d395b5304d8d2cf88365151d418b1d87",
-    "comments_url": "https://api.github.com/repos/gardener/dnslb-controller-manager/commits/4b41d1f6d395b5304d8d2cf88365151d418b1d87/comments",
-    "author": {
-      "login": "mandelsoft",
-      "id": 553075,
-      "node_id": "MDQ6VXNlcjU1MzA3NQ==",
-      "avatar_url": "https://avatars3.githubusercontent.com/u/553075?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/mandelsoft",
-      "html_url": "https://github.com/mandelsoft",
-      "followers_url": "https://api.github.com/users/mandelsoft/followers",
-      "following_url": "https://api.github.com/users/mandelsoft/following{/other_user}",
-      "gists_url": "https://api.github.com/users/mandelsoft/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/mandelsoft/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/mandelsoft/subscriptions",
-      "organizations_url": "https://api.github.com/users/mandelsoft/orgs",
-      "repos_url": "https://api.github.com/users/mandelsoft/repos",
-      "events_url": "https://api.github.com/users/mandelsoft/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/mandelsoft/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "committer": {
-      "login": "mandelsoft",
-      "id": 553075,
-      "node_id": "MDQ6VXNlcjU1MzA3NQ==",
-      "avatar_url": "https://avatars3.githubusercontent.com/u/553075?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/mandelsoft",
-      "html_url": "https://github.com/mandelsoft",
-      "followers_url": "https://api.github.com/users/mandelsoft/followers",
-      "following_url": "https://api.github.com/users/mandelsoft/following{/other_user}",
-      "gists_url": "https://api.github.com/users/mandelsoft/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/mandelsoft/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/mandelsoft/subscriptions",
-      "organizations_url": "https://api.github.com/users/mandelsoft/orgs",
-      "repos_url": "https://api.github.com/users/mandelsoft/repos",
-      "events_url": "https://api.github.com/users/mandelsoft/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/mandelsoft/received_events",
+      "url": "https://api.github.com/users/msohn",
+      "html_url": "https://github.com/msohn",
+      "followers_url": "https://api.github.com/users/msohn/followers",
+      "following_url": "https://api.github.com/users/msohn/following{/other_user}",
+      "gists_url": "https://api.github.com/users/msohn/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/msohn/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/msohn/subscriptions",
+      "organizations_url": "https://api.github.com/users/msohn/orgs",
+      "repos_url": "https://api.github.com/users/msohn/repos",
+      "events_url": "https://api.github.com/users/msohn/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/msohn/received_events",
       "type": "User",
       "site_admin": false
     },
