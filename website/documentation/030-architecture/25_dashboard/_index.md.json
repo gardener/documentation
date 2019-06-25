@@ -1,5 +1,84 @@
 [
   {
+    "sha": "c0d2286c00b9db7ea2edc5dee28d0be41b68abb6",
+    "node_id": "MDY6Q29tbWl0MTE4NjE1OTYzOmMwZDIyODZjMDBiOWRiN2VhMmVkYzVkZWUyOGQwYmU0MWI2OGFiYjY=",
+    "commit": {
+      "author": {
+        "name": "Holger Koser",
+        "email": "holgerkoser@users.noreply.github.com",
+        "date": "2019-06-25T11:15:12Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2019-06-25T11:15:12Z"
+      },
+      "message": "Login session related issues (#414)\n\n* Upgrade octokit\r\n\r\n* Upgrade openid-client\r\n\r\n* fixes #408\r\n\r\n* jwt-header-payload cookie should be a session cookie\r\n\r\n* Disable SNI when hostname is IP address\r\n\r\n* Update ws to version 7.0.1\r\nMy PR has been merged and included in release 7.0.1\r\nhttps://github.com/websockets/ws/releases/tag/7.0.1\r\n\r\n* Upgarde to node v12\r\n- openid-client require node version >= 12\r\n\r\n* add missing state parameter to getters\r\n\r\n* automatic signout when token expires\r\n\r\n* fixed lint error\r\n\r\n* Update @panva/jose to latest\r\n\r\n* Remove cookieMaxage also from Readme\r\n\r\n* fixed some npm audit issues\r\n\r\n* cookie handling improvement\r\n\r\n* PR review I\r\n\r\n* updated babel to support private class properties",
+      "tree": {
+        "sha": "74b3012d85844adc6cf43dfd9e18ec8eb9c06705",
+        "url": "https://api.github.com/repos/gardener/dashboard/git/trees/74b3012d85844adc6cf43dfd9e18ec8eb9c06705"
+      },
+      "url": "https://api.github.com/repos/gardener/dashboard/git/commits/c0d2286c00b9db7ea2edc5dee28d0be41b68abb6",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJdEgJACRBK7hj4Ov3rIwAAdHIIAIhX+eNbUWG1m4P/K1a6lSip\nH4vyDbj1V7yeBfghmpyDC8q+7Q7noJ+WcJ6+2ahvvQ/9YJzCpQiHXE7fK+GJ65v3\nw4PBHZZTTwKKNG5DRfcoyma6pjCbef5xyxv8eQTLbLoCH6QFgHm3CrJ7PP7DjQLZ\nnr/c3GWcv68tTwk+OssyiLjaDihF7dyCaC6SJGFo+pfzAeD3aq9llfBncwrbV48I\nQNXLWWO1PSM4MtNeavqDYdYiHZ+3mxe9s/cDNUfyTZXIV+GHawNlATud5xd25QxC\nn9EN64j+cU1Dq5Jov9aGccGcq3VQwn6aqeSrzi+mrd7wrPPlNKjvlIha5kpvwZU=\n=6uXb\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 74b3012d85844adc6cf43dfd9e18ec8eb9c06705\nparent 1eec9bf543f57d5a3f31f97de4207b3162be5015\nauthor Holger Koser <holgerkoser@users.noreply.github.com> 1561461312 +0200\ncommitter GitHub <noreply@github.com> 1561461312 +0200\n\nLogin session related issues (#414)\n\n* Upgrade octokit\r\n\r\n* Upgrade openid-client\r\n\r\n* fixes #408\r\n\r\n* jwt-header-payload cookie should be a session cookie\r\n\r\n* Disable SNI when hostname is IP address\r\n\r\n* Update ws to version 7.0.1\r\nMy PR has been merged and included in release 7.0.1\r\nhttps://github.com/websockets/ws/releases/tag/7.0.1\r\n\r\n* Upgarde to node v12\r\n- openid-client require node version >= 12\r\n\r\n* add missing state parameter to getters\r\n\r\n* automatic signout when token expires\r\n\r\n* fixed lint error\r\n\r\n* Update @panva/jose to latest\r\n\r\n* Remove cookieMaxage also from Readme\r\n\r\n* fixed some npm audit issues\r\n\r\n* cookie handling improvement\r\n\r\n* PR review I\r\n\r\n* updated babel to support private class properties\r\n"
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/dashboard/commits/c0d2286c00b9db7ea2edc5dee28d0be41b68abb6",
+    "html_url": "https://github.com/gardener/dashboard/commit/c0d2286c00b9db7ea2edc5dee28d0be41b68abb6",
+    "comments_url": "https://api.github.com/repos/gardener/dashboard/commits/c0d2286c00b9db7ea2edc5dee28d0be41b68abb6/comments",
+    "author": {
+      "login": "holgerkoser",
+      "id": 1574023,
+      "node_id": "MDQ6VXNlcjE1NzQwMjM=",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/1574023?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/holgerkoser",
+      "html_url": "https://github.com/holgerkoser",
+      "followers_url": "https://api.github.com/users/holgerkoser/followers",
+      "following_url": "https://api.github.com/users/holgerkoser/following{/other_user}",
+      "gists_url": "https://api.github.com/users/holgerkoser/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/holgerkoser/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/holgerkoser/subscriptions",
+      "organizations_url": "https://api.github.com/users/holgerkoser/orgs",
+      "repos_url": "https://api.github.com/users/holgerkoser/repos",
+      "events_url": "https://api.github.com/users/holgerkoser/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/holgerkoser/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "1eec9bf543f57d5a3f31f97de4207b3162be5015",
+        "url": "https://api.github.com/repos/gardener/dashboard/commits/1eec9bf543f57d5a3f31f97de4207b3162be5015",
+        "html_url": "https://github.com/gardener/dashboard/commit/1eec9bf543f57d5a3f31f97de4207b3162be5015"
+      }
+    ]
+  },
+  {
     "sha": "8f57aceb7de0a3c05eb53561e954507e9dd980ba",
     "node_id": "MDY6Q29tbWl0MTE4NjE1OTYzOjhmNTdhY2ViN2RlMGEzYzA1ZWI1MzU2MWU5NTQ1MDdlOWRkOTgwYmE=",
     "commit": {
