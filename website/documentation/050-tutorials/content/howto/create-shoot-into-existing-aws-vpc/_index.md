@@ -14,17 +14,17 @@ aliases: ["readmore/shoot-into-existing-aws-vpc"]
 Gardener can create a new VPC, or use an existing one for your Shoot cluster. Depending on your needs you may want to create Shoot(s) into already created VPC. 
 The tutorial describes how to create a Shoot cluster into existing AWS VPC. The steps are identical for Alicloud, Azure, and GCP.
 
-### TL;DR
+## TL;DR
 
 If `.spec.cloud.aws.networks.vpc.cidr` is specified, Gardener will create a new VPC with the given CIDR block and respectively will delete it on Shoot deletion.  
 If `.spec.cloud.aws.networks.vpc.id` is specified, Gardener will use the existing VPC and respectively won't delete it on Shoot deletion.
 
-{{% notice note %}}
-It's not recommended to create a Shoot cluster into VPC that is managed by Gardener (that is created for another Shoot cluster). In this case the deletion of the initial Shoot cluster will fail to delete the VPC because there will be resources attached to it.  
-Gardener won't delete any manually created (unmanaged) resources in your cloud provider account.
-{{% /notice %}}
 
-### 1. Configure AWS CLI
+> It's not recommended to create a Shoot cluster into VPC that is managed by Gardener (that is created for another Shoot cluster). In this case the deletion of the initial Shoot cluster will fail to delete the VPC because there will be resources attached to it.  
+> Gardener won't delete any manually created (unmanaged) resources in your cloud provider account.
+
+
+## 1. Configure AWS CLI
 
 The `aws configure` command is a convenient way to setup your AWS CLI. It will prompt you for your credentials and settings which will be used in the following AWS CLI invocations.
 
@@ -36,7 +36,7 @@ Default region name [None]: <DEFAULT_REGION>
 Default output format [None]: <DEFAULT_OUTPUT_FORMAT>
 ```
 
-### 2. Create VPC
+## 2. Create VPC
 
 ```bash
 $ aws ec2 create-vpc --cidr-block <cidr-block>
@@ -63,7 +63,7 @@ $ aws ec2 create-vpc --cidr-block <cidr-block>
 }
 ```
 
-### 3. Create Internet Gateway
+## 3. Create Internet Gateway
 
 Gardener also requires that an internet gateway is attached to the VPC. You can create one using:
 
@@ -84,7 +84,7 @@ and attach it to the VPC using:
 $ aws ec2 attach-internet-gateway --internet-gateway-id igw-c0a643a9 --vpc-id vpc-ff7bbf86
 ```
 
-### 4. Create the Shoot
+## 4. Create the Shoot
 
 Prepare your Shoot manifest (you could check the [example manifests](https://github.com/gardener/gardener/tree/master/example)). Put your VPC id in `.spec.cloud.aws.networks.vpc.id`:
 
