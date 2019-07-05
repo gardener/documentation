@@ -1,5 +1,84 @@
 [
   {
+    "sha": "ea84ff180461b1a804565ac5a5a1066f1f86a68d",
+    "node_id": "MDY6Q29tbWl0MTY2ODA3NzQ4OmVhODRmZjE4MDQ2MWIxYTgwNDU2NWFjNWE1YTEwNjZmMWY4NmE2OGQ=",
+    "commit": {
+      "author": {
+        "name": "Vedran Lerenc",
+        "email": "vlerenc@gmail.com",
+        "date": "2019-07-05T03:44:30Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2019-07-05T03:44:30Z"
+      },
+      "message": "Add reasoning for this controller\n\nCredits go to @MartinWeindel that internally listed the arguments,\r\nbut since people want to know the differences and reasoning,\r\nI'll have added them here for future reference. Thank you!",
+      "tree": {
+        "sha": "3c18a139588833d05958f1a3c477b9befd2a18dd",
+        "url": "https://api.github.com/repos/gardener/external-dns-management/git/trees/3c18a139588833d05958f1a3c477b9befd2a18dd"
+      },
+      "url": "https://api.github.com/repos/gardener/external-dns-management/git/commits/ea84ff180461b1a804565ac5a5a1066f1f86a68d",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJdHseeCRBK7hj4Ov3rIwAAdHIIAKF0YRl/aKtXkRL6IReQ7hXW\nS2zZaw5z/4TeXM5RhrZImOJCFzcYTB7MT3hI4xQ3Y4kdHkzvjwCLYWm2V9BTFTJM\n52+mhg7A09M+LRBgkATb6qb9sLeRM8C80HkrwQ4qRXPe0Hcq1O9W3sdIQGjC/p0c\nzV9BpnyCYhYlHCvNDbRmkyvTepyt9pvVjMwu3RK8TF218NEJW/SUKuL3OrEt589k\nAorGEF/KlKZXRNAv6S6ychyrDXKCPDdZCzTrUCsqT7siUu5WpdcnxfUmvJ5GBduo\nLGwTCQgnRR6OEm2h9lWuAiim9Sze1Bft0BzbMVWtDIzga2rwdd/fFs+ov4bF3FU=\n=oEhS\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 3c18a139588833d05958f1a3c477b9befd2a18dd\nparent 44d4e2f6fecb7d2ad91f575f48768b4be00daf0f\nauthor Vedran Lerenc <vlerenc@gmail.com> 1562298270 +0200\ncommitter GitHub <noreply@github.com> 1562298270 +0200\n\nAdd reasoning for this controller\n\nCredits go to @MartinWeindel that internally listed the arguments,\r\nbut since people want to know the differences and reasoning,\r\nI'll have added them here for future reference. Thank you!"
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/external-dns-management/commits/ea84ff180461b1a804565ac5a5a1066f1f86a68d",
+    "html_url": "https://github.com/gardener/external-dns-management/commit/ea84ff180461b1a804565ac5a5a1066f1f86a68d",
+    "comments_url": "https://api.github.com/repos/gardener/external-dns-management/commits/ea84ff180461b1a804565ac5a5a1066f1f86a68d/comments",
+    "author": {
+      "login": "vlerenc",
+      "id": 4974203,
+      "node_id": "MDQ6VXNlcjQ5NzQyMDM=",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/4974203?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/vlerenc",
+      "html_url": "https://github.com/vlerenc",
+      "followers_url": "https://api.github.com/users/vlerenc/followers",
+      "following_url": "https://api.github.com/users/vlerenc/following{/other_user}",
+      "gists_url": "https://api.github.com/users/vlerenc/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/vlerenc/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/vlerenc/subscriptions",
+      "organizations_url": "https://api.github.com/users/vlerenc/orgs",
+      "repos_url": "https://api.github.com/users/vlerenc/repos",
+      "events_url": "https://api.github.com/users/vlerenc/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/vlerenc/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "44d4e2f6fecb7d2ad91f575f48768b4be00daf0f",
+        "url": "https://api.github.com/repos/gardener/external-dns-management/commits/44d4e2f6fecb7d2ad91f575f48768b4be00daf0f",
+        "html_url": "https://github.com/gardener/external-dns-management/commit/44d4e2f6fecb7d2ad91f575f48768b4be00daf0f"
+      }
+    ]
+  },
+  {
     "sha": "fc2ab9d83cf1c5541352a41a40e3af44a65c7d49",
     "node_id": "MDY6Q29tbWl0MTY2ODA3NzQ4OmZjMmFiOWQ4M2NmMWM1NTQxMzUyYTQxYTQwZTNhZjQ0YTY1YzdkNDk=",
     "commit": {
