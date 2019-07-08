@@ -104,7 +104,7 @@ Once a PVC is created, you can use it in your container via `volumes.persistentV
 example, pvc **postgresdb-pvc** is mounted as readable and writable, and in `volumeMounts` two paths in the container are mounted to subfolders in the volume.
 
 ```yaml
-apiVersion: "extensions/v1beta1"    # deployment
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: postgres
