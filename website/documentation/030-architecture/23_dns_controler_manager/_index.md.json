@@ -1,5 +1,84 @@
 [
   {
+    "sha": "0f9bfb65ceaa51e08a5b16d634a58b6d5ad2fa13",
+    "node_id": "MDY6Q29tbWl0MTY2ODA3NzQ4OjBmOWJmYjY1Y2VhYTUxZTA4YTViMTZkNjM0YTU4YjZkNWFkMmZhMTM=",
+    "commit": {
+      "author": {
+        "name": "Martin Weindel",
+        "email": "martin.weindel@sap.com",
+        "date": "2019-07-09T11:24:50Z"
+      },
+      "committer": {
+        "name": "Martin Weindel",
+        "email": "martin.weindel@sap.com",
+        "date": "2019-07-09T11:59:32Z"
+      },
+      "message": "Added quick start to readme",
+      "tree": {
+        "sha": "63d74c21f79505e72877a1de87084215b79e9f2e",
+        "url": "https://api.github.com/repos/gardener/external-dns-management/git/trees/63d74c21f79505e72877a1de87084215b79e9f2e"
+      },
+      "url": "https://api.github.com/repos/gardener/external-dns-management/git/commits/0f9bfb65ceaa51e08a5b16d634a58b6d5ad2fa13",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/external-dns-management/commits/0f9bfb65ceaa51e08a5b16d634a58b6d5ad2fa13",
+    "html_url": "https://github.com/gardener/external-dns-management/commit/0f9bfb65ceaa51e08a5b16d634a58b6d5ad2fa13",
+    "comments_url": "https://api.github.com/repos/gardener/external-dns-management/commits/0f9bfb65ceaa51e08a5b16d634a58b6d5ad2fa13/comments",
+    "author": {
+      "login": "MartinWeindel",
+      "id": 3703277,
+      "node_id": "MDQ6VXNlcjM3MDMyNzc=",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/3703277?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/MartinWeindel",
+      "html_url": "https://github.com/MartinWeindel",
+      "followers_url": "https://api.github.com/users/MartinWeindel/followers",
+      "following_url": "https://api.github.com/users/MartinWeindel/following{/other_user}",
+      "gists_url": "https://api.github.com/users/MartinWeindel/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/MartinWeindel/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/MartinWeindel/subscriptions",
+      "organizations_url": "https://api.github.com/users/MartinWeindel/orgs",
+      "repos_url": "https://api.github.com/users/MartinWeindel/repos",
+      "events_url": "https://api.github.com/users/MartinWeindel/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/MartinWeindel/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "MartinWeindel",
+      "id": 3703277,
+      "node_id": "MDQ6VXNlcjM3MDMyNzc=",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/3703277?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/MartinWeindel",
+      "html_url": "https://github.com/MartinWeindel",
+      "followers_url": "https://api.github.com/users/MartinWeindel/followers",
+      "following_url": "https://api.github.com/users/MartinWeindel/following{/other_user}",
+      "gists_url": "https://api.github.com/users/MartinWeindel/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/MartinWeindel/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/MartinWeindel/subscriptions",
+      "organizations_url": "https://api.github.com/users/MartinWeindel/orgs",
+      "repos_url": "https://api.github.com/users/MartinWeindel/repos",
+      "events_url": "https://api.github.com/users/MartinWeindel/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/MartinWeindel/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "ea84ff180461b1a804565ac5a5a1066f1f86a68d",
+        "url": "https://api.github.com/repos/gardener/external-dns-management/commits/ea84ff180461b1a804565ac5a5a1066f1f86a68d",
+        "html_url": "https://github.com/gardener/external-dns-management/commit/ea84ff180461b1a804565ac5a5a1066f1f86a68d"
+      }
+    ]
+  },
+  {
     "sha": "ea84ff180461b1a804565ac5a5a1066f1f86a68d",
     "node_id": "MDY6Q29tbWl0MTY2ODA3NzQ4OmVhODRmZjE4MDQ2MWIxYTgwNDU2NWFjNWE1YTEwNjZmMWY4NmE2OGQ=",
     "commit": {
