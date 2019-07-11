@@ -27,8 +27,9 @@ can then automatically program a frontend load balancer to enable Ingress config
 
 
 ## Example Ingress Configuration
+
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: vuejs-ingress
@@ -73,7 +74,7 @@ Here an example how to disable the cache control for your ingress done with an a
  
 ```yaml
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   annotations:

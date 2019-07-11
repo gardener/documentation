@@ -29,7 +29,7 @@ In order to request a certificate for a domain managed by Gardener an **Ingress*
 already have one, take the following as an example:
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: vuejs-ingress
@@ -64,7 +64,7 @@ found in labeled Ingress.
 > Domains not managed by Gardener are ignored.
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: tls-example-ingress

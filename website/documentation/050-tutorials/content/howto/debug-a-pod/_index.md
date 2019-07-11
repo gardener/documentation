@@ -110,7 +110,7 @@ kubectl delete configmaps app-env
 Next, deploy this manifest 
 
 ```yaml
-apiVersion: apps/v1beta2 
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: termination-demo
@@ -167,7 +167,7 @@ metadata:
 data:
   MYFILE: "/etc/profile"
 ---
-apiVersion: apps/v1beta2 
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: termination-demo
@@ -197,7 +197,7 @@ Note that once you fix the error and re-run the scenario, you might still see th
 It is because the container finishes the command `sed ...` and runs to completion.  In order to keep the container in `Running` status,
 a long running task is required, e.g.
 
-```ymal
+```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -206,7 +206,7 @@ data:
   MYFILE: "/etc/profile"
   SLEEP: "5"
 ---
-apiVersion: apps/v1beta2
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: termination-demo
@@ -264,7 +264,7 @@ this manifest. In this example `600m` (milli CPUs) are requested in a Kubernetes
 node which results in an error message. 
 
 ```yaml
-apiVersion: apps/v1beta2 
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: termination-demo

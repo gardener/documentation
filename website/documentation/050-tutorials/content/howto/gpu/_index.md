@@ -22,7 +22,7 @@ for learning to limit your resource costs. **This costs around 1€/hour per GPU
 ## Install NVidia Driver as Daemonset
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: nvidia-driver-installer
@@ -103,7 +103,7 @@ spec:
 ## Install Device Plugin
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: nvidia-gpu-device-plugin

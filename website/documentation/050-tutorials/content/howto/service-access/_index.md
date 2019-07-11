@@ -40,7 +40,7 @@ A service of type `ClusterIP` exposes a service on an internal IP in the cluster
 from within the cluster.  This is the default value if no type is specified.
 
 ```yaml
-apiVersion: apps/v1beta2
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-deployment
@@ -203,7 +203,7 @@ kubectl exec -it nginx-deployment-74d949bf69-7n6bs curl ip-10-250-20-203.eu-cent
 The `LoadBalancer` type is the simplest approach, which is created by specifying type as `LoadBalancer`.
 
 ```yaml
-apiVersion: apps/v1beta2
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-deployment
@@ -322,7 +322,7 @@ With the configuration below you can reach your service **nginx-svc** with:
 
 
 ```yaml
-apiVersion: apps/v1beta2
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-deployment
@@ -357,7 +357,7 @@ spec:
     app: nginx-app
 
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: nginxsvc-ingress
