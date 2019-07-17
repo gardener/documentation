@@ -1,5 +1,84 @@
 [
   {
+    "sha": "37e67cf00049d9ea03a3c2b187e504492d290c0b",
+    "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOjM3ZTY3Y2YwMDA0OWQ5ZWEwM2EzYzJiMTg3ZTUwNDQ5MmQyOTBjMGI=",
+    "commit": {
+      "author": {
+        "name": "ialidzhikov",
+        "email": "i.alidjikov@gmail.com",
+        "date": "2019-07-16T09:46:33Z"
+      },
+      "committer": {
+        "name": "ialidzhikov",
+        "email": "i.alidjikov@gmail.com",
+        "date": "2019-07-16T10:08:00Z"
+      },
+      "message": "Improve kind node name check for hack/dev-setup\n\nSigned-off-by: ialidzhikov <i.alidjikov@gmail.com>",
+      "tree": {
+        "sha": "3d77ea45da37ea8d307fc97f57c85f8854bcfa48",
+        "url": "https://api.github.com/repos/gardener/gardener/git/trees/3d77ea45da37ea8d307fc97f57c85f8854bcfa48"
+      },
+      "url": "https://api.github.com/repos/gardener/gardener/git/commits/37e67cf00049d9ea03a3c2b187e504492d290c0b",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/gardener/commits/37e67cf00049d9ea03a3c2b187e504492d290c0b",
+    "html_url": "https://github.com/gardener/gardener/commit/37e67cf00049d9ea03a3c2b187e504492d290c0b",
+    "comments_url": "https://api.github.com/repos/gardener/gardener/commits/37e67cf00049d9ea03a3c2b187e504492d290c0b/comments",
+    "author": {
+      "login": "ialidzhikov",
+      "id": 9372594,
+      "node_id": "MDQ6VXNlcjkzNzI1OTQ=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/9372594?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ialidzhikov",
+      "html_url": "https://github.com/ialidzhikov",
+      "followers_url": "https://api.github.com/users/ialidzhikov/followers",
+      "following_url": "https://api.github.com/users/ialidzhikov/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ialidzhikov/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ialidzhikov/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ialidzhikov/subscriptions",
+      "organizations_url": "https://api.github.com/users/ialidzhikov/orgs",
+      "repos_url": "https://api.github.com/users/ialidzhikov/repos",
+      "events_url": "https://api.github.com/users/ialidzhikov/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ialidzhikov/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "ialidzhikov",
+      "id": 9372594,
+      "node_id": "MDQ6VXNlcjkzNzI1OTQ=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/9372594?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ialidzhikov",
+      "html_url": "https://github.com/ialidzhikov",
+      "followers_url": "https://api.github.com/users/ialidzhikov/followers",
+      "following_url": "https://api.github.com/users/ialidzhikov/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ialidzhikov/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ialidzhikov/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ialidzhikov/subscriptions",
+      "organizations_url": "https://api.github.com/users/ialidzhikov/orgs",
+      "repos_url": "https://api.github.com/users/ialidzhikov/repos",
+      "events_url": "https://api.github.com/users/ialidzhikov/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ialidzhikov/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "3b02888ed83e8ab46564709745f2f34472fcbd85",
+        "url": "https://api.github.com/repos/gardener/gardener/commits/3b02888ed83e8ab46564709745f2f34472fcbd85",
+        "html_url": "https://github.com/gardener/gardener/commit/3b02888ed83e8ab46564709745f2f34472fcbd85"
+      }
+    ]
+  },
+  {
     "sha": "ddef480ef796d676bdc7b74924bd914100e336b5",
     "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOmRkZWY0ODBlZjc5NmQ2NzZiZGM3Yjc0OTI0YmQ5MTQxMDBlMzM2YjU=",
     "commit": {
@@ -2287,85 +2366,6 @@
         "sha": "fe133b0422ad9c34bf6f1437b09c8c21ba8117e4",
         "url": "https://api.github.com/repos/gardener/gardener/commits/fe133b0422ad9c34bf6f1437b09c8c21ba8117e4",
         "html_url": "https://github.com/gardener/gardener/commit/fe133b0422ad9c34bf6f1437b09c8c21ba8117e4"
-      }
-    ]
-  },
-  {
-    "sha": "4c251be0b11639c20d41ce20c5de0deb59b0f008",
-    "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOjRjMjUxYmUwYjExNjM5YzIwZDQxY2UyMGM1ZGUwZGViNTliMGYwMDg=",
-    "commit": {
-      "author": {
-        "name": "Martin Vladev",
-        "email": "martin.vladev@sap.com",
-        "date": "2018-06-01T12:36:32Z"
-      },
-      "committer": {
-        "name": "Martin Vladev",
-        "email": "martin.vladev@sap.com",
-        "date": "2018-06-08T11:20:28Z"
-      },
-      "message": "Add feature gates to gardener\n\nFeature gates are added to the APIServer and Controller Manager, allowing to\ntoggle beta / alpha features.\n\nTwo Features are added:\n\n- DeletionConfirmation which changes the way resources in the Gardener APIServer\nare deleted.\n- CoreDNS which changes the kubernetes DNS provider to CoreDNS.",
-      "tree": {
-        "sha": "c759674451bc7a828e0683885a4f6fb774430129",
-        "url": "https://api.github.com/repos/gardener/gardener/git/trees/c759674451bc7a828e0683885a4f6fb774430129"
-      },
-      "url": "https://api.github.com/repos/gardener/gardener/git/commits/4c251be0b11639c20d41ce20c5de0deb59b0f008",
-      "comment_count": 0,
-      "verification": {
-        "verified": false,
-        "reason": "unsigned",
-        "signature": null,
-        "payload": null
-      }
-    },
-    "url": "https://api.github.com/repos/gardener/gardener/commits/4c251be0b11639c20d41ce20c5de0deb59b0f008",
-    "html_url": "https://github.com/gardener/gardener/commit/4c251be0b11639c20d41ce20c5de0deb59b0f008",
-    "comments_url": "https://api.github.com/repos/gardener/gardener/commits/4c251be0b11639c20d41ce20c5de0deb59b0f008/comments",
-    "author": {
-      "login": "mvladev",
-      "id": 33343952,
-      "node_id": "MDQ6VXNlcjMzMzQzOTUy",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/33343952?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/mvladev",
-      "html_url": "https://github.com/mvladev",
-      "followers_url": "https://api.github.com/users/mvladev/followers",
-      "following_url": "https://api.github.com/users/mvladev/following{/other_user}",
-      "gists_url": "https://api.github.com/users/mvladev/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/mvladev/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/mvladev/subscriptions",
-      "organizations_url": "https://api.github.com/users/mvladev/orgs",
-      "repos_url": "https://api.github.com/users/mvladev/repos",
-      "events_url": "https://api.github.com/users/mvladev/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/mvladev/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "committer": {
-      "login": "mvladev",
-      "id": 33343952,
-      "node_id": "MDQ6VXNlcjMzMzQzOTUy",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/33343952?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/mvladev",
-      "html_url": "https://github.com/mvladev",
-      "followers_url": "https://api.github.com/users/mvladev/followers",
-      "following_url": "https://api.github.com/users/mvladev/following{/other_user}",
-      "gists_url": "https://api.github.com/users/mvladev/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/mvladev/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/mvladev/subscriptions",
-      "organizations_url": "https://api.github.com/users/mvladev/orgs",
-      "repos_url": "https://api.github.com/users/mvladev/repos",
-      "events_url": "https://api.github.com/users/mvladev/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/mvladev/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "parents": [
-      {
-        "sha": "922cdbf79683a0eb40135c8ea96f924d0be5debd",
-        "url": "https://api.github.com/repos/gardener/gardener/commits/922cdbf79683a0eb40135c8ea96f924d0be5debd",
-        "html_url": "https://github.com/gardener/gardener/commit/922cdbf79683a0eb40135c8ea96f924d0be5debd"
       }
     ]
   }
