@@ -38,12 +38,12 @@ spec:
     spec:
       hostPID: true
       initContainers:
-      - image: squat/modulus:13bb5a54d558ddce0ad2a7702fdd18083f0b4ac7
+      - image: squat/modulus:4a1799e7aa0143bcbb70d354bab3e419b1f54972
         name: modulus
         args:
         - compile
         - nvidia
-        - "390.48"
+        - "410.104"
         securityContext:
           privileged: true
         env:
@@ -57,6 +57,8 @@ spec:
           value: /opt/modulus/cache
         - name: MODULUS_LD_ROOT
           value: /root
+        - name: IGNORE_MISSING_MODULE_SYMVERS
+          value: "1"          
         volumeMounts:
         - name: etc-coreos
           mountPath: /etc/coreos
@@ -128,7 +130,7 @@ spec:
         hostPath:
           path: /dev
       containers:
-      - image: "k8s.gcr.io/nvidia-gpu-device-plugin@sha256:0842734032018be107fa2490c98156992911e3e1f2a21e059ff0105b07dd8e9e"
+      - image: "k8s.gcr.io/nvidia-gpu-device-plugin@sha256:08509a36233c5096bb273a492251a9a5ca28558ab36d74007ca2a9d3f0b61e1d"
         command: ["/usr/bin/nvidia-gpu-device-plugin", "-logtostderr", "-host-path=/opt/drivers/nvidia"]
         name: nvidia-gpu-device-plugin
         resources:
@@ -178,6 +180,16 @@ spec:
       - key: "nvidia.com/gpu"
         effect: "NoSchedule"
         operator: "Exists"
+```
+
+Note: the `tolerations` section above is not required if you deploy the `ExtendedResourceToleration`
+admission controller to your cluster. You can do this in the `kubernetes` section of your Gardener 
+cluster `shoot.yaml` as follows:
+```
+  kubernetes:
+    kubeAPIServer:
+      admissionPlugins:
+      - name: ExtendedResourceToleration
 ```
 
 Now exec into the container and start an example Keras training
