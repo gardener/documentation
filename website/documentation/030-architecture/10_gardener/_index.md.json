@@ -1,5 +1,84 @@
 [
   {
+    "sha": "367d3fc0abaf1e9a684136c00cbe2062cb5433cb",
+    "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOjM2N2QzZmMwYWJhZjFlOWE2ODQxMzZjMDBjYmUyMDYyY2I1NDMzY2I=",
+    "commit": {
+      "author": {
+        "name": "Oleg Loewen",
+        "email": "oleg.loewen@sap.com",
+        "date": "2019-07-30T06:04:44Z"
+      },
+      "committer": {
+        "name": "Oleg Loewen",
+        "email": "oleg.loewen@sap.com",
+        "date": "2019-07-30T06:04:44Z"
+      },
+      "message": "Add additional information regarding e2e test coverage",
+      "tree": {
+        "sha": "4fb7ee8ebdbf5aa130bd42ae66d1b79385b03ad4",
+        "url": "https://api.github.com/repos/gardener/gardener/git/trees/4fb7ee8ebdbf5aa130bd42ae66d1b79385b03ad4"
+      },
+      "url": "https://api.github.com/repos/gardener/gardener/git/commits/367d3fc0abaf1e9a684136c00cbe2062cb5433cb",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/gardener/commits/367d3fc0abaf1e9a684136c00cbe2062cb5433cb",
+    "html_url": "https://github.com/gardener/gardener/commit/367d3fc0abaf1e9a684136c00cbe2062cb5433cb",
+    "comments_url": "https://api.github.com/repos/gardener/gardener/commits/367d3fc0abaf1e9a684136c00cbe2062cb5433cb/comments",
+    "author": {
+      "login": "OlegLoewen",
+      "id": 44769983,
+      "node_id": "MDQ6VXNlcjQ0NzY5OTgz",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/44769983?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/OlegLoewen",
+      "html_url": "https://github.com/OlegLoewen",
+      "followers_url": "https://api.github.com/users/OlegLoewen/followers",
+      "following_url": "https://api.github.com/users/OlegLoewen/following{/other_user}",
+      "gists_url": "https://api.github.com/users/OlegLoewen/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/OlegLoewen/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/OlegLoewen/subscriptions",
+      "organizations_url": "https://api.github.com/users/OlegLoewen/orgs",
+      "repos_url": "https://api.github.com/users/OlegLoewen/repos",
+      "events_url": "https://api.github.com/users/OlegLoewen/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/OlegLoewen/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "OlegLoewen",
+      "id": 44769983,
+      "node_id": "MDQ6VXNlcjQ0NzY5OTgz",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/44769983?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/OlegLoewen",
+      "html_url": "https://github.com/OlegLoewen",
+      "followers_url": "https://api.github.com/users/OlegLoewen/followers",
+      "following_url": "https://api.github.com/users/OlegLoewen/following{/other_user}",
+      "gists_url": "https://api.github.com/users/OlegLoewen/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/OlegLoewen/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/OlegLoewen/subscriptions",
+      "organizations_url": "https://api.github.com/users/OlegLoewen/orgs",
+      "repos_url": "https://api.github.com/users/OlegLoewen/repos",
+      "events_url": "https://api.github.com/users/OlegLoewen/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/OlegLoewen/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "73dabfe02515833e5af087745f2a96444b936dba",
+        "url": "https://api.github.com/repos/gardener/gardener/commits/73dabfe02515833e5af087745f2a96444b936dba",
+        "html_url": "https://github.com/gardener/gardener/commit/73dabfe02515833e5af087745f2a96444b936dba"
+      }
+    ]
+  },
+  {
     "sha": "a1100e459c7ebfb98159c6e07043778b6bd9c4b7",
     "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOmExMTAwZTQ1OWM3ZWJmYjk4MTU5YzZlMDcwNDM3NzhiNmJkOWM0Yjc=",
     "commit": {
