@@ -1,5 +1,84 @@
 [
   {
+    "sha": "97a2a2f4f87e54afaa69dd2c1da512ab232fa031",
+    "node_id": "MDY6Q29tbWl0MTY2ODA3NzQ4Ojk3YTJhMmY0Zjg3ZTU0YWZhYTY5ZGQyYzFkYTUxMmFiMjMyZmEwMzE=",
+    "commit": {
+      "author": {
+        "name": "Ismail Alidzhikov",
+        "email": "i.alidjikov@gmail.com",
+        "date": "2019-08-08T09:14:03Z"
+      },
+      "committer": {
+        "name": "Martin Weindel",
+        "email": "martin.weindel@sap.com",
+        "date": "2019-08-08T09:14:03Z"
+      },
+      "message": "Reorder examples by their logical order (#36)\n\nSigned-off-by: ialidzhikov <i.alidjikov@gmail.com>",
+      "tree": {
+        "sha": "61ae9074c5ceee234b641b37424504f3f7e57251",
+        "url": "https://api.github.com/repos/gardener/external-dns-management/git/trees/61ae9074c5ceee234b641b37424504f3f7e57251"
+      },
+      "url": "https://api.github.com/repos/gardener/external-dns-management/git/commits/97a2a2f4f87e54afaa69dd2c1da512ab232fa031",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/external-dns-management/commits/97a2a2f4f87e54afaa69dd2c1da512ab232fa031",
+    "html_url": "https://github.com/gardener/external-dns-management/commit/97a2a2f4f87e54afaa69dd2c1da512ab232fa031",
+    "comments_url": "https://api.github.com/repos/gardener/external-dns-management/commits/97a2a2f4f87e54afaa69dd2c1da512ab232fa031/comments",
+    "author": {
+      "login": "ialidzhikov",
+      "id": 9372594,
+      "node_id": "MDQ6VXNlcjkzNzI1OTQ=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/9372594?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ialidzhikov",
+      "html_url": "https://github.com/ialidzhikov",
+      "followers_url": "https://api.github.com/users/ialidzhikov/followers",
+      "following_url": "https://api.github.com/users/ialidzhikov/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ialidzhikov/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ialidzhikov/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ialidzhikov/subscriptions",
+      "organizations_url": "https://api.github.com/users/ialidzhikov/orgs",
+      "repos_url": "https://api.github.com/users/ialidzhikov/repos",
+      "events_url": "https://api.github.com/users/ialidzhikov/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ialidzhikov/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "MartinWeindel",
+      "id": 3703277,
+      "node_id": "MDQ6VXNlcjM3MDMyNzc=",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/3703277?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/MartinWeindel",
+      "html_url": "https://github.com/MartinWeindel",
+      "followers_url": "https://api.github.com/users/MartinWeindel/followers",
+      "following_url": "https://api.github.com/users/MartinWeindel/following{/other_user}",
+      "gists_url": "https://api.github.com/users/MartinWeindel/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/MartinWeindel/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/MartinWeindel/subscriptions",
+      "organizations_url": "https://api.github.com/users/MartinWeindel/orgs",
+      "repos_url": "https://api.github.com/users/MartinWeindel/repos",
+      "events_url": "https://api.github.com/users/MartinWeindel/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/MartinWeindel/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "347a90c762f921f61eab895aa02c205d0c58971e",
+        "url": "https://api.github.com/repos/gardener/external-dns-management/commits/347a90c762f921f61eab895aa02c205d0c58971e",
+        "html_url": "https://github.com/gardener/external-dns-management/commit/347a90c762f921f61eab895aa02c205d0c58971e"
+      }
+    ]
+  },
+  {
     "sha": "0f9bfb65ceaa51e08a5b16d634a58b6d5ad2fa13",
     "node_id": "MDY6Q29tbWl0MTY2ODA3NzQ4OjBmOWJmYjY1Y2VhYTUxZTA4YTViMTZkNjM0YTU4YjZkNWFkMmZhMTM=",
     "commit": {
