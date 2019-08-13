@@ -35,6 +35,8 @@ Should you wish to work on an issue, please claim it first by commenting on the 
 
 If you have questions about one of the issues, with or without the tag, please comment on them and one of the maintainers will clarify it.
 
+We kindly ask you to follow the [Pull Request Checklist](#Pull-Request-Checklist) to ensure reviews can happen accordingly.
+
 ## Contributing Code
 
 You are welcome to contribute code to Gardener in order to fix a bug or to implement a new feature.
@@ -79,13 +81,23 @@ The form contains a list of employees who are authorized to contribute on behalf
 
 * Commits should be as small as possible, while ensuring that each commit is correct independently (i.e., each commit should compile and pass tests).
 
+* Test your changes as thoroughly as possible before your commit them. Preferably, automate your test by unit / integration (e.g. [Gardener integration testing](https://github.com/gardener/gardener/blob/master/docs/testing/integration_tests.md)) tests. If tested manually, provide information about the test scope in the PR description (e.g. “Test passed: Upgrade K8s version from 1.14.5 to 1.15.2 on AWS, Azure, GCP, Alicloud, Openstack.”).
+
+* Create _Work In Progress [WIP]_ pull requests only if you need a clarification or an explicit review before you can continue your work item.
+
 * If your patch is not getting reviewed or you need a specific person to review it, you can @-reply a reviewer asking for a review in the pull request or a comment, or you can ask for a review on our [mailing list](https://groups.google.com/forum/?fromgroups#!forum/gardener).
 
-* Add tests relevant to the fixed bug or new feature.
+* Post review:
+  * If a review requires you to change your commit(s), please test the changes again.
+  * Amend the affected commit(s) and force push onto your branch.
+  * Set respective comments in your GitHub review to resolved.
+  * Create a general PR comment to notify the reviewers that your amendments are ready for another round of review.
 
 ## Issues and Planning
 
-We use GitHub issues to track bugs and enhancement requests and ZenHub for planning.
+We use GitHub issues to track bugs and enhancement requests. Please provide as much context as possible when you open an issue. The information you provide must be comprehensive enough to reproduce that issue for the assignee. Therefore, contributors may use but aren't restricted to the issue template provided by the Gardener maintainers.
+
+ZenHub is used for planning:
 
 * Install the [ZenHub Chrome plugin](https://chrome.google.com/webstore/detail/zenhub-for-github/ogcgkffhplmphkaahpmffcafajaocjbd)
 * Login to [ZenHub](https://www.zenhub.com/)
