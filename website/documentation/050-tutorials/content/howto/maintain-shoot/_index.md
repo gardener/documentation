@@ -44,15 +44,3 @@ In this example if the operator wants to update the Kubernetes version to `1.11.
 ### Operating System Version
 
 If you update the `.spec.<provider>.constraints.machineImages` field in the CloudProfile used in the Shoot, then the maintenance controller will apply the new machine image to the Shoot spec (and will mark the Shoot to be reconciled) during the maintenance time window. During the reconciliation the corresponding `<Provider>MachineClass` resource in the Shoot namespace in the Seed will be updated and the machine controller manager will take care of the actual state to match the desired one.
-
-# Shoot annotations
-
-- `shoot.garden.sapcloud.io/ignore: true` 
-
-  Indicates that the Shoot will never reach the  reconciliation flow (independent of the operation (create/update/delete)). Also `controllers.shoot.respectSyncPeriodOverwrite` property of Gardener controller manager needs to be `true`, otherwise the ignore annotation won't be respected.
-
-- `shoot.garden.sapcloud.io/operation: <operation>` with allowed operations:
-
-  - `reconcile` - indicates that a Shoot reconciliation shall be triggered.
-  - `retry` - indicates that a failed Shoot reconciliation shall be retried.
-  - `maintain` - indicates that the Shoot maintenance shall be executed as soon as possible.
