@@ -1,0 +1,81 @@
+[
+  {
+    "sha": "e122a4bbd04b97809d7829ba19113f3d09fed017",
+    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OmUxMjJhNGJiZDA0Yjk3ODA5ZDc4MjliYTE5MTEzZjNkMDlmZWQwMTc=",
+    "commit": {
+      "author": {
+        "name": "vasu1124",
+        "email": "vasu1124@actvirtual.com",
+        "date": "2019-08-20T18:40:30Z"
+      },
+      "committer": {
+        "name": "vasu1124",
+        "email": "vasu1124@actvirtual.com",
+        "date": "2019-08-20T18:40:30Z"
+      },
+      "message": "oidc-login documentation",
+      "tree": {
+        "sha": "e499e925bcb35038b24d0578e27198acb125b1fa",
+        "url": "https://api.github.com/repos/gardener/documentation/git/trees/e499e925bcb35038b24d0578e27198acb125b1fa"
+      },
+      "url": "https://api.github.com/repos/gardener/documentation/git/commits/e122a4bbd04b97809d7829ba19113f3d09fed017",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/documentation/commits/e122a4bbd04b97809d7829ba19113f3d09fed017",
+    "html_url": "https://github.com/gardener/documentation/commit/e122a4bbd04b97809d7829ba19113f3d09fed017",
+    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/e122a4bbd04b97809d7829ba19113f3d09fed017/comments",
+    "author": {
+      "login": "vasu1124",
+      "id": 11454395,
+      "node_id": "MDQ6VXNlcjExNDU0Mzk1",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/11454395?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/vasu1124",
+      "html_url": "https://github.com/vasu1124",
+      "followers_url": "https://api.github.com/users/vasu1124/followers",
+      "following_url": "https://api.github.com/users/vasu1124/following{/other_user}",
+      "gists_url": "https://api.github.com/users/vasu1124/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/vasu1124/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/vasu1124/subscriptions",
+      "organizations_url": "https://api.github.com/users/vasu1124/orgs",
+      "repos_url": "https://api.github.com/users/vasu1124/repos",
+      "events_url": "https://api.github.com/users/vasu1124/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/vasu1124/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "vasu1124",
+      "id": 11454395,
+      "node_id": "MDQ6VXNlcjExNDU0Mzk1",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/11454395?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/vasu1124",
+      "html_url": "https://github.com/vasu1124",
+      "followers_url": "https://api.github.com/users/vasu1124/followers",
+      "following_url": "https://api.github.com/users/vasu1124/following{/other_user}",
+      "gists_url": "https://api.github.com/users/vasu1124/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/vasu1124/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/vasu1124/subscriptions",
+      "organizations_url": "https://api.github.com/users/vasu1124/orgs",
+      "repos_url": "https://api.github.com/users/vasu1124/repos",
+      "events_url": "https://api.github.com/users/vasu1124/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/vasu1124/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "3b8141bd6266863c7c620b0cd8f031568673fde6",
+        "url": "https://api.github.com/repos/gardener/documentation/commits/3b8141bd6266863c7c620b0cd8f031568673fde6",
+        "html_url": "https://github.com/gardener/documentation/commit/3b8141bd6266863c7c620b0cd8f031568673fde6"
+      }
+    ]
+  }
+]
