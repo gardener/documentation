@@ -75,7 +75,7 @@ Deploy the secret into your seed namespace. Apart from the kubeconfig, also infr
 Create a secretbinding for your cloud provider secret:
 
 ```yaml
-apiVersion: garden.sapcloud.io/v1beta1
+apiVersion: core.gardener.cloud/v1alpha1
 kind: SecretBinding
 metadata:
   name: test-seed-secret
@@ -99,18 +99,19 @@ The cloudprofile contains the information which shoots can be created with this 
 Now the seed resource can be created. Choose a name, reference cloudprofile and secretbinding, fill in your ingress domain, and set the CIDRs to the same values as in the underlying shoot cluster. 
 
 ```yaml
-apiVersion: garden.sapcloud.io/v1beta1
+apiVersion: core.gardener.cloud/v1alpha1
 kind: Seed
 metadata:
   name: aws-secure
 spec:
-  cloud:
-    profile: aws
+  provider:
+    type: aws
     region: eu-west-1
   secretRef:
     name: test-seed-secret
     namespace: seed-test
-  ingressDomain: ingress.<your cluster domain>
+  dns:
+    ingressDomain: ingress.<your cluster domain>
   networks:
     nodes: 10.254.0.0/19
     pods: 10.255.0.0/17
