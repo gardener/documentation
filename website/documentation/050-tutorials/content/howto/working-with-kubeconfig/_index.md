@@ -71,8 +71,8 @@ KUBECONFIG=k8s-${user}-conf kubectl config set-context ${user}-${cluster_name#cl
 KUBECONFIG=k8s-${user}-conf kubectl config use-context ${user}-${cluster_name#cluster-}
 
 cat <<EOF | kubectl create -f -
-kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
 metadata:
   name: view-${user}-global
 subjects:

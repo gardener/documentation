@@ -30,6 +30,10 @@ metadata:
   labels:
     k8s-app: nvidia-driver-installer
 spec:
+  selector:
+    matchLabels:
+      name: nvidia-driver-installer
+      k8s-app: nvidia-driver-installer
   template:
     metadata:
       labels:
@@ -114,6 +118,9 @@ metadata:
     k8s-app: nvidia-gpu-device-plugin
     #addonmanager.kubernetes.io/mode: Reconcile
 spec:
+  selector:
+    matchLabels:
+      k8s-app: nvidia-gpu-device-plugin
   template:
     metadata:
       labels:

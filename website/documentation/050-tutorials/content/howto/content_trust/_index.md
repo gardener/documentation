@@ -31,23 +31,25 @@ docker run --name mynginx1 -P -d nginx:1.13.9
 
 or 
 ```yaml
-
- apiVersion: apps/v1
- kind: Deployment
- metadata:
-   name: rss-site
- spec:
-   replicas: 1
-   template:
-     metadata:
-       labels:
-         app: web
-     spec:
-       containers:
-         - name: front-end
-           image: nginx:1.13.9
-           ports:
-             - containerPort: 80
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rss-site
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - name: front-end
+          image: nginx:1.13.9
+          ports:
+            - containerPort: 80
 ```
 
 **But Tags are mutable and humans are prone to error. Not a good combination.** Here we’ll dig into why the use of tags can 

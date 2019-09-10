@@ -78,8 +78,8 @@ Both calls are done in a pod within namespace customer1 and both nginx servers a
 Install the **NetworkPolicy** from your shell
 
 ```yaml
-kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
 metadata:
   name: deny-from-other-namespaces
 spec:

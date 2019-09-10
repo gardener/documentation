@@ -51,11 +51,14 @@ If the `restartPolicy` is set to `Always` (default) in yaml, the application wil
 To avoid such situation, `InitContainers ` can be defined which are executed prior to the application container.  If one InitContainers fails, the application container won't be triggered.
 
 ```yaml
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: webapp
 spec:
+  selector:
+    matchLabels:
+      app: webapp
   template:
     metadata:
       labels:

@@ -108,8 +108,8 @@ Ensure that the modified context is the active context `current-context: shoot--
 
 Modify the Gardener shoot/cluster manifest as follows:
 ```yaml
-kind: Shoot
 apiVersion: garden.sapcloud.io/v1beta1
+kind: Shoot
 metadata:
   name: mycluster
   namespace: garden-project
