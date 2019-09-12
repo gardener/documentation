@@ -18,34 +18,6 @@ names for shoot clusters. So, far only the external DNS domain of a shoot
 (already used for the kubernetes api server and ingress DNS names) can be used
 for managed DNS names.
 
-<style>
-#body-inner blockquote {
-    border: 0;
-    padding: 10px;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    border-radius: 4px;
-    background-color: rgba(0,0,0,0.05);
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    position:relative;
-    padding-left:60px;
-}
-#body-inner blockquote:before {
-    content: "!";
-    font-weight: bold;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    background-color: #00a273;
-    color: white;
-    vertical-align: middle;
-    margin: auto;
-    width: 36px;
-    font-size: 30px;
-    text-align: center;
-}
-</style>
 
 ## Shoot Feature Gate
 
