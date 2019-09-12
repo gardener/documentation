@@ -5,7 +5,7 @@ type: tutorial-page
 level: Advanced
 index: 10
 category: DNS
-scope: developer
+scope: app-developer
 ---
 
 # Request DNS Names in Shoot Clusters
