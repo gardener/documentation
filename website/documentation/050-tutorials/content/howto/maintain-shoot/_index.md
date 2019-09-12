@@ -109,4 +109,49 @@ The Shoot refers a Kubernetes version that was dropped from the CloudProfile. In
 
 ### Operating System Version
 
-If you update the `.spec.machineImages` field in the CloudProfile used in the Shoot, then the maintenance controller will apply the new machine image to the Shoot spec (and will mark the Shoot to be reconciled) during the maintenance time window. During the reconciliation the corresponding `<Provider>MachineClass` resource in the Shoot namespace in the Seed will be updated and the machine controller manager will take care of the actual state to match the desired one.
+If a Shoot has `.spec.maintenance.autoUpdate.machineImageVersion: true` in the manifest, and you update the `.spec.machineImages` field in the CloudProfile used in the Shoot, then the maintenance controller will apply the new machine image to the Shoot spec (and will mark the Shoot to be reconciled) during the maintenance time window. During the reconciliation the corresponding `<Provider>MachineClass` resource in the Shoot namespace in the Seed will be updated and the machine controller manager will take care of the actual state to match the desired one.
+
+### Machine Image Expiration Date
+
+- Automatic update from expired machine image version.
+
+Let's assume the following CloudProfile spec (only related fields are shown):
+
+```yaml
+spec:
+  machineImages:
+  - name: coreos
+    versions:
+    - version: 2191.5.0
+    - version: 2191.4.1
+    - version: 2135.6.0
+      expirationDate: "2019-04-13T08:00:00Z"
+```
+
+And let's the Shoot has the following spec:
+
+```yaml
+spec:
+  cloud:
+    aws:
+      workers:
+      - name: name
+        autoScalerMax: 1
+        autoScalerMin: 1
+        machineImage:
+          name: coreos
+          version: 2135.6.0
+        machineType: m5.large
+        maxSurge: 1
+        maxUnavailable: 0
+        volumeSize: 20Gi
+        volumeType: gp2
+  maintenance:
+    timeWindow:
+      begin: 220000+0100
+      end: 230000+0100
+    autoUpdate:
+      machineImageVersion: false
+```
+
+The Shoot refers a machine image version that has an `expirationDate`. In the maintenance window on 2019-04-12 the machine image version will stay the same as it is still not expired. But in the maintenance window on 2019-04-14 the machine image version of the Shoot will be updated to `2191.5.0` (no matter the value of `.spec.maintenance.autoUpdate.machineImageVersion`) as version `2135.6.0` will be expired.
