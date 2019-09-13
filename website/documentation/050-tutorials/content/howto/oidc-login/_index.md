@@ -37,7 +37,7 @@ There are currently no default IdP parameters.
 
 ## Configure an Identity Provider
 
-Create a tenant in an OpenID-Connect compatible Identity Provider. For sake of simplicity, we shall use [Auth0](auth0.com), which has a free plan for experimentations.
+Create a tenant in an OpenID-Connect compatible Identity Provider. For sake of simplicity, we shall use [Auth0](https://auth0.com/), which has a free plan for experimentations.
 
 In your tenant, setup a native client/application that will use the authentication:
 ![application](./application.png)
