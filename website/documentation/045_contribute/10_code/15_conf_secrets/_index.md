@@ -1,5 +1,5 @@
 ---
-title: Configuration and Secrets
-remote: https://github.com/gardener/gardener/blob/master/docs/concepts/configuration.md
+title: Configuration and Usage
+remote: https://github.com/gardener/gardener/blob/master/docs/usage/configuration.md
 type: contribute
 ---
