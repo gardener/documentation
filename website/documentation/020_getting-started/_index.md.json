@@ -1,5 +1,84 @@
 [
   {
+    "sha": "05b472452a5032f1479f6792839389c4b845ca4e",
+    "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOjA1YjQ3MjQ1MmE1MDMyZjE0NzlmNjc5MjgzOTM4OWM0Yjg0NWNhNGU=",
+    "commit": {
+      "author": {
+        "name": "Stephan Spindler",
+        "email": "stephan.spindler@device-insight.com",
+        "date": "2019-10-01T07:07:30Z"
+      },
+      "committer": {
+        "name": "Stephan Spindler",
+        "email": "stephan.spindler@device-insight.com",
+        "date": "2019-10-01T07:07:30Z"
+      },
+      "message": "Fix small grammatical errors in readme",
+      "tree": {
+        "sha": "4387a8ff5bad4bf0ed76b3932cf8462cd70c3ba3",
+        "url": "https://api.github.com/repos/gardener/gardener/git/trees/4387a8ff5bad4bf0ed76b3932cf8462cd70c3ba3"
+      },
+      "url": "https://api.github.com/repos/gardener/gardener/git/commits/05b472452a5032f1479f6792839389c4b845ca4e",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/gardener/commits/05b472452a5032f1479f6792839389c4b845ca4e",
+    "html_url": "https://github.com/gardener/gardener/commit/05b472452a5032f1479f6792839389c4b845ca4e",
+    "comments_url": "https://api.github.com/repos/gardener/gardener/commits/05b472452a5032f1479f6792839389c4b845ca4e/comments",
+    "author": {
+      "login": "s-spindler",
+      "id": 25225092,
+      "node_id": "MDQ6VXNlcjI1MjI1MDky",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/25225092?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/s-spindler",
+      "html_url": "https://github.com/s-spindler",
+      "followers_url": "https://api.github.com/users/s-spindler/followers",
+      "following_url": "https://api.github.com/users/s-spindler/following{/other_user}",
+      "gists_url": "https://api.github.com/users/s-spindler/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/s-spindler/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/s-spindler/subscriptions",
+      "organizations_url": "https://api.github.com/users/s-spindler/orgs",
+      "repos_url": "https://api.github.com/users/s-spindler/repos",
+      "events_url": "https://api.github.com/users/s-spindler/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/s-spindler/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "s-spindler",
+      "id": 25225092,
+      "node_id": "MDQ6VXNlcjI1MjI1MDky",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/25225092?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/s-spindler",
+      "html_url": "https://github.com/s-spindler",
+      "followers_url": "https://api.github.com/users/s-spindler/followers",
+      "following_url": "https://api.github.com/users/s-spindler/following{/other_user}",
+      "gists_url": "https://api.github.com/users/s-spindler/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/s-spindler/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/s-spindler/subscriptions",
+      "organizations_url": "https://api.github.com/users/s-spindler/orgs",
+      "repos_url": "https://api.github.com/users/s-spindler/repos",
+      "events_url": "https://api.github.com/users/s-spindler/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/s-spindler/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "0dd3c24436024df1469aea3bf5745431bf780875",
+        "url": "https://api.github.com/repos/gardener/gardener/commits/0dd3c24436024df1469aea3bf5745431bf780875",
+        "html_url": "https://github.com/gardener/gardener/commit/0dd3c24436024df1469aea3bf5745431bf780875"
+      }
+    ]
+  },
+  {
     "sha": "a27fced551033ba50f8641cbb07b74e4fab52277",
     "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOmEyN2ZjZWQ1NTEwMzNiYTUwZjg2NDFjYmIwN2I3NGU0ZmFiNTIyNzc=",
     "commit": {
