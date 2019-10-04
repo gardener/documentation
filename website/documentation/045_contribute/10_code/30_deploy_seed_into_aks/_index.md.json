@@ -1,5 +1,163 @@
 [
   {
+    "sha": "32b478eb0aea426fa650bb626ec5a93235c2d930",
+    "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOjMyYjQ3OGViMGFlYTQyNmZhNjUwYmI2MjZlYzVhOTMyMzVjMmQ5MzA=",
+    "commit": {
+      "author": {
+        "name": "Rafael Franzke",
+        "email": "rafael.franzke@sap.com",
+        "date": "2019-09-20T15:55:07Z"
+      },
+      "committer": {
+        "name": "Tim Usner",
+        "email": "tim.usner@sap.com",
+        "date": "2019-10-02T14:33:49Z"
+      },
+      "message": "Remove `BackupInfrastructure` resource and `CloudBotanist` interface\n\nRemove also `HybridBotanist`",
+      "tree": {
+        "sha": "fb5e0687bb5362298d0d7903c77399a2e8a370d6",
+        "url": "https://api.github.com/repos/gardener/gardener/git/trees/fb5e0687bb5362298d0d7903c77399a2e8a370d6"
+      },
+      "url": "https://api.github.com/repos/gardener/gardener/git/commits/32b478eb0aea426fa650bb626ec5a93235c2d930",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/gardener/commits/32b478eb0aea426fa650bb626ec5a93235c2d930",
+    "html_url": "https://github.com/gardener/gardener/commit/32b478eb0aea426fa650bb626ec5a93235c2d930",
+    "comments_url": "https://api.github.com/repos/gardener/gardener/commits/32b478eb0aea426fa650bb626ec5a93235c2d930/comments",
+    "author": {
+      "login": "rfranzke",
+      "id": 19169361,
+      "node_id": "MDQ6VXNlcjE5MTY5MzYx",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/19169361?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rfranzke",
+      "html_url": "https://github.com/rfranzke",
+      "followers_url": "https://api.github.com/users/rfranzke/followers",
+      "following_url": "https://api.github.com/users/rfranzke/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rfranzke/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/rfranzke/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rfranzke/subscriptions",
+      "organizations_url": "https://api.github.com/users/rfranzke/orgs",
+      "repos_url": "https://api.github.com/users/rfranzke/repos",
+      "events_url": "https://api.github.com/users/rfranzke/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/rfranzke/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "timuthy",
+      "id": 40451181,
+      "node_id": "MDQ6VXNlcjQwNDUxMTgx",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/40451181?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/timuthy",
+      "html_url": "https://github.com/timuthy",
+      "followers_url": "https://api.github.com/users/timuthy/followers",
+      "following_url": "https://api.github.com/users/timuthy/following{/other_user}",
+      "gists_url": "https://api.github.com/users/timuthy/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/timuthy/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/timuthy/subscriptions",
+      "organizations_url": "https://api.github.com/users/timuthy/orgs",
+      "repos_url": "https://api.github.com/users/timuthy/repos",
+      "events_url": "https://api.github.com/users/timuthy/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/timuthy/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "0f1f1cb20e5510aa7df9b2944556b9ff0c10d7a0",
+        "url": "https://api.github.com/repos/gardener/gardener/commits/0f1f1cb20e5510aa7df9b2944556b9ff0c10d7a0",
+        "html_url": "https://github.com/gardener/gardener/commit/0f1f1cb20e5510aa7df9b2944556b9ff0c10d7a0"
+      }
+    ]
+  },
+  {
+    "sha": "ce4f725b63a513acd3379bb99cc0c16d98fb1f7d",
+    "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOmNlNGY3MjViNjNhNTEzYWNkMzM3OWJiOTljYzBjMTZkOThmYjFmN2Q=",
+    "commit": {
+      "author": {
+        "name": "Rafael Franzke",
+        "email": "rafael.franzke@sap.com",
+        "date": "2019-09-20T15:32:39Z"
+      },
+      "committer": {
+        "name": "Tim Usner",
+        "email": "tim.usner@sap.com",
+        "date": "2019-10-02T10:54:24Z"
+      },
+      "message": "Remove usage of kube2iam and kube-lego\n\nkube2iam resources will be explicitly deleted so that we can fully drop\nit in the next release.",
+      "tree": {
+        "sha": "6366e6b99b4c5692e56a13db7065cffbbc55cc8f",
+        "url": "https://api.github.com/repos/gardener/gardener/git/trees/6366e6b99b4c5692e56a13db7065cffbbc55cc8f"
+      },
+      "url": "https://api.github.com/repos/gardener/gardener/git/commits/ce4f725b63a513acd3379bb99cc0c16d98fb1f7d",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/gardener/commits/ce4f725b63a513acd3379bb99cc0c16d98fb1f7d",
+    "html_url": "https://github.com/gardener/gardener/commit/ce4f725b63a513acd3379bb99cc0c16d98fb1f7d",
+    "comments_url": "https://api.github.com/repos/gardener/gardener/commits/ce4f725b63a513acd3379bb99cc0c16d98fb1f7d/comments",
+    "author": {
+      "login": "rfranzke",
+      "id": 19169361,
+      "node_id": "MDQ6VXNlcjE5MTY5MzYx",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/19169361?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rfranzke",
+      "html_url": "https://github.com/rfranzke",
+      "followers_url": "https://api.github.com/users/rfranzke/followers",
+      "following_url": "https://api.github.com/users/rfranzke/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rfranzke/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/rfranzke/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rfranzke/subscriptions",
+      "organizations_url": "https://api.github.com/users/rfranzke/orgs",
+      "repos_url": "https://api.github.com/users/rfranzke/repos",
+      "events_url": "https://api.github.com/users/rfranzke/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/rfranzke/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "timuthy",
+      "id": 40451181,
+      "node_id": "MDQ6VXNlcjQwNDUxMTgx",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/40451181?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/timuthy",
+      "html_url": "https://github.com/timuthy",
+      "followers_url": "https://api.github.com/users/timuthy/followers",
+      "following_url": "https://api.github.com/users/timuthy/following{/other_user}",
+      "gists_url": "https://api.github.com/users/timuthy/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/timuthy/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/timuthy/subscriptions",
+      "organizations_url": "https://api.github.com/users/timuthy/orgs",
+      "repos_url": "https://api.github.com/users/timuthy/repos",
+      "events_url": "https://api.github.com/users/timuthy/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/timuthy/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "8dbfed921e62e510896be975916d172939524fa0",
+        "url": "https://api.github.com/repos/gardener/gardener/commits/8dbfed921e62e510896be975916d172939524fa0",
+        "html_url": "https://github.com/gardener/gardener/commit/8dbfed921e62e510896be975916d172939524fa0"
+      }
+    ]
+  },
+  {
     "sha": "a27fced551033ba50f8641cbb07b74e4fab52277",
     "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOmEyN2ZjZWQ1NTEwMzNiYTUwZjg2NDFjYmIwN2I3NGU0ZmFiNTIyNzc=",
     "commit": {
