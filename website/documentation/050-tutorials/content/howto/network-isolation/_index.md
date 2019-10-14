@@ -100,7 +100,8 @@ kubectl apply -f ./network-policy.yaml -n=customer2
 
 after this `curl http://nginx.customer2` shouldn't work anymore if you are a service inside the namespace *customer1* and 
 vice versa
-  
+
+*Note*: This policy, once applied, will also disable all external traffic to these pods. I.e.: Internet, package management tools like apt-get, etc.
 
 ## More
 You can get more information how to configure the **NetworkPolicies** on:
