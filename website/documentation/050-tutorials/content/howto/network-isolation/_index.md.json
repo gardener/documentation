@@ -1,5 +1,163 @@
 [
   {
+    "sha": "0692c91ce0ede75abfc1741b67150dc904f2e50a",
+    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OjA2OTJjOTFjZTBlZGU3NWFiZmMxNzQxYjY3MTUwZGM5MDRmMmU1MGE=",
+    "commit": {
+      "author": {
+        "name": "ialidzhikov",
+        "email": "i.alidjikov@gmail.com",
+        "date": "2019-10-15T10:31:52Z"
+      },
+      "committer": {
+        "name": "ialidzhikov",
+        "email": "i.alidjikov@gmail.com",
+        "date": "2019-10-15T10:31:52Z"
+      },
+      "message": "Fix small rendering issue\n\nSigned-off-by: ialidzhikov <i.alidjikov@gmail.com>",
+      "tree": {
+        "sha": "9080351ecceb11532a5380c02135cf83235b6fe1",
+        "url": "https://api.github.com/repos/gardener/documentation/git/trees/9080351ecceb11532a5380c02135cf83235b6fe1"
+      },
+      "url": "https://api.github.com/repos/gardener/documentation/git/commits/0692c91ce0ede75abfc1741b67150dc904f2e50a",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/documentation/commits/0692c91ce0ede75abfc1741b67150dc904f2e50a",
+    "html_url": "https://github.com/gardener/documentation/commit/0692c91ce0ede75abfc1741b67150dc904f2e50a",
+    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/0692c91ce0ede75abfc1741b67150dc904f2e50a/comments",
+    "author": {
+      "login": "ialidzhikov",
+      "id": 9372594,
+      "node_id": "MDQ6VXNlcjkzNzI1OTQ=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/9372594?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ialidzhikov",
+      "html_url": "https://github.com/ialidzhikov",
+      "followers_url": "https://api.github.com/users/ialidzhikov/followers",
+      "following_url": "https://api.github.com/users/ialidzhikov/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ialidzhikov/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ialidzhikov/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ialidzhikov/subscriptions",
+      "organizations_url": "https://api.github.com/users/ialidzhikov/orgs",
+      "repos_url": "https://api.github.com/users/ialidzhikov/repos",
+      "events_url": "https://api.github.com/users/ialidzhikov/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ialidzhikov/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "ialidzhikov",
+      "id": 9372594,
+      "node_id": "MDQ6VXNlcjkzNzI1OTQ=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/9372594?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ialidzhikov",
+      "html_url": "https://github.com/ialidzhikov",
+      "followers_url": "https://api.github.com/users/ialidzhikov/followers",
+      "following_url": "https://api.github.com/users/ialidzhikov/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ialidzhikov/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ialidzhikov/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ialidzhikov/subscriptions",
+      "organizations_url": "https://api.github.com/users/ialidzhikov/orgs",
+      "repos_url": "https://api.github.com/users/ialidzhikov/repos",
+      "events_url": "https://api.github.com/users/ialidzhikov/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ialidzhikov/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "7cab0b8138eb0cdbde5b8401d565c80b42e6e445",
+        "url": "https://api.github.com/repos/gardener/documentation/commits/7cab0b8138eb0cdbde5b8401d565c80b42e6e445",
+        "html_url": "https://github.com/gardener/documentation/commit/7cab0b8138eb0cdbde5b8401d565c80b42e6e445"
+      }
+    ]
+  },
+  {
+    "sha": "7cab0b8138eb0cdbde5b8401d565c80b42e6e445",
+    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OjdjYWIwYjgxMzhlYjBjZGJkZTViODQwMWQ1NjVjODBiNDJlNmU0NDU=",
+    "commit": {
+      "author": {
+        "name": "Gergely Brautigam",
+        "email": "skarlso777@gmail.com",
+        "date": "2019-10-15T10:26:10Z"
+      },
+      "committer": {
+        "name": "Ismail Alidzhikov",
+        "email": "i.alidjikov@gmail.com",
+        "date": "2019-10-15T10:26:10Z"
+      },
+      "message": "Added note for disabling external traffic (#66)\n\nAdd note for disabling external traffic\r\n\r\nCo-Authored-By: Ismail Alidzhikov <i.alidjikov@gmail.com>",
+      "tree": {
+        "sha": "f5d6b906843eb0e3b7265e13c071d7ff7209053d",
+        "url": "https://api.github.com/repos/gardener/documentation/git/trees/f5d6b906843eb0e3b7265e13c071d7ff7209053d"
+      },
+      "url": "https://api.github.com/repos/gardener/documentation/git/commits/7cab0b8138eb0cdbde5b8401d565c80b42e6e445",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/documentation/commits/7cab0b8138eb0cdbde5b8401d565c80b42e6e445",
+    "html_url": "https://github.com/gardener/documentation/commit/7cab0b8138eb0cdbde5b8401d565c80b42e6e445",
+    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/7cab0b8138eb0cdbde5b8401d565c80b42e6e445/comments",
+    "author": {
+      "login": "Skarlso",
+      "id": 182850,
+      "node_id": "MDQ6VXNlcjE4Mjg1MA==",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/182850?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Skarlso",
+      "html_url": "https://github.com/Skarlso",
+      "followers_url": "https://api.github.com/users/Skarlso/followers",
+      "following_url": "https://api.github.com/users/Skarlso/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Skarlso/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Skarlso/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Skarlso/subscriptions",
+      "organizations_url": "https://api.github.com/users/Skarlso/orgs",
+      "repos_url": "https://api.github.com/users/Skarlso/repos",
+      "events_url": "https://api.github.com/users/Skarlso/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Skarlso/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "ialidzhikov",
+      "id": 9372594,
+      "node_id": "MDQ6VXNlcjkzNzI1OTQ=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/9372594?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ialidzhikov",
+      "html_url": "https://github.com/ialidzhikov",
+      "followers_url": "https://api.github.com/users/ialidzhikov/followers",
+      "following_url": "https://api.github.com/users/ialidzhikov/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ialidzhikov/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ialidzhikov/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ialidzhikov/subscriptions",
+      "organizations_url": "https://api.github.com/users/ialidzhikov/orgs",
+      "repos_url": "https://api.github.com/users/ialidzhikov/repos",
+      "events_url": "https://api.github.com/users/ialidzhikov/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ialidzhikov/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "b217f822d05f61741c2319b8877929e90d9c2ea5",
+        "url": "https://api.github.com/repos/gardener/documentation/commits/b217f822d05f61741c2319b8877929e90d9c2ea5",
+        "html_url": "https://github.com/gardener/documentation/commit/b217f822d05f61741c2319b8877929e90d9c2ea5"
+      }
+    ]
+  },
+  {
     "sha": "0e728818e04f2059622166041f70e6d1a9c8b7e7",
     "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OjBlNzI4ODE4ZTA0ZjIwNTk2MjIxNjYwNDFmNzBlNmQxYTljOGI3ZTc=",
     "commit": {
