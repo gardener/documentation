@@ -1,5 +1,84 @@
 [
   {
+    "sha": "2a760758b1b1fb17303d653537098b62df88d66c",
+    "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOjJhNzYwNzU4YjFiMWZiMTczMDNkNjUzNTM3MDk4YjYyZGY4OGQ2NmM=",
+    "commit": {
+      "author": {
+        "name": "Rafael Franzke",
+        "email": "rafael.franzke@sap.com",
+        "date": "2019-10-17T18:27:48Z"
+      },
+      "committer": {
+        "name": "Rafael Franzke",
+        "email": "rafael.franzke@sap.com",
+        "date": "2019-10-17T18:27:48Z"
+      },
+      "message": "Remove documentation for supported Kubernetes versions per cloud\nprovider\n\nThe documentation was moved with\nhttps://github.com/gardener/gardener-extensions/commit/537e901e9a21f8e6b3746dd77b8583c30d877506\nto the respective provider extension repositories.",
+      "tree": {
+        "sha": "30189e4b70d96c69f320b749596688dc56e2cbf9",
+        "url": "https://api.github.com/repos/gardener/gardener/git/trees/30189e4b70d96c69f320b749596688dc56e2cbf9"
+      },
+      "url": "https://api.github.com/repos/gardener/gardener/git/commits/2a760758b1b1fb17303d653537098b62df88d66c",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/gardener/commits/2a760758b1b1fb17303d653537098b62df88d66c",
+    "html_url": "https://github.com/gardener/gardener/commit/2a760758b1b1fb17303d653537098b62df88d66c",
+    "comments_url": "https://api.github.com/repos/gardener/gardener/commits/2a760758b1b1fb17303d653537098b62df88d66c/comments",
+    "author": {
+      "login": "rfranzke",
+      "id": 19169361,
+      "node_id": "MDQ6VXNlcjE5MTY5MzYx",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/19169361?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rfranzke",
+      "html_url": "https://github.com/rfranzke",
+      "followers_url": "https://api.github.com/users/rfranzke/followers",
+      "following_url": "https://api.github.com/users/rfranzke/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rfranzke/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/rfranzke/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rfranzke/subscriptions",
+      "organizations_url": "https://api.github.com/users/rfranzke/orgs",
+      "repos_url": "https://api.github.com/users/rfranzke/repos",
+      "events_url": "https://api.github.com/users/rfranzke/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/rfranzke/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "rfranzke",
+      "id": 19169361,
+      "node_id": "MDQ6VXNlcjE5MTY5MzYx",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/19169361?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rfranzke",
+      "html_url": "https://github.com/rfranzke",
+      "followers_url": "https://api.github.com/users/rfranzke/followers",
+      "following_url": "https://api.github.com/users/rfranzke/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rfranzke/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/rfranzke/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rfranzke/subscriptions",
+      "organizations_url": "https://api.github.com/users/rfranzke/orgs",
+      "repos_url": "https://api.github.com/users/rfranzke/repos",
+      "events_url": "https://api.github.com/users/rfranzke/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/rfranzke/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "924fb2692c04b5321774e0168ceed510954800aa",
+        "url": "https://api.github.com/repos/gardener/gardener/commits/924fb2692c04b5321774e0168ceed510954800aa",
+        "html_url": "https://github.com/gardener/gardener/commit/924fb2692c04b5321774e0168ceed510954800aa"
+      }
+    ]
+  },
+  {
     "sha": "9bbdfa5bb88474dae4e76d9d057bf4cd24c0cbe8",
     "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOjliYmRmYTViYjg4NDc0ZGFlNGU3NmQ5ZDA1N2JmNGNkMjRjMGNiZTg=",
     "commit": {
