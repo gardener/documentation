@@ -416,8 +416,8 @@
       "url": "https://api.github.com/repos/gardener/dashboard/git/commits/35624c58e9b40b9280e4b98742a3b56373ab8db9",
       "comment_count": 0,
       "verification": {
-        "verified": true,
-        "reason": "valid",
+        "verified": false,
+        "reason": "expired_key",
         "signature": "-----BEGIN PGP SIGNATURE-----\n\niQEzBAABCAAdFiEE9XbAcPOPBG2F778kxxtnfy8Lz0UFAlxlkXIACgkQxxtnfy8L\nz0UYDggAkJ/dIDBsqWsByxCAEIdEyjGTwnl5kGS4spNY64BVDbbBEotGxFc86dsS\nikn4iUXibqJSdFi7F3LMX8qRYwxJ4q3qq3q3EJlPvzjlpWmrHT33IpWNWjcAnp7O\nCY4cuHzJuax17xYpBb0WkPEoHWpRDpylCRewJcmCtf+UZuAtR5w7c5Qy0pDH9WRP\nDH5Q726TFLmP7f65rGe4a/KyPofn1UqHBO5t5SKW/AH8+Zn6iI9/k1rOKpkCrnkQ\nVScfmCo+jhMNTVOrz+8J8307ZAQxFToGtMp2DM1PHE1RnfasvoXUeKuaIalCZiVU\neCSvLVlvYcpiZcL2KFqw2WUREs/WLA==\n=JE5o\n-----END PGP SIGNATURE-----",
         "payload": "tree 9c9d73d6405a6d8f2b1812e7c6657a0e491cb03e\nparent bc4682bf27508c7e1cc3ea37d9d24369c6d1f17a\nauthor Lukas Gross <lukas.gross@sap.com> 1550160242 +0100\ncommitter Lukas Gross <lukas.gross@sap.com> 1550160242 +0100\n\nsome more copyright year fixes\n"
       }
