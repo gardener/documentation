@@ -1,5 +1,84 @@
 [
   {
+    "sha": "b10bb0b250a973526b4265035e7cc454b2f0c300",
+    "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOmIxMGJiMGIyNTBhOTczNTI2YjQyNjUwMzVlN2NjNDU0YjJmMGMzMDA=",
+    "commit": {
+      "author": {
+        "name": "Plamen Kokanov",
+        "email": "plamen.kokanov@sap.com",
+        "date": "2019-10-10T19:13:46Z"
+      },
+      "committer": {
+        "name": "Plamen Kokanov",
+        "email": "plamen.kokanov@sap.com",
+        "date": "2019-10-31T07:27:13Z"
+      },
+      "message": "Adds functionality to cleanup last errors on success",
+      "tree": {
+        "sha": "45402dac02f19ddfd4726bc6c1f5488318a404b8",
+        "url": "https://api.github.com/repos/gardener/gardener/git/trees/45402dac02f19ddfd4726bc6c1f5488318a404b8"
+      },
+      "url": "https://api.github.com/repos/gardener/gardener/git/commits/b10bb0b250a973526b4265035e7cc454b2f0c300",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/gardener/commits/b10bb0b250a973526b4265035e7cc454b2f0c300",
+    "html_url": "https://github.com/gardener/gardener/commit/b10bb0b250a973526b4265035e7cc454b2f0c300",
+    "comments_url": "https://api.github.com/repos/gardener/gardener/commits/b10bb0b250a973526b4265035e7cc454b2f0c300/comments",
+    "author": {
+      "login": "plkokanov",
+      "id": 35485709,
+      "node_id": "MDQ6VXNlcjM1NDg1NzA5",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/35485709?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/plkokanov",
+      "html_url": "https://github.com/plkokanov",
+      "followers_url": "https://api.github.com/users/plkokanov/followers",
+      "following_url": "https://api.github.com/users/plkokanov/following{/other_user}",
+      "gists_url": "https://api.github.com/users/plkokanov/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/plkokanov/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/plkokanov/subscriptions",
+      "organizations_url": "https://api.github.com/users/plkokanov/orgs",
+      "repos_url": "https://api.github.com/users/plkokanov/repos",
+      "events_url": "https://api.github.com/users/plkokanov/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/plkokanov/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "plkokanov",
+      "id": 35485709,
+      "node_id": "MDQ6VXNlcjM1NDg1NzA5",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/35485709?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/plkokanov",
+      "html_url": "https://github.com/plkokanov",
+      "followers_url": "https://api.github.com/users/plkokanov/followers",
+      "following_url": "https://api.github.com/users/plkokanov/following{/other_user}",
+      "gists_url": "https://api.github.com/users/plkokanov/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/plkokanov/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/plkokanov/subscriptions",
+      "organizations_url": "https://api.github.com/users/plkokanov/orgs",
+      "repos_url": "https://api.github.com/users/plkokanov/repos",
+      "events_url": "https://api.github.com/users/plkokanov/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/plkokanov/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "d8608d179609428ccd44bb062b80c3465a135340",
+        "url": "https://api.github.com/repos/gardener/gardener/commits/d8608d179609428ccd44bb062b80c3465a135340",
+        "html_url": "https://github.com/gardener/gardener/commit/d8608d179609428ccd44bb062b80c3465a135340"
+      }
+    ]
+  },
+  {
     "sha": "07c17929b1127489274eeb6a1b1ce98c0fb8e54a",
     "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOjA3YzE3OTI5YjExMjc0ODkyNzRlZWI2YTFiMWNlOThjMGZiOGU1NGE=",
     "commit": {
