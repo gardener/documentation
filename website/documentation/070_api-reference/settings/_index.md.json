@@ -19,7 +19,7 @@
         "url": "https://api.github.com/repos/gardener/gardener/git/trees/45402dac02f19ddfd4726bc6c1f5488318a404b8"
       },
       "url": "https://api.github.com/repos/gardener/gardener/git/commits/b10bb0b250a973526b4265035e7cc454b2f0c300",
-      "comment_count": 0,
+      "comment_count": 2,
       "verification": {
         "verified": false,
         "reason": "unsigned",
