@@ -1,5 +1,84 @@
 [
   {
+    "sha": "e999385bab46cf84a2e23e93a0a3201c90c920d6",
+    "node_id": "MDY6Q29tbWl0MTE4NjE1OTYzOmU5OTkzODViYWI0NmNmODRhMmUyM2U5M2EwYTMyMDFjOTBjOTIwZDY=",
+    "commit": {
+      "author": {
+        "name": "Holger Koser",
+        "email": "holgerkoser@users.noreply.github.com",
+        "date": "2019-11-06T08:16:02Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2019-11-06T08:16:02Z"
+      },
+      "message": "Migrate from `npm` to `yarn` (#487)\n\n* Migrate from npm to yarn\r\n* Update readme files",
+      "tree": {
+        "sha": "0a804b59b6270f305502fbf7ada73384de78a35b",
+        "url": "https://api.github.com/repos/gardener/dashboard/git/trees/0a804b59b6270f305502fbf7ada73384de78a35b"
+      },
+      "url": "https://api.github.com/repos/gardener/dashboard/git/commits/e999385bab46cf84a2e23e93a0a3201c90c920d6",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJdwoFCCRBK7hj4Ov3rIwAAdHIIAEC8dw4PjCC/Lnc+MHcdMoHt\nBl8VwvRhoRZ6JDrOnXGYoQrDbG+4gZfsNPj7dRfxwifErw/NlmayMPa6hNlK3eZf\n2wFmRBhw+DMmHboi71wMJodlFI8Fe7EQ6huPBVqKwp7bH7C5pmcN5Jeg6yMNommX\nLnJp9MPT1qghe3tImMUtA6GjmaSzW7dKDquLA16htUn7r39b8R8rBAC2fw8VGjVB\ni0BNer9N9c9l/3UmTRpWuGAn5zu4KTazCeJ0wC3yE7TviCSunnOM3+9VzR2rfzWJ\nwMvh8cdUXW/UrA5YiS5zFQG4y50kDk24x4pYYbLO6rXvBim8IDUOYAmxTObfvtA=\n=Teo2\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 0a804b59b6270f305502fbf7ada73384de78a35b\nparent ba741a2660e60846252d7658199f9ef8ce7c6b78\nauthor Holger Koser <holgerkoser@users.noreply.github.com> 1573028162 +0100\ncommitter GitHub <noreply@github.com> 1573028162 +0100\n\nMigrate from `npm` to `yarn` (#487)\n\n* Migrate from npm to yarn\r\n* Update readme files\r\n"
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/dashboard/commits/e999385bab46cf84a2e23e93a0a3201c90c920d6",
+    "html_url": "https://github.com/gardener/dashboard/commit/e999385bab46cf84a2e23e93a0a3201c90c920d6",
+    "comments_url": "https://api.github.com/repos/gardener/dashboard/commits/e999385bab46cf84a2e23e93a0a3201c90c920d6/comments",
+    "author": {
+      "login": "holgerkoser",
+      "id": 1574023,
+      "node_id": "MDQ6VXNlcjE1NzQwMjM=",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/1574023?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/holgerkoser",
+      "html_url": "https://github.com/holgerkoser",
+      "followers_url": "https://api.github.com/users/holgerkoser/followers",
+      "following_url": "https://api.github.com/users/holgerkoser/following{/other_user}",
+      "gists_url": "https://api.github.com/users/holgerkoser/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/holgerkoser/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/holgerkoser/subscriptions",
+      "organizations_url": "https://api.github.com/users/holgerkoser/orgs",
+      "repos_url": "https://api.github.com/users/holgerkoser/repos",
+      "events_url": "https://api.github.com/users/holgerkoser/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/holgerkoser/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "ba741a2660e60846252d7658199f9ef8ce7c6b78",
+        "url": "https://api.github.com/repos/gardener/dashboard/commits/ba741a2660e60846252d7658199f9ef8ce7c6b78",
+        "html_url": "https://github.com/gardener/dashboard/commit/ba741a2660e60846252d7658199f9ef8ce7c6b78"
+      }
+    ]
+  },
+  {
     "sha": "c0d2286c00b9db7ea2edc5dee28d0be41b68abb6",
     "node_id": "MDY6Q29tbWl0MTE4NjE1OTYzOmMwZDIyODZjMDBiOWRiN2VhMmVkYzVkZWUyOGQwYmU0MWI2OGFiYjY=",
     "commit": {
