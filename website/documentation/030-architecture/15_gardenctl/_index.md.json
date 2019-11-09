@@ -1,5 +1,84 @@
 [
   {
+    "sha": "fe75aa02dbaf763f9e1d7528e5f3e10a20844588",
+    "node_id": "MDY6Q29tbWl0MTE4MDE3MzQ5OmZlNzVhYTAyZGJhZjc2M2Y5ZTFkNzUyOGU1ZjNlMTBhMjA4NDQ1ODg=",
+    "commit": {
+      "author": {
+        "name": "Sebastian Stauch",
+        "email": "30324854+docktofuture@users.noreply.github.com",
+        "date": "2019-11-08T13:48:38Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2019-11-08T13:48:38Z"
+      },
+      "message": "Add version badge",
+      "tree": {
+        "sha": "bc76ca536875c3b07b64a1ea53558bf14e11bd76",
+        "url": "https://api.github.com/repos/gardener/gardenctl/git/trees/bc76ca536875c3b07b64a1ea53558bf14e11bd76"
+      },
+      "url": "https://api.github.com/repos/gardener/gardenctl/git/commits/fe75aa02dbaf763f9e1d7528e5f3e10a20844588",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJdxXI2CRBK7hj4Ov3rIwAAdHIIALE1TdG6e8m5Ps7MYEfXAe/j\nkxSVNoqsZrErQjQyXfTo5J42CIXbl8gRpO3w94EhpjB94xf+Lm7rzxfxyYwCX+lr\nj0KRZuefeGtHB/1wukwkaLYpwSKWzcBIpVVpqYQVrPY3hVC5FZP+qH+EOxsts2ML\nBUnHgxBQe4AQM44P+57SHbVMPW6jcwoCtNwqpPameh1KfJ7C0/U3yu+jFGwpL7y0\n5Q5vZ5S0gRxQLT/PR9dVo7wFPvNE4O2zMTxP0BhEomVTekeDiHddip7UaeGdTnvN\nBA/3PxvOoa/bCBLBz24kO/SBF74f7WgU57oV+lWahe/+2wE8vMQoxioZAyYsdqc=\n=br9R\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree bc76ca536875c3b07b64a1ea53558bf14e11bd76\nparent 0eb3f77ae81c0eedaff559aa9aa815aba59fcd03\nauthor Sebastian Stauch <30324854+DockToFuture@users.noreply.github.com> 1573220918 +0100\ncommitter GitHub <noreply@github.com> 1573220918 +0100\n\nAdd version badge"
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/gardenctl/commits/fe75aa02dbaf763f9e1d7528e5f3e10a20844588",
+    "html_url": "https://github.com/gardener/gardenctl/commit/fe75aa02dbaf763f9e1d7528e5f3e10a20844588",
+    "comments_url": "https://api.github.com/repos/gardener/gardenctl/commits/fe75aa02dbaf763f9e1d7528e5f3e10a20844588/comments",
+    "author": {
+      "login": "DockToFuture",
+      "id": 30324854,
+      "node_id": "MDQ6VXNlcjMwMzI0ODU0",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/30324854?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/DockToFuture",
+      "html_url": "https://github.com/DockToFuture",
+      "followers_url": "https://api.github.com/users/DockToFuture/followers",
+      "following_url": "https://api.github.com/users/DockToFuture/following{/other_user}",
+      "gists_url": "https://api.github.com/users/DockToFuture/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/DockToFuture/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/DockToFuture/subscriptions",
+      "organizations_url": "https://api.github.com/users/DockToFuture/orgs",
+      "repos_url": "https://api.github.com/users/DockToFuture/repos",
+      "events_url": "https://api.github.com/users/DockToFuture/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/DockToFuture/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "0eb3f77ae81c0eedaff559aa9aa815aba59fcd03",
+        "url": "https://api.github.com/repos/gardener/gardenctl/commits/0eb3f77ae81c0eedaff559aa9aa815aba59fcd03",
+        "html_url": "https://github.com/gardener/gardenctl/commit/0eb3f77ae81c0eedaff559aa9aa815aba59fcd03"
+      }
+    ]
+  },
+  {
     "sha": "d96d2fc2a2e2c457017ad2a5eff24a5650a748c3",
     "node_id": "MDY6Q29tbWl0MTE4MDE3MzQ5OmQ5NmQyZmMyYTJlMmM0NTcwMTdhZDJhNWVmZjI0YTU2NTBhNzQ4YzM=",
     "commit": {
