@@ -37,6 +37,6 @@ $ ./hack/delete shoot johndoe-1 johndoe
 
 The receiver of the Shoot alerts can be configured by adding the annotation `garden.sapcloud.io/operatedBy` to the Shoot resource. The value of the annotation has to be a valid mail address.
 
-The alerting for the Shoot clusters is handled by the Prometheus Alertmanager. The Alertmanager will be deployed next to the control plane when the `Shoot` resource is annotated with the `garden.sapcloud.io/operatedBy` annotation and if a [SMTP secret](https://github.com/gardener/gardener/blob/master/example/10-secret-alerting-smtp.yaml) exists.
+The alerting for the Shoot clusters is handled by the Prometheus Alertmanager. The Alertmanager will be deployed next to the control plane when the `Shoot` resource is annotated with the `garden.sapcloud.io/operatedBy` annotation and if a [SMTP secret](https://github.com/gardener/gardener/blob/master/example/10-secret-alerting.yaml) exists.
 
 If the annotation gets removed then the Alertmanager will be also removed during the next reconcilation of the cluster. The opposite is also valid if the annotation is added to an existing cluster.
