@@ -1,5 +1,84 @@
 [
   {
+    "sha": "e665355912576499c3c03d779759754d38ec1e28",
+    "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOmU2NjUzNTU5MTI1NzY0OTljM2MwM2Q3Nzk3NTk3NTRkMzhlYzFlMjg=",
+    "commit": {
+      "author": {
+        "name": "Vladimir Vasilev",
+        "email": "vladimir.vasilev@sap.com",
+        "date": "2019-11-27T12:16:59Z"
+      },
+      "committer": {
+        "name": "Vladimir Vasilev",
+        "email": "vladimir.vasilev@sap.com",
+        "date": "2019-11-27T13:50:08Z"
+      },
+      "message": "change the type of DefaultState struct's field State to *runtime.RawExtension",
+      "tree": {
+        "sha": "92d3516b18025c8dfab170e87d3ede3a773ed97d",
+        "url": "https://api.github.com/repos/gardener/gardener/git/trees/92d3516b18025c8dfab170e87d3ede3a773ed97d"
+      },
+      "url": "https://api.github.com/repos/gardener/gardener/git/commits/e665355912576499c3c03d779759754d38ec1e28",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/gardener/commits/e665355912576499c3c03d779759754d38ec1e28",
+    "html_url": "https://github.com/gardener/gardener/commit/e665355912576499c3c03d779759754d38ec1e28",
+    "comments_url": "https://api.github.com/repos/gardener/gardener/commits/e665355912576499c3c03d779759754d38ec1e28/comments",
+    "author": {
+      "login": "vlvasilev",
+      "id": 38783428,
+      "node_id": "MDQ6VXNlcjM4NzgzNDI4",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/38783428?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/vlvasilev",
+      "html_url": "https://github.com/vlvasilev",
+      "followers_url": "https://api.github.com/users/vlvasilev/followers",
+      "following_url": "https://api.github.com/users/vlvasilev/following{/other_user}",
+      "gists_url": "https://api.github.com/users/vlvasilev/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/vlvasilev/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/vlvasilev/subscriptions",
+      "organizations_url": "https://api.github.com/users/vlvasilev/orgs",
+      "repos_url": "https://api.github.com/users/vlvasilev/repos",
+      "events_url": "https://api.github.com/users/vlvasilev/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/vlvasilev/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "vlvasilev",
+      "id": 38783428,
+      "node_id": "MDQ6VXNlcjM4NzgzNDI4",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/38783428?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/vlvasilev",
+      "html_url": "https://github.com/vlvasilev",
+      "followers_url": "https://api.github.com/users/vlvasilev/followers",
+      "following_url": "https://api.github.com/users/vlvasilev/following{/other_user}",
+      "gists_url": "https://api.github.com/users/vlvasilev/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/vlvasilev/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/vlvasilev/subscriptions",
+      "organizations_url": "https://api.github.com/users/vlvasilev/orgs",
+      "repos_url": "https://api.github.com/users/vlvasilev/repos",
+      "events_url": "https://api.github.com/users/vlvasilev/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/vlvasilev/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "7d1c63a764aac467b9ee57a7501881a7017f1bf2",
+        "url": "https://api.github.com/repos/gardener/gardener/commits/7d1c63a764aac467b9ee57a7501881a7017f1bf2",
+        "html_url": "https://github.com/gardener/gardener/commit/7d1c63a764aac467b9ee57a7501881a7017f1bf2"
+      }
+    ]
+  },
+  {
     "sha": "b10bb0b250a973526b4265035e7cc454b2f0c300",
     "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOmIxMGJiMGIyNTBhOTczNTI2YjQyNjUwMzVlN2NjNDU0YjJmMGMzMDA=",
     "commit": {
