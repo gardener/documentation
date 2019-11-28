@@ -1,5 +1,84 @@
 [
   {
+    "sha": "5358d98b0ec19e2a76563f5b9f94438e9e32298b",
+    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OjUzNThkOThiMGVjMTllMmE3NjU2M2Y1YjlmOTQ0MzhlOWUzMjI5OGI=",
+    "commit": {
+      "author": {
+        "name": "Jannick Fahlbusch",
+        "email": "jannick.stephan.fahlbusch@sap.com",
+        "date": "2019-11-28T20:58:47Z"
+      },
+      "committer": {
+        "name": "Jannick Fahlbusch",
+        "email": "jannick.stephan.fahlbusch@sap.com",
+        "date": "2019-11-28T20:58:47Z"
+      },
+      "message": "Fix link to SMTP auth secret",
+      "tree": {
+        "sha": "95d446a78ab6ace8e5c1f85074365fb9ecd7ae10",
+        "url": "https://api.github.com/repos/gardener/documentation/git/trees/95d446a78ab6ace8e5c1f85074365fb9ecd7ae10"
+      },
+      "url": "https://api.github.com/repos/gardener/documentation/git/commits/5358d98b0ec19e2a76563f5b9f94438e9e32298b",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\niQIzBAABCAAdFiEEjpy3DBHn6qZQHPYvNgldA5aIsCUFAl3gNQcACgkQNgldA5aI\nsCX/GA/+L4XEkj7zqJhPSxjhDwNe2mbKWFcvrrEoX2FBL5EHjoxqZiArzkiqmtP4\nOLXm+mmKejMQjS9DvBaoLgVITb5AsjcWb4QMnJYYzJqEjxDJ5Nz8mG0i9bk0wbVc\nCPvTcrTaioCJeOBZ0G8645cp1MvVQODrxfZqsJgvK8E8YhVBQAE+v5FiBpYcU+Hm\ng7DgJfNtYh2/xkucoFLQ5rnn8/UgEdw0uW7FNJR7CBGST0VFiB8gt/aPgyJqHvRY\nVKtRRCdQJcLatRq8quaO3ax9bo3ghrDV5A+Mjx4pxyC66CjOt3yIQmepDYZk8DDQ\nCMnMQOCYuehbaQ26iyoEIiKCFv662zV96cgOlr3fx/mW6SILowot4P6wdqD2P0ef\nUi3X5LWQpxtVhmokVThqEBBiddu+b316Cokn2GHcRr/+clf2s3DYF3ufyGB8pZRo\ncFvQL6g8gY31dSr+Pfta/fkxzl7AfY5w1jrbtJ1pTHS0/YeXaguNNSllXPL+0kEl\nPNqsko8Geu5qilB6YL3hySGoBlWvR+yjExWLOz7ySPTppVWz96jEjLwNanSxd3xp\notAgd4NPwncz2RDqDu8lFJKHPpDo0tB6Cp8n72Dz2HAhXaEic6cLrPuLCG7M0hnB\nCU8g6yjMyIICJAoB2WKqAqyWIj77ofgPatcrph0Ml2G2Z2wTWTI=\n=a/uE\n-----END PGP SIGNATURE-----",
+        "payload": "tree 95d446a78ab6ace8e5c1f85074365fb9ecd7ae10\nparent 40e9ffd14aa6e8114633d31cace21dd355b520ae\nauthor Jannick Fahlbusch <jannick.stephan.fahlbusch@sap.com> 1574974727 +0100\ncommitter Jannick Fahlbusch <jannick.stephan.fahlbusch@sap.com> 1574974727 +0100\n\nFix link to SMTP auth secret\n"
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/documentation/commits/5358d98b0ec19e2a76563f5b9f94438e9e32298b",
+    "html_url": "https://github.com/gardener/documentation/commit/5358d98b0ec19e2a76563f5b9f94438e9e32298b",
+    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/5358d98b0ec19e2a76563f5b9f94438e9e32298b/comments",
+    "author": {
+      "login": "jannickfahlbusch",
+      "id": 8135397,
+      "node_id": "MDQ6VXNlcjgxMzUzOTc=",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/8135397?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jannickfahlbusch",
+      "html_url": "https://github.com/jannickfahlbusch",
+      "followers_url": "https://api.github.com/users/jannickfahlbusch/followers",
+      "following_url": "https://api.github.com/users/jannickfahlbusch/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jannickfahlbusch/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jannickfahlbusch/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jannickfahlbusch/subscriptions",
+      "organizations_url": "https://api.github.com/users/jannickfahlbusch/orgs",
+      "repos_url": "https://api.github.com/users/jannickfahlbusch/repos",
+      "events_url": "https://api.github.com/users/jannickfahlbusch/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jannickfahlbusch/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "jannickfahlbusch",
+      "id": 8135397,
+      "node_id": "MDQ6VXNlcjgxMzUzOTc=",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/8135397?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jannickfahlbusch",
+      "html_url": "https://github.com/jannickfahlbusch",
+      "followers_url": "https://api.github.com/users/jannickfahlbusch/followers",
+      "following_url": "https://api.github.com/users/jannickfahlbusch/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jannickfahlbusch/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jannickfahlbusch/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jannickfahlbusch/subscriptions",
+      "organizations_url": "https://api.github.com/users/jannickfahlbusch/orgs",
+      "repos_url": "https://api.github.com/users/jannickfahlbusch/repos",
+      "events_url": "https://api.github.com/users/jannickfahlbusch/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jannickfahlbusch/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "40e9ffd14aa6e8114633d31cace21dd355b520ae",
+        "url": "https://api.github.com/repos/gardener/documentation/commits/40e9ffd14aa6e8114633d31cace21dd355b520ae",
+        "html_url": "https://github.com/gardener/documentation/commit/40e9ffd14aa6e8114633d31cace21dd355b520ae"
+      }
+    ]
+  },
+  {
     "sha": "772e8bb3bf3f6ece7e66e8d4f618f1df6fffaed2",
     "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1Ojc3MmU4YmIzYmYzZjZlY2U3ZTY2ZThkNGY2MThmMWRmNmZmZmFlZDI=",
     "commit": {
