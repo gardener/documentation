@@ -18,31 +18,128 @@ endpoint. Furthermore, Gardener takes care about the renewal process for your re
 ## Restrictions
 
 ### Domains
-Certificates can only be received for **Default Domains**. Custom domains for Shoot clusters are not covered by this service.
+Certificates may be received for any subdomain of your shoot's domain (see `.spec.dns.domain` of your shoot resource).
 
 ### Character Restrictions
-Due to the ACME protocol specification, certificates for domains exceeding a limit of 64 characters cannot be issued.
+Due to the ACME protocol specification, at least one domain of the domains you request a certificate for must not exceed a character limit of 64  (CN - Common Name).
 
-## Process
-### 1. Create Ingress Resource (optional)
-In order to request a certificate for a domain managed by Gardener an **Ingress** is required. In case you don't 
-already have one, take the following as an example:
+For example, the following request is invalid:
+
+```yaml
+apiVersion: cert.gardener.cloud/v1alpha1
+kind: Certificate
+metadata:
+  name: cert-invalid
+  namespace: default
+spec:
+  commonName: morethan64characters.ingress.shoot.project.default-domain.gardener.cloud
+```
+
+But it is valid to request a certificate for this domain if you have at least one domain which does not exceed the mentioned limit:
+
+```yaml
+apiVersion: cert.gardener.cloud/v1alpha1
+kind: Certificate
+metadata:
+  name: cert-example
+  namespace: default
+spec:
+  commonName: short.ingress.shoot.project.default-domain.gardener.cloud
+  dnsNames:
+  - morethan64characters.ingress.shoot.project.default-domain.gardener.cloud
+```
+
+## Certificate Resources
+Every X.509 certificate is represented by a Kubernetes custom resource `certificate.cert.gardener.cloud` in your cluster. A `Certificate` resource may be used to initiate a new certificate request as well as to manage its lifecycle. Gardener's certificate service regularly checks the expiration timestamp of Certificates, triggers a renewal process if necessary and replaces the existing X.509 certificate with a new one.
+
+> Your application should be able to reload replaced certificates in a timely manner to avoid service disruptions.
+
+Certificates can either be requested by creating `Certificate` resources in the Kubernetes cluster or by configuring `Ingress` or `Service` (type `LoadBalancer`) resources. If the latter is used, a `Certificate` resource will automatically be created by Gardener's certificate service.
+
+If you're interested in the current progress of your request, you're advised to consult the `Certificate`'s `status` subresource. You'll also find error descriptions in the `status` in case the issuance failed.
+
+Certificate status example:
+
+```yaml
+apiVersion: cert.gardener.cloud/v1alpha1
+kind: Certificate
+...
+status:
+  commonName: short.ingress.shoot.project.default-domain.gardener.cloud
+  expirationDate: "2020-02-27T15:39:10Z"
+  issuerRef:
+    name: garden
+    namespace: shoot--foo--bar
+  lastPendingTimestamp: "2019-11-29T16:38:40Z"
+  observedGeneration: 11
+  state: Ready
+```
+
+
+## Examples
+### Request a certificate via Certificate
+
+```yaml
+apiVersion: cert.gardener.cloud/v1alpha1
+kind: Certificate
+metadata:
+  name: cert-example
+  namespace: default
+spec:
+  commonName: short.ingress.shoot.project.default-domain.gardener.cloud
+  dnsNames:
+  - morethan64characters.ingress.shoot.project.default-domain.gardener.cloud
+  secretRef:
+    name: cert-example
+    namespace: default
+```
+
+> `spec.commonName` (required) specifies for which domain the certificate request will be created. This entry must comply with the [64 character](#Character-Restrictions) limit.
+
+> `spec.dnsName` additional domains the certificate should be valid for. Entries in this list can be longer than 64 characters.
+
+> `spec.secretRef` specifies the secret which contains the certificate/key pair. If the secret is not available yet, it'll be created automatically as soon as the X.509 certificate has been issued.
+
+### Request a wildcard certificate via Certificate
+
+```yaml
+apiVersion: cert.gardener.cloud/v1alpha1
+kind: Certificate
+metadata:
+  name: cert-wildcard
+  namespace: default
+spec:
+  commonName: '*.ingress.shoot.project.default-domain.gardener.cloud'
+  secretRef:
+    name: cert-wildcard
+    namespace: default
+```
+
+> `spec.commonName` (required) specifies for which domain the certificate request will be created. This entry must comply with the [64 character](#Character-Restrictions) limit.
+
+> Please note that verifications for wildcard domain certificates only succeed if the subdomain and wildcard domain are on the same level. For example: A certificate for `*.example.com` works for `foo.example.com` but not for `foo.bar.example.com`.
+
+> `spec.secretRef` specifies the secret which contains the certificate/key pair. If the secret is not available yet, it'll be created automatically as soon as the X.509 certificate has been issued.
+
+### Request a certificate via Ingress
 
 ```yaml
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: vuejs-ingress
+  annotations:
+    cert.gardener.cloud/purpose: managed
 spec:
   tls:
-  # Gardener managed default domain.
   # Must not exceed 64 characters.
   - hosts:
-    - test.ingress.<GARDENER-CLUSTER>.<GARDENER-PROJECT>.shoot.example.com
+    - short.ingress.shoot.project.default-domain.gardener.cloud
+    - morethan64characters.ingress.shoot.project.default-domain.gardener.cloud
     # Certificate and private key reside in this secret.
     secretName: testsecret-tls
   rules:
-  - host: test.ingress.<GARDENER-CLUSTER>.<GARDENER-PROJECT>.shoot.example.com
+  - host: morethan64characters.ingress.shoot.project.default-domain.gardener.cloud
     http:
       paths:
       - backend:
@@ -50,64 +147,94 @@ spec:
           servicePort: 8080
 ```
 
-`spec.tls[].hosts` specifies for which domains a certificate request will be created. Wildcard domains can also be handled but should be used with caution since overlapping domain names are not permitted in the request.
+> `metadata.annotations` must contain `cert.gardener.cloud/purpose: managed` to activate the certificate service on this resource.
 
-`spec.tls[].secretName` specifies the secret which contains the certificate/key pair to be used by this Ingress. If the secret is not available yet, it'll be created automatically as soon as the certificate has been issued.
+> `spec.tls[].hosts` specifies for which domains the certificate request will be created. The first entry is always taken to fill the `Common Name` field and must therefore comply with the [64 character](#Character-Restrictions) limit.
 
-Please note, Ingress resources aren't required to be properly functional in this context. They can also be used to 
-solely request certificates, which in turn can be used for further scenarios.
+> `spec.tls[].secretName` specifies the secret which contains the certificate/key pair to be used by this Ingress. If the secret is not available yet, it'll be created automatically as soon as the certificate has been issued. Once configured, you're not advised to change the name while the Ingress is still managed by the certificate service.
 
-### 2. Label Ingress Resource
-The label `garden.sapcloud.io/purpose: managed-cert` instructs Gardener to handle certificate issuance for the domains 
-found in labeled Ingress.
-
-> Domains not managed by Gardener are ignored.
+### Request a wildcard certificate via Ingress
 
 ```yaml
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: tls-example-ingress
-  labels:
-    # Let Gardener manage certificates for this Ingress.
-    garden.sapcloud.io/purpose: managed-cert
-...
+  name: vuejs-ingress
+  annotations:
+    cert.gardener.cloud/purpose: managed
+spec:
+  tls:
+  # Must not exceed 64 characters.
+  - hosts:
+    - "*.ingress.shoot.project.default-domain.gardener.cloud"
+    # Certificate and private key reside in this secret.
+    secretName: testsecret-tls
+  rules:
+  - host: morethan64characters.ingress.shoot.project.default-domain.gardener.cloud
+    http:
+      paths:
+      - backend:
+          serviceName: vuejs-svc
+          servicePort: 8080
 ```
 
-### 3. Request Status
-> Processing a certificate request takes several minutes due to domain ownership verification and ACME communication.
+> `metadata.annotations` must contain `cert.gardener.cloud/purpose: managed` to activate the certificate service on this resource.
 
-Follow the **Events** of the **Ingress** resource to get latest updates about the request progress:
+> `spec.tls[].hosts` please make sure the wildcard domain complies with the [64 character](#Character-Restrictions) limit.
 
-```sh
-$ kubectl -n <Namespace> describe ingress <Ingress Name>
-Events:
-  Type     Reason          Age                  From                         Message
-  ----     ------          ----                 ----                         -------
-  Normal   CREATE          11m                  nginx-ingress-controller     Ingress default/vuejs-ingress
-  Normal   Certificate     4m52s                Cert-Broker-Ingress-Control  Certificate request initiated
-  Normal   CreateOrder     4m49s                Cert-Broker-Ingress-Control  Created new ACME order, attempting validation...
-  Normal   DomainVerified  2m33s                Cert-Broker-Ingress-Control  Domain "test.ingress.<GARDENER-CLUSTER>.<GARDENER-PROJECT>.shoot.example.com" verified with "dns-01" validation
-  Normal   IssueCert       20s                  Cert-Broker-Ingress-Control  Issuing certificate...
-  ...
+> Please note that verifications for wildcard domain certificates only succeed if the subdomain and wildcard domain are on the same level. For example: A certificate for `*.example.com` works for `foo.example.com` but not for `foo.bar.example.com`.
+
+### Request a certificate via Service
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    cert.gardener.cloud/secretname: test-service-secret
+    dns.gardener.cloud/dnsnames: "service.shoot.project.default-domain.gardener.cloud, morethan64characters.svc.shoot.project.default-domain.gardener.cloud"
+    dns.gardener.cloud/ttl: "600"
+  name: test-service
+  namespace: default
+spec:
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 8080
+  type: LoadBalancer
 ```
 
-The following events will appear as soon as the certificate has been issued to your cluster:
+> `metadata.annotations[cert.gardener.cloud/secretname]` specifies the secret which contains the certificate/key pair. If the secret is not available yet, it'll be created automatically as soon as the certificate has been issued.
 
-```sh
-Events:
-  ...
-  Normal   CertObtained    14s                  Cert-Broker-Ingress-Control  Obtained certificate from ACME server
-  Normal   CertIssued      14s                  Cert-Broker-Ingress-Control  Certificate issued successfully
+> `metadata.annotations[dns.gardener.cloud/dnsnames]` specifies for which domains the certificate request will be created. The first entry is always taken to fill the `Common Name` field and must therefore comply with the [64 character](#Character-Restrictions) limit.
+
+### Request a wildcard certificate via Service
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    cert.gardener.cloud/secretname: test-service-secret
+    dns.gardener.cloud/dnsnames: "*.shoot.project.default-domain.gardener.cloud"
+    dns.gardener.cloud/ttl: "600"
+  name: test-service
+  namespace: default
+spec:
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 8080
+  type: LoadBalancer
 ```
 
-## Ingress Changes
-Changes to the `.spec.tls` section of your Ingress will subsequently affect certificate management. Thus, it is 
-possible to request certificates for changed or extended domains any time. Changing the `secretName` in your Ingress 
-is not encouraged, though.
+> `metadata.annotations[cert.gardener.cloud/secretname]` specifies the secret which contains the certificate/key pair. If the secret is not available yet, it'll be created automatically as soon as the certificate has been issued.
 
+> `metadata.annotations[dns.gardener.cloud/dnsnames]` please make sure the wildcard domain complies with the [64 character](#Character-Restrictions) limit.
 
-
+> Please note that verifications for wildcard domain certificates only succeed if the subdomain and wildcard domain are on the same level. For example: A certificate for `*.example.com` works for `foo.example.com` but not for `foo.bar.example.com`.
 
 <style>
 #body-inner blockquote {
