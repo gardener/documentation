@@ -11,19 +11,62 @@ scope: operator
 # Gardener Certificate Management
 
 ## Introduction
-Gardener allows Shoot clusters to request and receive verified X.509 certificates for Ingresses out of the box. 
-Therefore, Gardener needs to be set up with certain configuration parameters.
+Gardener comes with an extension that enables shoot owners to request X.509 compliant certificates for shoot domains.
 
-## Gardener Helm Installation
-If you choose to deploy Gardener via Helm, the following sections help you to set up certificate management for Shoot clusters.
+## Extension Installation
+The `Shoot-Cert-Service` extension can be deployed and configured via Gardener's native resource [ControllerRegistration](https://github.com/gardener/gardener/blob/master/docs/extensions/controllerregistration.md).
+
+### Prerequisites
+To let the `Shoot-Cert-Service` operate properly, you need to have:
+- a [DNS service](https://github.com/gardener/external-dns-management) in your seed
+- contact details and optionally a private key for a pre-existing [Let's Encrypt](https://letsencrypt.org/) account
+
+### ControllerRegistration
+An example of a `ControllerRegistration` for the `Shoot-Cert-Service` can be found here: https://github.com/gardener/gardener-extensions/blob/master/controllers/extension-shoot-cert-service/example/controller-registration.yaml
+
 ### Configuration
-The configuration for certificate management is passed as a value `.controller.certificateManagement` to the Gardener 
-chart. An example of how the configuration looks like can be found in 
-[10-secret-certificate-management-config.yaml](https://github.com/gardener/gardener/blob/master/example/10-secret-certificate-management-config.yaml).
+The `ControllerRegistration` contains a Helm chart which eventually deploy the `Shoot-Cert-Service` to seed clusters. It offers some configuration options, mainly to set up a default issuer for shoot clusters. With a default issuer, pre-existing Let's Encrypt accounts can be used and shared with shoot clusters (See "One Account or Many?" of the [Integration Guide](https://letsencrypt.org/docs/integration-guide/)).
 
-> Since the certificate request is forwarded to Let's Encrypt which asks Gardener to prove the ownership of the Shoot 
-> cluster's domain by **DNS01 challenges**, it is fundamental to add the respective cloud DNS provider account(s) to 
-> this configuration. Usually, these are the same accounts used for Gardener's **Default Domains**.
+> Please keep the Let's Encrypt [Rate Limits](https://letsencrypt.org/docs/rate-limits/) in mind when using this shared account model. Depending on the amount of shoots and domains it is recommended to use an account with increased rate limits.
+
+```yaml
+apiVersion: core.gardener.cloud/v1alpha1
+kind: ControllerRegistration
+...
+  values:
+    certificateConfig:
+        defaultIssuer:
+        acme:
+            email: foo@example.com
+            privateKey: |-
+            -----BEGIN RSA PRIVATE KEY-----
+            ...
+            -----END RSA PRIVATE KEY-----
+            server: https://acme-v02.api.letsencrypt.org/directory
+        name: default-issuer
+```
+
+If the `Shoot-Cert-Service` should be enabled for every shoot cluster in your Gardener managed environment, you need to globally enable it in the `ControllerRegistration`:
+```yaml
+apiVersion: core.gardener.cloud/v1alpha1
+kind: ControllerRegistration
+...
+  resources:
+  - globallyEnabled: true
+    kind: Extension
+    type: shoot-cert-service
+```
+
+Alternatively, you're given the option to only enable the service for certain shoots:
+```yaml
+kind: Shoot
+apiVersion: core.gardener.cloud/v1alpha1
+...
+spec:
+  extensions:
+  - type: shoot-cert-service
+...
+```
 
 <style>
 #body-inner blockquote {
@@ -53,34 +96,3 @@ chart. An example of how the configuration looks like can be found in
     text-align: center;
 }
 </style>
-
-### Feature Gate
-To enable the feature itself, the Feature Gate `CertificateManagement: true` must be passed as a value `.controller.featureGates` to the Gardener chart.
-
-```yaml
-featureGates:
-  CertificateManagement: true
-```
-
-## Local Development
-If you want to enable certificate management for Shoot clusters in your Gardener development environment, please refer 
-to the sections below.
-
-### Configuration
-The configuration for certificate management must be present as a **Secret** in the Garden cluster. An example of how 
-the configuration looks like can be found in [10-secret-certificate-management-config.yaml](https://github.com/gardener/gardener/blob/master/example/10-secret-certificate-management-config.yaml).
-
-
-> Since the certificate request is forwarded to Let's Encrypt which asks Gardener to prove the ownership of the Shoot 
-cluster's domain by **DNS01 challenges**, it is fundamental to add the respective cloud DNS provider account(s) to this 
-configuration. Usually, these are the same accounts used for Gardener's **Default Domains**.
-
-### Feature Gate
-To enable the feature itself, the Feature Gate `CertificateManagement: true` must be enabled in 
- [20-componentconfig-gardener-controller-manager.yaml](https://github.com/gardener/gardener/blob/master/example/20-componentconfig-gardener-controller-manager.yaml)
-
-
-```yaml
-featureGates:
-  CertificateManagement: true
-```
