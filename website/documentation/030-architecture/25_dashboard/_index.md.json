@@ -1,5 +1,84 @@
 [
   {
+    "sha": "041bd8e7eb4ec74ce0a11cb031f3900b5d85c620",
+    "node_id": "MDY6Q29tbWl0MTE4NjE1OTYzOjA0MWJkOGU3ZWI0ZWM3NGNlMGExMWNiMDMxZjM5MDBiNWQ4NWM2MjA=",
+    "commit": {
+      "author": {
+        "name": "Peter Sutter",
+        "email": "peter.sutter@sap.com",
+        "date": "2019-12-03T17:01:57Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2019-12-03T17:01:57Z"
+      },
+      "message": "Add Badges",
+      "tree": {
+        "sha": "c80baa066dac38e227bee705537b782e7ab06fed",
+        "url": "https://api.github.com/repos/gardener/dashboard/git/trees/c80baa066dac38e227bee705537b782e7ab06fed"
+      },
+      "url": "https://api.github.com/repos/gardener/dashboard/git/commits/041bd8e7eb4ec74ce0a11cb031f3900b5d85c620",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJd5pUFCRBK7hj4Ov3rIwAAdHIIAHJmey1zsDgXvTxI7QPuSHsl\n6mpj8AZJOQ9ac8iTJfI8icRtFzzsezu1c2S+FvFuISuh1UWNySM6RuONFTl5tZGI\ncmpbCNKMrKLsI++jGfvsBmZwkX6up90FZew/py6rmJxU7SH+7kI0QyHOyG19q7jl\nmmayqQbaFSUWXefFaxymJHqs80XGinSw+yqGHqrHoJxiQnpXLNyx/T/fht+5yg6U\nUMlkFzDrUKAC+TNNqibo0o9mKyrHiGeyAHSO41I8oeG+v/n82M8laHatdYvNiB3O\noy2wTqJPayrpQvQlQJjgQYbElEe5OlgN0IjpBKHdV46vUGJT3N4NJMfS+uJ2F+U=\n=Cc3d\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree c80baa066dac38e227bee705537b782e7ab06fed\nparent e99dad2e9c4e3e9533f2fcbf30022eed7c918db9\nauthor Peter Sutter <peter.sutter@sap.com> 1575392517 +0100\ncommitter GitHub <noreply@github.com> 1575392517 +0100\n\nAdd Badges"
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/dashboard/commits/041bd8e7eb4ec74ce0a11cb031f3900b5d85c620",
+    "html_url": "https://github.com/gardener/dashboard/commit/041bd8e7eb4ec74ce0a11cb031f3900b5d85c620",
+    "comments_url": "https://api.github.com/repos/gardener/dashboard/commits/041bd8e7eb4ec74ce0a11cb031f3900b5d85c620/comments",
+    "author": {
+      "login": "petersutter",
+      "id": 5526658,
+      "node_id": "MDQ6VXNlcjU1MjY2NTg=",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/5526658?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/petersutter",
+      "html_url": "https://github.com/petersutter",
+      "followers_url": "https://api.github.com/users/petersutter/followers",
+      "following_url": "https://api.github.com/users/petersutter/following{/other_user}",
+      "gists_url": "https://api.github.com/users/petersutter/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/petersutter/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/petersutter/subscriptions",
+      "organizations_url": "https://api.github.com/users/petersutter/orgs",
+      "repos_url": "https://api.github.com/users/petersutter/repos",
+      "events_url": "https://api.github.com/users/petersutter/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/petersutter/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "e99dad2e9c4e3e9533f2fcbf30022eed7c918db9",
+        "url": "https://api.github.com/repos/gardener/dashboard/commits/e99dad2e9c4e3e9533f2fcbf30022eed7c918db9",
+        "html_url": "https://github.com/gardener/dashboard/commit/e99dad2e9c4e3e9533f2fcbf30022eed7c918db9"
+      }
+    ]
+  },
+  {
     "sha": "e999385bab46cf84a2e23e93a0a3201c90c920d6",
     "node_id": "MDY6Q29tbWl0MTE4NjE1OTYzOmU5OTkzODViYWI0NmNmODRhMmUyM2U5M2EwYTMyMDFjOTBjOTIwZDY=",
     "commit": {
