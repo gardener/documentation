@@ -1,5 +1,84 @@
 [
   {
+    "sha": "5dfca6bfa03e4ee8486562d38f10f861350d822f",
+    "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOjVkZmNhNmJmYTAzZTRlZTg0ODY1NjJkMzhmMTBmODYxMzUwZDgyMmY=",
+    "commit": {
+      "author": {
+        "name": "Rafael Franzke",
+        "email": "rafael.franzke@sap.com",
+        "date": "2019-11-11T15:13:24Z"
+      },
+      "committer": {
+        "name": "Rafael Franzke",
+        "email": "rafael.franzke@sap.com",
+        "date": "2019-12-06T14:15:29Z"
+      },
+      "message": "Enable tainting seeds to disable DNS",
+      "tree": {
+        "sha": "9dd4181b93b0a1c1202e16f3b04447d83ce21446",
+        "url": "https://api.github.com/repos/gardener/gardener/git/trees/9dd4181b93b0a1c1202e16f3b04447d83ce21446"
+      },
+      "url": "https://api.github.com/repos/gardener/gardener/git/commits/5dfca6bfa03e4ee8486562d38f10f861350d822f",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/gardener/commits/5dfca6bfa03e4ee8486562d38f10f861350d822f",
+    "html_url": "https://github.com/gardener/gardener/commit/5dfca6bfa03e4ee8486562d38f10f861350d822f",
+    "comments_url": "https://api.github.com/repos/gardener/gardener/commits/5dfca6bfa03e4ee8486562d38f10f861350d822f/comments",
+    "author": {
+      "login": "rfranzke",
+      "id": 19169361,
+      "node_id": "MDQ6VXNlcjE5MTY5MzYx",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/19169361?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rfranzke",
+      "html_url": "https://github.com/rfranzke",
+      "followers_url": "https://api.github.com/users/rfranzke/followers",
+      "following_url": "https://api.github.com/users/rfranzke/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rfranzke/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/rfranzke/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rfranzke/subscriptions",
+      "organizations_url": "https://api.github.com/users/rfranzke/orgs",
+      "repos_url": "https://api.github.com/users/rfranzke/repos",
+      "events_url": "https://api.github.com/users/rfranzke/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/rfranzke/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "rfranzke",
+      "id": 19169361,
+      "node_id": "MDQ6VXNlcjE5MTY5MzYx",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/19169361?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rfranzke",
+      "html_url": "https://github.com/rfranzke",
+      "followers_url": "https://api.github.com/users/rfranzke/followers",
+      "following_url": "https://api.github.com/users/rfranzke/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rfranzke/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/rfranzke/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rfranzke/subscriptions",
+      "organizations_url": "https://api.github.com/users/rfranzke/orgs",
+      "repos_url": "https://api.github.com/users/rfranzke/repos",
+      "events_url": "https://api.github.com/users/rfranzke/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/rfranzke/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "4a68c44a2b9d2b8c248dc87d1f8486a587a82dde",
+        "url": "https://api.github.com/repos/gardener/gardener/commits/4a68c44a2b9d2b8c248dc87d1f8486a587a82dde",
+        "html_url": "https://github.com/gardener/gardener/commit/4a68c44a2b9d2b8c248dc87d1f8486a587a82dde"
+      }
+    ]
+  },
+  {
     "sha": "467de5c0dc59923d44d1876ac98d43f42603fb8a",
     "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOjQ2N2RlNWMwZGM1OTkyM2Q0NGQxODc2YWM5OGQ0M2Y0MjYwM2ZiOGE=",
     "commit": {
