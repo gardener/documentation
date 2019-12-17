@@ -1,5 +1,84 @@
 [
   {
+    "sha": "948979065a54d6297e554f6d7258bf447b820469",
+    "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOjk0ODk3OTA2NWE1NGQ2Mjk3ZTU1NGY2ZDcyNThiZjQ0N2I4MjA0Njk=",
+    "commit": {
+      "author": {
+        "name": "Rafael Franzke",
+        "email": "rafael.franzke@sap.com",
+        "date": "2019-12-17T08:45:46Z"
+      },
+      "committer": {
+        "name": "Ismail Alidzhikov",
+        "email": "i.alidjikov@gmail.com",
+        "date": "2019-12-17T08:45:46Z"
+      },
+      "message": "Let extensions API use v1beta1 version of core API (#1741)",
+      "tree": {
+        "sha": "6074fd6680624e36671a16096dd7c72a003ae016",
+        "url": "https://api.github.com/repos/gardener/gardener/git/trees/6074fd6680624e36671a16096dd7c72a003ae016"
+      },
+      "url": "https://api.github.com/repos/gardener/gardener/git/commits/948979065a54d6297e554f6d7258bf447b820469",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/gardener/commits/948979065a54d6297e554f6d7258bf447b820469",
+    "html_url": "https://github.com/gardener/gardener/commit/948979065a54d6297e554f6d7258bf447b820469",
+    "comments_url": "https://api.github.com/repos/gardener/gardener/commits/948979065a54d6297e554f6d7258bf447b820469/comments",
+    "author": {
+      "login": "rfranzke",
+      "id": 19169361,
+      "node_id": "MDQ6VXNlcjE5MTY5MzYx",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/19169361?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rfranzke",
+      "html_url": "https://github.com/rfranzke",
+      "followers_url": "https://api.github.com/users/rfranzke/followers",
+      "following_url": "https://api.github.com/users/rfranzke/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rfranzke/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/rfranzke/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rfranzke/subscriptions",
+      "organizations_url": "https://api.github.com/users/rfranzke/orgs",
+      "repos_url": "https://api.github.com/users/rfranzke/repos",
+      "events_url": "https://api.github.com/users/rfranzke/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/rfranzke/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "ialidzhikov",
+      "id": 9372594,
+      "node_id": "MDQ6VXNlcjkzNzI1OTQ=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/9372594?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ialidzhikov",
+      "html_url": "https://github.com/ialidzhikov",
+      "followers_url": "https://api.github.com/users/ialidzhikov/followers",
+      "following_url": "https://api.github.com/users/ialidzhikov/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ialidzhikov/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ialidzhikov/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ialidzhikov/subscriptions",
+      "organizations_url": "https://api.github.com/users/ialidzhikov/orgs",
+      "repos_url": "https://api.github.com/users/ialidzhikov/repos",
+      "events_url": "https://api.github.com/users/ialidzhikov/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ialidzhikov/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "4dbb0e6eb31649ae1fc7d001ea6652f262a8d5a6",
+        "url": "https://api.github.com/repos/gardener/gardener/commits/4dbb0e6eb31649ae1fc7d001ea6652f262a8d5a6",
+        "html_url": "https://github.com/gardener/gardener/commit/4dbb0e6eb31649ae1fc7d001ea6652f262a8d5a6"
+      }
+    ]
+  },
+  {
     "sha": "df0fe8d1877db5109e8d239d6091ead5705a48ed",
     "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOmRmMGZlOGQxODc3ZGI1MTA5ZThkMjM5ZDYwOTFlYWQ1NzA1YTQ4ZWQ=",
     "commit": {
