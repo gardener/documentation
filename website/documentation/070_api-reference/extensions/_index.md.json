@@ -1,5 +1,163 @@
 [
   {
+    "sha": "b375d42f6006d863a2f5cf1ec835a46c23174ce1",
+    "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOmIzNzVkNDJmNjAwNmQ4NjNhMmY1Y2YxZWM4MzVhNDZjMjMxNzRjZTE=",
+    "commit": {
+      "author": {
+        "name": "Rafael Franzke",
+        "email": "rafael.franzke@sap.com",
+        "date": "2019-12-20T11:15:23Z"
+      },
+      "committer": {
+        "name": "Rafael Franzke",
+        "email": "rafael.franzke@sap.com",
+        "date": "2020-01-07T08:49:47Z"
+      },
+      "message": "Adapt all components to `core.gardener.cloud/v1beta1` API group",
+      "tree": {
+        "sha": "29776dea612e3d591d2a6e6f2c4eb3457d75b86f",
+        "url": "https://api.github.com/repos/gardener/gardener/git/trees/29776dea612e3d591d2a6e6f2c4eb3457d75b86f"
+      },
+      "url": "https://api.github.com/repos/gardener/gardener/git/commits/b375d42f6006d863a2f5cf1ec835a46c23174ce1",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/gardener/commits/b375d42f6006d863a2f5cf1ec835a46c23174ce1",
+    "html_url": "https://github.com/gardener/gardener/commit/b375d42f6006d863a2f5cf1ec835a46c23174ce1",
+    "comments_url": "https://api.github.com/repos/gardener/gardener/commits/b375d42f6006d863a2f5cf1ec835a46c23174ce1/comments",
+    "author": {
+      "login": "rfranzke",
+      "id": 19169361,
+      "node_id": "MDQ6VXNlcjE5MTY5MzYx",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/19169361?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rfranzke",
+      "html_url": "https://github.com/rfranzke",
+      "followers_url": "https://api.github.com/users/rfranzke/followers",
+      "following_url": "https://api.github.com/users/rfranzke/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rfranzke/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/rfranzke/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rfranzke/subscriptions",
+      "organizations_url": "https://api.github.com/users/rfranzke/orgs",
+      "repos_url": "https://api.github.com/users/rfranzke/repos",
+      "events_url": "https://api.github.com/users/rfranzke/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/rfranzke/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "rfranzke",
+      "id": 19169361,
+      "node_id": "MDQ6VXNlcjE5MTY5MzYx",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/19169361?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rfranzke",
+      "html_url": "https://github.com/rfranzke",
+      "followers_url": "https://api.github.com/users/rfranzke/followers",
+      "following_url": "https://api.github.com/users/rfranzke/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rfranzke/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/rfranzke/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rfranzke/subscriptions",
+      "organizations_url": "https://api.github.com/users/rfranzke/orgs",
+      "repos_url": "https://api.github.com/users/rfranzke/repos",
+      "events_url": "https://api.github.com/users/rfranzke/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/rfranzke/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "0c4b64939f97f8a64405f341e848ea439ff009ae",
+        "url": "https://api.github.com/repos/gardener/gardener/commits/0c4b64939f97f8a64405f341e848ea439ff009ae",
+        "html_url": "https://github.com/gardener/gardener/commit/0c4b64939f97f8a64405f341e848ea439ff009ae"
+      }
+    ]
+  },
+  {
+    "sha": "4fb79950b64f99bd43ae9236ee1c7f2d41601581",
+    "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOjRmYjc5OTUwYjY0Zjk5YmQ0M2FlOTIzNmVlMWM3ZjJkNDE2MDE1ODE=",
+    "commit": {
+      "author": {
+        "name": "ialidzhikov",
+        "email": "i.alidjikov@gmail.com",
+        "date": "2020-01-06T21:30:45Z"
+      },
+      "committer": {
+        "name": "ialidzhikov",
+        "email": "i.alidjikov@gmail.com",
+        "date": "2020-01-06T21:30:45Z"
+      },
+      "message": "./hack/generate-code for the new year\n\nSigned-off-by: ialidzhikov <i.alidjikov@gmail.com>",
+      "tree": {
+        "sha": "75be450e074c8fd6e7c4ef4aaa2ca0c283ec65b6",
+        "url": "https://api.github.com/repos/gardener/gardener/git/trees/75be450e074c8fd6e7c4ef4aaa2ca0c283ec65b6"
+      },
+      "url": "https://api.github.com/repos/gardener/gardener/git/commits/4fb79950b64f99bd43ae9236ee1c7f2d41601581",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/gardener/commits/4fb79950b64f99bd43ae9236ee1c7f2d41601581",
+    "html_url": "https://github.com/gardener/gardener/commit/4fb79950b64f99bd43ae9236ee1c7f2d41601581",
+    "comments_url": "https://api.github.com/repos/gardener/gardener/commits/4fb79950b64f99bd43ae9236ee1c7f2d41601581/comments",
+    "author": {
+      "login": "ialidzhikov",
+      "id": 9372594,
+      "node_id": "MDQ6VXNlcjkzNzI1OTQ=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/9372594?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ialidzhikov",
+      "html_url": "https://github.com/ialidzhikov",
+      "followers_url": "https://api.github.com/users/ialidzhikov/followers",
+      "following_url": "https://api.github.com/users/ialidzhikov/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ialidzhikov/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ialidzhikov/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ialidzhikov/subscriptions",
+      "organizations_url": "https://api.github.com/users/ialidzhikov/orgs",
+      "repos_url": "https://api.github.com/users/ialidzhikov/repos",
+      "events_url": "https://api.github.com/users/ialidzhikov/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ialidzhikov/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "ialidzhikov",
+      "id": 9372594,
+      "node_id": "MDQ6VXNlcjkzNzI1OTQ=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/9372594?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ialidzhikov",
+      "html_url": "https://github.com/ialidzhikov",
+      "followers_url": "https://api.github.com/users/ialidzhikov/followers",
+      "following_url": "https://api.github.com/users/ialidzhikov/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ialidzhikov/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ialidzhikov/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ialidzhikov/subscriptions",
+      "organizations_url": "https://api.github.com/users/ialidzhikov/orgs",
+      "repos_url": "https://api.github.com/users/ialidzhikov/repos",
+      "events_url": "https://api.github.com/users/ialidzhikov/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ialidzhikov/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "a9eee9416e16dadb9e46c7a9486e97efb7741889",
+        "url": "https://api.github.com/repos/gardener/gardener/commits/a9eee9416e16dadb9e46c7a9486e97efb7741889",
+        "html_url": "https://github.com/gardener/gardener/commit/a9eee9416e16dadb9e46c7a9486e97efb7741889"
+      }
+    ]
+  },
+  {
     "sha": "232a07d46b59689641cc65a502b0a1764b2522cd",
     "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOjIzMmEwN2Q0NmI1OTY4OTY0MWNjNjVhNTAyYjBhMTc2NGIyNTIyY2Q=",
     "commit": {
