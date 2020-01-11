@@ -84,7 +84,7 @@
     "commit": {
       "author": {
         "name": "Sebastian Stauch",
-        "email": "30324854+docktofuture@users.noreply.github.com",
+        "email": "30324854+DockToFuture@users.noreply.github.com",
         "date": "2019-11-08T13:48:38Z"
       },
       "committer": {
@@ -326,7 +326,7 @@
       },
       "committer": {
         "name": "Sebastian Stauch",
-        "email": "30324854+docktofuture@users.noreply.github.com",
+        "email": "30324854+DockToFuture@users.noreply.github.com",
         "date": "2019-05-02T13:54:37Z"
       },
       "message": "Switch to go modules\n\nSigned-off-by: ialidzhikov <i.alidjikov@gmail.com>",
@@ -400,7 +400,7 @@
     "commit": {
       "author": {
         "name": "Sebastian Stauch",
-        "email": "30324854+docktofuture@users.noreply.github.com",
+        "email": "30324854+DockToFuture@users.noreply.github.com",
         "date": "2019-03-22T12:03:48Z"
       },
       "committer": {
@@ -484,7 +484,7 @@
       },
       "committer": {
         "name": "Sebastian Stauch",
-        "email": "30324854+docktofuture@users.noreply.github.com",
+        "email": "30324854+DockToFuture@users.noreply.github.com",
         "date": "2019-02-19T09:05:43Z"
       },
       "message": "gardenctl logs improvements",
@@ -558,7 +558,7 @@
     "commit": {
       "author": {
         "name": "Sebastian Stauch",
-        "email": "30324854+docktofuture@users.noreply.github.com",
+        "email": "30324854+DockToFuture@users.noreply.github.com",
         "date": "2019-02-12T14:26:24Z"
       },
       "committer": {
@@ -642,7 +642,7 @@
       },
       "committer": {
         "name": "Sebastian Stauch",
-        "email": "30324854+docktofuture@users.noreply.github.com",
+        "email": "30324854+DockToFuture@users.noreply.github.com",
         "date": "2019-02-12T14:10:24Z"
       },
       "message": "Update README.md",
@@ -721,7 +721,7 @@
       },
       "committer": {
         "name": "Sebastian Stauch",
-        "email": "30324854+docktofuture@users.noreply.github.com",
+        "email": "30324854+DockToFuture@users.noreply.github.com",
         "date": "2019-02-11T11:57:44Z"
       },
       "message": "update gardenctl logs command",
@@ -795,7 +795,7 @@
     "commit": {
       "author": {
         "name": "Sebastian Stauch",
-        "email": "30324854+docktofuture@users.noreply.github.com",
+        "email": "30324854+DockToFuture@users.noreply.github.com",
         "date": "2018-08-31T12:39:12Z"
       },
       "committer": {
@@ -874,7 +874,7 @@
     "commit": {
       "author": {
         "name": "Sebastian Stauch",
-        "email": "30324854+docktofuture@users.noreply.github.com",
+        "email": "30324854+DockToFuture@users.noreply.github.com",
         "date": "2018-08-15T12:16:11Z"
       },
       "committer": {
@@ -953,7 +953,7 @@
     "commit": {
       "author": {
         "name": "Sebastian Stauch",
-        "email": "30324854+docktofuture@users.noreply.github.com",
+        "email": "30324854+DockToFuture@users.noreply.github.com",
         "date": "2018-08-03T09:14:10Z"
       },
       "committer": {
@@ -1032,7 +1032,7 @@
     "commit": {
       "author": {
         "name": "Sebastian Stauch",
-        "email": "30324854+docktofuture@users.noreply.github.com",
+        "email": "30324854+DockToFuture@users.noreply.github.com",
         "date": "2018-07-24T07:18:51Z"
       },
       "committer": {
@@ -1111,7 +1111,7 @@
     "commit": {
       "author": {
         "name": "Sebastian Stauch",
-        "email": "30324854+docktofuture@users.noreply.github.com",
+        "email": "30324854+DockToFuture@users.noreply.github.com",
         "date": "2018-07-20T07:19:44Z"
       },
       "committer": {
@@ -1190,7 +1190,7 @@
     "commit": {
       "author": {
         "name": "Sebastian Stauch",
-        "email": "30324854+docktofuture@users.noreply.github.com",
+        "email": "30324854+DockToFuture@users.noreply.github.com",
         "date": "2018-05-23T14:53:39Z"
       },
       "committer": {
@@ -1269,7 +1269,7 @@
     "commit": {
       "author": {
         "name": "Sebastian Stauch",
-        "email": "30324854+docktofuture@users.noreply.github.com",
+        "email": "30324854+DockToFuture@users.noreply.github.com",
         "date": "2018-05-17T13:33:10Z"
       },
       "committer": {
@@ -1348,7 +1348,7 @@
     "commit": {
       "author": {
         "name": "Sebastian Stauch",
-        "email": "30324854+docktofuture@users.noreply.github.com",
+        "email": "30324854+DockToFuture@users.noreply.github.com",
         "date": "2018-05-15T10:18:28Z"
       },
       "committer": {
@@ -1585,7 +1585,7 @@
     "commit": {
       "author": {
         "name": "Sebastian Stauch",
-        "email": "30324854+docktofuture@users.noreply.github.com",
+        "email": "30324854+DockToFuture@users.noreply.github.com",
         "date": "2018-04-25T10:13:08Z"
       },
       "committer": {
@@ -1669,7 +1669,7 @@
       },
       "committer": {
         "name": "Sebastian Stauch",
-        "email": "30324854+docktofuture@users.noreply.github.com",
+        "email": "30324854+DockToFuture@users.noreply.github.com",
         "date": "2018-04-13T08:15:14Z"
       },
       "message": "Update README.md (#21)",
@@ -1743,7 +1743,7 @@
     "commit": {
       "author": {
         "name": "Sebastian Stauch",
-        "email": "30324854+docktofuture@users.noreply.github.com",
+        "email": "30324854+DockToFuture@users.noreply.github.com",
         "date": "2018-02-28T11:54:33Z"
       },
       "committer": {
@@ -2059,7 +2059,7 @@
     "commit": {
       "author": {
         "name": "Sebastian Stauch",
-        "email": "30324854+docktofuture@users.noreply.github.com",
+        "email": "30324854+DockToFuture@users.noreply.github.com",
         "date": "2018-01-22T14:35:12Z"
       },
       "committer": {
