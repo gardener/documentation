@@ -75,7 +75,7 @@ Deploy the secret into your seed namespace. Apart from the kubeconfig, also infr
 Create a secretbinding for your cloud provider secret:
 
 ```yaml
-apiVersion: core.gardener.cloud/v1alpha1
+apiVersion: core.gardener.cloud/v1beta1
 kind: SecretBinding
 metadata:
   name: test-seed-secret
@@ -99,7 +99,7 @@ The cloudprofile contains the information which shoots can be created with this 
 Now the seed resource can be created. Choose a name, reference cloudprofile and secretbinding, fill in your ingress domain, and set the CIDRs to the same values as in the underlying shoot cluster. 
 
 ```yaml
-apiVersion: core.gardener.cloud/v1alpha1
+apiVersion: core.gardener.cloud/v1beta1
 kind: Seed
 metadata:
   name: aws-secure

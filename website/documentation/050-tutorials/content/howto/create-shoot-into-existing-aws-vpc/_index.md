@@ -16,8 +16,8 @@ The tutorial describes how to create a Shoot cluster into existing AWS VPC. The 
 
 ## TL;DR
 
-If `.spec.cloud.aws.networks.vpc.cidr` is specified, Gardener will create a new VPC with the given CIDR block and respectively will delete it on Shoot deletion.  
-If `.spec.cloud.aws.networks.vpc.id` is specified, Gardener will use the existing VPC and respectively won't delete it on Shoot deletion.
+If `.spec.provider.infrastructureConfig.networks.vpc.cidr` is specified, Gardener will create a new VPC with the given CIDR block and respectively will delete it on Shoot deletion.  
+If `.spec.provider.infrastructureConfig.networks.vpc.id` is specified, Gardener will use the existing VPC and respectively won't delete it on Shoot deletion.
 
 
 > It's not recommended to create a Shoot cluster into VPC that is managed by Gardener (that is created for another Shoot cluster). In this case the deletion of the initial Shoot cluster will fail to delete the VPC because there will be resources attached to it.  
@@ -86,11 +86,15 @@ $ aws ec2 attach-internet-gateway --internet-gateway-id igw-c0a643a9 --vpc-id vp
 
 ## 4. Create the Shoot
 
-Prepare your Shoot manifest (you could check the [example manifests](https://github.com/gardener/gardener/tree/master/example)). Put your VPC id in `.spec.cloud.aws.networks.vpc.id`:
+Prepare your Shoot manifest (you could check the [example manifests](https://github.com/gardener/gardener/tree/master/example)). Put your VPC id in `.spec.provider.infrastructureConfig.networks.vpc.id`:
 
 ```yaml
-    # ...
-    aws:
+spec:
+  provider:
+    type: aws
+    infrastructureConfig:
+      apiVersion: aws.provider.extensions.gardener.cloud/v1alpha1
+      kind: InfrastructureConfig
       networks:
         vpc:
           id: vpc-ff7bbf86
@@ -106,7 +110,7 @@ $ kubectl apply -f your-shoot-aws.yaml
 Ensure that the Shoot cluster is properly created.
 
 ```bash
-$ kubectl get shoot $SHOOT_NAME -n $PROJECT_NAME
+$ kubectl get shoot $SHOOT_NAME -n $SHOOT_NAMESPACE
 NAME           CLOUDPROFILE   VERSION   SEED   DOMAIN           OPERATION   PROGRESS   APISERVER   CONTROL   NODES   SYSTEM   AGE
 <SHOOT_NAME>   aws            1.15.0    aws    <SHOOT_DOMAIN>   Succeeded   100        True        True      True    True     20m
 ```

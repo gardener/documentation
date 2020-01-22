@@ -108,7 +108,7 @@ Ensure that the modified context is the active context `current-context: shoot--
 
 Modify the Gardener shoot/cluster manifest as follows:
 ```yaml
-apiVersion: garden.sapcloud.io/v1beta1
+apiVersion: core.gardener.cloud/v1beta1
 kind: Shoot
 metadata:
   name: mycluster
@@ -197,7 +197,3 @@ cluster-admin-test                                    test@test.com             
 ```
 
 Congratulations, you have just configured your cluster to authenticate against an Identity Provider using OpenID Connect!
-
-## Coming Improvements
-
-The Gardener team is [working](https://github.com/gardener/gardener/issues/1161) on a standard oidc shema to offer automatic configuration options on a per project basis.

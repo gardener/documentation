@@ -132,20 +132,21 @@ And let's the Shoot has the following spec:
 
 ```yaml
 spec:
-  cloud:
-    aws:
-      workers:
-      - name: name
-        autoScalerMax: 1
-        autoScalerMin: 1
-        machineImage:
-          name: coreos
-          version: 2135.6.0
-        machineType: m5.large
-        maxSurge: 1
-        maxUnavailable: 0
-        volumeSize: 20Gi
-        volumeType: gp2
+  provider:
+    type: aws
+    workers:
+    - name: name
+      maximum: 1
+      minimum: 1
+      maxSurge: 1
+      maxUnavailable: 0
+      image:
+        name: coreos
+        version: 2135.6.0
+        type: m5.large
+      volume:
+        type: gp2
+        size: 20Gi
   maintenance:
     timeWindow:
       begin: 220000+0100
