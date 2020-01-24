@@ -1,5 +1,84 @@
 [
   {
+    "sha": "5a00dc88920389573700fb80e6372916c8301cd7",
+    "node_id": "MDY6Q29tbWl0MTE4MDE3MzQ5OjVhMDBkYzg4OTIwMzg5NTczNzAwZmI4MGU2MzcyOTE2YzgzMDFjZDc=",
+    "commit": {
+      "author": {
+        "name": "Sebastian Stauch",
+        "email": "sebastian.stauch@sap.com",
+        "date": "2020-01-22T15:19:11Z"
+      },
+      "committer": {
+        "name": "Sebastian Stauch",
+        "email": "sebastian.stauch@sap.com",
+        "date": "2020-01-22T15:23:38Z"
+      },
+      "message": "Add sessions to gardenctl",
+      "tree": {
+        "sha": "40d88ce127ae44b09d21d057594495dddf7796c2",
+        "url": "https://api.github.com/repos/gardener/gardenctl/git/trees/40d88ce127ae44b09d21d057594495dddf7796c2"
+      },
+      "url": "https://api.github.com/repos/gardener/gardenctl/git/commits/5a00dc88920389573700fb80e6372916c8301cd7",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/gardenctl/commits/5a00dc88920389573700fb80e6372916c8301cd7",
+    "html_url": "https://github.com/gardener/gardenctl/commit/5a00dc88920389573700fb80e6372916c8301cd7",
+    "comments_url": "https://api.github.com/repos/gardener/gardenctl/commits/5a00dc88920389573700fb80e6372916c8301cd7/comments",
+    "author": {
+      "login": "DockToFuture",
+      "id": 30324854,
+      "node_id": "MDQ6VXNlcjMwMzI0ODU0",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/30324854?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/DockToFuture",
+      "html_url": "https://github.com/DockToFuture",
+      "followers_url": "https://api.github.com/users/DockToFuture/followers",
+      "following_url": "https://api.github.com/users/DockToFuture/following{/other_user}",
+      "gists_url": "https://api.github.com/users/DockToFuture/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/DockToFuture/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/DockToFuture/subscriptions",
+      "organizations_url": "https://api.github.com/users/DockToFuture/orgs",
+      "repos_url": "https://api.github.com/users/DockToFuture/repos",
+      "events_url": "https://api.github.com/users/DockToFuture/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/DockToFuture/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "DockToFuture",
+      "id": 30324854,
+      "node_id": "MDQ6VXNlcjMwMzI0ODU0",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/30324854?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/DockToFuture",
+      "html_url": "https://github.com/DockToFuture",
+      "followers_url": "https://api.github.com/users/DockToFuture/followers",
+      "following_url": "https://api.github.com/users/DockToFuture/following{/other_user}",
+      "gists_url": "https://api.github.com/users/DockToFuture/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/DockToFuture/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/DockToFuture/subscriptions",
+      "organizations_url": "https://api.github.com/users/DockToFuture/orgs",
+      "repos_url": "https://api.github.com/users/DockToFuture/repos",
+      "events_url": "https://api.github.com/users/DockToFuture/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/DockToFuture/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "2a3a8ef2efaf84fa02b90d2f2bd2d2fe0cca76a1",
+        "url": "https://api.github.com/repos/gardener/gardenctl/commits/2a3a8ef2efaf84fa02b90d2f2bd2d2fe0cca76a1",
+        "html_url": "https://github.com/gardener/gardenctl/commit/2a3a8ef2efaf84fa02b90d2f2bd2d2fe0cca76a1"
+      }
+    ]
+  },
+  {
     "sha": "91f23f3b490d68fa944625a6346839ca03c75edf",
     "node_id": "MDY6Q29tbWl0MTE4MDE3MzQ5OjkxZjIzZjNiNDkwZDY4ZmE5NDQ2MjVhNjM0NjgzOWNhMDNjNzVlZGY=",
     "commit": {
