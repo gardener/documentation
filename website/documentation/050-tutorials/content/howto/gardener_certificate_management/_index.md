@@ -30,7 +30,7 @@ The `ControllerRegistration` contains a Helm chart which eventually deploy the `
 > Please keep the Let's Encrypt [Rate Limits](https://letsencrypt.org/docs/rate-limits/) in mind when using this shared account model. Depending on the amount of shoots and domains it is recommended to use an account with increased rate limits.
 
 ```yaml
-apiVersion: core.gardener.cloud/v1alpha1
+apiVersion: core.gardener.cloud/v1beta1
 kind: ControllerRegistration
 ...
   values:
@@ -48,7 +48,7 @@ kind: ControllerRegistration
 
 If the `Shoot-Cert-Service` should be enabled for every shoot cluster in your Gardener managed environment, you need to globally enable it in the `ControllerRegistration`:
 ```yaml
-apiVersion: core.gardener.cloud/v1alpha1
+apiVersion: core.gardener.cloud/v1beta1
 kind: ControllerRegistration
 ...
   resources:
@@ -60,7 +60,7 @@ kind: ControllerRegistration
 Alternatively, you're given the option to only enable the service for certain shoots:
 ```yaml
 kind: Shoot
-apiVersion: core.gardener.cloud/v1alpha1
+apiVersion: core.gardener.cloud/v1beta1
 ...
 spec:
   extensions:
