@@ -217,7 +217,7 @@ kind: Service
 metadata:
   annotations:
     cert.gardener.cloud/secretname: test-service-secret
-    dns.gardener.cloud/dnsnames: "*.shoot.project.default-domain.gardener.cloud"
+    dns.gardener.cloud/dnsnames: "*.service.shoot.project.default-domain.gardener.cloud"
     dns.gardener.cloud/ttl: "600"
   name: test-service
   namespace: default
