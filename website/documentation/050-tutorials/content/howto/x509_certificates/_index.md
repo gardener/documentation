@@ -15,6 +15,13 @@ Dealing with applications on Kubernetes which offer service endpoints (e.g. HTTP
 secured communication via SSL/TLS. Gardener let's you request a commonly trusted X.509 certificate for your application 
 endpoint. Furthermore, Gardener takes care about the renewal process for your requested certificate.
 
+Let's get the basics straight first. If this is too long for you, you can read below how to get certificates by
+
+ - [Certificate Resources](#request-a-certificate-via-certificate)
+ - [Ingress](#request-a-certificate-via-ingress)
+ - [Service](#request-a-certificate-via-service) 
+
+
 ## Restrictions
 
 ### Domains
