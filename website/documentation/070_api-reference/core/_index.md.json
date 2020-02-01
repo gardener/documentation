@@ -1,5 +1,84 @@
 [
   {
+    "sha": "bf7da1832cc6532f2debe41d361e4aad9ad096d2",
+    "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOmJmN2RhMTgzMmNjNjUzMmYyZGViZTQxZDM2MWU0YWFkOWFkMDk2ZDI=",
+    "commit": {
+      "author": {
+        "name": "Rafael Franzke",
+        "email": "rafael.franzke@sap.com",
+        "date": "2020-01-14T09:00:48Z"
+      },
+      "committer": {
+        "name": "Rafael Franzke",
+        "email": "rafael.franzke@sap.com",
+        "date": "2020-01-29T15:27:24Z"
+      },
+      "message": "Add providerConfig for `BackupBucket` and `BackupEntry`",
+      "tree": {
+        "sha": "380e395d845f2362423a43e6a9f28c17f21f6ce4",
+        "url": "https://api.github.com/repos/gardener/gardener/git/trees/380e395d845f2362423a43e6a9f28c17f21f6ce4"
+      },
+      "url": "https://api.github.com/repos/gardener/gardener/git/commits/bf7da1832cc6532f2debe41d361e4aad9ad096d2",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/gardener/commits/bf7da1832cc6532f2debe41d361e4aad9ad096d2",
+    "html_url": "https://github.com/gardener/gardener/commit/bf7da1832cc6532f2debe41d361e4aad9ad096d2",
+    "comments_url": "https://api.github.com/repos/gardener/gardener/commits/bf7da1832cc6532f2debe41d361e4aad9ad096d2/comments",
+    "author": {
+      "login": "rfranzke",
+      "id": 19169361,
+      "node_id": "MDQ6VXNlcjE5MTY5MzYx",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/19169361?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rfranzke",
+      "html_url": "https://github.com/rfranzke",
+      "followers_url": "https://api.github.com/users/rfranzke/followers",
+      "following_url": "https://api.github.com/users/rfranzke/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rfranzke/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/rfranzke/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rfranzke/subscriptions",
+      "organizations_url": "https://api.github.com/users/rfranzke/orgs",
+      "repos_url": "https://api.github.com/users/rfranzke/repos",
+      "events_url": "https://api.github.com/users/rfranzke/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/rfranzke/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "rfranzke",
+      "id": 19169361,
+      "node_id": "MDQ6VXNlcjE5MTY5MzYx",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/19169361?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rfranzke",
+      "html_url": "https://github.com/rfranzke",
+      "followers_url": "https://api.github.com/users/rfranzke/followers",
+      "following_url": "https://api.github.com/users/rfranzke/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rfranzke/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/rfranzke/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rfranzke/subscriptions",
+      "organizations_url": "https://api.github.com/users/rfranzke/orgs",
+      "repos_url": "https://api.github.com/users/rfranzke/repos",
+      "events_url": "https://api.github.com/users/rfranzke/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/rfranzke/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "470a4d9257c8fa8d1f93a92388ed9abc4c1f9c3c",
+        "url": "https://api.github.com/repos/gardener/gardener/commits/470a4d9257c8fa8d1f93a92388ed9abc4c1f9c3c",
+        "html_url": "https://github.com/gardener/gardener/commit/470a4d9257c8fa8d1f93a92388ed9abc4c1f9c3c"
+      }
+    ]
+  },
+  {
     "sha": "7fea07bc8a851fdad009a20b5b3d52aec1c48726",
     "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOjdmZWEwN2JjOGE4NTFmZGFkMDA5YTIwYjViM2Q1MmFlYzFjNDg3MjY=",
     "commit": {
