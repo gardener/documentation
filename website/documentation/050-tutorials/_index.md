@@ -20,7 +20,7 @@ icon: navigation_tutorials.svg
         <div class="six columns role-button" onclick="document.location='../using-gardener/administrator'">
             <h1>Administrator</h1>
             <div class="description">
-            The admin section is for anyone setup or administering a 
+            The admin section is for anyone setting up or administering a
             Gardener Landscape. It assumes some familiarity with concepts of IaaS
             </div>
         </div>
