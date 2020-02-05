@@ -1,5 +1,84 @@
 [
   {
+    "sha": "f5dcea91ffe6f80ed547a32a86ef7103a7d8ead1",
+    "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOmY1ZGNlYTkxZmZlNmY4MGVkNTQ3YTMyYTg2ZWY3MTAzYTdkOGVhZDE=",
+    "commit": {
+      "author": {
+        "name": "Vladimir Vasilev",
+        "email": "vladimir.vasilev@sap.com",
+        "date": "2020-02-04T13:54:04Z"
+      },
+      "committer": {
+        "name": "Vladimir Vasilev",
+        "email": "vladimir.vasilev@sap.com",
+        "date": "2020-02-04T13:54:04Z"
+      },
+      "message": "add another case for returning a Migrate operation",
+      "tree": {
+        "sha": "7b061dc6974d66683e12a79b59f21adc55394156",
+        "url": "https://api.github.com/repos/gardener/gardener/git/trees/7b061dc6974d66683e12a79b59f21adc55394156"
+      },
+      "url": "https://api.github.com/repos/gardener/gardener/git/commits/f5dcea91ffe6f80ed547a32a86ef7103a7d8ead1",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/gardener/commits/f5dcea91ffe6f80ed547a32a86ef7103a7d8ead1",
+    "html_url": "https://github.com/gardener/gardener/commit/f5dcea91ffe6f80ed547a32a86ef7103a7d8ead1",
+    "comments_url": "https://api.github.com/repos/gardener/gardener/commits/f5dcea91ffe6f80ed547a32a86ef7103a7d8ead1/comments",
+    "author": {
+      "login": "vlvasilev",
+      "id": 38783428,
+      "node_id": "MDQ6VXNlcjM4NzgzNDI4",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/38783428?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/vlvasilev",
+      "html_url": "https://github.com/vlvasilev",
+      "followers_url": "https://api.github.com/users/vlvasilev/followers",
+      "following_url": "https://api.github.com/users/vlvasilev/following{/other_user}",
+      "gists_url": "https://api.github.com/users/vlvasilev/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/vlvasilev/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/vlvasilev/subscriptions",
+      "organizations_url": "https://api.github.com/users/vlvasilev/orgs",
+      "repos_url": "https://api.github.com/users/vlvasilev/repos",
+      "events_url": "https://api.github.com/users/vlvasilev/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/vlvasilev/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "vlvasilev",
+      "id": 38783428,
+      "node_id": "MDQ6VXNlcjM4NzgzNDI4",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/38783428?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/vlvasilev",
+      "html_url": "https://github.com/vlvasilev",
+      "followers_url": "https://api.github.com/users/vlvasilev/followers",
+      "following_url": "https://api.github.com/users/vlvasilev/following{/other_user}",
+      "gists_url": "https://api.github.com/users/vlvasilev/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/vlvasilev/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/vlvasilev/subscriptions",
+      "organizations_url": "https://api.github.com/users/vlvasilev/orgs",
+      "repos_url": "https://api.github.com/users/vlvasilev/repos",
+      "events_url": "https://api.github.com/users/vlvasilev/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/vlvasilev/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "62e1b589a780e63ce8c8565731a125ab08e11cd8",
+        "url": "https://api.github.com/repos/gardener/gardener/commits/62e1b589a780e63ce8c8565731a125ab08e11cd8",
+        "html_url": "https://github.com/gardener/gardener/commit/62e1b589a780e63ce8c8565731a125ab08e11cd8"
+      }
+    ]
+  },
+  {
     "sha": "bf7da1832cc6532f2debe41d361e4aad9ad096d2",
     "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOmJmN2RhMTgzMmNjNjUzMmYyZGViZTQxZDM2MWU0YWFkOWFkMDk2ZDI=",
     "commit": {
