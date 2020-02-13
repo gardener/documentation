@@ -1,5 +1,84 @@
 [
   {
+    "sha": "2e4c6cf44d4e47e94cadefed47cb9ddcf00dc68f",
+    "node_id": "MDY6Q29tbWl0MTE1MTIyMjc0OjJlNGM2Y2Y0NGQ0ZTQ3ZTk0Y2FkZWZlZDQ3Y2I5ZGRjZjAwZGM2OGY=",
+    "commit": {
+      "author": {
+        "name": "Swapnil Mhamane",
+        "email": "swapnil.mhamane@sap.com",
+        "date": "2020-02-13T08:17:31Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2020-02-13T08:17:31Z"
+      },
+      "message": ":pencil: Add ci master build status badge (#411)\n\nSigned-off-by: Swapnil Mhamane <swapnil.mhamane@sap.com>",
+      "tree": {
+        "sha": "e4e0372f209fa22ff8c17c36111b29f61dc6241f",
+        "url": "https://api.github.com/repos/gardener/machine-controller-manager/git/trees/e4e0372f209fa22ff8c17c36111b29f61dc6241f"
+      },
+      "url": "https://api.github.com/repos/gardener/machine-controller-manager/git/commits/2e4c6cf44d4e47e94cadefed47cb9ddcf00dc68f",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJeRQYbCRBK7hj4Ov3rIwAAdHIIAB4iCLrmZBiP4G0zdyj/60xN\n/RfUDZcMTb3dqHehN7cbmR5PDBVNhxRVBT/bQ8KLkIG17ypdldouyVk35i3ZXzc3\n8qTmndOD+7OPYNtGfnRPOAgYlxod1/GXKYLGRMj3aZ+LiU3SatqeI86PlUxyRKRW\n6iqblREpklnZVrwfbL3Q35riVjicG0hNA15FBkr96Tyz8CLkLhmZCFPsEMsiFE28\nKgpfxihILMUb3B40bN+VsKCx5s3Aea/mUCGQwIG8eap+uSaqZy09Nr5i5zpAGFvn\nT57X5ThsBaToQ1uNqUytCnUn7l/LboewRHmJt9NwyDfIQ7f5AF5tqQl1VwvnqRA=\n=sojL\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree e4e0372f209fa22ff8c17c36111b29f61dc6241f\nparent 36223bf91b1e64e24a98555b34af6e75390ec5a4\nauthor Swapnil Mhamane <swapnil.mhamane@sap.com> 1581581851 +0530\ncommitter GitHub <noreply@github.com> 1581581851 +0530\n\n:pencil: Add ci master build status badge (#411)\n\nSigned-off-by: Swapnil Mhamane <swapnil.mhamane@sap.com>"
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/machine-controller-manager/commits/2e4c6cf44d4e47e94cadefed47cb9ddcf00dc68f",
+    "html_url": "https://github.com/gardener/machine-controller-manager/commit/2e4c6cf44d4e47e94cadefed47cb9ddcf00dc68f",
+    "comments_url": "https://api.github.com/repos/gardener/machine-controller-manager/commits/2e4c6cf44d4e47e94cadefed47cb9ddcf00dc68f/comments",
+    "author": {
+      "login": "swapnilgm",
+      "id": 5590545,
+      "node_id": "MDQ6VXNlcjU1OTA1NDU=",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/5590545?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/swapnilgm",
+      "html_url": "https://github.com/swapnilgm",
+      "followers_url": "https://api.github.com/users/swapnilgm/followers",
+      "following_url": "https://api.github.com/users/swapnilgm/following{/other_user}",
+      "gists_url": "https://api.github.com/users/swapnilgm/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/swapnilgm/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/swapnilgm/subscriptions",
+      "organizations_url": "https://api.github.com/users/swapnilgm/orgs",
+      "repos_url": "https://api.github.com/users/swapnilgm/repos",
+      "events_url": "https://api.github.com/users/swapnilgm/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/swapnilgm/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "36223bf91b1e64e24a98555b34af6e75390ec5a4",
+        "url": "https://api.github.com/repos/gardener/machine-controller-manager/commits/36223bf91b1e64e24a98555b34af6e75390ec5a4",
+        "html_url": "https://github.com/gardener/machine-controller-manager/commit/36223bf91b1e64e24a98555b34af6e75390ec5a4"
+      }
+    ]
+  },
+  {
     "sha": "49d6e872527bbe39ea216baafa0711b39b5bea7e",
     "node_id": "MDY6Q29tbWl0MTE1MTIyMjc0OjQ5ZDZlODcyNTI3YmJlMzllYTIxNmJhYWZhMDcxMWIzOWI1YmVhN2U=",
     "commit": {
