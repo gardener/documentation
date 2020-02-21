@@ -1,5 +1,84 @@
 [
   {
+    "sha": "820ef4fa139b556a2ac37a16305e047ce1dccd55",
+    "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOjgyMGVmNGZhMTM5YjU1NmEyYWMzN2ExNjMwNWUwNDdjZTFkY2NkNTU=",
+    "commit": {
+      "author": {
+        "name": "Tim Ebert",
+        "email": "tim.ebert@sap.com",
+        "date": "2020-02-20T09:06:34Z"
+      },
+      "committer": {
+        "name": "Tim Ebert",
+        "email": "tim.ebert@sap.com",
+        "date": "2020-02-20T09:06:34Z"
+      },
+      "message": "Remove merge artifacts from api-reference",
+      "tree": {
+        "sha": "1713b7bc9da449574979a5b2b1ed374607994fd2",
+        "url": "https://api.github.com/repos/gardener/gardener/git/trees/1713b7bc9da449574979a5b2b1ed374607994fd2"
+      },
+      "url": "https://api.github.com/repos/gardener/gardener/git/commits/820ef4fa139b556a2ac37a16305e047ce1dccd55",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\niQIzBAABCAAdFiEE6PB8gQ56X0BDdGR0pXhsU63ikaIFAl5OTC0ACgkQpXhsU63i\nkaLv7g/6AkyzRRvhGrpL12HDlSLQ6rIq+qqCYi4FYtVeVN3qnDhrNTQv8zoKDUJg\nfk/GqgR7GEqyShjn/NVc9nPvNEX8O3qnXml9wc5MdgVXJO6LZKHrTMDmXk4xJY5v\nEj7jmQTr4nQYZHOBozbNuZokL25RU0APr/68V2ucNs9jMgxj25S47VYN2AK3+L6I\nmP52a0eB3nAqXM209L9eY0VYQlEjU0rZSSSwuhXkYeyN6dB/3nlHg4leAE5itK8l\n/bwB+0UolvfvaZAUDtsItXYe2YHc0yJtNYtxhnuSOdLaFQD4OWRDIYH2YHrQHI3l\nCCwAod71A1AzEfY111uRtwJBrw9lz15XAbxdlo5FstZW97UaluZQgHqv48xnGiGu\nqkWmgdq/p73wo97BbTNwxlinVwwz2Cj3wgaUIKqBuenkMcV6RmaULhk5uZpYMycU\nsBLZy3JVPF2gUVJcXfzy+Dnkan2LHgyXF5meAz+sWF/IvuKJL8WRtPdejE1ewSQE\nf8ZdIiQ2BInZvqVbh21t1Pq/1YXMsjbWQfXGolbsqbBavctK122wHVypNa5KCCx8\netopnE5klnONKeWO3crwlY/wnEI1WeRGPrXSVCuUZDJIu/1KVkhqx4Yf5BDHIuOA\n4IcMVVFgGr9HkpBz8MNRd5pBbg1yMX88F7g+D4JlDVoFGVqR+h4=\n=gIsa\n-----END PGP SIGNATURE-----",
+        "payload": "tree 1713b7bc9da449574979a5b2b1ed374607994fd2\nparent 37f4ded7c32dadb3da818f93a02ac2a590e41e50\nauthor Tim Ebert <tim.ebert@sap.com> 1582189594 +0100\ncommitter Tim Ebert <tim.ebert@sap.com> 1582189594 +0100\n\nRemove merge artifacts from api-reference\n"
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/gardener/commits/820ef4fa139b556a2ac37a16305e047ce1dccd55",
+    "html_url": "https://github.com/gardener/gardener/commit/820ef4fa139b556a2ac37a16305e047ce1dccd55",
+    "comments_url": "https://api.github.com/repos/gardener/gardener/commits/820ef4fa139b556a2ac37a16305e047ce1dccd55/comments",
+    "author": {
+      "login": "tim-ebert",
+      "id": 46341950,
+      "node_id": "MDQ6VXNlcjQ2MzQxOTUw",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/46341950?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/tim-ebert",
+      "html_url": "https://github.com/tim-ebert",
+      "followers_url": "https://api.github.com/users/tim-ebert/followers",
+      "following_url": "https://api.github.com/users/tim-ebert/following{/other_user}",
+      "gists_url": "https://api.github.com/users/tim-ebert/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/tim-ebert/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/tim-ebert/subscriptions",
+      "organizations_url": "https://api.github.com/users/tim-ebert/orgs",
+      "repos_url": "https://api.github.com/users/tim-ebert/repos",
+      "events_url": "https://api.github.com/users/tim-ebert/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/tim-ebert/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "tim-ebert",
+      "id": 46341950,
+      "node_id": "MDQ6VXNlcjQ2MzQxOTUw",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/46341950?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/tim-ebert",
+      "html_url": "https://github.com/tim-ebert",
+      "followers_url": "https://api.github.com/users/tim-ebert/followers",
+      "following_url": "https://api.github.com/users/tim-ebert/following{/other_user}",
+      "gists_url": "https://api.github.com/users/tim-ebert/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/tim-ebert/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/tim-ebert/subscriptions",
+      "organizations_url": "https://api.github.com/users/tim-ebert/orgs",
+      "repos_url": "https://api.github.com/users/tim-ebert/repos",
+      "events_url": "https://api.github.com/users/tim-ebert/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/tim-ebert/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "37f4ded7c32dadb3da818f93a02ac2a590e41e50",
+        "url": "https://api.github.com/repos/gardener/gardener/commits/37f4ded7c32dadb3da818f93a02ac2a590e41e50",
+        "html_url": "https://github.com/gardener/gardener/commit/37f4ded7c32dadb3da818f93a02ac2a590e41e50"
+      }
+    ]
+  },
+  {
     "sha": "530adc257e655bccab9d4a0de720eec66d7aef18",
     "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOjUzMGFkYzI1N2U2NTViY2NhYjlkNGEwZGU3MjBlZWM2NmQ3YWVmMTg=",
     "commit": {
