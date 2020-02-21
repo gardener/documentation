@@ -6,6 +6,7 @@ level: intermediate
 index: 10
 category: Setup
 scope: app-developer
+aliases: ["/howto/install-knative"]
 ---
 This guide walks you through the installation of the latest version of Knative
 using pre-built images on a [Gardener](https://gardener.cloud) created cluster
