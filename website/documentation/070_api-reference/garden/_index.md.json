@@ -1443,8 +1443,8 @@
       "url": "https://api.github.com/repos/gardener/gardener/git/commits/aac6280abae0249f568d7c9c780048073ece9b9e",
       "comment_count": 0,
       "verification": {
-        "verified": true,
-        "reason": "valid",
+        "verified": false,
+        "reason": "unknown_key",
         "signature": "-----BEGIN PGP SIGNATURE-----\n\niQIzBAABCAAdFiEE6PB8gQ56X0BDdGR0pXhsU63ikaIFAl3fw3YACgkQpXhsU63i\nkaI1FQ//cLgTLJ19iRENAn/duxtOaONmoQHlgWiodCbDdnGLpaoKah/8w49zfp1M\n9pc8M6l1RPT57eAK3zdj97+RP027V5IoHnOQOTKwcKZMVjNA2b7DpLT3gJ+vl1bP\nGE0jac3xfCZVHFjTafS+Cd4T0FPcp7TnfOM4YLtXB/kwIPZdLSjGzUmd5bFSu/aL\nuzOb+nkU6v0SM+Egp3WLje6h616qQ68cwOcdknLPPbQDnG1b2U333d6Fz3ncmiVr\nDkqhS4UWMIz3Ez+bUAvwAHx+XEq9uGDNrRt4+wXtFUEMySSONg9w6jB71G6H5/8h\nPxbONWoB1gdGrkxylQVTbrEzEQrgww/8zL9miEy7BQBpqvQoejKgrZtxNFx9oTBG\ngkNYpVcGm0a9+brxt7i4OLQjLW9Pe3TjgNgUvO93hHg1lL6vVXyFQNcvxfNzKEZJ\nIes7O0kNBr6aTkhGWzqMUsjgoS55Rih35mREEzgKIHqiYVLzmGNSfFj4ITB/j2VA\n02eB3N99IHKQ3CoHiSJOGFozRmRNZywScsNzvmMmlyuUr1ympCgaulQPZuWacttH\nE2KhtEYC+OULg/60/PTw2oqG1PFMRiw85U82odkuIuesCE721EpulreLBFPq9db2\nFV/GLKx02B027dG5BtCwmNiqvTxpl/sEJvocsod0aeWvkpie/h0=\n=6m1h\n-----END PGP SIGNATURE-----",
         "payload": "tree 803d548d2f1ae366e032cb304312186f08381339\nparent 6d4b8494a753c5d3f1c9b1931bad5fe9d8a853c3\nauthor Tim Ebert <tim.ebert@sap.com> 1574945639 +0100\ncommitter Tim Ebert <tim.ebert@sap.com> 1574945639 +0100\n\nForbid hibernating shoots with problematic webhooks\n"
       }
