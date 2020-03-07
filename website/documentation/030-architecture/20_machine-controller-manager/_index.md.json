@@ -1,5 +1,84 @@
 [
   {
+    "sha": "793efdafc695099c14062167e0ebfe143b5c5212",
+    "node_id": "MDY6Q29tbWl0MTE1MTIyMjc0Ojc5M2VmZGFmYzY5NTA5OWMxNDA2MjE2N2UwZWJmZTE0M2I1YzUyMTI=",
+    "commit": {
+      "author": {
+        "name": "Ismail Alidzhikov",
+        "email": "i.alidjikov@gmail.com",
+        "date": "2020-03-06T06:48:33Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2020-03-06T06:48:33Z"
+      },
+      "message": "Update the build badge and minor changes (#424)\n\nSigned-off-by: ialidzhikov <i.alidjikov@gmail.com>",
+      "tree": {
+        "sha": "fce95b24b5fc7e81dc20d2f2612c659469071b0c",
+        "url": "https://api.github.com/repos/gardener/machine-controller-manager/git/trees/fce95b24b5fc7e81dc20d2f2612c659469071b0c"
+      },
+      "url": "https://api.github.com/repos/gardener/machine-controller-manager/git/commits/793efdafc695099c14062167e0ebfe143b5c5212",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJeYfJCCRBK7hj4Ov3rIwAAdHIIAF2FVdC1qBvR+aBTF409lKNk\nYai5r5YW/Hz7bt/89g0iiNOhUyuCaBPXRA+DdeTL2LJL20lnVpQnkfMO9sfXjKYG\nd3Zpo6caNGkwYYHtB6/IJJEV+DNioZg/cscFO8OuiOWJfYNfaj04I+BcrHif1qRM\n/yA+Wxhh6Vy2NUkCSifvhkEY29saeXY1um6xtS/EfqXw1rwcgDjKgnYD5ZGL8Qx2\nxIaUy6KIxQ+/GxeXOXQ7AD5Hn0BF8GO1K31Nn/BTmphOK9m1KdMz14yH47TPpYV5\nydtilCiv0/NNvnXsAymml/40XoRS586wTtLsxKNZ1eSzRAwgZnBRqEUVmvPx0YY=\n=zruB\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree fce95b24b5fc7e81dc20d2f2612c659469071b0c\nparent 9291a68b930eb1bcde12fd89970c800a5c4d18d1\nauthor Ismail Alidzhikov <i.alidjikov@gmail.com> 1583477313 +0200\ncommitter GitHub <noreply@github.com> 1583477313 +0530\n\nUpdate the build badge and minor changes (#424)\n\nSigned-off-by: ialidzhikov <i.alidjikov@gmail.com>"
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/machine-controller-manager/commits/793efdafc695099c14062167e0ebfe143b5c5212",
+    "html_url": "https://github.com/gardener/machine-controller-manager/commit/793efdafc695099c14062167e0ebfe143b5c5212",
+    "comments_url": "https://api.github.com/repos/gardener/machine-controller-manager/commits/793efdafc695099c14062167e0ebfe143b5c5212/comments",
+    "author": {
+      "login": "ialidzhikov",
+      "id": 9372594,
+      "node_id": "MDQ6VXNlcjkzNzI1OTQ=",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/9372594?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ialidzhikov",
+      "html_url": "https://github.com/ialidzhikov",
+      "followers_url": "https://api.github.com/users/ialidzhikov/followers",
+      "following_url": "https://api.github.com/users/ialidzhikov/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ialidzhikov/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ialidzhikov/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ialidzhikov/subscriptions",
+      "organizations_url": "https://api.github.com/users/ialidzhikov/orgs",
+      "repos_url": "https://api.github.com/users/ialidzhikov/repos",
+      "events_url": "https://api.github.com/users/ialidzhikov/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ialidzhikov/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "9291a68b930eb1bcde12fd89970c800a5c4d18d1",
+        "url": "https://api.github.com/repos/gardener/machine-controller-manager/commits/9291a68b930eb1bcde12fd89970c800a5c4d18d1",
+        "html_url": "https://github.com/gardener/machine-controller-manager/commit/9291a68b930eb1bcde12fd89970c800a5c4d18d1"
+      }
+    ]
+  },
+  {
     "sha": "2e4c6cf44d4e47e94cadefed47cb9ddcf00dc68f",
     "node_id": "MDY6Q29tbWl0MTE1MTIyMjc0OjJlNGM2Y2Y0NGQ0ZTQ3ZTk0Y2FkZWZlZDQ3Y2I5ZGRjZjAwZGM2OGY=",
     "commit": {
