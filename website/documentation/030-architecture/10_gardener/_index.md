@@ -1,6 +1,6 @@
 ---
 title: Gardener
 remote: https://github.com/gardener/gardener.git
-url: /components/gardner/
+url: /components/gardener/
 type: components
 ---
