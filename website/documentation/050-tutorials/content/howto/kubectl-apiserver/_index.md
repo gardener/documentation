@@ -18,24 +18,20 @@ You can use kubectl and connect to the API-server of your cluster.
 
 ## Prerequisites
 1. Create a service account user
-
-  ```
-  kubectl create serviceaccount deploy-user -n default
-  ```
+   ```
+   kubectl create serviceaccount deploy-user -n default
+   ```
 
 2. Bind a role to the newly created serviceuser
->!!! warning !!! "In this example the preconfigured role \"edit\" and the namespace \"default\" is being used, please adjust the role to a more strict scope! see https://kubernetes.io/docs/admin/authorization/rbac/"<
-
+   > **!!! Warning !!!** In this example the preconfigured role `edit` and the namespace `default` is being used, please adjust the role to a more strict scope! see https://kubernetes.io/docs/admin/authorization/rbac/
    ```
    kubectl create rolebinding deploy-default-role --clusterrole=edit --serviceaccount=default:deploy-user --namespace=default
-```
+   ```
 
 3. Get the URL of your API-server
-
    ```
-    APISERVER=$(kubectl config view | grep server | cut -f 2- -d ":" | tr -d " ")
+   APISERVER=$(kubectl config view | grep server | cut -f 2- -d ":" | tr -d " ")
    ```
-
 
 4. Get the service account
    ```
@@ -43,9 +39,9 @@ You can use kubectl and connect to the API-server of your cluster.
    ```
 
 5. Generate a token for the serviceaccount
-  ```
-  TOKEN=$(kubectl get secret -n default $SERVICEACCOUNT -o=jsonpath={.data.token} | base64 -D)
-  ```
+   ```
+   TOKEN=$(kubectl get secret -n default $SERVICEACCOUNT -o=jsonpath={.data.token} | base64 -D)
+   ```
 
 ## Usage
 You can deploy your app without setting the kubeconfig locally, you just need to pass the environment variables (e.g. store them in the Jenkins credentials store)
