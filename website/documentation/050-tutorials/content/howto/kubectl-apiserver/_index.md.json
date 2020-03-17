@@ -1,5 +1,84 @@
 [
   {
+    "sha": "5b422b542f5050654cdedadc4b3bc5969440569c",
+    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OjViNDIyYjU0MmY1MDUwNjU0Y2RlZGFkYzRiM2JjNTk2OTQ0MDU2OWM=",
+    "commit": {
+      "author": {
+        "name": "Kostas Angelo",
+        "email": "konstantinos.angelo@gmail.com",
+        "date": "2020-03-15T18:58:13Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2020-03-15T18:58:13Z"
+      },
+      "message": "Markdown fixes for 050-tutorials/content/howto/kubectl-apiserver/ (#83)\n\nfixes broken Hugo rendering in: https://gardener.cloud/050-tutorials/content/howto/kubectl-apiserver/\r\nIssues:\r\n+ broken number scheme\r\n+ warning section rendering\r\n+ link with appended quote",
+      "tree": {
+        "sha": "0de9770052d4212e1b4610a364038cbcd3082223",
+        "url": "https://api.github.com/repos/gardener/documentation/git/trees/0de9770052d4212e1b4610a364038cbcd3082223"
+      },
+      "url": "https://api.github.com/repos/gardener/documentation/git/commits/5b422b542f5050654cdedadc4b3bc5969440569c",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJebnrFCRBK7hj4Ov3rIwAAdHIIACjhk1fZ325RUR4oSJU/u5me\nmn/t5PV5JgxenammswA5pljsWdnmO+C6dRM0MHrkx2nSxxFlPzE1Rjt9kAFq6dVB\n+klxMRMnOFTrdO7NYkXwAuETPSqkFT8MbbnZ5tINCtBXNeRQ/Wflfw+IHqepszMg\nadCv+peFBCzxHZHgPeC5YH3X66grfQQhqfdm1Vz+uGGmA8a7+KTD8auRtidpbBMf\niPDU3Vdf3wwEOJpjAU69Rb1cz50DPocGQwSyrNwCMy9aBSrYBNbE+Dpm7HaoXRgN\nVlnnPT+xYXMYb0YzByDlyPMI6V2JytNpL7Jyx6uVR37wxwPTv5bhC/YI2/YBkD4=\n=wiOa\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 0de9770052d4212e1b4610a364038cbcd3082223\nparent b5102d2f603d62a0627b76f62549b32beb1e48f8\nauthor Kostas Angelo <konstantinos.angelo@gmail.com> 1584298693 +0100\ncommitter GitHub <noreply@github.com> 1584298693 +0200\n\nMarkdown fixes for 050-tutorials/content/howto/kubectl-apiserver/ (#83)\n\nfixes broken Hugo rendering in: https://gardener.cloud/050-tutorials/content/howto/kubectl-apiserver/\r\nIssues:\r\n+ broken number scheme\r\n+ warning section rendering\r\n+ link with appended quote"
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/documentation/commits/5b422b542f5050654cdedadc4b3bc5969440569c",
+    "html_url": "https://github.com/gardener/documentation/commit/5b422b542f5050654cdedadc4b3bc5969440569c",
+    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/5b422b542f5050654cdedadc4b3bc5969440569c/comments",
+    "author": {
+      "login": "konstantinos-angelo",
+      "id": 9479864,
+      "node_id": "MDQ6VXNlcjk0Nzk4NjQ=",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/9479864?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/konstantinos-angelo",
+      "html_url": "https://github.com/konstantinos-angelo",
+      "followers_url": "https://api.github.com/users/konstantinos-angelo/followers",
+      "following_url": "https://api.github.com/users/konstantinos-angelo/following{/other_user}",
+      "gists_url": "https://api.github.com/users/konstantinos-angelo/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/konstantinos-angelo/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/konstantinos-angelo/subscriptions",
+      "organizations_url": "https://api.github.com/users/konstantinos-angelo/orgs",
+      "repos_url": "https://api.github.com/users/konstantinos-angelo/repos",
+      "events_url": "https://api.github.com/users/konstantinos-angelo/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/konstantinos-angelo/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "b5102d2f603d62a0627b76f62549b32beb1e48f8",
+        "url": "https://api.github.com/repos/gardener/documentation/commits/b5102d2f603d62a0627b76f62549b32beb1e48f8",
+        "html_url": "https://github.com/gardener/documentation/commit/b5102d2f603d62a0627b76f62549b32beb1e48f8"
+      }
+    ]
+  },
+  {
     "sha": "06d1c5663151050ac818998d7c7d6a4ba551ab17",
     "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OjA2ZDFjNTY2MzE1MTA1MGFjODE4OTk4ZDdjN2Q2YTRiYTU1MWFiMTc=",
     "commit": {
