@@ -12,7 +12,7 @@ aliases: ["readmore/shoot-into-existing-aws-vpc"]
 # Create a Shoot cluster into existing AWS VPC
 
 Gardener can create a new VPC, or use an existing one for your Shoot cluster. Depending on your needs you may want to create Shoot(s) into already created VPC. 
-The tutorial describes how to create a Shoot cluster into existing AWS VPC. The steps are identical for Alicloud, Azure, and GCP.
+The tutorial describes how to create a Shoot cluster into existing AWS VPC. The steps are identical for Alicloud, Azure, and GCP. Please note that the existing VPC must be in the same region like the shoot cluster that you want to deploy into the VPC.
 
 ## TL;DR
 
@@ -86,10 +86,12 @@ $ aws ec2 attach-internet-gateway --internet-gateway-id igw-c0a643a9 --vpc-id vp
 
 ## 4. Create the Shoot
 
-Prepare your Shoot manifest (you could check the [example manifests](https://github.com/gardener/gardener/tree/master/example)). Put your VPC id in `.spec.provider.infrastructureConfig.networks.vpc.id`:
+Prepare your Shoot manifest (you could check the [example manifests](https://github.com/gardener/gardener/tree/master/example)). Please make sure that you choose the
+region in which you had created the VPC earlier (step 2). Also, put your VPC ID in the `.spec.provider.infrastructureConfig.networks.vpc.id` field:
 
 ```yaml
 spec:
+  region: <aws-region-of-vpc>
   provider:
     type: aws
     infrastructureConfig:
