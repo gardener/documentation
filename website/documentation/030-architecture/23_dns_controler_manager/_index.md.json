@@ -1,5 +1,163 @@
 [
   {
+    "sha": "a70d91d4ec4cf7ec7439216ec360733bc31ffc49",
+    "node_id": "MDY6Q29tbWl0MTY2ODA3NzQ4OmE3MGQ5MWQ0ZWM0Y2Y3ZWM3NDM5MjE2ZWMzNjA3MzNiYzMxZmZjNDk=",
+    "commit": {
+      "author": {
+        "name": "Martin Weindel",
+        "email": "martin.weindel@sap.com",
+        "date": "2020-03-27T13:25:48Z"
+      },
+      "committer": {
+        "name": "Martin Weindel",
+        "email": "martin.weindel@sap.com",
+        "date": "2020-03-27T13:25:48Z"
+      },
+      "message": "some cleanup in README, added release notes for Cloudflare DNS.\n\n```noteworthy user\nCloudflare DNS is now supported as a DNS provider.\n```",
+      "tree": {
+        "sha": "ea32651c842171b3c8e37fa9ac177018126c5e1c",
+        "url": "https://api.github.com/repos/gardener/external-dns-management/git/trees/ea32651c842171b3c8e37fa9ac177018126c5e1c"
+      },
+      "url": "https://api.github.com/repos/gardener/external-dns-management/git/commits/a70d91d4ec4cf7ec7439216ec360733bc31ffc49",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/external-dns-management/commits/a70d91d4ec4cf7ec7439216ec360733bc31ffc49",
+    "html_url": "https://github.com/gardener/external-dns-management/commit/a70d91d4ec4cf7ec7439216ec360733bc31ffc49",
+    "comments_url": "https://api.github.com/repos/gardener/external-dns-management/commits/a70d91d4ec4cf7ec7439216ec360733bc31ffc49/comments",
+    "author": {
+      "login": "MartinWeindel",
+      "id": 3703277,
+      "node_id": "MDQ6VXNlcjM3MDMyNzc=",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/3703277?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/MartinWeindel",
+      "html_url": "https://github.com/MartinWeindel",
+      "followers_url": "https://api.github.com/users/MartinWeindel/followers",
+      "following_url": "https://api.github.com/users/MartinWeindel/following{/other_user}",
+      "gists_url": "https://api.github.com/users/MartinWeindel/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/MartinWeindel/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/MartinWeindel/subscriptions",
+      "organizations_url": "https://api.github.com/users/MartinWeindel/orgs",
+      "repos_url": "https://api.github.com/users/MartinWeindel/repos",
+      "events_url": "https://api.github.com/users/MartinWeindel/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/MartinWeindel/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "MartinWeindel",
+      "id": 3703277,
+      "node_id": "MDQ6VXNlcjM3MDMyNzc=",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/3703277?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/MartinWeindel",
+      "html_url": "https://github.com/MartinWeindel",
+      "followers_url": "https://api.github.com/users/MartinWeindel/followers",
+      "following_url": "https://api.github.com/users/MartinWeindel/following{/other_user}",
+      "gists_url": "https://api.github.com/users/MartinWeindel/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/MartinWeindel/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/MartinWeindel/subscriptions",
+      "organizations_url": "https://api.github.com/users/MartinWeindel/orgs",
+      "repos_url": "https://api.github.com/users/MartinWeindel/repos",
+      "events_url": "https://api.github.com/users/MartinWeindel/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/MartinWeindel/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "cd43ccaaf2efadf127d36f3140d741bb0a63c9a3",
+        "url": "https://api.github.com/repos/gardener/external-dns-management/commits/cd43ccaaf2efadf127d36f3140d741bb0a63c9a3",
+        "html_url": "https://github.com/gardener/external-dns-management/commit/cd43ccaaf2efadf127d36f3140d741bb0a63c9a3"
+      }
+    ]
+  },
+  {
+    "sha": "e48a6f8468e97e0018483d81420f68a842b6f4ae",
+    "node_id": "MDY6Q29tbWl0MTY2ODA3NzQ4OmU0OGE2Zjg0NjhlOTdlMDAxODQ4M2Q4MTQyMGY2OGE4NDJiNmY0YWU=",
+    "commit": {
+      "author": {
+        "name": "Sayak Mukhopadhyay",
+        "email": "sayak@beezlabs.com",
+        "date": "2020-03-24T15:43:26Z"
+      },
+      "committer": {
+        "name": "Sayak Mukhopadhyay",
+        "email": "sayak@beezlabs.com",
+        "date": "2020-03-25T14:27:51Z"
+      },
+      "message": "Added cloudflare secrets, configuration examples and added cloudflare to list of providers in README",
+      "tree": {
+        "sha": "54d5e8e0adb852c095123b73333d17fd0c27a780",
+        "url": "https://api.github.com/repos/gardener/external-dns-management/git/trees/54d5e8e0adb852c095123b73333d17fd0c27a780"
+      },
+      "url": "https://api.github.com/repos/gardener/external-dns-management/git/commits/e48a6f8468e97e0018483d81420f68a842b6f4ae",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/external-dns-management/commits/e48a6f8468e97e0018483d81420f68a842b6f4ae",
+    "html_url": "https://github.com/gardener/external-dns-management/commit/e48a6f8468e97e0018483d81420f68a842b6f4ae",
+    "comments_url": "https://api.github.com/repos/gardener/external-dns-management/commits/e48a6f8468e97e0018483d81420f68a842b6f4ae/comments",
+    "author": {
+      "login": "SayakMukhopadhyay",
+      "id": 13748882,
+      "node_id": "MDQ6VXNlcjEzNzQ4ODgy",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/13748882?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/SayakMukhopadhyay",
+      "html_url": "https://github.com/SayakMukhopadhyay",
+      "followers_url": "https://api.github.com/users/SayakMukhopadhyay/followers",
+      "following_url": "https://api.github.com/users/SayakMukhopadhyay/following{/other_user}",
+      "gists_url": "https://api.github.com/users/SayakMukhopadhyay/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/SayakMukhopadhyay/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/SayakMukhopadhyay/subscriptions",
+      "organizations_url": "https://api.github.com/users/SayakMukhopadhyay/orgs",
+      "repos_url": "https://api.github.com/users/SayakMukhopadhyay/repos",
+      "events_url": "https://api.github.com/users/SayakMukhopadhyay/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/SayakMukhopadhyay/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "SayakMukhopadhyay",
+      "id": 13748882,
+      "node_id": "MDQ6VXNlcjEzNzQ4ODgy",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/13748882?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/SayakMukhopadhyay",
+      "html_url": "https://github.com/SayakMukhopadhyay",
+      "followers_url": "https://api.github.com/users/SayakMukhopadhyay/followers",
+      "following_url": "https://api.github.com/users/SayakMukhopadhyay/following{/other_user}",
+      "gists_url": "https://api.github.com/users/SayakMukhopadhyay/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/SayakMukhopadhyay/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/SayakMukhopadhyay/subscriptions",
+      "organizations_url": "https://api.github.com/users/SayakMukhopadhyay/orgs",
+      "repos_url": "https://api.github.com/users/SayakMukhopadhyay/repos",
+      "events_url": "https://api.github.com/users/SayakMukhopadhyay/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/SayakMukhopadhyay/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "0a89052b0d4f5e4d905c1f27416549e2e241b872",
+        "url": "https://api.github.com/repos/gardener/external-dns-management/commits/0a89052b0d4f5e4d905c1f27416549e2e241b872",
+        "html_url": "https://github.com/gardener/external-dns-management/commit/0a89052b0d4f5e4d905c1f27416549e2e241b872"
+      }
+    ]
+  },
+  {
     "sha": "212a0b08b4f77c4ffe5d47b5b633b32cf09d663d",
     "node_id": "MDY6Q29tbWl0MTY2ODA3NzQ4OjIxMmEwYjA4YjRmNzdjNGZmZTVkNDdiNWI2MzNiMzJjZjA5ZDY2M2Q=",
     "commit": {
