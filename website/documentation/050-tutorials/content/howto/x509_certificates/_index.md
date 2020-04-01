@@ -25,7 +25,7 @@ Let's get the basics straight first. If this is too long for you, you can read b
 ## Restrictions
 
 ### Domains
-Certificates may be received for any subdomain of your shoot's domain (see `.spec.dns.domain` of your shoot resource).
+Certificates may be received for any subdomain of your shoot's domain (see `.spec.dns.domain` of your shoot resource) with the default `issuer`.
 
 ### Character Restrictions
 Due to the ACME protocol specification, at least one domain of the domains you request a certificate for must not exceed a character limit of 64  (CN - Common Name).
@@ -82,6 +82,44 @@ status:
   state: Ready
 ```
 
+## Custom Domains
+If you want to request certificates for domains other then any subdomain of `shoot.spec.dns.domain`, the following configuration is required:
+
+### DNS provider
+In order to issue certificates for a custom domain you need to specify a DNS provider which is permitted to create DNS records for subdomains of your requested domain in the certificate. For example, if you request a certificate for `host.example.com` your DNS provider must be capable of managing subdomains of `host.example.com`.
+
+DNS providers are specified in the shoot manifest:
+
+```yaml
+kind: Shoot
+...
+spec:
+  dns:
+    providers:
+    - type: aws-route53 # consult the DNS provisioning controllers group (dnscontrollers) in https://github.com/gardener/external-dns-management#using-the-dns-controller-manager for possible values
+      secretName: provider-example-com # contains credentials for service account, see any 20-secret-<provider>-credentials.yaml in https://github.com/gardener/external-dns-management/tree/master/examples
+```
+
+The secret referenced by `secretName` can also be conveniently created via the Gardener dashboard.
+
+### Issuer
+Another prerequisite to request certificates for custom domains is a dedicated issuer.
+
+```yaml
+kind: Shoot
+...
+spec:
+  extensions:
+  - type: shoot-cert-service
+    providerConfig:
+      apiVersion: service.cert.extensions.gardener.cloud/v1alpha1
+      kind: CertConfig
+      issuers:
+        - email: your-email@example.com
+          name: custom-issuer # issuer name must be specified in every custom issuer request, must not be "garden"
+          server: 'https://acme-v02.api.letsencrypt.org/directory'
+```
+
 
 ## Examples
 ### Request a certificate via Certificate
@@ -99,6 +137,8 @@ spec:
   secretRef:
     name: cert-example
     namespace: default
+# issuerRef:
+#   name: custom-issuer
 ```
 
 > `spec.commonName` (required) specifies for which domain the certificate request will be created. This entry must comply with the [64 character](#Character-Restrictions) limit.
@@ -106,6 +146,8 @@ spec:
 > `spec.dnsName` additional domains the certificate should be valid for. Entries in this list can be longer than 64 characters.
 
 > `spec.secretRef` specifies the secret which contains the certificate/key pair. If the secret is not available yet, it'll be created automatically as soon as the X.509 certificate has been issued.
+
+> `spec.issuerRef` (optional) specifies the issuer you want to use. Only necessary if you request certificates for [custom domains](#Custom-Domains).
 
 ### Request a wildcard certificate via Certificate
 
@@ -120,6 +162,8 @@ spec:
   secretRef:
     name: cert-wildcard
     namespace: default
+# issuerRef:
+#   name: custom-issuer
 ```
 
 > `spec.commonName` (required) specifies for which domain the certificate request will be created. This entry must comply with the [64 character](#Character-Restrictions) limit.
@@ -127,6 +171,8 @@ spec:
 > Please note that verifications for wildcard domain certificates only succeed if the subdomain and wildcard domain are on the same level. For example: A certificate for `*.example.com` works for `foo.example.com` but not for `foo.bar.example.com`.
 
 > `spec.secretRef` specifies the secret which contains the certificate/key pair. If the secret is not available yet, it'll be created automatically as soon as the X.509 certificate has been issued.
+
+> `spec.issuerRef` (optional) specifies the issuer you want to use. Only necessary if you request certificates for [custom domains](#Custom-Domains).
 
 ### Request a certificate via Ingress
 
@@ -137,6 +183,7 @@ metadata:
   name: vuejs-ingress
   annotations:
     cert.gardener.cloud/purpose: managed
+  # cert.gardener.cloud/issuer: custom-issuer
 spec:
   tls:
   # Must not exceed 64 characters.
@@ -154,7 +201,7 @@ spec:
           servicePort: 8080
 ```
 
-> `metadata.annotations` must contain `cert.gardener.cloud/purpose: managed` to activate the certificate service on this resource.
+> `metadata.annotations` must contain `cert.gardener.cloud/purpose: managed` to activate the certificate service on this resource. `cert.gardener.cloud/issuer: <name>` is optional and may be specified if the certificate is request for a [custom domains](#Custom-Domains).
 
 > `spec.tls[].hosts` specifies for which domains the certificate request will be created. The first entry is always taken to fill the `Common Name` field and must therefore comply with the [64 character](#Character-Restrictions) limit.
 
@@ -169,6 +216,7 @@ metadata:
   name: vuejs-ingress
   annotations:
     cert.gardener.cloud/purpose: managed
+  # cert.gardener.cloud/issuer: custom-issuer
 spec:
   tls:
   # Must not exceed 64 characters.
@@ -185,7 +233,7 @@ spec:
           servicePort: 8080
 ```
 
-> `metadata.annotations` must contain `cert.gardener.cloud/purpose: managed` to activate the certificate service on this resource.
+> `metadata.annotations` must contain `cert.gardener.cloud/purpose: managed` to activate the certificate service on this resource. `cert.gardener.cloud/issuer: <name>` is optional and may be specified if the certificate is request for a [custom domains](#Custom-Domains).
 
 > `spec.tls[].hosts` please make sure the wildcard domain complies with the [64 character](#Character-Restrictions) limit.
 
@@ -199,6 +247,7 @@ kind: Service
 metadata:
   annotations:
     cert.gardener.cloud/secretname: test-service-secret
+  # cert.gardener.cloud/issuer: custom-issuer
     dns.gardener.cloud/dnsnames: "service.shoot.project.default-domain.gardener.cloud, morethan64characters.svc.shoot.project.default-domain.gardener.cloud"
     dns.gardener.cloud/ttl: "600"
   name: test-service
@@ -214,7 +263,10 @@ spec:
 
 > `metadata.annotations[cert.gardener.cloud/secretname]` specifies the secret which contains the certificate/key pair. If the secret is not available yet, it'll be created automatically as soon as the certificate has been issued.
 
+> `metadata.annotations[cert.gardener.cloud/issuer]` is optional and may be specified if the certificate is request for a [custom domains](#Custom-Domains).
+
 > `metadata.annotations[dns.gardener.cloud/dnsnames]` specifies for which domains the certificate request will be created. The first entry is always taken to fill the `Common Name` field and must therefore comply with the [64 character](#Character-Restrictions) limit.
+
 
 ### Request a wildcard certificate via Service
 
@@ -224,6 +276,7 @@ kind: Service
 metadata:
   annotations:
     cert.gardener.cloud/secretname: test-service-secret
+  # cert.gardener.cloud/issuer: custom-issuer
     dns.gardener.cloud/dnsnames: "*.service.shoot.project.default-domain.gardener.cloud"
     dns.gardener.cloud/ttl: "600"
   name: test-service
@@ -238,6 +291,8 @@ spec:
 ```
 
 > `metadata.annotations[cert.gardener.cloud/secretname]` specifies the secret which contains the certificate/key pair. If the secret is not available yet, it'll be created automatically as soon as the certificate has been issued.
+
+> `metadata.annotations[cert.gardener.cloud/issuer]` is optional and may be specified if the certificate is request for a [custom domains](#Custom-Domains).
 
 > `metadata.annotations[dns.gardener.cloud/dnsnames]` please make sure the wildcard domain complies with the [64 character](#Character-Restrictions) limit.
 
