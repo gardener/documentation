@@ -1,5 +1,84 @@
 [
   {
+    "sha": "abe35ecdd45a4828382cc2f31df2fdc08ca2ec66",
+    "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOmFiZTM1ZWNkZDQ1YTQ4MjgzODJjYzJmMzFkZjJmZGMwOGNhMmVjNjY=",
+    "commit": {
+      "author": {
+        "name": "Rafael Franzke",
+        "email": "rafael.franzke@sap.com",
+        "date": "2020-03-22T11:19:03Z"
+      },
+      "committer": {
+        "name": "Rafael Franzke",
+        "email": "rafael.franzke@sap.com",
+        "date": "2020-03-30T15:52:43Z"
+      },
+      "message": "Add v1.18 to supported K8s version docs",
+      "tree": {
+        "sha": "ad628ccfa906f567b472ea2ebac15624ac5cca7b",
+        "url": "https://api.github.com/repos/gardener/gardener/git/trees/ad628ccfa906f567b472ea2ebac15624ac5cca7b"
+      },
+      "url": "https://api.github.com/repos/gardener/gardener/git/commits/abe35ecdd45a4828382cc2f31df2fdc08ca2ec66",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/gardener/commits/abe35ecdd45a4828382cc2f31df2fdc08ca2ec66",
+    "html_url": "https://github.com/gardener/gardener/commit/abe35ecdd45a4828382cc2f31df2fdc08ca2ec66",
+    "comments_url": "https://api.github.com/repos/gardener/gardener/commits/abe35ecdd45a4828382cc2f31df2fdc08ca2ec66/comments",
+    "author": {
+      "login": "rfranzke",
+      "id": 19169361,
+      "node_id": "MDQ6VXNlcjE5MTY5MzYx",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/19169361?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rfranzke",
+      "html_url": "https://github.com/rfranzke",
+      "followers_url": "https://api.github.com/users/rfranzke/followers",
+      "following_url": "https://api.github.com/users/rfranzke/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rfranzke/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/rfranzke/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rfranzke/subscriptions",
+      "organizations_url": "https://api.github.com/users/rfranzke/orgs",
+      "repos_url": "https://api.github.com/users/rfranzke/repos",
+      "events_url": "https://api.github.com/users/rfranzke/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/rfranzke/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "rfranzke",
+      "id": 19169361,
+      "node_id": "MDQ6VXNlcjE5MTY5MzYx",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/19169361?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rfranzke",
+      "html_url": "https://github.com/rfranzke",
+      "followers_url": "https://api.github.com/users/rfranzke/followers",
+      "following_url": "https://api.github.com/users/rfranzke/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rfranzke/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/rfranzke/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rfranzke/subscriptions",
+      "organizations_url": "https://api.github.com/users/rfranzke/orgs",
+      "repos_url": "https://api.github.com/users/rfranzke/repos",
+      "events_url": "https://api.github.com/users/rfranzke/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/rfranzke/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "2b59ad05b9d418d3b692ab4cb0b6a86a4ea75987",
+        "url": "https://api.github.com/repos/gardener/gardener/commits/2b59ad05b9d418d3b692ab4cb0b6a86a4ea75987",
+        "html_url": "https://github.com/gardener/gardener/commit/2b59ad05b9d418d3b692ab4cb0b6a86a4ea75987"
+      }
+    ]
+  },
+  {
     "sha": "28c1b7ab96d990c4161ae3c80729134a430541bd",
     "node_id": "MDY6Q29tbWl0MTE3Mzc3ODYyOjI4YzFiN2FiOTZkOTkwYzQxNjFhZTNjODA3MjkxMzRhNDMwNTQxYmQ=",
     "commit": {
