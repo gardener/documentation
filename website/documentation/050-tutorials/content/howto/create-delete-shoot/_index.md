@@ -29,14 +29,14 @@ To connect to the newly created Shoot cluster, you must download its Kubeconfig 
 In order to delete your cluster, you have to set an annotation confirming the deletion first, and trigger the deletion after that. You can use the prepared `delete shoot` script which takes the Shoot name as first parameter. The namespace can be specified by the second parameter, but it is optional. If you don't state it, it defaults to your namespace (the username you are logged in with to your machine).
 
 ```bash
-$ ./hack/delete shoot johndoe-1 johndoe
+$ ./hack/usage/delete shoot johndoe-1 johndoe
 ```
-( `hack` bash script can be found here [https://github.com/gardener/gardener/blob/master/hack/delete](https://github.com/gardener/gardener/blob/master/hack/delete))
+( `hack` bash script can be found here [https://github.com/gardener/gardener/blob/master/hack/usage/delete](https://github.com/gardener/gardener/blob/master/hack/usage/delete))
 
 # Configure a Shoot cluster alert receiver
 
-The receiver of the Shoot alerts can be configured by adding the annotation `garden.sapcloud.io/operatedBy` to the Shoot resource. The value of the annotation has to be a valid mail address.
+The receiver of the Shoot alerts can be configured from the `.spec.monitoring.alerting.emailReceivers` section in the Shoot specification. The value of the field has to be a list of valid mail addresses.
 
-The alerting for the Shoot clusters is handled by the Prometheus Alertmanager. The Alertmanager will be deployed next to the control plane when the `Shoot` resource is annotated with the `garden.sapcloud.io/operatedBy` annotation and if a [SMTP secret](https://github.com/gardener/gardener/blob/master/example/10-secret-alerting.yaml) exists.
+The alerting for the Shoot clusters is handled by the Prometheus Alertmanager. The Alertmanager will be deployed next to the control plane when the `Shoot` resource specifies `.spec.monitoring.alerting.emailReceivers` and if a [SMTP secret](https://github.com/gardener/gardener/blob/master/example/10-secret-alerting.yaml) exists.
 
-If the annotation gets removed then the Alertmanager will be also removed during the next reconcilation of the cluster. The opposite is also valid if the annotation is added to an existing cluster.
+If the field gets removed then the Alertmanager will be also removed during the next reconcilation of the cluster. The opposite is also valid if the field is added to an existing cluster.
