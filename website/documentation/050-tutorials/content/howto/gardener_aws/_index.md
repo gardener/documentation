@@ -12,7 +12,7 @@ scope: app-developer
 ---
 
 ## Introduction
-Creating a Kubernetes cluster in an AWS Account is easy and the Gardener UI should be self-explanatory/.
+Creating a Kubernetes cluster in an AWS Account is easy and the Gardener UI should be self-explanatory.
 
 # Gardener
 ## Create a new Project in Gardener
