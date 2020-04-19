@@ -13,7 +13,7 @@ aliases: ["readmore/shoot-maintain"]
 
 Day two operations like updating [Kubernetes patch version](#kubernetes-patch-version) (if the auto-update is enabled) and updating [Operating system version](#operating-system-version) happen in the maintenance time window of the Shoot cluster. The maintenance time window is part of the shoot spec (`.spec.maintenance.timeWindow`). If it is not specified during Shoot creation, Gardener will default to a randomized time window (to spread the load). The time interval cannot be less than 30 minutes and more than 6 hours.
 
-To trigger the maintenance operation, you can annotate the Shoot with `shoot.garden.sapcloud.io/operation: maintain`.
+To trigger the maintenance operation, you can annotate the Shoot with `shoot.gardener.cloud/operation: maintain`.
 
 ### Kubernetes Patch Version
 

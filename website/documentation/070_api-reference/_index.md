@@ -18,4 +18,3 @@ Those APIs are divided into different groups:
 - [Core](core)
 - [Extensions](extensions)
 - [Settings](settings)
-- [Garden](garden)

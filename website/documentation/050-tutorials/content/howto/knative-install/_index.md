@@ -197,7 +197,7 @@ Use the Gardener dashboard to delete your cluster, or execute the following with
 kubectl pointing to your `garden-my-project.yaml` kubeconfig:
 
 ```
-kubectl --kubeconfig garden-my-project.yaml --namespace garden--my-project annotate shoot my-cluster confirmation.garden.sapcloud.io/deletion=true
+kubectl --kubeconfig garden-my-project.yaml --namespace garden--my-project annotate shoot my-cluster confirmation.gardener.cloud/deletion=true
 
 kubectl --kubeconfig garden-my-project.yaml --namespace garden--my-project delete shoot my-cluster
 ```
