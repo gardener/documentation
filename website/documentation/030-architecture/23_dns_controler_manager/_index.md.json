@@ -1,5 +1,84 @@
 [
   {
+    "sha": "1a6016afd7974bc38dd5f44179835ec244bb0905",
+    "node_id": "MDY6Q29tbWl0MTY2ODA3NzQ4OjFhNjAxNmFmZDc5NzRiYzM4ZGQ1ZjQ0MTc5ODM1ZWMyNDRiYjA5MDU=",
+    "commit": {
+      "author": {
+        "name": "Sayak Mukhopadhyay",
+        "email": "sayak@beezlabs.com",
+        "date": "2020-04-27T16:58:29Z"
+      },
+      "committer": {
+        "name": "Sayak Mukhopadhyay",
+        "email": "sayak@beezlabs.com",
+        "date": "2020-04-27T16:58:29Z"
+      },
+      "message": "Added documentation for cloudflare DNS provider",
+      "tree": {
+        "sha": "b5fbfe093f70b674bbe9e04d11ab1d8b83df1ecd",
+        "url": "https://api.github.com/repos/gardener/external-dns-management/git/trees/b5fbfe093f70b674bbe9e04d11ab1d8b83df1ecd"
+      },
+      "url": "https://api.github.com/repos/gardener/external-dns-management/git/commits/1a6016afd7974bc38dd5f44179835ec244bb0905",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/external-dns-management/commits/1a6016afd7974bc38dd5f44179835ec244bb0905",
+    "html_url": "https://github.com/gardener/external-dns-management/commit/1a6016afd7974bc38dd5f44179835ec244bb0905",
+    "comments_url": "https://api.github.com/repos/gardener/external-dns-management/commits/1a6016afd7974bc38dd5f44179835ec244bb0905/comments",
+    "author": {
+      "login": "SayakMukhopadhyay",
+      "id": 13748882,
+      "node_id": "MDQ6VXNlcjEzNzQ4ODgy",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/13748882?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/SayakMukhopadhyay",
+      "html_url": "https://github.com/SayakMukhopadhyay",
+      "followers_url": "https://api.github.com/users/SayakMukhopadhyay/followers",
+      "following_url": "https://api.github.com/users/SayakMukhopadhyay/following{/other_user}",
+      "gists_url": "https://api.github.com/users/SayakMukhopadhyay/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/SayakMukhopadhyay/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/SayakMukhopadhyay/subscriptions",
+      "organizations_url": "https://api.github.com/users/SayakMukhopadhyay/orgs",
+      "repos_url": "https://api.github.com/users/SayakMukhopadhyay/repos",
+      "events_url": "https://api.github.com/users/SayakMukhopadhyay/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/SayakMukhopadhyay/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "SayakMukhopadhyay",
+      "id": 13748882,
+      "node_id": "MDQ6VXNlcjEzNzQ4ODgy",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/13748882?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/SayakMukhopadhyay",
+      "html_url": "https://github.com/SayakMukhopadhyay",
+      "followers_url": "https://api.github.com/users/SayakMukhopadhyay/followers",
+      "following_url": "https://api.github.com/users/SayakMukhopadhyay/following{/other_user}",
+      "gists_url": "https://api.github.com/users/SayakMukhopadhyay/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/SayakMukhopadhyay/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/SayakMukhopadhyay/subscriptions",
+      "organizations_url": "https://api.github.com/users/SayakMukhopadhyay/orgs",
+      "repos_url": "https://api.github.com/users/SayakMukhopadhyay/repos",
+      "events_url": "https://api.github.com/users/SayakMukhopadhyay/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/SayakMukhopadhyay/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "e6cb413fd56ca651784e1f8a5001e1a3cc5edef0",
+        "url": "https://api.github.com/repos/gardener/external-dns-management/commits/e6cb413fd56ca651784e1f8a5001e1a3cc5edef0",
+        "html_url": "https://github.com/gardener/external-dns-management/commit/e6cb413fd56ca651784e1f8a5001e1a3cc5edef0"
+      }
+    ]
+  },
+  {
     "sha": "a70d91d4ec4cf7ec7439216ec360733bc31ffc49",
     "node_id": "MDY6Q29tbWl0MTY2ODA3NzQ4OmE3MGQ5MWQ0ZWM0Y2Y3ZWM3NDM5MjE2ZWMzNjA3MzNiYzMxZmZjNDk=",
     "commit": {
