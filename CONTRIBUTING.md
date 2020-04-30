@@ -141,3 +141,4 @@ See the meeting calendar on the web at [calendar.google.com](https://calendar.go
 
 If you have a topic you'd like to present or would like to see discussed, please propose a specific date on the [Gardener Community Meeting Agenda](https://docs.google.com/document/d/1314v8ziVNQPjdBrWp-Y4BYrTDlv7dq2cWDFIa9SMaP4). Find minutes in the same document. Please upload slides or other documents you presented to the
 [Gardener Community Meeting folder](https://drive.google.com/drive/u/0/folders/1myXFoaFL_9fYJdUwnZcIXMBpx3dynhM8). Subscribe to the [gardener mailing list](https://groups.google.com/forum/?fromgroups#!forum/gardener) to get edit permissions.
+Recordings are available in the [Gardener Youtube channel](https://www.youtube.com/channel/UCwUhwKFREV8Su0gwAJQX7tw/videos).
