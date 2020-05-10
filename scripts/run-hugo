@@ -1,0 +1,73 @@
+#!/bin/bash
+
+set -e
+
+mkdir /website
+cd /website
+git clone https://github.com/gardener/website-generator.git
+
+cd website-generator/hugo
+
+ln -sf /src/website content
+
+WATCH="${HUGO_WATCH:=false}"
+PRODUCTION="${WEBSITE_PROD:=false}"
+SLEEP="${HUGO_REFRESH_TIME:=-1}"
+HUGO_DESTINATION="${HUGO_DESTINATION:=/output}"
+echo "HUGO_WATCH:" $WATCH
+echo "HUGO_REFRESH_TIME:" $HUGO_REFRESH_TIME
+echo "HUGO_THEME:" $HUGO_THEME
+echo "HUGO_BASEURL" $HUGO_BASEURL
+echo "ARGS" $@
+
+while [ true ]
+do
+    if [[ $HUGO_WATCH != 'false' ]]; then
+        echo "Starting site hosting in watch for changes mode"
+        hugo server --destination="$HUGO_DESTINATION" --bind="0.0.0.0" "$@" || exit 1
+    elif [[ $PRODUCTION != 'false' ]]; then
+        echo "Starting site build for production"
+        # Setup
+        export GARDENER_WEBSITE_PATH=$HUGO_DESTINATION
+        export GARDENER_DOCUMENTATION_PATH=/src
+        .ci/setup
+
+        # Run pregeneration: pull remote content
+        #
+        echo  ;
+        echo "Running pre-site building tasks" ;
+        npm install
+        export CONTENT=./content
+        export LOCAL_BUILD=1
+        node ../node/index.js
+
+        # Generate site from content(->/src) into $HUGO_DESTINATION
+        #
+        echo ;
+        hugo --minify --destination "${HUGO_DESTINATION}/docs"
+
+        echo
+        echo "Adding changed JSON git history to repo for faster site generation the next time"
+        cd content
+        git add . -A
+        git commit -m 'Add git history by CI/CD pipeline for fast lookup for hugo site generation. Done by concourse [skip ci]'
+        # git log --name-status HEAD^..HEAD | cat
+
+        echo
+        echo "Committing website changes"
+        cd ${HUGO_DESTINATION}
+        git add . -A
+        git commit -m 'Automatic build triggered by last commit [skip ci]'
+        # git log --name-status HEAD^..HEAD | cat
+        hugo server --source=${HUGO_DESTINATION} --bind="0.0.0.0" "$@" || exit 1
+    else
+        echo "Starting one-time quick build to ${HUGO_DESTINATION}"
+        hugo --destination="$HUGO_DESTINATION" "$@" || exit 1
+    fi
+
+    if [[ $HUGO_REFRESH_TIME == -1 ]]; then
+        exit 0
+    fi
+    echo "Sleeping for $HUGO_REFRESH_TIME seconds..."
+    sleep $SLEEP
+done
