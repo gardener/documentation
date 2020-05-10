@@ -1,24 +1,24 @@
 [
   {
-    "sha": "9c3560e9e013ed0ccb51d75bf3c12cbeef056d48",
-    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OjljMzU2MGU5ZTAxM2VkMGNjYjUxZDc1YmYzYzEyY2JlZWYwNTZkNDg=",
+    "sha": "13a1cab0500ae01d19d97e76dac22c8a4f70a67f",
+    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OjEzYTFjYWIwNTAwYWUwMWQxOWQ5N2U3NmRhYzIyYzhhNGY3MGE2N2Y=",
     "commit": {
       "author": {
-        "name": "Herz, Andreas",
-        "email": "andreas.herz@sap.com",
-        "date": "2019-06-12T10:54:54Z"
+        "name": "Georgi Pavlov",
+        "email": "georgi.pavlov@sap.com",
+        "date": "2020-05-01T18:54:00Z"
       },
       "committer": {
-        "name": "Herz, Andreas",
-        "email": "andreas.herz@sap.com",
-        "date": "2019-06-12T10:54:54Z"
+        "name": "Georgi Pavlov",
+        "email": "georgi.pavlov@sap.com",
+        "date": "2020-05-03T11:00:48Z"
       },
-      "message": "add cloud provider to the landing page",
+      "message": "[int] restructure top-level content",
       "tree": {
-        "sha": "77f271456178da08b786a888ffa3b501d191550a",
-        "url": "https://api.github.com/repos/gardener/documentation/git/trees/77f271456178da08b786a888ffa3b501d191550a"
+        "sha": "c9fa683aad2b1d7dbbb615ecf3db126b31f8a180",
+        "url": "https://api.github.com/repos/gardener/documentation/git/trees/c9fa683aad2b1d7dbbb615ecf3db126b31f8a180"
       },
-      "url": "https://api.github.com/repos/gardener/documentation/git/commits/9c3560e9e013ed0ccb51d75bf3c12cbeef056d48",
+      "url": "https://api.github.com/repos/gardener/documentation/git/commits/13a1cab0500ae01d19d97e76dac22c8a4f70a67f",
       "comment_count": 0,
       "verification": {
         "verified": false,
@@ -27,133 +27,54 @@
         "payload": null
       }
     },
-    "url": "https://api.github.com/repos/gardener/documentation/commits/9c3560e9e013ed0ccb51d75bf3c12cbeef056d48",
-    "html_url": "https://github.com/gardener/documentation/commit/9c3560e9e013ed0ccb51d75bf3c12cbeef056d48",
-    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/9c3560e9e013ed0ccb51d75bf3c12cbeef056d48/comments",
+    "url": "https://api.github.com/repos/gardener/documentation/commits/13a1cab0500ae01d19d97e76dac22c8a4f70a67f",
+    "html_url": "https://github.com/gardener/documentation/commit/13a1cab0500ae01d19d97e76dac22c8a4f70a67f",
+    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/13a1cab0500ae01d19d97e76dac22c8a4f70a67f/comments",
     "author": {
-      "login": "freegroup",
-      "id": 1155039,
-      "node_id": "MDQ6VXNlcjExNTUwMzk=",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/1155039?v=4",
+      "login": "g-pavlov",
+      "id": 52317188,
+      "node_id": "MDQ6VXNlcjUyMzE3MTg4",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/52317188?v=4",
       "gravatar_id": "",
-      "url": "https://api.github.com/users/freegroup",
-      "html_url": "https://github.com/freegroup",
-      "followers_url": "https://api.github.com/users/freegroup/followers",
-      "following_url": "https://api.github.com/users/freegroup/following{/other_user}",
-      "gists_url": "https://api.github.com/users/freegroup/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/freegroup/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/freegroup/subscriptions",
-      "organizations_url": "https://api.github.com/users/freegroup/orgs",
-      "repos_url": "https://api.github.com/users/freegroup/repos",
-      "events_url": "https://api.github.com/users/freegroup/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/freegroup/received_events",
+      "url": "https://api.github.com/users/g-pavlov",
+      "html_url": "https://github.com/g-pavlov",
+      "followers_url": "https://api.github.com/users/g-pavlov/followers",
+      "following_url": "https://api.github.com/users/g-pavlov/following{/other_user}",
+      "gists_url": "https://api.github.com/users/g-pavlov/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/g-pavlov/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/g-pavlov/subscriptions",
+      "organizations_url": "https://api.github.com/users/g-pavlov/orgs",
+      "repos_url": "https://api.github.com/users/g-pavlov/repos",
+      "events_url": "https://api.github.com/users/g-pavlov/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/g-pavlov/received_events",
       "type": "User",
       "site_admin": false
     },
     "committer": {
-      "login": "freegroup",
-      "id": 1155039,
-      "node_id": "MDQ6VXNlcjExNTUwMzk=",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/1155039?v=4",
+      "login": "g-pavlov",
+      "id": 52317188,
+      "node_id": "MDQ6VXNlcjUyMzE3MTg4",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/52317188?v=4",
       "gravatar_id": "",
-      "url": "https://api.github.com/users/freegroup",
-      "html_url": "https://github.com/freegroup",
-      "followers_url": "https://api.github.com/users/freegroup/followers",
-      "following_url": "https://api.github.com/users/freegroup/following{/other_user}",
-      "gists_url": "https://api.github.com/users/freegroup/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/freegroup/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/freegroup/subscriptions",
-      "organizations_url": "https://api.github.com/users/freegroup/orgs",
-      "repos_url": "https://api.github.com/users/freegroup/repos",
-      "events_url": "https://api.github.com/users/freegroup/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/freegroup/received_events",
+      "url": "https://api.github.com/users/g-pavlov",
+      "html_url": "https://github.com/g-pavlov",
+      "followers_url": "https://api.github.com/users/g-pavlov/followers",
+      "following_url": "https://api.github.com/users/g-pavlov/following{/other_user}",
+      "gists_url": "https://api.github.com/users/g-pavlov/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/g-pavlov/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/g-pavlov/subscriptions",
+      "organizations_url": "https://api.github.com/users/g-pavlov/orgs",
+      "repos_url": "https://api.github.com/users/g-pavlov/repos",
+      "events_url": "https://api.github.com/users/g-pavlov/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/g-pavlov/received_events",
       "type": "User",
       "site_admin": false
     },
     "parents": [
       {
-        "sha": "7d2dba7eea3f9472578d6698f7423df84a8a0251",
-        "url": "https://api.github.com/repos/gardener/documentation/commits/7d2dba7eea3f9472578d6698f7423df84a8a0251",
-        "html_url": "https://github.com/gardener/documentation/commit/7d2dba7eea3f9472578d6698f7423df84a8a0251"
-      }
-    ]
-  },
-  {
-    "sha": "116e4873324b257c94201afdacad6379e1876563",
-    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OjExNmU0ODczMzI0YjI1N2M5NDIwMWFmZGFjYWQ2Mzc5ZTE4NzY1NjM=",
-    "commit": {
-      "author": {
-        "name": "Andreas Herz",
-        "email": "andreas.herz@sap.com",
-        "date": "2019-06-11T15:39:51Z"
-      },
-      "committer": {
-        "name": "Andreas Herz",
-        "email": "andreas.herz@sap.com",
-        "date": "2019-06-11T15:39:51Z"
-      },
-      "message": "rafactoring of the blog section. move them to the top navigation bar instead of the document sub-size",
-      "tree": {
-        "sha": "74ef1a52e9a93451884752ad2482cab7ce363cd2",
-        "url": "https://api.github.com/repos/gardener/documentation/git/trees/74ef1a52e9a93451884752ad2482cab7ce363cd2"
-      },
-      "url": "https://api.github.com/repos/gardener/documentation/git/commits/116e4873324b257c94201afdacad6379e1876563",
-      "comment_count": 0,
-      "verification": {
-        "verified": false,
-        "reason": "unsigned",
-        "signature": null,
-        "payload": null
-      }
-    },
-    "url": "https://api.github.com/repos/gardener/documentation/commits/116e4873324b257c94201afdacad6379e1876563",
-    "html_url": "https://github.com/gardener/documentation/commit/116e4873324b257c94201afdacad6379e1876563",
-    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/116e4873324b257c94201afdacad6379e1876563/comments",
-    "author": {
-      "login": "freegroup",
-      "id": 1155039,
-      "node_id": "MDQ6VXNlcjExNTUwMzk=",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/1155039?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/freegroup",
-      "html_url": "https://github.com/freegroup",
-      "followers_url": "https://api.github.com/users/freegroup/followers",
-      "following_url": "https://api.github.com/users/freegroup/following{/other_user}",
-      "gists_url": "https://api.github.com/users/freegroup/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/freegroup/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/freegroup/subscriptions",
-      "organizations_url": "https://api.github.com/users/freegroup/orgs",
-      "repos_url": "https://api.github.com/users/freegroup/repos",
-      "events_url": "https://api.github.com/users/freegroup/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/freegroup/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "committer": {
-      "login": "freegroup",
-      "id": 1155039,
-      "node_id": "MDQ6VXNlcjExNTUwMzk=",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/1155039?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/freegroup",
-      "html_url": "https://github.com/freegroup",
-      "followers_url": "https://api.github.com/users/freegroup/followers",
-      "following_url": "https://api.github.com/users/freegroup/following{/other_user}",
-      "gists_url": "https://api.github.com/users/freegroup/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/freegroup/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/freegroup/subscriptions",
-      "organizations_url": "https://api.github.com/users/freegroup/orgs",
-      "repos_url": "https://api.github.com/users/freegroup/repos",
-      "events_url": "https://api.github.com/users/freegroup/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/freegroup/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "parents": [
-      {
-        "sha": "a5436c98df2df034b20e2d0059e162c4fe89cbd2",
-        "url": "https://api.github.com/repos/gardener/documentation/commits/a5436c98df2df034b20e2d0059e162c4fe89cbd2",
-        "html_url": "https://github.com/gardener/documentation/commit/a5436c98df2df034b20e2d0059e162c4fe89cbd2"
+        "sha": "cc5c4b0b4d2c8c066a8f46598b4c390fc4f46b07",
+        "url": "https://api.github.com/repos/gardener/documentation/commits/cc5c4b0b4d2c8c066a8f46598b4c390fc4f46b07",
+        "html_url": "https://github.com/gardener/documentation/commit/cc5c4b0b4d2c8c066a8f46598b4c390fc4f46b07"
       }
     ]
   }
