@@ -1,0 +1,81 @@
+[
+  {
+    "sha": "01ab634d9d5d6f20fd453e189f19a96d76ccd909",
+    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OjAxYWI2MzRkOWQ1ZDZmMjBmZDQ1M2UxODlmMTlhOTZkNzZjY2Q5MDk=",
+    "commit": {
+      "author": {
+        "name": "d060239",
+        "email": "daniel.foehr@sap.com",
+        "date": "2020-04-27T13:40:36Z"
+      },
+      "committer": {
+        "name": "Daniel Foehr",
+        "email": "daniel.foehr@sap.com",
+        "date": "2020-05-11T08:48:17Z"
+      },
+      "message": "add tutorial: get shell to node",
+      "tree": {
+        "sha": "f6b508fc1b87a4c30895226f2b6a7a54acd8b140",
+        "url": "https://api.github.com/repos/gardener/documentation/git/trees/f6b508fc1b87a4c30895226f2b6a7a54acd8b140"
+      },
+      "url": "https://api.github.com/repos/gardener/documentation/git/commits/01ab634d9d5d6f20fd453e189f19a96d76ccd909",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/documentation/commits/01ab634d9d5d6f20fd453e189f19a96d76ccd909",
+    "html_url": "https://github.com/gardener/documentation/commit/01ab634d9d5d6f20fd453e189f19a96d76ccd909",
+    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/01ab634d9d5d6f20fd453e189f19a96d76ccd909/comments",
+    "author": {
+      "login": "danielfoehrKn",
+      "id": 33809186,
+      "node_id": "MDQ6VXNlcjMzODA5MTg2",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/33809186?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/danielfoehrKn",
+      "html_url": "https://github.com/danielfoehrKn",
+      "followers_url": "https://api.github.com/users/danielfoehrKn/followers",
+      "following_url": "https://api.github.com/users/danielfoehrKn/following{/other_user}",
+      "gists_url": "https://api.github.com/users/danielfoehrKn/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/danielfoehrKn/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/danielfoehrKn/subscriptions",
+      "organizations_url": "https://api.github.com/users/danielfoehrKn/orgs",
+      "repos_url": "https://api.github.com/users/danielfoehrKn/repos",
+      "events_url": "https://api.github.com/users/danielfoehrKn/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/danielfoehrKn/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "danielfoehrKn",
+      "id": 33809186,
+      "node_id": "MDQ6VXNlcjMzODA5MTg2",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/33809186?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/danielfoehrKn",
+      "html_url": "https://github.com/danielfoehrKn",
+      "followers_url": "https://api.github.com/users/danielfoehrKn/followers",
+      "following_url": "https://api.github.com/users/danielfoehrKn/following{/other_user}",
+      "gists_url": "https://api.github.com/users/danielfoehrKn/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/danielfoehrKn/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/danielfoehrKn/subscriptions",
+      "organizations_url": "https://api.github.com/users/danielfoehrKn/orgs",
+      "repos_url": "https://api.github.com/users/danielfoehrKn/repos",
+      "events_url": "https://api.github.com/users/danielfoehrKn/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/danielfoehrKn/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "906eec1d66629afaee4fec7290a134317fb1874c",
+        "url": "https://api.github.com/repos/gardener/documentation/commits/906eec1d66629afaee4fec7290a134317fb1874c",
+        "html_url": "https://github.com/gardener/documentation/commit/906eec1d66629afaee4fec7290a134317fb1874c"
+      }
+    ]
+  }
+]
