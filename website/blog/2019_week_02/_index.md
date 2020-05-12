@@ -1,6 +1,10 @@
 ---
 title: Organizing Access Using kubeconfig Files
 type: Blog
+author: Andreas Herz
+email: andreas.herz@sap.com
+avatar: https://avatars1.githubusercontent.com/u/1155039?v=4
+publishdate: 2019-06-11
 ---
 
 The kubectl command-line tool uses `kubeconfig` files to find the information it needs to choose a cluster and 

@@ -1,6 +1,10 @@
 ---
 title: Frontend HTTPS
 type: Blog
+author: Andreas Herz
+email: andreas.herz@sap.com
+avatar: https://avatars1.githubusercontent.com/u/1155039?v=4
+publishdate: 2018-06-11
 ---
 
 {{% blog_img "logo" "blog-https.png" %}}

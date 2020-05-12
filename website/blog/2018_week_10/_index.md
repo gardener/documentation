@@ -1,6 +1,10 @@
 ---
 title: Shared storage with S3 backend
 type: Blog
+author: Andreas Herz
+email: andreas.herz@sap.com
+avatar: https://avatars1.githubusercontent.com/u/1155039?v=4
+publishdate: 2018-06-11
 ---
 
 The storage is definitely the most complex and important part of an application setup, once this part is completed, 

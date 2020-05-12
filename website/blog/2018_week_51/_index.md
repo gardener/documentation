@@ -1,6 +1,10 @@
 ---
 title: Cookies are dangerous... 
 type: Blog
+author: Andreas Herz
+email: andreas.herz@sap.com
+avatar: https://avatars1.githubusercontent.com/u/1155039?v=4
+publishdate: 2018-06-11
 ---
 
 **...they mess up the figure.**
