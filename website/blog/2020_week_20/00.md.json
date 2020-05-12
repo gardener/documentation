@@ -1,5 +1,84 @@
 [
   {
+    "sha": "401f51611426e42076ed9ff5f50e1e10f062ab82",
+    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OjQwMWY1MTYxMTQyNmU0MjA3NmVkOWZmNWY1MGUxZTEwZjA2MmFiODI=",
+    "commit": {
+      "author": {
+        "name": "Georgi Pavlov",
+        "email": "georgi.pavlov@sap.com",
+        "date": "2020-05-12T18:18:36Z"
+      },
+      "committer": {
+        "name": "Georgi Pavlov",
+        "email": "georgi.pavlov@sap.com",
+        "date": "2020-05-12T18:18:36Z"
+      },
+      "message": "[int] small text update. removed twitter button",
+      "tree": {
+        "sha": "0ff16730e9c3f55fe52bfe08fa8324e690dc7c41",
+        "url": "https://api.github.com/repos/gardener/documentation/git/trees/0ff16730e9c3f55fe52bfe08fa8324e690dc7c41"
+      },
+      "url": "https://api.github.com/repos/gardener/documentation/git/commits/401f51611426e42076ed9ff5f50e1e10f062ab82",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\niQIzBAABCAAdFiEEn+3EvhI3rEhB59mDpN25XprbKH8FAl666HwACgkQpN25Xprb\nKH9+gBAAvdxFWeNmrVqbIgfupNKBxIDGd5UpaAjG8i3FPjpazsbYrCfhLCfsa0D0\nKInm5bvUm2wrvrQZiHTdpzcs59LyaJHZR9K1yxlzrkllhegPjM0rUcWzAZj0EwEe\nZuRzt4J8oUdhCWj2N5V+BjRBk84Yka3pnFgUnKnzZoREQvvM9oNthlJu6xh32Lz3\n5fflm87SRsRdUTNSgajtnfE2hEXWaQDhymkAhyfeEkUpUT3uPKc3dHHxmftFfgZ6\nPfDIK2wl8AGAj9kPtNyJVj+5mfgVjM+eOTnxJT8+kLiXGXdTX2Bryne3EPluCHiM\ni/LZ5EUyXdHRQduC1TcKzxTfwxJO3LuX5T7GEGQXE3G7q49OXXXB8Odg8+x392HK\nQ0UtGJ/Eixduk/2BEtzefSFANWayUUI+NSQ2Fuxyl6sAYcwdljoonXRYn+HselHZ\ndtb/e1apkX2fUo8QYadEEN6uAFfpGMpCK+bcjX3/EerecUvx8EsU87drf8KStJvd\n2IiCxIkv8TPUBtR9C/BwyqvxCiplqupxu2HXy7Vwv7UC1MW0huUbU73uS5oGPKpU\nkDIFzGvpCzHnSd3NPC5VqWFuP1c2bELLuCPP4FRfiBm8dH0QufoxCdr7muOk6Pn8\neVldpPRx0ePeKUwff7yoAyCaO9P6N3Ns2JrgTrhA2IHKtF6P5BM=\n=j/C9\n-----END PGP SIGNATURE-----",
+        "payload": "tree 0ff16730e9c3f55fe52bfe08fa8324e690dc7c41\nparent 755f20ffb7604555fe2255c7549b17b9897e460f\nauthor Georgi Pavlov <georgi.pavlov@sap.com> 1589307516 +0300\ncommitter Georgi Pavlov <georgi.pavlov@sap.com> 1589307516 +0300\n\n[int] small text update. removed twitter button\n"
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/documentation/commits/401f51611426e42076ed9ff5f50e1e10f062ab82",
+    "html_url": "https://github.com/gardener/documentation/commit/401f51611426e42076ed9ff5f50e1e10f062ab82",
+    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/401f51611426e42076ed9ff5f50e1e10f062ab82/comments",
+    "author": {
+      "login": "g-pavlov",
+      "id": 52317188,
+      "node_id": "MDQ6VXNlcjUyMzE3MTg4",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/52317188?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/g-pavlov",
+      "html_url": "https://github.com/g-pavlov",
+      "followers_url": "https://api.github.com/users/g-pavlov/followers",
+      "following_url": "https://api.github.com/users/g-pavlov/following{/other_user}",
+      "gists_url": "https://api.github.com/users/g-pavlov/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/g-pavlov/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/g-pavlov/subscriptions",
+      "organizations_url": "https://api.github.com/users/g-pavlov/orgs",
+      "repos_url": "https://api.github.com/users/g-pavlov/repos",
+      "events_url": "https://api.github.com/users/g-pavlov/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/g-pavlov/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "g-pavlov",
+      "id": 52317188,
+      "node_id": "MDQ6VXNlcjUyMzE3MTg4",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/52317188?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/g-pavlov",
+      "html_url": "https://github.com/g-pavlov",
+      "followers_url": "https://api.github.com/users/g-pavlov/followers",
+      "following_url": "https://api.github.com/users/g-pavlov/following{/other_user}",
+      "gists_url": "https://api.github.com/users/g-pavlov/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/g-pavlov/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/g-pavlov/subscriptions",
+      "organizations_url": "https://api.github.com/users/g-pavlov/orgs",
+      "repos_url": "https://api.github.com/users/g-pavlov/repos",
+      "events_url": "https://api.github.com/users/g-pavlov/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/g-pavlov/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "755f20ffb7604555fe2255c7549b17b9897e460f",
+        "url": "https://api.github.com/repos/gardener/documentation/commits/755f20ffb7604555fe2255c7549b17b9897e460f",
+        "html_url": "https://github.com/gardener/documentation/commit/755f20ffb7604555fe2255c7549b17b9897e460f"
+      }
+    ]
+  },
+  {
     "sha": "2bea898deb0a8086be767bb264c0adbfca96b5f9",
     "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OjJiZWE4OThkZWIwYTgwODZiZTc2N2JiMjY0YzBhZGJmY2E5NmI1Zjk=",
     "commit": {
