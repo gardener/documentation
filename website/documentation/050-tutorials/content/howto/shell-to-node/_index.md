@@ -12,25 +12,27 @@ scope: operator
 
 To troubleshoot certain problems in a Kubernetes cluster, operators need access to the host of the Kubernetes node to troubleshoot 
 problems. This can be required if a node misbehaves or fails to join the cluster in the first place.
-With ssh access to the host, it is for instance possible to check the `kubelet` logs and interact with common tools such as `systemctl`and `journalctl`.
+
+With access to the host, it is for instance possible to check the `kubelet` logs and interact with common tools such as `systemctl`and `journalctl`.
 
 The first section of this guide explores options to get a shell to the node of a Gardener Kubernetes cluster. 
 The options described in the second section do not rely on Kubernetes capabilities to get shell access to a node and thus can also be used if an instance failed to join the cluster.
+
 This guide only covers how to get access to the host, but does not cover troubleshooting methods.
 
-- [Shell access to an operational cluster node](#ssh-access-to-an-operational-cluster-node)
+- [Get a Shell to an operational cluster node](#get-a-shell-to-an-operational-cluster-node)
   - [Gardener Dashboard](#gardener-dashboard) 
   - [gardenctl shell](#gardenctl-shell) 
   - [Gardener Ops Toolbelt](#gardener-ops-toolbelt)
   - [Custom root pod](#custom-root-pod)
 - [SSH access to a node that failed to join the cluster](#ssh-access-to-a-node-that-failed-to-join-the-cluster)
- - [gardenctl-ssh](#gardenctl-ssh) 
- - [SSH with manually created Bastion on AWS](#ssh-with-manually-created-bastion-on-aws) 
+  - [gardenctl-ssh](#gardenctl-ssh) 
+  - [SSH with manually created Bastion on AWS](#ssh-with-manually-created-bastion-on-aws) 
 
 
-# SSH access to an operational cluster node
+# Get a Shell to an operational cluster node
 
-The following describes four different approaches to get ssh access to a Kubernetes node.
+The following describes four different approaches to get a shell to an operational Shoot worker node.
 As a prerequisite to troubleshooting a Kubernetes node, the node must have joined the cluster successfully and be able to run a pod.
 All of the described approaches involve scheduling a pod with root permissions and mounting the root filesystem.
 
@@ -40,26 +42,31 @@ All of the described approaches involve scheduling a pod with root permissions a
 
 Navigate to the cluster overview page and find the `Terminal` in the `Access` tile.
 
-![f3ef5f0495992743d5d56d1f0adcd0ab.png](_resources/9fb6ca4ff9b7480f93debba833f48590.png)
+<img style="margin-left:0;width:80%;height:auto;" alt="Access Tile" src="resources/9fb6ca4ff9b7480f93debba833f48590.png"/>
+<br>
 
 Select the target Cluster (Garden, Seed / Control Plane, Shoot cluster) depending on the requirements and 
 access rights (only certain users have access to the Seed Control Plane).
 
 To open the terminal configuration, click on the top right-hand corner of the screen.
 
-![de3ea5098e5b26e107e9880fe72ab863.png](_resources/db573582bfc544d294cbde8906a74e07.png)
+<img style="margin-left:0" alt="Terminal configuration" src="resources/db573582bfc544d294cbde8906a74e07.png"/>
+<br>
 
 Set the Terminal Runtime to "Privileged.
 Also specify the target node from the drop-down menu.
 
-![76f62f8c5c8f6031fab21463ed1d35d6.png](_resources/f7b10d48edf44c17ba838ff5c429e39d.png)
+<img style="margin-left:0;width:50%;height:auto"  alt="Dashboard terminal pod configuration" src="resources/f7b10d48edf44c17ba838ff5c429e39d.png"/>
+<br>
 
 The dashboard then schedules a pod and opens a shell session to the node.
 
 To get access to common binaries installed on the host, prefix the command with `chroot /hostroot`. 
 Note that the path depends on where the root path is mounted in the container.
 In the default image used by the Dashboard, it is under `/hostroot`.
-![0df1cc43eeafd164bfed1e47ea333487.png](_resources/3da659e9cc4744a2ad3e1c6a50d39c04.png)
+
+<img style="margin-left:0"  alt="Dashboard terminal pod configuration" src="resources/3da659e9cc4744a2ad3e1c6a50d39c04.png"/>
+<br>
 
 ## gardenctl shell
 
@@ -223,7 +230,8 @@ Despite some cloud provider specifics they can be generalized to the following l
 
 The following diagram shows an overview how the SSH access to the target instance works:
 
-![520dc31009cf1d51e667551a5ae731e8.png](_resources/913441003e5641bc90249bdc07d55656.png)
+<img style="margin-left:0"  alt="SSH Bastion diagram" src="resources/913441003e5641bc90249bdc07d55656.png"/>
+<br>
 
 This guide demonstrates the setup of a bastion on AWS.
 
