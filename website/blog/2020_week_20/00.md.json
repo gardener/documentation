@@ -1,5 +1,84 @@
 [
   {
+    "sha": "61b39709d7c6396418a735960054e7ecd006d4ce",
+    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OjYxYjM5NzA5ZDdjNjM5NjQxOGE3MzU5NjAwNTRlN2VjZDAwNmQ0Y2U=",
+    "commit": {
+      "author": {
+        "name": "Georgi Pavlov",
+        "email": "georgi.pavlov@sap.com",
+        "date": "2020-05-13T13:21:59Z"
+      },
+      "committer": {
+        "name": "Georgi Pavlov",
+        "email": "georgi.pavlov@sap.com",
+        "date": "2020-05-13T13:22:12Z"
+      },
+      "message": "minor changes",
+      "tree": {
+        "sha": "a836ed36caf695462d0190babdfa27e01ad7705d",
+        "url": "https://api.github.com/repos/gardener/documentation/git/trees/a836ed36caf695462d0190babdfa27e01ad7705d"
+      },
+      "url": "https://api.github.com/repos/gardener/documentation/git/commits/61b39709d7c6396418a735960054e7ecd006d4ce",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/documentation/commits/61b39709d7c6396418a735960054e7ecd006d4ce",
+    "html_url": "https://github.com/gardener/documentation/commit/61b39709d7c6396418a735960054e7ecd006d4ce",
+    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/61b39709d7c6396418a735960054e7ecd006d4ce/comments",
+    "author": {
+      "login": "g-pavlov",
+      "id": 52317188,
+      "node_id": "MDQ6VXNlcjUyMzE3MTg4",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/52317188?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/g-pavlov",
+      "html_url": "https://github.com/g-pavlov",
+      "followers_url": "https://api.github.com/users/g-pavlov/followers",
+      "following_url": "https://api.github.com/users/g-pavlov/following{/other_user}",
+      "gists_url": "https://api.github.com/users/g-pavlov/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/g-pavlov/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/g-pavlov/subscriptions",
+      "organizations_url": "https://api.github.com/users/g-pavlov/orgs",
+      "repos_url": "https://api.github.com/users/g-pavlov/repos",
+      "events_url": "https://api.github.com/users/g-pavlov/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/g-pavlov/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "g-pavlov",
+      "id": 52317188,
+      "node_id": "MDQ6VXNlcjUyMzE3MTg4",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/52317188?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/g-pavlov",
+      "html_url": "https://github.com/g-pavlov",
+      "followers_url": "https://api.github.com/users/g-pavlov/followers",
+      "following_url": "https://api.github.com/users/g-pavlov/following{/other_user}",
+      "gists_url": "https://api.github.com/users/g-pavlov/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/g-pavlov/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/g-pavlov/subscriptions",
+      "organizations_url": "https://api.github.com/users/g-pavlov/orgs",
+      "repos_url": "https://api.github.com/users/g-pavlov/repos",
+      "events_url": "https://api.github.com/users/g-pavlov/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/g-pavlov/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "d68e6af6d9825b9a17b89a660abcfb557b621e9b",
+        "url": "https://api.github.com/repos/gardener/documentation/commits/d68e6af6d9825b9a17b89a660abcfb557b621e9b",
+        "html_url": "https://github.com/gardener/documentation/commit/d68e6af6d9825b9a17b89a660abcfb557b621e9b"
+      }
+    ]
+  },
+  {
     "sha": "401f51611426e42076ed9ff5f50e1e10f062ab82",
     "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OjQwMWY1MTYxMTQyNmU0MjA3NmVkOWZmNWY1MGUxZTEwZjA2MmFiODI=",
     "commit": {
