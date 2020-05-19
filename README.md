@@ -30,9 +30,8 @@ Prerequisites:
    $ cd documentation
    $ make serve
    ```
-> **WSL Users**: If you used Git bash to clone the repo, it will convert files line endings to windows style (CRLF). That will prevent shell scripts from being run correctly. Navigate to `documentation/scripts` and change the line endings for the scripts in this folder or at minimum for `serve.sh` and `run-hugo.sh` to LF (Unix style). Programs such as Notepad++ or Visual Studio Code can help with that.
 
-For scenarios other than content developemnt or if you can't meet some of the prerequisites, please refer to the [reference](https://github.com/gardener/website-generator#build-locally) for setting up build environment locally available at [/gardener/website-generator](https://github.com/gardener/website-generator).
+For scenarios other than content developemnt, or if you can't meet some of the prerequisites, please refer to the [reference](https://github.com/gardener/website-generator#build-locally) for setting up build environment locally available at [/gardener/website-generator](https://github.com/gardener/website-generator).
 
 
 ## Contribute
