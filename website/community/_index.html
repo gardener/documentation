@@ -7,23 +7,25 @@ type: landingpage
   #body-inner {
     padding-top: 5rem;
   }
-  .body-inner-wrapper {
-    min-height: calc(100vh - var(--GITHUB-FOOTER-HEIGHT) - 314px);
-  }
   #body-inner .title, .subtitle {
     text-align: center;
     border: none;
     margin-bottom: 0;
     font-size: 3.3rem;
     padding: 0;
+    font-family: var(--font-family-regular)!important;
+  }
+  #body-inner .title {
+    color: #0b8062 !important;
+  }
+  #body-inner .subtitle {
     color: #222!important;
-    font-family: var(--font-family-regular), sans-serif!important;
   }
   #body-inner .subtitle {
     display: block;
     font-size: 2rem;
     color: #555;
-    font-family: var(--font-family-regular), sans-serif;
+    font-family: var(--font-family-regular);
   }
   #body-inner .row:first-of-type {
     margin-top: 50px;
@@ -32,7 +34,7 @@ type: landingpage
     display:flex;
     align-items: center;
     color: #222;
-    font-family: var(--font-family-regular), sans-serif;
+    font-family: var(--font-family-regular);
     cursor: pointer;
     text-decoration: none;
     margin-bottom: 12px;
