@@ -3,90 +3,182 @@ title: Adopters
 url: /adopter
 type: landingpage
 ---
-<div id="page-1" style="background-color: white;">
-    <div class="container">
 
+<style>
+  .adopters {
+    padding-top: 5rem;
+  }
+  #body-inner .adopters p {
+    line-height: 1.4;
+    margin-top: 0;
+  }
+  .adopters p.description {
+    font-size: 110%;
+  }
+  .title-group {
+    padding-bottom: 4rem;
+  }
+  #body-inner p.call-for-action {
+    font-family: var(--font-family-regular);
+    font-size: 20px;
+    line-height: 2.4;
+    letter-spacing: 0;
+    text-decoration-color: var(--color-emphasis);
+    color: #222;
+    text-align: center;
+    margin: 100px auto 4rem;
+  }
+  .title {
+    color: #0b8062 !important;
+    text-align: center;
+    border: none;
+    margin-bottom: 0;
+    font-size: 2em;
+    padding: 0;
+    font-family: var(--font-family-regular) !important;
+  }
+  .subtitle {
+    text-align: center;
+    border: none;
+    margin: 0 auto 4rem;
+    font-size: 2em;
+    padding: 0;
+    font-family: var(--font-family-regular) !important;
+  }
+  @media (min-width: 1024px) {
+    .title {
+      font-size: 3.3rem;
+    }
+    .subtitle {
+      font-size: 1.8rem;
+    }
+  }
+</style>
+<div class="adopters">
+  <div class="container">
+    <div class="title-group">
+      <h1 class="title">See who is using Gardener</h1>
+      <div class="subtitle">
+        This is a list of adopters of Gardener in production environments that
+        have publicly shared details of their usage.
+      </div>
 
-        <div class="title-group">
-            <h1 class="center">See who is using Gardener</h1>
-
-
-            <div class="container">
-                <div class="row">
-                    <div class="one column"> </div>
-                    <div class="ten columns"><img src="teaser.svg" width="100%"></div>
-                    <div class="one column"> </div>
-                </div>
-            </div>
-
-            <p class="description">
-                This is a list of adopters of Gardener in production environments that have publicly shared details of their usage.
-            </p>
-        </div>
-
+      <div class="container">
         <div class="row">
-            <div class="one-third column">
-                <img src="/images/branding/bnerd.png"  width="190">
-            </div>
-
-            <div class="two-thirds column">
-            <p class="description">
-                    <a  href="https://bnerd.com/de" target="_blank">b’nerd</a> uses Gardener as the core technology for its own managed Kubernetes as a Service
-                    solution and operates multiple Gardener installations for several cloud hosting service providers.
-                </p>
-            </div>
+          <div class="one column"></div>
+          <div class="ten columns"><img src="teaser.svg" width="100%" /></div>
+          <div class="one column"></div>
         </div>
+      </div>
     </div>
-</div>
 
-<div>
+    <div class="row">
+      <div class="one-third column">
+        <img src="/images/branding/bnerd.png" width="190" />
+      </div>
+
+      <div class="two-thirds column">
+        <p class="description">
+          <a href="https://bnerd.com/de" target="_blank">b’nerd</a> uses
+          Gardener as the core technology for its own managed Kubernetes as a
+          Service solution and operates multiple Gardener installations for
+          several cloud hosting service providers.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div>
     <div class="container">
-        <div class="row"  style="padding-top:150px">
-            <div class="one-third column">
-                <img src="/images/branding/sap.png" width="190">
-            </div>
-            <div class="two-thirds column">
-               <p class="description">
-                    <a href="https://www.sap.com" target="_blank">SAP</a> uses Gardener to deploy and manage Kubernetes clusters at scale in a uniform way
-                    across infrastructures (AWS, Azure, GCP, Alicloud, OpenStack). Workloads include databases (SAP Hana),
-                    Big Data (SAP Data Hub), IoT, AI, and Machine Learning (SAP Leonardo), Serverless and diverse
-                    business workloads.
-                </p>
-            </div>
+      <div class="row" style="padding-top: 150px;">
+        <div class="one-third column">
+          <img src="/images/branding/sap.png" width="190" />
         </div>
-
-
-        <div class="row"  style="padding-top:150px">
-            <div class="one-third column">
-                <img src="/images/branding/scaleup.png" width="190">
-            </div>
-            <div class="two-thirds column">
-                <p class="description">
-                    <a href="https://www.scaleuptech.com" target="_blank">ScaleUp Technologies</a> runs Gardener within
-                    their public Openstack Clouds (Hamburg, Berlin, Düsseldorf). Their clients run all kinds of workloads
-                    on top of Gardener maintained Kubernetes clusters ranging from databases to Software as a Service
-                    applications.
-                </p>
-            </div>
+        <div class="two-thirds column">
+          <p class="description">
+            <a href="https://www.sap.com" target="_blank">SAP</a> uses Gardener
+            to deploy and manage Kubernetes clusters at scale in a uniform way
+            across infrastructures (AWS, Azure, GCP, Alicloud, OpenStack).
+            Workloads include databases (SAP HANA), Big Data (SAP Data Hub),
+            IoT, AI, and Machine Learning (SAP Leonardo), Serverless and diverse
+            business workloads.
+          </p>
         </div>
+      </div>
 
-
-
-        <div class="row"  style="padding-top:150px">
-            <div class="one-third column">
-                <img src="/images/branding/fits.png" width="190">
-            </div>
-            <div class="two-thirds column">
-                <p class="description">
-                    <a href="https://f-i-ts.de/" target="_blank">Finanz Informatik Technologie Services GmbH</a>
-                    uses Gardener to offer k8s as a service for customers in the financial industry in Germany. It is
-                    built on top of a "metal as a service" infrastructure implemented from scratch for k8s workloads
-                    in mind. The result is k8s on top of bare metal in minutes.
-                </p>
-            </div>
+      <div class="row" style="padding-top: 150px;">
+        <div class="one-third column">
+          <img src="/images/branding/scaleup.png" width="190" />
         </div>
+        <div class="two-thirds column">
+          <p class="description">
+            <a href="https://www.scaleuptech.com" target="_blank"
+              >ScaleUp Technologies</a
+            >
+            runs Gardener within their public Openstack Clouds (Hamburg, Berlin,
+            Düsseldorf). Their clients run all kinds of workloads on top of
+            Gardener maintained Kubernetes clusters ranging from databases to
+            Software-as-a-Service applications.
+          </p>
+        </div>
+      </div>
 
-        <h2>If you’re using Gardener and aren’t on this list, feel free to <a href="https://github.com/gardener/gardener/pulls">submit a pull request!</a></h2>
+      <div class="row" style="padding-top: 150px;">
+        <div class="one-third column">
+          <img src="/images/branding/fits.png" width="190" />
+        </div>
+        <div class="two-thirds column">
+          <p class="description">
+            <a href="https://f-i-ts.de/" target="_blank"
+              >Finanz Informatik Technologie Services GmbH</a
+            >
+            uses Gardener to offer k8s as a service for customers in the
+            financial industry in Germany. It is built on top of a "metal as a
+            service" infrastructure implemented from scratch for k8s workloads
+            in mind. The result is k8s on top of bare metal in minutes.
+          </p>
+        </div>
+      </div>
+
+      <div class="row" style="padding-top: 150px;">
+        <div class="one-third column">
+          <img src="/images/branding/pingcap.jpeg" width="190" />
+        </div>
+        <div class="two-thirds column">
+          <p class="description">
+            <a href="https://pingcap.com" target="_blank">PingCAP</a> TiDB, is a
+            cloud-native distributed SQL database with MySQL compatibility, and
+            one of the most popular open-source database projects - with 23.5K+
+            stars and 400+ contributors. Its sister project
+            <a target="_blank" href="https://github.com/tikv/tikv">TiKV</a> is a
+            <a target="_blank" href="https://landscape.cncf.io/format=card-mode"
+              >Cloud Native Interactive Landscape project</a
+            >. PingCAP envisioned their managed TiDB service, known as TiDB
+            Cloud, to be multi-tenant, secure, cost-efficient, and to be
+            compatible with different cloud providers and they chose Gardener.
+          </p>
+        </div>
+      </div>
+
+      <div class="row" style="padding-top: 150px;">
+        <div class="one-third column">
+          <img src="/images/branding/beezlab.png" width="90" />
+        </div>
+        <div class="two-thirds column">
+          <p class="description">
+            <a href="https://www.beezlabs.com/" target="_blank">Beezlabs</a>
+            uses Gardener to deliver Intelligent Process Automation platform, on
+            multiple cloud providers and reduce costs and lock-in risks.
+          </p>
+        </div>
+      </div>
+
+      <p class="call-for-action">
+        If you’re using Gardener and you aren’t on this list,
+        <a href="https://github.com/gardener/gardener/pulls"
+          >submit a pull request!</a
+        >
+      </p>
     </div>
-
+  </div>
 </div>
