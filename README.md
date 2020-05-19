@@ -1,27 +1,43 @@
-# Gardener Documentation
+# Gardener Website Content Repository
 
-## Overview of CI/CD build 
+## Website repositories and CI/CD Overview
 
-![image](images/overview.png)
+<img style="width:50%" src="images/overview.svg">
 
-### Documentation (this repository)
-https://github.com/gardener/documentation/ contains the real content of the 
-Landing page. Add/Remove/Modify/ pages or content here
-
-### Generator
-https://github.com/gardener/website-generator contains the site generator *Hugo*
-and all the layout and js stuff.
-
-### Website
-The Repository https://github.com/gardener/website/ contains the generated
-Landing page. All manual changes get lost.
+The website builds and deployments are automated. They are orchestrated by Concourse CI/CD [pipeline](https://concourse.ci.gardener.cloud/teams/gardener/pipelines/gardener-website-generator-master) and triggered regularly (every 24h) or upon changes in [/gardener/documentation](https://github.com/gardener/documentation) or [/gardener/website-generator](https://github.com/gardener/website-generator) repos. The build results are then pushed to [/gardener/website/docs](https://github.com/gardener/website/tree/master/docs) and served as [GitHub Pages](https://pages.github.com/) site.
 
 
+The repositories involved in the CI/CD are:
+- [/gardener/documentation](https://github.com/gardener/documentation/) (this repository) is the **Website Source Content** repository . It contains the source content for the website, used by the builder to produce the static HTML to be served. This is the **primary repository for website content contributions - blogs, news, tutorials, etc**.
+- [/gardener/website-generator](https://github.com/gardener/website-generator) is the **Website Generator** repository. It contains the tools, the scripts and build configuration for the website, including all common framework html, styles, javascript and images, as well as the scripts and build configuration for the build environment container image.
+- [/gardener/website](https://github.com/gardener/website/) is the **Website** home repository. It hosts the generated website content and is configured to serve it using GitHub Pages. No manual contributions here.
 
 
-# Contribute
+## Setup Local Development Environment 
 
-## Add a new page
+Prerequisites:
+- Mac/Linux/Windows WSL
+- Docker
+
+<img style="width:50%"  src="images/local-setup.svg">
+
+1. Clone the website source content
+   ```sh
+   $ git clone https://github.com/gardener/documentation.git
+   ```
+1. Run the website locally with real-time update on changes
+   ```sh
+   $ cd documentation
+   $ make serve
+   ```
+> **WSL Users**: If you used Git bash to clone the repo, it will convert files line endings to windows style (CRLF). That will prevent shell scripts from being run correctly. Navigate to `documentation/scripts` and change the line endings for the scripts in this folder or at minimum for `serve.sh` and `run-hugo.sh` to LF (Unix style). Programs such as Notepad++ or Visual Studio Code can help with that.
+
+For scenarios other than content developemnt or if you can't meet some of the prerequisites, please refer to the [reference](https://github.com/gardener/website-generator#build-locally) for setting up build environment locally available at [/gardener/website-generator](https://github.com/gardener/website-generator).
+
+
+## Contribute
+
+### Add a new page
 
 All content for your website will live inside the `./website/documentation` directory. Each top-level folder in Hugo is considered a 
 content section. For example, if your site has three main sections — blog, getting-started, and tutorials — you will have 
@@ -58,64 +74,3 @@ A `remote repo` contains just the front matter section. The real content is craw
 A good example is the [./website/documentation/050-tutorials/content/app/https/_index.md](./website/documentation/050-tutorials/content/app/https/_index.md) page. 
 
 The remote repo is referenced by the `remote` attribute in the front matter.
-
-
-# Local setup 
-
-## Install Required command line tools
-
-You need [Hugo](https://github.com/gohugoio/hugo/releases) and [npm](https://www.npmjs.com/get-npm) installed.
-Check that you have the correct hugo version (you need at least 0.45.1 which is used on our CI/CD)
-
-```
-hugo version
-
-# Hugo Static Site Generator v0.45.1/extended darwin/amd64 BuildDate: unknown
-
-```
-
-## Setup development environment
-
-```sh
-# create development directory
-#
-mkdir gardener-site
-cd gardener-site
-
-# clone required repos
-#
-git clone https://github.com/gardener/documentation.git
-git clone https://github.com/gardener/website-generator.git
-
-cd website-generator
-
-# make a symbolic link of the pure "markdown" files into the hugo directory structure
-#
-ln -s ../documentation/website/documentation/ ./hugo/content
-
-# install NPM package. required for the "fetch" job of external content
-#
-npm install
-
-# crawl remote markdown content 
-#
-node ./node/index.js 
-
-
-# serve the documentation with hugo
-#
-cd hugo
-hugo serve
-
-# Open the displayed URL and enjoy the documentation :-)
-# write some pages and HUGO serve them with live update of your browser
-# 
-
-
-
-# ctrl+c to end the hugo server and cleanup the crawled remote pages before you "git add" something
-#
-cd ..
-node ./node/index.js clean
-
-```
