@@ -1,5 +1,84 @@
 [
   {
+    "sha": "d86ce1e00628cbf382ce5e1e6fa8a488be83bc84",
+    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OmQ4NmNlMWUwMDYyOGNiZjM4MmNlNWUxZTZmYThhNDg4YmU4M2JjODQ=",
+    "commit": {
+      "author": {
+        "name": "Georgi Pavlov",
+        "email": "georgi.pavlov@sap.com",
+        "date": "2020-05-22T19:50:25Z"
+      },
+      "committer": {
+        "name": "Georgi Pavlov",
+        "email": "georgi.pavlov@sap.com",
+        "date": "2020-05-22T19:50:25Z"
+      },
+      "message": "[int] fix usage of blog_img",
+      "tree": {
+        "sha": "9e7f9522abb0b5d89a84cf83d3bcc614061c78d4",
+        "url": "https://api.github.com/repos/gardener/documentation/git/trees/9e7f9522abb0b5d89a84cf83d3bcc614061c78d4"
+      },
+      "url": "https://api.github.com/repos/gardener/documentation/git/commits/d86ce1e00628cbf382ce5e1e6fa8a488be83bc84",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\niQIzBAABCAAdFiEEn+3EvhI3rEhB59mDpN25XprbKH8FAl7ILQEACgkQpN25Xprb\nKH/nwhAArsikA/GHuDI+g/WbPjF+EQNqU1NKXuV6NOQ+QbJDNxoe+ZWEcA0KlDl0\ndgCrztxaG+ImfcnPWJmlCl5D3eDfDMgvznw7S75SylsLDkLqKeiLAOQgzreimTdl\nRiWfsEY0XqNRn52BOOpzoWE9Cnf1VWM3f5AxZKHmygE9ksJWEAhQPrvbm85h2Hpa\nXv/9jFHH3Wt23/dSiqtEZQrewPwURzPmZo442wbMt+n25zE4QbdeVA1CH2vbvKaW\nLHQNMy6lFj3pDQYwPPBNfBa2OGL8VatSi8RsbO6ft+nx3GZFDYk+VamABDuKoo0P\njewTpXsDw+FNi1ovFygm3QwQR1GPd/VavXV9wrIwtzJrdy+5YIinzt1YSc8BTOyq\niEZRSmem7vWQfkV7rM+gBPN2NuVEMBTvQkMLrvyRbVvWkvZCrUE8QY5RkTWRcO1x\no4OGxCYOKPvHP9oHq2rsWWZh57LEd0X8Wo7Ym35dTZ8C0TBKH+9zIgV5iNqqwd4T\ncAbOqZJfOFO14Is8HoS2h/s+EpNuG6NYy0DPGoTSiYsMEjR5YVXV+1PCiMPUcQtq\nDFD3UY40e1HDfbQtvOJO8Z+7GrcMDuu+KX9OoKOmncCtjZ2fbzNXKxc4G2IrPKMA\nnd3AzUKNhToqmN8lwkmIEWHL/PyftO6u7915NqlEP3TG5Sh2Yzw=\n=dG9v\n-----END PGP SIGNATURE-----",
+        "payload": "tree 9e7f9522abb0b5d89a84cf83d3bcc614061c78d4\nparent c56ae7fbb438c26cde7a7ae9ac20133a4ab04339\nauthor Georgi Pavlov <georgi.pavlov@sap.com> 1590177025 +0300\ncommitter Georgi Pavlov <georgi.pavlov@sap.com> 1590177025 +0300\n\n[int] fix usage of blog_img\n"
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/documentation/commits/d86ce1e00628cbf382ce5e1e6fa8a488be83bc84",
+    "html_url": "https://github.com/gardener/documentation/commit/d86ce1e00628cbf382ce5e1e6fa8a488be83bc84",
+    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/d86ce1e00628cbf382ce5e1e6fa8a488be83bc84/comments",
+    "author": {
+      "login": "g-pavlov",
+      "id": 52317188,
+      "node_id": "MDQ6VXNlcjUyMzE3MTg4",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/52317188?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/g-pavlov",
+      "html_url": "https://github.com/g-pavlov",
+      "followers_url": "https://api.github.com/users/g-pavlov/followers",
+      "following_url": "https://api.github.com/users/g-pavlov/following{/other_user}",
+      "gists_url": "https://api.github.com/users/g-pavlov/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/g-pavlov/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/g-pavlov/subscriptions",
+      "organizations_url": "https://api.github.com/users/g-pavlov/orgs",
+      "repos_url": "https://api.github.com/users/g-pavlov/repos",
+      "events_url": "https://api.github.com/users/g-pavlov/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/g-pavlov/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "g-pavlov",
+      "id": 52317188,
+      "node_id": "MDQ6VXNlcjUyMzE3MTg4",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/52317188?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/g-pavlov",
+      "html_url": "https://github.com/g-pavlov",
+      "followers_url": "https://api.github.com/users/g-pavlov/followers",
+      "following_url": "https://api.github.com/users/g-pavlov/following{/other_user}",
+      "gists_url": "https://api.github.com/users/g-pavlov/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/g-pavlov/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/g-pavlov/subscriptions",
+      "organizations_url": "https://api.github.com/users/g-pavlov/orgs",
+      "repos_url": "https://api.github.com/users/g-pavlov/repos",
+      "events_url": "https://api.github.com/users/g-pavlov/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/g-pavlov/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "c56ae7fbb438c26cde7a7ae9ac20133a4ab04339",
+        "url": "https://api.github.com/repos/gardener/documentation/commits/c56ae7fbb438c26cde7a7ae9ac20133a4ab04339",
+        "html_url": "https://github.com/gardener/documentation/commit/c56ae7fbb438c26cde7a7ae9ac20133a4ab04339"
+      }
+    ]
+  },
+  {
     "sha": "d1676f1eae1c54be3509d5a9480c75c76130fa9e",
     "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OmQxNjc2ZjFlYWUxYzU0YmUzNTA5ZDVhOTQ4MGM3NWM3NjEzMGZhOWU=",
     "commit": {
