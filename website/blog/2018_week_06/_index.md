@@ -9,7 +9,7 @@ publishdate: 2018-06-11
 <table style="border:0">
 <tr>
     <td>
-        {{% blog_img "logo" "blog-kubernetes-enable.png" %}}
+        {{< blog_img "logo" "blog-kubernetes-enable.png" >}}
     </td>
     <td valign="top">
         <div>
