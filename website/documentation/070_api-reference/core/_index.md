@@ -1256,6 +1256,20 @@ SeedVolume
 <p>Volume contains settings for persistentvolumes created in the seed cluster.</p>
 </td>
 </tr>
+<tr>
+<td>
+<code>settings</code></br>
+<em>
+<a href="#core.gardener.cloud/v1beta1.SeedSettings">
+SeedSettings
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Settings contains certain settings for this seed cluster.</p>
+</td>
+</tr>
 </table>
 </td>
 </tr>
@@ -1530,6 +1544,20 @@ Kubernetes meta/v1.LabelSelector
 <td>
 <em>(Optional)</em>
 <p>SeedSelector is an optional selector which must match a seed&rsquo;s labels for the shoot to be scheduled on that seed.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>resources</code></br>
+<em>
+<a href="#core.gardener.cloud/v1beta1.NamedResourceReference">
+[]NamedResourceReference
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Resources holds a list of named resource references that can be referred to in extension configs by their names.</p>
 </td>
 </tr>
 </table>
@@ -5201,6 +5229,49 @@ Alerting
 </tr>
 </tbody>
 </table>
+<h3 id="core.gardener.cloud/v1beta1.NamedResourceReference">NamedResourceReference
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#core.gardener.cloud/v1beta1.ShootSpec">ShootSpec</a>)
+</p>
+<p>
+<p>NamedResourceReference is a named reference to a resource.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>name</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Name of the resource reference.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>resourceRef</code></br>
+<em>
+<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.15/#crossversionobjectreference-v1-autoscaling">
+Kubernetes autoscaling/v1.CrossVersionObjectReference
+</a>
+</em>
+</td>
+<td>
+<p>ResourceRef is a reference to a resource.</p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="core.gardener.cloud/v1beta1.Networking">Networking
 </h3>
 <p>
@@ -6357,6 +6428,162 @@ string
 </tr>
 </tbody>
 </table>
+<h3 id="core.gardener.cloud/v1beta1.SeedSettingExcessCapacityReservation">SeedSettingExcessCapacityReservation
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#core.gardener.cloud/v1beta1.SeedSettings">SeedSettings</a>)
+</p>
+<p>
+<p>SeedSettingExcessCapacityReservation controls the excess capacity reservation for shoot control planes in the
+seed. When enabled then this is done via PodPriority and requires the Seed cluster to have Kubernetes version 1.11
+or the PodPriority feature gate as well as the scheduling.k8s.io/v1alpha1 API group enabled.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>enabled</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+<p>Enabled controls whether the excess capacity reservation should be enabled.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="core.gardener.cloud/v1beta1.SeedSettingScheduling">SeedSettingScheduling
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#core.gardener.cloud/v1beta1.SeedSettings">SeedSettings</a>)
+</p>
+<p>
+<p>SeedSettingScheduling controls settings for scheduling decisions for the seed.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>visible</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+<p>Visible controls whether the gardener-scheduler shall consider this seed when scheduling shoots. Invisible seeds
+are not considered by the scheduler.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="core.gardener.cloud/v1beta1.SeedSettingShootDNS">SeedSettingShootDNS
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#core.gardener.cloud/v1beta1.SeedSettings">SeedSettings</a>)
+</p>
+<p>
+<p>SeedSettingShootDNS controls the shoot DNS settings for the seed.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>enabled</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+<p>Enabled controls whether the DNS for shoot clusters should be enabled. When disabled then all shoots using the
+seed won&rsquo;t get any DNS providers, DNS records, and no DNS extension controller is required to be installed here.
+This is useful for environments where DNS is not required.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="core.gardener.cloud/v1beta1.SeedSettings">SeedSettings
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#core.gardener.cloud/v1beta1.SeedSpec">SeedSpec</a>)
+</p>
+<p>
+<p>SeedSettings contains certain settings for this seed cluster.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>excessCapacityReservation</code></br>
+<em>
+<a href="#core.gardener.cloud/v1beta1.SeedSettingExcessCapacityReservation">
+SeedSettingExcessCapacityReservation
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>ExcessCapacityReservation controls the excess capacity reservation for shoot control planes in the seed.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>scheduling</code></br>
+<em>
+<a href="#core.gardener.cloud/v1beta1.SeedSettingScheduling">
+SeedSettingScheduling
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Scheduling controls settings for scheduling decisions for the seed.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>shootDNS</code></br>
+<em>
+<a href="#core.gardener.cloud/v1beta1.SeedSettingShootDNS">
+SeedSettingShootDNS
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>ShootDNS controls the shoot DNS settings for the seed.</p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="core.gardener.cloud/v1beta1.SeedSpec">SeedSpec
 </h3>
 <p>
@@ -6471,6 +6698,20 @@ SeedVolume
 <td>
 <em>(Optional)</em>
 <p>Volume contains settings for persistentvolumes created in the seed cluster.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>settings</code></br>
+<em>
+<a href="#core.gardener.cloud/v1beta1.SeedSettings">
+SeedSettings
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Settings contains certain settings for this seed cluster.</p>
 </td>
 </tr>
 </tbody>
@@ -7049,6 +7290,20 @@ Kubernetes meta/v1.LabelSelector
 <td>
 <em>(Optional)</em>
 <p>SeedSelector is an optional selector which must match a seed&rsquo;s labels for the shoot to be scheduled on that seed.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>resources</code></br>
+<em>
+<a href="#core.gardener.cloud/v1beta1.NamedResourceReference">
+[]NamedResourceReference
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Resources holds a list of named resource references that can be referred to in extension configs by their names.</p>
 </td>
 </tr>
 </tbody>
