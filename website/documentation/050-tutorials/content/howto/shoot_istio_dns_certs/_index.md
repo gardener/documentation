@@ -6,19 +6,19 @@ type: tutorial-page
 reviewer: Vasu C
 status: Reviewed
 last_reviewed: 15.05.2020
-category: Getting Started
+category: Networking
 scope: app-developer
 ---
 
 
-As we ramp up more and more friends of Gardener, I thought it worthwile to explore and blog about how to simply
+As we ramp up more and more friends of Gardener, I thought it worthwile to explore and write a tutorial about how to simply
 * create a Gardener managed Kubernetes Cluster (Shoot) via kubectl,
 * install Istio as a preferred, production ready Ingress/Service Mesh (instead of the Nginx Ingress addon),
 * attach your own custom domain to be managed by Gardener,
 * combine everything with certificates from Let's Encrypt.
 
 
-Here are some pointers that you will need to go deeper:
+Here are some pre-pointers that you will need to go deeper:
 * [CRUD Gardener Shoot](https://gardener.cloud/documentation/050-tutorials/content/howto/create-delete-shoot/)
 * [DNS Management](https://gardener.cloud/documentation/050-tutorials/content/howto/gardener_dns_management/)
 * [Certificate Mangement](https://gardener.cloud/documentation/050-tutorials/content/howto/gardener_certificate_management/)
