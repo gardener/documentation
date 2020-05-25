@@ -1,5 +1,84 @@
 [
   {
+    "sha": "53521dfdb8ac945f0b8fe4b49ae03705f4ed2f5d",
+    "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OjUzNTIxZGZkYjhhYzk0NWYwYjhmZTRiNDlhZTAzNzA1ZjRlZDJmNWQ=",
+    "commit": {
+      "author": {
+        "name": "Georgi Pavlov",
+        "email": "georgi.pavlov@sap.com",
+        "date": "2020-05-25T14:21:37Z"
+      },
+      "committer": {
+        "name": "Georgi Pavlov",
+        "email": "georgi.pavlov@sap.com",
+        "date": "2020-05-25T14:21:50Z"
+      },
+      "message": "inline text icons use dedicated classes now",
+      "tree": {
+        "sha": "0ae8c58c5471641a388a6a210fac06a793ab3bfb",
+        "url": "https://api.github.com/repos/gardener/documentation/git/trees/0ae8c58c5471641a388a6a210fac06a793ab3bfb"
+      },
+      "url": "https://api.github.com/repos/gardener/documentation/git/commits/53521dfdb8ac945f0b8fe4b49ae03705f4ed2f5d",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/gardener/documentation/commits/53521dfdb8ac945f0b8fe4b49ae03705f4ed2f5d",
+    "html_url": "https://github.com/gardener/documentation/commit/53521dfdb8ac945f0b8fe4b49ae03705f4ed2f5d",
+    "comments_url": "https://api.github.com/repos/gardener/documentation/commits/53521dfdb8ac945f0b8fe4b49ae03705f4ed2f5d/comments",
+    "author": {
+      "login": "g-pavlov",
+      "id": 52317188,
+      "node_id": "MDQ6VXNlcjUyMzE3MTg4",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/52317188?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/g-pavlov",
+      "html_url": "https://github.com/g-pavlov",
+      "followers_url": "https://api.github.com/users/g-pavlov/followers",
+      "following_url": "https://api.github.com/users/g-pavlov/following{/other_user}",
+      "gists_url": "https://api.github.com/users/g-pavlov/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/g-pavlov/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/g-pavlov/subscriptions",
+      "organizations_url": "https://api.github.com/users/g-pavlov/orgs",
+      "repos_url": "https://api.github.com/users/g-pavlov/repos",
+      "events_url": "https://api.github.com/users/g-pavlov/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/g-pavlov/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "g-pavlov",
+      "id": 52317188,
+      "node_id": "MDQ6VXNlcjUyMzE3MTg4",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/52317188?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/g-pavlov",
+      "html_url": "https://github.com/g-pavlov",
+      "followers_url": "https://api.github.com/users/g-pavlov/followers",
+      "following_url": "https://api.github.com/users/g-pavlov/following{/other_user}",
+      "gists_url": "https://api.github.com/users/g-pavlov/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/g-pavlov/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/g-pavlov/subscriptions",
+      "organizations_url": "https://api.github.com/users/g-pavlov/orgs",
+      "repos_url": "https://api.github.com/users/g-pavlov/repos",
+      "events_url": "https://api.github.com/users/g-pavlov/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/g-pavlov/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "b1c065faf27b1a98633bd8912b9f1960428a8c51",
+        "url": "https://api.github.com/repos/gardener/documentation/commits/b1c065faf27b1a98633bd8912b9f1960428a8c51",
+        "html_url": "https://github.com/gardener/documentation/commit/b1c065faf27b1a98633bd8912b9f1960428a8c51"
+      }
+    ]
+  },
+  {
     "sha": "61b39709d7c6396418a735960054e7ecd006d4ce",
     "node_id": "MDY6Q29tbWl0MTEzMDMwODQ1OjYxYjM5NzA5ZDdjNjM5NjQxOGE3MzU5NjAwNTRlN2VjZDAwNmQ0Y2U=",
     "commit": {
