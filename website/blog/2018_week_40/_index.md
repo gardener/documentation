@@ -1,6 +1,10 @@
 ---
 title: Hibernate a Cluster to save money
 type: Blog
+authors: 
+- name: Andreas Herz
+  email: andreas.herz@sap.com
+  avatar: https://avatars1.githubusercontent.com/u/1155039?v=4
 ---
 
 You want to experiment with Kubernetes or have set up a customer scenario, but you don't want to run the 

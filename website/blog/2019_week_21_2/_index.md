@@ -1,9 +1,10 @@
 ---
 title: Feature Flags in Kubernetes Applications
 type: Blog
-author: Andreas Herz
-email: andreas.herz@sap.com
-avatar: https://avatars1.githubusercontent.com/u/1155039?v=4
+authors: 
+- name: Andreas Herz
+  email: andreas.herz@sap.com
+  avatar: https://avatars1.githubusercontent.com/u/1155039?v=4
 publishdate: 2019-06-11
 ---
 
