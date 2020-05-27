@@ -1,6 +1,5 @@
 ---
 title: Blogs
 type: blog
-url: /blog
-aggregate: true
+layout: blog-list
 ---
