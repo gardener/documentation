@@ -20,5 +20,5 @@ and you don't have setup a log viewer service like Kibana.
 
 kubetail comes to the rescue, it is a small bash script that allows you to aggregate log files of several pods at 
 the same time in a simple way. The script is called `kubetail` and is available at 
-[https://github.com/johanhaleby/kubetail](https://github.com/johanhaleby/kubetail).
+[GitHub](https://github.com/johanhaleby/kubetail).
 
