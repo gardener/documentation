@@ -34,7 +34,7 @@ Creating a Kubernetes cluster in the GCP Account is easy and the Gardener UI sho
 
 <img src="gcpcreateserviceaccount0.jpg">
 
-<img src="{gcpcreateserviceaccount1.jpg">
+<img src="gcpcreateserviceaccount1.jpg">
 
 ## Create key for the serviceaccount
 
