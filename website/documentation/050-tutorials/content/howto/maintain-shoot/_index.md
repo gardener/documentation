@@ -11,7 +11,7 @@ aliases: ["readmore/shoot-maintain"]
 
 # Shoot Cluster Maintenance
 
-Day two operations like updating the Kubernetes patch version and updating the Operating system version, happen in a daily maintenance time window of the Shoot cluster. The maintenance time window is part of the shoot spec (`.spec.maintenance.timeWindow`). If it is not specified during Shoot creation, Gardener will default to a randomized time window (to spread the load). The time interval cannot be less than 30 minutes and more than 6 hours.
+Day two operations like updating the Kubernetes patch version and updating the Operating system version, happen in a daily maintenance time window of the Shoot cluster. The maintenance time window is part of the shoot spec (`.spec.maintenance.timeWindow`). If it is not specified during Shoot creation, Gardener will default to a randomized time window (to spread the load). The time interval cannot be less than 30 minutes and more than 6 hours. 
 
 When referring to an `operating system update` in this document, this means updating the Shoot's worker nodes with a machine image (e.g. [AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) for AWS) that comes with a higher version of the operating system.
 
