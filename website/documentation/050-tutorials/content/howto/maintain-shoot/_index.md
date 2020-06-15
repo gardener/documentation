@@ -18,7 +18,7 @@ Day two operations for shoot clusters are related to:
 
 {{% notice note %}}
 <p>
-When referring to an update of the _operating system version_ in this document, this is related to the update of the shoot cluster's worker nodes with a machine image (for example, [AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) for AWS).
+When referring to an update of the _operating system version_ in this document, this is related to the update of the shoot cluster's worker nodes with a machine image, for example, [AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) for AWS.
 </p>
 {{% /notice %}}
 
@@ -80,7 +80,11 @@ To trigger updates during the maintenance window automatically, Gardener offers 
 
 If you don’t want to wait for the next maintenance window, you can annotate the `Shoot` specification with `shoot.gardener.cloud/operation: maintain`. Gardener then checks immediately if there’s an auto-update or an update based on expiration dates needed.
 
-> Forceful version updates are even executed if the auto-update for the Kubernetes version, or the auto-update for the machine image version is deactivated (set to `false`).
+{{% notice info %}}
+<p>
+Forceful version updates are even executed if the auto-update for the Kubernetes version, or the auto-update for the machine image version is deactivated (set to `false`).
+</p>
+{{% /notice %}}
 
 With expiration dates, administrators can give shoot cluster owners more time for testing before the actual version update happens, which allows smoother transitions to new versions.
 
