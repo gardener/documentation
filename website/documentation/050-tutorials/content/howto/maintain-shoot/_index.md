@@ -98,14 +98,11 @@ The bigger the delta of the Kubernetes source version and the Kubernetes target 
 | Update to consecutive minor version | `1.10.12` to `1.11.10` | Forceful update |
 | Other | `1.10.12` to `1.12.0`, or `1.10.12` to `2.0.0` | manual update |
 
-Gardener does not support automatic updates of major Kubernetes versions or non-consecutive minor versions, because Kubernetes does not guarantee updateability in this case. 
+Gardener does not support automatic updates of major Kubernetes versions or non-consecutive minor versions, because Kubernetes does not guarantee updateability in this case. However, multiple minor version updates are possible if not only the minor source version is expired, but also the minor target version is expired. Gardener then updates the Kubernetes version first to the expired target version, and waits for the next maintenance window to update this version to the next minor target version.
 
 {{% notice warning %}}
 <p>
 The administrator who maintains the `CloudProfile` has to ensure that the list of Kubernetes versions consists of consecutive minor versions, for example, from `1.10.x` to `1.11.y`. If the minor version increases in bigger steps, for example, from `1.10.x` to `1.12.y`, shoot clusters updates fail during the maintenance window. 
-</p>
-<p>
-However, multiple minor version updates are possible if not only the minor source version is expired, but also the minor target version is expired. Gardener then updates the Kubernetes version first to the expired target version, and waits for the next maintenance window to update this version to the next minor target version.
 </p>
 {{% /notice %}}
 
