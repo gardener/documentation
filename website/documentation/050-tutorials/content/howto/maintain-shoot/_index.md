@@ -16,8 +16,10 @@ Day two operations for shoot clusters are related to:
 * The Kubernetes version of the control planes and the worker nodes and
 * the operating system version of the worker nodes
 
-{{% notice tip %}}
+{{% notice note %}}
+<p>
 When referring to an update of the _operating system version_ in this document, this is related to the update of the shoot cluster's worker nodes with a machine image (for example, [AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) for AWS).
+</p>
 {{% /notice %}}
 
 
@@ -104,7 +106,9 @@ Manual updates are either executed immediately (default) or can be [confined to 
 Choosing the latter option, causes changes to the cluster (for example, node pool rolling-updates) and the subsequent reconciliation, to only predictably happen during a defined time window. This is available since [Gardener version 1.4](https://github.com/gardener/gardener/releases/tag/v1.4.0).
 
 {{% notice warning %}}
+<p>
 Before applying such update on minor or major releases, operators should check for all the breaking changes introduced in the target Kubernetes release changelog.
+</p>
 {{% /notice %}}
 
 ## Examples
