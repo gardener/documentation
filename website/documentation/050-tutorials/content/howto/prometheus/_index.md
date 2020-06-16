@@ -104,7 +104,7 @@ Only minor changes are needed to deploy [Prometheus](https://github.com/kubernet
 and [Grafana](https://github.com/kubernetes/charts/tree/master/stable/grafana) based on Helm charts.  
 
 
-Copy the following configuration into a file called values.yaml and deploy Prometheus: `helm install --name <your-prometheus-name> --namespace <your-prometheus-namespace> stable/prometheus -f values.yaml`
+Copy the following configuration into a file called values.yaml and deploy Prometheus: `helm install <your-prometheus-name> --namespace <your-prometheus-namespace> stable/prometheus -f values.yaml`
 
 Typically, Prometheus and Grafana are deployed into the same namespace. There is no technical reason behind this so feel 
 free to choose different namespaces. 
@@ -268,7 +268,7 @@ serverFiles:
 
 Next, deploy Grafana. Since the deployment in this post is based on the Helm default values, the settings below are set 
 explicitly in case the default changed.
-Deploy Grafana via `helm install --name grafana --namespace <your-prometheus-namespace> stable/grafana -f values.yaml`. Here, the same namespace is chosen for Prometheus and for Grafana.
+Deploy Grafana via `helm install grafana --namespace <your-prometheus-namespace> stable/grafana -f values.yaml`. Here, the same namespace is chosen for Prometheus and for Grafana.
 
 
 Content of `values.yaml` for Grafana: 
