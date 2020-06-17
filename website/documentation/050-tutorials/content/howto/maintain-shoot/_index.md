@@ -13,7 +13,7 @@ aliases: ["readmore/shoot-maintain"]
 
 Day two operations for shoot clusters are related to:
 
-* The Kubernetes version of the control planes and the worker nodes and
+* The Kubernetes version of the control plane and the worker nodes
 * the operating system version of the worker nodes
 
 {{% notice note %}}
@@ -63,7 +63,7 @@ Gardener can manage updates for you automatically. It offers users to specify a 
 * The time interval of the maintenance window can’t be less than 30 minutes or more than 6 hours.
 * If there’s no maintenance window specified during the creation of a shoot cluster, Gardener chooses a maintenance window randomly to spread the load. 
 
-You can either specify the maintenance window in the shoot spec (`.spec.maintenance.timeWindow`) or the start time of the maintenance window using the Gardener dashboard (**CLUSTERS** > **[YOUR-CLUSTER]** > **OVERVIEW** > **Lifecycle** > **Maintenance**).
+You can either specify the maintenance window in the shoot cluster specification (`.spec.maintenance.timeWindow`) or the start time of the maintenance window using the Gardener dashboard (**CLUSTERS** > **[YOUR-CLUSTER]** > **OVERVIEW** > **Lifecycle** > **Maintenance**).
 
 ### Auto-Update and Forceful Updates
 
@@ -78,7 +78,7 @@ To trigger updates during the maintenance window automatically, Gardener offers 
 
 * _Forceful updates_: <br>In the maintenance window, Gardener compares the current version given in the shoot cluster specification with the version list in the `CloudProfile`. If the version has an expiration date and if the date is before the start of the maintenance window, Gardener starts an update to the highest version available in the `CloudProfile` that isn’t classified as `preview` version. The highest version in `CloudProfile` can’t have an expiration date. For Kubernetes versions, Gardener only updates to higher patch levels or consecutive minor versions. 
 
-If you don’t want to wait for the next maintenance window, you can annotate the `Shoot` specification with `shoot.gardener.cloud/operation: maintain`. Gardener then checks immediately if there’s an auto-update or a forceful update needed.
+If you don’t want to wait for the next maintenance window, you can annotate the shoot cluster specification with `shoot.gardener.cloud/operation: maintain`. Gardener then checks immediately if there’s an auto-update or a forceful update needed.
 
 {{% notice info %}}
 <p>
@@ -90,19 +90,19 @@ With expiration dates, administrators can give shoot cluster owners more time fo
 
 ### Kubernetes Update Paths
 
-The bigger the delta of the Kubernetes source version and the Kubernetes target version, the better it must be planned and executed by operators. Gardener only provides automatic support for updates that are uncritical for your deployed resources:
+The bigger the delta of the Kubernetes source version and the Kubernetes target version, the better it must be planned and executed by operators. Gardener only provides automatic support for updates that can be applied safely to the cluster workload:
 
 |   Update Type    |   Example         | Update method  |
 |:-----------------|:------------------|:--------------|
 | Patches | `1.10.12` to `1.10.13`     | auto-update or Forceful update |
 | Update to consecutive minor version | `1.10.12` to `1.11.10` | Forceful update |
-| Other | `1.10.12` to `1.12.0`, or `1.10.12` to `2.0.0` | manual update |
+| Other | `1.10.12` to `1.12.0` | manual update |
 
-Gardener doesn’t support automatic updates of major Kubernetes versions or nonconsecutive minor versions, because Kubernetes doesn’t guarantee updateability in this case. However, multiple minor version updates are possible if not only the minor source version is expired, but also the minor target version is expired. Gardener then updates the Kubernetes version first to the expired target version, and waits for the next maintenance window to update this version to the next minor target version.
+Gardener doesn’t support automatic updates of nonconsecutive minor versions, because Kubernetes doesn’t guarantee updateability in this case. However, multiple minor version updates are possible if not only the minor source version is expired, but also the minor target version is expired. Gardener then updates the Kubernetes version first to the expired target version, and waits for the next maintenance window to update this version to the next minor target version.
 
 {{% notice warning %}}
 <p>
-The administrator who maintains the `CloudProfile` has to ensure that the list of Kubernetes versions consists of consecutive minor versions, for example, from `1.10.x` to `1.11.y`. If the minor version increases in bigger steps, for example, from `1.10.x` to `1.12.y`, shoot clusters updates fail during the maintenance window. 
+The administrator who maintains the `CloudProfile` has to ensure that the list of Kubernetes versions consists of consecutive minor versions, for example, from `1.10.x` to `1.11.y`. If the minor version increases in bigger steps, for example, from `1.10.x` to `1.12.y`, shoot cluster updates fail during the maintenance window. 
 </p>
 {{% /notice %}}
 
@@ -110,7 +110,7 @@ The administrator who maintains the `CloudProfile` has to ensure that the list o
 
 To update the Kubernetes version or the node operating system manually, change the `.spec.kubernetes.version` field or the `.spec.provider.workers.machine.image.version` field correspondingly.  
 
-Manual updates are required if you would like to do a minor update or a major update of the Kubernetes version. Gardener doesn’t do such updates automatically as they can have breaking changes that could impact your deployed resources.
+Manual updates are required if you would like to do a minor update or a major update of the Kubernetes version. Gardener doesn’t do such updates automatically as they can have breaking changes that could impact the cluster workload.
 
 Manual updates are either executed immediately (default) or can be confined to the maintenance time window.  
 Choosing the latter option, causes changes to the cluster (for example, node pool rolling-updates) and the subsequent reconciliation, to only predictably happen during a defined time window (available since [Gardener version 1.4](https://github.com/gardener/gardener/releases/tag/v1.4.0)).
@@ -125,7 +125,7 @@ Before applying such update on minor or major releases, operators should check f
 
 ## Examples
 
-In the examples for the `CloudProfile` and the `Shoot` specification, only the fields relevant for the example are shown.
+In the examples for the `CloudProfile` and the shoot cluster specification, only the fields relevant for the example are shown.
 
 ### Auto-Update of Kubernetes Version
 
@@ -140,7 +140,7 @@ spec:
     - version: 1.10.0
 ```
 
-Before this change, your shoot cluster specification looked like this:
+Before this change, the shoot cluster specification looked like this:
 
 ```yaml
 spec:
@@ -154,7 +154,7 @@ spec:
       kubernetesVersion: true
 ```
 
-As a consequence, the shoot cluster is updated to Kubernetes version  `1.10.5` between 22:00-23:00 UTC. Your `Shoot` isn't updated automatically to `1.11.0` even though it's the highest Kubernetes version in the `CloudProfile`, because Gardener does only do automatic updates of the Kubernetes patch level.
+As a consequence, the shoot cluster is updated to Kubernetes version  `1.10.5` between 22:00-23:00 UTC. Your shoot cluster isn't updated automatically to `1.11.0` even though it's the highest Kubernetes version in the `CloudProfile`, because Gardener does only do automatic updates of the Kubernetes patch level.
 
 ### Forceful Update Due to Expired Kubernetes Version
 
@@ -171,7 +171,7 @@ spec:
       expirationDate: "2019-04-13T08:00:00Z"
 ```
 
-Let's assume the `Shoot` has the following specification:
+Let's assume the shoot cluster has the following specification:
 
 ```yaml
 spec:
@@ -185,9 +185,9 @@ spec:
       kubernetesVersion: false
 ```
 
-The `Shoot` specification refers a Kubernetes version that has an `expirationDate`. In the maintenance window on `2019-04-12`, the Kubernetes version stays the same as it’s still not expired. But in the maintenance window on `2019-04-14` the Kubernetes version of the shoot cluster is updated to `1.10.13` (independently of the value of `.spec.maintenance.autoUpdate.kubernetesVersion`).
+The shoot cluster specification refers a Kubernetes version that has an `expirationDate`. In the maintenance window on `2019-04-12`, the Kubernetes version stays the same as it’s still not expired. But in the maintenance window on `2019-04-14` the Kubernetes version of the shoot cluster is updated to `1.10.13` (independently of the value of `.spec.maintenance.autoUpdate.kubernetesVersion`).
 
-### Forceful Update to New Minor Kubernetes Version:
+### Forceful Update to New Minor Kubernetes Version
 
 Let's assume the following `CloudProfile`:
 
@@ -202,7 +202,7 @@ spec:
       expirationDate: "2019-04-13T08:00:00Z"
 ```
 
-Let's assume the `Shoot` has the following specification:
+Let's assume the shoot cluster has the following specification:
 
 ```yaml
 spec:
@@ -216,7 +216,7 @@ spec:
       kubernetesVersion: false
 ```
 
-The `Shoot` specification refers a Kubernetes version that has an `expirationDate`. In the maintenance window on `2019-04-14`, the Kubernetes version of the shoot cluster is updated to `1.11.10`, which is the highest patch version of minor target version `1.11` that follows source version `1.10`.
+The shoot cluster specification refers a Kubernetes version that has an `expirationDate`. In the maintenance window on `2019-04-14`, the Kubernetes version of the shoot cluster is updated to `1.11.10`, which is the highest patch version of minor target version `1.11` that follows source version `1.10`.
 
 ### Automatic Update from Expired Machine Image Version
 
@@ -233,7 +233,7 @@ spec:
       expirationDate: "2019-04-13T08:00:00Z"
 ```
 
-Let's assume the `Shoot` has the following specification:
+Let's assume the shoot cluster has the following specification:
 
 ```yaml
 spec:
@@ -260,4 +260,4 @@ spec:
       machineImageVersion: false
 ```
 
-The `Shoot` specification refers a machine image version that has an `expirationDate`. In the maintenance window on `2019-04-12`, the machine image version stays the same as it’s still not expired. But in the maintenance window on `2019-04-14` the machine image version of the shoot cluster is updated to `2191.5.0` (independently of the value of `.spec.maintenance.autoUpdate.machineImageVersion`) as version `2135.6.0` is expired.
+The shoot cluster specification refers a machine image version that has an `expirationDate`. In the maintenance window on `2019-04-12`, the machine image version stays the same as it’s still not expired. But in the maintenance window on `2019-04-14` the machine image version of the shoot cluster is updated to `2191.5.0` (independently of the value of `.spec.maintenance.autoUpdate.machineImageVersion`) as version `2135.6.0` is expired.
