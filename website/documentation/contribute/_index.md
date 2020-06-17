@@ -1,8 +1,9 @@
 ---
 title: Contribute
-url: /contribute/
-icon: navigation_contribute.svg
-type: padding
+type: docs
+sidebar: true
+menus: sln
+weight: 100
 ---
 
 {{<mermaid>}}

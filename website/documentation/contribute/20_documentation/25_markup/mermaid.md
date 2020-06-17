@@ -1,6 +1,7 @@
 ---
 title : "Mermaid"
 description : "Generation of diagram and flowchart from text in a similar manner as markdown"
+type: docs
 ---
 
 [Mermaid](https://mermaidjs.github.io/) is a library helping you to generate diagram and flowcharts from text, in a similar manner as Markdown.

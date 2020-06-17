@@ -1,6 +1,6 @@
 ---
 title: CI/CD
-type: contribute
+type: docs
 ---
 
 # CI/CD

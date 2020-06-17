@@ -1,6 +1,7 @@
 ---
 title: Notice
 description : "Disclaimers to help you structure your page"
+type: docs
 ---
 
 The notice shortcode shows 4 types of disclaimers to help you structure your page.

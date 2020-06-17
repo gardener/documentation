@@ -1,6 +1,7 @@
 ---
 title : Expand
 description : "Displays an expandable/collapsible section of text on your page"
+type: docs
 ---
 
 The Expand shortcode displays an expandable/collapsible section of text on your page.

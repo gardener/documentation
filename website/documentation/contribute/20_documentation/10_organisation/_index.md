@@ -1,6 +1,6 @@
 ---
 title: Organisation
-type: padding
+type: docs
 ---
 
 ## Content Organisation

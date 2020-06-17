@@ -1,7 +1,7 @@
 ---
 title: Deploy into AKS
 remote: https://github.com/gardener/gardener/blob/master/docs/deployment/aks.md
-type: contribute
+type: docs
 ---
 # Deploying the previous Gardener versions and a Seed into an AKS cluster
 

@@ -1,7 +1,7 @@
 ---
 title: Documentation
 url: /contribute/docs/
-type: blank
+type: docs
 ---
 <div class="hero">
     <div class="container reveal-fast" style="visibility:hidden">
