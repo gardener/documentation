@@ -110,7 +110,7 @@ The administrator who maintains the `CloudProfile` has to ensure that the list o
 
 To update the Kubernetes version or the node operating system manually, change the `.spec.kubernetes.version` field or the `.spec.provider.workers.machine.image.version` field correspondingly.  
 
-Manual updates are required if you would like to do a minor update or a major update of the Kubernetes version. Gardener doesn’t do such updates automatically as they can have breaking changes that could impact the cluster workload.
+Manual updates are required if you would like to do a minor update of the Kubernetes version. Gardener doesn’t do such updates automatically as they can have breaking changes that could impact the cluster workload.
 
 Manual updates are either executed immediately (default) or can be confined to the maintenance time window.  
 Choosing the latter option, causes changes to the cluster (for example, node pool rolling-updates) and the subsequent reconciliation, to only predictably happen during a defined time window (available since [Gardener version 1.4](https://github.com/gardener/gardener/releases/tag/v1.4.0)).
