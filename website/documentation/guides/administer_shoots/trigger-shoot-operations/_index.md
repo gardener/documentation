@@ -2,7 +2,7 @@
 title: Trigger Shoot operations
 description: "Trigger Shoot operations"
 remote: https://github.com/gardener/gardener/blob/master/docs/usage/shoot_operations.md
-type: tutorial-page
+type: docs
 level: advanced
 index: 5
 category: Operation

@@ -1,9 +1,9 @@
 ---
 title: GPU Enabled Cluster
 description: "Setting up a GPU Enabled Cluster for Deep Learning"
-type: tutorial-page
+type: docs
+layout: single-page
 level: intermediate
-index: 10
 category: Setup
 scope: app-developer
 ---

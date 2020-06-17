@@ -1,7 +1,7 @@
 ---
 title: tail -f /var/log/my-application.log
 description: "Aggregate log files from different pods"
-type: tutorial-page
+type: docs
 level: intermediate
 index: 10
 category: Debugging

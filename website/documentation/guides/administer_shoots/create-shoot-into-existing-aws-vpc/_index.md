@@ -1,7 +1,7 @@
 ---
 title: Create a Shoot cluster into existing AWS VPC
 description: "Create a Shoot cluster into existing AWS VPC"
-type: tutorial-page
+type: docs
 level: intermediate
 index: 10
 category: Operation

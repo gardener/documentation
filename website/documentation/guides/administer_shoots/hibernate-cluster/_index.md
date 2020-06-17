@@ -1,7 +1,7 @@
 ---
 title: Hibernate a Cluster
 description: "Hibernate a Cluster to save money"
-type: tutorial-page
+type: docs
 level: intermediate
 index: 10
 category: Operation

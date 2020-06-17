@@ -1,7 +1,7 @@
 ---
 title: Create a kubernetes cluster on GCP with Gardener
 description: "How to create a Kubernetes Cluster with Gardener on GCP"
-type: tutorial-page
+type: docs
 level: beginner
 index: 30
 category: Getting Started

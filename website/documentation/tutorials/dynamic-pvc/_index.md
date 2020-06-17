@@ -1,9 +1,9 @@
 ---
 title: Dynamic Volume Provisioning
 description: "How to dynamically provision volume"
-type: tutorial-page
+type: docs
+layout: single-page
 level: beginner
-index: 30
 category: Getting Started
 scope: app-developer
 ---

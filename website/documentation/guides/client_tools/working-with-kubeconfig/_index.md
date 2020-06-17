@@ -1,7 +1,7 @@
 ---
 title:  Organizing Access Using kubeconfig Files
 description: " Organizing Access Using kubeconfig Files"
-type: tutorial-page
+type: docs
 level: intermediate
 index: 20
 category: Security

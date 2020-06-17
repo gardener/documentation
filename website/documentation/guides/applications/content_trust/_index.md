@@ -1,7 +1,7 @@
 ---
 title: Integrity and Immutability
 description: "Ensure that you get always the right image"
-type: tutorial-page
+type: docs
 level: intermediate
 index: 10
 category: Docker Registry

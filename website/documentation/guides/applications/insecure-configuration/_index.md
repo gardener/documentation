@@ -1,7 +1,7 @@
 ---
 title: Auditing Kubernetes for Secure Setup
 description: "A few insecure configurations in Kubernetes"
-type: tutorial-page
+type: docs
 level: advanced
 index: 5
 category: Security

@@ -1,7 +1,7 @@
 ---
 title: Dockerfile pitfalls
 description: "Common Dockerfile pitfalls"
-type: tutorial-page
+type: docs
 level: beginner
 index: 50
 reviewer: Tieyan Fu

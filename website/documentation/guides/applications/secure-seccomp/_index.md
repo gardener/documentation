@@ -1,7 +1,7 @@
 ---
 title: Custom Seccomp profile
 description: "Custom Seccomp profile"
-type: tutorial-page
+type: docs
 level: advanced
 index: 5
 category: Security

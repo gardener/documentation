@@ -1,7 +1,7 @@
 ---
 title: Request DNS Names
 description: "Requesting DNS Names for Ingresses and Services in Shoot Clusters"
-type: tutorial-page
+type: docs
 level: Advanced
 index: 10
 category: DNS

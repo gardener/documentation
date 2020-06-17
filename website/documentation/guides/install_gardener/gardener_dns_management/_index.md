@@ -1,7 +1,7 @@
 ---
 title: Gardener DNS Management for Shoots
 description: "Configure DNS Management For Shoot Clusters"
-type: tutorial-page
+type: docs
 level: Advanced
 index: 10
 category: DNS

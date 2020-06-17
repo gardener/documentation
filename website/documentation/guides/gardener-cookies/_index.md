@@ -1,7 +1,7 @@
 ---
 title: Gardener Cookies
 description: "Gardener Cookies"
-type: tutorial-page
+type: docs
 level: intermediate
 index: 10
 category: Operation

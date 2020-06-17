@@ -1,6 +1,6 @@
 ---
 title: Namespace Isolation
-type: tutorial-page
+type: docs
 level: advanced
 index: 10
 category: Networking

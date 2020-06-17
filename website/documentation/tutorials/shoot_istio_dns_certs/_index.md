@@ -1,8 +1,8 @@
 ---
 title:  Gardener yourself a Shoot with Istio, custom Domains, and Certificates
 level: beginner
-index: 9
-type: tutorial-page
+type: docs
+layout: single-page
 reviewer: Vasu C
 status: Reviewed
 last_reviewed: 15.05.2020

@@ -1,7 +1,7 @@
 ---
 title: Automated deployment
 description: "Automated deployment with kubectl"
-type: tutorial-page
+type: docs
 level: advanced
 index: 500
 category: CI/CD

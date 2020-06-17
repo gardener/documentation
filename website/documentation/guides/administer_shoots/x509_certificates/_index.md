@@ -1,7 +1,7 @@
 ---
 title: Request X.509 Certificates
 description: "X.509 Certificates For TLS Communication"
-type: tutorial-page
+type: docs
 level: beginner
 index: 10
 category: Certificates

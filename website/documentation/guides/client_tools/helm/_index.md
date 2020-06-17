@@ -1,7 +1,7 @@
 ---
 title: Use a Helm chart to deploy some application or service
 description: "Use a Helm chart to deploy some application or service"
-type: tutorial-page
+type: docs
 level: intermediate
 index: 10
 category: Helm

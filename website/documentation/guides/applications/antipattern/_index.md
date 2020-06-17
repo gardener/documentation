@@ -1,7 +1,7 @@
 ---
 title: Kubernetes Antipatterns
 description: "Common Antipatterns for Kubernetes and Docker"
-type: tutorial-page
+type: docs
 level: beginner
 index: 5
 reviewer: Tieyan Fu

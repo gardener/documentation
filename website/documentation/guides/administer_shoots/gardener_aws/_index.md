@@ -1,7 +1,7 @@
 ---
 title: Create a kubernetes cluster in AWS with Gardener
 description: "How to create a Kubernetes Cluster with Gardener in AWS"
-type: tutorial-page
+type: docs
 level: beginner
 index: 30
 category: Getting Started

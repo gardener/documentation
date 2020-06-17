@@ -1,7 +1,7 @@
 ---
 title: Shoot Cluster Maintenance
 description: "Understanding and configuring Gardener's Day-2 operations for Shoot clusters."
-type: tutorial-page
+type: docs
 level: advanced
 index: 5
 category: Operation

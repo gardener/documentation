@@ -1,7 +1,7 @@
 ---
 title: Gardener Certificate Management
 description: "Configure Certificate Management For Shoot Clusters"
-type: tutorial-page
+type: docs
 level: Advanced
 index: 10
 category: Certificates

@@ -1,7 +1,7 @@
 ---
 title: Container image not updating
 description: "Updating Images in your cluster during development"
-type: tutorial-page
+type: docs
 level: intermediate
 index: 10
 category: Fails

@@ -1,7 +1,7 @@
 ---
 title: Hardening the Gardener Community Setup
 description: "Hardening the Gardener Community Setup"
-type: tutorial-page
+type: docs
 level: advanced
 index: 5
 category: Security

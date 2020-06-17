@@ -1,7 +1,7 @@
 ---
 title: Orchestration of container startup
 description: "How to orchestrate startup sequence of multiple containers"
-type: tutorial-page
+type: docs
 level: beginner
 index: 30
 category: Getting Started

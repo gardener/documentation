@@ -1,7 +1,7 @@
 ---
 title: How to debug a pod
 description: "Your pod doesn't run as expected. Are there any log files? Where? How could I debug a pod?"
-type: tutorial-page
+type: docs
 level: intermediate
 index: 500
 reviewer: Tieyan Fu

@@ -1,7 +1,7 @@
 ---
 title: Create / Delete a Shoot cluster
 description: "Creating / Deleting a Shoot cluster"
-type: tutorial-page
+type: docs
 level: advanced
 index: 5
 category: Operation
