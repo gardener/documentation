@@ -3,10 +3,9 @@ title: Auditing Kubernetes for Secure Setup
 description: "A few insecure configurations in Kubernetes"
 type: docs
 level: advanced
-index: 5
 category: Security
 scope: operator
-aliases: ["readmore/insecure"]
+aliases: ["/readmore/insecure", "/050-tutorials/content/howto/insecure-configuration"]
 ---
 
 # Auditing Kubernetes for Secure Setup

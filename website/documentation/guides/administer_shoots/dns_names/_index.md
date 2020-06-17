@@ -3,9 +3,9 @@ title: Request DNS Names
 description: "Requesting DNS Names for Ingresses and Services in Shoot Clusters"
 type: docs
 level: Advanced
-index: 10
 category: DNS
 scope: app-developer
+aliases: ["/050-tutorials/content/howto/dns_names"]
 ---
 
 # Request DNS Names in Shoot Clusters

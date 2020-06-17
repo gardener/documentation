@@ -3,9 +3,9 @@ title: Landscape Setup
 remote: https://github.com/gardener/landscape-setup/blob/master/README.md
 type: docs
 level: advanced
-index: 500
 category: Setup Gardener
 scope: operator
+aliases: ["/050-tutorials/content/howto/landscape-setup"]
 ---
 # ---DEPRECATED---
 

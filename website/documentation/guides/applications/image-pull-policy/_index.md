@@ -3,10 +3,9 @@ title: Container image not updating
 description: "Updating Images in your cluster during development"
 type: docs
 level: intermediate
-index: 10
 category: Fails
 scope: app-developer
-aliases: ["/howto/imagePullPolicy"]
+aliases: ["/howto/imagePullPolicy", "/050-tutorials/content/howto/image-pull-policy"]
 ---
 
 

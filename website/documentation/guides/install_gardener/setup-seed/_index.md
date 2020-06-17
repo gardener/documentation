@@ -3,10 +3,9 @@ title: Setting up a Seed Cluster
 description: "How to configure a Kubernetes cluster as a Gardener seed"
 type: docs
 level: advanced
-index: 5
 category: Setup Gardener
 scope: operator
-aliases: ["readmore/seed"]
+aliases: ["/readmore/seed", "/050-tutorials/content/howto/setup-seed"]
 ---
 
 # The Seed Cluster

@@ -3,9 +3,9 @@ title: Integrity and Immutability
 description: "Ensure that you get always the right image"
 type: docs
 level: intermediate
-index: 10
 category: Docker Registry
 scope: app-developer
+aliases: ["/050-tutorials/content/howto/content_trust"]
 ---
 
 ## Introduction

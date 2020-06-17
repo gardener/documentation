@@ -3,10 +3,9 @@ title: Shoot Cluster Maintenance
 description: "Understanding and configuring Gardener's Day-2 operations for Shoot clusters."
 type: docs
 level: advanced
-index: 5
 category: Operation
 scope: operator
-aliases: ["readmore/shoot-maintain"]
+aliases: ["/readmore/shoot-maintain", "/050-tutorials/content/howto/maintain-shoot"]
 ---
 
 # Shoot Cluster Maintenance

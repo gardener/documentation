@@ -1,13 +1,12 @@
 ---
 title:  Gardener yourself a Shoot with Istio, custom Domains, and Certificates
-level: beginner
 type: docs
 layout: single-page
-reviewer: Vasu C
-status: Reviewed
 last_reviewed: 15.05.2020
 category: Networking
+level: beginner
 scope: app-developer
+alias: ["/050-tutorials/content/howto/shoot_istio_dns_certs"]
 ---
 
 

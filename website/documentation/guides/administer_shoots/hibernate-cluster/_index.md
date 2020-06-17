@@ -1,12 +1,10 @@
 ---
 title: Hibernate a Cluster
-description: "Hibernate a Cluster to save money"
 type: docs
 level: intermediate
-index: 10
 category: Operation
 scope: app-developer
-aliases: ["/readmore/hibernate"]
+aliases: ["/readmore/hibernate","/050-tutorials/content/howto/hibernate-cluster"]
 ---
 
 

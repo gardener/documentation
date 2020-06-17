@@ -1,13 +1,13 @@
 ---
 title: Shared storage with S3 backend
-description: "Shared storage with S3 backend"
+description: Using S3 bucket as shared storage for pods
 type: docs
 layout: single-page
 remote: https://github.com/freegroup/kube-s3.git
 level: intermediate
 category: Storage
 scope: app-developer
-aliases: ["app/s3"]
+aliases: ["app/s3", "/050-tutorials/content/app/s3"]
 ---
 ## Shared storage with S3 backend
 The storage is definitely the most complex and important part of an application setup, once this part is 

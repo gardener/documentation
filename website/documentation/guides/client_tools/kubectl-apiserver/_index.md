@@ -3,9 +3,9 @@ title: Automated deployment
 description: "Automated deployment with kubectl"
 type: docs
 level: advanced
-index: 500
 category: CI/CD
 scope: app-developer
+aliases: ["/050-tutorials/content/howto/kubectl-apiserver"]
 ---
 
 ## Introduction

@@ -1,11 +1,12 @@
 ---
 title: Dynamic Volume Provisioning
-description: "How to dynamically provision volume"
+description: Running a Postgres database on Kubernetes and dynamically provision and mount the storage volumes needed by the database
 type: docs
 layout: single-page
 level: beginner
 category: Getting Started
 scope: app-developer
+alias: ["/050-tutorials/content/howto/dynamic-pvc"]
 ---
 
 ## Introduction

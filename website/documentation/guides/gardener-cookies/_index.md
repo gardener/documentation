@@ -1,12 +1,10 @@
 ---
 title: Gardener Cookies
-description: "Gardener Cookies"
 type: docs
 level: intermediate
-index: 10
 category: Operation
 scope: app-developer
-aliases: ["/readmore/cookies"]
+aliases: ["/readmore/cookies", "/050-tutorials/content/howto/gardener-cockies"]
 ---
 
 # Green Tea Matcha Cookies

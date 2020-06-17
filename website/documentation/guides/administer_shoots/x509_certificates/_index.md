@@ -3,9 +3,9 @@ title: Request X.509 Certificates
 description: "X.509 Certificates For TLS Communication"
 type: docs
 level: beginner
-index: 10
 category: Certificates
 scope: app-developer
+aliases: ["/050-tutorials/content/howto/x509_certificates"]
 ---
 
 # Request X.509 Certificates 

@@ -3,9 +3,9 @@ title: tail -f /var/log/my-application.log
 description: "Aggregate log files from different pods"
 type: docs
 level: intermediate
-index: 10
 category: Debugging
 scope: app-developer
+aliases: ["/050-tutorials/content/howto/setup-seed"]
 ---
 
 ## Problem

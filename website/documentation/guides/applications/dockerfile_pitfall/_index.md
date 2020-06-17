@@ -3,12 +3,11 @@ title: Dockerfile pitfalls
 description: "Common Dockerfile pitfalls"
 type: docs
 level: beginner
-index: 50
 reviewer: Tieyan Fu
-status: Reviewed
 last_reviewed: 22.06.2018
 category: Fails
 scope: app-developer
+aliases: ["/050-tutorials/content/howto/dockerfile_pitfall"]
 ---
 
 

@@ -1,12 +1,10 @@
 ---
 title:  Organizing Access Using kubeconfig Files
-description: " Organizing Access Using kubeconfig Files"
 type: docs
 level: intermediate
-index: 20
 category: Security
 scope: app-developer
-aliases: [ "readmore/working-with-kubeconfig" ]
+aliases: [ "/readmore/working-with-kubeconfig", "/050-tutorials/content/howto/working-with-kubeconfig" ]
 ---
 
 # Organizing Access Using kubeconfig Files

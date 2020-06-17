@@ -1,13 +1,11 @@
 ---
 title: Trigger Shoot operations
-description: "Trigger Shoot operations"
 remote: https://github.com/gardener/gardener/blob/master/docs/usage/shoot_operations.md
 type: docs
 level: advanced
-index: 5
 category: Operation
 scope: operator
-aliases: ["readmore/trigger-shoot-operations"]
+aliases: ["/readmore/trigger-shoot-operations", "/050-tutorials/content/howto/trigger-shoot-operations"]
 ---
 # Trigger shoot operations
 

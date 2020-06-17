@@ -1,12 +1,10 @@
 ---
 title: Custom Seccomp profile
-description: "Custom Seccomp profile"
 type: docs
 level: advanced
-index: 5
 category: Security
 scope: operator
-aliases: ["readmore/seccomp"]
+aliases: ["/readmore/seccomp", "/050-tutorials/content/howto/secure-seccomp"]
 ---
 
 # Custom Seccomp profile

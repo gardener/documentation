@@ -1,13 +1,13 @@
 ---
 title: Feature Flags in Kubernetes Applications
-description: "Feature Flags in Kubernetes Applications"
+description: Implementing feature flags in Kubernetes applicaiton with labels and annotations
 type: docs
 layout: single-page
 remote: https://github.com/gardener-samples/kube-featureflag.git
 level: beginner
 category: DevOp
 scope: app-developer
-aliases: ["readmore/featureflag"]
+aliases: ["/readmore/featureflag", "/050-tutorials/content/app/featureflag"]
 ---
 # Feature Flags in Kubernetes Applications
 

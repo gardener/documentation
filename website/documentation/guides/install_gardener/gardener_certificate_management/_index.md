@@ -3,9 +3,9 @@ title: Gardener Certificate Management
 description: "Configure Certificate Management For Shoot Clusters"
 type: docs
 level: Advanced
-index: 10
 category: Certificates
 scope: operator
+aliases: ["/050-tutorials/content/howto/gardener_certificate_management"]
 ---
 
 # Gardener Certificate Management

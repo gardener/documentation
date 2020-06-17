@@ -1,15 +1,14 @@
 ---
 title: Kubeconfig context as bash prompt
-description: "Expose the active kubeconfig into the bash"
+description: "Expose the active kubeconfig into bash"
 type: docs
 level: beginner
-index: 40
 reviewer: Tieyan Fu
 status: Reviewed
 last_reviewed: 29.05.2018
 category: kubectl
 scope: app-developer
-aliases: ["/howto/kube-shell"]
+aliases: ["/howto/kube-shell", "/050-tutorials/content/howto/bash_kubeconfig"]
 ---
 
 

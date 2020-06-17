@@ -3,9 +3,9 @@ title: Out-Dated HTML and JS files delivered
 description: "Why is my application always outdated?"
 type: docs
 level: intermediate
-index: 10
 category: Services
 scope: app-developer
+aliases: ["/050-tutorials/content/howto/service-cache-control"]
 ---
 
 ## Problem

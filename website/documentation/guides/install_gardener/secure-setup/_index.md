@@ -1,12 +1,10 @@
 ---
 title: Hardening the Gardener Community Setup
-description: "Hardening the Gardener Community Setup"
 type: docs
 level: advanced
-index: 5
 category: Security
 scope: operator
-aliases: ["readmore/hardening"]
+aliases: ["/readmore/hardening", "/050-tutorials/content/howto/secure-setup"]
 ---
 
 # Hardening the Gardener Community Setup

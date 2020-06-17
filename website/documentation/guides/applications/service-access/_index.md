@@ -3,12 +3,11 @@ title: Access service from outside Kubernetes cluster
 description: "Is there an ingress deployed and how is it configured"
 type: docs
 level: beginner
-index: 150
 reviewer: Tieyan Fu
-status: Reviewed
 last_reviewed: 07.06.2018
 category: Services
 scope: app-developer
+aliases: ["/050-tutorials/content/howto/service-access"]
 ---
 
 ## TL;DR

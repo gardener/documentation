@@ -1,12 +1,10 @@
 ---
 title: Create / Delete a Shoot cluster
-description: "Creating / Deleting a Shoot cluster"
 type: docs
 level: advanced
-index: 5
 category: Operation
 scope: operator
-aliases: ["readmore/shoot-crud"]
+aliases: ["/readmore/shoot-crud", "/050-tutorials/content/howto/create-delete-shoot"]
 ---
 
 # Create a Shoot Cluster

@@ -2,10 +2,9 @@
 title: Namespace Isolation
 type: docs
 level: advanced
-index: 10
 category: Networking
 scope: app-developer
-aliases: ["/howto/networkisolation"]
+aliases: ["/howto/networkisolation", "/050-tutorials/content/howto/network-isolation"]
 ---
 
 ...or **DENY all traffic from other namespaces**

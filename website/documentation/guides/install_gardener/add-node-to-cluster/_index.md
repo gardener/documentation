@@ -1,15 +1,12 @@
 ---
 title: Manually adding a node to an existing cluster
-description: "This document describes steps on how to add a node to an existing cluster without the support of Gardener"
+description: How to add a node to an existing cluster without the support of Gardener
 type: docs
 level: advanced
-index: 10
 reviewer: Gaurav Gupta
-status: 
-last_reviewed: 
 category: Operation
 scope: app-developer
-aliases: ["readmore/adding-nodes"]
+aliases: ["/readmore/adding-nodes", "/050-tutorials/content/howto/add-node-to-cluster"]
 ---
 # Manually adding a node to an existing cluster
 Gardener has an excellent ability to [automatically scale machines](/components/mcm/) for the cluster. From the point of view 

@@ -1,12 +1,10 @@
 ---
 title: Use a Helm chart to deploy some application or service
-description: "Use a Helm chart to deploy some application or service"
 type: docs
 level: intermediate
-index: 10
 category: Helm
 scope: app-developer
-aliases: ["/howto/helm"]
+aliases: ["/howto/helm", "/050-tutorials/content/howto/helm"]
 ---
 
 

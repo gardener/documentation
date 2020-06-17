@@ -1,13 +1,13 @@
 ---
 title: Cluster Overprovisioning
-description: "Cluster Overprovisioning"
+description: How to overprovision cluster nodes for quick scaling and failover
 type: docs
 layout: single-page
 remote: https://github.com/gardener-samples/kube-overprovisioning.git
 level: beginner
 category: High Availability
 scope: app-developer
-aliases: ["readmore/overprovisioning"]
+aliases: ["/readmore/overprovisioning", "/050-tutorials/content/app/node-overprovisioning"]
 ---
 # Cluster Overprovisioning
 

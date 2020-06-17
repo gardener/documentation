@@ -3,9 +3,9 @@ title: Orchestration of container startup
 description: "How to orchestrate startup sequence of multiple containers"
 type: docs
 level: beginner
-index: 30
 category: Getting Started
 scope: app-developer
+aliases: ["/050-tutorials/content/howto/container-startup"]
 ---
 
 ## Disclaimer

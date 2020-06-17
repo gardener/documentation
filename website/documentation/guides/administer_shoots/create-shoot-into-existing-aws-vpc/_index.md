@@ -1,12 +1,10 @@
 ---
 title: Create a Shoot cluster into existing AWS VPC
-description: "Create a Shoot cluster into existing AWS VPC"
 type: docs
 level: intermediate
-index: 10
 category: Operation
 scope: app-developer
-aliases: ["readmore/shoot-into-existing-aws-vpc"]
+aliases: ["/readmore/shoot-into-existing-aws-vpc", "/050-tutorials/content/howto/create-delete-shoot"]
 ---
 
 # Create a Shoot cluster into existing AWS VPC

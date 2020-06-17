@@ -3,13 +3,11 @@ title: Kubernetes Antipatterns
 description: "Common Antipatterns for Kubernetes and Docker"
 type: docs
 level: beginner
-index: 5
 reviewer: Tieyan Fu
-status: In Review
 last_reviewed: 12.06.2018
 category: Getting Started
 scope: app-developer
-aliases: ["readmore/antipattern"]
+aliases: ["/readmore/antipattern", "/050-tutorials/content/howto/antipattern"]
 ---
 
 ![antipattern](howto-antipattern.png)
