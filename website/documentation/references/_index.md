@@ -1,8 +1,10 @@
 ---
 title: API Reference
-url: /api-reference/
-icon: navigation_tutorials.svg
-type: padding
+type: docs
+menus: sln
+sidebar: true
+weight: 60
+aiases: ["/api-reference/"]
 ---
 
 # API Reference Documentation
