@@ -1,6 +1,6 @@
 ---
 title: How-To Guides
-description: How to guides for common tasks
+description: Learn how to execute concrete tasks
 type: docs
 layout: guides-home
 menus: sln

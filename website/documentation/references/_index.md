@@ -1,5 +1,6 @@
 ---
 title: API Reference
+description: Reference documentation for the Gardener API
 type: docs
 menus: sln
 sidebar: true

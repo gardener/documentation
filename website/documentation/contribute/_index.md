@@ -1,5 +1,6 @@
 ---
 title: Contribute
+description: Contributors guides for code and documentation
 type: docs
 sidebar: true
 menus: sln
