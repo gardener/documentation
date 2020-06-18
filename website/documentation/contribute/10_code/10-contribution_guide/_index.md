@@ -110,7 +110,7 @@ ZenHub is used for planning:
 
 ## Security Release Process
 
-See [Security Release Process]({{< ref "//documentation/045_contribute/10_code/12-security_guide/_index.md" >}})
+See [Security Release Process]({{< ref "//documentation/contribute/10_code/12-security_guide/_index.md" >}})
 
 ## Community
 

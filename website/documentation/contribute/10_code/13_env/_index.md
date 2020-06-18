@@ -15,7 +15,7 @@ Further details could be found in
 
 1. [Principles of Kubernetes](https://kubernetes.io/docs/concepts/), and its [components](https://kubernetes.io/docs/concepts/overview/components/)
 1. [Kubernetes Development Guide](https://github.com/kubernetes/community/tree/master/contributors/devel)
-1. [Architecture of Gardener]({{< ref "//documentation/030-architecture/_index.md" >}})
+1. [Architecture of Gardener]({{< ref "//documentation/concepts/architecture/_index.md" >}})
 
 This setup is based on [minikube](https://github.com/kubernetes/minikube), a Kubernetes cluster running on a single node. Docker for Desktop and [kind](https://github.com/kubernetes-sigs/kind) are also supported.
 
@@ -139,7 +139,7 @@ cd gardener
 :warning: Before you start developing, please ensure to comply with the following requirements:
 
 1. You have understood the [principles of Kubernetes](https://kubernetes.io/docs/concepts/), and its [components](https://kubernetes.io/docs/concepts/overview/components/), what their purpose is and how they interact with each other.
-1. You have understood the [architecture of Gardener]({{< ref "//documentation/030-architecture/_index.md" >}}), and what the various clusters are used for.
+1. You have understood the [architecture of Gardener]({{< ref "//documentation/concepts/architecture/_index.md" >}}), and what the various clusters are used for.
 
 #### Start a local kubernetes cluster
 

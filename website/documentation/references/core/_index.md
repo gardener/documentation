@@ -114,8 +114,8 @@ BackupBucketProvider
 <td>
 <code>providerConfig</code></br>
 <em>
-<a href="#core.gardener.cloud/v1beta1.ProviderConfig">
-ProviderConfig
+<a href="https://godoc.org/k8s.io/apimachinery/pkg/runtime#RawExtension">
+k8s.io/apimachinery/pkg/runtime.RawExtension
 </a>
 </em>
 </td>
@@ -385,8 +385,8 @@ KubernetesSettings
 <td>
 <code>providerConfig</code></br>
 <em>
-<a href="#core.gardener.cloud/v1beta1.ProviderConfig">
-ProviderConfig
+<a href="https://godoc.org/k8s.io/apimachinery/pkg/runtime#RawExtension">
+k8s.io/apimachinery/pkg/runtime.RawExtension
 </a>
 </em>
 </td>
@@ -900,6 +900,20 @@ string
 <em>(Optional)</em>
 <p>Namespace is the name of the namespace that has been created for the Project object.
 A nil value means that Gardener will determine the name of the namespace.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>tolerations</code></br>
+<em>
+<a href="#core.gardener.cloud/v1beta1.ProjectTolerations">
+ProjectTolerations
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Tolerations contains the tolerations for taints on seed clusters.</p>
 </td>
 </tr>
 </table>
@@ -1560,6 +1574,20 @@ Kubernetes meta/v1.LabelSelector
 <p>Resources holds a list of named resource references that can be referred to in extension configs by their names.</p>
 </td>
 </tr>
+<tr>
+<td>
+<code>tolerations</code></br>
+<em>
+<a href="#core.gardener.cloud/v1beta1.Toleration">
+[]Toleration
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Tolerations contains the tolerations for taints on seed clusters.</p>
+</td>
+</tr>
 </table>
 </td>
 </tr>
@@ -1689,8 +1717,8 @@ string
 <td>
 <code>config</code></br>
 <em>
-<a href="#core.gardener.cloud/v1beta1.ProviderConfig">
-ProviderConfig
+<a href="https://godoc.org/k8s.io/apimachinery/pkg/runtime#RawExtension">
+k8s.io/apimachinery/pkg/runtime.RawExtension
 </a>
 </em>
 </td>
@@ -1928,8 +1956,8 @@ BackupBucketProvider
 <td>
 <code>providerConfig</code></br>
 <em>
-<a href="#core.gardener.cloud/v1beta1.ProviderConfig">
-ProviderConfig
+<a href="https://godoc.org/k8s.io/apimachinery/pkg/runtime#RawExtension">
+k8s.io/apimachinery/pkg/runtime.RawExtension
 </a>
 </em>
 </td>
@@ -1986,8 +2014,8 @@ string
 <td>
 <code>providerStatus</code></br>
 <em>
-<a href="#core.gardener.cloud/v1beta1.ProviderConfig">
-ProviderConfig
+<a href="https://godoc.org/k8s.io/apimachinery/pkg/runtime#RawExtension">
+k8s.io/apimachinery/pkg/runtime.RawExtension
 </a>
 </em>
 </td>
@@ -2325,8 +2353,8 @@ KubernetesSettings
 <td>
 <code>providerConfig</code></br>
 <em>
-<a href="#core.gardener.cloud/v1beta1.ProviderConfig">
-ProviderConfig
+<a href="https://godoc.org/k8s.io/apimachinery/pkg/runtime#RawExtension">
+k8s.io/apimachinery/pkg/runtime.RawExtension
 </a>
 </em>
 </td>
@@ -2697,8 +2725,8 @@ string
 <td>
 <code>providerConfig</code></br>
 <em>
-<a href="#core.gardener.cloud/v1beta1.ProviderConfig">
-ProviderConfig
+<a href="https://godoc.org/k8s.io/apimachinery/pkg/runtime#RawExtension">
+k8s.io/apimachinery/pkg/runtime.RawExtension
 </a>
 </em>
 </td>
@@ -2741,8 +2769,8 @@ string
 <td>
 <code>providerConfig</code></br>
 <em>
-<a href="#core.gardener.cloud/v1beta1.ProviderConfig">
-ProviderConfig
+<a href="https://godoc.org/k8s.io/apimachinery/pkg/runtime#RawExtension">
+k8s.io/apimachinery/pkg/runtime.RawExtension
 </a>
 </em>
 </td>
@@ -2872,8 +2900,8 @@ Kubernetes core/v1.ObjectReference
 <td>
 <code>providerStatus</code></br>
 <em>
-<a href="#core.gardener.cloud/v1beta1.ProviderConfig">
-ProviderConfig
+<a href="https://godoc.org/k8s.io/apimachinery/pkg/runtime#RawExtension">
+k8s.io/apimachinery/pkg/runtime.RawExtension
 </a>
 </em>
 </td>
@@ -3189,6 +3217,71 @@ DNSIncludeExclude
 </tr>
 </tbody>
 </table>
+<h3 id="core.gardener.cloud/v1beta1.DataVolume">DataVolume
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#core.gardener.cloud/v1beta1.Worker">Worker</a>)
+</p>
+<p>
+<p>DataVolume contains information about a data volume.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>name</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Name of the volume to make it referencable.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>type</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Type is the type of the volume.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>size</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>VolumeSize is the size of the volume.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>encrypted</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Encrypted determines if the volume should be encrypted.</p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="core.gardener.cloud/v1beta1.Endpoint">Endpoint
 </h3>
 <p>
@@ -3342,8 +3435,8 @@ string
 <td>
 <code>providerConfig</code></br>
 <em>
-<a href="#core.gardener.cloud/v1beta1.ProviderConfig">
-ProviderConfig
+<a href="https://godoc.org/k8s.io/apimachinery/pkg/runtime#RawExtension">
+k8s.io/apimachinery/pkg/runtime.RawExtension
 </a>
 </em>
 </td>
@@ -3909,6 +4002,21 @@ KubernetesConfig
 </p>
 </td>
 </tr>
+<tr>
+<td>
+<code>kubeMaxPDVols</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>KubeMaxPDVols allows to configure the <code>KUBE_MAX_PD_VOLS</code> environment variable for the kube-scheduler.
+Please find more information here: <a href="https://kubernetes.io/docs/concepts/storage/storage-limits/#custom-limits">https://kubernetes.io/docs/concepts/storage/storage-limits/#custom-limits</a>
+Note that using this field is considered alpha-/experimental-level and is on your own risk. You should be aware
+of all the side-effects and consequences when changing it.</p>
+</td>
+</tr>
 </tbody>
 </table>
 <h3 id="core.gardener.cloud/v1beta1.KubeletConfig">KubeletConfig
@@ -4109,6 +4217,18 @@ Kubernetes meta/v1.Duration
 <em>(Optional)</em>
 <p>ImagePullProgressDeadline describes the time limit under which if no pulling progress is made, the image pulling will be cancelled.
 Default: 1m</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>failSwapOn</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>FailSwapOn makes the Kubelet fail to start if swap is enabled on the node. (default true).</p>
 </td>
 </tr>
 </tbody>
@@ -5304,8 +5424,8 @@ string
 <td>
 <code>providerConfig</code></br>
 <em>
-<a href="#core.gardener.cloud/v1beta1.ProviderConfig">
-ProviderConfig
+<a href="https://godoc.org/k8s.io/apimachinery/pkg/runtime#RawExtension">
+k8s.io/apimachinery/pkg/runtime.RawExtension
 </a>
 </em>
 </td>
@@ -5893,6 +6013,20 @@ string
 A nil value means that Gardener will determine the name of the namespace.</p>
 </td>
 </tr>
+<tr>
+<td>
+<code>tolerations</code></br>
+<em>
+<a href="#core.gardener.cloud/v1beta1.ProjectTolerations">
+ProjectTolerations
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Tolerations contains the tolerations for taints on seed clusters.</p>
+</td>
+</tr>
 </tbody>
 </table>
 <h3 id="core.gardener.cloud/v1beta1.ProjectStatus">ProjectStatus
@@ -5939,6 +6073,54 @@ ProjectPhase
 </tr>
 </tbody>
 </table>
+<h3 id="core.gardener.cloud/v1beta1.ProjectTolerations">ProjectTolerations
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#core.gardener.cloud/v1beta1.ProjectSpec">ProjectSpec</a>)
+</p>
+<p>
+<p>ProjectTolerations contains the tolerations for taints on seed clusters.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>defaults</code></br>
+<em>
+<a href="#core.gardener.cloud/v1beta1.Toleration">
+[]Toleration
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Defaults contains a list of tolerations that are added to the shoots in this project by default.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>whitelist</code></br>
+<em>
+<a href="#core.gardener.cloud/v1beta1.Toleration">
+[]Toleration
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Whitelist contains a list of tolerations that are allowed to be added to the shoots in this project. Please note
+that this list may only be added by users having the <code>spec-tolerations-whitelist</code> verb for project resources.</p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="core.gardener.cloud/v1beta1.Provider">Provider
 </h3>
 <p>
@@ -5972,8 +6154,8 @@ string
 <td>
 <code>controlPlaneConfig</code></br>
 <em>
-<a href="#core.gardener.cloud/v1beta1.ProviderConfig">
-ProviderConfig
+<a href="https://godoc.org/k8s.io/apimachinery/pkg/runtime#RawExtension">
+k8s.io/apimachinery/pkg/runtime.RawExtension
 </a>
 </em>
 </td>
@@ -5987,8 +6169,8 @@ definition in the documentation of your provider extension.</p>
 <td>
 <code>infrastructureConfig</code></br>
 <em>
-<a href="#core.gardener.cloud/v1beta1.ProviderConfig">
-ProviderConfig
+<a href="https://godoc.org/k8s.io/apimachinery/pkg/runtime#RawExtension">
+k8s.io/apimachinery/pkg/runtime.RawExtension
 </a>
 </em>
 </td>
@@ -6009,55 +6191,6 @@ definition in the documentation of your provider extension.</p>
 </td>
 <td>
 <p>Workers is a list of worker groups.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="core.gardener.cloud/v1beta1.ProviderConfig">ProviderConfig
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#core.gardener.cloud/v1beta1.AdmissionPlugin">AdmissionPlugin</a>, 
-<a href="#core.gardener.cloud/v1beta1.BackupBucketSpec">BackupBucketSpec</a>, 
-<a href="#core.gardener.cloud/v1beta1.BackupBucketStatus">BackupBucketStatus</a>, 
-<a href="#core.gardener.cloud/v1beta1.CloudProfileSpec">CloudProfileSpec</a>, 
-<a href="#core.gardener.cloud/v1beta1.ContainerRuntime">ContainerRuntime</a>, 
-<a href="#core.gardener.cloud/v1beta1.ControllerDeployment">ControllerDeployment</a>, 
-<a href="#core.gardener.cloud/v1beta1.ControllerInstallationStatus">ControllerInstallationStatus</a>, 
-<a href="#core.gardener.cloud/v1beta1.Extension">Extension</a>, 
-<a href="#core.gardener.cloud/v1beta1.Networking">Networking</a>, 
-<a href="#core.gardener.cloud/v1beta1.Provider">Provider</a>, 
-<a href="#core.gardener.cloud/v1beta1.SeedBackup">SeedBackup</a>, 
-<a href="#core.gardener.cloud/v1beta1.SeedProvider">SeedProvider</a>, 
-<a href="#core.gardener.cloud/v1beta1.ShootMachineImage">ShootMachineImage</a>, 
-<a href="#core.gardener.cloud/v1beta1.Worker">Worker</a>)
-</p>
-<p>
-<p>ProviderConfig is a workaround for missing OpenAPI functions on runtime.RawExtension struct.
-<a href="https://github.com/kubernetes/kubernetes/issues/55890">https://github.com/kubernetes/kubernetes/issues/55890</a>
-<a href="https://github.com/kubernetes-sigs/cluster-api/issues/137">https://github.com/kubernetes-sigs/cluster-api/issues/137</a></p>
-</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>RawExtension</code></br>
-<em>
-<a href="https://godoc.org/k8s.io/apimachinery/pkg/runtime#RawExtension">
-k8s.io/apimachinery/pkg/runtime.RawExtension
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>RawExtension</code> are embedded into this type.)
-</p>
 </td>
 </tr>
 </tbody>
@@ -6223,8 +6356,8 @@ string
 <td>
 <code>providerConfig</code></br>
 <em>
-<a href="#core.gardener.cloud/v1beta1.ProviderConfig">
-ProviderConfig
+<a href="https://godoc.org/k8s.io/apimachinery/pkg/runtime#RawExtension">
+k8s.io/apimachinery/pkg/runtime.RawExtension
 </a>
 </em>
 </td>
@@ -6405,8 +6538,8 @@ string
 <td>
 <code>providerConfig</code></br>
 <em>
-<a href="#core.gardener.cloud/v1beta1.ProviderConfig">
-ProviderConfig
+<a href="https://godoc.org/k8s.io/apimachinery/pkg/runtime#RawExtension">
+k8s.io/apimachinery/pkg/runtime.RawExtension
 </a>
 </em>
 </td>
@@ -6456,6 +6589,38 @@ bool
 </td>
 <td>
 <p>Enabled controls whether the excess capacity reservation should be enabled.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="core.gardener.cloud/v1beta1.SeedSettingLoadBalancerServices">SeedSettingLoadBalancerServices
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#core.gardener.cloud/v1beta1.SeedSettings">SeedSettings</a>)
+</p>
+<p>
+<p>SeedSettingLoadBalancerServices controls certain settings for services of type load balancer that are created in the
+seed.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>annotations</code></br>
+<em>
+map[string]string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Annotations is a map of annotations that will be injected/merged into every load balancer service object.</p>
 </td>
 </tr>
 </tbody>
@@ -6580,6 +6745,21 @@ SeedSettingShootDNS
 <td>
 <em>(Optional)</em>
 <p>ShootDNS controls the shoot DNS settings for the seed.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>loadBalancerServices</code></br>
+<em>
+<a href="#core.gardener.cloud/v1beta1.SeedSettingLoadBalancerServices">
+SeedSettingLoadBalancerServices
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>LoadBalancerServices controls certain settings for services of type load balancer that are created in the
+seed.</p>
 </td>
 </tr>
 </tbody>
@@ -7000,8 +7180,8 @@ string
 <td>
 <code>providerConfig</code></br>
 <em>
-<a href="#core.gardener.cloud/v1beta1.ProviderConfig">
-ProviderConfig
+<a href="https://godoc.org/k8s.io/apimachinery/pkg/runtime#RawExtension">
+k8s.io/apimachinery/pkg/runtime.RawExtension
 </a>
 </em>
 </td>
@@ -7306,6 +7486,20 @@ Kubernetes meta/v1.LabelSelector
 <p>Resources holds a list of named resource references that can be referred to in extension configs by their names.</p>
 </td>
 </tr>
+<tr>
+<td>
+<code>tolerations</code></br>
+<em>
+<a href="#core.gardener.cloud/v1beta1.Toleration">
+[]Toleration
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Tolerations contains the tolerations for taints on seed clusters.</p>
+</td>
+</tr>
 </tbody>
 </table>
 <h3 id="core.gardener.cloud/v1beta1.ShootStatus">ShootStatus
@@ -7474,6 +7668,49 @@ It is used to compute unique hashes.</p>
 </tr>
 </tbody>
 </table>
+<h3 id="core.gardener.cloud/v1beta1.Toleration">Toleration
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="#core.gardener.cloud/v1beta1.ProjectTolerations">ProjectTolerations</a>, 
+<a href="#core.gardener.cloud/v1beta1.ShootSpec">ShootSpec</a>)
+</p>
+<p>
+<p>Toleration is a toleration for a seed taint.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>key</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<p>Key is the toleration key to be applied to a project or shoot.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>value</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Value is the toleration value corresponding to the toleration key.</p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="core.gardener.cloud/v1beta1.VersionClassification">VersionClassification
 (<code>string</code> alias)</p></h3>
 <p>
@@ -7490,7 +7727,7 @@ It is used to compute unique hashes.</p>
 <a href="#core.gardener.cloud/v1beta1.Worker">Worker</a>)
 </p>
 <p>
-<p>Volume contains information about the volume type and size.</p>
+<p>Volume contains information about the volume type, size, and encryption.</p>
 </p>
 <table>
 <thead>
@@ -7761,8 +7998,8 @@ k8s.io/apimachinery/pkg/util/intstr.IntOrString
 <td>
 <code>providerConfig</code></br>
 <em>
-<a href="#core.gardener.cloud/v1beta1.ProviderConfig">
-ProviderConfig
+<a href="https://godoc.org/k8s.io/apimachinery/pkg/runtime#RawExtension">
+k8s.io/apimachinery/pkg/runtime.RawExtension
 </a>
 </em>
 </td>
@@ -7803,8 +8040,8 @@ Volume
 <td>
 <code>dataVolumes</code></br>
 <em>
-<a href="#core.gardener.cloud/v1beta1.Volume">
-[]Volume
+<a href="#core.gardener.cloud/v1beta1.DataVolume">
+[]DataVolume
 </a>
 </em>
 </td>

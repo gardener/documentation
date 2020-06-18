@@ -13,11 +13,18 @@ type: docs
 
 # What is gardenctl?
 
-`gardenctl` is a command-line client for administrative purposes for the [Gardener](https://github.com/gardener/gardener). It facilitates the administration of one or many garden, seed and shoot clusters, e.g. to check for issues which occured in one of these clusters. Details about the concept behind the Gardener are described in the [Gardener wiki]({{< ref "//documentation/030-architecture/_index.md" >}}).
+`gardenctl` is a command-line client for administrative purposes for the [Gardener](https://github.com/gardener/gardener). It facilitates the administration of one or many garden, seed and shoot clusters, e.g. to check for issues which occured in one of these clusters. Details about the concept behind the Gardener are described in the [Gardener wiki]({{< ref "//documentation/concepts/architecture/_index.md" >}}).
 
 # Installation
 
 `gardenctl` is shipped for mac and linux in a binary format. 
+
+Option 1: Install the latest release with [Homebrew](https://brew.sh/) (macOS and Linux) as follows:
+```sh
+brew install gardener/tap/gardenctl
+```
+
+Option 2: Manually download and install from [gardenctl releases](https://github.com/gardener/gardenctl/releases) as follows:
 
 1. Download the latest release:
 ```bash
@@ -47,7 +54,7 @@ If no binary builds are available for your platform or architecture, you can bui
 
 ## Prerequisites
 
-To build `gardenctl` from sources you need to have a running Golang environment. Moreover, since `gardenctl` allows to execute `kubectl` as well as a running `kubectl` installation is recommended, but not required. Please check this [description]({{< ref "//documentation/045_contribute/10_code/13_env/_index.md" >}}) for further details.
+To build `gardenctl` from sources you need to have a running Golang environment. Moreover, since `gardenctl` allows to execute `kubectl` as well as a running `kubectl` installation is recommended, but not required. Please check this [description]({{< ref "//documentation/contribute/10_code/13_env/_index.md" >}}) for further details.
 
 ## Build gardenctl 
 
@@ -56,7 +63,7 @@ To build `gardenctl` from sources you need to have a running Golang environment.
 First, you need to clone the repository and build `gardenctl`.
 
 ```bash
-git clone {{< ref "//documentation/030-architecture/15_gardenctl/_index.md" >}}
+git clone {{< ref "//documentation/concepts/architecture/15_gardenctl/_index.md" >}}
 cd gardenctl
 make build
 ```

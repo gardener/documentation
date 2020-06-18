@@ -21,7 +21,7 @@ In essence, Gardener is an [extension API server](https://kubernetes.io/docs/tas
 
 To accomplish these tasks reliably and to offer a certain quality of service, Gardener controls the main components of a Kubernetes cluster (etcd, API server, controller manager, scheduler). These so-called *control plane* components are hosted in Kubernetes clusters themselves (which are called **seed** clusters). This is the main difference compared to many other OSS cluster provisioning tools: The shoot clusters do not have dedicated master VMs. Instead, the control plane is deployed as a native Kubernetes workload into the seeds. This does not only effectively reduce the total cost of ownership but also allows easier implementations for "day-2 operations" (like cluster updates or robustness) by relying on all the mature Kubernetes features and capabilities.
 
-Please find more information regarding the concepts and a detailed description of the architecture in our [Gardener Wiki]({{< ref "//documentation/030-architecture/_index.md" >}}) and our [blog post on kubernetes.io](https://kubernetes.io/blog/2018/05/17/gardener/).
+Please find more information regarding the concepts and a detailed description of the architecture in our [Gardener Wiki]({{< ref "//documentation/concepts/architecture/_index.md" >}}) and our [blog post on kubernetes.io](https://kubernetes.io/blog/2018/05/17/gardener/).
 
 ----
 
@@ -54,7 +54,7 @@ We also have a [Gardener Helm Chart](https://github.com/gardener/gardener/tree/m
 
 Feedback and contributions are always welcome!
 
-All channels for getting in touch or learning about our project are listed under the [community]({{< ref "//documentation/045_contribute/10_code/10-contribution_guide/_index.md" >}}#community) section. We are cordially inviting interested parties to join our [weekly meetings]({{< ref "//documentation/045_contribute/10_code/10-contribution_guide/_index.md" >}}#weekly-meeting).
+All channels for getting in touch or learning about our project are listed under the [community]({{< ref "//documentation/contribute/10_code/10-contribution_guide/_index.md" >}}#community) section. We are cordially inviting interested parties to join our [weekly meetings]({{< ref "//documentation/contribute/10_code/10-contribution_guide/_index.md" >}}#weekly-meeting).
 
 Please report bugs or suggestions about our Kubernetes clusters as such or the Gardener itself as [GitHub issues](https://github.com/gardener/gardener/issues) or join our [Slack channel #gardener](https://kubernetes.slack.com/messages/gardener) (please invite yourself to the Kubernetes workspace [here](http://slack.k8s.io)).
 

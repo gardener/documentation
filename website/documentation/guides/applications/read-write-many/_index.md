@@ -1,7 +1,7 @@
 ---
 title: ReadWriteMany with AWS
 description: "Dynamically Provisioned PV’s Using Amazon EFS"
-type: tutorial-app
+type: docs
 remote: https://github.com/freegroup/kube-readwritemany.git
 level: intermediate
 category: Storage
