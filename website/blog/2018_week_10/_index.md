@@ -21,4 +21,4 @@ can read or even write from that directory without the need for explicit keys.
 
 However, it can be used to import and parse large amounts of data into a database.
 
-..read on [Shared S3 Storage](/app/s3) how to configure it.
+..read on [Shared S3 Storage](../app/s3) how to configure it.
