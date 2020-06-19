@@ -6,6 +6,7 @@ authors:
   email: andreas.herz@sap.com
   avatar: https://avatars1.githubusercontent.com/u/1155039?v=4
 publishdate: 2019-06-11
+archivedate: 2019-07-11
 ---
 This tutorial describes how to overprovisioning of cluster nodes for scaling and failover. This is desired 
 when you have work load that need to scale up quickly without waiting for the new cluster nodes to be created 

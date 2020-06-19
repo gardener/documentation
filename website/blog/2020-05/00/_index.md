@@ -1,7 +1,10 @@
 ---
 title: PingCAP’s Experience in Implementing their Managed TiDB Service with Gardener
+linkTitle: PingCAP's TiDB Cloud
+newsSubtitle: A Gardener Success Story
 type: blog
 publishdate: 2020-05-27
+archivedate: 2020-08-27
 authors: 
 - name: Aylei Wu
   email: wuyelei@pingcap.com

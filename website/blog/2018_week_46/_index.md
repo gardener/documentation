@@ -6,6 +6,7 @@ authors:
   email: andreas.herz@sap.com
   avatar: https://avatars1.githubusercontent.com/u/1155039?v=4
 publishdate: 2018-06-11
+archivedate: 2018-07-11
 ---
 
 In summer 2018, the [Gardener project team](https://github.com/gardener/gardener) asked [Kinvolk](https://kinvolk.io/) to execute several penetration tests in its role as third-party contractor. The goal of this ongoing work is to increase the security of
