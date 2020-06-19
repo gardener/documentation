@@ -1,6 +1,6 @@
 ---
 title: HTTPS with self Signed Certificate
-type: tutorial-app
+type: docs
 remote: https://github.com/freegroup/kube-https.git
 level: intermediate
 category: Certificates
