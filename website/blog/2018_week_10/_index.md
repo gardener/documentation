@@ -17,7 +17,7 @@ the filesystem. The mount is a pointer to an S3 location, so the data is never s
 can read or even write from that directory without the need for explicit keys.
 
 
-{{< blog_img "logo" "blog-s3-shared-storage.png" >}}
+{{< blog_img link="blog-s3-shared-storage.png" >}}
 
 
 However, it can be used to import and parse large amounts of data into a database.

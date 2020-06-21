@@ -15,7 +15,7 @@ Although they are essential in a native cloud environment, they cannot be implem
 effort on some platforms. Kubernetes has made this trivial. Here we will implement them through labels and 
 annotations, but you can also implement them by connecting directly to the Kubernetes API Server.
 
-{{< blog_img "overview" "teaser.gif"  "no-shadow" >}}
+{{< blog_img link="teaser.gif" >}}
 
 
 Possible Use Cases

@@ -12,7 +12,7 @@ archivedate: 2019-07-11
 The kubectl command-line tool uses `kubeconfig` files to find the information it needs to choose a cluster and 
 communicate with the API server of a cluster.
 
-{{< blog_img "overview" "teaser.svg" >}}
+{{< blog_img link="teaser.svg" >}}
 
 
 > What happens if your kubeconfig file of your production cluster is leaked or published by accident?

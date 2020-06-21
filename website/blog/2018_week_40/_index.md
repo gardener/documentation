@@ -12,7 +12,7 @@ archivedate: 2018-08-11
 You want to experiment with Kubernetes or have set up a customer scenario, but you don't want to run the 
 cluster 24 / 7 for reasons of cost?
 
-{{< blog_img "overview" "teaser_patched.svg" >}}
+{{< blog_img link="teaser_patched.svg" >}}
 
 
 The Gardener gives you the possibility to scale your cluster down to **zero nodes**.

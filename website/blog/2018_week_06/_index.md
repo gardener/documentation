@@ -11,7 +11,7 @@ archivedate: 2018-07-11
 <table style="border:0">
 <tr>
     <td>
-        {{< blog_img "logo" "blog-kubernetes-enable.png" >}}
+        {{< blog_img link="./blog-kubernetes-enable.png" title="Enabling Kubernetes in Docker image" >}}
     </td>
     <td valign="top">
         <div>

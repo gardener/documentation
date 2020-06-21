@@ -12,7 +12,7 @@ archivedate: 2018-07-11
 **...they mess up the figure.**
 
 
-{{< blog_img "overview" "cookie.jpg" >}}
+{{< blog_img link="cookie.jpg" >}}
 
 For a team event during the Christmas season we decided to completely reinterpret the 
 topic `cookies`... since the vegetables have gone on a well-deserved vacation. :-)
