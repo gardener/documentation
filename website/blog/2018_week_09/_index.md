@@ -6,6 +6,7 @@ authors:
   email: andreas.herz@sap.com
   avatar: https://avatars1.githubusercontent.com/u/1155039?v=4
 publishdate: 2018-06-11
+archivedate: 2018-07-11
 ---
 
 ...or **DENY all traffic from other namespaces**
@@ -18,7 +19,7 @@ network policies:
  - Regulatory compliance
  - Ensure containers assigned to different environments (e.g. dev/staging/prod) cannot interfere with each another                                                
 
-{{< blog_img "logo" "blog-namespaceisolation.png" >}}
+{{< blog_img link="blog-namespaceisolation.png" >}}
 
 
 ..read on [Namespace Isolation](/howto/networkisolation) how to configure it.

@@ -6,6 +6,7 @@ authors:
   email: andreas.herz@sap.com
   avatar: https://avatars1.githubusercontent.com/u/1155039?v=4
 publishdate: 2019-06-11
+archivedate: 2019-07-11
 ---
 
 Feature flags are used to change the behavior of a program at runtime without forcing a restart.
@@ -14,7 +15,7 @@ Although they are essential in a native cloud environment, they cannot be implem
 effort on some platforms. Kubernetes has made this trivial. Here we will implement them through labels and 
 annotations, but you can also implement them by connecting directly to the Kubernetes API Server.
 
-{{< blog_img "overview" "teaser.gif"  "no-shadow" >}}
+{{< blog_img link="teaser.gif" >}}
 
 
 Possible Use Cases

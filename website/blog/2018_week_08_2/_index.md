@@ -6,6 +6,7 @@ authors:
   email: andreas.herz@sap.com
   avatar: https://avatars1.githubusercontent.com/u/1155039?v=4
 publishdate: 2018-06-11
+archivedate: 2018-07-11
 ---
 **Should I use:**
 <ul style="list-style:none">

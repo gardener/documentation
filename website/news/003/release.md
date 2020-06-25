@@ -1,12 +1,11 @@
 ---
 title: Gardener 1.4.0 Released
-eventdate: May 07, 2020
+newsSubtitle: May 07, 2020
 publishdate: 2020-05-07
 # archivedate: 2020-05-15
 type: news
+newsType: release-notes
 ---
-<div class="release-notes">
-
 # Gardener Release 1.4
 ​
 The Gardener release 1.4 is mainly focused on stability improvments and optimizations. For example, we twitched some configurations (e.g CPU and memory limits), and improved the monitoring and healtchechks. And there are some new features too. The list below is an overview of the most notable changes. Explore the full release notes in [GitHub Release 1.4](https://github.com/gardener/gardener/releases/tag/v1.4.0).
@@ -91,5 +90,3 @@ The Actuator interface for the `Infrastructure`, `ControlPlane`, `Network`, `Wor
 ### Enhnaced etcd-backup-restore API for delta and full snapshots
 ​
 Triggering full or delta snapshots now returns metadata for the snapshot taken in the response body. Also, new endpoint was introduces for fetching details of the latest full and delta snapshots.
-
-</div>

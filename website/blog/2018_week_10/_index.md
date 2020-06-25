@@ -6,6 +6,7 @@ authors:
   email: andreas.herz@sap.com
   avatar: https://avatars1.githubusercontent.com/u/1155039?v=4
 publishdate: 2018-06-11
+archivedate: 2018-07-11
 ---
 
 The storage is definitely the most complex and important part of an application setup, once this part is completed, 
@@ -16,9 +17,9 @@ the filesystem. The mount is a pointer to an S3 location, so the data is never s
 can read or even write from that directory without the need for explicit keys.
 
 
-{{< blog_img "logo" "blog-s3-shared-storage.png" >}}
+{{< blog_img link="blog-s3-shared-storage.png" >}}
 
 
 However, it can be used to import and parse large amounts of data into a database.
 
-..read on [Shared S3 Storage](/app/s3) how to configure it.
+..read on [Shared S3 Storage](../app/s3) how to configure it.

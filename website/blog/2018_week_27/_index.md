@@ -6,6 +6,7 @@ authors:
   email: andreas.herz@sap.com
   avatar: https://avatars1.githubusercontent.com/u/1155039?v=4
 publishdate: 2018-06-11
+archivedate: 2018-07-11
 ---
 
 
@@ -15,7 +16,7 @@ AWS region and the name identifying the efs-provisioner. This name will be used 
 storage class.
 
 
-{{< blog_img "overview" "blog-aws-efs.png" >}}
+{{< blog_img link="blog-aws-efs.png" >}}
 
 
 ## Why EFS

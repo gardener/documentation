@@ -6,11 +6,12 @@ authors:
   email: andreas.herz@sap.com
   avatar: https://avatars1.githubusercontent.com/u/1155039?v=4
 publishdate: 2018-06-11
+archivedate: 2018-07-11
 ---
 <table style="border:0">
 <tr>
     <td>
-        {{< blog_img "logo" "blog-kubernetes-enable.png" >}}
+        {{< blog_img link="./blog-kubernetes-enable.png" title="Enabling Kubernetes in Docker image" >}}
     </td>
     <td valign="top">
         <div>

@@ -6,6 +6,7 @@ authors:
   email: andreas.herz@sap.com
   avatar: https://avatars1.githubusercontent.com/u/1155039?v=4
 publishdate: 2018-06-11
+archivedate: 2018-07-11
 ---
 
 One thing that always bothered me was that I couldn't get logs of several pods at once with `kubectl`. A simple 
@@ -15,7 +16,7 @@ help if you want to monitor more than one pod at a time.
 This is something you really need a lot, at least if you run several instances of a pod behind a `deployment`
 and you don't have setup a log viewer service like Kibana.
 
-{{< blog_img "logo" "blog-kubetail.png" >}}
+{{< blog_img link="blog-kubetail.png" >}}
 
 
 kubetail comes to the rescue, it is a small bash script that allows you to aggregate log files of several pods at 
