@@ -17,8 +17,6 @@ or have a look at the
 project. To learn more about this open source project, read the
 [blog on kubernetes.io](https://kubernetes.io/blog/2018/05/17/gardener/).
 
-You can find [guides for other platforms here](./README.md).
-
 ## Before you begin
 
 Knative requires a Kubernetes cluster v1.15 or newer.
@@ -79,7 +77,7 @@ Knative depends on Istio. If your cloud platform offers a managed Istio
 installation, we recommend installing Istio that way, unless you need the
 ability to customize your installation.
 
-Otherwise, see the [Installing Istio for Knative guide](./installing-istio.md)
+Otherwise, see the [Installing Istio for Knative guide](https://knative.dev/docs/install/installing-istio/)
 to install Istio.
 
 You must install Istio on your Kubernetes cluster before continuing with these
@@ -87,13 +85,13 @@ instructions to install Knative.
 
 ## Installing `cluster-local-gateway` for serving cluster-internal traffic
 
-If you installed Istio, you can install a `cluster-local-gateway` within your Knative cluster so that you can serve cluster-internal traffic. If you want to configure your revisions to use routes that are visible only within your cluster, [install and use the `cluster-local-gateway`](./installing-istio.md#updating-your-install-to-use-cluster-local-gateway).
+If you installed Istio, you can install a `cluster-local-gateway` within your Knative cluster so that you can serve cluster-internal traffic. If you want to configure your revisions to use routes that are visible only within your cluster, [install and use the `cluster-local-gateway`](https://knative.dev/v0.12-docs/install/knative-with-gardener/#updating-your-install-to-use-cluster-local-gateway).
 
 ## Installing Knative
 
 The following commands install all available Knative components as well as the
 standard set of observability plugins. To customize your Knative installation,
-see [Performing a Custom Knative Installation](./Knative-custom-install.md).
+see [Performing a Custom Knative Installation](https://knative.dev/v0.12-docs/install/knative-custom-install/).
 
 1. If you are upgrading from Knative 0.3.x: Update your domain and static IP
    address to be associated with the LoadBalancer `istio-ingressgateway` instead
@@ -182,14 +180,14 @@ Now that your cluster has Knative installed, you can see what Knative has to
 offer.
 
 To deploy your first app with the
-[Getting Started with Knative App Deployment](../serving/getting-started-knative-app.md)
+[Getting Started with Knative App Deployment](https://knative.dev/v0.12-docs/serving/getting-started-knative-app/)
 guide.
 
 Get started with Knative Eventing by walking through one of the
-[Eventing Samples](../eventing/samples/).
+[Eventing Samples](https://knative.dev/docs/eventing/samples/).
 
-[Install Cert-Manager](../serving/installing-cert-manager.md) if you want to use the
-[automatic TLS cert provisioning feature](../serving/using-auto-tls.md).
+[Install Cert-Manager](https://knative.dev/v0.12-docs/serving/installing-cert-manager/) if you want to use the
+[automatic TLS cert provisioning feature](https://knative.dev/docs/serving/using-auto-tls/).
 
 ## Cleaning up
 
