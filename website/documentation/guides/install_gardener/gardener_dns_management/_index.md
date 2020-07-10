@@ -55,7 +55,7 @@ gardener can be found [here](https://github.com/gardener/gardener/blob/master/do
 
 To generally enable the DNS management for shoot objects the 
 `shoot-dns-service` extension must be registered by providing an
-appropriate [extension registration](https://github.com/gardener/gardener-extensions/blob/master/controllers/extension-shoot-dns-service/example/controller-registration.yaml) in the garden cluster.
+appropriate [extension registration](https://github.com/gardener/gardener-extension-shoot-dns-service/blob/master/example/controller-registration.yaml) in the garden cluster.
 
 Here it is possible to decide whether the extension should be always available
 for all shoots or whether the extension must be separately enabled per shoot.
