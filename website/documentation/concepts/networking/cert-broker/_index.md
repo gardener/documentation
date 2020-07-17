@@ -1,6 +1,6 @@
 ---
 title: Cert Broker
-remote: https://github.com/gardener/cert-broker.git
+remote: https://github.com/gardener/cert-management.git
 url: /components/cert-broker/
 type: components
 ---
