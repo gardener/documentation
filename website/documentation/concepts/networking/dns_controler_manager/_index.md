@@ -1,8 +1,9 @@
 ---
-title: DNS Controller Manager
+title: DNS Management
 remote: https://github.com/gardener/external-dns-management.git
-url: /components/dns-cm/
-type: components
+type: docs
+aliases: ["/components/dns-cm/"]
+weight: 5
 ---
 # External DNS Management
 

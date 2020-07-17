@@ -1,8 +1,9 @@
 ---
-title: Cert Broker
+title: Certificates Management
 remote: https://github.com/gardener/cert-management.git
-url: /components/cert-broker/
-type: components
+type: docs
+aliases: ["/components/cert-broker/"]
+weight: 10
 ---
 # cert-management
 
