@@ -5,10 +5,14 @@ newsSubtitle: August 06, 2020
 type: blog
 publishdate: 2020-08-06
 archivedate: 2020-10-31
+authors:
+- name: Rafael Franzke
+  email: rafael.franzke@sap.com
+  avatar: https://avatars2.githubusercontent.com/u/19169361?s=460&v=4
 aliases: ["/blog/2020/08/06/00"]
 ---
 
-Even if we are in the midst of the summer holidays, a new Gardener release came out yesterday: v1.8.0! It's main themes are the large change of our logging stack to Loki (which was already explained in detail on a [blog post on grafana.com]((https://grafana.com/blog/2020/07/15/gardener-saps-kubernetes-as-a-service-open-source-project-is-moving-its-logging-stack-to-loki/))), more configuration options to optimize the utilization of a shoot, node-local DNS, new project roles, and significant improvements for the Kubernetes client that Gardener uses to interact with the many different clusters.
+Even if we are in the midst of the summer holidays, a new Gardener release came out yesterday: v1.8.0! It's main themes are the large change of our logging stack to Loki (which was already explained in detail on a [blog post on grafana.com](https://grafana.com/blog/2020/07/15/gardener-saps-kubernetes-as-a-service-open-source-project-is-moving-its-logging-stack-to-loki/)), more configuration options to optimize the utilization of a shoot, node-local DNS, new project roles, and significant improvements for the Kubernetes client that Gardener uses to interact with the many different clusters.
 
 ## Notable Changes
 
