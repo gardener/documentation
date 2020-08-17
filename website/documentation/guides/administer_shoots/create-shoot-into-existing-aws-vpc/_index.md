@@ -36,6 +36,8 @@ Default output format [None]: <DEFAULT_OUTPUT_FORMAT>
 
 ## 2. Create VPC
 
+Create the VPC by running the following command:
+
 ```bash
 $ aws ec2 create-vpc --cidr-block <cidr-block>
 {
@@ -59,6 +61,12 @@ $ aws ec2 create-vpc --cidr-block <cidr-block>
       "IsDefault": false
   }
 }
+```
+
+Gardener requires the VPC to have enabled [DNS support](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html), i.e the attributes `enableDnsSupport` and `enableDnsHostnames` must be set to true. `enableDnsSupport` attribute is enabled by default, `enableDnsHostnames` - not. Set the `enableDnsHostnames` attribute to true:
+
+```bash
+$ aws ec2 modify-vpc-attribute --vpc-id vpc-ff7bbf86 --enable-dns-hostnames
 ```
 
 ## 3. Create Internet Gateway
