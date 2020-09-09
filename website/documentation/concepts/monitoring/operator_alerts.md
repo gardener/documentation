@@ -10,7 +10,7 @@ type: docs
 |CoreDNSDown|critical|shoot|`CoreDNS could not be found. Cluster DNS resolution will not work.`|
 |ApiServerNotReachable|blocker|seed|`API server not reachable via external endpoint: {{ $labels.instance }}.`|
 |KubeApiserverDown|blocker|seed|`All API server replicas are down/unreachable, or all API server could not be found.`|
-|KubeApiServerTooManyAuditlogFailures|critical|seed|`The API servers cumulative failure rate in logging audit events is {{ printf "%0.2f" $value }}%. This may be caused by an unavailable/unreachable AuditSink(s) and/or improper API server audit configuration.`|
+|KubeApiServerTooManyAuditlogFailures|warning|seed|`The API servers cumulative failure rate in logging audit events is greater than 2%.`|
 |KubeControllerManagerDown|critical|seed|`Deployments and replication controllers are not making progress.`|
 |KubeEtcdMainDown|blocker|seed|`Etcd3 cluster main is unavailable or cannot be scraped. As long as etcd3 main is down the cluster is unreachable.`|
 |KubeEtcdEventsDown|critical|seed|`Etcd3 cluster events is unavailable or cannot be scraped. Cluster events cannot be collected.`|
@@ -27,7 +27,6 @@ type: docs
 |KubePersistentVolumeFullInFourDays|warning|seed|`Based on recent sampling, the PersistentVolume claimed by {{ $labels.persistentvolumeclaim }} is expected to fill up within four days. Currently {{ printf "%0.2f" $value }}% is available.`|
 |KubePodPendingControlPlane|warning|seed|`Pod {{ $labels.pod }} is stuck in "Pending" state for more than 30 minutes.`|
 |KubePodNotReadyControlPlane|warning||`Pod {{ $labels.pod }} is not ready for more than 30 minutes.`|
-|KubeSchedulerDown|critical|seed|`New pods are not being assigned to nodes.`|
 |KubeStateMetricsShootDown|info|seed|`There are no running kube-state-metric pods for the shoot cluster. No kubernetes resource metrics can be scraped.`|
 |KubeStateMetricsSeedDown|critical|seed|`There are no running kube-state-metric pods for the seed cluster. No kubernetes resource metrics can be scraped.`|
 |NoWorkerNodes|blocker||`There are no worker nodes in the cluster or all of the worker nodes in the cluster are not schedulable.`|
