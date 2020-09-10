@@ -184,7 +184,7 @@ metadata:
   annotations:
     cert.gardener.cloud/purpose: managed
     dns.gardener.cloud/class: garden
-  # dns.gardener.cloud/dnsnames: short.ingress.shoot.project.default-domain.gardener.cloud
+    dns.gardener.cloud/dnsnames: short.ingress.shoot.project.default-domain.gardener.cloud
   # cert.gardener.cloud/issuer: custom-issuer
 spec:
   tls:
@@ -219,7 +219,7 @@ metadata:
   annotations:
     cert.gardener.cloud/purpose: managed
     dns.gardener.cloud/class: garden
-  # dns.gardener.cloud/dnsnames: short.ingress.shoot.project.default-domain.gardener.cloud
+    dns.gardener.cloud/dnsnames: short.ingress.shoot.project.default-domain.gardener.cloud
   # cert.gardener.cloud/issuer: custom-issuer
 spec:
   tls:
