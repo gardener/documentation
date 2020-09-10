@@ -6,7 +6,7 @@ else
   READLINK_BIN="readlink"
 fi
 
-imageVersion=10.0.0
+imageVersion=10.0.1
 
 if [[ -z "${IMAGE}" ]]; then
   IMAGE=eu.gcr.io/gardener-project/gardener-website-generator:${imageVersion}
