@@ -183,6 +183,8 @@ metadata:
   name: vuejs-ingress
   annotations:
     cert.gardener.cloud/purpose: managed
+    dns.gardener.cloud/class: garden
+  # dns.gardener.cloud/dnsnames: short.ingress.shoot.project.default-domain.gardener.cloud
   # cert.gardener.cloud/issuer: custom-issuer
 spec:
   tls:
@@ -216,6 +218,8 @@ metadata:
   name: vuejs-ingress
   annotations:
     cert.gardener.cloud/purpose: managed
+    dns.gardener.cloud/class: garden
+  # dns.gardener.cloud/dnsnames: short.ingress.shoot.project.default-domain.gardener.cloud
   # cert.gardener.cloud/issuer: custom-issuer
 spec:
   tls:
