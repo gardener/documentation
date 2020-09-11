@@ -4,7 +4,7 @@ linkTitle: Gardener v1.9 and v1.10
 newsSubtitle: September 11, 2020
 type: blog
 publishdate: 2020-09-11
-archivedate: 2020-11-31
+archivedate: 2020-11-30
 authors:
 - name: Rafael Franzke
   email: rafael.franzke@sap.com
