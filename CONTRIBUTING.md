@@ -44,7 +44,7 @@ You are welcome to contribute code to Gardener in order to fix a bug or to imple
 The following rules govern code contributions:
 
 * Contributions must be licensed under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0)
-* You need to sign the Contributor License Agreement. We are using *[CLA assistant](https://cla-assistant.io/)* providing a click-through workflow for accepting the CLA. For company contributors additionally the company needs to sign a corporate license agreement. See the following sections for details.
+* You need to sign the [Developer Certificate of Origin](#developer-certificate-of-origin).
 
 ## Contributing Documentation
 
@@ -53,27 +53,11 @@ You are welcome to contribute documentation to Gardener.
 The following rules govern documentation contributions:
 
 * Contributions must be licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/legalcode)
-* You need to sign the Contributor License Agreement. We are using *[CLA assistant](https://cla-assistant.io/)* providing a click-through workflow for accepting the CLA. For company contributors additionally the company needs to sign a corporate license agreement. See the following sections for details.
+* You need to sign the [Developer Certificate of Origin](#developer-certificate-of-origin).
 
-## Individual Contributor License Agreement
+## Developer Certificate of Origin
 
-When you contribute (code, documentation, or anything else), be aware that we only accept contributions 
-under the Gardener project's license (see previous sections) and you need to agree to the
-[Individual Contributor License Agreement](https://gist.github.com/CLAassistant/bd1ea8ec8aa0357414e8).
-This applies to all contributors, including those contributing on behalf of a company. If you agree to its content, click on the link posted by the CLA assistant as a comment to the pull request. Click it to review the CLA, then accept it on the next screen if you agree to it. CLA assistant will save your decision for upcoming contributions and will notify you if there is any change to the CLA in the meantime.
-
-## Corporate Contributor License Agreement
-
-If employees of a company contribute code, in **addition** to the individual agreement above, there needs to be one company agreement submitted. This is mainly for the protection of the contributing employees.
-
-An authorized company representative needs to download, fill, and print
-the [Corporate Contributor License Agreement](/doc/cla/SAP%20Corporate%20Contributor%20License%20Agreement%20(5-26-15).pdf) form. Then either:
-
-* Scan it and e-mail it to [opensource@sap.com](mailto:opensource@sap.com) and [gardener.opensource@sap.com](mailto:gardener.opensource@sap.com)
-* Fax it to: +49 6227 78-45813
-* Send it by letter to: *Industry Standards & Open Source Team, Dietmar-Hopp-Allee 16, 69190 Walldorf, Germany*
-
-The form contains a list of employees who are authorized to contribute on behalf of your company. When this list changes, please let us know.
+Due to legal reasons, contributors will be asked to accept a Developer Certificate of Origin (DCO) before they submit the first pull request to this projects, this happens in an automated fashion during the submission process. We use [the standard DCO text of the Linux Foundation](https://developercertificate.org/).
 
 ## Pull Request Checklist
 
