@@ -1,5 +1,7 @@
 # Gardener Website Content Repository
 
+[![reuse compliant](https://reuse.software/badge/reuse-compliant.svg)](https://reuse.software/)
+
 ## Website repositories and CI/CD Overview
 
 <img style="width:50%" src="images/overview.svg">
