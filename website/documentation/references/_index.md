@@ -2,7 +2,7 @@
 title: API Reference
 description: Reference documentation for the Gardener API
 type: docs
-menus: sln
+menu: sln
 sidebar: true
 weight: 60
 aiases: ["/api-reference/"]

@@ -3,7 +3,7 @@ title: Contribute
 description: Contributors guides for code and documentation
 type: docs
 sidebar: true
-menus: sln
+menu: sln
 weight: 100
 ---
 
@@ -55,7 +55,7 @@ If you have questions about one of the issues, with or without the tag, please c
 
 ## Individual Contributor License Agreement
 
-When you contribute (code, documentation, or anything else), be aware that we only accept contributions 
+When you contribute (code, documentation, or anything else), be aware that we only accept contributions
 under the Gardener project's license (see previous sections) and you need to agree to the
 [Individual Contributor License Agreement](https://gist.github.com/CLAassistant/bd1ea8ec8aa0357414e8).
 This applies to all contributors, including those contributing on behalf of a company. If you agree to its content, click on the link posted by the CLA assistant as a comment to the pull request. Click it to review the CLA, then accept it on the next screen if you agree to it. CLA assistant will save your decision for upcoming contributions and will notify you if there is any change to the CLA in the meantime.
