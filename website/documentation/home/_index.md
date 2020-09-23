@@ -2,6 +2,6 @@
 title: Home
 type: docs
 layout: home
-menus: sln
+menu: sln
 weight: 1
 ---
