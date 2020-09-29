@@ -1,0 +1,137 @@
+root:
+    name: documentation
+    nodes:
+    - name: concepts1
+      properties:
+        frontmatter: 
+          title: Concepts
+          description: Explore the concepts on which Gardener is built
+          type: docs
+          menu: sln
+          sidebar: true
+          weight: 20
+      nodes: 
+      - name: architecture
+        nodes:
+        - name: _index
+          contentSelectors:
+          - source: https://github.com/gardener/documentation/blob/master/website/documentation/concepts/architecture/_index.md
+        - name: 10_gardener
+          properties:
+            frontmatter: 
+              title: Gardener
+              url: /components/gardener/
+              type: docs
+          contentSelectors:
+          - source: https://github.com/gardener/gardener/blob/master/README.md
+        - name: 15_gardenctl
+          properties:
+            frontmatter: 
+              title: gardenctl
+              url: /components/gardenctl/
+              type: docs
+          contentSelectors:
+          - source: https://github.com/gardener/gardenctl/blob/master/README.md          
+        - name: 25_dashboard
+          properties:
+            frontmatter: 
+              title: Dashboard
+              url: /components/dashboard/
+              type: docs
+          contentSelectors:
+          - source: https://github.com/gardener/dashboard/blob/master/README.md   
+        - name: 30_kubify
+          properties:
+            frontmatter: 
+              title: kubify
+              url: /components/kubify/
+              type: docs
+          contentSelectors:
+          - source: https://github.com/gardener/kubify/blob/master/README.md
+        - name: 40_bouquet
+          properties:
+            frontmatter: 
+              title: Bouquet
+              url: /components/bouquet/
+              type: docs
+          contentSelectors:
+          - source: https://github.com/gardener/bouquet/blob/master/README.md
+      - name: backup-restore
+        nodes:
+        - name: _index
+          properties:
+            frontmatter: 
+              title: Backup and Restore
+              type: docs
+              weight: 30
+          contentSelectors:
+          - source: https://github.com/gardener/gardener/blob/master/docs/concepts/backup-restore.md
+      - name: core-components
+        properties:
+          frontmatter: 
+            title: Core Components
+            redirectUrl: documentation/concepts/core-components/api-server
+            weight: 20
+        # contentSelectors:
+        # - source: https://github.com/gardener/documentation/blob/master/website/documentation/concepts/core-components/_index.md
+        nodes:
+        - name: api-server
+          properties:
+            frontmatter: 
+              title: Gardener API Server
+              type: docs
+              weight: 5
+          contentSelectors:
+          - source: https://github.com/gardener/gardener/blob/master/docs/concepts/apiserver.md
+          nodes:
+          - name: admission-plugins.md
+            properties:
+              frontmatter: 
+                title: In-Tree Admission Plugins
+                type: docs
+            contentSelectors:
+            - source: https://github.com/gardener/gardener/blob/master/docs/concepts/apiserver_admission_plugins.md
+        - name: gardenlet
+          properties:
+            frontmatter: 
+              title: gardenlet
+              type: docs
+              weight: 20
+          contentSelectors:
+          - source: https://github.com/gardener/gardener/blob/master/docs/concepts/gardenlet.md
+        - name: scheduler
+          properties:
+            frontmatter: 
+              title: Gardener Scheduler
+              type: docs
+              weight: 10
+          contentSelectors:
+          - source: https://github.com/gardener/gardener/blob/master/docs/concepts/scheduler.md
+        - name: seed-admission-ctrl
+          properties:
+            frontmatter: 
+              title: Gardener Seed Admission Controller
+              type: docs
+              weight: 15
+          contentSelectors:
+          - source: https://github.com/gardener/gardener/blob/master/docs/concepts/seed-admission-controller.md
+      - name: deployment
+        nodes:
+        - name: feature_gates
+          properties:
+            frontmatter: 
+              title: Feature Gates
+              type: docs
+          contentSelectors:
+          - source: https://github.com/gardener/gardener/blob/master/docs/deployment/feature_gates.md
+        - name: in_kubernetes
+          properties:
+            frontmatter: 
+              title: Deploying the Gardener into a Kubernetes cluster
+              type: docs
+          contentSelectors:
+          - source: https://github.com/gardener/gardener/blob/master/docs/deployment/kubernetes.md
+localityDomain:
+  github.com/gardener/gardener:
+    version: master
+    path: gardener/gardener/docs          
