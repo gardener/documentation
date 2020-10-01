@@ -6,7 +6,6 @@ documentation:
         preprocess: "inject-commit-hash"
         inject_effective_version: true
       component_descriptor: ~
-      publish: ~
   jobs:
     pull-request:
       traits:
