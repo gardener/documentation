@@ -1,5 +1,5 @@
-root:
-    name: documentation
+structure:
+  - name: documentation
     nodes:
     - name: concepts
       properties:
@@ -470,201 +470,202 @@ root:
                 weight: 5
             contentSelectors:
             - source: https://github.com/gardener/external-dns-management/blob/master/README.md
-    - name: contribute
-      nodes:
-        - name: 10_code
-          nodes:
-          # - name: 10-contribution_guide
-          #   properties:
-          #     frontmatter:
-          #       title: Contribution Guide
-          #       remote: https://github.com/gardener/documentation/blob/master/CONTRIBUTING.md
-          #       type: docs
-          #   contentSelectors:
-          #   - source: https://github.com/gardener/documentation/blob/master/CONTRIBUTING.md
-          # - name: 12-security_guide
-          #   properties:
-          #     frontmatter:
-          #       title: Security Release Process
-          #       remote: https://github.com/gardener/documentation/blob/master/security-release-process.md
-          #       type: docs
-          #   contentSelectors:
-          #   - source: https://github.com/gardener/documentation/blob/master/security-release-process.md
-          - name: local_setup
-            properties:
-              frontmatter:
-                title: Enviroment
-                disableToc: true
-                remote: https://github.com/gardener/gardener/blob/master/docs/development/local_setup.md
-                type: docs
-            contentSelectors:
-            - source: https://github.com/gardener/gardener/blob/master/docs/development/local_setup.md
-          - name: configuration
-            properties:
-              frontmatter:
-                title: Configuration and Usage
-                remote: https://github.com/gardener/gardener/blob/master/docs/usage/configuration.md
-                type: docs
-            contentSelectors:
-            - source: https://github.com/gardener/gardener/blob/master/docs/usage/configuration.md
-          - name: 20-testing_and_dependencies
-            properties:
-              frontmatter:
-                title: Dependencies
-                remote: https://github.com/gardener/gardener/blob/master/docs/development/testing_and_dependencies.md
-                type: docs
-            contentSelectors:
-            - source: https://github.com/gardener/gardener/blob/master/docs/development/testing_and_dependencies.md
-          - name: 27_deploy_into_cluster
-            properties:
-              frontmatter:
-                title: Deploy into a Cluster
-                remote: https://github.com/gardener/gardener/blob/master/docs/deployment/kubernetes.md
-                type: docs
-            contentSelectors:
-            - source: https://github.com/gardener/gardener/blob/master/docs/deployment/kubernetes.md
-          - name: aks
-            properties:
-              frontmatter:
-                title: Deploy into AKS
-                remote: https://github.com/gardener/gardener/blob/master/docs/deployment/aks.md
-                type: docs
-            contentSelectors:
-            - source: https://github.com/gardener/gardener/blob/master/docs/deployment/aks.md
-          - name: 37-process
-            properties:
-              frontmatter:
-                title: Process
-                remote: https://github.com/gardener/gardener/blob/master/docs/development/process.md
-                type: docs
-            contentSelectors:
-            - source: https://github.com/gardener/gardener/blob/master/docs/development/process.md
-    - name: getting-started
-      properties:
-        frontmatter:
-          title: Getting Started
-          url: /about/
-          remote: https://github.com/gardener/gardener/blob/master/README.md
-          icon: navigation_started.svg
-          type: padding
-      contentSelectors:
-      - source: https://github.com/gardener/gardener/blob/master/README.md
-    - name: guides
-      nodes:
-        - name: administer_shoots
-          nodes:
-          - name: trigger-shoot-operations
-            properties:
-              frontmatter:
-                title: Trigger Shoot operations
-                remote: https://github.com/gardener/gardener/blob/master/docs/usage/shoot_operations.md
-                type: docs
-                level: advanced
-                category: Operation
-                scope: operator
-                aliases: ["/readmore/trigger-shoot-operations", "/050-tutorials/content/howto/trigger-shoot-operations"]
-            contentSelectors:
-            - source: https://github.com/gardener/gardener/blob/master/docs/usage/shoot_operations.md
-        - name: applications
-          nodes:
-          - name: https
-            properties:
-              frontmatter:
-                title: HTTPS with self Signed Certificate
-                type: docs
-                remote: https://github.com/freegroup/kube-https.git
-                level: intermediate
-                category: Certificates
-                scope: app-developer
-                aliases: ["/readmore/https", "/050-tutorials/content/app/https"]
-            contentSelectors:
-            - source: https://github.com/freegroup/kube-https/blob/master/README.md
-        - name: landscape-setup
+  - name: contribute
+    nodes:
+      - name: 10_code
+        nodes:
+        # - name: 10-contribution_guide
+        #   properties:
+        #     frontmatter:
+        #       title: Contribution Guide
+        #       remote: https://github.com/gardener/documentation/blob/master/CONTRIBUTING.md
+        #       type: docs
+        #   contentSelectors:
+        #   - source: https://github.com/gardener/documentation/blob/master/CONTRIBUTING.md
+        # - name: 12-security_guide
+        #   properties:
+        #     frontmatter:
+        #       title: Security Release Process
+        #       remote: https://github.com/gardener/documentation/blob/master/security-release-process.md
+        #       type: docs
+        #   contentSelectors:
+        #   - source: https://github.com/gardener/documentation/blob/master/security-release-process.md
+        - name: local_setup
           properties:
             frontmatter:
-              title: Landscape Setup
-              remote: https://github.com/gardener/landscape-setup/blob/master/README.md
+              title: Enviroment
+              disableToc: true
+              remote: https://github.com/gardener/gardener/blob/master/docs/development/local_setup.md
+              type: docs
+          contentSelectors:
+          - source: https://github.com/gardener/gardener/blob/master/docs/development/local_setup.md
+        - name: configuration
+          properties:
+            frontmatter:
+              title: Configuration and Usage
+              remote: https://github.com/gardener/gardener/blob/master/docs/usage/configuration.md
+              type: docs
+          contentSelectors:
+          - source: https://github.com/gardener/gardener/blob/master/docs/usage/configuration.md
+        - name: 20-testing_and_dependencies
+          properties:
+            frontmatter:
+              title: Dependencies
+              remote: https://github.com/gardener/gardener/blob/master/docs/development/testing_and_dependencies.md
+              type: docs
+          contentSelectors:
+          - source: https://github.com/gardener/gardener/blob/master/docs/development/testing_and_dependencies.md
+        - name: 27_deploy_into_cluster
+          properties:
+            frontmatter:
+              title: Deploy into a Cluster
+              remote: https://github.com/gardener/gardener/blob/master/docs/deployment/kubernetes.md
+              type: docs
+          contentSelectors:
+          - source: https://github.com/gardener/gardener/blob/master/docs/deployment/kubernetes.md
+        - name: aks
+          properties:
+            frontmatter:
+              title: Deploy into AKS
+              remote: https://github.com/gardener/gardener/blob/master/docs/deployment/aks.md
+              type: docs
+          contentSelectors:
+          - source: https://github.com/gardener/gardener/blob/master/docs/deployment/aks.md
+        - name: 37-process
+          properties:
+            frontmatter:
+              title: Process
+              remote: https://github.com/gardener/gardener/blob/master/docs/development/process.md
+              type: docs
+          contentSelectors:
+          - source: https://github.com/gardener/gardener/blob/master/docs/development/process.md
+  - name: getting-started
+    properties:
+      frontmatter:
+        title: Getting Started
+        url: /about/
+        remote: https://github.com/gardener/gardener/blob/master/README.md
+        icon: navigation_started.svg
+        type: padding
+    contentSelectors:
+    - source: https://github.com/gardener/gardener/blob/master/README.md
+  - name: guides
+    nodes:
+      - name: administer_shoots
+        nodes:
+        - name: trigger-shoot-operations
+          properties:
+            frontmatter:
+              title: Trigger Shoot operations
+              remote: https://github.com/gardener/gardener/blob/master/docs/usage/shoot_operations.md
               type: docs
               level: advanced
-              category: Setup Gardener
+              category: Operation
               scope: operator
-              aliases: ["/050-tutorials/content/howto/landscape-setup"]
+              aliases: ["/readmore/trigger-shoot-operations", "/050-tutorials/content/howto/trigger-shoot-operations"]
           contentSelectors:
-            - source: https://github.com/gardener/landscape-setup/blob/master/README.md
-    - name: references
-      nodes:
-        - name: core
+          - source: https://github.com/gardener/gardener/blob/master/docs/usage/shoot_operations.md
+      - name: applications
+        nodes:
+        - name: https
           properties:
-              frontmatter:
-                title: Core
-                remote: https://github.com/gardener/gardener/blob/master/hack/api-reference/core.md
-                type: docs
-                aiases: ["/api-reference/core"]
+            frontmatter:
+              title: HTTPS with self Signed Certificate
+              type: docs
+              remote: https://github.com/freegroup/kube-https.git
+              level: intermediate
+              category: Certificates
+              scope: app-developer
+              aliases: ["/readmore/https", "/050-tutorials/content/app/https"]
           contentSelectors:
-          - source: https://github.com/gardener/gardener/blob/master/hack/api-reference/core.md
-        - name: extensions
-          properties:
-              frontmatter:
-                title: Extensions
-                remote: https://github.com/gardener/gardener/blob/master/hack/api-reference/extensions.md
-                type: docs
-                aiases: ["/api-reference/extensions"]
-          contentSelectors:
-          - source: https://github.com/gardener/gardener/blob/master/hack/api-reference/extensions.md
-        - name: settings
-          properties:
-              frontmatter:
-                title: Settings
-                remote: https://github.com/gardener/gardener/blob/master/hack/api-reference/settings.md
-                type: docs
-                aiases: ["/api-reference/settings"]
-          contentSelectors:
-          - source: https://github.com/gardener/gardener/blob/master/hack/api-reference/settings.md
-    - name: tutorials
-      nodes:
-      - name: kube-featureflag
-        contentSelectors:
-        - source: https://github.com/gardener-samples/kube-featureflag/blob/master/README.md
+          - source: https://github.com/freegroup/kube-https/blob/master/README.md
+      - name: landscape-setup
         properties:
-              frontmatter:
-                title: Feature Flags in Kubernetes Applications
-                description: Implementing feature flags in Kubernetes applicaiton with labels and annotations
-                type: docs
-                layout: single-page
-                remote: https://github.com/gardener-samples/kube-featureflag/blob/master/README.md
-                level: beginner
-                category: DevOp
-                scope: app-developer
-                aliases: ["/readmore/featureflag", "/050-tutorials/content/app/featureflag"]
-      - name: node-overprovisioning
+          frontmatter:
+            title: Landscape Setup
+            remote: https://github.com/gardener/landscape-setup/blob/master/README.md
+            type: docs
+            level: advanced
+            category: Setup Gardener
+            scope: operator
+            aliases: ["/050-tutorials/content/howto/landscape-setup"]
         contentSelectors:
-        - source: https://github.com/gardener-samples/kube-overprovisioning/blob/master/README.md
+          - source: https://github.com/gardener/landscape-setup/blob/master/README.md
+  - name: references
+    nodes:
+      - name: core
         properties:
-              frontmatter:
-                title: Cluster Overprovisioning
-                description: How to overprovision cluster nodes for quick scaling and failover
-                type: docs
-                layout: single-page
-                remote: https://github.com/gardener-samples/kube-overprovisioning/blob/master/README.md
-                level: beginner
-                category: High Availability
-                scope: app-developer
-                aliases: ["/readmore/overprovisioning", "/050-tutorials/content/app/node-overprovisioning"]
-      - name: s3
+            frontmatter:
+              title: Core
+              remote: https://github.com/gardener/gardener/blob/master/hack/api-reference/core.md
+              type: docs
+              aiases: ["/api-reference/core"]
         contentSelectors:
-        - source: https://github.com/freegroup/kube-s3/blob/master/README.md
+        - source: https://github.com/gardener/gardener/blob/master/hack/api-reference/core.md
+      - name: extensions
         properties:
-              frontmatter:
-                title: Shared storage with S3 backend
-                description: Using S3 bucket as shared storage for pods
-                type: docs
-                layout: single-page
-                remote: https://github.com/freegroup/kube-s3/blob/master/README.md
-                level: intermediate
-                category: Storage
-                scope: app-developer
-                aliases: ["/app/s3", "/050-tutorials/content/app/s3"]
-localityDomain:
-  github.com/gardener/gardener:
-    version: master
-    path: gardener/gardener/docs
+            frontmatter:
+              title: Extensions
+              remote: https://github.com/gardener/gardener/blob/master/hack/api-reference/extensions.md
+              type: docs
+              aiases: ["/api-reference/extensions"]
+        contentSelectors:
+        - source: https://github.com/gardener/gardener/blob/master/hack/api-reference/extensions.md
+      - name: settings
+        properties:
+            frontmatter:
+              title: Settings
+              remote: https://github.com/gardener/gardener/blob/master/hack/api-reference/settings.md
+              type: docs
+              aiases: ["/api-reference/settings"]
+        contentSelectors:
+        - source: https://github.com/gardener/gardener/blob/master/hack/api-reference/settings.md
+  - name: tutorials
+    nodes:
+    - name: kube-featureflag
+      contentSelectors:
+      - source: https://github.com/gardener-samples/kube-featureflag/blob/master/README.md
+      properties:
+            frontmatter:
+              title: Feature Flags in Kubernetes Applications
+              description: Implementing feature flags in Kubernetes applicaiton with labels and annotations
+              type: docs
+              layout: single-page
+              remote: https://github.com/gardener-samples/kube-featureflag/blob/master/README.md
+              level: beginner
+              category: DevOp
+              scope: app-developer
+              aliases: ["/readmore/featureflag", "/050-tutorials/content/app/featureflag"]
+    - name: node-overprovisioning
+      contentSelectors:
+      - source: https://github.com/gardener-samples/kube-overprovisioning/blob/master/README.md
+      properties:
+            frontmatter:
+              title: Cluster Overprovisioning
+              description: How to overprovision cluster nodes for quick scaling and failover
+              type: docs
+              layout: single-page
+              remote: https://github.com/gardener-samples/kube-overprovisioning/blob/master/README.md
+              level: beginner
+              category: High Availability
+              scope: app-developer
+              aliases: ["/readmore/overprovisioning", "/050-tutorials/content/app/node-overprovisioning"]
+    - name: s3
+      contentSelectors:
+      - source: https://github.com/freegroup/kube-s3/blob/master/README.md
+      properties:
+            frontmatter:
+              title: Shared storage with S3 backend
+              description: Using S3 bucket as shared storage for pods
+              type: docs
+              layout: single-page
+              remote: https://github.com/freegroup/kube-s3/blob/master/README.md
+              level: intermediate
+              category: Storage
+              scope: app-developer
+              aliases: ["/app/s3", "/050-tutorials/content/app/s3"]
+links:
+  rewrites:
+  downloads:
+    scope:
+      gardener/gardener/(blob|raw)/master/docs: ~
