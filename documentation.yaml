@@ -515,14 +515,6 @@ structure:
               type: docs
           contentSelectors:
           - source: https://github.com/gardener/gardener/blob/master/docs/development/testing_and_dependencies.md
-        - name: 27_deploy_into_cluster
-          properties:
-            frontmatter:
-              title: Deploy into a Cluster
-              remote: https://github.com/gardener/gardener/blob/master/docs/deployment/kubernetes.md
-              type: docs
-          contentSelectors:
-          - source: https://github.com/gardener/gardener/blob/master/docs/deployment/kubernetes.md
         - name: aks
           properties:
             frontmatter:
