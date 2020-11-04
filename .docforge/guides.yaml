@@ -1,0 +1,38 @@
+structure:
+- name: administer_shoots
+  nodes:
+  - name: trigger-shoot-operations
+    source: https://github.com/gardener/gardener/blob/master/docs/usage/shoot_operations.md
+    properties:
+      frontmatter:
+        title: Trigger Shoot operations
+        remote: https://github.com/gardener/gardener/blob/master/docs/usage/shoot_operations.md
+        type: docs
+        level: advanced
+        category: Operation
+        scope: operator
+        aliases: ["/readmore/trigger-shoot-operations", "/050-tutorials/content/howto/trigger-shoot-operations"]
+- name: applications
+  nodes:
+  - name: https
+    source: https://github.com/freegroup/kube-https/blob/master/README.md 
+    properties:
+      frontmatter:
+        title: HTTPS with self Signed Certificate
+        type: docs
+        remote: https://github.com/freegroup/kube-https.git
+        level: intermediate
+        category: Certificates
+        scope: app-developer
+        aliases: ["/readmore/https", "/050-tutorials/content/app/https"]
+- name: landscape-setup
+  source: https://github.com/gardener/landscape-setup/blob/master/README.md
+  properties:
+    frontmatter:
+      title: Landscape Setup
+      remote: https://github.com/gardener/landscape-setup/blob/master/README.md
+      type: docs
+      level: advanced
+      category: Setup Gardener
+      scope: operator
+      aliases: ["/050-tutorials/content/howto/landscape-setup"]

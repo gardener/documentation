@@ -6,7 +6,6 @@ type: landingpage
 <div class="community">
     <h1 class="title">Gardener Community</h1>
     <p class="subtitle">Follow - Engage - Contribute</p>
-    
     <div class="row">
         <div class="four columns">
             <a target="_blank" class="action-header" href="https://twitter.com/GardenerProject">
@@ -46,8 +45,7 @@ type: landingpage
             </a>
             <span>Discuss Gardener on our Slack channel in the Kubernetes workspace</span>
         </div>
-    </div>
-    
+    </div>    
     <!--div id="page-1" style="background-color: white;">
         <div class="container">
             <div class="title-group">
@@ -56,7 +54,6 @@ type: landingpage
                     The Gardener development process is an open process. Here are the general communication channels we use to communicate.
                     We work with the wider community to create a strong, vibrant codebase.
                 </p>
-    
                 <div class="row  github-stat">
                     <div class="three columns group">
                         <div class="number">60+</div>
@@ -75,12 +72,10 @@ type: landingpage
                         <div class="subject">Closed Community Issues</div>
                     </div>
                 </div>
-    
                 <p class="description">
                     We are cordially inviting interested parties to join our <a href="https://github.com/gardener/documentation/blob/master/CONTRIBUTING.md#weekly-meeting">weekly meetings</a>.
                     Here you can address questions regarding the direction of the project, technical problems and support.
                 </p>
-    
             </div>
             <div class="row">
                 <div class="one-half column">
@@ -90,7 +85,6 @@ type: landingpage
                         the Gardener and share your ideas with them or ask for support.
                     </p>
                 </div>
-    
                 <div class="one-half column">
                     <h2 class="center"><a href="https://github.com/gardener/gardener" target="_blank"> <img src="/images/branding/github.png"  height="120"></a></h2>
                     <p class="description">
@@ -99,6 +93,5 @@ type: landingpage
                 </div>
             </div>
         </div>
-    </div-->
-    
+    </div-->    
 </div>

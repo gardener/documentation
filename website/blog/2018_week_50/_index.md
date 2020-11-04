@@ -14,4 +14,4 @@ Gardener [CVE-2018-2475](https://groups.google.com/forum/#!topic/gardener/Pom2Y7
 the [Kubernetes CVE-2018-1002105](https://groups.google.com/forum/#!topic/kubernetes-announce/GVllWCg6L88) on 
 the Gardener Community Setup. Following some recommendations it is possible to mitigate both vulnerabilities.
  
-Read more on [Hardening the Gardener Community Setup](../readmore/hardening).
+Read more on [Hardening the Gardener Community Setup](../../documentation/guides/install_gardener/secure-setup/_index.md).

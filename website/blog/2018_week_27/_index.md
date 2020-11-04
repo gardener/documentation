@@ -43,6 +43,3 @@ storage class.
 1. Don’t use EFS as a caching system, sometimes you could be doing this unintentionally.
 1. Last but not least, even if EFS is a fully managed NFS, you will face performance problems in many cases, 
    resolving them takes time and needs effort. 
-   
-
-..read some more on [ReadWriteMany](../readmore/readwritemany).

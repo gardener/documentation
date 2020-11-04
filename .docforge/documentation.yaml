@@ -1,0 +1,69 @@
+structure:
+- source: https://github.com/gardener/documentation/blob/master/website/documentation/_index.md
+- name: home
+  nodes:
+  - source: https://github.com/gardener/documentation/blob/master/website/documentation/home/_index.md
+    properties:
+      frontmatter:
+        title: Home
+        type: docs
+        layout: home
+        menu: sln
+        weight: 1
+- name: concepts
+  properties:
+    frontmatter:
+      title: Concepts
+      description: Explore the concepts on which Gardener is built
+      type: docs
+      menu: sln
+      sidebar: true
+      weight: 20
+  nodesSelector:
+    path: https://github.com/gardener/documentation/blob/master/.docforge/concepts.yaml
+- name: contribute
+  properties:
+    frontmatter:
+      title: Contribute
+      description: Contributors guides for code and documentation
+      type: docs
+      sidebar: true
+      menu: sln
+      weight: 100
+  nodesSelector:
+    path: https://github.com/gardener/documentation/blob/master/.docforge/contribute.yaml
+- name: getting-started
+  source: https://github.com/gardener/gardener/blob/master/README.md
+  properties:
+    frontmatter:
+      title: Getting Started
+      url: /about/
+      remote: https://github.com/gardener/gardener/blob/master/README.md
+      icon: navigation_started.svg
+      type: padding
+- name: guides
+  nodesSelector:
+    path: https://github.com/gardener/documentation/blob/master/.docforge/guides.yaml
+  nodes:
+  - source: https://github.com/gardener/documentation/blob/master/website/documentation/guides/_index.md
+- name: references
+  properties:
+    frontmatter:
+      title: API Reference
+      description: Reference documentation for the Gardener API
+      type: docs
+      menu: sln
+      sidebar: true
+      weight: 60
+      aliases: ["/api-reference/"]
+  nodesSelector:
+    path: https://github.com/gardener/documentation/blob/master/.docforge/references.yaml
+- name: tutorials
+  nodesSelector:
+    path: https://github.com/gardener/documentation/blob/master/.docforge/tutorials.yaml
+  nodes:
+  - source: https://github.com/gardener/documentation/blob/master/website/documentation/tutorials/_index.md
+links:
+  downloads:
+    scope:
+      gardener/gardener/(blob|raw)/master/docs: ~

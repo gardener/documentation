@@ -21,6 +21,6 @@ by Gardener. For example: an end-user who wants some workload that requires `run
 runtime.
 
 
-..read some more on [Adding Nodes to a Cluster](../readmore/adding-nodes).
+..read some more on [Adding Nodes to a Cluster](../../documentation/guides/install_gardener/add-node-to-cluster/_index.md).
 
 

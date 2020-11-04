@@ -1,0 +1,375 @@
+structure:
+  - name: architecture
+    nodes:
+    - source: https://github.com/gardener/documentation/wiki/Architecture.md
+      properties:
+        index: true
+        frontmatter:
+          title: Architecture
+          remote: https://github.com/gardener/documentation/wiki/Architecture
+          type: docs
+          weight: 10
+    - name: 10_gardener
+      source: https://github.com/gardener/gardener/blob/master/README.md
+      properties:
+        frontmatter:
+          title: Gardener
+          remote: https://github.com/gardener/gardener/blob/master/README.md
+          url: /components/gardener/
+          type: docs
+    - name: 15_gardenctl
+      source: https://github.com/gardener/gardenctl/blob/master/README.md
+      properties:
+        frontmatter:
+          title: gardenctl
+          remote: https://github.com/gardener/gardenctl/blob/master/README.md
+          url: /components/gardenctl/
+          type: docs
+    - name: 25_dashboard
+      source: https://github.com/gardener/dashboard/blob/master/README.md
+      properties:
+        frontmatter:
+          title: Dashboard
+          remote: https://github.com/gardener/dashboard/blob/master/README.md
+          url: /components/dashboard/
+          type: docs
+    - name: 30_kubify
+      source: https://github.com/gardener/kubify/blob/master/README.md
+      properties:
+        frontmatter:
+          title: kubify
+          remote: https://github.com/gardener/kubify/blob/master/README.md
+          url: /components/kubify/
+          type: docs
+    - name: 40_bouquet
+      source: https://github.com/gardener-attic/bouquet/blob/master/README.md
+      properties:
+        frontmatter:
+          title: Bouquet
+          remote: https://github.com/gardener/bouquet/blob/master/README.md
+          url: /components/bouquet/
+          type: docs
+  - name: backup-restore
+    nodes:
+    - source: https://github.com/gardener/gardener/blob/master/docs/concepts/backup-restore.md
+      properties:
+        frontmatter:
+          title: Backup and Restore
+          remote: https://github.com/gardener/gardener/blob/master/docs/concepts/backup-restore.md
+          type: docs
+          weight: 30
+  - name: core-components
+    properties:
+      frontmatter:
+        title: Core Components
+        redirectUrl: documentation/concepts/core-components/api-server
+        weight: 20
+    nodes:
+    - name: api-server
+      nodes:
+      - source: https://github.com/gardener/gardener/blob/master/docs/concepts/apiserver.md
+        properties:
+          index: true
+          frontmatter:
+            title: Gardener API Server
+            remote: https://github.com/gardener/gardener/blob/master/docs/concepts/apiserver.md
+            type: docs
+            weight: 5
+      - source: https://github.com/gardener/gardener/blob/master/docs/concepts/apiserver_admission_plugins.md
+        properties:
+          frontmatter:
+            remote: https://github.com/gardener/gardener/blob/master/docs/concepts/apiserver_admission_plugins.md
+            title: In-Tree Admission Plugins
+            type: docs
+    - source: https://github.com/gardener/gardener/blob/master/docs/concepts/gardenlet.md
+      properties:
+        frontmatter:
+          title: gardenlet
+          remote: https://github.com/gardener/gardener/blob/master/docs/concepts/gardenlet.md
+          type: docs
+          weight: 20
+    - source: https://github.com/gardener/gardener/blob/master/docs/concepts/scheduler.md
+      properties:
+        frontmatter:
+          title: Gardener Scheduler
+          remote: https://github.com/gardener/gardener/blob/master/docs/concepts/scheduler.md
+          type: docs
+          weight: 10
+    - source: https://github.com/gardener/gardener/blob/master/docs/concepts/seed-admission-controller.md
+      properties:
+        frontmatter:
+          title: Gardener Seed Admission Controller
+          remote: https://github.com/gardener/gardener/blob/master/docs/concepts/seed-admission-controller.md
+          type: docs
+          weight: 15
+  - name: deployment
+    nodes:
+    - source: https://github.com/gardener/gardener/blob/master/docs/deployment/feature_gates.md
+      properties:
+        frontmatter:
+          title: Feature Gates
+          remote: https://github.com/gardener/gardener/blob/master/docs/deployment/feature_gates.md
+          type: docs
+    - source: https://github.com/gardener/gardener/blob/master/docs/deployment/setup_gardener.md
+      properties:
+        frontmatter:
+          title: Deploying the Gardener into a Kubernetes cluster
+          remote: https://github.com/gardener/gardener/blob/master/docs/deployment/setup_gardener.md
+          type: docs
+    - source: https://github.com/gardener/gardener/blob/master/docs/deployment/aks.md
+      properties:
+        frontmatter:
+          title: Deploying the previous Gardener versions and a Seed into an AKS cluster
+          remote: https://github.com/gardener/gardener/blob/master/docs/deployment/aks.md
+          type: docs
+    - source: https://github.com/gardener/gardener/blob/master/docs/deployment/deploy_gardenlet_manually.md
+      properties:
+        frontmatter:
+          title: Deploy a Gardenlet Manually
+          remote: https://github.com/gardener/gardener/blob/master/docs/deployment/deploy_gardenlet_manually.md
+          type: docs
+    - source: https://github.com/gardener/gardener/blob/master/docs/deployment/deploy_gardenlet_automatically.md
+      properties:
+        frontmatter:
+          title: Automatic Deployment of Gardenlets
+          remote: https://github.com/gardener/gardener/blob/master/docs/deployment/deploy_gardenlet_automatically.md
+          type: docs
+    - source: https://github.com/gardener/gardener/blob/master/docs/deployment/deploy_gardenlet.md
+      properties:
+        frontmatter:
+          title: Deploying Gardenlets
+          remote: https://github.com/gardener/gardener/blob/master/docs/deployment/deploy_gardenlet.md
+          type: docs
+    - source: https://github.com/gardener/gardener/blob/master/docs/deployment/image_vector.md
+      properties:
+        frontmatter:
+          title: Image Vector
+          remote: https://github.com/gardener/gardener/blob/master/docs/deployment/image_vector.md
+          type: docs
+  - name: extensions
+    nodes:
+    - source:  https://github.com/gardener/gardener/blob/master/docs/extensions/overview.md
+      properties:
+        index: true
+        frontmatter:
+          title: Extensions
+          remote: https://github.com/gardener/gardener/blob/master/docs/extensions/overview.md
+          type: docs
+          weight: 50
+          alias: ["/components/extensions"]
+    - source: https://github.com/gardener/gardener/blob/master/docs/extensions/dns.md
+      properties:
+        frontmatter:
+          remote:  https://github.com/gardener/gardener/blob/master/docs/extensions/dns.md
+          title: "DNSProvider and DNSEntry resources"
+          type: docs
+    - source: https://github.com/gardener/gardener/blob/master/docs/extensions/logging-and-monitoring.md
+      properties:
+        frontmatter:
+          remote:  https://github.com/gardener/gardener/blob/master/docs/extensions/logging-and-monitoring.md
+          title: Logging and Monitoring for Extensions
+          type: docs
+    - source: https://github.com/gardener/gardener/blob/master/docs/extensions/network.md
+      properties:
+        frontmatter:
+          remote:  https://github.com/gardener/gardener/blob/master/docs/extensions/network.md
+          title: Gardener Network Extension
+          type: docs
+    - source: https://github.com/gardener/gardener/blob/master/docs/extensions/containerruntime.md
+      properties:
+        frontmatter:
+          remote:  https://github.com/gardener/gardener/blob/master/docs/extensions/containerruntime.md
+          title: Gardener Container Runtime Extension
+          type: docs
+    - source: https://github.com/gardener/gardener/blob/master/docs/extensions/controlplane.md
+      properties:
+        frontmatter:
+          remote:  https://github.com/gardener/gardener/blob/master/docs/extensions/controlplane.md
+          title: "ControlPlane resource"
+          type: docs
+    - source: https://github.com/gardener/gardener/blob/master/docs/extensions/overview.md
+      properties:
+        frontmatter:
+          remote:  https://github.com/gardener/gardener/blob/master/docs/extensions/overview.md
+          title: "Extensibility overview"
+          type: docs
+    - source: https://github.com/gardener/gardener/blob/master/docs/extensions/shoot-webhooks.md
+      properties:
+        frontmatter:
+          remote:  https://github.com/gardener/gardener/blob/master/docs/extensions/shoot-webhooks.md
+          title: Shoot resource customization webhooks
+          type: docs
+    - source: https://github.com/gardener/gardener/blob/master/docs/extensions/controllerregistration.md
+      properties:
+        frontmatter:
+          remote:  https://github.com/gardener/gardener/blob/master/docs/extensions/controllerregistration.md
+          title: Registering Extension Controllers
+          type: docs
+    - source: https://github.com/gardener/gardener/blob/master/docs/extensions/extension.md
+      properties:
+        frontmatter:
+          remote:  https://github.com/gardener/gardener/blob/master/docs/extensions/extension.md
+          title: "Extension resource"
+          type: docs
+    - source: https://github.com/gardener/gardener/blob/master/docs/extensions/infrastructure.md
+      properties:
+        frontmatter:
+          remote:  https://github.com/gardener/gardener/blob/master/docs/extensions/infrastructure.md
+          title: "Infrastructure resource"
+          type: docs
+    - source: https://github.com/gardener/gardener/blob/master/docs/extensions/operatingsystemconfig.md
+      properties:
+        frontmatter:
+          remote:  https://github.com/gardener/gardener/blob/master/docs/extensions/operatingsystemconfig.md
+          title: "OperatingSystemConfig resource"
+          type: docs
+    - source: https://github.com/gardener/gardener/blob/master/docs/extensions/referenced-resources.md
+      properties:
+        frontmatter:
+          remote:  https://github.com/gardener/gardener/blob/master/docs/extensions/referenced-resources.md
+          title: Referenced Resources
+          type: docs
+    - source: https://github.com/gardener/gardener/blob/master/docs/extensions/worker.md
+      properties:
+        frontmatter:
+          remote:  https://github.com/gardener/gardener/blob/master/docs/extensions/worker.md
+          title: Worker resource
+          type: docs
+    - source: https://github.com/gardener/gardener/blob/master/docs/extensions/backupentry.md
+      properties:
+        frontmatter:
+          remote:  https://github.com/gardener/gardener/blob/master/docs/extensions/backupentry.md
+          title: BackupEntry resource
+          type: docs
+    - source: https://github.com/gardener/gardener/blob/master/docs/extensions/controlplane-exposure.md
+      properties:
+        frontmatter:
+          remote:  https://github.com/gardener/gardener/blob/master/docs/extensions/controlplane-exposure.md
+          title: ControlPlane resource with purpose exposure
+          type: docs
+    - source: https://github.com/gardener/gardener/blob/master/docs/extensions/controlplane-webhooks.md
+      properties:
+        frontmatter:
+          remote:  https://github.com/gardener/gardener/blob/master/docs/extensions/controlplane-webhooks.md
+          title: Controlplane customization webhooks
+          type: docs
+    - source: https://github.com/gardener/gardener/blob/master/docs/extensions/healthcheck-library.md
+      properties:
+        frontmatter:
+          remote:  https://github.com/gardener/gardener/blob/master/docs/extensions/healthcheck-library.md
+          title: Health Check Library
+          type: docs
+    - source: https://github.com/gardener/gardener/blob/master/docs/extensions/project-roles.md
+      properties:
+        frontmatter:
+          remote:  https://github.com/gardener/gardener/blob/master/docs/extensions/project-roles.md
+          title: Extending project roles
+          type: docs
+    - source: https://github.com/gardener/gardener/blob/master/docs/extensions/shoot-health-status-conditions.md
+      properties:
+        frontmatter:
+          remote:  https://github.com/gardener/gardener/blob/master/docs/extensions/shoot-health-status-conditions.md
+          title: Contributing to shoot health status conditions
+          type: docs
+    - source: https://github.com/gardener/gardener/blob/master/docs/extensions/shoot-maintenance.md
+      properties:
+        frontmatter:
+          remote:  https://github.com/gardener/gardener/blob/master/docs/extensions/shoot-maintenance.md
+          title: Shoot maintenance
+          type: docs
+    - source: https://github.com/gardener/gardener/blob/master/docs/extensions/backupbucket.md
+      properties:
+        frontmatter:
+          remote:  https://github.com/gardener/gardener/blob/master/docs/extensions/backupbucket.md
+          title: BackupBucket resource
+          type: docs
+    - source: https://github.com/gardener/gardener/blob/master/docs/extensions/cluster.md
+      properties:
+        frontmatter:
+          remote:  https://github.com/gardener/gardener/blob/master/docs/extensions/cluster.md
+          title: Cluster resource
+          type: docs
+    - source: https://github.com/gardener/gardener/blob/master/docs/extensions/conventions.md
+      properties:
+        frontmatter:
+          remote:  https://github.com/gardener/gardener/blob/master/docs/extensions/conventions.md
+          title: General conventions
+          type: docs
+  - name: mcm
+    source: https://github.com/gardener/machine-controller-manager/blob/master/README.md
+    properties:
+      frontmatter:
+        title: Machine Controller Manager
+        remote: https://github.com/gardener/machine-controller-manager/blob/master/README.md
+        type: docs
+        aliases: ["/components/mcm"]
+        wight: 35
+  - name: monitoring
+    properties:
+      frontmatter:
+        title: Monitoring
+        type: docs
+        weight: 80
+    nodes:
+    - source: https://github.com/gardener/gardener/blob/master/docs/monitoring/alerting.md
+      properties:
+        frontmatter:
+          title: Alerting
+          remote: https://github.com/gardener/gardener/blob/master/docs/monitoring/alerting.md
+          type: docs
+    - name: extending
+      source: https://github.com/gardener/gardener/blob/master/docs/development/monitoring-stack.md
+      properties:
+        frontmatter:
+          title: Extending the Monitoring Stack
+          remote: https://github.com/gardener/gardener/blob/master/docs/development/monitoring-stack.md
+          type: doc      
+    - source: https://github.com/gardener/gardener/blob/master/docs/monitoring/operator_alerts.md
+      properties:
+        frontmatter:
+          title: Operator Alerts
+          remote: https://github.com/gardener/gardener/blob/master/docs/monitoring/operator_alerts.md
+          type: docs
+    - source: https://github.com/gardener/gardener/blob/master/docs/monitoring/user_alerts.md
+      properties:
+        frontmatter:
+          title: User Alerts
+          remote: https://github.com/gardener/gardener/blob/master/docs/monitoring/user_alerts.md
+          type: docs
+  - name: networking
+    properties:
+      frontmatter:
+        title: Networking
+        type: docs
+        weight: 50
+    nodes:
+      - source: https://github.com/gardener/gardener/blob/master/docs/concepts/network_policies.md
+        properties:
+          frontmatter:
+            title: Network Policies
+            remote: https://github.com/gardener/gardener/blob/master/docs/concepts/network_policies.md
+            type: docs
+            weight: 20
+      - name: cert-managment
+        source: https://github.com/gardener/cert-management/blob/master/README.md
+        properties:
+          frontmatter:
+            title: Certificates Management
+            remote: https://github.com/gardener/cert-management/blob/master/README.md
+            type: docs
+            aliases: ["/components/cert-broker/"]
+            weight: 10
+      - name: dns-managment
+        source: https://github.com/gardener/external-dns-management/blob/master/README.md
+        properties:
+          frontmatter:
+            title: DNS Management
+            remote: https://github.com/gardener/external-dns-management/blob/master/README.md
+            type: docs
+            aliases: ["/components/dns-cm/"]
+            weight: 5
+
+links:
+  downloads:
+    scope:
+      gardener/gardener/(blob|raw)/master/docs: ~

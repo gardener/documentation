@@ -22,5 +22,5 @@ way to protect your infrastructure or application if it is has leaked - **delete
 
 
 
-..learn more on [Work with kubeconfig files](../readmore/working-with-kubeconfig).
+..learn more on [Work with kubeconfig files](../../documentation/guides/client_tools/working-with-kubeconfig/_index.md).
 
