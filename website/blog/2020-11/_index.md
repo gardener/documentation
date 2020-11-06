@@ -34,8 +34,7 @@ As Gardener is capable of managing thousands of clusters, it is crucial to keep 
 
 Since release `v1.6` Gardener has been capable of reversing the tunnel direction from the seed to the shoot via the `KonnectivityTunnel` feature gate ([more information]( https://github.com/gardener/gardener/blob/master/docs/usage/reverse-tunnel.md)). With this release we make it possible to control the feature per shoot. We recommend to selectively enable the `KonnectivityTunnel`, as it is still in `alpha` state.
 
-### Reference Protection ([gardener/gardener#2771](https://github.com/gardener/gardener/pull/2771)), 
-([gardener/gardener 1708419)](https://github.com/gardener/gardener/commit/17084191c752c206537b9506b54828f4d723d9b7))
+### Reference Protection ([gardener/gardener#2771](https://github.com/gardener/gardener/pull/2771), [gardener/gardener 1708419](https://github.com/gardener/gardener/commit/17084191c752c206537b9506b54828f4d723d9b7))
 
 Shoot clusters may refer to external objects, like `Secrets` for specified DNS providers or they have a reference to an audit policy `ConfigMap`. Deleting those objects while any shoot still references them causes sever errors, often only recoverable by an immense amount of manual operations effort. To prevent such scenarios, Gardener now adds a new finalizer `gardener.cloud/reference-protection` to these objects and removes it as soon as the object itself becomes releasable. Due to compatibility reasons, we decided that the handling for audit policy `ConfigMaps` is delivered as an opt-in feature first, so please familiarize yourself with the necessary settings in the Gardener Controller Manager [component config](https://github.com/gardener/gardener/blob/3db1c41726dc5f669e015f294b690d330b55bbf1/example/20-componentconfig-gardener-controller-manager.yaml#L28) if you already plan to enable it.
 
