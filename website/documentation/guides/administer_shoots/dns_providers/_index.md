@@ -12,7 +12,7 @@ aliases: ["/050-tutorials/content/howto/dns_names"]
 
 ## Introduction
 
-Gardener can manage DNS records on your behalf, so that you can request them via different resource types (see [here](../dns_names/_index.md#Introduction)) within the shoot cluster. The domains for which you are permitted to request records, are however restricted and depend on the DNS provider confguration.
+Gardener can manage DNS records on your behalf, so that you can request them via different resource types (see [here](../dns_names)) within the shoot cluster. The domains for which you are permitted to request records, are however restricted and depend on the DNS provider confguration.
 
 ## Shoot provider
 
