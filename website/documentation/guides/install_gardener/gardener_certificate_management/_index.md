@@ -22,7 +22,7 @@ To let the `Shoot-Cert-Service` operate properly, you need to have:
 - contact details and optionally a private key for a pre-existing [Let's Encrypt](https://letsencrypt.org/) account
 
 ### ControllerRegistration
-An example of a `ControllerRegistration` for the `Shoot-Cert-Service` can be found here: https://github.com/gardener/gardener-extensions/blob/master/controllers/extension-shoot-cert-service/example/controller-registration.yaml
+An example of a `ControllerRegistration` for the `Shoot-Cert-Service` can be found here: https://github.com/gardener/gardener-extension-shoot-cert-service/blob/master/example/controller-registration.yaml
 
 ### Configuration
 The `ControllerRegistration` contains a Helm chart which eventually deploy the `Shoot-Cert-Service` to seed clusters. It offers some configuration options, mainly to set up a default issuer for shoot clusters. With a default issuer, pre-existing Let's Encrypt accounts can be used and shared with shoot clusters (See "One Account or Many?" of the [Integration Guide](https://letsencrypt.org/docs/integration-guide/)).
