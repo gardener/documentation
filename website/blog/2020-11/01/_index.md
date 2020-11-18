@@ -1,5 +1,6 @@
 ---
 title: "Case Study: Migrating ETCD Volumes in Production"
+description: In this case study, our friends from metal-stack lead you through their journey of migrating Gardener ETCD volumes in their production environment.
 linkTitle: Gardener ETCD Volumes Migration
 newsSubtitle: November 20, 2020
 type: blog
