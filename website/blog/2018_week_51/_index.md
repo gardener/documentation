@@ -19,4 +19,4 @@ topic `cookies`... since the vegetables have gone on a well-deserved vacation. :
 
 
 
-Get recipe on [Gardener Cookies](../readmore/cookies).
+Get recipe on [Gardener Cookies](../../documentation/guides/gardener-cookies/_index.md).

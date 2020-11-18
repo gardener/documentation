@@ -27,4 +27,4 @@ container, as they are lost when the container is closed. If absolutely necessar
 you can use persistence volumes instead to persist them outside the containers. 
 However, an ELK stack is preferred for storing and processing log files. 
 
-..read some more on [Common Kubernetes Antipattern](../readmore/antipattern).
+..read some more on [Common Kubernetes Antipattern](../../documentation/guides/applications/antipattern/_index.md).

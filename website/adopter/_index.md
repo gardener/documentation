@@ -12,7 +12,6 @@ type: landingpage
         Gardener adopters in production environments that have publicly shared
         details of their usage.
       </div>
-
       <div class="container">
         <div class="row">
           <div class="twelve columns">
@@ -20,15 +19,12 @@ type: landingpage
           </div>
         </div>
       </div>
-
     </div>
-
       <div class="container">
         <div class="row adopter">
           <div class="one-third column">
             <img src="/images/branding/bnerd.png" />
           </div>
-    
           <div class="two-thirds column">
             <p class="description">
               <a href="https://bnerd.com/de" target="_blank">b’nerd</a> uses
@@ -38,7 +34,6 @@ type: landingpage
             </p>
           </div>
         </div>
-    
         <div class="row adopter">
           <div class="one-third column">
             <img src="/images/branding/sap.png" />
@@ -54,16 +49,13 @@ type: landingpage
             </p>
           </div>
         </div>
-
         <div class="row adopter">
           <div class="one-third column">
             <img src="/images/branding/scaleup.png" />
           </div>
           <div class="two-thirds column">
             <p class="description">
-              <a href="https://www.scaleuptech.com" target="_blank"
-                >ScaleUp Technologies</a
-              >
+              <a href="https://www.scaleuptech.com" target="_blank" >ScaleUp Technologies</a>
               runs Gardener within their public Openstack Clouds (Hamburg,
               Berlin, Düsseldorf). Their clients run all kinds of workloads on
               top of Gardener maintained Kubernetes clusters ranging from
@@ -71,16 +63,13 @@ type: landingpage
             </p>
           </div>
         </div>
-
         <div class="row adopter">
           <div class="one-third column">
             <img src="/images/branding/fits.png" />
           </div>
           <div class="two-thirds column">
             <p class="description">
-              <a href="https://f-i-ts.de/" target="_blank"
-                >Finanz Informatik Technologie Services GmbH</a
-              >
+              <a href="https://f-i-ts.de/" target="_blank">Finanz Informatik Technologie Services GmbH</a>
               uses Gardener to offer k8s as a service for customers in the
               financial industry in Germany. It is built on top of a "metal as a
               service" infrastructure implemented from scratch for k8s workloads
@@ -88,7 +77,6 @@ type: landingpage
             </p>
           </div>
         </div>
-
         <div class="row adopter">
           <div class="one-third column">
             <img src="/images/branding/pingcap.jpeg" />
@@ -101,17 +89,12 @@ type: landingpage
               23.5K+ stars and 400+ contributors. Its sister project
               <a target="_blank" href="https://github.com/tikv/tikv">TiKV</a> is
               a
-              <a
-                target="_blank"
-                href="https://landscape.cncf.io/format=card-mode"
-                >Cloud Native Interactive Landscape project</a
-              >. PingCAP envisioned their managed TiDB service, known as TiDB
+              <a target="_blank" href="https://landscape.cncf.io/format=card-mode">Cloud Native Interactive Landscape project</a>. PingCAP envisioned their managed TiDB service, known as TiDB
               Cloud, to be multi-tenant, secure, cost-efficient, and to be
               compatible with different cloud providers and they chose Gardener.
             </p>
           </div>
         </div>
-
         <div class="row adopter">
           <div class="one-third column">
             <img src="/images/branding/beezlab.png" width="90" />
@@ -124,12 +107,10 @@ type: landingpage
             </p>
           </div>
         </div>
-
         <p class="call-for-action">
           If you’re using Gardener and you aren’t on this list,
           <a href="https://github.com/gardener/gardener/pulls">submit a pull request!</a>
         </p>
       </div>
-
   </div>
 </div>

@@ -1,0 +1,53 @@
+structure:
+- name: blog
+  nodesSelector:
+    path: https://github.com/gardener/documentation/tree/master/website/blog
+  properties:
+    index: true
+    frontmatter:
+      title: Blogs
+      type: blog
+      layout: blog-list
+      aggregate: true
+- name: adopter
+  nodes:
+  - source: https://github.com/gardener/documentation/blob/master/website/adopter/_index.md
+    properties:
+      frontmatter:
+        title: Adopters
+        url: /adopter
+        type: landingpage
+- name: community
+  nodes:
+  - source: https://github.com/gardener/documentation/blob/master/website/community/_index.md
+    properties:
+      title: Community
+      url: /community
+      type: landingpage
+- name: documentation
+  nodesSelector:
+    path: https://github.com/gardener/documentation/blob/master/.docforge/documentation.yaml
+- name: v1.10.0
+  nodesSelector:
+    path: https://github.com/gardener/documentation/blob/master/.docforge/documentation.yaml
+  links:
+    rewrites:
+      gardener/documentation/(tree|blob|raw):
+        version: v1.10.0
+      gardener/gardener/(tree|blob|raw):
+        version: v1.10.0
+- name: v1.11.0
+  nodesSelector:
+    path: https://github.com/gardener/documentation/blob/master/.docforge/documentation.yaml
+  links:
+    gardener/documentation/(tree|blob|raw):
+      version: v1.11.0
+    gardener/gardener/(tree|blob|raw):
+      version: v1.11.0
+links:
+  rewrites:
+    gardener/gardener:
+      version: v1.12.2
+  downloads:
+    scope:
+      gardener/documentation/(blob|raw)/master: ~

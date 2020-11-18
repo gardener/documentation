@@ -23,4 +23,4 @@ as well as two special problems with upstream Kubernetes and its Control-Plane-a
 architecture.
 
 
-..read some more on [Auditing Kubernetes for Secure Setup](../readmore/insecure).
+..read some more on [Auditing Kubernetes for Secure Setup](../../documentation/guides/applications/insecure-configuration/_index.md).
