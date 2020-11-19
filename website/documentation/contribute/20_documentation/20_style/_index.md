@@ -83,7 +83,7 @@ leads to an awkward construction.
 | The `Deployment` is responsible for ...   |  The Deployment object is responsible for ...    |
 | A `PodList` is a list of Pods. | A Pod List is a list of pods.  |
 | The `gardener-control-manager` has control loops... | The gardener-control-manager has control loops...|
-| The gardenlet starts up with a bootstrap `kubeconfig` having a bootstrap token that allows to create `CertificateSigningRequest` (CSR) resources. | The gardenlet starts up with a bootstrap kubeconfig having a bootstrap token that allows to create CertificateSigningRequest (CSR) resources. |
+| The `gardenlet` starts up with a bootstrap `kubeconfig` having a bootstrap token that allows to create `CertificateSigningRequest` (CSR) resources. | The gardenlet starts up with a bootstrap kubeconfig having a bootstrap token that allows to create CertificateSigningRequest (CSR) resources. |
 
 ### Inline Code and Inline Commands
 
