@@ -4,7 +4,6 @@ type: docs
 level: intermediate
 category: Operation
 scope: app-developer
-aliases: ["/readmore/shoot-into-existing-aws-vpc", "/050-tutorials/content/howto/create-delete-shoot"]
 ---
 
 # Create a Shoot cluster into existing AWS VPC

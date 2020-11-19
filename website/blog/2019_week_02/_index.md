@@ -12,7 +12,7 @@ archivedate: 2019-07-11
 The kubectl command-line tool uses `kubeconfig` files to find the information it needs to choose a cluster and 
 communicate with the API server of a cluster.
 
-{{< blog_img link="teaser.svg" >}}
+![teaser](teaser.svg)
 
 
 > What happens if your kubeconfig file of your production cluster is leaked or published by accident?
@@ -22,5 +22,5 @@ way to protect your infrastructure or application if it is has leaked - **delete
 
 
 
-..learn more on [Work with kubeconfig files](../../documentation/guides/client_tools/working-with-kubeconfig/_index.md).
+..learn more on [Work with kubeconfig files](https://github.com/gardener/documentation/blob/master/website/documentation/guides/client_tools/working-with-kubeconfig/_index.md).
 

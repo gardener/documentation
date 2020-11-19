@@ -4,7 +4,6 @@ type: docs
 level: advanced
 category: Security
 scope: operator
-aliases: ["/readmore/seccomp", "/050-tutorials/content/howto/secure-seccomp"]
 ---
 
 # Custom Seccomp profile

@@ -5,7 +5,6 @@ type: docs
 level: advanced
 category: Security
 scope: operator
-aliases: ["/readmore/insecure", "/050-tutorials/content/howto/insecure-configuration"]
 ---
 
 # Auditing Kubernetes for Secure Setup

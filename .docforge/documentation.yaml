@@ -66,4 +66,4 @@ structure:
 links:
   downloads:
     scope:
-      gardener/gardener/(blob|raw)/master/docs: ~
+      "gardener/gardener/(blob|raw)/(.*)/docs": ~

@@ -368,8 +368,7 @@ structure:
             type: docs
             aliases: ["/components/dns-cm/"]
             weight: 5
-
 links:
   downloads:
     scope:
-      gardener/gardener/(blob|raw)/master/docs: ~
+      "gardener/gardener/(blob|raw)/(.*)/docs": ~

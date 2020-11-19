@@ -15,12 +15,11 @@ Gardener managed shoot cluster resides in the corresponding seed cluster. This i
 [Control-Plane-as-a-Service](https://kubernetes.io/blog/2018/05/17/gardener/#kubernetes-control-plane) with
 a [network air gap](https://kubernetes.io/blog/2018/05/17/gardener/#network-air-gap).
 
-{{< blog_img link="teaser.svg" >}}
-
+![teaser](teaser.svg)
 
 Along the way we found various kinds of security issues, for example, due to misconfiguration or missing isolation,
 as well as two special problems with upstream Kubernetes and its Control-Plane-as-a-Service
 architecture.
 
 
-..read some more on [Auditing Kubernetes for Secure Setup](../../documentation/guides/applications/insecure-configuration/_index.md).
+..read some more on [Auditing Kubernetes for Secure Setup](https://github.com/gardener/documentation/blob/master/website/documentation/guides/applications/insecure-configuration/_index.md).

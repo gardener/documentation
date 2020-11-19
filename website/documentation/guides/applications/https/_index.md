@@ -5,14 +5,13 @@ remote: https://github.com/freegroup/kube-https.git
 level: intermediate
 category: Certificates
 scope: app-developer
-aliases: ["/readmore/https", "/050-tutorials/content/app/https"]
 ---
 ## Configuring ingress with front-end TLS
 
-It is alyways recommended to enable encryption for services to prevent traffic interception and 
+It is always recommended to enable encryption for services to prevent traffic interception and 
 man-in-the-middle attacks - even in DEV environments. 
 
-![Screen](https://raw.githubusercontent.com/freegroup/kube-https/master//images/ingress-https.png?raw=true "Screenshot")
+![Screen](https://raw.githubusercontent.com/freegroup/kube-https/master/images/ingress-https.png?raw=true "Screenshot")
 
 You should configure front-end Transport Layer Security (TLS) so that the ingress controller can secure 
 access to a service from the client to the load balancer by using HTTPS.

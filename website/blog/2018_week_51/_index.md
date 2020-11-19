@@ -12,11 +12,11 @@ archivedate: 2018-07-11
 **...they mess up the figure.**
 
 
-{{< blog_img link="cookie.jpg" >}}
+![](cookie.jpg)
 
 For a team event during the Christmas season we decided to completely reinterpret the 
 topic `cookies`... since the vegetables have gone on a well-deserved vacation. :-)
 
 
 
-Get recipe on [Gardener Cookies](../../documentation/guides/gardener-cookies/_index.md).
+Get recipe on [Gardener Cookies](https://github.com/gardener/documentation/blob/master/website/documentation/guides/gardener-cookies/_index.md).

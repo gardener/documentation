@@ -7,7 +7,6 @@ reviewer: Tieyan Fu
 last_reviewed: 12.06.2018
 category: Getting Started
 scope: app-developer
-aliases: ["/readmore/antipattern", "/050-tutorials/content/howto/antipattern"]
 ---
 
 ![antipattern](howto-antipattern.png)

@@ -5,7 +5,6 @@ type: docs
 level: intermediate
 category: Fails
 scope: app-developer
-aliases: ["/howto/imagePullPolicy", "/050-tutorials/content/howto/image-pull-policy"]
 ---
 
 

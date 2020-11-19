@@ -5,7 +5,6 @@ type: docs
 level: advanced
 category: CI/CD
 scope: app-developer
-aliases: ["/050-tutorials/content/howto/kubectl-apiserver"]
 ---
 
 ## Introduction

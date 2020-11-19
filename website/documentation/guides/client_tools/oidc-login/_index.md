@@ -5,7 +5,6 @@ type: docs
 level: advanced
 category: Security
 scope: operator
-aliases: ["/050-tutorials/content/howto/oidc-login"]
 ---
 
 # Authenticating

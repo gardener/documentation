@@ -5,7 +5,6 @@ level: beginner
 category: Operation
 scope: operator
 tags: ["task"]
-aliases: ["/readmore/hibernate","/050-tutorials/content/howto/hibernate-cluster"]
 publishdate: 2020-11-19
 ---
 
@@ -15,11 +14,11 @@ Gardener offers a clever way to automatically scale-down all resources to zero: 
 
 > To save costs, it's recommended to define a hibernation schedule before the creation of a cluster. You can hibernate your cluster or wake up your cluster manually even if there's a schedule for its hibernation.
 
-* [What is hibernated?](#what-is-hibernated)
-* [What isn't affected by the hibernation?](#what-isnt-affected-by-the-hibernation)
-* [Hibernate your cluster manually](#hibernate-your-cluster-manually)
-* [Wake up your cluster manually](#wake-up-your-cluster-manually)
-* [Create a schedule to hibernate your cluster](#create-a-schedule-to-hibernate-your-cluster)
+- [What is hibernated?](#what-is-hibernated)
+- [What isn’t affected by the hibernation?](#what-isnt-affected-by-the-hibernation)
+- [Hibernate your cluster manually](#hibernate-your-cluster-manually)
+- [Wake up your cluster manually](#wake-up-your-cluster-manually)
+- [Create a schedule to hibernate your cluster](#create-a-schedule-to-hibernate-your-cluster)
 
 
 ## What is hibernated?
