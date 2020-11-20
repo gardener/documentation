@@ -21,31 +21,43 @@ structure:
       weight: 20
   nodesSelector:
     path: https://github.com/gardener/documentation/blob/master/.docforge/concepts.yaml
-- name: contribute
-  properties:
-    frontmatter:
-      title: Contribute
-      description: Contributors guides for code and documentation
-      type: docs
-      sidebar: true
-      menu: sln
-      weight: 100
-  nodesSelector:
-    path: https://github.com/gardener/documentation/blob/master/.docforge/contribute.yaml
-- name: getting-started
-  source: https://github.com/gardener/gardener/blob/master/README.md
-  properties:
-    frontmatter:
-      title: Getting Started
-      url: /about/
-      remote: https://github.com/gardener/gardener/blob/master/README.md
-      icon: navigation_started.svg
-      type: padding
+# - name: getting-started
+#   source: https://github.com/gardener/gardener/blob/master/README.md
+#   properties:
+#     frontmatter:
+#       title: Getting Started
+#       url: /about/
+#       remote: https://github.com/gardener/gardener/blob/master/README.md
+#       icon: navigation_started.svg
+#       type: padding
 - name: guides
+  properties:
+    frontmatter:
+      title: How-To Guides
+      description: Learn how to execute concrete tasks
+      type: docs
+      layout: guides-home
+      menu: sln
+      sidebar: true
+      weight: 30
   nodesSelector:
     path: https://github.com/gardener/documentation/blob/master/.docforge/guides.yaml
   nodes:
   - source: https://github.com/gardener/documentation/blob/master/website/documentation/guides/_index.md
+- name: tutorials
+  properties:
+    frontmatter:
+      title: Tutorials
+      description: Walkthroughs of common use case implementations and goals that require a set of tasks to accomplish
+      type: docs
+      layout: tutorials-home
+      menu: sln
+      sidebar: true
+      weight: 40    
+  nodesSelector:
+    path: https://github.com/gardener/documentation/blob/master/.docforge/tutorials.yaml
+  nodes:
+  - source: https://github.com/gardener/documentation/blob/master/website/documentation/tutorials/_index.md  
 - name: references
   properties:
     frontmatter:
@@ -58,11 +70,17 @@ structure:
       aliases: ["/api-reference/"]
   nodesSelector:
     path: https://github.com/gardener/documentation/blob/master/.docforge/references.yaml
-- name: tutorials
+- name: contribute
+  properties:
+    frontmatter:
+      title: Contribute
+      description: Contributors guides for code and documentation
+      type: docs
+      sidebar: true
+      menu: sln
+      weight: 100
   nodesSelector:
-    path: https://github.com/gardener/documentation/blob/master/.docforge/tutorials.yaml
-  nodes:
-  - source: https://github.com/gardener/documentation/blob/master/website/documentation/tutorials/_index.md
+    path: https://github.com/gardener/documentation/blob/master/.docforge/contribute.yaml    
 links:
   downloads:
     scope:
