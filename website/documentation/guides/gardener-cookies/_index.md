@@ -4,7 +4,6 @@ type: docs
 level: intermediate
 category: Operation
 scope: app-developer
-aliases: ["/readmore/cookies", "/050-tutorials/content/howto/gardener-cockies"]
 ---
 
 # Green Tea Matcha Cookies

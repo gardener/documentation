@@ -15,9 +15,7 @@ that has access to an AWS EFS resource. The container reads a configmap containi
 AWS region and the name identifying the efs-provisioner. This name will be used later when you create a 
 storage class.
 
-
-{{< blog_img link="blog-aws-efs.png" >}}
-
+![](blog-aws-efs.png)
 
 ## Why EFS
 1. When you have application running on multiple nodes which require shared access to a file system

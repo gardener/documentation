@@ -4,7 +4,6 @@ type: docs
 level: advanced
 category: Networking
 scope: app-developer
-aliases: ["/howto/networkisolation", "/050-tutorials/content/howto/network-isolation"]
 ---
 
 ...or **DENY all traffic from other namespaces**

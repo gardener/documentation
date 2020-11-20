@@ -6,7 +6,6 @@ last_reviewed: 15.05.2020
 category: Networking
 level: beginner
 scope: app-developer
-alias: ["/050-tutorials/content/howto/shoot_istio_dns_certs"]
 ---
 
 
@@ -20,7 +19,7 @@ As we ramp up more and more friends of Gardener, I thought it worthwile to explo
 Here are some pre-pointers that you will need to go deeper:
 * [CRUD Gardener Shoot](https://gardener.cloud/documentation/guides/administer_shoots/create-delete-shoot/)
 * [DNS Management](https://gardener.cloud/documentation/guides/install_gardener/gardener_dns_management/)
-* [Certificate Mangement](https://gardener.cloud/documentation/guides/install_gardener/gardener_certificate_management/)
+* [Certificate Management](https://gardener.cloud/documentation/guides/install_gardener/gardener_certificate_management/)
 * [Tutorial Domain Names](https://gardener.cloud/documentation/guides/administer_shoots/dns_names/)
 * [Tutorial Certificates](https://gardener.cloud/documentation/guides/administer_shoots/x509_certificates/)
 

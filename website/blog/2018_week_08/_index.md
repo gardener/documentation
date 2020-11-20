@@ -16,7 +16,7 @@ help if you want to monitor more than one pod at a time.
 This is something you really need a lot, at least if you run several instances of a pod behind a `deployment`
 and you don't have setup a log viewer service like Kibana.
 
-{{< blog_img link="blog-kubetail.png" >}}
+![](blog-kubetail.png)
 
 
 kubetail comes to the rescue, it is a small bash script that allows you to aggregate log files of several pods at 

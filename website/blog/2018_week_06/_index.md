@@ -10,8 +10,8 @@ archivedate: 2018-07-11
 ---
 <table style="border:0">
 <tr>
-    <td>
-        {{< blog_img link="./blog-kubernetes-enable.png" title="Enabling Kubernetes in Docker image" >}}
+    <td>        
+        <img alt="Enabling Kubernetes in Docker image" src="./blog-kubernetes-enable.png" title="Enabling Kubernetes in Docker image"/>
     </td>
     <td valign="top">
         <div>
@@ -32,4 +32,4 @@ be sure to change context so that kubectl is pointing to docker-for-desktop:
 
 ...see more on [Docker.com](https://docs.docker.com/docker-for-mac/#kubernetes)
 
-I recommend to [setup your shell](/howto/kube-shell) to see which KUBECONFIG is active.
+I recommend to [setup your shell](https://github.com/gardener/documentation/blob/master/website/documentation/guides/client_tools/bash_kubeconfig/_index.md) to see which KUBECONFIG is active.

@@ -40,14 +40,15 @@ structure:
   nodesSelector:
     path: https://github.com/gardener/documentation/blob/master/.docforge/documentation.yaml
   links:
-    gardener/documentation/(tree|blob|raw):
-      version: v1.11.0
-    gardener/gardener/(tree|blob|raw):
-      version: v1.11.0
+    rewrites:
+      gardener/documentation/(tree|blob|raw):
+        version: v1.11.0
+      gardener/gardener/(tree|blob|raw):
+        version: v1.11.0
 links:
   rewrites:
     gardener/gardener:
       version: v1.12.2
   downloads:
     scope:
-      gardener/documentation/(blob|raw)/master: ~
+      gardener/documentation/(blob|raw)/(.*)/website: ~

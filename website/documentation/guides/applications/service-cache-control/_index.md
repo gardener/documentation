@@ -5,7 +5,6 @@ type: docs
 level: intermediate
 category: Services
 scope: app-developer
-aliases: ["/050-tutorials/content/howto/service-cache-control"]
 ---
 
 ## Problem

@@ -5,7 +5,6 @@ type: docs
 level: advanced
 category: Monitoring
 scope: app-developer
-aliases: ["/050-tutorials/content/howto/prometheus"]
 ---
 
 ## Disclaimer
@@ -73,7 +72,7 @@ in case you use the service type `LoadBalancer`.
 ## Preparation
 
 The deployment of [Prometheus](https://github.com/kubernetes/charts/tree/master/stable/prometheus) and [Grafana](https://github.com/kubernetes/charts/tree/master/stable/grafana) is based on Helm charts.  
-Make sure to implement the [Helm settings](/howto/helm) before deploying the Helm charts.
+Make sure to implement the [Helm settings](https://github.com/gardener/documentation/blob/master/website/documentation/guides/client_tools/helm/_index.md) before deploying the Helm charts.
 
 The Kubernetes clusters provided by [Gardener](https://github.com/gardener) use role based 
 access control ([RBAC](https://kubernetes.io/docs/admin/authorization/rbac/)). To authorize the Prometheus 

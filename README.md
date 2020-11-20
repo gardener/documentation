@@ -33,7 +33,7 @@ Prerequisites:
    $ make serve
    ```
 
-For scenarios other than content developemnt, or if you can't meet some of the prerequisites, please refer to the [reference](https://github.com/gardener/website-generator#build-locally) for setting up build environment locally available at [/gardener/website-generator](https://github.com/gardener/website-generator).
+For scenarios other than content development, or if you can't meet some of the prerequisites, please refer to the [reference](https://github.com/gardener/website-generator#build-locally) for setting up build environment locally available at [/gardener/website-generator](https://github.com/gardener/website-generator).
 
 
 ## Contribute
@@ -42,7 +42,7 @@ For scenarios other than content developemnt, or if you can't meet some of the p
 
 All content for your website will live inside the `./website/documentation` directory. Each top-level folder in Hugo is considered a 
 content section. For example, if your site has three main sections — blog, getting-started, and tutorials — you will have 
-three directories at `./website/documentation/010-blog`, `./website/documentation/020-getting-started`, and `./website/documentation/050-tutorials`.
+three directories at `./website/documentation/blog`, `./website/documentation/getting-started` (WiP), and `./website/documentation/tutorials`.
 
 ### Order of content
 Normally, the top navigation of a Hugo site is ordered by a `weight` attribute in the front matter section of the `_index.md`
@@ -67,11 +67,11 @@ the [./website/documentation/060-curated-links/_index.md](./website/documentatio
 
 #### Remote Page
 a `remote page` contains the front matter section with the reference to the remote `md` file.
-Good example is [./website/documentation/020_getting-started/_index.md](./website/documentation/020_getting-started/_index.md)
+Good example is [./website/documentation/getting-started.md](./website/documentation/getting-started.md)
 
 
 #### Remote Repository
 A `remote repo` contains just the front matter section. The real content is crawled during the build process.
-A good example is the [./website/documentation/050-tutorials/content/app/https/_index.md](./website/documentation/050-tutorials/content/app/https/_index.md) page. 
+A good example is the [./website/documentation/guides/applications/https.md](./website/documentation/guides/applications/https.md) page. 
 
 The remote repo is referenced by the `remote` attribute in the front matter.

@@ -7,7 +7,6 @@ reviewer:
 status:
 last_reviewed:
 scope: app-developer
-aliases: ["/050-tutorials/content/howto/gardener_aws"]
 ---
 
 ## Introduction

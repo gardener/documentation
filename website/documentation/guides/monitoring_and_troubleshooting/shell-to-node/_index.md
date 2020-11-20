@@ -5,7 +5,6 @@ type: docs
 level: advanced
 category: Debugging
 scope: operator
-aliases: ["/050-tutorials/content/howto/setup-seed"]
 ---
 
 # Get a Shell to a Kubernetes Node 
@@ -20,14 +19,20 @@ The options described in the second section do not rely on Kubernetes capabiliti
 
 This guide only covers how to get access to the host, but does not cover troubleshooting methods.
 
+- [Get a Shell to a Kubernetes Node](#get-a-shell-to-a-kubernetes-node)
 - [Get a Shell to an operational cluster node](#get-a-shell-to-an-operational-cluster-node)
-  - [Gardener Dashboard](#gardener-dashboard) 
-  - [gardenctl shell](#gardenctl-shell) 
+  - [Gardener Dashboard](#gardener-dashboard)
+  - [gardenctl shell](#gardenctl-shell)
   - [Gardener Ops Toolbelt](#gardener-ops-toolbelt)
   - [Custom root pod](#custom-root-pod)
 - [SSH access to a node that failed to join the cluster](#ssh-access-to-a-node-that-failed-to-join-the-cluster)
-  - [gardenctl-ssh](#gardenctl-ssh) 
-  - [SSH with manually created Bastion on AWS](#ssh-with-manually-created-bastion-on-aws) 
+  - [Identifying the problematic instance](#identifying-the-problematic-instance)
+  - [gardenctl ssh](#gardenctl-ssh)
+  - [SSH with manually created Bastion on AWS](#ssh-with-manually-created-bastion-on-aws)
+    - [Create the Bastion Security Group](#create-the-bastion-security-group)
+    - [Create the bastion instance](#create-the-bastion-instance)
+  - [Connecting to the target instance](#connecting-to-the-target-instance)
+  - [Cleanup](#cleanup)
 
 
 # Get a Shell to an operational cluster node

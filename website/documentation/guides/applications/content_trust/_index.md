@@ -5,7 +5,6 @@ type: docs
 level: intermediate
 category: Docker Registry
 scope: app-developer
-aliases: ["/050-tutorials/content/howto/content_trust"]
 ---
 
 ## Introduction

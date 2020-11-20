@@ -8,7 +8,6 @@ status: Reviewed
 last_reviewed: 19.06.2018
 category: Debugging
 scope: app-developer
-aliases: ["/050-tutorials/content/howto/setup-seed"]
 ---
 
 ## Introduction
@@ -348,7 +347,7 @@ image (see [Images](https://kubernetes.io/docs/concepts/containers/images/)).
 As a best practice you should not use the tag `latest` and change the image tag whenever you changed anything in your 
 image (see [Configuration Best Practices](https://kubernetes.io/docs/concepts/configuration/overview/#container-images)).
 
-Find more details in [FAQ Container Image not updating](/howto/imagePullPolicy)
+Find more details in [FAQ Container Image not updating](https://github.com/gardener/documentation/blob/master/website/documentation/guides/applications/imagePullPolicy)
 
       
 

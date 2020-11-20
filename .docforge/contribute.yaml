@@ -48,3 +48,7 @@ structure:
           title: Process
           remote: https://github.com/gardener/gardener/blob/master/docs/development/process.md
           type: docs
+links:
+  downloads:
+    scope:
+      "gardener/gardener/(blob|raw)/(.*)/docs": ~
