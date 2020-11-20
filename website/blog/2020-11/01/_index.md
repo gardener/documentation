@@ -40,7 +40,7 @@ In our infrastructure, we use the Gardener to provision Kubernetes clusters on b
 
 To make this easier to understand, let us give you a simplified picture of how our Gardener production setup looks like:
 
-<img title="Production Setup" src="/blog/2020-11/01/01-001.svg"  style="width:80vw; height:auto">
+<img title="Production Setup" src="01-001.svg"  style="width:80vw; height:auto">
 <figcaption style="text-align:center;margin-top: -25px;margin-bottom: 30px;font-size: 90%;">Figure 1: Simplified View on Our Production Setup</figcaption>
 
 For every [shoot cluster](https://gardener.cloud/documentation/concepts/core-components/api-server/#shoots), Gardener deploys an individual, standalone ETCD as a stateful set into a _shoot namespace_. The deployment of the ETCD stateful set is managed by a controller called [etcd-druid](https://github.com/gardener/etcd-druid), which reconciles a special resource of the kind `etcds.druid.gardener.cloud`. This `Etcd` resource is getting deployed during the shoot provisioning flow in the [Gardenlet](https://github.com/gardener/gardener/blob/v1.8.2/docs/concepts/gardenlet.md).

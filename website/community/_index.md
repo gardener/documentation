@@ -10,21 +10,21 @@ type: landingpage
         <div class="four columns">
             <a target="_blank" class="action-header" href="https://twitter.com/GardenerProject">
                 <!-- FIXME -->
-                <img src="/images/branding/twitter-logo-green.svg"><span>@GardenerProject</span>
+                <img src="https://gardener.cloud/images/branding/twitter-logo-green.svg"><span>@GardenerProject</span>
             </a>
             <span>Follow the latest project updates on Twitter</span>
         </div>
         <div class="four columns">
             <a target="_blank" class="action-header" href="https://github.com/gardener/documentation/blob/master/CONTRIBUTING.md#weekly-meeting">
                 <!-- FIXME -->
-                <img src="/images/lp/comms-community-meetings.svg"><span>Community Meetings</span>
+                <img src="https://gardener.cloud/images/lp/comms-community-meetings.svg"><span>Community Meetings</span>
             </a>
             <span>You are welcome on our community meetings where you can engage with other contributors in person. See calendar for schedule or watch past recordings to get the idea.</span>
         </div>
         <div class="four columns">
             <a target="_blank" class="action-header" href="https://github.com/gardener">
                 <!-- FIXME -->
-                <img src="/images/branding/github-mark-logo-green.svg"><span>GitHub</span>
+                <img src="https://gardener.cloud/images/branding/github-mark-logo-green.svg"><span>GitHub</span>
             </a>
             <span>Eveyone is welcome to contribute with what they can - an issue or a pull request. 
                 Check Gardener project there and our contributors guide to help you get started.</span>
@@ -34,14 +34,14 @@ type: landingpage
         <div class="four columns">
             <a target="_blank" class="action-header" href="https://www.youtube.com/channel/UCwUhwKFREV8Su0gwAJQX7tw">
                 <!-- FIXME -->
-                <img src="/images/branding/youtube-logo-green.svg"><span>Gardener Project</span>
+                <img src="https://gardener.cloud/images/branding/youtube-logo-green.svg"><span>Gardener Project</span>
             </a>
             <span>Watch videos and community meetings recordings on our YouTube channel</span>
         </div>
         <div class="four columns">
             <a target="_blank" class="action-header" href="https://kubernetes.slack.com/messages/gardener">
                 <!-- FIXME -->
-                <img src="/images/branding/slack-logo-green.svg"><span>#gardener</span>
+                <img src="https://gardener.cloud/images/branding/slack-logo-green.svg"><span>#gardener</span>
             </a>
             <span>Discuss Gardener on our Slack channel in the Kubernetes workspace</span>
         </div>
@@ -79,14 +79,14 @@ type: landingpage
             </div>
             <div class="row">
                 <div class="one-half column">
-                    <h2 class="center"><a href="https://kubernetes.slack.com/messages/gardener" target="_blank"> <img src="/images/branding/slack.png"  height="120"></a></h2>
+                    <h2 class="center"><a href="https://kubernetes.slack.com/messages/gardener" target="_blank"> <img src="https://gardener.cloud/images/branding/slack.png"  height="120"></a></h2>
                     <p class="description">
                         Our Slack Channel is the best way to contact the experts in all questions about Kubernetes and
                         the Gardener and share your ideas with them or ask for support.
                     </p>
                 </div>
                 <div class="one-half column">
-                    <h2 class="center"><a href="https://github.com/gardener/gardener" target="_blank"> <img src="/images/branding/github.png"  height="120"></a></h2>
+                    <h2 class="center"><a href="https://github.com/gardener/gardener" target="_blank"> <img src="https://gardener.cloud/images/branding/github.png"  height="120"></a></h2>
                     <p class="description">
                         Find out more about the project and consider making a contribution..
                     </p>
