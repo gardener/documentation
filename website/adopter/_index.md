@@ -15,7 +15,7 @@ type: landingpage
       <div class="container">
         <div class="row">
           <div class="twelve columns">
-            <img src="teaser.svg" width="100%" />
+            <img src="images/teaser.svg" width="100%" />
           </div>
         </div>
       </div>
@@ -23,7 +23,7 @@ type: landingpage
       <div class="container">
         <div class="row adopter">
           <div class="one-third column">
-            <img src="/images/branding/bnerd.png" />
+            <img src="./images/bnerd.png" />
           </div>
           <div class="two-thirds column">
             <p class="description">
@@ -36,7 +36,7 @@ type: landingpage
         </div>
         <div class="row adopter">
           <div class="one-third column">
-            <img src="/images/branding/sap.png" />
+            <img src="./images/sap.png" />
           </div>
           <div class="two-thirds column">
             <p class="description">
@@ -51,7 +51,7 @@ type: landingpage
         </div>
         <div class="row adopter">
           <div class="one-third column">
-            <img src="/images/branding/scaleup.png" />
+            <img src="./images/scaleup.png" />
           </div>
           <div class="two-thirds column">
             <p class="description">
@@ -65,7 +65,7 @@ type: landingpage
         </div>
         <div class="row adopter">
           <div class="one-third column">
-            <img src="/images/branding/fits.png" />
+            <img src="./images/fits.png" />
           </div>
           <div class="two-thirds column">
             <p class="description">
@@ -79,7 +79,7 @@ type: landingpage
         </div>
         <div class="row adopter">
           <div class="one-third column">
-            <img src="/images/branding/pingcap.jpeg" />
+            <img src="./images/pingcap.jpeg" />
           </div>
           <div class="two-thirds column">
             <p class="description">
@@ -97,7 +97,7 @@ type: landingpage
         </div>
         <div class="row adopter">
           <div class="one-third column">
-            <img src="/images/branding/beezlab.png" width="90" />
+            <img src="./images/beezlab.png" width="90" />
           </div>
           <div class="two-thirds column">
             <p class="description">

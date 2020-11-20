@@ -29,21 +29,21 @@ Gardener enables Kubernetes consumers to centralize and operate efficiently homo
 
 Gardener is based on the idea of three types of clusters – *Garden cluster*, *Seed cluster* and *Shoot cluster* (see **Figure 1**). The Garden cluster is used to control the entire Kubernetes environment centrally in a highly scalable design. The highly available seed clusters are used to host the end users (shoot) clusters’ control planes. Finally, the shoot clusters consist only of worker nodes to host the cloud native applications.
 
-<img title="Gardener Architecture" src="/blog/2020-10/00/00-001.png"  style="width:90%; height:auto">
+<img title="Gardener Architecture" src="00-001.png"  style="width:90%; height:auto">
 <figcaption style="text-align:center;margin-top: -25px;margin-bottom: 30px;font-size: 90%;">Figure 1: Gardener Architecture</figcaption>
   
 An integration of the Gardener open source project with a new cloud provider follows a standard [Gardener extensibility](https://github.com/gardener/gardener/blob/master/docs/extensions/overview.md) approach. The integration requires two new components: a [provider extension](https://github.com/gardener/gardener/blob/master/docs/extensions/overview.md) and a [Machine Controller Manager (MCM) extension](https://github.com/gardener/machine-controller-manager/blob/master/docs/development/cp_support_new.md). Both components together enable Gardener to instruct the new cloud provider. They run in the Gardener seed clusters that host the control planes of the shoots based on that cloud provider.  The role of the provider extension is to manage the provider-specific aspects of the shoot clusters’ lifecycle, including infrastructure, control plane, worker nodes, and others. It works in cooperation with the MCM extension, which in particular is responsible to handle machines that are provisioned as worker nodes for the shoot clusters. To get this job done, the MCM extension leverages the VM management/API capabilities available with the respective cloud provider.
 
 Setting up a Kubernetes cluster always involves a flow of interdependent steps (see **Figure 2**), beginning with the generation of certificates and preparation of the infrastructure, continuing with the provisioning of the control plane and the worker nodes, and ending with the deployment of system components. Gardener can be configured to utilize the KubeVirt extensions in its generic workflow at the right extension points, and deliver the desired outcome of a KubeVirt backed cluster. 
 
-<img title="Gardener Architecture" src="/blog/2020-10/00/00-002.png"  style="width:90%; height:auto">
+<img title="Gardener Architecture" src="00-002.png"  style="width:90%; height:auto">
 <figcaption style="text-align:center;margin-top: -25px;margin-bottom: 30px;font-size: 90%;">Figure 2: Generic cluster reconciliation flow with extension points</figcaption>
 
 ### Gardener Integration with KubeVirt in Detail
  
 Integration with KubeVirt follows the Gardener extensibility concept and introduces the two new components mentioned above: the [KubeVirt Provider Extension](https://github.com/gardener/gardener-extension-provider-kubevirt) and the [KubeVirt Machine Controller Manager (MCM) Extension](https://github.com/gardener/machine-controller-manager-provider-kubevirt).
 
-<img title="Gardener integration with KubeVirt" src="/blog/2020-10/00/00-003.png"  style="width:80%; height:auto">
+<img title="Gardener integration with KubeVirt" src="00-003.png"  style="width:80%; height:auto">
 <figcaption style="text-align:center;margin-top: -25px;margin-bottom: 30px;font-size: 90%;">Figure 3: Gardener integration with KubeVirt</figcaption>
 
 The KubeVirt Provider Extension consists of three separate controllers that handle respectively the infrastructure, the control plane, and the worker nodes of the shoot cluster.
@@ -169,7 +169,7 @@ When a new shoot cluster is created or when a new worker node is needed for an e
 
 The KubeVirt MCM Extension has two main components. The **MachinePlugin** is responsible for handling the machine objects, and the **PluginSPI** is in charge of making calls to the cloud provider interface, to manage its resources.
 
-<img title="KubeVirt MCM extension workflow and architecture" src="/blog/2020-10/00/00-004.png" style="width:60%; height:auto">
+<img title="KubeVirt MCM extension workflow and architecture" src="00-004.png" style="width:60%; height:auto">
 <figcaption style="text-align:center;margin-top: -25px;margin-bottom: 30px;font-size: 90%;">Figure 4: KubeVirt MCM extension workflow and architecture</figcaption>
 
 As shown in **Figure 4**, the MachinePlugin receives a machine request from the MCM and starts its processing by decoding the request, doing partial validation, extracting the relevant information, and sending it to the PluginSPI. 

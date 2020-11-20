@@ -25,7 +25,7 @@ Its flagship project, [TiDB](https://en.wikipedia.org/wiki/TiDB), is a cloud-nat
 
 PingCAP envisioned their managed TiDB service, known as [TiDB Cloud](https://pingcap.com/tidb-cloud/sign-up/), to be multi-tenant, secure, cost-efficient, and to be compatible with different cloud providers. As a result, the company turned to Gardener to build their managed TiDB cloud service offering. 
 
-<img title="TiDB Cloud Beta Preview" src="/blog/2020-05/00/00-001.png"  style="width:90%; height:auto">
+<img title="TiDB Cloud Beta Preview" src="00-001.png"  style="width:90%; height:auto">
 <figcaption style="text-align:center;margin-top: -25px;margin-bottom: 30px;font-size: 90%;">TiDB Cloud Beta Preview</figcaption>
 
 
@@ -35,7 +35,7 @@ Previously, PingCAP encountered issues while using other public managed K8s clus
 
 There was also a lot of cloud-specific integration work needed to follow a multi-cloud strategy, which proved to be expensive both to produce and maintain. With one of these managed K8s services, you would have to integrate the instance API, as opposed to a solution like Gardener, which provides a unified API for all clouds. Such a unified API eliminates the need to worry about cloud specific-integration work altogether.
 
-<img src="/blog/2020-05/00/00-002.png" style="width:60%; height:auto">
+<img src="00-002.png" style="width:60%; height:auto">
 
 ### Why PingCAP chose Gardener to build TiDB Cloud
 
@@ -47,7 +47,7 @@ They recognized that Gardener would be their best option, as it is highly extens
 
 They agreed that Gardener’s solution, although complex, was definitely worth it. Even though it is a relatively new solution, meaning they didn’t have access to other user testimonials, they decided to go with the service since it checked all the boxes (and as SAP was running it productively with a huge fleet). PingCAP also came to the conclusion that building a managed Kubernetes service themselves would not be easy. Even if they were to build a managed K8s service, they would have to heavily  invest in development and would still end up with an even more complex platform than Gardener’s. For all these reasons combined, PingCAP decided to go with Gardener to build its TiDB Cloud.
 
-<img src="/blog/2020-05/00/00-003.png" style="width:70%; height:auto">
+<img src="00-003.png" style="width:70%; height:auto">
 
 Here are certain features of Gardener that PingCAP found appealing:
 
@@ -68,7 +68,7 @@ As a real world example, PingCAP sets up the Base Cluster and Seed Clusters in a
 
 To automate these processes, PingCAP creates a service in the Base Cluster, known as the TiDB Cloud “Central” service. The Central is responsible for managing shoots and the TiDB clusters in the Shoot Clusters. As shown in the following diagram, user operations go to the Central, being authenticated, authorized, validated, stored and then applied asynchronously in a controller manner. The Central will talk to the Gardener API Server to create and scale Shoot clusters. The Central will also access the Shoot API Service to deploy and reconcile components in the Shoot cluster, including control components ([TiDB Operator](https://github.com/pingcap/tidb-operator), API Proxy, Usage Reporter for billing, etc.) and the TiDB clusters.
 
-<img title="TiDB Cloud on Gardener Architecture Overview" src="/blog/2020-05/00/00-004.png" style="width:90%; height:auto">
+<img title="TiDB Cloud on Gardener Architecture Overview" src="00-004.png" style="width:90%; height:auto">
 <figcaption style="text-align:center;margin-top: -25px;margin-bottom: 30px;font-size: 90%;">TiDB Cloud on Gardener Architecture Overview</figcaption>
 
 ### What’s next for PingCAP and Gardener
