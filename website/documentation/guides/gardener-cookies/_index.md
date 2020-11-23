@@ -10,14 +10,7 @@ scope: app-developer
 
 For a team event during the Christmas season we decided to completely reinterpret the topic `cookies`. :-)
 
-
-{{< slide dir="./slider/" >}}
-
-<style>
-.sh__item img {
-    object-fit: cover !important;
-}
-</style>
+<img style="width: 50%; height: auto; margin: 0, auto" src="slider/cookie-00.jpg"/>
 
 Matcha cookies have the delicate flavor and color of green tea. These soft, pillowy and chewy green tea cookies 
 are perfect with tea. And of course they fit perfectly to our logo
@@ -46,3 +39,8 @@ are perfect with tea. And of course they fit perfectly to our logo
 
 ## Note
 Make sure you get culinary grade matcha powder. You should be able to find this in Asian or natural grocers
+
+<img style="width: 50%; height: auto" src="slider/cookie-01.jpg"/>
+<img style="width: 50%; height: auto" src="slider/cookie-02.jpg"/>
+<img style="width: 50%; height: auto" src="slider/cookie-03.jpg"/>
+<img style="width: 50%; height: auto" src="slider/cookie-05.jpg"/>
