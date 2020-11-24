@@ -4,14 +4,15 @@ type: docs
 ---
 
 Hugo uses Markdown for its simple content format. However, there are a lot of things that Markdown 
-doesn’t support well. You could use pure HTML to expand possibilities.
+doesn’t support well. You could use pure HTML to expand possibilities. A typical example is reducing
+the original dimensions of an image.
 
-But this happens to be a bad idea. Everyone uses Markdown because it's pure and simple to read 
-even non-rendered. You should avoid HTML to keep it as simple as possible.
+However, use HTML judicially and to the minimum extent possible. Using HTML in markdowns makes it
+harder to maintain and publish coherent documentation bundles. This is a job typically performed by
+a publishing platform mechanisms, such as Hugo's layouts. Considering that the source documentation
+might be published by multiple platforms you should be considerate in using markup that may bind it 
+to a particular one.
 
-To avoid this limitations, Hugo created [shortcodes](https://gohugo.io/extras/shortcodes/). A 
-shortcode is a simple snippet inside a page.
-
-**Gardener** provides multiple shortcodes on top of existing ones.
-
-{{%children style="h2" description="true" %}}
+For that reason we no longer support Hugo shortcodes. Instead we plan to gradually introduce mechanisms 
+to compensate for Markdowns's limitations with regard to creating documentation without departing from
+'normal' Markdown towards a publishing platform.
