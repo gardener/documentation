@@ -31,7 +31,7 @@ structure:
 {{- $latest = . }}
 - name: documentation
   nodesSelector:
-    path: https://github.com/gardener/documentation/blob/master/.docforge/documentation.yaml
+    path: https://github.com/gardener/documentation/blob/{{.}}/.docforge/documentation.yaml
 {{- else }}
 - name: {{.}}
   nodesSelector:
