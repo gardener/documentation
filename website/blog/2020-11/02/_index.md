@@ -16,7 +16,7 @@ Dear community, we're happy to announce a new minor release of Gardener, in fact
 v1.13 came out just today after a couple of weeks of code improvements and feature implementations.
 As usual, this blog post provides brief summaries for the most notable changes that we introduce with this version.
 Behind the scenes (and not explicitly highlighted below) we are progressing on internal code restructurings and refactorings to ease further extensions and to enhance development productivity.
-Speaking of those: You might be interested in watching [the recording of the last Gardener Community Meeting](TODO) which includes a detailed session for [v2 of Terraformer](https://github.com/gardener/terraformer/releases/tag/v2.0.0-rc.0), a complete rewrite in Golang and improved state handling.
+Speaking of those: You might be interested in watching [the recording of the last Gardener Community Meeting](https://www.youtube.com/watch?v=4sQs_Hj6xpY) which includes a detailed session for [v2 of Terraformer](https://github.com/gardener/terraformer/releases/tag/v2.0.0-rc.0), a complete rewrite in Golang and improved state handling.
 
 ## Notable Changes in v1.13
 
