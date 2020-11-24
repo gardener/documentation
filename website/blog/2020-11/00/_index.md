@@ -4,7 +4,7 @@ linkTitle: Gardener v1.11 and v1.12
 newsSubtitle: November 4, 2020
 type: blog
 publishdate: 2020-11-04
-archivedate: 2020-12-31
+archivedate: 2020-11-25
 authors:
 - name: Tim Usner
   email: tim.usner@sap.com
