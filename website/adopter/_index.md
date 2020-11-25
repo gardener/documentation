@@ -116,7 +116,7 @@ type: landingpage
               <a href="https://stackit.de/en" target="_blank">STACKIT</a> is a digital 
               brand of Europes’ biggest retailer, the Schwarz Group, which includes 
               Lidl, Kaufland, but also production and recycling companies. It uses 
-              Gardener to offer public and private Kubernetes as a service on own data 
+              Gardener to offer public and private Kubernetes as a service in own data 
               centers in Europe and targets to become the cloud provider for German and 
               European small and mid-sized companies. 
             </p>
