@@ -23,19 +23,6 @@ type: landingpage
       <div class="container">
         <div class="row adopter">
           <div class="one-third column">
-            <img src="./images/bnerd.png" />
-          </div>
-          <div class="two-thirds column">
-            <p class="description">
-              <a href="https://bnerd.com/de" target="_blank">b’nerd</a> uses
-              Gardener as the core technology for its own managed Kubernetes as a
-              Service solution and operates multiple Gardener installations for
-              several cloud hosting service providers.
-            </p>
-          </div>
-        </div>
-        <div class="row adopter">
-          <div class="one-third column">
             <img src="./images/sap.png" />
           </div>
           <div class="two-thirds column">
@@ -107,6 +94,19 @@ type: landingpage
             </p>
           </div>
         </div>
+        <div class="row adopter">
+          <div class="one-third column">
+            <img src="./images/bnerd.png" />
+          </div>
+          <div class="two-thirds column">
+            <p class="description">
+              <a href="https://bnerd.com/de" target="_blank">b’nerd</a> uses
+              Gardener as the core technology for its own managed Kubernetes as a
+              Service solution and operates multiple Gardener installations for
+              several cloud hosting service providers.
+            </p>
+          </div>
+        </div>        
         <p class="call-for-action">
           If you’re using Gardener and you aren’t on this list,
           <a href="https://github.com/gardener/gardener/pulls">submit a pull request!</a>
