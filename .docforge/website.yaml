@@ -35,7 +35,7 @@ structure:
 {{- else }}
 - name: {{.}}
   nodesSelector:
-    path: https://github.com/gardener/documentation/blob/master/.docforge/documentation.yaml
+    path: https://github.com/gardener/documentation/blob/{{.}}/.docforge/documentation.yaml
   links:
     rewrites:
       gardener/documentation/(tree|blob|raw):
