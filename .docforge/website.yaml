@@ -24,30 +24,23 @@ structure:
       title: Community
       url: /community
       type: landingpage
-{{- $latest := "" }}
 {{- $vers := Split .versions "," -}}
-{{-  range $vers -}}
-{{- if eq $latest "" -}}
-{{- $latest = . }}
+{{- range $i, $version := $vers -}}
+{{- if eq $i 0  }}
 - name: documentation
-  nodesSelector:
-    path: https://github.com/gardener/documentation/blob/{{.}}/.docforge/documentation.yaml
 {{- else }}
-- name: {{.}}
+- name: {{$version}}
+{{- end }}
   nodesSelector:
-    path: https://github.com/gardener/documentation/blob/{{.}}/.docforge/documentation.yaml
+    path: https://github.com/gardener/documentation/blob/{{$version}}/.docforge/documentation.yaml
   links:
     rewrites:
       gardener/documentation/(tree|blob|raw):
-        version: {{.}}
+        version: {{$version}}
       gardener/gardener/(tree|blob|raw):
-        version: {{.}}
-{{- end -}}
+        version: {{$version}}
 {{- end }}
 links:
-  rewrites:
-    gardener/gardener:
-      version: {{ $latest }}
   downloads:
     scope:
       gardener/documentation/(blob|raw)/(.*)/website: ~
