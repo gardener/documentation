@@ -29,10 +29,13 @@ type: landingpage
             <p class="description">
               <a href="https://www.sap.com" target="_blank">SAP</a> uses
               Gardener to deploy and manage Kubernetes clusters at scale in a
-              uniform way across infrastructures (AWS, Azure, GCP, Alicloud,
-              OpenStack). Workloads include databases (SAP HANA), Big Data (SAP
-              Data Hub), IoT, AI, and Machine Learning (SAP Leonardo),
-              Serverless and diverse business workloads.
+              uniform way across infrastructures (AWS, Azure, GCP, Alicloud, as well as generic interfaces to OpenStack and vSphere). 
+              Workloads include 
+              Databases (<a href="https://www.sap.com/products/hana/cloud.html" target="_blank">SAP HANA Cloud</a>), 
+              Big Data (<a href="https://www.sap.com/products/data-intelligence.html" target="_blank">SAP Data Intelligence</a>),
+              <a href="https://kyma-project.io" target="_blank">Kyma</a>, 
+              many other cloud native applications,
+              and diverse business workloads.
             </p>
           </div>
         </div>
