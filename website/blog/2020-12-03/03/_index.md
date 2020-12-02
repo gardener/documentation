@@ -35,7 +35,7 @@ We started with the Kubernetes endeavor in the beginning of 2020 with a newly fo
 
 With this mission, we started our quest through the world of Kubernetes and soon found Gardener to be a hot candidate of cluster management tools that seemed to fulfill our demands. We quickly got in contact and received a warm welcome from the Gardener community. As interested potential adopter, but in the early days of the COVID-19 lockdown, we managed to organize an online workshop during which we got an introduction and deep dive into Gardener and discussed the STACKIT use cases. We learned that Gardener is extensible in many dimensions, and that contributions are always welcome and encouraged. Once we understood the basic Gardener concepts of Garden, Shoot and Seed clusters, its inception design and how this extends Kubernetes concepts in a natural way, we were eager to evaluate this tool in more detail. 
 
-After this evaluation we were convinced that this tool fulfilled all our requirements - so a decision was made and off we went.  
+After this evaluation, we were convinced that this tool fulfilled all our requirements - a decision was made and off we went.  
 
 ## How Gardener was adapted and extended by SKE 
 
@@ -51,11 +51,11 @@ After becoming familiar with Gardener, we started to look into its code base to 
 
 ## Experience with Gardener operations
 
-As no OpenStack installation is identical to others, getting Gardener to run stable on the STACKIT IaaS layer revealed some operational challenges. For instance, it was challenging to find the right configuration for Cinder CSI.
+As no OpenStack installation is identical to one another, getting Gardener to run stable on the STACKIT IaaS layer revealed some operational challenges. For instance, it was challenging to find the right configuration for Cinder CSI.
 
-To test for its resilience, we tried to break the managed clusters with a Chaos Monkey test, e.g. by deleting services or components needed by Kubernetes and Gardener to work properly. The reconciliation feature of Gardener fixed all those problems automatically, so that damaged Shoot clusters became operational again after a short period of time. Thus, we were not able to break Shoot clusters from an end user perspective permanently. And we really tried hard. Which again speaks for Gardener’s first-class cloud native design.
+To test for its resilience, we tried to break the managed clusters with a Chaos Monkey test, e.g. by deleting services or components needed by Kubernetes and Gardener to work properly. The reconciliation feature of Gardener fixed all those problems automatically, so that damaged Shoot clusters became operational again after a short period of time. Thus, we were not able to break Shoot clusters from an end user perspective permanently, despite our efforts. Which again speaks for Gardener’s first-class cloud native design.
 
-We also encountered a very good community support: For several challenges we contacted the community channel and help was provided in a timely manner. A lesson learned was that raising an issue in the community early on, before getting stuck too long on your own with an unresolved problem, is very helpful.
+We also participated in a fruitful community support: For several challenges we contacted the community channel and help was provided in a timely manner. A lesson learned was that raising an issue in the community early on, before getting stuck too long on your own with an unresolved problem, is essential and efficient.
 
 ## Summary 
 
