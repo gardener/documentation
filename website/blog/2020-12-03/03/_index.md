@@ -14,17 +14,11 @@ aliases: ["/blog/2020/12/03/03"]
 
 [STACKIT](https://stackit.de/en/) is a digital brand of Europe’s biggest retailer, the Schwarz Group, which consists of Lidl, Kaufland, as well as production and recycling companies. Following the industry trend, the Schwarz Group is in the process of a digital transformation. STACKIT enables this transformation by helping to modernize the internal IT of the company branches. 
 
-What is STACKIT and the STACKIT Kubernetes Engine (SKE)? 
-
-STACKIT started with colocation solutions for internal and external customers in Europe-based data centers, which was then expanded to a full cloud platform stack providing an IaaS layer with VMs, storage and network, as well as a PaaS layer including Cloud Foundry  and a growing set of cloud services, like databases, messaging, etc. 
-
-With containers and Kubernetes becoming the lingua franca of the cloud, we are happy to announce that we utilized Gardener to create our STACKIT Kubernetes Engine (SKE), which is available as Beta version now. We decided to use Gardener as the cluster management engine underneath SKE - for good reasons as you will see – and we would like to share our experiences with Gardener when working on the SKE Beta release, and serve as a testimonial for this technology. 
-
 ## What is STACKIT and the STACKIT Kubernetes Engine (SKE)? 
 
-STACKIT started with colocation solutions for internal and external customers in Europe-based data centers, which was then expanded to a full cloud platform stack providing an IaaS layer with VMs, storage and network, as well as a PaaS layer including Cloud Foundry  and a growing set of cloud services, like databases, messaging, etc. 
+ STACKIT started with colocation solutions for internal and external customers in Europe-based data centers, which was then expanded to a full cloud platform stack providing an IaaS layer with VMs, storage and network, as well as a PaaS layer including Cloud Foundry  and a growing set of cloud services, like databases, messaging, etc. 
 
-With containers and Kubernetes becoming the lingua franca of the cloud, we are happy to announce the *STACKIT Kubernetes Engine (SKE)*, which has been released as Beta in November this year. We decided to use Gardener as the cluster management engine underneath SKE - for good reasons as you will see – and we would like to share our experiences with Gardener when working on the SKE Beta release, and serve as a testimonial for this technology. 
+With containers and Kubernetes becoming the lingua franca of the cloud, we are happy to announce that we utilized Gardener to create our STACKIT Kubernetes Engine (SKE), which is available as Beta version now. We decided to use Gardener as the cluster management engine underneath SKE - for good reasons as you will see – and we would like to share our experiences with Gardener when working on the SKE Beta release, and serve as a testimonial for this technology. 
 
 <img title="Figure 1: STACKIT Component Diagram" src="images/00.png" style="width:90%; height:auto" />
 <figcaption style="text-align:center;margin-top: 0px;margin-bottom: 30px;font-size: 90%;">Figure 1: STACKIT Component Diagram</figcaption>
