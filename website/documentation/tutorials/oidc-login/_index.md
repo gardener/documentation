@@ -17,47 +17,64 @@ Please read the following background material on [Authenticating](https://kubern
 
 ## Overview
 
-Kubernetes on its own does not provide any user management. In other words, users are not managed through Kubernetes resources. Whenever you refer to a human user it is sufficient to use a unique ID, for example, an email addresss. Nevertheless, Gardener project owners may want to use an identity provider to authenticate user access for shoot clusters. This can be done in the following way:
+Kubernetes on its own doesn’t provide any user management. In other words, users aren’t managed through Kubernetes resources. Whenever you refer to a human user it’s sufficient to use a unique ID, for example, an email address. Nevertheless, Gardener project owners can use an identity provider to authenticate user access for shoot clusters in the following way:
 
 1. [Configure an Identity Provider](#configure-an-identity-provider) using **OpenID Connect** (OIDC).
 2. [Configure a local kubectl oidc-login](#configure-a-local-kubectl-oidc-login) to enable `oidc-login`.
-3. [Configure the shoot cluster](#configure-the-shoot-cluster) to share details of the OIDC compliant identity provider with the Kubernetes API Server. 
+3. [Configure the shoot cluster](#configure-the-shoot-cluster) to share details of the OIDC-compliant identity provider with the Kubernetes API Server. 
 4. [Authorize an authenticated user](#authorize-an-authenticated-user) using role-based access control (RBAC).
+5. [Verify the result](#verify-the-result)
 
-> Gardener allows administrators to modify aspects of the control plane setup. This gives administrators full control of how the control plane should be parameterized. While this offers a lot of flexibility, administrators need to ensure that they do not configure a control plane that goes beyond the service level agreements of the responsible operaters team.  
+> Gardener allows administrators to modify aspects of the control plane setup. It gives administrators full control of how the control plane is parameterized. While this offers much flexibility, administrators need to ensure that they don’t configure a control plane that goes beyond the service level agreements of the responsible operators team.  
 
 ## Configure an Identity Provider
 
-Create a tenant in an OIDC compatible Identity Provider. For simplicity, we use [Auth0](auth0.com), which has a free plan.
+Create a tenant in an OIDC compatible Identity Provider. For simplicity, we use *Auth0*, which has a free plan.
 
-1. In your tenant, set up a native client application that will use the authentication:
+1. In your tenant, create a client application to use authentication with `kubectl`:
 
-   ![application](./application.png)
+   ![Create client application](./Create-client-application.png)
 
-2. Configure the client to have a callback url of `http://localhost:8000`. This callback connects to your local `kubectl oidc-login` plugin:
+2. Provide a *Name*, choose *Native* as application type, and choose *CREATE*.
 
-   ![application](./callback.png)
+   ![Choose application type](./Choose-application-type.png)
 
-3. Note down the following parameters:
+3. On tab *Settings*, copy the following parameters to a local text file:
 
-    * Domain or Issuer url. It [must](https://openid.net/specs/openid-connect-core-1_0.html#Terminology) be an `https`-secured endpoint (In case of Auth0, notice the trailing `/` at the end).
-    * Client ID
-    * Client Secret
+    * *Domain*
 
-4. Verify that `https://<Issuer>/.well-known/openid-configuration` is reachable.
+      > Corresponds to the **issuer** in OIDC. It must be an `https`-secured endpoint (Auth0 requires a trailing `/` at the end). More information: [Issuer Identifier](https://openid.net/specs/openid-connect-core-1_0.html#Terminology).
+    * *Client ID*
+    * *Client Secret*
 
-5. Create some users (or connect to a user store):
+      ![Basic information](Basic-information.png)
 
-   ![application](./user.png)
+4. Configure the client to have a callback url of `http://localhost:8000`. This callback connects to your local `kubectl oidc-login` plugin:
 
-   Notice that the users must have a *verified* email address. In doubt, just override that setting manually.
+   ![Configure callback](./Configure-callback.png)
 
-## Configure a local kubectl oidc-login
+5. Save your changes.
+
+
+4. Verify that `https://<Auth0 Domain>/.well-known/openid-configuration` is reachable.
+
+5. Choose *Users & Roles* \> *Users* \> *CREATE USERS* to create a user with a user and password:
+
+   ![Create user](./Create-user.png)
+
+   > Users must have a *verified* email address.
+
+## Configure a local `kubectl` `oidc-login`
 
 1. Install the `kubectl` plugin [oidc-login](https://github.com/int128/kubelogin). We highly recommend the [krew](https://github.com/kubernetes-sigs/krew) install tool, which also makes other plugins easily available.
 
+    ```console
+    kubectl krew install oidc-login
     ```
-    $ kubectl krew install oidc-login
+
+    The response looks like this:
+
+    ```console
     Updated the local copy of plugin index.
     Installing plugin: oidc-login
     CAVEATS:
@@ -70,11 +87,11 @@ Create a tenant in an OIDC compatible Identity Provider. For simplicity, we use 
 
 2. Prepare a `kubeconfig` for later use:
    
-    ```
-    $ cp ~/.kube/config ~/.kube/config-oidc
+    ```console
+    cp ~/.kube/config ~/.kube/config-oidc
     ``` 
 
-3. Modify the configuration as follows:
+3. Modify the configuration of `~/.kube/config-oidc` as follows:
    
     ```yaml
     apiVersion: v1
@@ -93,20 +110,23 @@ Create a tenant in an OIDC compatible Identity Provider. For simplicity, we use 
     users:
     - name: my-oidc
       user:
-        auth-provider:
-          config:
-            client-id: <Client ID>
-            client-secret: <Client Secret>
-            idp-issuer-url: "https://<Issuer>/"
-            extra-scopes: email,offline_access,profile
-          name: oidc
+        exec:
+          apiVersion: client.authentication.k8s.io/v1beta1
+          command: kubectl
+          args:
+          - oidc-login
+          - get-token
+          - --oidc-issuer-url=https://<Issuer>/ 
+          - --oidc-client-id=<Client ID>
+          - --oidc-client-secret=<Client Secret>
+          - --oidc-extra-scope=email,offline_access,profile
     ``` 
 
-4. Ensure that the modified context is the active context `current-context: shoot--project--mycluster`.
+To test our OIDC-based authentication, context `shoot--project--mycluster` of `~/.kube/config-oidc` is used in a later step. For now, continue to use the configuration `~/.kube/config` with administration rights for your cluster.
 
 ## Configure the shoot cluster
 
-Modify the shoot cluster YAML as follows:
+Modify the shoot cluster YAML as follows, using the client ID and the domain (as issuer) from the settings of the client application you created in Auth0:
 
 ```yaml
 kind: Shoot
@@ -124,86 +144,92 @@ spec:
         usernameClaim: email
 ```
 
-This change of the `Shoot` manifest triggers a reconciliation. Once the reconciliation is finished, your OIDC configuration is applied. It does *not* invalidate other certificate based authentication methods. Wait for Gardener to reconcile the change. It can take up to 5 minutes.
+This change of the `Shoot` manifest triggers a reconciliation. Once the reconciliation is finished, your OIDC configuration is applied. It **doesn't** invalidate other certificate-based authentication methods. Wait for Gardener to reconcile the change. It can take up to 5 minutes.
 
 
 ## Authorize an authenticated user
 
-For simplicity, we authorize a single user with the all encompassing cluster role `cluster-admin`:
+In Auth0, you created a user with a verified email address, `test@test.com` in our example. For simplicity, we authorize a single user identified by this email address with cluster role `view`:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: cluster-admin-test
+  name: viewer-test
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: cluster-admin
+  name: view
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
   name: test@test.com
 ```
 
-As administrator, apply the above cluster role binding for `test@test.com`.
+As administrator, apply the cluster role binding in your shoot cluster. 
 
-## Verify the Result
+## Verify the result
 
-1. Activate the prepared `kubeconfig-oidc` and perform a login:
+1. To step into the shoes of your user, use the prepared `kubeconfig` file `~/.kube/config-oidc`, and switch to the context that uses `oidc-login`:
    
     ```
-    $ export KUBECONFIG=~/.kube/config-oidc
-    $ kubectl oidc-login
-    Open http://localhost:8000 for authentication
+    cd ~/.kube
+    export KUBECONFIG=$(pwd)/config-oidc
+    kubectl config use-context `shoot--project--mycluster`
     ```
 
-    The plugin opens a browser for an interctive authentication session, and in parallel serves a local webserver for the configured callback.
+2. `kubectl` delegates the authentication to plugin `oidc-login` the first time the user uses `kubectl` to contact the API server, for example:
 
-    ![login](./login.png)
-
-2. Enter your login credentials. If you successfully verified your user the console will display the validity of your returned token:
-  
     ```
-    You got a valid token until 2019-08-14 06:26:49 +0200 CEST
+    kubectl get all
     ```
 
-3. Inspect the `kubeconfig-oidc`. You will find two additional parameters:
+    The plugin opens a browser for an interactive authentication session with Auth0, and in parallel serves a local webserver for the configured callback.
+
+
+3. Enter your login credentials. 
+
+    ![Login through identity provider](./Login-through-identity-provider.png)
+
+    You should get a successful response from the API server:
+
+    ```
+    Opening in existing browser session.
+    NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+    service/kubernetes   ClusterIP   100.64.0.1   <none>        443/TCP   86m
+    ``` 
+
+    > After a successful login, `kubectl` uses a token for authentication so that you don’t have to provide user and password for every new `kubectl` command. How long the token is valid can be configured. If you want to log in again earlier, reset plugin `oidc-login`:
+    > 1. Delete directory `~/.kube/cache/oidc-login`.
+    > 1. Delete the browser cache.
+    >
+
+4. To see if your user uses cluster role `view`, do some checks with `kubectl auth can-i`.
+
+    * The response for the following commands should be `no`:
    
-    ```yaml
-    ...
-    users:
-    - name: my-oidc
-      user:
-        auth-provider:
-          config:
-            client-id: <Client ID>
-            client-secret: <Client Secret>
-            idp-issuer-url: "https://<Issuer>/"
-            extra-scopes: email,offline_access,profile
-            id-token: eyJ0eX ... 4In0.QQKS ... TTTw
-            refresh-token: LFt ... 0Skj
-          name: oidc
-    ```
+        ```
+        kubectl auth can-i create clusterrolebindings
+        ```
+        ```
+        kubectl auth can-i get secrets
+        ```
+        ```
+        kubectl auth can-i describe secrets
+        ```
+    
+    * The response for the following commands should be `yes`:
 
-    The plugin persisted the `id-token` and `refresh-token` in your configuration file. 
+        ```
+        kubectl auth can-i list pods
+        ```
+        ```
+        kubectl auth can-i get pods
+        ```
+ 
+If the last step is successful, you’ve configured your cluster to authenticate against an identity provider using OIDC.
 
-4. Verify that your user actually has the `cluster-admin` role:
-   
-    ```
-    $ kubectl get po --all-namespaces
-    NAMESPACE     NAME                                       READY   STATUS    RESTARTS   AGE
-    kube-system   blackbox-exporter-954dd954b-tk9vl          1/1     Running   0          7d5h
-    kube-system   calico-kube-controllers-5f4b46ffb5-ggb7z   1/1     Running   0          7d5h
-    ...
+## Related Links
 
-    $ kubectl who-can create clusterrolebinding
-    No subjects found with permissions to create clusterrolebinding assigned through RoleBindings
+[Auth0 Pricing](https://auth0.com/pricing/)
 
-    CLUSTERROLEBINDING                                    SUBJECT                             TYPE            SA-NAMESPACE
-    cluster-admin                                         system:masters                      Group
-    cluster-admin-test                                    test@test.com                       User
-    ...
-    ```
-
-Congratulations, you have just configured your cluster to authenticate against an Identity Provider using OpenID Connect!
