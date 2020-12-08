@@ -172,7 +172,7 @@ As administrator, apply the cluster role binding in your shoot cluster.
 
 1. To step into the shoes of your user, use the prepared `kubeconfig` file `~/.kube/config-oidc`, and switch to the context that uses `oidc-login`:
    
-    ```
+    ```console
     cd ~/.kube
     export KUBECONFIG=$(pwd)/config-oidc
     kubectl config use-context `shoot--project--mycluster`
@@ -180,7 +180,7 @@ As administrator, apply the cluster role binding in your shoot cluster.
 
 2. `kubectl` delegates the authentication to plugin `oidc-login` the first time the user uses `kubectl` to contact the API server, for example:
 
-    ```
+    ```console
     kubectl get all
     ```
 
@@ -208,22 +208,22 @@ As administrator, apply the cluster role binding in your shoot cluster.
 
     * The response for the following commands should be `no`:
    
-        ```
+        ```console
         kubectl auth can-i create clusterrolebindings
         ```
-        ```
+        ```console
         kubectl auth can-i get secrets
         ```
-        ```
+        ```console
         kubectl auth can-i describe secrets
         ```
     
     * The response for the following commands should be `yes`:
 
-        ```
+        ```console
         kubectl auth can-i list pods
         ```
-        ```
+        ```console
         kubectl auth can-i get pods
         ```
  
