@@ -49,7 +49,7 @@ Create a tenant in an OIDC compatible Identity Provider. For simplicity, we use 
 
       ![Basic information](Basic-information.png)
 
-4. Configure the client to have a callback url of `http://localhost:8000`. This callback connects to your local `kubectl oidc-login` plugin:
+4. Configure the client to have a callback url of http://localhost:8000. This callback connects to your local `kubectl oidc-login` plugin:
 
    ![Configure callback](./Configure-callback.png)
 
