@@ -99,7 +99,7 @@ type: landingpage
         </div>
         <div class="row adopter">
           <div class="one-third column">
-            <img src="./images/bnerd.png" />
+            <img src="./images/bnerd.png" height="30%" width="30%"/>
           </div>
           <div class="two-thirds column">
             <p class="description">
