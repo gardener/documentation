@@ -125,6 +125,16 @@ type: landingpage
             </p>
           </div>
         </div>
+        <div class="row adopter">
+          <div class="one-third column">
+            <img src="./images/tsystems.png" />
+          </div>
+          <div class="two-thirds column">
+            <p class="description">
+              Supporting and managing multiple application landscapes on-premises and across different hyperscaler infrastructures can be painful. At <a href="https://www.t-systems.com/" target="_blank">T-Systems</a> we use Gardener both for internal usage and to manage clusters for our customers. We love the openness of the project, the flexibility and the architecture that allows us to manage clusters around the world with only one team from one single pane of glass and to meet industry specific certification standards. The sovereignty by design is another great value, the technology implicitly brings along.
+            </p>
+          </div>
+        </div>
         <p class="call-for-action">
           If you’re using Gardener and you aren’t on this list,
           <a href="https://github.com/gardener/gardener/pulls">submit a pull request!</a>
