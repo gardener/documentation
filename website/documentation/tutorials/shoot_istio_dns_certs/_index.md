@@ -217,7 +217,7 @@ I want to install Istio with a default profile and SDS enabled. Furthermore I pa
     cert.gardener.cloud/issuer: mydomain-staging
     cert.gardener.cloud/secretname: wildcard-tls
     dns.gardener.cloud/class: garden
-    dns.gardener.cloud/dnsnames: '*.gsicdc.mydomain.io'
+    dns.gardener.cloud/dnsnames: "*.gsicdc.mydomain.io"
     dns.gardener.cloud/ttl: "120"
 ```
 With these annotations three things now happen automagically:
@@ -234,13 +234,23 @@ Here is the istio-install script:
 $ export domainname="*.gsicdc.mydomain.io"
 $ export issuer="mydomain-staging"
 
-$ istioctl manifest apply --set profile=default \
-  --set values.gateways.istio-ingressgateway.serviceAnnotations.'dns\.gardener\.cloud/dnsnames'=${domainname} \
-  --set values.gateways.istio-ingressgateway.serviceAnnotations.'dns\.gardener\.cloud/ttl'='120' \
-  --set values.gateways.istio-ingressgateway.serviceAnnotations.'dns\.gardener\.cloud/class'='garden' \
-  --set values.gateways.istio-ingressgateway.serviceAnnotations.'cert\.gardener\.cloud/issuer'=${issuer} \
-  --set values.gateways.istio-ingressgateway.serviceAnnotations.'cert\.gardener\.cloud/secretname'='wildcard-tls' \
-  --set values.gateways.istio-ingressgateway.sds.enabled=true 
+$ cat <<EOF | istioctl install -y -f -
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+spec:
+  profile: default
+  components:
+    ingressGateways:
+    - name: istio-ingressgateway
+      enabled: true
+      k8s:
+        serviceAnnotations:
+          cert.gardener.cloud/issuer: "${issuer}"
+          cert.gardener.cloud/secretname: wildcard-tls
+          dns.gardener.cloud/class: garden
+          dns.gardener.cloud/dnsnames: "${domainname}"
+          dns.gardener.cloud/ttl: "120" 
+EOF
 ```
 
 Verify that setup is working and that DNS and certificates have been created/delivered:
@@ -287,7 +297,7 @@ $ brew install httpie
 <p>Networking is a central part of Kubernetes, but it can be challenging to understand exactly how it is expected to work. You should learn about Kubernetes networking, and first try to debug problems yourself. With a solid managed cluster from Gardener, it is always PEBCAK!</p>
 {{% /notice %}}
 
-Kubernetes Ingress is a subject that is evolving to much broader standard. Please watch [Evolving the Kubernetes Ingress APIs to GA and Beyond](https://www.youtube.com/watch?v=cduG0FrjdJA) for a good introduction. In this example, I did not want to use the Kubernetes `Ingress` compatibility option of Istio. Instead, I used `VirtualService` and `Gateway` from the Istio's API group `networking.istio.io/v1beta1` directly.
+Kubernetes Ingress is a subject that is evolving to much broader standard. Please watch [Evolving the Kubernetes Ingress APIs to GA and Beyond](https://www.youtube.com/watch?v=cduG0FrjdJA) for a good introduction. In this example, I did not want to use the Kubernetes `Ingress` compatibility option of Istio. Instead, I used `VirtualService` and `Gateway` from the Istio's API group `networking.istio.io/v1beta1` directly, and enabled istio-injection generically for the namespace.
 
 I use [httpbin](https://httpbin.org/) as service that I want to expose to the internet, or where my ingress should be routed to (depends on your point of view, I guess).
 
@@ -458,7 +468,7 @@ Succeeded
 
 Remove Istio:
 ```bash
-$ istioctl manifest generate --set profile=default | kubectl delete -f -
+$ istioctl x uninstall --purge
 clusterrole.rbac.authorization.k8s.io "prometheus-istio-system" deleted
 clusterrolebinding.rbac.authorization.k8s.io "prometheus-istio-system" deleted
 ...
