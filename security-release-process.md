@@ -26,7 +26,6 @@ following volunteers:
 * Matthias Sohn, (**[@msohn](https://github.com/msohn)**)
 * Frederik Thormaehlen, (**[@ThormaehlenFred](https://github.com/ThormaehlenFred)**)
 
-
 ## Disclosures
 
 ### Private Disclosure Processes
