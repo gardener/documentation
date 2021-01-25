@@ -1,0 +1,87 @@
+---
+title: Machine Controller Manager
+linkTitle: Machine Controller Manager
+newsSubtitle: January 25, 2021
+type: blog
+publishdate: 2021-01-25
+archivedate: 2021-02-25
+authors:
+- name: Samarth S Deyagond
+  email: samarth.deyagond@sap.com
+  avatar: https://avatars.githubusercontent.com/u/32246441?s=460&u=2e611ee3c06533c3ec9d73e0557bab1432446657&v=4
+aliases: ["/blog/2021/01/25/01"]
+---
+
+Kubernetes is a cloud-native enabler built around the principles for a resilient, manageable, observable, highly automated, loosely coupled system. We know that Kubernetes is infrastructure agnostic. So, it would be very convenient for the enterprises that run these K8s clusters, if:
+
+- they can seamlessly manage the underlying machines that act as K8s nodes.
+- they can manage their K8s clusters on different cloud providers.
+- they can seamlessly scale and upgrade the cluster at their will.
+
+This declarative management of machines just like another K8s resource of a K8s cluster is brought to you by [Machine Controller Manager](https://github.com/gardener/machine-controller-manager) (aka MCM), which, of course, is an open sourced project. 
+
+## Machine Controller Manager aka MCM
+[Machine Controller Manager](https://github.com/gardener/machine-controller-manager) is a group of cooperative controllers that manage the lifecycle of the worker machines. It is inspired by the design of Kube Controller Manager in which various sub controllers manage their respective Kubernetes Clients.
+
+Machine Controller Manager reconciles a set of Custom Resources namely `MachineDeployment`, `MachineSet` and `Machines` which are managed & monitored by their controllers `MachineDeployment Controller`, `MachineSet Controller`, `Machine Controller` respectively along with another cooperative controller called the `Safety Controller`.
+
+## Understanding the sub-controllers and Custom Resources of MCM
+The Custom Resources `MachineDeployment`, `MachineSet` and `Machines` are very much analogous to the native K8s resources of `Deployment`, `ReplicaSet` and `Pods` respectively. So, in the context of MCM:
+
+- `MachineDeployment` provides a declarative update for `MachineSet` and `Machines`. `MachineDeployment Controller` reconciles the `MachineDeployment` objects and manages the lifecycle of `MachineSet` objects. `MachineDeployment` consumes provider specific `MachineClass` in its `spec.template.spec` which is the template of the VM spec that would be spawned on the cloud by MCM.
+- `MachineSet` ensures that the specified number of `Machine` replicas are running at a given point of time. `MachineSet Controller` reconciles the `MachineSet` objects and manages the lifecycle of `Machine` objects.
+- `Machines` are the actual VMs running on the cloud platform provided by one of the supported cloud providers. `Machine Controller` is the controller that actually communicates with the cloud provider to create/update/delete machines on the cloud.
+- There is a `Safety Controller` responsible for handling the unidentified or unknown behaviours from the cloud providers.
+- Along with the above Custom Controllers and Resources, MCM requires the `MachineClass` to use K8s `Secret` that stores cloudconfig (initialization scripts used to create VMs) and cloud specific credentials.
+
+
+ 
+## Working of MCM
+ 
+<img title="Figure 1: In-Tree Machine Controller Manager" src="images/00.png" style="width:90%; height:auto" />
+<figcaption style="text-align:center;margin-top: 0px;margin-bottom: 30px;font-size: 90%;">Figure 1: In-Tree Machine Controller Manager</figcaption>
+
+In MCM, there are two K8s clusters in the scope — a *Control Cluster* and a *Target Cluster*. Control Cluster is the K8s cluster where the MCM is installed to manage the machine lifecycle of the Target Cluster. In other words, Control Cluster is the one where the machine-* objects are stored. Target Cluster is where all the node objects are registered. These clusters can be two distinct clusters or the same cluster, whichever fits.
+
+When a `MachineDeployment` object is created, `MachineDeployment Controller` creates the corresponding `MachineSet` object. The `MachineSet Controller` in-turn creates the `Machine` objects. The `Machine Controller` then talks to the cloud provider API and actually creates the VMs on the cloud.
+
+The cloud initialization script that is introduced into the VMs via the K8s `Secret` consumed by the `MachineClasses` talks to the KCM (K8s Controller Manager) and creates the node objects. Nodes after registering themselves to the Target Cluster, start sending health signals to the machine objects. That is when MCM updates the status of the machine object from `Pending` to `Running`.
+ 
+## More on Safety Controller
+Safety Controller contains following functions:
+
+**Orphan VM handling**:
+
+- It lists all the VMs in the cloud; matching the tag of given cluster name and maps the VMs with the `Machine` objects using the `ProviderID` field. VMs without any backing `Machine` objects are logged and deleted after confirmation.
+- This handler runs every 30 minutes and is configurable via `--machine-safety-orphan-vms-period` flag.
+
+**Freeze mechanism**:
+- `Safety Controller` freezes the `MachineDeployment` and `MachineSet controller` if the number of `Machine` objects goes beyond a certain threshold on top of `Spec.Replicas`. It can be configured by the flag `--safety-up` or `--safety-down` and also `--machine-safety-overshooting-period`.
+- `Safety Controller` freezes the functionality of the MCM if either of the `target-apiserver` or the `control-apiserver` is not reachable.
+- `Safety Controller` unfreezes the MCM automatically once situation is resolved to normal. A `freeze` label is applied on `MachineDeployment`/`MachineSet` to enforce the freeze condition.
+
+## Evolution of MCM from In-Tree to Out-of-Tree (OOT)
+MCM supports declarative management of machines in a K8s Cluster on various cloud providers like AWS, Azure, GCP, AliCloud, OpenStack, Metal-stack, Packet, KubeVirt, VMWare, Yandex. It can, of course, be easily extended to support other cloud providers.
+
+Going ahead having the implementation of the Machine Controller Manager supporting too many cloud providers would be too much upkeep from both a development and a maintenance point of view. Which is why, the `Machine Controller` component of MCM has been moved to Out-of-Tree design where `Machine Controller` for respective cloud provider runs as an independent executable; even though typically packaged under the same deployment.
+
+<img title="Figure 2: Out-Of-Tree Machine Controller Manager" src="images/01.png" style="width:90%; height:auto" />
+<figcaption style="text-align:center;margin-top: 0px;margin-bottom: 30px;font-size: 90%;">Figure 2: Out-Of-Tree (OOT) Machine Controller Manager</figcaption>
+
+This OOT Machine Controller will implement a common interface to manage the VMs on the respective cloud provider. Now, while `Machine Controller` deals with the `Machine` objects, Machine Controller Manager (MCM) deals with higher level objects such as `MachineSet` and `MachineDeployment` objects.
+
+## Who uses MCM?
+**[Gardener](http://gardener.cloud)**
+
+MCM is originally developed and employed by a K8s Control Plane as a Service called Gardener. However, the MCM’s design is elegant enough to be employed when managing the machines of any independent K8s clusters, without having to necessarily associate it with Gardener.
+
+**[Sky UK Limited](http://sky.com)**
+
+Sky UK Limited is a British broadcaster and telecommunications company in UK who recently migrated their Kubernetes nodes from Ansible to Machine Controller Manager. Check out [this](https://youtu.be/yF4wq7GAeEM) video from YouTube [Gardener Project](https://www.youtube.com/channel/UCwUhwKFREV8Su0gwAJQX7tw) Channel where Anthony Comtios, Principle Engineer working at Sky talks about MCM in action with Sky's tech stack.
+
+
+## Conclusion
+Machine Controller Manager is so far the best automation for machine management for K8s Clusters. And the best part is that it is open sourced. It gives everyone a scope of both employment and enhancement at ease.
+
+Whether you want to know more about Machine Controller Manager or see a potential scope of the same for your solutions, then visit the GitHub page [machine-controller-manager](https://github.com/gardener/machine-controller-manager). We are so excited to see what you achieve with Machine Controller Manager.
+
