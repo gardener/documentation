@@ -16,16 +16,25 @@ aliases: ["/blog/2021/01/30/01"]
 ---
 
 Happy new year Gardeners!
-As we greet 2021, we also celebrate Gardener’s third anniversary. 
-Looking back, three years down the line, the project initiators were working towards a special goal: Publishing Gardener as an open source project on Github.com.
+As we greet 2021, we also celebrate Gardener’s third anniversary. Gardener was born with its first open source [commit](https://github.com/gardener/gardener/commit/d9619d01845db8c7105d27596fdb7563158effe1) on 10.1.2018 (its inception within SAP was of course some 9 months earlier):
 
+```text
+commit d9619d01845db8c7105d27596fdb7563158effe1
+Author: Gardener Development Community <gardener.opensource@sap.com>
+Date:   Wed Jan 10 13:07:09 2018 +0100
+    Initial version of gardener
+    This is the initial contribution to the Open Source Gardener project.
+...
+```
+
+Looking back, three years down the line, the project initiators were working towards a special goal: Publishing Gardener as an open source project on Github.com.
 Join us as we look back at how it all began, the challenges Gardener aims to solve and why open source and the community was and is the project’s key enabler.
 
 ## Gardener kick-off: “We opted to BUILD ourselves”
 
 Early 2017, SAP put together a small, jelled team of experts with a clear mission: work out  how SAP could serve Kubernetes based environments (as a service) for all teams within the company.  Later that same year SAP also joined the [CNCF](https://www.cncf.io/) as platinum member.
 
-We first deliberated intensively on the BUY options. There were some early products from commercial vendors and startups available that did not bind exclusively to one of the hyperscalers. But these products did not cover many of our crucial and immediate requirements for a multi-cloud environment.
+We first deliberated intensively on the BUY options (including acquisitions, due to the size and estimated volume needed at SAP). There were some early products from commercial vendors and startups available that did not bind exclusively to one of the hyperscalers. But these products did not cover many of our crucial and immediate requirements for a multi-cloud environment.
 
 Ultimately, we opted to BUILD ourselves. This decision was not made lightly, because right from the start, we knew that we would have to cover thousands of clusters, across the globe, on all kinds of infrastructures. We would have to be able to create them at scale as well as manage them 24x7. And thus, we predicted the need to invest into automation of all aspects, to keep the service TCO at a minimum, and to offer an enterprise worthy SLA early on. This particular endeavor grew into launching project Gardener, first internally, and ultimately fulfilling all checks, externally based on open source.
 Its mission statement, in a nutshell, is “Universal Kubernetes at scale”.
@@ -66,7 +75,7 @@ Also, teams that have serious, or say, more demanding workloads running on Kuber
 
 Well, there is SAP itself of course, but also the number of Gardener adopters and companies interested in Gardener is growing (~1700 GitHub stars), as more are challenged with multi-cluster and multi-cloud requirements.
 
-_Flant, PingCap, StackIT, T-Systems_, or _b’nerd_ are among these companies, to name a few. They use Gardener to either run products they sell on top or offer managed Kubernetes clusters directly to their clients, or even only components that are re-usable from Gardener.
+_Flant, PingCap, StackIT, T-Systems, Sky_, or _b’nerd_ are among these companies, to name a few. They use Gardener to either run products they sell on top or offer managed Kubernetes clusters directly to their clients, or even only components that are re-usable from Gardener.
 
 An interesting journey in the open source space started with _Finanz Informatik Technologie Service (FI-TS)_, a European Central Bank regulated and certified hoster for banks. They operate in very restricted environments, as you can imagine, and as such, they re-designed their datacenter for cloud native workloads from scratch, that is from cabling, racking and stacking to an API that serves bare metal servers.
 For Kubernetes-as-a-Service they evaluated and chose Gardener because it was open and a perfect candidate. With Gardener’s extension capabilities, it was possible to bring managed Kubernetes clusters to their very own bare metal stack, [metal-stack.io](https://metal-stack.io/).
