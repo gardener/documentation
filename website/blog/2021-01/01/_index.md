@@ -1,10 +1,10 @@
 ---
 title: Happy anniversary Gardener! Three years of open source Kubernetes management
-linkTitle: Happy anniversary Gardener! Three years of open source Kubernetes management
-newsSubtitle: January 30, 2021
+linkTitle: Happy anniversary Gardener!
+newsSubtitle: Three years of open source Kubernetes management
 type: blog
 publishdate: 2021-01-25
-archivedate: 2021-02-25
+archivedate: 2021-03-01
 authors:
 - name: Vasu Chandrasekhara
   email: vasu.chandrasekhara@sap.com
@@ -12,10 +12,10 @@ authors:
 - name: Tim Usner
   email: tim.usner@sap.com
   avatar: https://avatars.githubusercontent.com/u/40451181?s=400&u=4df34635cf86b924700ef4152ec8462eeaa35721&v=4
-aliases: ["/blog/2021/01/30/01"]
+aliases: ["/blog/2021/01/30/00"]
 ---
 
-Happy new year Gardeners!
+Happy New Year Gardeners!
 As we greet 2021, we also celebrate Gardener’s third anniversary. Gardener was born with its first open source [commit](https://github.com/gardener/gardener/commit/d9619d01845db8c7105d27596fdb7563158effe1) on 10.1.2018 (its inception within SAP was of course some 9 months earlier):
 
 ```text
