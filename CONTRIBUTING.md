@@ -71,6 +71,10 @@ Due to legal reasons, contributors will be asked to accept a Developer Certifica
 
 * If your patch is not getting reviewed or you need a specific person to review it, you can @-reply a reviewer asking for a review in the pull request or a comment, or you can ask for a review on our [mailing list](https://groups.google.com/forum/?fromgroups#!forum/gardener).
 
+* If you add new features, make sure that they are documented in the [Gardener documentation](https://github.com/gardener/documentation)
+
+* If your changes are relevant for operators, consider to update the [ops toolbelt image](https://github.com/gardener/ops-toolbelt)
+
 * Post review:
   * If a review requires you to change your commit(s), please test the changes again.
   * Amend the affected commit(s) and force push onto your branch.
