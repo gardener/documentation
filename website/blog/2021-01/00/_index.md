@@ -99,4 +99,4 @@ Also, other interesting use cases with MCM are implemented by Kubernetes enthusi
 ## Conclusion
 Machine Controller Manager is the leading automation tool for machine management for, and in, Kubernetes. And the best part is that it is open sourced. It is freely (and easily) usable and extensible, and the community more than welcomes contributions. 
 
-Whether you want to know more about Machine Controller Manager or see a potential scope of the same for your solutions, then visit the GitHub page [machine-controller-manager](https://github.com/gardener/machine-controller-manager). We are so excited to see what you achieve with Machine Controller Manager.
+Whether you want to know more about Machine Controller Manager or find out about a similar scope for your solutions, then visit the GitHub page [machine-controller-manager](https://github.com/gardener/machine-controller-manager). We are so excited to see what you achieve with Machine Controller Manager.
