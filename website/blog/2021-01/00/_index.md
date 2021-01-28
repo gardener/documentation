@@ -12,10 +12,13 @@ authors:
 aliases: ["/blog/2021/01/25/01"]
 ---
 
-Kubernetes is a cloud-native enabler built around the principles for a resilient, manageable, observable, highly automated, loosely coupled system. We know that Kubernetes is infrastructure agnostic. It has explicitly externalized the mangement of the nodes and each cloud provider does it differently. So, why not create a K8s native resource that manages machines just like pods? Such an approach is brought to you by [Machine Controller Manager](https://github.com/gardener/machine-controller-manager) (aka MCM), which, of course, is an open sourced project. With MCM, enterprises and big conglomerates can:
+Kubernetes is a cloud-native enabler built around the principles for a resilient, manageable, observable, highly automated, loosely coupled system. We know that Kubernetes is infrastructure agnostic with the help of provider specific [Cloud Controller Manager](https://kubernetes.io/docs/concepts/architecture/cloud-controller/). But Kubernetes has explicitly externalized the mangement of the nodes. Once they appear - correctly configured - in the cluster, Kubernetes can use them. If nodes fail, Kubernetes can't do anything about it, external tooling is required. But every tool, every provider is different. So, why not elevate node management to a first class Kubernetes citizen? Why not create a Kubernetes native resource that manages machines just like pods? Such an approach is brought to you by the [Machine Controller Manager](https://github.com/gardener/machine-controller-manager) (aka MCM), which, of course, is an open sourced project. MCM gives you the following benefits:
 
-- seamlessly manage the underlying machines that act as K8s nodes (of course, across different cloud providers)
-- seamlessly scale and upgrade the clusters at their will.
+- seamlessly manage machines/nodes with a declarative API (of course, across different cloud providers),
+- integrate generically with the [cluster autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler),
+- plugin with tools such as the [node-problem-detector](https://github.com/kubernetes/node-problem-detector),
+- transport the immutability design principle to machine/nodes as well, and last but not least,
+- implement e.g. rolling upgrades of machines/nodes.
 
 ## Machine Controller Manager aka MCM
 [Machine Controller Manager](https://github.com/gardener/machine-controller-manager) is a group of cooperative controllers that manage the lifecycle of the worker machines. It is inspired by the design of Kube Controller Manager in which various sub controllers manage their respective Kubernetes Clients.
@@ -85,16 +88,15 @@ MCM is originally developed and employed by a K8s Control Plane as a Service cal
 
 **[Metal Stack](https://metal-stack.io)**
 
-metal-stack is a set of microservices that implements Metal as a Service (MaaS). It enables you to turn your hardware into elastic cloud infrastructure. Metal Stack employs Machine Controller Manager.
+Metal-stack is a set of microservices that implements Metal as a Service (MaaS). It enables you to turn your hardware into elastic cloud infrastructure. Metal-stack employs the Machine Controller Manager [adopted](https://github.com/metal-stack/machine-controller-manager-provider-metal) to their Metal API. Check out an introduction to [here](https://www.youtube.com/watch?v=XE-Kpyn8x2k).
 
 **[Sky UK Limited](http://sky.com)**
 
-Sky UK Limited is a British broadcaster and telecommunications company in UK who recently migrated their Kubernetes nodes from Ansible to Machine Controller Manager. Check out [this](https://youtu.be/yF4wq7GAeEM) video from YouTube [Gardener Project](https://www.youtube.com/channel/UCwUhwKFREV8Su0gwAJQX7tw) Channel where Anthony Comtios, Principle Engineer working at Sky talks about MCM in action with Sky's tech stack.
+Sky UK Limited (a broadcaster) migrated their Kubernetes node management from Ansible to Machine Controller Manager. Check out [this](https://youtu.be/yF4wq7GAeEM) video on our YouTube [Gardener Project](https://www.youtube.com/channel/UCwUhwKFREV8Su0gwAJQX7tw) channel.
 
-Also, other interesting experiments with MCM can be seen as done by Kubernetes enthusiasts who using Machine Controller Manager and Tailscale extended a local Raspberry-Pi K3s cluster with cloud instances. Read more about it [here](https://nativecloud.dev/scale-out-your-raspberry-pi-k3s-cluster-to-the-cloud/)
+Also, other interesting use cases with MCM are implemented by Kubernetes enthusiasts, who for example adjusted the Machine Controller Manager to provision machines in the cloud to extend a local Raspberry-Pi K3s cluster. Read more about it [here](https://nativecloud.dev/scale-out-your-raspberry-pi-k3s-cluster-to-the-cloud/) or Check out [this](https://youtu.be/yF4wq7GAeEM) video on our YouTube [Gardener Project](https://youtu.be/UuveyEOn4_o?t=60) channel.
 
 ## Conclusion
-Machine Controller Manager is so far the best automation for machine management for K8s Clusters. And the best part is that it is open sourced. It gives everyone a scope of both employment and enhancement at ease.
+Machine Controller Manager is the leading automation tool for machine management for, and in, Kubernetes. And the best part is that it is open sourced. It is freely (and easily) usable and extensible, and the community more than welcomes contributions. 
 
 Whether you want to know more about Machine Controller Manager or see a potential scope of the same for your solutions, then visit the GitHub page [machine-controller-manager](https://github.com/gardener/machine-controller-manager). We are so excited to see what you achieve with Machine Controller Manager.
-
