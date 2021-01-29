@@ -94,7 +94,7 @@ Metal-stack is a set of microservices that implements Metal as a Service (MaaS).
 
 Sky UK Limited (a broadcaster) migrated their Kubernetes node management from Ansible to Machine Controller Manager. Check out [this](https://youtu.be/yF4wq7GAeEM) video on our YouTube [Gardener Project](https://www.youtube.com/channel/UCwUhwKFREV8Su0gwAJQX7tw) channel.
 
-Also, other interesting use cases with MCM are implemented by Kubernetes enthusiasts, who for example adjusted the Machine Controller Manager to provision machines in the cloud to extend a local Raspberry-Pi K3s cluster. Read more about it [here](https://nativecloud.dev/scale-out-your-raspberry-pi-k3s-cluster-to-the-cloud/) or Check out [this](https://youtu.be/yF4wq7GAeEM) video on our YouTube [Gardener Project](https://youtu.be/UuveyEOn4_o?t=60) channel.
+Also, other interesting use cases with MCM are implemented by Kubernetes enthusiasts, who for example adjusted the Machine Controller Manager to provision machines in the cloud to extend a local Raspberry-Pi K3s cluster. Read more about it [here](https://nativecloud.dev/scale-out-your-raspberry-pi-k3s-cluster-to-the-cloud/) or Check out [this](https://youtu.be/UuveyEOn4_o?t=60) video on our YouTube [Gardener Project](https://www.youtube.com/channel/UCwUhwKFREV8Su0gwAJQX7tw) channel.
 
 ## Conclusion
 Machine Controller Manager is the leading automation tool for machine management for, and in, Kubernetes. And the best part is that it is open sourced. It is freely (and easily) usable and extensible, and the community more than welcomes contributions. 
