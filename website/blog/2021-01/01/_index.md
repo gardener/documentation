@@ -3,7 +3,6 @@ title: Happy anniversary Gardener! Three years of open source Kubernetes managem
 linkTitle: Happy anniversary Gardener!
 newsSubtitle: Three years of open source Kubernetes management
 type: blog
-publishdate: 2021-01-25
 archivedate: 2021-03-01
 authors:
 - name: Vasu Chandrasekhara
@@ -57,10 +56,10 @@ The Gardener team immediately profited from open source: from Kubernetes obvious
 
 _“Why would SAP open source a tool that clearly solves a monetizable enterprise requirement?"_
 
-Short spoiler alert: it initially involved a leap of faith. If we just look at our own decision path, it is undeniable, developers, and with them entire industries, gravitate towards open source. We chose Linux, Containers and Kubernetes, exactly because they are open, and we could bet on network effects, especially around skills. The same decision process is currently replicated in thousands of companies, with the same results. Why? Because all companies are digitally transforming. They are becoming software companies as well to a certain extent. Many of them are also our customers and in many discussions, we recognized that they have the same challenges that we are solving with Gardener. This, in essence, was a key eye opener. Our leap of faith was that if we developed Gardener in open source, we would be able to have completely different and tailored conversations with customers or any company interested. We just had to put a winning strategy around this core belief.
+Short spoiler alert: it initially involved a leap of faith. If we just look at our own decision path, it is undeniable, developers, and with them entire industries, gravitate towards open source. We chose Linux, Containers and Kubernetes, exactly because they are open, and we could bet on network effects, especially around skills. The same decision process is currently replicated in thousands of companies, with the same results. Why? Because all companies are digitally transforming. They are becoming software companies as well to a certain extent. Many of them are also our customers and in many discussions, we recognized that they have the same challenges that we are solving with Gardener. This, in essence, was a key eye opener. We were confident that if we developed Gardener open source, we’d not only seize the opportunity to shape a Kubernetes management tool that finds broad interest and adoption outside our use case at SAP, but we could solve common challenges faster with the help of a community, and that in consequence would sustain continuous feature development.
 
 Coincidently that was also when the _SAP Open Source Program Office (OSPO)_ was launched. It supported us making a case to develop Gardener completely as open source.
-Today, we can witness that this strategy has unfolded. It opened the gates not only for adoption, but for co-innovation, investment security, and user feedback directly in code.
+Today, we can witness that this strategy has unfolded. It opened the gates not only for adoption, but for co-innovation, investment security, and user feedback directly in code. Below you can see an example of how the Gardener project benefits from this external community power as contributions are submitted right away.
 
 <img title="Figure 2: Example immediate community contribution" src="images/02.png" style="width:90%; height:auto" />
 <figcaption style="text-align:center;margin-top: 0px;margin-bottom: 30px;font-size: 90%;">Figure 2: Example immediate community contribution</figcaption>
@@ -108,3 +107,4 @@ Users of a particular product or service increasingly vote/decide for open sourc
 
 Gardener solves problems by applying Kubernetes and Kubernetes principles itself. Developers and operators who obtain familiarity with Kubernetes, will immediately notice, and appreciate our concept and can contribute intuitively. The Gardener maintainers feel responsible to facilitate community members and contributors. Barriers will further be reduced by our ongoing landscaper and documentation efforts. This is why we are so confident on [Gardener adoption](https://gardener.cloud/adopter/).
 
+The Gardener team is gladly welcoming new community members, especially regarding adoption and contribution. Be invited to try out your very own Gardener installation, join our [Slack channel](https://kubernetes.slack.com/archives/CB57N0BFG) or [community calls](https://github.com/gardener/documentation/blob/master/CONTRIBUTING.md#bi-weekly-meetings). We’re looking forward to seeing you there!
