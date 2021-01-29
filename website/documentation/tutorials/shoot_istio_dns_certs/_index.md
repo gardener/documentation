@@ -32,7 +32,9 @@ Here are some pre-pointers that you will need to go deeper:
 Login to your Gardener landscape, setup a project with adequate infrastructure credentials and then navigate to your account. Note down the name of your secret. I chose the GCP infrastructure from the vast possible options that my Gardener provides me with, so i had named the secret as `shoot-operator-gcp`. 
 
 From the Access widget (leave the default settings) download your personalized `kubeconfig` into `~/.kube/kubeconfig-garden-myproject`. Follow the instructions to setup `kubelogin`:
+
 ![access](./access.png)
+
 For convinience, let us set an alias command with 
 ```bash
 alias kgarden="kubectl --kubeconfig ~/.kube/kubeconfig-garden-myproject.yaml"
