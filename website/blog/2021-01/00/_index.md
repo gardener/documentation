@@ -81,6 +81,8 @@ A lot of contributions are already being made towards OOT Machine Controller Man
 - [Out of Tree Machine Controller Manager for vSphere](https://github.com/gardener/machine-controller-manager-provider-vsphere)
 - [Out of Tree Machine Controller Manager for Yandex](https://github.com/gardener/machine-controller-manager-provider-yandex)
 
+Watch [this](https://youtu.be/p9BJRpdkxjU) video our YouTube [Gardener Project](https://www.youtube.com/channel/UCwUhwKFREV8Su0gwAJQX7tw) channel to understand more about OOT MCM.
+
 ## Who uses MCM?
 **[Gardener](http://gardener.cloud)**
 
