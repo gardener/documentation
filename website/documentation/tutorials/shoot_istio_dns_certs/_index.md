@@ -6,7 +6,6 @@ last_reviewed: 15.05.2020
 category: Networking
 level: beginner
 scope: app-developer
-alias: ["/050-tutorials/content/howto/shoot_istio_dns_certs"]
 ---
 
 
@@ -20,7 +19,7 @@ As we ramp up more and more friends of Gardener, I thought it worthwile to explo
 Here are some pre-pointers that you will need to go deeper:
 * [CRUD Gardener Shoot](https://gardener.cloud/documentation/guides/administer_shoots/create-delete-shoot/)
 * [DNS Management](https://gardener.cloud/documentation/guides/install_gardener/gardener_dns_management/)
-* [Certificate Mangement](https://gardener.cloud/documentation/guides/install_gardener/gardener_certificate_management/)
+* [Certificate Management](https://gardener.cloud/documentation/guides/install_gardener/gardener_certificate_management/)
 * [Tutorial Domain Names](https://gardener.cloud/documentation/guides/administer_shoots/dns_names/)
 * [Tutorial Certificates](https://gardener.cloud/documentation/guides/administer_shoots/x509_certificates/)
 
@@ -33,7 +32,9 @@ Here are some pre-pointers that you will need to go deeper:
 Login to your Gardener landscape, setup a project with adequate infrastructure credentials and then navigate to your account. Note down the name of your secret. I chose the GCP infrastructure from the vast possible options that my Gardener provides me with, so i had named the secret as `shoot-operator-gcp`. 
 
 From the Access widget (leave the default settings) download your personalized `kubeconfig` into `~/.kube/kubeconfig-garden-myproject`. Follow the instructions to setup `kubelogin`:
+
 ![access](./access.png)
+
 For convinience, let us set an alias command with 
 ```bash
 alias kgarden="kubectl --kubeconfig ~/.kube/kubeconfig-garden-myproject.yaml"
@@ -45,7 +46,7 @@ You should now be able to run `kgarden get shoots`, automatically get an oidc to
 ## Prepare your Custom Domain
 I am going to use [Cloud Flare](https://www.cloudflare.com/) as programmatic DNS of my custom domain `mydomain.io`. Please follow detailed instructions from Cloud Flare on how to delegate your domain (the free account does not support delegating subdomains). Alternatively, AWS Route53 (and most others) support [delegating subdomains](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingNewSubdomain.html).
 
-I needed to follow these [instructions](https://github.com/gardener/external-dns-management/blob/master/doc/cloudflare/README.md) and created the following secret:
+I needed to follow these [instructions](https://github.com/gardener/external-dns-management/blob/master/docs/cloudflare/README.md) and created the following secret:
 ```yaml
 apiVersion: v1
 kind: Secret
@@ -218,7 +219,7 @@ I want to install Istio with a default profile and SDS enabled. Furthermore I pa
     cert.gardener.cloud/issuer: mydomain-staging
     cert.gardener.cloud/secretname: wildcard-tls
     dns.gardener.cloud/class: garden
-    dns.gardener.cloud/dnsnames: '*.gsicdc.mydomain.io'
+    dns.gardener.cloud/dnsnames: "*.gsicdc.mydomain.io"
     dns.gardener.cloud/ttl: "120"
 ```
 With these annotations three things now happen automagically:
@@ -235,13 +236,23 @@ Here is the istio-install script:
 $ export domainname="*.gsicdc.mydomain.io"
 $ export issuer="mydomain-staging"
 
-$ istioctl manifest apply --set profile=default \
-  --set values.gateways.istio-ingressgateway.serviceAnnotations.'dns\.gardener\.cloud/dnsnames'=${domainname} \
-  --set values.gateways.istio-ingressgateway.serviceAnnotations.'dns\.gardener\.cloud/ttl'='120' \
-  --set values.gateways.istio-ingressgateway.serviceAnnotations.'dns\.gardener\.cloud/class'='garden' \
-  --set values.gateways.istio-ingressgateway.serviceAnnotations.'cert\.gardener\.cloud/issuer'=${issuer} \
-  --set values.gateways.istio-ingressgateway.serviceAnnotations.'cert\.gardener\.cloud/secretname'='wildcard-tls' \
-  --set values.gateways.istio-ingressgateway.sds.enabled=true 
+$ cat <<EOF | istioctl install -y -f -
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+spec:
+  profile: default
+  components:
+    ingressGateways:
+    - name: istio-ingressgateway
+      enabled: true
+      k8s:
+        serviceAnnotations:
+          cert.gardener.cloud/issuer: "${issuer}"
+          cert.gardener.cloud/secretname: wildcard-tls
+          dns.gardener.cloud/class: garden
+          dns.gardener.cloud/dnsnames: "${domainname}"
+          dns.gardener.cloud/ttl: "120" 
+EOF
 ```
 
 Verify that setup is working and that DNS and certificates have been created/delivered:
@@ -288,7 +299,7 @@ $ brew install httpie
 <p>Networking is a central part of Kubernetes, but it can be challenging to understand exactly how it is expected to work. You should learn about Kubernetes networking, and first try to debug problems yourself. With a solid managed cluster from Gardener, it is always PEBCAK!</p>
 {{% /notice %}}
 
-Kubernetes Ingress is a subject that is evolving to much broader standard. Please watch [Evolving the Kubernetes Ingress APIs to GA and Beyond](https://www.youtube.com/watch?v=cduG0FrjdJA) for a good introduction. In this example, I did not want to use the Kubernetes `Ingress` compatibility option of Istio. Instead, I used `VirtualService` and `Gateway` from the Istio's API group `networking.istio.io/v1beta1` directly.
+Kubernetes Ingress is a subject that is evolving to much broader standard. Please watch [Evolving the Kubernetes Ingress APIs to GA and Beyond](https://www.youtube.com/watch?v=cduG0FrjdJA) for a good introduction. In this example, I did not want to use the Kubernetes `Ingress` compatibility option of Istio. Instead, I used `VirtualService` and `Gateway` from the Istio's API group `networking.istio.io/v1beta1` directly, and enabled istio-injection generically for the namespace.
 
 I use [httpbin](https://httpbin.org/) as service that I want to expose to the internet, or where my ingress should be routed to (depends on your point of view, I guess).
 
@@ -459,7 +470,7 @@ Succeeded
 
 Remove Istio:
 ```bash
-$ istioctl manifest generate --set profile=default | kubectl delete -f -
+$ istioctl x uninstall --purge
 clusterrole.rbac.authorization.k8s.io "prometheus-istio-system" deleted
 clusterrolebinding.rbac.authorization.k8s.io "prometheus-istio-system" deleted
 ...

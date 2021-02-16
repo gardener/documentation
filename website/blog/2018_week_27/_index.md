@@ -15,9 +15,7 @@ that has access to an AWS EFS resource. The container reads a configmap containi
 AWS region and the name identifying the efs-provisioner. This name will be used later when you create a 
 storage class.
 
-
-{{< blog_img link="blog-aws-efs.png" >}}
-
+![](blog-aws-efs.png)
 
 ## Why EFS
 1. When you have application running on multiple nodes which require shared access to a file system
@@ -43,6 +41,3 @@ storage class.
 1. Don’t use EFS as a caching system, sometimes you could be doing this unintentionally.
 1. Last but not least, even if EFS is a fully managed NFS, you will face performance problems in many cases, 
    resolving them takes time and needs effort. 
-   
-
-..read some more on [ReadWriteMany](../readmore/readwritemany).

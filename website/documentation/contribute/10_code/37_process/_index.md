@@ -20,4 +20,4 @@ Please do not file your pull request unless you receive a successful response fr
 
 ## Creating a new Release
 
-Please refer to the [Gardener contributor guide]({{< ref "//documentation/contribute/10_code/10-contribution_guide/_index.md" >}}).
+Please refer to the [Gardener contributor guide](../10-contribution_guide/_index.md).

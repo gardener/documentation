@@ -5,7 +5,6 @@ type: docs
 level: advanced
 category: Setup Gardener
 scope: operator
-aliases: ["/050-tutorials/content/howto/landscape-setup"]
 ---
 # ---DEPRECATED---
 
@@ -21,6 +20,7 @@ We do recommend this simplified setup for demonstration purposes only. For produ
 
 <!-- TOC -->
 
+- [---DEPRECATED---](#---deprecated---)
 - [Gardener Setup Scripts](#gardener-setup-scripts)
 - [Prerequisites](#prerequisites)
 - [Gardener Installation](#gardener-installation)

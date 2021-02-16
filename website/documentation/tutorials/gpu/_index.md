@@ -6,7 +6,6 @@ layout: single-page
 level: intermediate
 category: Setup
 scope: app-developer
-aliases: ["/050-tutorials/content/howto/gpu"]
 ---
 ## Intro
 Be aware, that the following sections might be opinionated. Kubernetes, and the GPU support in particular, 

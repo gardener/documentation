@@ -1,0 +1,97 @@
+nodesSelector:
+  path: https://github.com/gardener/documentation/tree/master/website/documentation/guides
+structure:
+- name: administer_shoots
+  nodes:
+  - name: trigger-shoot-operations
+    source: https://github.com/gardener/gardener/blob/master/docs/usage/shoot_operations.md
+    properties:
+      frontmatter:
+        title: Trigger Shoot operations
+        remote: https://github.com/gardener/gardener/blob/master/docs/usage/shoot_operations.md
+        type: docs
+        level: advanced
+        category: Operation
+        scope: operator
+        aliases: ["/readmore/trigger-shoot-operations", "/050-tutorials/content/howto/trigger-shoot-operations"]
+  - source: https://github.com/gardener/gardener-extension-shoot-dns-service/blob/master/docs/usage/dns_names.md
+    properties:
+      frontmatter:
+        title: Request DNS Names
+        description: "Requesting DNS Names for Ingresses and Services in Shoot Clusters"
+        type: docs
+        level: Advanced
+        category: DNS
+        scope: app-developer
+        aliases: ["/050-tutorials/content/howto/dns_names"]
+  - source: https://github.com/gardener/gardener-extension-shoot-dns-service/blob/master/docs/usage/dns_providers.md
+    properties:
+      frontmatter:
+        title: Manage DNS Providers
+        description: "Manage DNS providers for DNS records in your shoot cluster"
+        type: docs
+        level: Advanced
+        category: DNS
+        scope: app-developer
+        aliases: ["/050-tutorials/content/howto/dns_names"]
+  - source: https://github.com/gardener/gardener-extension-shoot-cert-service/blob/master/docs/usage/request_cert.md
+    properties:
+      frontmatter:
+        title: Request X.509 Certificates
+        description: "X.509 Certificates For TLS Communication"
+        type: docs
+        level: beginner
+        category: Certificates
+        scope: app-developer
+        aliases: ["/050-tutorials/content/howto/x509_certificates"]
+- name: applications
+  nodes:
+  - name: https
+    source: https://github.com/freegroup/kube-https/blob/master/README.md 
+    properties:
+      frontmatter:
+        title: HTTPS with self Signed Certificate
+        type: docs
+        remote: https://github.com/freegroup/kube-https.git
+        level: intermediate
+        category: Certificates
+        scope: app-developer
+        aliases: ["/readmore/https", "/050-tutorials/content/app/https"]
+- name: install_gardener
+  nodes:
+  - source: https://github.com/gardener/gardener-extension-shoot-cert-service/blob/master/docs/installation/setup.md
+    properties:
+      frontmatter:
+        title: Gardener Certificate Management
+        description: "Configure Certificate Management For Shoot Clusters"
+        type: docs
+        level: Advanced
+        category: Certificates
+        scope: operator
+        aliases: ["/050-tutorials/content/howto/gardener_certificate_management"]  
+  - source: https://github.com/gardener/gardener-extension-shoot-dns-service/blob/master/docs/installation/setup.md
+    properties:
+      frontmatter:
+        title: Gardener DNS Management for Shoots
+        description: "Configure DNS Management For Shoot Clusters"
+        type: docs
+        level: Advanced
+        category: DNS
+        scope: operator
+        aliases: ["/050-tutorials/content/howto/gardener_dns_management"]
+- name: landscape-setup
+  source: https://github.com/gardener/landscape-setup/blob/master/README.md
+  properties:
+    frontmatter:
+      title: Landscape Setup
+      remote: https://github.com/gardener/landscape-setup/blob/master/README.md
+      type: docs
+      level: advanced
+      category: Setup Gardener
+      scope: operator
+      aliases: ["/050-tutorials/content/howto/landscape-setup"]
+links:
+  downloads:
+    scope:
+      "gardener/(gardener-extension-shoot-cert-service|gardener-extension-shoot-dns-service|landscape-setup|gardener)/(blob|raw)/(.*)/docs": ~
+      "gardener/documentation/(blob|raw)/(.*)/website": ~

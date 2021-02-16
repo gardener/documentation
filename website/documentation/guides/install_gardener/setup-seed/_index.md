@@ -5,12 +5,11 @@ type: docs
 level: advanced
 category: Setup Gardener
 scope: operator
-aliases: ["/readmore/seed", "/050-tutorials/content/howto/setup-seed"]
 ---
 
 # The Seed Cluster
 
-The [landscape-setup-template](https://github.com/gardener/landscape-setup-template) is meant to provide an as-simple-as-possible Gardener installation. Therefore it just registers the cluster where the Gardener is deployed on as a seed cluster. While this is easy, it might be insecure. Clusters created with Kubify don't have network policies, for example. See [Hardening the Gardener Community Setup](/readmore/hardening) for more information. 
+The [landscape-setup-template](https://github.com/gardener/landscape-setup-template) is meant to provide an as-simple-as-possible Gardener installation. Therefore it just registers the cluster where the Gardener is deployed on as a seed cluster. While this is easy, it might be insecure. Clusters created with Kubify don't have network policies, for example. See [Hardening the Gardener Community Setup](https://github.com/gardener/documentation/website/documentation/guides/install_gardener/secure-setup/_index.md) for more information. 
 
 To have network policies on the seed cluster and avoid having the seed on the same cluster as the Gardener, the easiest option is probably to simply create a shoot and then register that shoot as seed. This way you can also leverage other advantages of shooted clusters for your seed, e.g. autoscaling.
 

@@ -71,6 +71,10 @@ Due to legal reasons, contributors will be asked to accept a Developer Certifica
 
 * If your patch is not getting reviewed or you need a specific person to review it, you can @-reply a reviewer asking for a review in the pull request or a comment, or you can ask for a review on our [mailing list](https://groups.google.com/forum/?fromgroups#!forum/gardener).
 
+* If you add new features, make sure that they are documented in the [Gardener documentation](https://github.com/gardener/documentation)
+
+* If your changes are relevant for operators, consider to update the [ops toolbelt image](https://github.com/gardener/ops-toolbelt)
+
 * Post review:
   * If a review requires you to change your commit(s), please test the changes again.
   * Amend the affected commit(s) and force push onto your branch.
@@ -117,9 +121,9 @@ To gain edit access for these documents, you must subscribe to the
 [gardener mailing list](https://groups.google.com/forum/?fromgroups#!forum/gardener),
 as these documents are shared automatically with anyone who subscribes to that list.
 
-### Weekly Meeting
+### Bi-Weekly Meetings
 
-We have a PUBLIC and RECORDED weekly meeting. We meet every Friday at [10:00 CET](https://www.google.de/search?q=10+CET+to+local+time) over Zoom. Find recordings in the [Gardener Youtube channel](https://www.youtube.com/channel/UCwUhwKFREV8Su0gwAJQX7tw/videos). Let us know if you want to participate and live in a timezone where 10:00 CET is in the night, we can also schedule meetings on Thursday [17:00 CET](https://www.google.de/search?q=17+CET+to+local+time).
+We have a PUBLIC and RECORDED bi-weekly meeting. We meet every other Friday at [10:00 CET](https://www.google.de/search?q=10+CET+to+local+time) over Zoom. Find recordings in the [Gardener Youtube channel](https://www.youtube.com/channel/UCwUhwKFREV8Su0gwAJQX7tw/videos). Let us know if you want to participate and live in a timezone where 10:00 CET is in the night, we can also schedule meetings on Thursday [17:00 CET](https://www.google.de/search?q=17+CET+to+local+time).
 
 See the meeting calendar on the web at [calendar.google.com](https://calendar.google.com/calendar/embed?src=gardener.cloud.community%40gmail.com), or paste this [iCal url](https://calendar.google.com/calendar/ical/gardener.cloud.community%40gmail.com/public/basic.ics) into any iCal client.
 

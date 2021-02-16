@@ -5,7 +5,6 @@ type: docs
 level: advanced
 category: Operation
 scope: operator
-aliases: ["/readmore/trigger-shoot-operations", "/050-tutorials/content/howto/trigger-shoot-operations"]
 ---
 # Trigger shoot operations
 

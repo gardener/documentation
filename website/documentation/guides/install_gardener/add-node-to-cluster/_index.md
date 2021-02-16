@@ -6,7 +6,6 @@ level: advanced
 reviewer: Gaurav Gupta
 category: Operation
 scope: app-developer
-aliases: ["/readmore/adding-nodes", "/050-tutorials/content/howto/add-node-to-cluster"]
 ---
 # Manually adding a node to an existing cluster
 Gardener has an excellent ability to [automatically scale machines](/components/mcm/) for the cluster. From the point of view 
@@ -28,11 +27,11 @@ responsible to replace it.
 ## How
 1. Create a new instance in the same VPC/network as other machines in the cluster. You should be able to ssh into the machine. So save its private key, and assign a public IP to it. If adding a public IP is not preferred, then ssh into any other machine in the cluster, and then ssh from there into the new machine using its private key.
 
-   To ssh into a machine which is already in the cluster, use the steps defined [here](https://github.wdf.sap.corp/pages/kubernetes/gardener/015-tutorials/content/howto/ssh-into-node/ "ssh-into-node").
+   To ssh into a machine which is already in the cluster, use the steps defined [here](https://github.com/gardener/documentation/blob/master/website/documentation/guides/monitoring_and_troubleshooting/shell-to-node/_index.md "ssh-into-node").
 
    Attach the same IAM role to the new machine which is attached to the existing machines in the cluster. This is required by kubelet in the new machine so that it can contact the cloud provider to query the node's name.
 
-1. On the new machine, create file `/var/lib/kubelet/kubeconfig-bootstrap` with the following content:
+2. On the new machine, create file `/var/lib/kubelet/kubeconfig-bootstrap` with the following content:
 
 ```yaml
 apiVersion: v1

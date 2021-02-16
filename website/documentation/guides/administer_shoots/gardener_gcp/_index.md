@@ -4,7 +4,6 @@ type: docs
 level: beginner
 category: Getting Started
 scope: app-developer
-aliases: ["/050-tutorials/content/howto/gardener_gcp"]
 ---
 
 ## Introduction

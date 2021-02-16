@@ -17,9 +17,9 @@ the filesystem. The mount is a pointer to an S3 location, so the data is never s
 can read or even write from that directory without the need for explicit keys.
 
 
-{{< blog_img link="blog-s3-shared-storage.png" >}}
+![](blog-s3-shared-storage.png)
 
 
 However, it can be used to import and parse large amounts of data into a database.
 
-..read on [Shared S3 Storage](../app/s3) how to configure it.
+..read on [Shared S3 Storage](https://github.com/freegroup/kube-s3/blob/master/README.md) how to configure it.

@@ -7,7 +7,6 @@ reviewer: Tieyan Fu
 last_reviewed: 07.06.2018
 category: Services
 scope: app-developer
-aliases: ["/050-tutorials/content/howto/service-access"]
 ---
 
 ## TL;DR

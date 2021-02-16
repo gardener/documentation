@@ -4,7 +4,6 @@ type: docs
 level: intermediate
 category: Helm
 scope: app-developer
-aliases: ["/howto/helm", "/050-tutorials/content/howto/helm"]
 ---
 
 

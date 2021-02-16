@@ -5,7 +5,6 @@ type: docs
 level: intermediate
 category: Debugging
 scope: app-developer
-aliases: ["/050-tutorials/content/howto/setup-seed"]
 ---
 
 ## Problem

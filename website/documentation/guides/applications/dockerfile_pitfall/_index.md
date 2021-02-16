@@ -7,7 +7,6 @@ reviewer: Tieyan Fu
 last_reviewed: 22.06.2018
 category: Fails
 scope: app-developer
-aliases: ["/050-tutorials/content/howto/dockerfile_pitfall"]
 ---
 
 

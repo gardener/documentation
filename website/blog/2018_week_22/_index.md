@@ -9,8 +9,7 @@ publishdate: 2018-06-11
 archivedate: 2018-07-11
 ---
 
-{{< blog_img link="blog-antipattern.png" >}}
-
+![](blog-antipattern.png)
 
 ## Running as root user
 Whenever possible, do not run containers as root users. One could be 
@@ -27,4 +26,4 @@ container, as they are lost when the container is closed. If absolutely necessar
 you can use persistence volumes instead to persist them outside the containers. 
 However, an ELK stack is preferred for storing and processing log files. 
 
-..read some more on [Common Kubernetes Antipattern](../readmore/antipattern).
+..read some more on [Common Kubernetes Antipattern](https://github.com/gardener/documentation/blob/master/website/documentation/guides/applications/antipattern/_index.md).

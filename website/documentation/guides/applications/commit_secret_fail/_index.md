@@ -5,7 +5,6 @@ type: docs
 level: intermediate
 category: Fails
 scope: app-developer
-aliases: ["/050-tutorials/content/howto/commit_secret_fail"]
 ---
 
 

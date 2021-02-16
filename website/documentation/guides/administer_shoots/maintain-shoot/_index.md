@@ -5,7 +5,6 @@ type: docs
 level: advanced
 category: Operation
 scope: operator
-aliases: ["/readmore/shoot-maintain", "/050-tutorials/content/howto/maintain-shoot"]
 ---
 
 # Shoot Cluster Maintenance

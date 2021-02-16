@@ -15,8 +15,7 @@ Although they are essential in a native cloud environment, they cannot be implem
 effort on some platforms. Kubernetes has made this trivial. Here we will implement them through labels and 
 annotations, but you can also implement them by connecting directly to the Kubernetes API Server.
 
-{{< blog_img link="teaser.gif" >}}
-
+![teaser](teaser.gif)
 
 Possible Use Cases
  - turn on/off a specific instance
@@ -26,6 +25,6 @@ Possible Use Cases
  - change timeouts in production
  - toggle on/off some special verification
 
-..read some more on [Feature Flags for App](../readmore/featureflag).
+..read some more on [Feature Flags for App](https://github.com/gardener-samples/kube-featureflag/blob/master/README.md).
 
 

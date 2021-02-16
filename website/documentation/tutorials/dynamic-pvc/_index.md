@@ -6,7 +6,6 @@ layout: single-page
 level: beginner
 category: Getting Started
 scope: app-developer
-alias: ["/050-tutorials/content/howto/dynamic-pvc"]
 ---
 
 ## Introduction
