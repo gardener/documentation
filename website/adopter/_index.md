@@ -135,6 +135,17 @@ type: landingpage
             </p>
           </div>
         </div>
+        <div class="row adopter">
+          <div class="one-third column">
+            <img src="./images/mercedesbenzio.png" />
+          </div>
+          <div class="two-thirds column">
+            <p class="description">
+             As a 100% subsidiary, we are an integral member of <a href="https://www.mercedes-benz.com/" target="_blank">Mercedes-Benz</a> and of the largest cross-departmental swarm, known as the “Digital House”. To build the best digital products, we benefit from vast expertise: the experience of a global automotive company hand-in-hand with the know-how of digital professionals.
+             Here at <a href="https://www.mercedes-benz.io/" target="_blank">Mercedes-Benz.io</a> we use Gardener as our base for an internal Kubernetes-as-a-Service offering. The modular architecture and the K8s conform API allows us to manage clusters in almost every available datacenter region around the globe. Check out a recording of our community talk (<a href="https://www.youtube.com/watch?v=8GJBMMd6L5k" target="_blank">YouTube</a>) for the bi-weekly gardener community meeting to learn a little more about our team and the setup.  
+            </p>
+          </div>
+        </div>        
         <p class="call-for-action">
           If you’re using Gardener and you aren’t on this list,
           <a href="https://github.com/gardener/gardener/pulls">submit a pull request!</a>
