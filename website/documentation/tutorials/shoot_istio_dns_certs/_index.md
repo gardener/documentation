@@ -32,7 +32,9 @@ Here are some pre-pointers that you will need to go deeper:
 Login to your Gardener landscape, setup a project with adequate infrastructure credentials and then navigate to your account. Note down the name of your secret. I chose the GCP infrastructure from the vast possible options that my Gardener provides me with, so i had named the secret as `shoot-operator-gcp`. 
 
 From the Access widget (leave the default settings) download your personalized `kubeconfig` into `~/.kube/kubeconfig-garden-myproject`. Follow the instructions to setup `kubelogin`:
+
 ![access](./access.png)
+
 For convinience, let us set an alias command with 
 ```bash
 alias kgarden="kubectl --kubeconfig ~/.kube/kubeconfig-garden-myproject.yaml"
@@ -44,7 +46,7 @@ You should now be able to run `kgarden get shoots`, automatically get an oidc to
 ## Prepare your Custom Domain
 I am going to use [Cloud Flare](https://www.cloudflare.com/) as programmatic DNS of my custom domain `mydomain.io`. Please follow detailed instructions from Cloud Flare on how to delegate your domain (the free account does not support delegating subdomains). Alternatively, AWS Route53 (and most others) support [delegating subdomains](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingNewSubdomain.html).
 
-I needed to follow these [instructions](https://github.com/gardener/external-dns-management/blob/master/doc/cloudflare/README.md) and created the following secret:
+I needed to follow these [instructions](https://github.com/gardener/external-dns-management/blob/master/docs/cloudflare/README.md) and created the following secret:
 ```yaml
 apiVersion: v1
 kind: Secret
