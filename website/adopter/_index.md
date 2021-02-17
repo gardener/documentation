@@ -29,11 +29,11 @@ type: landingpage
             <p class="description">
               <a href="https://www.sap.com" target="_blank">SAP</a> uses
               Gardener to deploy and manage Kubernetes clusters at scale in a
-              uniform way across infrastructures (AWS, Azure, GCP, Alicloud, as well as generic interfaces to OpenStack and vSphere). 
-              Workloads include 
-              Databases (<a href="https://www.sap.com/products/hana/cloud.html" target="_blank">SAP HANA Cloud</a>), 
+              uniform way across infrastructures (AWS, Azure, GCP, Alicloud, as well as generic interfaces to OpenStack and vSphere).
+              Workloads include
+              Databases (<a href="https://www.sap.com/products/hana/cloud.html" target="_blank">SAP HANA Cloud</a>),
               Big Data (<a href="https://www.sap.com/products/data-intelligence.html" target="_blank">SAP Data Intelligence</a>),
-              <a href="https://kyma-project.io" target="_blank">Kyma</a>, 
+              <a href="https://kyma-project.io" target="_blank">Kyma</a>,
               many other cloud native applications,
               and diverse business workloads.
             </p>
@@ -109,19 +109,19 @@ type: landingpage
               several cloud hosting service providers.
             </p>
           </div>
-        </div>       
+        </div>
         <div class="row adopter">
           <div class="one-third column">
             <img src="./images/stackit.png" />
           </div>
           <div class="two-thirds column">
             <p class="description">
-              <a href="https://stackit.de/en" target="_blank">STACKIT</a> is a digital 
-              brand of Europes’ biggest retailer, the Schwarz Group, which includes 
-              Lidl, Kaufland, but also production and recycling companies. It uses 
-              Gardener to offer public and private Kubernetes as a service in own data 
-              centers in Europe and targets to become the cloud provider for German and 
-              European small and mid-sized companies. 
+              <a href="https://stackit.de/en" target="_blank">STACKIT</a> is a digital
+              brand of Europes’ biggest retailer, the Schwarz Group, which includes
+              Lidl, Kaufland, but also production and recycling companies. It uses
+              Gardener to offer public and private Kubernetes as a service in own data
+              centers in Europe and targets to become the cloud provider for German and
+              European small and mid-sized companies.
             </p>
           </div>
         </div>
@@ -132,6 +132,17 @@ type: landingpage
           <div class="two-thirds column">
             <p class="description">
               Supporting and managing multiple application landscapes on-premises and across different hyperscaler infrastructures can be painful. At <a href="https://www.t-systems.com/" target="_blank">T-Systems</a> we use Gardener both for internal usage and to manage clusters for our customers. We love the openness of the project, the flexibility and the architecture that allows us to manage clusters around the world with only one team from one single pane of glass and to meet industry specific certification standards. The sovereignty by design is another great value, the technology implicitly brings along.
+            </p>
+          </div>
+        </div>
+        <div class="row adopter">
+          <div class="one-third column">
+            <img src="./images/mercedesbenzio.png" />
+          </div>
+          <div class="two-thirds column">
+            <p class="description">
+             As a 100% subsidiary, we are an integral member of <a href="https://www.mercedes-benz.com/" target="_blank">Mercedes-Benz</a> and of the largest cross-departmental swarm, known as the “Digital House”. To build the best digital products, we benefit from vast expertise: the experience of a global automotive company hand-in-hand with the know-how of digital professionals.
+             Here at <a href="https://www.mercedes-benz.io/" target="_blank">Mercedes-Benz.io</a> we use Gardener as our base for an internal Kubernetes-as-a-Service offering. The modular architecture and the K8s conform API allows us to manage clusters in almost every available datacenter region around the globe. Check out a recording of our community talk (<a href="https://youtu.be/8GJBMMd6L5k" target="_blank">YouTube</a>) for the bi-weekly gardener community meeting to learn a little more about our team and the setup.
             </p>
           </div>
         </div>
