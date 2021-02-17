@@ -7,9 +7,9 @@ scope: app-developer
 ---
 
 
-Basically, [Helm Charts](https://github.com/kubernetes/charts) can be installed as described e.g. in the Helm 
-[QuickStart Guide](https://docs.helm.sh/using_helm/#quickstart-guide). However, our clusters come with 
-[RBAC](https://kubernetes.io/docs/admin/authorization/rbac) enabled by default hence Helm must be installed as follows:
+Basically, [Helm Charts](https://helm.sh/docs/topics/charts/) can be installed as described e.g. in the Helm 
+[QuickStart Guide](https://helm.sh/docs/intro/quickstart/). However, our clusters come with 
+[RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) enabled by default hence Helm must be installed as follows:
 
 ## Create a Service Account
  
