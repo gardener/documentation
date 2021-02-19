@@ -9,62 +9,63 @@ last_reviewed:
 scope: app-developer
 ---
 
-## Introduction
-Creating a Kubernetes cluster in an AWS Account is easy and the Gardener UI should be self-explanatory.
+### Prerequisites
 
-# Gardener
-## Create a new Project in Gardener
+-   You need an AWS account.
+-   You have access to the Gardener dashboard and have permissions to create projects.
 
-[Create new Project](https://dashboard.garden.canary.k8s.ondemand.com/login)
+1. Go to the Gardener dashboard and create a *Project*.
 
-<img src="new_gardener_project.jpg">
-
-
-## Copy policy from the Gardener
-
-<img src="gardener_copy_policy.jpg">
-
-# AWS
-
-## Create new policy
-[Create new policy](https://console.aws.amazon.com/iam/home?#/policies)
-
-<img src="create_policy.jpg">
-
-<img src="review_policy.jpg">
-
-## Create a new technical user
-[Create a new technical user](https://console.aws.amazon.com/iam/home?#/users$new?step=details)
-
-<img src="adduser.jpg">
-
-<img src="attachpolicy.jpg">
-
-<img src="finishuser.jpg">
-save the keys of the user, you will need them later on
+    <img src="images/new_gardener_project.jpg">
 
 
-<img src="savekeys.jpg">
+2. To copy the policy for AWS from the Gardener dashboard, choose *Secrets*, click on the help icon <img src="images/help_icon.jpg"> for AWS secrets, and choose copy <img src="images/copy_icon.png">.
 
-# Gardener
-## Add AWS Secret
-<img src="add_AWS_Secret.jpg">
+    <img src="images/gardener_copy_policy.jpg">
 
-<img src="secret_stored.jpg">
+3. To [create a new policy](https://console.aws.amazon.com/iam/home?#/policies) in AWS, paste the policy that you copied from the Gardener dashboard to this custom policy.
 
-## Create a new Cluster
-[Create a new cluster](https://dashboard.garden.canary.k8s.ondemand.com)
+    <img src="images/create_policy.jpg">
 
-<img src="new_cluster.jpg">
+    <img src="images/review_policy.jpg">
 
-<img src="create_cluster2.jpg">
+4. [Create a new technical user](https://console.aws.amazon.com/iam/home?#/users$new?step=details).
 
-<img src="create_cluster3.jpg">
+    <img src="images/adduser.jpg">
 
-<img src="create_cluster4.jpg">
+    <img src="images/attachpolicy.jpg">
 
-<img src="create_cluster5.jpg">
+    <img src="images/finishuser.jpg">
+
+     > Note: After the user is created, `Access key ID` and `Secret access key` are generated and displayed. Remember to save them. The `Access key ID` is used later to create secrets for Gardener.
 
 
-## Copy kubeconfig
-<img src="copy_kubeconfig.jpg">
+    <img src="images/savekeys.jpg">
+
+5. On the Gardener dashboard, choose *Secrets* and then the plus sign <img src="images/plus_icon.jpg"> in the AWS frame to add a new AWS secret.
+
+6. Copy the `Access Key ID` and `Secret Access Key` you saved when you created the technical user on AWS.
+
+
+    <img src="images/add_AWS_Secret.jpg">
+
+    <img src="images/secret_stored.jpg">
+
+7. To create a new cluster, choose *Clusters* and then the plus sign in the lower right corner.
+
+    <img src="images/new_cluster.jpg">
+
+8. On tab *INFRASTRUCTURE*, choose the secret you created before. The technical user related to the chosen Secret is used to create infrastructure resources.
+
+    <img src="images/create_cluster2.jpg">
+
+    <img src="images/create_cluster3.jpg">
+
+    <img src="images/create_cluster4.jpg">
+
+    <img src="images/create_cluster5.jpg">
+
+
+9. Copy kubeconfig.
+
+    <img src="images/copy_kubeconfig.jpg">
