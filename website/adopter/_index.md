@@ -135,6 +135,19 @@ type: landingpage
             </p>
           </div>
         </div>
+        <div class="row adopter">
+          <div class="one-third column">
+            <img src="./images/23technologies.png" />
+          </div>
+          <div class="two-thirds column">
+            <p class="description">
+              The German-based company <a href="https://23technologies.cloud" target="_blank">23 Technologies</a>
+              uses Gardener to offer an enterprise-class Kubernetes engine for
+              industrial use cases as well as cloud service providers and
+              offers managed and professional services for it.
+            </p>
+          </div>
+        </div>
         <p class="call-for-action">
           If you’re using Gardener and you aren’t on this list,
           <a href="https://github.com/gardener/gardener/pulls">submit a pull request!</a>
