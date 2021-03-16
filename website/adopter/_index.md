@@ -137,7 +137,7 @@ type: landingpage
         </div>
         <p class="call-for-action">
           If you’re using Gardener and you aren’t on this list,
-          <a href="https://github.com/gardener/gardener/pulls">submit a pull request!</a>
+          <a href="https://github.com/gardener/documentation/pulls">submit a pull request!</a>
         </p>
       </div>
   </div>
