@@ -85,7 +85,7 @@ Due to legal reasons, contributors will be asked to accept a Developer Certifica
 
 If you want to contribute bigger changes to Gardener, such as when introducing new API resources and their corresponding controllers, or implementing an approved [Gardener Enhancement Proposal](https://github.com/gardener/gardener/tree/master/docs/proposals), follow these guidelines:
 
-* Avoid proposing a big change in one single PR. Instead, split your work into multiple stages and create one PR for each stage. For example, if introducing a new API resource and its controller, these stages could be:
+* Avoid proposing a big change in one single PR. Instead, split your work into multiple stages which are independently mergeable and create one PR for each stage. For example, if introducing a new API resource and its controller, these stages could be:
   * API resource types, including defaults and generated code.
   * API resource validation.
   * API server storage.
