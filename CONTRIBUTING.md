@@ -80,6 +80,25 @@ Due to legal reasons, contributors will be asked to accept a Developer Certifica
   * Amend the affected commit(s) and force push onto your branch.
   * Set respective comments in your GitHub review to resolved.
   * Create a general PR comment to notify the reviewers that your amendments are ready for another round of review.
+  
+## Contributing Bigger Changes
+
+If you want to contribute bigger changes to Gardener, such as when introducing new API resources and their corresponding controllers, or implementing an approved [Gardener Enhancement Proposal](https://github.com/gardener/gardener/tree/master/docs/proposals), follow these guidelines:
+
+* Avoid proposing a big change in one single PR. Instead, split your work into multiple stages which are independently mergeable and create one PR for each stage. For example, if introducing a new API resource and its controller, these stages could be:
+  * API resource types, including defaults and generated code.
+  * API resource validation.
+  * API server storage.
+  * Admission plugin(s), if any.
+  * Controller(s), including changes to existing controllers. Split this phase further into different functional subsets if appropriate.
+  
+* If you realize later that changes to artifacts introduced in a previous stage are required, by all means make them and explain in the PR why they were needed.
+  
+* Consider splitting a big PR further into multiple commits to allow for more focused reviews. For example, you could add unit tests / documentation in separate commits from the rest of the code. If you have to adapt your PR to review feedback, prefer doing that also in a separate commit to make it easier for reviewers to check how their feedback has been addressed. 
+
+* To make the review process more efficient and avoid too many long discussions in the PR itself, ask for a "main reviewer" to be assigned to your change, then work with this person to make sure he or she understands it in detail, and agree together on any improvements that may be needed. If you can't reach an agreement on certain topics, comment on the PR and invite other people to join the discussion.
+
+* Even if you have a "main reviewer" assigned, you may still get feedback from other reviewers. In general, these "non-main reviewers" are advised to focus more on the design and overall approach rather than the implementation details. Make sure that you address any concerns on this level appropriately.
 
 ## Issues and Planning
 
