@@ -284,13 +284,13 @@ There you have it, the wildcard-tls certificate is ready and the *.gsicdc.mydoma
 
 ## Handy tools to install
 
-Another set of fine tools to use are [k14s's kapp](https://get-kapp.io/), [k9s](https://k9scli.io/) and [HTTPie](https://httpie.org/). While we are at it, let's install them all. If you are on a Mac, I recommend:
+Another set of fine tools to use are [kapp](https://get-kapp.io/) (formerly known as k14s), [k9s](https://k9scli.io/) and [HTTPie](https://httpie.org/). While we are at it, let's install them all. If you are on a Mac, I recommend:
 
 ```bash
-$ brew tap k14s/tap
-$ brew install ytt kbld kapp kwt imgpkg vendir
-$ brew install derailed/k9s/k9s
-$ brew install httpie
+brew tap vmware-tanzu/carvel
+brew install ytt kbld kapp kwt imgpkg vendir
+brew install derailed/k9s/k9s
+brew install httpie
 ```
 
 ## Ingress to your service
