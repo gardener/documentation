@@ -1,12 +1,12 @@
 structure:
   - name: architecture
     nodes:
-    - source: https://github.com/gardener/documentation/wiki/Architecture.md
+    - source: https://github.com/gardener/gardener/blob/master/docs/concepts/architecture.md
       properties:
         index: true
         frontmatter:
           title: Architecture
-          remote: https://github.com/gardener/documentation/wiki/Architecture
+          remote: https://github.com/gardener/gardener/blob/master/docs/concepts/architecture.md
           type: docs
           weight: 10
     - name: 10_gardener
