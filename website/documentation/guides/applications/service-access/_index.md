@@ -21,6 +21,8 @@ This tutorial discusses how to enable access to your application from outside th
 North-South traffic). For internal communication amongst pods and services (sometimes called East-West traffic) there 
 are many examples, [here](https://cloudnativelabs.github.io/post/2017-04-18-kubernetes-networking/) is one brief example.
 
+You might need to enable the `Nginx Ingress` add-ons in your gardener dashboard to use some of those functionnality.
+
 ## Service Types
 A Service in Kubernetes is an abstraction defining a logical set of Pods and an access policy.  
 Services can be exposed in different ways by specifying a **type** in the service spec,
