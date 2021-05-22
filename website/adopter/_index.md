@@ -29,11 +29,11 @@ type: landingpage
             <p class="description">
               <a href="https://www.sap.com" target="_blank">SAP</a> uses
               Gardener to deploy and manage Kubernetes clusters at scale in a
-              uniform way across infrastructures (AWS, Azure, GCP, Alicloud, as well as generic interfaces to OpenStack and vSphere). 
-              Workloads include 
-              Databases (<a href="https://www.sap.com/products/hana/cloud.html" target="_blank">SAP HANA Cloud</a>), 
+              uniform way across infrastructures (AWS, Azure, GCP, Alicloud, as well as generic interfaces to OpenStack and vSphere).
+              Workloads include
+              Databases (<a href="https://www.sap.com/products/hana/cloud.html" target="_blank">SAP HANA Cloud</a>),
               Big Data (<a href="https://www.sap.com/products/data-intelligence.html" target="_blank">SAP Data Intelligence</a>),
-              <a href="https://kyma-project.io" target="_blank">Kyma</a>, 
+              <a href="https://kyma-project.io" target="_blank">Kyma</a>,
               many other cloud native applications,
               and diverse business workloads.
             </p>
@@ -109,19 +109,19 @@ type: landingpage
               several cloud hosting service providers.
             </p>
           </div>
-        </div>       
+        </div>
         <div class="row adopter">
           <div class="one-third column">
             <img src="./images/stackit.png" />
           </div>
           <div class="two-thirds column">
             <p class="description">
-              <a href="https://stackit.de/en" target="_blank">STACKIT</a> is a digital 
-              brand of Europes’ biggest retailer, the Schwarz Group, which includes 
-              Lidl, Kaufland, but also production and recycling companies. It uses 
-              Gardener to offer public and private Kubernetes as a service in own data 
-              centers in Europe and targets to become the cloud provider for German and 
-              European small and mid-sized companies. 
+              <a href="https://stackit.de/en" target="_blank">STACKIT</a> is a digital
+              brand of Europes’ biggest retailer, the Schwarz Group, which includes
+              Lidl, Kaufland, but also production and recycling companies. It uses
+              Gardener to offer public and private Kubernetes as a service in own data
+              centers in Europe and targets to become the cloud provider for German and
+              European small and mid-sized companies.
             </p>
           </div>
         </div>
@@ -145,6 +145,21 @@ type: landingpage
               uses Gardener to offer an enterprise-class Kubernetes engine for
               industrial use cases as well as cloud service providers and
               offers managed and professional services for it.
+            </p>
+          </div>
+        </div>
+        <div class="row adopter">
+          <div class="one-third column">
+            <img src="./images/b1-systems.png" />
+          </div>
+          <div class="two-thirds column">
+            <p class="description">
+              <a href="https://www.b1-systems.de" target="_blank">B1 Systems GmbH</a>
+              is a international provider of Linux &amp; Open Source consulting, training, managed service &amp; support.
+              We are founded in 2004 and based in Germany. Our team of 140 Linux experts offers tailor-made solutions
+              based on cloud &amp; container technologies, virtualization &amp; high availability as well as
+              monitoring, system &amp; configuration management.
+              B1 is using Gardener internally and also set up solutions/environments for customers.
             </p>
           </div>
         </div>
