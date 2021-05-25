@@ -7,11 +7,6 @@ documentation:
         inject_effective_version: true
       component_descriptor: ~
   jobs:
-    pull-request:
-      traits:
-        update_component_deps: ~
-        cronjob:
-          interval: '15m'
     release:
       traits:
         release:
