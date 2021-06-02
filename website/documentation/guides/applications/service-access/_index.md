@@ -282,6 +282,8 @@ You cannot configure a LoadBalancer to terminate HTTPS traffic, virtual hosts or
 a separate resource called [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/#alternatives) is 
 introduced for this purpose.
 
+You might need to enable the `Nginx Ingress` add-ons in your gardener dashboard to use some of those functionnality.
+
 ### Why an Ingress
 
 LoadBalancer services are all about extending a service to support external clients. By contrast an Ingress is a 
