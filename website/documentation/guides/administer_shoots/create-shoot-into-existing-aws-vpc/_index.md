@@ -1,6 +1,5 @@
 ---
 title: Create a Shoot cluster into existing AWS VPC
-type: docs
 level: intermediate
 category: Operation
 scope: app-developer

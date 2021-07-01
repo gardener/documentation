@@ -2,7 +2,6 @@
 title: Curated Links
 url: /curated-links
 icon: navigation_links.svg
-type: blank
 ---
 
 <div class="hero">

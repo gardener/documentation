@@ -1,7 +1,6 @@
 ---
 title: Kubeconfig context as bash prompt
 description: "Expose the active kubeconfig into bash"
-type: docs
 level: beginner
 reviewer: Tieyan Fu
 status: Reviewed

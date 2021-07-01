@@ -9,47 +9,40 @@ nodesSelector:
 #         frontmatter:
 #           title: Contribution Guide
 #           remote: https://github.com/gardener/documentation/blob/master/CONTRIBUTING.md
-#           type: docs
 #     - name: 12-security_guide
 #       source: https://github.com/gardener/documentation/blob/master/security-release-process.md      
 #       properties:
 #         frontmatter:
 #           title: Security Release Process
 #           remote: https://github.com/gardener/documentation/blob/master/security-release-process.md
-#           type: docs
 #     - source: https://github.com/gardener/gardener/blob/master/docs/development/local_setup.md
 #       properties:
 #         frontmatter:
 #           title: Environment
 #           disableToc: true
 #           remote: https://github.com/gardener/gardener/blob/master/docs/development/local_setup.md
-#           type: docs
 #     - source: https://github.com/gardener/gardener/blob/master/docs/usage/configuration.md
 #       properties:
 #         frontmatter:
 #           title: Configuration and Usage
 #           remote: https://github.com/gardener/gardener/blob/master/docs/usage/configuration.md
-#           type: docs
 #     - name: 20-testing_and_dependencies
 #       source: https://github.com/gardener/gardener/blob/master/docs/development/testing_and_dependencies.md
 #       properties:
 #         frontmatter:
 #           title: Dependencies
 #           remote: https://github.com/gardener/gardener/blob/master/docs/development/testing_and_dependencies.md
-#           type: docs
 #     - source: https://github.com/gardener/gardener/blob/master/docs/deployment/aks.md
 #       properties:
 #         frontmatter:
 #           title: Deploy into AKS
 #           remote: https://github.com/gardener/gardener/blob/master/docs/deployment/aks.md
-#           type: docs
 #     - name: 37-process
 #       source: https://github.com/gardener/gardener/blob/master/docs/development/process.md
 #       properties:
 #         frontmatter:
 #           title: Process
 #           remote: https://github.com/gardener/gardener/blob/master/docs/development/process.md
-#           type: docs
 links:
   downloads:
     scope:

@@ -1,6 +1,5 @@
 ---
 title: Kubernetes is available in Docker for Mac 17.12 CE
-type: Blog
 authors: 
 - name: Andreas Herz
   email: andreas.herz@sap.com

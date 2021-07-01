@@ -1,7 +1,6 @@
 ---
 title:  Authenticating with an Identity Provider
 description: "Authenticating with an Identity Provider using OpenID Connect"
-type: docs
 level: advanced
 index: 40
 category: Security

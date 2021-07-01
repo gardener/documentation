@@ -1,7 +1,6 @@
 ---
 title: Container image not updating
 description: "Updating Images in your cluster during development"
-type: docs
 level: intermediate
 category: Fails
 scope: app-developer

@@ -1,6 +1,5 @@
 ---
 title: Gardener Cookies
-type: docs
 level: intermediate
 category: Operation
 scope: app-developer

@@ -2,7 +2,6 @@
 title: Happy anniversary Gardener! Three years of open source Kubernetes management
 linkTitle: Happy anniversary Gardener!
 newsSubtitle: Three years of open source Kubernetes management
-type: blog
 publishdate: 2021-02-01
 archivedate: 2021-03-01
 authors:

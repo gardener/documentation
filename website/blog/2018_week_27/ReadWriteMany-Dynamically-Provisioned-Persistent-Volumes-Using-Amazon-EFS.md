@@ -1,6 +1,5 @@
 ---
 title: ReadWriteMany - Dynamically Provisioned Persistent Volumes Using Amazon EFS
-type: Blog
 authors: 
 - name: Andreas Herz
   email: andreas.herz@sap.com

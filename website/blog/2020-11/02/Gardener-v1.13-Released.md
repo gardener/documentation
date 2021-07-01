@@ -2,7 +2,6 @@
 title: Gardener v1.13 Released
 linkTitle: Gardener v1.13
 newsSubtitle: November 23, 2020
-type: blog
 publishdate: 2020-11-23
 archivedate: 2021-01-22
 authors:

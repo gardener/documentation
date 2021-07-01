@@ -1,7 +1,6 @@
 ---
 title: Storing secrets in git 💀
 description: "Never ever commit a kubeconfig.yaml into github"
-type: docs
 level: intermediate
 category: Fails
 scope: app-developer

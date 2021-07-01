@@ -1,7 +1,6 @@
 ---
 title: GPU Enabled Cluster
 description: Setting up a GPU Enabled Cluster for Deep Learning
-type: docs
 layout: single-page
 level: intermediate
 category: Setup

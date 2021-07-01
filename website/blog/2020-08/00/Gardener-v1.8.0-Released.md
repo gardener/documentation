@@ -2,7 +2,6 @@
 title: Gardener v1.8.0 Released
 linkTitle: Gardener v1.8.0
 newsSubtitle: August 06, 2020
-type: blog
 publishdate: 2020-08-06
 archivedate: 2020-10-31
 authors:

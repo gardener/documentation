@@ -7,7 +7,6 @@ structure:
     frontmatter:
       title: Feature Flags in Kubernetes Applications
       description: Implementing feature flags in Kubernetes application with labels and annotations
-      type: docs
       layout: single-page
       remote: https://github.com/gardener-samples/kube-featureflag/blob/master/README.md
       level: beginner
@@ -20,7 +19,6 @@ structure:
     frontmatter:
       title: Cluster Overprovisioning
       description: How to overprovision cluster nodes for quick scaling and failover
-      type: docs
       layout: single-page
       remote: https://github.com/gardener-samples/kube-overprovisioning/blob/master/README.md
       level: beginner
@@ -33,7 +31,6 @@ structure:
     frontmatter:
       title: Shared storage with S3 backend
       description: Using S3 bucket as shared storage for pods
-      type: docs
       layout: single-page
       remote: https://github.com/freegroup/kube-s3/blob/master/README.md
       level: intermediate

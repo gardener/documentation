@@ -1,6 +1,5 @@
 ---
 title: Use a Helm chart to deploy some application or service
-type: docs
 level: intermediate
 category: Helm
 scope: app-developer

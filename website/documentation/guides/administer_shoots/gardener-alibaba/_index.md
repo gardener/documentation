@@ -1,6 +1,5 @@
 ---
 title: Create Shoot Clusters in Alibaba Cloud
-type: docs
 level: beginner
 category: Getting Started
 scope: app-developer

@@ -1,6 +1,5 @@
 ---
 title: Hardening the Gardener Community Setup
-type: docs
 level: advanced
 category: Security
 scope: operator

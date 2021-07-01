@@ -1,7 +1,6 @@
 ---
 title: Container image not pulled
 description: "Wrong Container Image or Invalid Registry Permissions"
-type: docs
 level: beginner
 reviewer: Tieyan Fu
 last_reviewed: 22.06.2018

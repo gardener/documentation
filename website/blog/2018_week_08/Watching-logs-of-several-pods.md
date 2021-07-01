@@ -1,6 +1,5 @@
 ---
 title: Watching logs of several pods
-type: Blog
 authors: 
 - name: Andreas Herz
   email: andreas.herz@sap.com

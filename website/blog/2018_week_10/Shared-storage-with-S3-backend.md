@@ -1,6 +1,5 @@
 ---
 title: Shared storage with S3 backend
-type: Blog
 authors: 
 - name: Andreas Herz
   email: andreas.herz@sap.com

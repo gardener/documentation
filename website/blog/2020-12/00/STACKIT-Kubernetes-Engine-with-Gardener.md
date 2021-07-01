@@ -2,7 +2,6 @@
 title: STACKIT Kubernetes Engine with Gardener
 linkTitle: STACKIT SKE with Gardener
 newsSubtitle: December 03, 2020
-type: blog
 publishdate: 2020-12-03
 archivedate: 2021-12-03
 authors:

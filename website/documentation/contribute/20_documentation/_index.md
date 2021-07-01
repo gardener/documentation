@@ -1,7 +1,6 @@
 ---
 title: Documentation
 url: /contribute/docs/
-type: docs
 ---
 # Contributing Documentation
 

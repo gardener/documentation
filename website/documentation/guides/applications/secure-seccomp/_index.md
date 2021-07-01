@@ -1,6 +1,5 @@
 ---
 title: Custom Seccomp profile
-type: docs
 level: advanced
 category: Security
 scope: operator

@@ -1,7 +1,6 @@
 ---
 title: Dynamic Volume Provisioning
 description: Running a Postgres database on Kubernetes and dynamically provision and mount the storage volumes needed by the database
-type: docs
 layout: single-page
 level: beginner
 category: Getting Started

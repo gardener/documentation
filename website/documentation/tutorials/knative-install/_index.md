@@ -1,7 +1,6 @@
 ---
 title: Install Knative in Gardener clusters
 description: A walkthrough the steps for installing Knative in Gardener shoot clusters.
-type: docs
 level: intermediate
 index: 10
 category: Setup

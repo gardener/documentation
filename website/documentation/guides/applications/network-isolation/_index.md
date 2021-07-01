@@ -1,6 +1,5 @@
 ---
 title: Namespace Isolation
-type: docs
 level: advanced
 category: Networking
 scope: app-developer

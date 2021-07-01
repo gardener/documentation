@@ -2,7 +2,6 @@
 title: Gardener v1.9 and v1.10 Released
 linkTitle: Gardener v1.9 and v1.10
 newsSubtitle: September 11, 2020
-type: blog
 publishdate: 2020-09-11
 archivedate: 2020-11-19
 authors:
