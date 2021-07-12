@@ -1,6 +1,5 @@
 ---
 title: CI/CD
-type: docs
 ---
 
 # CI/CD

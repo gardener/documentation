@@ -9,7 +9,6 @@ structure:
       frontmatter:
         title: Trigger Shoot operations
         remote: https://github.com/gardener/gardener/blob/master/docs/usage/shoot_operations.md
-        type: docs
         level: advanced
         category: Operation
         scope: operator
@@ -19,7 +18,6 @@ structure:
       frontmatter:
         title: Request DNS Names
         description: "Requesting DNS Names for Ingresses and Services in Shoot Clusters"
-        type: docs
         level: Advanced
         category: DNS
         scope: app-developer
@@ -29,7 +27,6 @@ structure:
       frontmatter:
         title: Manage DNS Providers
         description: "Manage DNS providers for DNS records in your shoot cluster"
-        type: docs
         level: Advanced
         category: DNS
         scope: app-developer
@@ -39,7 +36,6 @@ structure:
       frontmatter:
         title: Request X.509 Certificates
         description: "X.509 Certificates For TLS Communication"
-        type: docs
         level: beginner
         category: Certificates
         scope: app-developer
@@ -51,7 +47,6 @@ structure:
     properties:
       frontmatter:
         title: HTTPS with self Signed Certificate
-        type: docs
         remote: https://github.com/freegroup/kube-https.git
         level: intermediate
         category: Certificates
@@ -64,7 +59,6 @@ structure:
       frontmatter:
         title: Gardener Certificate Management
         description: "Configure Certificate Management For Shoot Clusters"
-        type: docs
         level: Advanced
         category: Certificates
         scope: operator
@@ -74,7 +68,6 @@ structure:
       frontmatter:
         title: Gardener DNS Management for Shoots
         description: "Configure DNS Management For Shoot Clusters"
-        type: docs
         level: Advanced
         category: DNS
         scope: operator
@@ -85,7 +78,6 @@ structure:
     frontmatter:
       title: Landscape Setup
       remote: https://github.com/gardener/landscape-setup/blob/master/README.md
-      type: docs
       level: advanced
       category: Setup Gardener
       scope: operator

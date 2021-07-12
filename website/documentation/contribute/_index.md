@@ -1,7 +1,6 @@
 ---
 title: Contribute
 description: Contributors guides for code and documentation
-type: docs
 sidebar: true
 menu: sln
 weight: 100

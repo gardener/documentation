@@ -2,7 +2,6 @@
 title: Machine Controller Manager
 linkTitle: Machine Controller Manager
 newsSubtitle: January 25, 2021
-type: blog
 publishdate: 2021-01-25
 archivedate: 2021-02-25
 authors:

@@ -1,7 +1,6 @@
 ---
 title: Landscape Setup
 remote: https://github.com/gardener/landscape-setup/blob/master/README.md
-type: docs
 level: advanced
 category: Setup Gardener
 scope: operator

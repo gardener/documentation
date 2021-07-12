@@ -2,7 +2,6 @@
 title: Shoot Reconciliation Details
 linkTitle: Shoot Reconciliation
 newsSubtitle: October 23, 2020
-type: blog
 publishdate: 2020-10-19
 authors:
 - name: Daniel Foehr

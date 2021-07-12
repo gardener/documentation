@@ -1,7 +1,6 @@
 ---
 title: Manually adding a node to an existing cluster
 description: How to add a node to an existing cluster without the support of Gardener
-type: docs
 level: advanced
 reviewer: Gaurav Gupta
 category: Operation

@@ -1,33 +1,30 @@
 structure:
 - name: core
   nodes:
-  - source: https://github.com/gardener/gardener/blob/master/hack/api-reference/core.md
+  - name: _index.md
+    source: https://github.com/gardener/gardener/blob/master/hack/api-reference/core.md
     properties:
-      index: true
       frontmatter:
         title: Core
         remote: https://github.com/gardener/gardener/blob/master/hack/api-reference/core.md
-        type: docs
         aliases: ["/api-reference/core"]
 - name: extensions
   nodes:
-  - source: https://github.com/gardener/gardener/blob/master/hack/api-reference/extensions.md
+  - name: _index.md
+    source: https://github.com/gardener/gardener/blob/master/hack/api-reference/extensions.md
     properties:
-      index: true
       frontmatter:
         title: Extensions
         remote: https://github.com/gardener/gardener/blob/master/hack/api-reference/extensions.md
-        type: docs
         aliases: ["/api-reference/extensions"]
 - name: settings
   nodes:
-  - source: https://github.com/gardener/gardener/blob/master/hack/api-reference/settings.md
+  - name: _index.md
+    source: https://github.com/gardener/gardener/blob/master/hack/api-reference/settings.md
     properties:
-      index: true
       frontmatter:
         title: Settings
         remote: https://github.com/gardener/gardener/blob/master/hack/api-reference/settings.md
-        type: docs
         aliases: ["/api-reference/settings"]
 links:
   downloads:

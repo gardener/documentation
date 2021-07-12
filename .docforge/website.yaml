@@ -6,7 +6,6 @@ structure:
     index: true
     frontmatter:
       title: Blogs
-      type: blog
       layout: blog-list
       aggregate: true
 - name: adopter
@@ -16,18 +15,16 @@ structure:
       frontmatter:
         title: Adopters
         url: /adopter
-        type: landingpage
 - name: community
   nodes:
   - source: https://github.com/gardener/documentation/blob/master/website/community/_index.md
     properties:
       title: Community
       url: /community
-      type: landingpage
 {{- $vers := Split .versions "," -}}
 {{- range $i, $version := $vers -}}
 {{- if eq $i 0  }}
-- name: documentation
+- name: docs
 {{- else }}
 - name: {{$version}}
 {{- end }}

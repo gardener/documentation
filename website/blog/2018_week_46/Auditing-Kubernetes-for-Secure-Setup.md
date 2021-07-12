@@ -1,6 +1,5 @@
 ---
 title: Auditing Kubernetes for Secure Setup
-type: Blog
 authors: 
 - name: Andreas Herz
   email: andreas.herz@sap.com

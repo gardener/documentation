@@ -1,6 +1,5 @@
 ---
 title: Hardening the Gardener Community Setup
-type: Blog
 authors: 
 - name: Andreas Herz
   email: andreas.herz@sap.com

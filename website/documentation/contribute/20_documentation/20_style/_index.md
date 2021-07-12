@@ -1,6 +1,5 @@
 ---
 title: Style Guide
-type: docs
 ---
 
 This page gives writing style guidelines for the Gardener documentation.

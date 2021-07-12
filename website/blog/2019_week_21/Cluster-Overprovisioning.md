@@ -1,6 +1,5 @@
 ---
 title: Cluster Overprovisioning
-type: Blog
 authors: 
 - name: Andreas Herz
   email: andreas.herz@sap.com

@@ -2,7 +2,6 @@
 title: Gardener Integrates with KubeVirt 
 linkTitle: Gardener Integrates with KubeVirt
 newsSubtitle:
-type: blog
 publishdate: 2020-10-19
 archivedate: 2020-12-19
 authors: 

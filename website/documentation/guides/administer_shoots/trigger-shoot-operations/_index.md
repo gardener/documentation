@@ -1,7 +1,6 @@
 ---
 title: Trigger Shoot operations
 remote: https://github.com/gardener/gardener/blob/master/docs/usage/shoot_operations.md
-type: docs
 level: advanced
 category: Operation
 scope: operator

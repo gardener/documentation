@@ -1,6 +1,5 @@
 ---
 title: Markdown
-type: docs
 ---
 
 Hugo uses Markdown for its simple content format. However, there are a lot of things that Markdown 

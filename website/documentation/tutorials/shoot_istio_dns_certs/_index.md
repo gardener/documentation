@@ -1,6 +1,5 @@
 ---
 title:  Gardener yourself a Shoot with Istio, custom Domains, and Certificates
-type: docs
 layout: single-page
 last_reviewed: 15.05.2020
 category: Networking

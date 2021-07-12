@@ -1,6 +1,5 @@
 ---
 title: New Website, Same Green Flower
-type: blog
 publishdate: 2020-05-11
 archivedate: 2020-06-11
 aliases: ["/blog/2020/05/11/00"]

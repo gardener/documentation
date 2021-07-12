@@ -1,6 +1,5 @@
 ---
 title: Create / Delete a Shoot cluster
-type: docs
 level: advanced
 category: Operation
 scope: operator

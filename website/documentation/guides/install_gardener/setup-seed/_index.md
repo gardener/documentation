@@ -1,7 +1,6 @@
 ---
 title: Setting up a Seed Cluster
 description: "How to configure a Kubernetes cluster as a Gardener seed"
-type: docs
 level: advanced
 category: Setup Gardener
 scope: operator

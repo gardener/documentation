@@ -1,7 +1,6 @@
 ---
 title: Security Release Process
 remote: https://github.com/gardener/documentation/blob/master/security-release-process.md
-type: docs
 ---
 # Gardener Security Release Process
 

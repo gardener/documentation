@@ -1,7 +1,6 @@
 ---
 title:  Access a port of a pod locally
 level: beginner
-type: docs
 reviewer: Tieyan Fu
 status: Reviewed
 last_reviewed: 30.05.2018

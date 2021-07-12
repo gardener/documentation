@@ -1,7 +1,6 @@
 ---
 title: Dockerfile pitfalls
 description: "Common Dockerfile pitfalls"
-type: docs
 level: beginner
 reviewer: Tieyan Fu
 last_reviewed: 22.06.2018

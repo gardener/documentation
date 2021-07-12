@@ -1,6 +1,5 @@
 ---
 title: Big things come in small packages
-type: Blog
 authors: 
 - name: Andreas Herz
   email: andreas.herz@sap.com

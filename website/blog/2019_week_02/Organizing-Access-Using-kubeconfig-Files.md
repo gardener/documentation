@@ -1,6 +1,5 @@
 ---
 title: Organizing Access Using kubeconfig Files
-type: Blog
 authors: 
 - name: Andreas Herz
   email: andreas.herz@sap.com

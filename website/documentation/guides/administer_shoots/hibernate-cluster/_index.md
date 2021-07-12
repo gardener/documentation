@@ -1,6 +1,5 @@
 ---
 title: Hibernate a Cluster
-type: docs
 level: beginner
 category: Operation
 scope: operator

@@ -1,7 +1,6 @@
 ---
 title: Community
 url: /community
-type: landingpage
 ---
 <div class="community">
     <h1 class="title">Gardener Community</h1>

@@ -3,7 +3,6 @@ title: Gardener 1.4.0 Released
 newsSubtitle: May 07, 2020
 publishdate: 2020-05-07
 archivedate: 2020-05-15
-type: news
 newsType: release-notes
 ---
 # Gardener Release 1.4
