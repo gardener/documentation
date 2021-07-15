@@ -14,7 +14,7 @@ url: /community
             <span>Follow the latest project updates on Twitter</span>
         </div>
         <div class="four columns">
-            <a target="_blank" class="action-header" href="https://github.com/gardener/documentation/blob/master/CONTRIBUTING.md#weekly-meeting">
+            <a target="_blank" class="action-header" href="https://github.com/gardener/community/wiki/2021-Community-Call">
                 <!-- FIXME -->
                 <img src="https://gardener.cloud/images/lp/comms-community-meetings.svg"><span>Community Meetings</span>
             </a>
