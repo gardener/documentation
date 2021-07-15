@@ -1,3 +1,10 @@
+---
+title: Create shoot clusters in Azure
+level: beginner
+category: Getting Started
+scope: app-developer
+---
+
 # Create shoot clusters in Azure
 
 ### Prerequisites
