@@ -28,8 +28,6 @@ structure:
       weight: 30
   nodesSelector:
     path: https://github.com/gardener/documentation/blob/master/.docforge/guides.yaml
-  nodes:
-  - source: https://github.com/gardener/documentation/blob/master/website/documentation/guides/_index.md
 - name: tutorials
   properties:
     frontmatter:
@@ -41,8 +39,6 @@ structure:
       weight: 40    
   nodesSelector:
     path: https://github.com/gardener/documentation/blob/master/.docforge/tutorials.yaml
-  nodes:
-  - source: https://github.com/gardener/documentation/blob/master/website/documentation/tutorials/_index.md  
 - name: references
   properties:
     frontmatter:
