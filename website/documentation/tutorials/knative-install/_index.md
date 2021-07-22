@@ -83,7 +83,7 @@ instructions to install Knative.
 
 ## Installing `cluster-local-gateway` for serving cluster-internal traffic
 
-If you installed Istio, you can install a `cluster-local-gateway` within your Knative cluster so that you can serve cluster-internal traffic. If you want to configure your revisions to use routes that are visible only within your cluster, [install and use the `cluster-local-gateway`](https://knative.dev/v0.12-docs/install/knative-with-gardener/#updating-your-install-to-use-cluster-local-gateway).
+If you installed Istio, you can install a `cluster-local-gateway` within your Knative cluster so that you can serve cluster-internal traffic. If you want to configure your revisions to use routes that are visible only within your cluster, [install and use the `cluster-local-gateway`](https://knative.dev/docs/admin/install/knative-offerings/).
 
 ## Installing Knative
 
@@ -178,13 +178,13 @@ Now that your cluster has Knative installed, you can see what Knative has to
 offer.
 
 To deploy your first app with the
-[Getting Started with Knative App Deployment](https://knative.dev/v0.12-docs/serving/getting-started-knative-app/)
+[Getting Started with Knative App Deployment](https://knative.dev/docs/serving/getting-started-knative-app/)
 guide.
 
 Get started with Knative Eventing by walking through one of the
 [Eventing Samples](https://knative.dev/docs/eventing/samples/).
 
-[Install Cert-Manager](https://knative.dev/v0.12-docs/serving/installing-cert-manager/) if you want to use the
+[Install Cert-Manager](https://knative.dev/docs/serving/installing-cert-manager/) if you want to use the
 [automatic TLS cert provisioning feature](https://knative.dev/docs/serving/using-auto-tls/).
 
 ## Cleaning up
