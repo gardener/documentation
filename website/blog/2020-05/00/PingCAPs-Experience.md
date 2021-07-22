@@ -20,7 +20,7 @@ Gardener is showing successful collaboration with its growing community of contr
 
 [PingCAP](https://pingcap.com/about/) started in 2015, when three seasoned infrastructure engineers working at leading Internet companies got sick and tired of the way databases were managed, scaled and maintained. Seeing no good solution on the market, they decided to build their own - the open-source way. With the help of a first-class team and hundreds of contributors from around the globe, PingCAP is building a distributed NewSQL, hybrid transactional and analytical processing (HTAP) database.
 
-Its flagship project, [TiDB](https://en.wikipedia.org/wiki/TiDB), is a cloud-native distributed SQL database with MySQL compatibility, and one of the [most popular](https://github.com/pingcap/tidb) open-source database projects - with 23.5K+ stars and 400+ contributors. Its sister project [TiKV](https://github.com/tikv/tikv) is a [Cloud Native Interactive Landscape project](https://landscape.cncf.io/format=card-mode).
+Its flagship project, [TiDB](https://en.wikipedia.org/wiki/TiDB), is a cloud-native distributed SQL database with MySQL compatibility, and one of the [most popular](https://github.com/pingcap/tidb) open-source database projects - with 23.5K+ stars and 400+ contributors. Its sister project [TiKV](https://github.com/tikv/tikv) is a [Cloud Native Interactive Landscape project](https://landscape.cncf.io/card-mode).
 
 PingCAP envisioned their managed TiDB service, known as [TiDB Cloud](https://pingcap.com/tidb-cloud/sign-up/), to be multi-tenant, secure, cost-efficient, and to be compatible with different cloud providers. As a result, the company turned to Gardener to build their managed TiDB cloud service offering. 
 
