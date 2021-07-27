@@ -36,13 +36,7 @@ structure:
           title: kubify
           remote: https://github.com/gardener/kubify/blob/master/README.md
           url: /components/kubify/
-    - name: 40_bouquet
-      source: https://github.com/gardener-attic/bouquet/blob/master/README.md
-      properties:
-        frontmatter:
-          title: Bouquet
-          remote: https://github.com/gardener/bouquet/blob/master/README.md
-          url: /components/bouquet/
+    
   - name: backup-restore
     nodes:
     - source: https://github.com/gardener/gardener/blob/master/docs/concepts/backup-restore.md
