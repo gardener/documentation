@@ -88,8 +88,7 @@ If you installed Istio, you can install a `cluster-local-gateway` within your Kn
 ## Installing Knative
 
 The following commands install all available Knative components as well as the
-standard set of observability plugins. To customize your Knative installation,
-see [Performing a Custom Knative Installation](https://knative.dev/v0.12-docs/install/knative-custom-install/).
+standard set of observability plugins. Knative's installation guide - [Installing Knative](https://knative.dev/docs/admin/install/).
 
 1. If you are upgrading from Knative 0.3.x: Update your domain and static IP
    address to be associated with the LoadBalancer `istio-ingressgateway` instead
