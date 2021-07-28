@@ -312,4 +312,4 @@ structure:
 links:
   downloads:
     scope:
-      "gardener/gardener/(blob|raw)/(.*)/docs": ~
+      "gardener/[a-zA-Z0-9_.-]+/(blob|raw)/(.*)/docs": ~
