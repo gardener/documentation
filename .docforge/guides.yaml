@@ -55,6 +55,7 @@ structure:
 - name: install_gardener
   nodes:
   - source: https://github.com/gardener/gardener-extension-shoot-cert-service/blob/master/docs/installation/setup.md
+    name: certificate_management
     properties:
       frontmatter:
         title: Gardener Certificate Management
@@ -64,6 +65,7 @@ structure:
         scope: operator
         aliases: ["/050-tutorials/content/howto/gardener_certificate_management"]  
   - source: https://github.com/gardener/gardener-extension-shoot-dns-service/blob/master/docs/installation/setup.md
+    name: dns_management
     properties:
       frontmatter:
         title: Gardener DNS Management for Shoots
