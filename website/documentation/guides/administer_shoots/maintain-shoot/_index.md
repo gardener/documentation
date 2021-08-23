@@ -13,11 +13,11 @@ Day two operations for shoot clusters are related to:
 * The Kubernetes version of the control plane and the worker nodes
 * the operating system version of the worker nodes
 
-{{% notice note %}}
+{{% alert color="info" %}}
 <p>
 When referring to an update of the "operating system version" in this document, the update of the machine image of the shoot cluster's worker nodes is meant. For example, Amazon Machine Images (AMI) for AWS.
 </p>
-{{% /notice %}}
+{{% /alert %}}
 
 
 The following table summarizes what options Gardener offers to maintain these versions:
@@ -77,11 +77,11 @@ To trigger updates during the maintenance window automatically, Gardener offers 
 
 If you don’t want to wait for the next maintenance window, you can annotate the shoot cluster specification with `shoot.gardener.cloud/operation: maintain`. Gardener then checks immediately if there’s an auto-update or a forceful update needed.
 
-{{% notice info %}}
+{{% alert color="info" %}}
 <p>
 Forceful version updates are even executed if the auto-update for the Kubernetes version, or the auto-update for the machine image version is deactivated (set to `false`).
 </p>
-{{% /notice %}}
+{{% /alert %}}
 
 With expiration dates, administrators can give shoot cluster owners more time for testing before the actual version update happens, which allows smoother transitions to new versions.
 
@@ -97,11 +97,11 @@ The bigger the delta of the Kubernetes source version and the Kubernetes target 
 
 Gardener doesn’t support automatic updates of nonconsecutive minor versions, because Kubernetes doesn’t guarantee updateability in this case. However, multiple minor version updates are possible if not only the minor source version is expired, but also the minor target version is expired. Gardener then updates the Kubernetes version first to the expired target version, and waits for the next maintenance window to update this version to the next minor target version.
 
-{{% notice warning %}}
+{{% alert color="warning" title="Warning" %}}
 <p>
 The administrator who maintains the `CloudProfile` has to ensure that the list of Kubernetes versions consists of consecutive minor versions, for example, from `1.10.x` to `1.11.y`. If the minor version increases in bigger steps, for example, from `1.10.x` to `1.12.y`, shoot cluster updates fail during the maintenance window. 
 </p>
-{{% /notice %}}
+{{% /alert %}}
 
 ## Manual Updates
 
@@ -114,11 +114,11 @@ Choosing the latter option, causes changes to the cluster (for example, node poo
 
 More information: [Confine Specification Changes/Update Roll Out](https://github.com/gardener/gardener/blob/master/docs/usage/shoot_maintenance.md#confine-specification-changesupdates-roll-out).
 
-{{% notice warning %}}
+{{% alert color="warning" title="Warning" %}}
 <p>
 Before applying such update on minor or major releases, operators should check for all the breaking changes introduced in the target Kubernetes release changelog.
 </p>
-{{% /notice %}}
+{{% /alert %}}
 
 ## Examples
 

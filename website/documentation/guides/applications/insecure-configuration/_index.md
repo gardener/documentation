@@ -7,8 +7,7 @@ scope: operator
 ---
 
 # Auditing Kubernetes for Secure Setup
-
-{{% howto_img "" "./images/teaser.svg" %}}
+![teaser](./images/teaser.svg)
 
 ## Increasing the Security of all Gardener Stakeholders
 In summer 2018, the [Gardener project team](https://github.com/gardener/gardener) asked [Kinvolk](https://kinvolk.io/) to execute several penetration tests in its role as third-party contractor. The goal of this ongoing work is to increase the security of
@@ -78,7 +77,7 @@ The API server will check whether the client certificate presented by kubectl, k
 is really signed by the configured certificate authority for clients.
 
 
-{{% howto_img "The API server can have many clients of various kinds" "./images/image3.png" %}}
+![](./images/image3.png)*The API server can have many clients of various kinds*<br/><br/><br/>
 
 However, it is possible to configure the API server differently for use with an intermediate authenticating proxy. The
 proxy will authenticate the client with its own custom method and then issue HTTP requests to the API server with
@@ -91,16 +90,12 @@ additional HTTP headers specifying the user name and group name. The API server 
 --requestheader-group-headers=X-Remote-Group
 ```
 
-
-{{% howto_img "API server clients can reach the API server through an authenticating proxy" "./images/image2.png" %}}
-
-
+![](./images/image2.png)*API server clients can reach the API server through an authenticating proxy*<br/><br/><br/>
 
 So far, so good. But what happens if malicious user “Mallory” tries to connect directly to the API server and reuses
 the HTTP headers to pretend to be someone else?
 
-
-{{% howto_img "What happens when a client bypasses the proxy, connecting directly to the API server?" "./images/image8.png" %}}
+![](./images/image8.png)*What happens when a client bypasses the proxy, connecting directly to the API server?*<br/><br/><br/>
 
 
 With a correct configuration, Mallory’s kubeconfig will have a certificate signed by the API server certificate authority
@@ -127,8 +122,7 @@ The API server is a central component of Kubernetes and many components initiate
 running on worker nodes. Most of the requests from those clients will end up updating Kubernetes objects (pods, services,
 deployments, and so on) in the etcd database but the API server usually does not need to initiate TCP connections itself.
 
-
-{{% howto_img "The API server is mostly a component that receives requests" "./images/image7.png" %}}
+![](./images/image7.png)*The API server is mostly a component that receives requests*<br/><br/><br/>
 
 
 However, there are exceptions. Some `kubectl` commands will trigger the API server to open a new
@@ -140,10 +134,7 @@ Basically, the Kubelet is telling the API server to get the streams from CRI its
 redirection from the Kubelet will only change the port and path from the URL; the IP address will not be changed because
 the Kubelet and the CRI component run on the same worker node.
 
-
-
-{{% howto_img "But the API server also initiates some connections, for example, to worker nodes" "./images/image1.png" %}}
-
+![](./images/image1.png)*But the API server also initiates some connections, for example, to worker nodes*<br/><br/><br/>
 
 It’s often quite easy for users of a Kubernetes cluster to get access to worker nodes and tamper with the Kubelet. They
 could be given explicit SSH access or they could be given a kubeconfig with enough privileges to create privileged pods
@@ -160,10 +151,7 @@ What would happen if a user was tampering with the Kubelet to make it maliciousl
 a different random endpoint? Most likely the given endpoint would not speak the streaming server protocol, so there would
 be an error. However, the full HTTP payload from the endpoint is included in the error message printed by kubectl exec.
 
-
-
-{{% howto_img "The API server is tricked to connect to other components" "./images/image6.png" %}}
-
+![](./images/image6.png)*The API server is tricked to connect to other components*<br/><br/><br/>
 
 The impact of this issue depends on the specific setup. But in many configurations, we could find a metadata service
 (such as the [AWS metadata service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html))
@@ -205,8 +193,7 @@ plane, but also to a Grafana instance that is used to gather data from their Kub
 plane is managed and users don’t have access to the nodes that it runs. They can only access the API server and Grafana
 via a load balancer. The internal network of the control plane is therefore hidden to users.
 
-
-{{% howto_img "Prometheus and Grafana can be used to monitor worker nodes" "./images/image5.png" %}}
+![](./images/image5.png)*Prometheus and Grafana can be used to monitor worker nodes*<br/><br/><br/>
 
 
 Unfortunately, that setup was not protecting the control plane network from nosy users. By configuring a new custom
@@ -214,11 +201,9 @@ data source in Grafana, we could send HTTP requests to target the control plane 
 service. The reply payload is not displayed on the Grafana Web UI but it is possible to access it from the debugging
 console of the Chrome browser.
 
+![](./images/image9.png)*Credentials can be retrieved from the debugging console of Chrome*<br/><br/><br/>
 
-{{% howto_img "Credentials can be retrieved from the debugging console of Chrome" "./images/image9.png" %}}
-
-
-{{% howto_img "Adding a Grafana data source is a way to issue HTTP requests to arbitrary targets" "./images/image4.png" %}}
+![](./images/image4.png)*Adding a Grafana data source is a way to issue HTTP requests to arbitrary targets*<br/><br/><br/>
 
 In that installation, users could get the “user-data” for the seed cluster from the metadata service and retrieve a
 kubeconfig for that Kubernetes cluster.

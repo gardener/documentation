@@ -22,9 +22,9 @@ Here are some pre-pointers that you will need to go deeper:
 * [Tutorial Domain Names](https://gardener.cloud/docs/guides/administer_shoots/dns_names/)
 * [Tutorial Certificates](https://gardener.cloud/docs/guides/administer_shoots/request_cert/)
 
-{{% notice tip %}}
+{{% alert title="Tip" color="primary" %}}
 <p>If you try my instructions and fail, then read the alternative title of this tutorial as "Shoot yourself in foot with Gardener, custom Domains, Istio and Certificates".</p>
-{{% /notice %}}
+{{% /alert %}}
 
 ## First Things First
 
@@ -62,9 +62,9 @@ Our [External DNS Manager](https://github.com/gardener/external-dns-management/)
 ## Prepare Gardener Extensions
 I now need to prepare the Gardener extensions `shoot-dns-service` and `shoot-cert-service` and set the parameters accordingly.
 
-{{% notice note %}}
+{{% alert color="info" %}}
 <p>Please note, that the availability of Gardener Extensions depends on how your administrator has configured the Gardener landscape. Please contact your Gardener administrator in case you experience any issues during activation.</p>
-{{% /notice %}}
+{{% /alert %}}
 
 The following snipplet allows Gardener to manage my entire custom domain, whereas with the `include:` attribute I restrict all dynamic entries under the subdomain `gsicdc.mydomain.io`:
 
@@ -96,9 +96,9 @@ The next snipplet allows Gardener to manage certificates automatically from *[Le
             server: 'https://acme-staging-v02.api.letsencrypt.org/directory'
 ```
 
-{{% notice note %}}
+{{% alert color="info" %}}
 <p>Adjust the snipplets with your parameters (don't forget your email). And please use the mydomain-staging issuer while you are testing and learning. Otherwise, Let's Encrypt will rate limit your frequent requests and you can wait a week until you can continue.</p>
-{{% /notice %}}
+{{% /alert %}}
 
 References for [Let's Encrypt](https://letsencrypt.org):
 * [Rate limit](https://letsencrypt.org/docs/rate-limits/)
@@ -226,9 +226,9 @@ With these annotations three things now happen automagically:
 2. The [Certificate Mangement](https://gardener.cloud/docs/concepts/networking/cert-managment/) picks up the request as well and initates a DNS01 protocol exchange with Let's Encrypt; using the staging environment referred to with the issuer behind `mydomain-staging`.
 3. After aproximately 70sec (give and take) you will receive the wildcard certificate in the `wildcard-tls` secret in the namespace `istio-system`. 
 
-{{% notice note %}}
+{{% alert color="info" %}}
 <p>Notice, that the namespace for the certificate secret is often the cause of many troubeshooting sessions: the secret must reside in the same namespace of the gateway.</p>
-{{% /notice %}}
+{{% /alert %}}
 
 Here is the istio-install script:
 ```bash
@@ -294,9 +294,9 @@ brew install httpie
 
 ## Ingress to your service
 
-{{% notice note %}}
+{{% alert color="info" %}}
 <p>Networking is a central part of Kubernetes, but it can be challenging to understand exactly how it is expected to work. You should learn about Kubernetes networking, and first try to debug problems yourself. With a solid managed cluster from Gardener, it is always PEBCAK!</p>
-{{% /notice %}}
+{{% /alert %}}
 
 Kubernetes Ingress is a subject that is evolving to much broader standard. Please watch [Evolving the Kubernetes Ingress APIs to GA and Beyond](https://www.youtube.com/watch?v=cduG0FrjdJA) for a good introduction. In this example, I did not want to use the Kubernetes `Ingress` compatibility option of Istio. Instead, I used `VirtualService` and `Gateway` from the Istio's API group `networking.istio.io/v1beta1` directly, and enabled istio-injection generically for the namespace.
 
@@ -441,9 +441,9 @@ $ curl -k https://httpbin.gsicdc.mydomain.io/ip
 Quod erat demonstrandum.
 The proof of exchanging the issuer is now left to the reader. 
 
-{{% notice tip %}}
+{{% alert title="Tip" color="primary" %}}
 <p>Remember that the certificate is actually not valid because it is issued from the Let's encrypt staging environment. Thus, we needed "curl -k" or "http --verify no".</p>
-{{% /notice %}}
+{{% /alert %}}
 
 Hint: use the interactive k9s tool.
 ![k9s](./k9s.png)
