@@ -4,17 +4,6 @@ url: /curated-links
 icon: navigation_links.svg
 ---
 
-<div class="hero">
-    <div class="container reveal-fast" style="visibility:hidden">
-        <h1>Curated Links</h1>
-        <div class="preamble reveal-slow">
-           A curated list of Kubernetes resources and projects
-        </div>
-    </div>
-</div>
-
-<div class="padding">
-{{% md %}}
 A curated list of awesome kubernetes sources
 Inspired by [@sindresorhus' awesome](https://github.com/sindresorhus/awesome)
 
@@ -105,6 +94,3 @@ Inspired by [@sindresorhus' awesome](https://github.com/sindresorhus/awesome)
 Contributions are most welcome!
 
 This list is just getting started, please contribute to make it super awesome.
-{{% /md %}}
-
-</div>
