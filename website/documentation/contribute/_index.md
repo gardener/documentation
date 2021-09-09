@@ -78,11 +78,34 @@ Due to legal reasons, contributors will be asked to accept a Developer Certifica
 
 * If your patch is not getting reviewed or you need a specific person to review it, you can @-reply a reviewer asking for a review in the pull request or a comment, or you can ask for a review on our [mailing list](https://groups.google.com/forum/?fromgroups#!forum/gardener).
 
+* If you add new features, make sure that they are documented in the [Gardener documentation](https://github.com/gardener/documentation)
+
+* If your changes are relevant for operators, consider to update the [ops toolbelt image](https://github.com/gardener/ops-toolbelt)
+
 * Post review:
   * If a review requires you to change your commit(s), please test the changes again.
   * Amend the affected commit(s) and force push onto your branch.
   * Set respective comments in your GitHub review to resolved.
   * Create a general PR comment to notify the reviewers that your amendments are ready for another round of review.
+  
+## Contributing Bigger Changes
+
+If you want to contribute bigger changes to Gardener, such as when introducing new API resources and their corresponding controllers, or implementing an approved [Gardener Enhancement Proposal](https://github.com/gardener/gardener/tree/master/docs/proposals), follow these guidelines:
+
+* Avoid proposing a big change in one single PR. Instead, split your work into multiple stages which are independently mergeable and create one PR for each stage. For example, if introducing a new API resource and its controller, these stages could be:
+  * API resource types, including defaults and generated code.
+  * API resource validation.
+  * API server storage.
+  * Admission plugin(s), if any.
+  * Controller(s), including changes to existing controllers. Split this phase further into different functional subsets if appropriate.
+  
+* If you realize later that changes to artifacts introduced in a previous stage are required, by all means make them and explain in the PR why they were needed.
+  
+* Consider splitting a big PR further into multiple commits to allow for more focused reviews. For example, you could add unit tests / documentation in separate commits from the rest of the code. If you have to adapt your PR to review feedback, prefer doing that also in a separate commit to make it easier for reviewers to check how their feedback has been addressed. 
+
+* To make the review process more efficient and avoid too many long discussions in the PR itself, ask for a "main reviewer" to be assigned to your change, then work with this person to make sure he or she understands it in detail, and agree together on any improvements that may be needed. If you can't reach an agreement on certain topics, comment on the PR and invite other people to join the discussion.
+
+* Even if you have a "main reviewer" assigned, you may still get feedback from other reviewers. In general, these "non-main reviewers" are advised to focus more on the design and overall approach rather than the implementation details. Make sure that you address any concerns on this level appropriately.
 
 ## Issues and Planning
 
@@ -124,9 +147,9 @@ To gain edit access for these documents, you must subscribe to the
 [gardener mailing list](https://groups.google.com/forum/?fromgroups#!forum/gardener),
 as these documents are shared automatically with anyone who subscribes to that list.
 
-### Weekly Meeting
+### Bi-Weekly Meetings
 
-We have a PUBLIC and RECORDED weekly meeting. We meet every Friday at [10:00 CET](https://www.google.de/search?q=10+CET+to+local+time) over Zoom. Find recordings in the [Gardener Youtube channel](https://www.youtube.com/channel/UCwUhwKFREV8Su0gwAJQX7tw/videos). Let us know if you want to participate and live in a timezone where 10:00 CET is in the night, we can also schedule meetings on Thursday [17:00 CET](https://www.google.de/search?q=17+CET+to+local+time).
+We have a PUBLIC and RECORDED bi-weekly meeting. We meet every other Friday at [10:00 CET](https://www.google.de/search?q=10+CET+to+local+time) over Zoom. Find recordings in the [Gardener Youtube channel](https://www.youtube.com/channel/UCwUhwKFREV8Su0gwAJQX7tw/videos). Let us know if you want to participate and live in a timezone where 10:00 CET is in the night, we can also schedule meetings on Thursday [17:00 CET](https://www.google.de/search?q=17+CET+to+local+time).
 
 See the meeting calendar on the web at [calendar.google.com](https://calendar.google.com/calendar/embed?src=gardener.cloud.community%40gmail.com), or paste this [iCal url](https://calendar.google.com/calendar/ical/gardener.cloud.community%40gmail.com/public/basic.ics) into any iCal client.
 

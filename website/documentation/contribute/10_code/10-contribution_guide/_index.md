@@ -1,6 +1,6 @@
 ---
 title: Contribution Guide
-remote: https://github.com/gardener/documentation/blob/master/CONTRIBUTING.md
+remote: https://github.com/gardener/documentation/blob/master/website/documentation/contribute/_index.md
 ---
 # Contributing to Gardener
 
