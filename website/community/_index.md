@@ -72,7 +72,7 @@ url: /community
                     </div>
                 </div>
                 <p class="description">
-                    We are cordially inviting interested parties to join our <a href="https://github.com/gardener/documentation/blob/master/CONTRIBUTING.md#weekly-meeting">weekly meetings</a>.
+                    We are cordially inviting interested parties to join our <a href="https://github.com/gardener/documentation/blob/master/website/documentation/contribute/_index.md#bi-weekly-meetings">bi-weekly meetings</a>.
                     Here you can address questions regarding the direction of the project, technical problems and support.
                 </p>
             </div>
@@ -87,7 +87,7 @@ url: /community
                 <div class="one-half column">
                     <h2 class="center"><a href="https://github.com/gardener/gardener" target="_blank"> <img src="https://gardener.cloud/images/branding/github.png"  height="120"></a></h2>
                     <p class="description">
-                        Find out more about the project and consider making a contribution..
+                        Find out more about the project and consider making a contribution.
                     </p>
                 </div>
             </div>
