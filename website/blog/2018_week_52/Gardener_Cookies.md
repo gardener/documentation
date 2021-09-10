@@ -1,29 +1,27 @@
 ---
 title: Gardener Cookies
-level: intermediate
-category: Operation
-scope: app-developer
+publishdate: 2018-12-25
 ---
 
 # Green Tea Matcha Cookies
 
 For a team event during the Christmas season we decided to completely reinterpret the topic `cookies`. :-)
 
-<img style="width: 50%; height: auto; margin: 0, auto" src="slider/cookie-00.jpg"/>
+![](./slider/cookie-00.jpg)
 
 Matcha cookies have the delicate flavor and color of green tea. These soft, pillowy and chewy green tea cookies 
-are perfect with tea. And of course they fit perfectly to our logo
+are perfect with tea. And of course they fit perfectly to our logo.
 
 
 ## Ingredients
 
-- 1 stick butter, softened
-- ⅞ cup of granulated sugar
-- 1 cup + 2 tablespoons all-purpose flour
-- 2 eggs
-- 1¼ tablespoons culinary grade matcha powder
-- 1 teaspoon baking powder
-- Pinch of salt
+* 1 stick butter, softened
+* ⅞ cup of granulated sugar
+* 1 cup + 2 tablespoons all-purpose flour
+* 2 eggs
+* 1¼ tablespoons culinary grade matcha powder
+* 1 teaspoon baking powder
+* pinch of salt
 
 ## Instructions
 1. Cream together the butter and sugar in a large mixing bowl - it should be creamy colored and airy. A hand blender or stand mixer works well for this. This helps the cookie become fluffy and chewy.
@@ -37,9 +35,9 @@ are perfect with tea. And of course they fit perfectly to our logo
 1. Remove and let cool on a rack and enjoy!
 
 ## Note
-Make sure you get culinary grade matcha powder. You should be able to find this in Asian or natural grocers
+Make sure you get culinary grade matcha powder. You should be able to find this in Asian or natural grocers.
 
-<img style="width: 50%; height: auto" src="slider/cookie-01.jpg"/>
-<img style="width: 50%; height: auto" src="slider/cookie-02.jpg"/>
-<img style="width: 50%; height: auto" src="slider/cookie-03.jpg"/>
-<img style="width: 50%; height: auto" src="slider/cookie-05.jpg"/>
+![](./slider/cookie-01.jpg)
+![](./slider/cookie-02.jpg)
+![](./slider/cookie-03.jpg)
+![](./slider/cookie-05.jpg)
