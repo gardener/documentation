@@ -12,6 +12,4 @@ a publishing platform mechanisms, such as Hugo's layouts. Considering that the s
 might be published by multiple platforms you should be considerate in using markup that may bind it 
 to a particular one.
 
-For that reason we no longer support Hugo shortcodes. Instead we plan to gradually introduce mechanisms 
-to compensate for Markdowns's limitations with regard to creating documentation without departing from
-'normal' Markdown towards a publishing platform.
+We support the use of certain shortcodes. You can find more about the currently supported shortcodes and their documentation [here](../30_shortcodes/_index.md).
