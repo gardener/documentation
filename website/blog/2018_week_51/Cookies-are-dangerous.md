@@ -18,4 +18,4 @@ topic `cookies`... since the vegetables have gone on a well-deserved vacation. :
 
 
 
-Get recipe on [Gardener Cookies](https://github.com/gardener/documentation/blob/master/website/documentation/guides/gardener-cookies/_index.md).
+Get recipe on [Gardener Cookies](../2018_week_52/Gardener_Cookies.md).
