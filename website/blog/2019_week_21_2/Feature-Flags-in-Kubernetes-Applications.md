@@ -24,6 +24,4 @@ Possible Use Cases
  - change timeouts in production
  - toggle on/off some special verification
 
-..read some more on [Feature Flags for App](https://github.com/gardener-samples/kube-featureflag/blob/master/README.md).
-
 
