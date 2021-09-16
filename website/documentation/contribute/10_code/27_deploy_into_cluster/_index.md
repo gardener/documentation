@@ -22,8 +22,7 @@ After preparing your values in a separate `controlplane-values.yaml` file, you c
 ```bash
 helm install charts/gardener/controlplane \
   --namespace garden \
-  --name gardener-controlplane \
-  -f gardener-values.yaml \
+  -f controlplane-values.yaml \
   --wait
 ```
 
