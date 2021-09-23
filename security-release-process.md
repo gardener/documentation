@@ -22,7 +22,6 @@ following volunteers:
 * Claudia H&ouml;lters, (**[@hoeltcl](https://github.com/hoeltcl)**)
 * Vedran Lerenc, (**[@vlerenc](https://github.com/vlerenc)**)
 * Dirk Marwinski, (**[@marwinski](https://github.com/marwinski)**)
-* Martin Vladev, (**[@mvladev](https://github.com/mvladev)**)
 * Matthias Sohn, (**[@msohn](https://github.com/msohn)**)
 * Frederik Thormaehlen, (**[@ThormaehlenFred](https://github.com/ThormaehlenFred)**)
 
