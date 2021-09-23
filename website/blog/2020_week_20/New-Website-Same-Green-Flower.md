@@ -8,7 +8,7 @@ aliases: ["/blog/2020/05/11/00"]
 The [Gardener project website](https://gardener.cloud) just received a serious facelift. Here are some of the highlights:
 - **A completely new landing page**, emphasizing both on Gardener's value proposition and the open community behind it.
 - **The Community page** was reconstructed for quick access to the various community channels and will soon merge the Adopters page. It will provide a better insight into success stories from the communty.
-- **A completely new News section and content type** available at [/documentation/news](https://github.com/gardener/documentation/tree/master/website/news). Use metadata such as `publishdate` and `archivedate` to schedule for news publish and archive automatically, regardless of when you contributed them. You can now track what's happening from the landing page or in the dedicated [News](https://gardener.cloud/news) section on the website and share.
+- **A completely new Blog section and content type** available at [/blog](https://gardener.cloud/blog/). Use metadata such as `publishdate` and `archivedate` to schedule for news publish and archive automatically, regardless of when you contributed them. You can now track what's happening from the landing page or in the dedicated [News](https://gardener.cloud/news) section on the website and share.
 - **Improved blogs** layout. One-click sharing options are available starting with simple URL copy link and twitter button and others will closely follow up. While we are at it, give it a try. Spread the word.
 
 **Website builds** also got to a new level with:

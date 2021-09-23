@@ -48,7 +48,7 @@ On MacOS run
 brew install kubernetes-helm
 ```
 
-On other OS please check the [Helm installation documentation](https://github.com/kubernetes/helm/blob/master/docs/install.md).
+On other OS please check the [Helm installation documentation](https://github.com/helm/helm/blob/main/README.md#install).
 
 ## Installing git
 
@@ -337,7 +337,7 @@ Moreover, it hid too many things and came with a bunch of limitations, making th
 
 To make sure that a specific Seed cluster will be chosen, specify the `.spec.seedName` field (see [here](https://raw.githubusercontent.com/gardener/gardener/master/docs/development/../../example/90-shoot.yaml#L265-L266) for an example Shoot manifest).
 
-Please take a look at the [example manifests folder](https://raw.githubusercontent.com/gardener/gardener/master/docs/development/../../example) to see which resource objects you need to install into your Garden cluster.
+Please take a look at the [example manifests folder](https://github.com/gardener/gardener/tree/master/example) to see which resource objects you need to install into your Garden cluster.
 
 
 # Appendix

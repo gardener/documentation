@@ -75,11 +75,11 @@ structure:
         scope: operator
         aliases: ["/050-tutorials/content/howto/gardener_dns_management"]
 - name: landscape-setup
-  source: https://github.com/gardener/landscape-setup/blob/master/README.md
+  source: https://github.com/gardener/garden-setup/blob/master/README.md
   properties:
     frontmatter:
       title: Landscape Setup
-      remote: https://github.com/gardener/landscape-setup/blob/master/README.md
+      remote: https://github.com/gardener/garden-setup/blob/master/README.md
       level: advanced
       category: Setup Gardener
       scope: operator

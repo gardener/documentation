@@ -47,7 +47,7 @@ Integration with KubeVirt follows the Gardener extensibility concept and introdu
 
 The KubeVirt Provider Extension consists of three separate controllers that handle respectively the infrastructure, the control plane, and the worker nodes of the shoot cluster.
  
-The **Infrastructure Controller** configures the network communication between the shoot worker nodes. By default, shoot worker nodes only use the provider cluster’s pod network. To achieve higher level of network isolation and better performance, it is possible to add more networks and replace the default pod network with a different network using container network interface (CNI) plugins available in the provider cluster. This is currently based on [Multus CNI](https://github.com/intel/multus-cni/blob/master/README.md) and [NetworkAttachmentDefinitions](https://github.com/intel/multus-cni/blob/master/doc/quickstart.md).
+The **Infrastructure Controller** configures the network communication between the shoot worker nodes. By default, shoot worker nodes only use the provider cluster’s pod network. To achieve higher level of network isolation and better performance, it is possible to add more networks and replace the default pod network with a different network using container network interface (CNI) plugins available in the provider cluster. This is currently based on [Multus CNI](https://github.com/intel/multus-cni/blob/master/README.md) and [NetworkAttachmentDefinitions](https://github.com/k8snetworkplumbingwg/multus-cni/blob/master/docs/quickstart.md).
 
 Example infrastructure configuration in a shoot definition:
 

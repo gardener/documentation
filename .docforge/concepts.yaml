@@ -96,11 +96,6 @@ structure:
         frontmatter:
           title: Deploying the Gardener into a Kubernetes cluster
           remote: https://github.com/gardener/gardener/blob/master/docs/deployment/setup_gardener.md
-    - source: https://github.com/gardener/gardener/blob/master/docs/deployment/aks.md
-      properties:
-        frontmatter:
-          title: Deploying the previous Gardener versions and a Seed into an AKS cluster
-          remote: https://github.com/gardener/gardener/blob/master/docs/deployment/aks.md
     - source: https://github.com/gardener/gardener/blob/master/docs/deployment/deploy_gardenlet_manually.md
       properties:
         frontmatter:
