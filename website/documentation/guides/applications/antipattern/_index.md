@@ -44,7 +44,7 @@ USER appuser
 Containers are ideal for stateless applications 
 and should be transient. This means that no data or logs should be stored in the 
 container, as they are lost when the container is closed. Use persistence volumes instead to persist data outside
-of containers. Using an [ELK stack](https://www.elastic.co/de/elk-stack) is another good option for storing and processing logs.
+of containers. Using an [ELK stack](https://www.elastic.co/de/what-is/elk-stack) is another good option for storing and processing logs.
 
 ## Using pod IP addresses
 Each pod is assigned an IP address. It is necessary 

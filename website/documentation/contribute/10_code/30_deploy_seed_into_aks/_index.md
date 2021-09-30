@@ -303,16 +303,16 @@ are.
 # Create a CloudProfile
 
 We need to create a CloudProfile to be referred from the Shoot
-([`example/30-cloudprofile-azure.yaml`](https://raw.githubusercontent.com/gardener/gardener/master/docs/deployment/../../example/30-cloudprofile-azure.yaml)):
+([`example/30-cloudprofile.yaml`](https://github.com/gardener/gardener/blob/master/example/30-cloudprofile.yaml)):
 
 ```
-kubectl apply -f example/30-cloudprofile-azure.yaml
+kubectl apply -f example/30-cloudprofile.yaml
 ```
 
 Validate that CloudProfile is created:
 
 ```
-kubectl describe -f example/30-cloudprofile-azure.yaml
+kubectl describe -f example/30-cloudprofile.yaml
 ```
 
 # Define Seed cluster in Gardener
@@ -332,7 +332,7 @@ about having a valid Kubeconfig to talk to its API.
 Lets start with the required seed secret first. Here we need to
 provide it's cloud provider credentials and kubeconfig in the seed
 secret. Update
-[`example/40-secret-seed-azure.yaml`](https://raw.githubusercontent.com/gardener/gardener/master/docs/deployment/../../example/40-secret-seed-azure.yaml)
+[`example/40-secret-seed.yaml`](https://github.com/gardener/gardener/blob/master/example/40-secret-seed.yaml)
 and place the secrets for your environment:
 * **data.subscriptionID**: you can learn this one with `az account show`
 * **data.tenantID**: from `az ad sp create-for-rbac` output as you can see above
@@ -352,16 +352,16 @@ sed -i \
   -e "s@base64(uuid-of-client)@$(echo "${CLIENT_ID:?"CLIENT_ID is missing"}" | tr -d '\n' | base64)@" \
   -e "s@base64(client-secret)@$(echo "${CLIENT_SECRET:?"CLIENT_SECRET is missing"}" | tr -d '\n' | base64)@" \
   -e "s@base64(kubeconfig-for-seed-cluster)@$(echo "$KUBECONFIG_FOR_SEED_CLUSTER" | base64 -w 0)@" \
-  example/40-secret-seed-azure.yaml
+  example/40-secret-seed.yaml
 ```
 
 After updating the fields, create the Seed secret:
 ```
-kubectl apply -f example/40-secret-seed-azure.yaml
+kubectl apply -f example/40-secret-seed.yaml
 ```
 
 Before creating Seed, we need to update the
-[`example/50-seed-azure.yaml`](https://raw.githubusercontent.com/gardener/gardener/master/docs/deployment/../../example/50-seed-azure.yaml) file and
+[`example/50-seed.yaml`](https://github.com/gardener/gardener/blob/master/example/50-seed.yaml) file and
 update:
 * **spec.networks**: IP ranges used in your AKS cluster.
 * **spec.ingressDomain**: Place here the wildcard domain you have for
@@ -383,12 +383,12 @@ sed -i \
   -e "s@nodes: 10.240.0.0/16@nodes: $NODE_CIDR@" \
   -e "s@pods: 10.241.128.0/17@pods: $POD_CIDR@" \
   -e "s@services: 10.241.0.0/17@services: $SERVICE_CIDR@" \
-  example/50-seed-azure.yaml
+  example/50-seed.yaml
 ```
 
 Now we are ready to create the seed:
 ```
-kubectl apply -f example/50-seed-azure.yaml
+kubectl apply -f example/50-seed.yaml
 ```
 
 Check the logs in gardener-controller-manager and also wait for seed
@@ -458,7 +458,7 @@ projects:
 ## Create a SecretBinding and related Secret
 
 We'll use same Azure credentials with
-[`example/40-secret-seed-azure.yaml`](https://raw.githubusercontent.com/gardener/gardener/master/docs/deployment/../../example/40-secret-seed-azure.yaml),
+[`example/40-secret-seed.yaml`](https://github.com/gardener/gardener/blob/master/example/40-secret-seed.yaml),
 this is due to the fact that we use the same Azure Subscription for
 the Shoot and Seed clusters. Differently from the Seed secret, in this
 one we don't need to provide `kubeconfig` since the Shoot cluster will
@@ -466,7 +466,7 @@ be provisioned by Gardener, and we need to provide credentials for
 Route53 DNS records management.
 
 Update
-[`example/70-secret-cloudprovider-azure.yaml`](https://raw.githubusercontent.com/gardener/gardener/master/docs/deployment/../../example/70-secret-cloudprovider-azure.yaml)
+[`example/70-secret-provider.yaml`](https://github.com/gardener/gardener/blob/master/example/70-secret-provider.yaml)
 and place the secrets for your environment:
 * **data.subscriptionID**: you can learn this one with `az account show`
 * **data.tenantID**: from `az ad sp create-for-rbac` output as you can see above
@@ -489,24 +489,24 @@ sed -i \
   -e "s@base64(client-secret)@$(echo "${CLIENT_SECRET:?"CLIENT_SECRET is missing"}" | tr -d '\n' | base64)@" \
   -e "\$a\ \ accessKeyID: $(echo $ACCESS_KEY_ID | tr -d '\n' | base64 )" \
   -e "\$a\ \ secretAccessKey: $(echo $SECRET_ACCESS_KEY | tr -d '\n' | base64 )" \
-  example/70-secret-cloudprovider-azure.yaml
+  example/70-secret-provider.yaml
 ```
 
 After updating the fields, create the cloud provider secret:
 
 ```
-kubectl apply -f example/70-secret-cloudprovider-azure.yaml
+kubectl apply -f example/70-secret-provider.yaml
 ```
 
 And create the SecretBinding resource to allow Gardener use that
 secret
-([`example/80-secretbinding-cloudprovider-azure.yaml`](https://raw.githubusercontent.com/gardener/gardener/master/docs/deployment/../../example/80-secretbinding-cloudprovider-azure.yaml)):
+([`example/80-secretbinding.yaml`](https://github.com/gardener/gardener/blob/master/example/80-secretbinding.yaml)):
 
 ```
 sed -i \
   -e 's/# namespace: .*/  namespace: garden-dev/' \
-  example/80-secretbinding-cloudprovider-azure.yaml
-kubectl apply -f example/80-secretbinding-cloudprovider-azure.yaml
+  example/80-secretbinding.yaml
+kubectl apply -f example/80-secretbinding.yaml
 ```
 
 Check the logs in gardener-controller-manager, there should not be any
@@ -514,7 +514,7 @@ problems reported.
 
 ## Create the Shoot resource
 
-Update the fields in [`example/90-deprecated-shoot-azure.yaml`](https://raw.githubusercontent.com/gardener/gardener/master/docs/deployment/../../example/90-deprecated-shoot-azure.yaml):
+Update the fields in [`example/90-shoot.yaml`](https://github.com/gardener/gardener/blob/master/example/90-shoot.yaml):
 * **spec.cloud.region**: `eastus` (this must match the seed cluster's region)
 * **spec.dns.domain**: This is used to specify the base domain for
   your api (and other in the future) endpoint(s). For example when
@@ -532,19 +532,19 @@ sed -i \
   -e "s/domain: johndoe-azure.garden-dev.example.com/domain: $SHOOT_DOMAIN/" \
   -e "/domain:/a\ \ \ \ hostedZoneID: $HOSTED_ZONE_ID" \
   -e "s/email: john.doe@example.com/email: $KUBE_LEGO_EMAIL/" \
-  example/90-deprecated-shoot-azure.yaml
+  example/90-shoot.yaml
 ```
 
 And let's create the Shoot resource:
 ```
-kubectl apply -f example/90-deprecated-shoot-azure.yaml
+kubectl apply -f example/90-shoot.yaml
 ```
 
 After creating the Shoot resource, gardener-controller-manager will
 pick it up and start provisioning the Shoot cluster.
 
 ```
-$ kubectl get -f example/90-deprecated-shoot-azure.yaml
+$ kubectl get -f example/90-shoot.yaml
 NAME            CLOUDPROFILE   VERSION   SEED    DOMAIN                                      OPERATION    PROGRESS   APISERVER   CONTROL     NODES       SYSTEM      AGE
 johndoe-azure   azure          1.12.3    azure   johndoe-azure.garden-dev.your.domain.here   Processing   15         <unknown>   <unknown>   <unknown>   <unknown>   16s
 ```
@@ -772,9 +772,6 @@ Deleting a Shoot cluster is not straight forward, and this is to
 protect users from undesired/accidental cluster deletion. One has to
 place some special annotations to get a Shoot cluster removed. We use
 the [hack/usage/delete](https://raw.githubusercontent.com/gardener/gardener/master/docs/deployment/../../hack/usage/delete) script for this purpose.
-
-Please refer to [Creating / Deleting a Shoot
-cluster](https://raw.githubusercontent.com/gardener/gardener/master/docs/deployment/../usage/shoots.md) document for more details.
 
 ```
 hack/delete shoot johndoe-azure garden-dev

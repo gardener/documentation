@@ -222,7 +222,7 @@ I want to install Istio with a default profile and SDS enabled. Furthermore I pa
     dns.gardener.cloud/ttl: "120"
 ```
 With these annotations three things now happen automagically:
-1. The [External DNS Manager](https://gardener.cloud/docs/guides/install_gardener/setup/), provided to you as a service (`dns.gardener.cloud/class: garden`), picks up the request and creates the wildcard DNS entry `*.gsicdc.mydomain.io` with a time to live of 120sec at your DNS provider. My provider Cloud Flare is very very quick (as opposed to some other services). You should be able to verify the entry with `dig lovemygardener.gsicdc.mydomain.io` within seconds.
+1. The [External DNS Manager](https://github.com/gardener/external-dns-management/blob/master/README.md), provided to you as a service (`dns.gardener.cloud/class: garden`), picks up the request and creates the wildcard DNS entry `*.gsicdc.mydomain.io` with a time to live of 120sec at your DNS provider. My provider Cloud Flare is very very quick (as opposed to some other services). You should be able to verify the entry with `dig lovemygardener.gsicdc.mydomain.io` within seconds.
 2. The [Certificate Mangement](https://gardener.cloud/docs/concepts/networking/cert-managment/) picks up the request as well and initates a DNS01 protocol exchange with Let's Encrypt; using the staging environment referred to with the issuer behind `mydomain-staging`.
 3. After aproximately 70sec (give and take) you will receive the wildcard certificate in the `wildcard-tls` secret in the namespace `istio-system`. 
 

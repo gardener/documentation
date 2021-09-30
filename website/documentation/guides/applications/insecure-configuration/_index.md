@@ -129,7 +129,7 @@ However, there are exceptions. Some `kubectl` commands will trigger the API serv
 connection to the Kubelet. `Kubectl exec` is one of those commands. In order to get the standard I/Os from the pod,
 the API server will start an HTTP connection to the Kubelet on the worker node where the pod is running. Depending on
 the container runtime used, it can be done in different ways, but one way to do it is for the Kubelet to reply with a
-HTTP-302 redirection to the [Container Runtime Interface (CRI)](https://github.com/kubernetes/community/blob/master/contributors/devel/container-runtime-interface.md).
+HTTP-302 redirection to the [Container Runtime Interface (CRI)](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-node/container-runtime-interface.md).
 Basically, the Kubelet is telling the API server to get the streams from CRI itself directly instead of forwarding. The
 redirection from the Kubelet will only change the port and path from the URL; the IP address will not be changed because
 the Kubelet and the CRI component run on the same worker node.

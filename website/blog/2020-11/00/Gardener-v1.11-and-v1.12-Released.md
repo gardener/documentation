@@ -31,7 +31,7 @@ As Gardener is capable of managing thousands of clusters, it is crucial to keep 
 
 ### KonnectivityTunnel Feature Per Shoot([gardener/gardener#3007](https://github.com/gardener/gardener/pull/3007))
 
-Since release `v1.6` Gardener has been capable of reversing the tunnel direction from the seed to the shoot via the `KonnectivityTunnel` feature gate ([more information]( https://github.com/gardener/gardener/blob/master/docs/usage/reverse-tunnel.md)). With this release we make it possible to control the feature per shoot. We recommend to selectively enable the `KonnectivityTunnel`, as it is still in `alpha` state.
+Since release `v1.6` Gardener has been capable of reversing the tunnel direction from the seed to the shoot via the `KonnectivityTunnel` feature gate ([more information](https://github.com/gardener/gardener/blob/master/docs/usage/reversed-vpn-tunnel.md)). With this release we make it possible to control the feature per shoot. We recommend to selectively enable the `KonnectivityTunnel`, as it is still in `alpha` state.
 
 ### Reference Protection ([gardener/gardener#2771](https://github.com/gardener/gardener/pull/2771), [gardener/gardener 1708419](https://github.com/gardener/gardener/commit/17084191c752c206537b9506b54828f4d723d9b7))
 

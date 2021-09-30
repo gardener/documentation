@@ -8,7 +8,7 @@ Similar to Kubernetes, Gardener consists out of control plane components (Garden
 The control plane is deployed in the so-called garden cluster while the agent is installed into every seed cluster.
 Please note that it is possible to use the garden cluster as seed cluster by simply deploying the Gardenlet into it.
 
-We are providing [Helm charts](https://raw.githubusercontent.com/gardener/gardener/master/docs/deployment/../../charts/gardener) in order to manage the various resources of the components.
+We are providing [Helm charts](https://github.com/gardener/gardener/tree/master/charts/gardener) in order to manage the various resources of the components.
 Please always make sure that you use the Helm chart version that matches the Gardener version you want to deploy.
 
 ## Deploying the Gardener control plane (API server, controller manager, scheduler)
