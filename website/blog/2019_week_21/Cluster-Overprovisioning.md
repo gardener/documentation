@@ -18,6 +18,6 @@ as possible. The solution can be **overprovisioning** of nodes
 
 
 
-..read some more on [Cluster Overprovisioning](https://github.com/gardener-samples/kube-overprovisioning/blob/master/README.md).
+..read some more on [Cluster Overprovisioning](https://github.com/freegroup/kube-overprovisioning/blob/master/README.md).
 
 

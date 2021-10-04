@@ -20,20 +20,10 @@ The [Gardener project website](https://gardener.cloud) just received a serious f
 
 Stay tuned for more improvements around the corner. The biggest ones are aligning the documentation with the new theme and restructuring it along, more emphasis on community success stories all around, more sharing options and more than a handful of shortcodes for content development and ... let's cut the spoilers here.
 
-I hope you will like it. Let us know what you think about it. Feel free to leave comments and discuss on <img src="../../../docs/images/branding/twitter-logo-green.svg" class="icon inline">[Twitter](https://twitter.com/GardenerProject) and <img src="../../../docs/images/branding/slack-logo-green.svg" class="icon inline">[Slack](https://kubernetes.slack.com/archives/CB57N0BFG), or in case of issues - on <img src="../../../docs/images/branding/github-mark-logo-green.svg" class="icon inline">[GitHub](https://github.com/gardener/documentation/issues).
+I hope you will like it. Let us know what you think about it. Feel free to leave comments and discuss on <img src="twitter-logo-green.svg" class="icon inline">[Twitter](https://twitter.com/GardenerProject) and <img src="slack-logo-green.svg" class="icon inline">[Slack](https://kubernetes.slack.com/archives/CB57N0BFG), or in case of issues - on <img src="github-mark-logo-green.svg" class="icon inline">[GitHub](https://github.com/gardener/documentation/issues).
 
 **Go ahead and help us spread the word: <a href="https://gardener.cloud">https://gardener.cloud</a>**
 
-<picture>
-    <!--source srcset="../../../blog/2020_week_20/website-screen-XL.png"
-            media="(min-width: 1400px)"-->
-    <!--source srcset="../../../blog/2020_week_20/website-screen-L.png"
-            media="(min-width: 1000px)"-->
-    <!--source srcset="../../../blog/2020_week_20/website-screen-M.png"
-            media="(min-width: 750px)"-->
-    <source srcset="../../blog/2020_week_20/website-screen-L.png"
-            media="(min-width: 750px)">
-    <img src="../../blog/2020_week_20/website-screen.png" />
-</picture>
+<img src="website-screen-L.png" />
 
 <br>
