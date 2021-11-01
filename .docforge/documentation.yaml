@@ -1,66 +1,35 @@
 structure:
-- name: concepts
+- name: gardener
   properties:
     frontmatter:
-      title: Concepts
-      description: Explore the concepts on which Gardener is built
-      menu: sln
-      sidebar: true
-      weight: 20
+      title: Gardener
+      description: Documentation for Gardener
+      weight: 1
+      index: true
   nodesSelector:
-    path: https://github.com/gardener/documentation/blob/master/.docforge/concepts.yaml
-# - name: getting-started
-#   source: https://github.com/gardener/gardener/blob/master/README.md
-#   properties:
-#     frontmatter:
-#       title: Getting Started
-#       url: /about/
-#       remote: https://github.com/gardener/gardener/blob/master/README.md
-#       icon: navigation_started.svg
-- name: guides
+    path: https://github.com/gardener/gardener/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+- name: dashboard
   properties:
     frontmatter:
-      title: How-To Guides
-      description: Learn how to execute concrete tasks
-      layout: guides-home
-      menu: sln
-      sidebar: true
-      weight: 30
+      title: Dashboard
+      description: Documentation for Gardener Dashboard
+      weight: 2
+      index: true
   nodesSelector:
-    path: https://github.com/gardener/documentation/blob/master/.docforge/guides.yaml
-- name: tutorials
+    path: https://github.com/gardener/dashboard/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+- name: gardenctl
   properties:
     frontmatter:
-      title: Tutorials
-      description: Walkthroughs of common use case implementations and goals that require a set of tasks to accomplish
-      layout: tutorials-home
-      menu: sln
-      sidebar: true
-      weight: 40    
+      title: Gardenctl
+      description: Documentation for Gardenctl
+      weight: 3
   nodesSelector:
-    path: https://github.com/gardener/documentation/blob/master/.docforge/tutorials.yaml
-- name: references
-  properties:
-    frontmatter:
-      title: API Reference
-      description: Reference documentation for the Gardener API
-      menu: sln
-      sidebar: true
-      weight: 60
-      aliases: ["/api-reference/"]
-  nodesSelector:
-    path: https://github.com/gardener/documentation/blob/master/.docforge/references.yaml
+    path: https://github.com/gardener/gardenctl/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
 - name: contribute
   properties:
     frontmatter:
       title: Contribute
       description: Contributors guides for code and documentation
-      sidebar: true
-      menu: sln
-      weight: 100
+      weight: 4
   nodesSelector:
-    path: https://github.com/gardener/documentation/blob/master/.docforge/contribute.yaml    
-links:
-  downloads:
-    scope:
-      "gardener/gardener/(blob|raw)/(.*)/docs": ~
+    path: https://github.com/gardener/documentation/blob/DEFAULT_BRANCH/.docforge/contribute.yaml

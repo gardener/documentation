@@ -21,22 +21,9 @@ structure:
     properties:
       title: Community
       url: /community
-{{- $vers := Split .versions "," -}}
-{{- range $i, $version := $vers -}}
-{{- if eq $i 0  }}
 - name: docs
-{{- else }}
-- name: {{$version}}
-{{- end }}
   nodesSelector:
-    path: https://github.com/gardener/documentation/blob/{{$version}}/.docforge/documentation.yaml
-  links:
-    rewrites:
-      gardener/documentation/(tree|blob|raw):
-        version: {{$version}}
-      gardener/gardener/(tree|blob|raw):
-        version: {{$version}}
-{{- end }}
+    path: https://github.com/gardener/documentation/blob/DEFAULT_BRANCH/.docforge/documentation.yaml
 links:
   downloads:
     scope:

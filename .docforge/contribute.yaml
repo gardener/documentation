@@ -1,48 +1,5 @@
 nodesSelector:
   path: https://github.com/gardener/documentation/tree/master/website/documentation/contribute
-# structure:
-#   - name: 10_code
-#     nodes:
-#     - name: 10-contribution_guide
-#       source: https://github.com/gardener/documentation/blob/master/website/documentation/contribute/_index.md
-#       properties:
-#         frontmatter:
-#           title: Contribution Guide
-#           remote: https://github.com/gardener/documentation/blob/master/website/documentation/contribute/_index.md
-#     - name: 12-security_guide
-#       source: https://github.com/gardener/documentation/blob/master/security-release-process.md      
-#       properties:
-#         frontmatter:
-#           title: Security Release Process
-#           remote: https://github.com/gardener/documentation/blob/master/security-release-process.md
-#     - source: https://github.com/gardener/gardener/blob/master/docs/development/local_setup.md
-#       properties:
-#         frontmatter:
-#           title: Environment
-#           disableToc: true
-#           remote: https://github.com/gardener/gardener/blob/master/docs/development/local_setup.md
-#     - source: https://github.com/gardener/gardener/blob/master/docs/usage/configuration.md
-#       properties:
-#         frontmatter:
-#           title: Configuration and Usage
-#           remote: https://github.com/gardener/gardener/blob/master/docs/usage/configuration.md
-#     - name: 20-testing_and_dependencies
-#       source: https://github.com/gardener/gardener/blob/master/docs/development/testing_and_dependencies.md
-#       properties:
-#         frontmatter:
-#           title: Dependencies
-#           remote: https://github.com/gardener/gardener/blob/master/docs/development/testing_and_dependencies.md
-#     - source: https://github.com/gardener/gardener/blob/master/docs/deployment/aks.md
-#       properties:
-#         frontmatter:
-#           title: Deploy into AKS
-#           remote: https://github.com/gardener/gardener/blob/master/docs/deployment/aks.md
-#     - name: 37-process
-#       source: https://github.com/gardener/gardener/blob/master/docs/development/process.md
-#       properties:
-#         frontmatter:
-#           title: Process
-#           remote: https://github.com/gardener/gardener/blob/master/docs/development/process.md
 links:
   downloads:
     scope:
