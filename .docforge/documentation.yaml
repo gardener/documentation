@@ -3,7 +3,7 @@ structure:
   properties:
     frontmatter:
       title: Gardener
-      description: Documentation for Gardener
+      description: The core component providing the extension API server of your Kubernetes cluster
       weight: 1
       index: true
   nodesSelector:
@@ -12,7 +12,7 @@ structure:
   properties:
     frontmatter:
       title: Dashboard
-      description: Documentation for Gardener Dashboard
+      description: The web UI for managing your projects and clusters
       weight: 2
       index: true
   nodesSelector:
@@ -21,7 +21,7 @@ structure:
   properties:
     frontmatter:
       title: Gardenctl
-      description: Documentation for Gardenctl
+      description: The command line interface to control your clusters
       weight: 3
   nodesSelector:
     path: https://github.com/gardener/gardenctl/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
@@ -29,7 +29,7 @@ structure:
   properties:
     frontmatter:
       title: Contribute
-      description: Contributors guides for code and documentation
+      description: The project's contributor guide for code and documentation
       weight: 4
   nodesSelector:
     path: https://github.com/gardener/documentation/blob/DEFAULT_BRANCH/.docforge/contribute.yaml
