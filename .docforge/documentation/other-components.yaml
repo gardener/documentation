@@ -1,0 +1,15 @@
+structure:
+- name: machine-controller-manager
+  properties:
+    frontmatter:
+      title: Machine Controller Manager
+      description: Declarative way of managing machines for Kubernetes cluster
+  nodesSelector:
+    path: https://github.com/gardener/machine-controller-manager/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+- name: etcd-druid
+  properties:
+    frontmatter:
+      title: ETCD Druid
+      description: A druid for etcd management in Gardener
+  nodesSelector:
+    path: https://github.com/gardener/etcd-druid/blob/DEFAULT_BRANCH/.docforge/manifest.yaml

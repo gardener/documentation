@@ -1,0 +1,41 @@
+structure:
+- name: infrastructure-extensions
+  properties:
+    frontmatter:
+      title: Infrastructure Extensions
+      description: Gardener extension controllers for the different infrastructures
+      weight: 1
+  nodesSelector:
+    path: https://github.com/gardener/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/gardener-extensions/infrastructure.yaml
+- name: os-extensions
+  properties:
+    frontmatter:
+      title: Operating System Extensions
+      description: Gardener extension controllers for the supported operating systems
+      weight: 2
+  nodesSelector:
+    path: https://github.com/gardener/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/gardener-extensions/operating-system.yaml
+- name: network-extensions
+  properties:
+    frontmatter:
+      title: Network Extensions
+      description: Gardener extension controllers for the supported container network interfaces
+      weight: 3
+  nodesSelector:
+    path: https://github.com/gardener/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/gardener-extensions/network.yaml
+- name: container-runtime-extensions
+  properties:
+    frontmatter:
+      title: Container Runtime Extensions
+      description: Gardener extensions for the supported container runtime interfaces
+      weight: 4
+  nodesSelector:
+    path: https://github.com/gardener/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/gardener-extensions/container-runtime.yaml
+- name: others
+  properties:
+    frontmatter:
+      title: Others
+      description: Other Gardener extensions
+      weight: 5
+  nodesSelector:
+    path: https://github.com/gardener/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/gardener-extensions/others.yaml
