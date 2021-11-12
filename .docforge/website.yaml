@@ -23,7 +23,7 @@ structure:
       url: /community
 - name: docs
   nodesSelector:
-    path: https://github.com/gardener/documentation/blob/DEFAULT_BRANCH/.docforge/documentation.yaml
+    path: https://github.com/gardener/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/documentation.yaml
 links:
   downloads:
     scope:
