@@ -8,12 +8,20 @@ structure:
       index: true
   nodesSelector:
     path: https://github.com/gardener/gardener/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+- name: extensions
+  properties:
+    frontmatter:
+      title: Gardener Extensions
+      description: The infrastructure, networking, OS and other extension components for Gardener
+      weight: 2
+  nodesSelector:
+    path: https://github.com/gardener/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/gardener-extensions/gardener-extensions.yaml
 - name: dashboard
   properties:
     frontmatter:
       title: Dashboard
       description: The web UI for managing your projects and clusters
-      weight: 2
+      weight: 3
       index: true
   nodesSelector:
     path: https://github.com/gardener/dashboard/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
@@ -22,14 +30,22 @@ structure:
     frontmatter:
       title: Gardenctl
       description: The command line interface to control your clusters
-      weight: 3
+      weight: 4
   nodesSelector:
     path: https://github.com/gardener/gardenctl/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+- name: other-components
+  properties:
+    frontmatter:
+      title: Other Components
+      description: The command line interface to control your clusters
+      weight: 5
+  nodesSelector:
+    path: https://github.com/gardener/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/other-components.yaml
 - name: contribute
   properties:
     frontmatter:
       title: Contribute
       description: The project's contributor guide for code and documentation
-      weight: 4
+      weight: 6
   nodesSelector:
-    path: https://github.com/gardener/documentation/blob/DEFAULT_BRANCH/.docforge/contribute.yaml
+    path: https://github.com/gardener/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/contribute.yaml
