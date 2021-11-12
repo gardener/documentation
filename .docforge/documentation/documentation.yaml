@@ -37,7 +37,7 @@ structure:
   properties:
     frontmatter:
       title: Other Components
-      description: The command line interface to control your clusters
+      description: Other components included in the Gardener project
       weight: 5
   nodesSelector:
     path: https://github.com/gardener/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/other-components.yaml
