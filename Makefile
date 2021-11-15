@@ -25,3 +25,7 @@ production:
 .PHONY: stop
 stop:
 	@./scripts/stop -c=website-dev
+
+.PHONY: check-manifest
+check-manifest:
+	@.ci/check-manifest
