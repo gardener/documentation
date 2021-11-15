@@ -5,22 +5,32 @@
 ## Website repositories and CI/CD Overview
 
 <img style="width:50%" src="images/overview.svg">
-
+test
+tetttt
+testttttt
 The website builds and deployments are automated. They are orchestrated by Concourse CI/CD [pipeline](https://concourse.ci.gardener.cloud/teams/gardener/pipelines/gardener-website-generator-master) and triggered regularly (every 24h) or upon changes in [/gardener/documentation](https://github.com/gardener/documentation) or [/gardener/website-generator](https://github.com/gardener/website-generator) repos. The build results are then pushed to [/gardener/website/docs](https://github.com/gardener/website/tree/master/docs) and served as [GitHub Pages](https://pages.github.com/) site.
 
+test
+test
 
 The repositories involved in the CI/CD are:
 - [/gardener/documentation](https://github.com/gardener/documentation/) (this repository) is the **Website Source Content** repository . It contains the source content for the website, used by the builder to produce the static HTML to be served. This is the **primary repository for website content contributions - blogs, news, tutorials, etc**.
 - [/gardener/website-generator](https://github.com/gardener/website-generator) is the **Website Generator** repository. It contains the tools, the scripts and build configuration for the website, including all common framework html, styles, javascript and images, as well as the scripts and build configuration for the build environment container image.
 - [/gardener/website](https://github.com/gardener/website/) is the **Website** home repository. It hosts the generated website content and is configured to serve it using GitHub Pages. No manual contributions here.
-
+test
+test
+test
+test
 
 ## Setup Local Development Environment 
-
+test
 Prerequisites:
 - Mac/Linux/Windows WSL
 - Docker
-
+test
+test
+test
+test
 <img style="width:50%"  src="images/local-setup.svg">
 
 1. Clone the website source content
@@ -49,7 +59,8 @@ Normally, the top navigation of a Hugo site is ordered by a `weight` attribute i
 file. For this website, I decide to use the **directory order and put a number in front of each directory**. With this
 method, the directory order is synchronized with the menu order. This is more convenient for a content developer 
 to navigate between website and content.
-
+here test
+test
 
 ### Kind of pages
 This website supports three kind of pages:
@@ -57,14 +68,25 @@ This website supports three kind of pages:
  - local
  - remote
  - repository
- 
- 
+
+ test
+ test
+ test
+ test
 #### Local page
-A `local` page is nothing special for hugo. A good example for a local page is 
+A `local` page is nothing special for hugo. A good example for a local page is  test test
 the [./website/documentation/060-curated-links/_index.md](./website/documentation/060-curated-links/_index.md) file.
-
-
-
+test
+test
+test
+test
+test
+test
+test
+test
+test
+test
+test
 #### Remote Page
 a `remote page` contains the front matter section with the reference to the remote `md` file.
 Good example is [./website/documentation/getting-started.md](./website/documentation/getting-started.md)

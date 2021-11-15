@@ -5,7 +5,7 @@ structure:
       title: Gardener
       description: The core component providing the extension API server of your Kubernetes cluster
       weight: 1
-      index: true
+      index: alabala
   nodesSelector:
     path: https://github.com/gardener/gardener/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
 - name: extensions
