@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+# SPDX-FileCopyrightText: 2021 SAP SE or an SAP affiliate company and Gardener contributors
+#
+# SPDX-License-Identifier: Apache-2.0
+set -eu
+
+if [[ $(uname) == 'Darwin' ]]; then
+  READLINK_BIN="greadlink"
+else
+  READLINK_BIN="readlink"
+fi
+
+getGitHubToken() {
+  # Check if gardener-ci is available (in local setup)
+  command -v gardener-ci >/dev/null && gardenci="true" || gardenci=""
+  if [[ $gardenci == "true" ]]; then
+    # Get a (round-robin) random technical GitHub user credentials
+    technicalUser=$(gardener-ci config model_element --cfg-type github --cfg-name "${1}" --key credentials | sed -e "s/^GithubCredentials //" -e "s/'/\"/g")
+    if [[ -n "${technicalUser}" ]]; then
+      # get auth token and strip lead/trail quotes
+      authToken=$(sed -e 's/"//g' <<<$(jq -n '$c.authToken' --argjson c "$technicalUser"))
+      # get username and strip lead/trail quotes
+      username=$(sed -e 's/"//g' <<<$(jq -n '$c.username' --argjson c "$technicalUser"))
+      echo "${username}:${authToken}"
+    fi
+  fi
+}
+
+manifestPath="$(${READLINK_BIN} -f $(dirname ${0})/../.docforge/manifest.yaml)"
+GIT_OAUTH_TOKEN=${GIT_OAUTH_TOKEN:-$(getGitHubToken github_com)}
+test $GIT_OAUTH_TOKEN
+
+docforge -f ${manifestPath} -d tmp --github-oauth-token $GIT_OAUTH_TOKEN --hugo  --use-git=true --dry-run
