@@ -16,3 +16,6 @@ documentation:
           nextversion: "bump_minor"
         version:
           preprocess: 'finalize'
+    pull-request:
+      traits:
+        pull-request: ~
