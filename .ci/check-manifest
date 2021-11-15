@@ -27,7 +27,7 @@ getGitHubToken() {
   fi
 }
 
-manifestPath="$(${READLINK_BIN} -f $(dirname ${0})/../.docforge/manifest.yaml)"
+manifestPath="$(${READLINK_BIN} -f $(dirname ${0})/../.docforge/website.yaml)"
 GIT_OAUTH_TOKEN=${GIT_OAUTH_TOKEN:-$(getGitHubToken github_com)}
 test $GIT_OAUTH_TOKEN
 
