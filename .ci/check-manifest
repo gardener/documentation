@@ -3,6 +3,9 @@
 # SPDX-FileCopyrightText: 2021 SAP SE or an SAP affiliate company and Gardener contributors
 #
 # SPDX-License-Identifier: Apache-2.0
+
+# For the integration-test step the following environment variables are used:
+# GIT_OAUTH_TOKEN - used for fetch the content from Github
 set -eu
 
 if [[ $(uname) == 'Darwin' ]]; then
@@ -31,4 +34,5 @@ manifestPath="$(${READLINK_BIN} -f $(dirname ${0})/../.docforge/website.yaml)"
 GIT_OAUTH_TOKEN=${GIT_OAUTH_TOKEN:-$(getGitHubToken github_com)}
 test $GIT_OAUTH_TOKEN
 
+echo "Running docforge command..."
 docforge -f ${manifestPath} -d tmp --github-oauth-token $GIT_OAUTH_TOKEN --hugo  --use-git=true --dry-run
