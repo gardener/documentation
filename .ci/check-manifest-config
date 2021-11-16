@@ -1,10 +1,10 @@
 defaultBranches:
-  https://github.com/PR_ORG/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/documentation.yaml: PR_BRANCH
-  https://github.com/PR_ORG/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/other-components.yaml: PR_BRANCH
-  https://github.com/PR_ORG/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/contribute.yaml: PR_BRANCH
-  https://github.com/PR_ORG/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/gardener-extensions/gardener-extensions.yaml: PR_BRANCH
-  https://github.com/PR_ORG/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/gardener-extensions/infrastructure.yaml: PR_BRANCH
-  https://github.com/PR_ORG/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/gardener-extensions/operating-system.yaml: PR_BRANCH
-  https://github.com/PR_ORG/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/gardener-extensions/network.yaml: PR_BRANCH
-  https://github.com/PR_ORG/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/gardener-extensions/container-runtime.yaml: PR_BRANCH
-  https://github.com/PR_ORG/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/gardener-extensions/others.yaml: PR_BRANCH
+  https://github.com/{{$org}}/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/documentation.yaml: PR_BRANCH
+  https://github.com/{{$org}}/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/other-components.yaml: PR_BRANCH
+  https://github.com/{{$org}}/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/contribute.yaml: PR_BRANCH
+  https://github.com/{{$org}}/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/gardener-extensions/gardener-extensions.yaml: PR_BRANCH
+  https://github.com/{{$org}}/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/gardener-extensions/infrastructure.yaml: PR_BRANCH
+  https://github.com/{{$org}}/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/gardener-extensions/operating-system.yaml: PR_BRANCH
+  https://github.com/{{$org}}/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/gardener-extensions/network.yaml: PR_BRANCH
+  https://github.com/{{$org}}/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/gardener-extensions/container-runtime.yaml: PR_BRANCH
+  https://github.com/{{$org}}/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/gardener-extensions/others.yaml: PR_BRANCH
