@@ -1,3 +1,4 @@
+{{ $org := .org}}
 structure:
 - name: infrastructure-extensions
   properties:
@@ -6,7 +7,7 @@ structure:
       description: Gardener extension controllers for the different infrastructures
       weight: 1
   nodesSelector:
-    path: https://github.com/gardener/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/gardener-extensions/infrastructure.yaml
+    path: https://github.com/{{$org}}/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/gardener-extensions/infrastructure.yaml
 - name: os-extensions
   properties:
     frontmatter:
@@ -14,7 +15,7 @@ structure:
       description: Gardener extension controllers for the supported operating systems
       weight: 2
   nodesSelector:
-    path: https://github.com/gardener/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/gardener-extensions/operating-system.yaml
+    path: https://github.com/{{$org}}/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/gardener-extensions/operating-system.yaml
 - name: network-extensions
   properties:
     frontmatter:
@@ -22,7 +23,7 @@ structure:
       description: Gardener extension controllers for the supported container network interfaces
       weight: 3
   nodesSelector:
-    path: https://github.com/gardener/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/gardener-extensions/network.yaml
+    path: https://github.com/{{$org}}/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/gardener-extensions/network.yaml
 - name: container-runtime-extensions
   properties:
     frontmatter:
@@ -30,7 +31,7 @@ structure:
       description: Gardener extensions for the supported container runtime interfaces
       weight: 4
   nodesSelector:
-    path: https://github.com/gardener/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/gardener-extensions/container-runtime.yaml
+    path: https://github.com/{{$org}}/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/gardener-extensions/container-runtime.yaml
 - name: others
   properties:
     frontmatter:
@@ -38,4 +39,4 @@ structure:
       description: Other Gardener extensions
       weight: 5
   nodesSelector:
-    path: https://github.com/gardener/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/gardener-extensions/others.yaml
+    path: https://github.com/{{$org}}/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/gardener-extensions/others.yaml
