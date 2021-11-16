@@ -1,7 +1,8 @@
+{{ $org := .org}}
 structure:
 - name: blog
   nodesSelector:
-    path: https://github.com/gardener/documentation/tree/master/website/blog
+    path: https://github.com/{{$org}}/documentation/tree/master/website/blog
   properties:
     index: true
     frontmatter:
@@ -10,21 +11,21 @@ structure:
       aggregate: true
 - name: adopter
   nodes:
-  - source: https://github.com/gardener/documentation/blob/master/website/adopter/_index.md
+  - source: https://github.com/{{$org}}/documentation/blob/master/website/adopter/_index.md
     properties:
       frontmatter:
         title: Adopters
         url: /adopter
 - name: community
   nodes:
-  - source: https://github.com/gardener/documentation/blob/master/website/community/_index.md
+  - source: https://github.com/{{$org}}/documentation/blob/master/website/community/_index.md
     properties:
       title: Community
       url: /community
 - name: docs
   nodesSelector:
-    path: https://github.com/gardener/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/documentation.yaml
+    path: https://github.com/{{$org}}/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/documentation.yaml
 links:
   downloads:
     scope:
-      gardener/documentation/(blob|raw)/(.*)/website: ~
+      {{$org}}/documentation/(blob|raw)/(.*)/website: ~

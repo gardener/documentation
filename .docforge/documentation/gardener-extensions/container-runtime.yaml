@@ -1,3 +1,4 @@
+{{ $org := .org}}
 structure:
 - name: gardener-extension-runtime-gvisor
   properties:
@@ -6,4 +7,4 @@ structure:
       description: Gardener extension controller for the gVisor container runtime sandbox
   nodes:
   - nodesSelector:
-      path: https://github.com/gardener/gardener-extension-runtime-gvisor/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+      path: https://github.com/{{$org}}/gardener-extension-runtime-gvisor/blob/DEFAULT_BRANCH/.docforge/manifest.yaml

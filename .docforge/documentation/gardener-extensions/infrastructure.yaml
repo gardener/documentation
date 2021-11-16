@@ -1,3 +1,4 @@
+{{ $org := .org}}
 structure:
 - name: gardener-extension-provider-aws
   properties:
@@ -6,7 +7,7 @@ structure:
       description: Gardener extension controller for the AWS cloud provider
   nodes:
   - nodesSelector:
-      path: https://github.com/gardener/gardener-extension-provider-aws/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+      path: https://github.com/{{$org}}/gardener-extension-provider-aws/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
 - name: gardener-extension-provider-gcp
   properties:
     frontmatter:
@@ -14,7 +15,7 @@ structure:
       description: Gardener extension controller for the GCP cloud provider 
   nodes:
   - nodesSelector:
-      path: https://github.com/gardener/gardener-extension-provider-gcp/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+      path: https://github.com/{{$org}}/gardener-extension-provider-gcp/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
 - name: gardener-extension-provider-azure
   properties:
     frontmatter:
@@ -22,7 +23,7 @@ structure:
       description: Gardener extension controller for the Azure cloud provider
   nodes:
   - nodesSelector:
-      path: https://github.com/gardener/gardener-extension-provider-azure/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+      path: https://github.com/{{$org}}/gardener-extension-provider-azure/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
 - name: gardener-extension-provider-alicloud
   properties:
     frontmatter:
@@ -30,7 +31,7 @@ structure:
       description: Gardener extension controller for the Alibaba cloud provider
   nodes:
   - nodesSelector:
-      path: https://github.com/gardener/gardener-extension-provider-alicloud/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+      path: https://github.com/{{$org}}/gardener-extension-provider-alicloud/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
 - name: gardener-extension-provider-openstack
   properties:
     frontmatter:
@@ -38,7 +39,7 @@ structure:
       description: Gardener extension controller for the OpenStack cloud provider
   nodes:
   - nodesSelector:
-      path: https://github.com/gardener/gardener-extension-provider-openstack/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+      path: https://github.com/{{$org}}/gardener-extension-provider-openstack/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
 - name: gardener-extension-provider-vsphere
   properties:
     frontmatter:
@@ -46,7 +47,7 @@ structure:
       description: Gardener extension controller for the vSphere cloud provider
   nodes:
   - nodesSelector:
-      path: https://github.com/gardener/gardener-extension-provider-vsphere/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+      path: https://github.com/{{$org}}/gardener-extension-provider-vsphere/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
 - name: gardener-extension-provider-kubevirt
   properties:
     frontmatter:
@@ -54,7 +55,7 @@ structure:
       description: Gardener Extension Provider for KubeVirt
   nodes:
   - nodesSelector:
-      path: https://github.com/gardener/gardener-extension-provider-kubevirt/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+      path: https://github.com/{{$org}}/gardener-extension-provider-kubevirt/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
 - name: gardener-extension-provider-openshift
   properties:
     frontmatter:
@@ -62,7 +63,7 @@ structure:
       description: Gardener extension for the OpenShift cloud provider
   nodes:
   - nodesSelector:
-      path: https://github.com/gardener/gardener-extension-provider-openshift/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+      path: https://github.com/{{$org}}/gardener-extension-provider-openshift/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
 - name: gardener-extension-provider-equinix-metal
   properties:
     frontmatter:
@@ -70,4 +71,4 @@ structure:
       description: Gardener extension controller for the Equinix Metal cloud provider
   nodes:
   - nodesSelector:
-      path: https://github.com/gardener/gardener-extension-provider-equinix-metal/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+      path: https://github.com/{{$org}}/gardener-extension-provider-equinix-metal/blob/DEFAULT_BRANCH/.docforge/manifest.yaml

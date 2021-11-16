@@ -1,3 +1,4 @@
+{{ $org := .org}}
 structure:
 - name: gardener-extension-shoot-dns-service
   properties:
@@ -6,7 +7,7 @@ structure:
       description: Gardener extension controller for DNS services for shoot clusters
   nodes:
   - nodesSelector:
-      path: https://github.com/gardener/gardener-extension-shoot-dns-service/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+      path: https://github.com/{{$org}}/gardener-extension-shoot-dns-service/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
 - name: gardener-extension-shoot-cert-service
   properties:
     frontmatter:
@@ -14,4 +15,4 @@ structure:
       description: Gardener extension controller for certificate services for shoot clusters
   nodes:
   - nodesSelector:
-      path: https://github.com/gardener/gardener-extension-shoot-cert-service/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+      path: https://github.com/{{$org}}/gardener-extension-shoot-cert-service/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
