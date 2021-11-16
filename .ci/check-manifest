@@ -73,7 +73,7 @@ export DOCFORGECONFIG=${tmpConfigPath}
 if [[ -d "${HOME}/.docforge" ]]; then
   docforgeCacheDir="${HOME}/.docforge"
 else
-  docforgeCacheDir="$(${READLINK_BIN} -f ./../.docforge)"
+  docforgeCacheDir="${repoPath}/../.docforge"
 fi
 
 if [[ ! -d "${docforgeCacheDir}" ]]; then
