@@ -8,7 +8,7 @@
 # GIT_OAUTH_TOKEN - used for fetch the content from Github
 # MANIFEST_ORG - used to replace the manifest org to this one. If does not exist, the script will try to get the org from .ci/userlogin
 # MANIFEST_VERSION - used to replace the manifest version to this one. If does not exist, the script will try to get the version from .ci/branch
-set -eu
+set -e
 
 if [[ $(uname) == 'Darwin' ]]; then
   READLINK_BIN="greadlink"
