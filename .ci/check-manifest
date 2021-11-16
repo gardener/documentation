@@ -63,11 +63,26 @@ if [[ -z "${org}" ]] || [[ -z "${mainBranch}" ]]; then
   exit 1
 fi
 
+# Set config file
 tmpConfigPath="tmp-config"
 sed -e "s/PR_BRANCH/${mainBranch}/g" ${configPath} > ${tmpConfigPath}
 sed -ie "s/PR_ORG/${org}/g" ${tmpConfigPath}
 export DOCFORGECONFIG=${tmpConfigPath}
-cat ${tmpConfigPath}
+
+# Set cache dir
+if [[ -d "${HOME}/.docforge" ]]; then
+  docforgeCacheDir="${HOME}/.docforge"
+else
+  docforgeCacheDir="$(${READLINK_BIN} -f ./../.docforge)"
+fi
+
+if [[ ! -d "${docforgeCacheDir}" ]]; then
+  echo "creating cache dir: ${docforgeCacheDir}"
+  mkdir -p "${docforgeCacheDir}"
+fi
+
+export DOCFORGE_CACHE_DIR="${docforgeCacheDir}"
+echo "cache dir is set to: ${docforgeCacheDir}"
 
 echo "Running docforge command..."
 docforge \
