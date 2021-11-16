@@ -1,4 +1,3 @@
-{{ $org := .org}}
 structure:
 - name: gardener-extension-os-gardenlinux
   properties:
@@ -7,7 +6,7 @@ structure:
       description: Gardener extension controller for the Garden Linux operating system
   nodes:
   - nodesSelector:
-      path: https://github.com/{{$org}}/gardener-extension-os-gardenlinux/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+      path: https://github.com/gardener/gardener-extension-os-gardenlinux/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
 - name: gardener-extension-os-suse-chost
   properties:
     frontmatter:
@@ -15,7 +14,7 @@ structure:
       description: Gardener extension controller for the SUSE Container Host operating system (CHost)
   nodes:
   - nodesSelector:
-      path: https://github.com/{{$org}}/gardener-extension-os-suse-chost/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+      path: https://github.com/gardener/gardener-extension-os-suse-chost/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
 - name: gardener-extension-os-ubuntu
   properties:
     frontmatter:
@@ -23,7 +22,7 @@ structure:
       description: Gardener extension controller for the Ubuntu operating system
   nodes:
   - nodesSelector:
-      path: https://github.com/{{$org}}/gardener-extension-os-ubuntu/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+      path: https://github.com/gardener/gardener-extension-os-ubuntu/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
 - name: gardener-extension-os-coreos
   properties:
     frontmatter:
@@ -31,4 +30,4 @@ structure:
       description: Gardener extension controller for the CoreOS/FlatCar Container Linux operating system
   nodes:
   - nodesSelector:
-      path: https://github.com/{{$org}}/gardener-extension-os-coreos/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+      path: https://github.com/gardener/gardener-extension-os-coreos/blob/DEFAULT_BRANCH/.docforge/manifest.yaml

@@ -1,4 +1,3 @@
-{{ $org := .org}}
 structure:
 - name: gardener-extension-networking-calico
   properties:
@@ -7,7 +6,7 @@ structure:
       description: Gardener extension controller for the Calico CNI network plugin
   nodes:
   - nodesSelector:
-      path: https://github.com/{{$org}}/gardener-extension-networking-calico/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+      path: https://github.com/gardener/gardener-extension-networking-calico/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
 - name: gardener-extension-networking-cilium
   properties:
     frontmatter:
@@ -15,4 +14,4 @@ structure:
       description: Gardener extension controller for the Cilium CNI network plugin
   nodes:
   - nodesSelector:
-      path: https://github.com/{{$org}}/gardener-extension-networking-cilium/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+      path: https://github.com/gardener/gardener-extension-networking-cilium/blob/DEFAULT_BRANCH/.docforge/manifest.yaml

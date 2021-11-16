@@ -8,7 +8,7 @@ structure:
       weight: 1
       index: true
   nodesSelector:
-    path: https://github.com/{{$org}}/gardener/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+    path: https://github.com/gardener/gardener/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
 - name: extensions
   properties:
     frontmatter:
@@ -25,7 +25,7 @@ structure:
       weight: 3
       index: true
   nodesSelector:
-    path: https://github.com/{{$org}}/dashboard/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+    path: https://github.com/gardener/dashboard/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
 - name: gardenctl
   properties:
     frontmatter:
@@ -33,7 +33,7 @@ structure:
       description: The command line interface to control your clusters
       weight: 4
   nodesSelector:
-    path: https://github.com/{{$org}}/gardenctl/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+    path: https://github.com/gardener/gardenctl/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
 - name: other-components
   properties:
     frontmatter:
