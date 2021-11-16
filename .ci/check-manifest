@@ -46,10 +46,10 @@ if [[ ! -z "${MANIFEST_ORG}" ]] && [[ ! -z "${MANIFEST_VERSION}" ]]; then
   echo "Retrieving org and mainBranch from env vars"
   org=${MANIFEST_ORG}
   mainBranch=${MANIFEST_VERSION}
-elif [[ -f "${docforge_repo_path}/.git/userlogin" ]] && [[ -f "${docforge_repo_path}/.git/branch" ]]; then
-  echo "Retrieving org and mainBranch from ${docforge_repo_path}/.git"
-  org=$(cat "${docforge_repo_path}/.git/userlogin")
-  mainBranch=$(cat "${docforge_repo_path}/.git/branch")
+elif [[ -f "${repoPath}/.git/userlogin" ]] && [[ -f "${repoPath}/.git/branch" ]]; then
+  echo "Retrieving org and mainBranch from ${repoPath}/.git"
+  org=$(cat "${repoPath}/.git/userlogin")
+  mainBranch=$(cat "${repoPath}/.git/branch")
 else
   echo "Using default org and mainBranch"
   org="gardener"
