@@ -65,7 +65,9 @@ fi
 
 tmpConfigPath="tmp-config"
 sed -e "s/PR_BRANCH/${mainBranch}/g" ${configPath} > ${tmpConfigPath}
+sed -ie "s/PR_ORG/${org}/g" ${tmpConfigPath}
 export DOCFORGECONFIG=${tmpConfigPath}
+cat ${tmpConfigPath}
 
 echo "Running docforge command..."
 docforge \
