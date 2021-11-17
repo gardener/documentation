@@ -1,7 +1,6 @@
-{{ $org := .org}}
 nodesSelector:
-  path: https://github.com/{{$org}}/documentation/tree/master/website/documentation/contribute
+  path: https://github.com/gardener/documentation/tree/master/website/documentation/contribute
 links:
   downloads:
     scope:
-      "{{$org}}/documentation/(blob|raw)/(.*)/website": ~
+      "gardener/documentation/(blob|raw)/(.*)/website": ~

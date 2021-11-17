@@ -1,4 +1,3 @@
-{{ $org := .org}}
 structure:
 - name: gardener
   properties:
@@ -16,7 +15,7 @@ structure:
       description: The infrastructure, networking, OS and other extension components for Gardener
       weight: 2
   nodesSelector:
-    path: https://github.com/{{$org}}/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/gardener-extensions/gardener-extensions.yaml
+    path: https://github.com/gardener/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/gardener-extensions/gardener-extensions.yaml
 - name: dashboard
   properties:
     frontmatter:
@@ -41,7 +40,7 @@ structure:
       description: Other components included in the Gardener project
       weight: 5
   nodesSelector:
-    path: https://github.com/{{$org}}/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/other-components.yaml
+    path: https://github.com/gardener/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/other-components.yaml
 - name: contribute
   properties:
     frontmatter:
@@ -49,4 +48,4 @@ structure:
       description: The project's contributor guide for code and documentation
       weight: 6
   nodesSelector:
-    path: https://github.com/{{$org}}/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/contribute.yaml
+    path: https://github.com/gardener/documentation/blob/DEFAULT_BRANCH/.docforge/documentation/contribute.yaml
