@@ -12,6 +12,9 @@ set -e
 
 diffExist=false
 
+echo "WORKING DIR"
+pwd
+
 for arg in "$@"; do
   diff=$(git diff origin/master --name-only | grep "^${arg}" || true)
   if [[ ! -z "${diff}" ]] ; then
