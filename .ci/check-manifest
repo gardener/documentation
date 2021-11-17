@@ -39,34 +39,10 @@ configPath="${repoPath}/.ci/check-manifest-config"
 GIT_OAUTH_TOKEN=${GIT_OAUTH_TOKEN:-$(getGitHubToken github_com)}
 test $GIT_OAUTH_TOKEN
 
-org=""
-mainBranch=""
-
-if [[ ! -z "${MANIFEST_ORG}" ]] && [[ ! -z "${MANIFEST_VERSION}" ]]; then
-  echo "Retrieving org and mainBranch from env vars"
-  org=${MANIFEST_ORG}
-  mainBranch=${MANIFEST_VERSION}
-elif [[ -f "${repoPath}/.git/userlogin" ]] && [[ -f "${repoPath}/.git/branch" ]]; then
-  echo "Retrieving org and mainBranch from ${repoPath}/.git"
-  org=$(cat "${repoPath}/.git/userlogin")
-  mainBranch=$(cat "${repoPath}/.git/branch")
-else
-  echo "Using default org and mainBranch"
-  org="gardener"
-  mainBranch="master"
-fi
-
-echo "Manifest org: ${org}"
-echo "Manifest mainBranch: ${mainBranch}"
-
-if [[ -z "${org}" ]] || [[ -z "${mainBranch}" ]]; then
-  exit 1
-fi
 
 # Set config file
 tmpConfigPath="tmp-config"
-sed -e "s/PR_BRANCH/${mainBranch}/g" ${configPath} > ${tmpConfigPath}
-sed -ie "s/PR_ORG/${org}/g" ${tmpConfigPath}
+sed -e "s/REPO_PATH/${repoPath}/g" ${configPath} > ${tmpConfigPath}
 export DOCFORGECONFIG=${tmpConfigPath}
 
 # Set cache dir
@@ -91,7 +67,6 @@ docforge \
   --github-oauth-token $GIT_OAUTH_TOKEN \
   --hugo \
   --use-git=true \
-  --variables "org=${org}" \
   --dry-run
 
 rm -rf ${tmpConfigPath}
