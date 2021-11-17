@@ -6,8 +6,6 @@
 
 # For the integration-test step the following environment variables are used:
 # GIT_OAUTH_TOKEN - used for fetch the content from Github
-# MANIFEST_ORG - used to replace the manifest org to this one. If does not exist, the script will try to get the org from .ci/userlogin
-# MANIFEST_VERSION - used to replace the manifest version to this one. If does not exist, the script will try to get the version from .ci/branch
 set -e
 
 if [[ $(uname) == 'Darwin' ]]; then
@@ -42,7 +40,7 @@ test $GIT_OAUTH_TOKEN
 
 # Set config file
 tmpConfigPath="tmp-config"
-sed -e "s/REPO_PATH/${repoPath}/g" ${configPath} > ${tmpConfigPath}
+sed -e "s@REPO_PATH@${repoPath}@g" ${configPath} > ${tmpConfigPath}
 export DOCFORGECONFIG=${tmpConfigPath}
 
 # Set cache dir
