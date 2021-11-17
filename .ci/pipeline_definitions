@@ -9,6 +9,10 @@ documentation:
     steps:
       check-manifest:
         image: "eu.gcr.io/gardener-project/gardener-website-generator:stable"
+        execute:
+          - check-manifest
+          - .docforge/
+          - website/
         cache_paths: ['.docforge']
   jobs:
     release:
