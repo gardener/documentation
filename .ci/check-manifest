@@ -10,10 +10,18 @@
 # otherwise the script will exist with status code 0
 set -e
 
-diffExist=false
+if [[ $(uname) == 'Darwin' ]]; then
+  READLINK_BIN="greadlink"
+else
+  READLINK_BIN="readlink"
+fi
 
-echo "WORKING DIR"
-pwd
+repoPath="$(${READLINK_BIN} -f $(dirname ${0})/..)"
+manifestPath="${repoPath}/.docforge/website.yaml"
+configPath="${repoPath}/.ci/check-manifest-config"
+
+cd ${repoPath}
+diffExist=false
 
 for arg in "$@"; do
   diff=$(git diff origin/master --name-only | grep "^${arg}" || true)
@@ -26,12 +34,6 @@ done
 if [[ "${diffExist}" = false ]] ; then
     echo "There is no diff in the checked directories so the script exits successfully"
     exit 0
-fi
-
-if [[ $(uname) == 'Darwin' ]]; then
-  READLINK_BIN="greadlink"
-else
-  READLINK_BIN="readlink"
 fi
 
 getGitHubToken() {
@@ -49,10 +51,6 @@ getGitHubToken() {
     fi
   fi
 }
-
-repoPath="$(${READLINK_BIN} -f $(dirname ${0})/..)"
-manifestPath="${repoPath}/.docforge/website.yaml"
-configPath="${repoPath}/.ci/check-manifest-config"
 
 GIT_OAUTH_TOKEN=${GIT_OAUTH_TOKEN:-$(getGitHubToken github_com)}
 test $GIT_OAUTH_TOKEN
