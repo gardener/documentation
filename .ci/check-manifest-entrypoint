@@ -12,7 +12,7 @@ fi
 
 repoPath="$(${READLINK_BIN} -f $(dirname ${0})/..)"
 manifestPath="${repoPath}/.docforge/website.yaml"
-diffDirs=".docforge/ website/"
+diffDirs=".docforge/;website/"
 configPath="${repoPath}/.ci/check-manifest-config"
 scriptPath="${repoPath}/.ci/check-manifest"
 
