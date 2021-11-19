@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# SPDX-FileCopyrightText: 2021 SAP SE or an SAP affiliate company and Gardener contributors
+#
+# SPDX-License-Identifier: Apache-2.0
+
+if [[ $(uname) == 'Darwin' ]]; then
+  READLINK_BIN="greadlink"
+else
+  READLINK_BIN="readlink"
+fi
+
+repoPath="$(${READLINK_BIN} -f $(dirname ${0})/..)"
+manifestPath="${repoPath}/.docforge/website.yaml"
+diffDirs=".docforge/ website/"
+configPath="${repoPath}/.ci/check-manifest-config"
+scriptPath="${repoPath}/.ci/check-manifest"
+
+${scriptPath} --repo-path ${repoPath} --repo-name "documentation" --manifest-path ${manifestPath} --use-token true --use-cache true --diff-dirs ${diffDirs} --config-path ${configPath}

@@ -16,15 +16,64 @@ else
   READLINK_BIN="readlink"
 fi
 
-repoPath="$(${READLINK_BIN} -f $(dirname ${0})/..)"
-manifestPath="${repoPath}/.docforge/website.yaml"
-configPath="${repoPath}/.ci/check-manifest-config"
+REPO_PATH=""
+REPO_NAME=""
+MANIFEST_PATH=""
+USE_TOKEN=false
+USE_CACHE=false
+DIFF_DIRS=""
+CONFIG_PATH=""
 
-cd ${repoPath}
+for arg in "$@"
+do
+    case $arg in
+        --repo-path)
+        REPO_PATH=${2}
+        shift
+        ;;
+        --repo-name)
+        REPO_NAME=${2}
+        shift
+        ;;
+        --manifest-path)
+        MANIFEST_PATH=${2}
+        shift
+        ;;
+        --use-token)
+        USE_TOKEN=${2}
+        shift
+        ;;
+        --use-cache)
+        USE_CACHE=${2}
+        shift
+        ;;
+        --diff-dirs)
+        DIFF_DIRS=${2}
+        shift
+        ;;
+        --config-path)
+        CONFIG_PATH=${2}
+        shift
+        ;;
+        *)
+        shift
+        ;;
+    esac
+done
+
+echo "REPO_PATH= ${REPO_PATH}"
+echo "REPO_NAME= ${REPO_NAME}"
+echo "MANIFEST_PATH= ${MANIFEST_PATH}"
+echo "USE_TOKEN= ${USE_TOKEN}"
+echo "USE_CACHE= ${USE_CACHE}"
+echo "DIFF_DIRS= ${DIFF_DIRS}"
+echo "CONFIG_PATH= ${CONFIG_PATH}"
+
+cd ${REPO_PATH}
 diffExist=false
 
-for arg in "$@"; do
-  diff=$(git diff origin/master --name-only | grep "^${arg}" || true)
+for dir in ${DIFF_DIRS}; do
+  diff=$(git diff origin/master --name-only | grep "^${dir}" || true)
   if [[ ! -z "${diff}" ]] ; then
     diffExist=true
     break
@@ -52,37 +101,52 @@ getGitHubToken() {
   fi
 }
 
-GIT_OAUTH_TOKEN=${GIT_OAUTH_TOKEN:-$(getGitHubToken github_com)}
-test $GIT_OAUTH_TOKEN
-
+if [[ "${USE_TOKEN}" = true ]] ; then
+    GIT_OAUTH_TOKEN=${GIT_OAUTH_TOKEN:-$(getGitHubToken github_com)}
+    test $GIT_OAUTH_TOKEN
+fi
 
 # Set config file
 tmpConfigPath="tmp-config"
-sed -e "s@REPO_PATH@${repoPath}@g" ${configPath} > ${tmpConfigPath}
+sed "s@REPO_PATH@${REPO_PATH}@g" ${CONFIG_PATH} > ${tmpConfigPath}
+sed -i "s/REPO_NAME/${REPO_NAME}/g" ${tmpConfigPath}
+
 export DOCFORGECONFIG=${tmpConfigPath}
 
-# Set cache dir
-if [[ -d "${HOME}/.docforge" ]]; then
-  docforgeCacheDir="${HOME}/.docforge"
-else
-  docforgeCacheDir="${repoPath}/../.docforge"
-fi
+if [[ "${USE_CACHE}" = true ]] ; then
+  # Set cache dir
+  if [[ -d "${HOME}/.docforge" ]]; then
+    docforgeCacheDir="${HOME}/.docforge"
+  else
+    docforgeCacheDir="${REPO_PATH}/../.docforge"
+  fi
 
-if [[ ! -d "${docforgeCacheDir}" ]]; then
-  echo "creating cache dir: ${docforgeCacheDir}"
-  mkdir -p "${docforgeCacheDir}"
-fi
+  if [[ ! -d "${docforgeCacheDir}" ]]; then
+    echo "creating cache dir: ${docforgeCacheDir}"
+    mkdir -p "${docforgeCacheDir}"
+  fi
 
-export DOCFORGE_CACHE_DIR="${docforgeCacheDir}"
-echo "cache dir is set to: ${docforgeCacheDir}"
+  export DOCFORGE_CACHE_DIR="${docforgeCacheDir}"
+  echo "cache dir is set to: ${docforgeCacheDir}"
+fi
 
 echo "Running docforge command..."
-docforge \
-  -f ${manifestPath} \
-  -d tmp \
-  --github-oauth-token $GIT_OAUTH_TOKEN \
-  --hugo \
-  --use-git=true \
-  --dry-run
+if [[ "${USE_TOKEN}" = true ]] ; then
+    docforge \
+      -f ${MANIFEST_PATH} \
+      -d tmp \
+      --github-oauth-token $GIT_OAUTH_TOKEN \
+      --hugo \
+      --use-git=true \
+      --dry-run
+else
+    docforge \
+      -f ${MANIFEST_PATH} \
+      -d tmp \
+      --hugo \
+      --use-git=true \
+      --dry-run
+fi
+
 
 rm -rf ${tmpConfigPath}
