@@ -28,4 +28,4 @@ stop:
 
 .PHONY: check-manifest
 check-manifest:
-	@.ci/check-manifest .docforge/ website/
+	@.ci/check-manifest-entrypoint

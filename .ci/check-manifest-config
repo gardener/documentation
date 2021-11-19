@@ -1,2 +1,2 @@
 resourceMappings:
-  "https://github.com/gardener/documentation": "REPO_PATH"
+  "https://github.com/gardener/REPO_NAME": "REPO_PATH"
