@@ -101,11 +101,6 @@ getGitHubToken() {
   fi
 }
 
-if [[ "${USE_TOKEN}" = true ]] ; then
-    GIT_OAUTH_TOKEN=${GIT_OAUTH_TOKEN:-$(getGitHubToken github_com)}
-    test $GIT_OAUTH_TOKEN
-fi
-
 # Set config file
 tmpConfigPath="tmp-config"
 sed "s@REPO_PATH@${REPO_PATH}@g" ${CONFIG_PATH} > ${tmpConfigPath}
@@ -130,23 +125,20 @@ if [[ "${USE_CACHE}" = true ]] ; then
   echo "cache dir is set to: ${docforgeCacheDir}"
 fi
 
-echo "Running docforge command..."
+tokenArg=""
 if [[ "${USE_TOKEN}" = true ]] ; then
-    docforge \
-      -f ${MANIFEST_PATH} \
-      -d tmp \
-      --github-oauth-token $GIT_OAUTH_TOKEN \
-      --hugo \
-      --use-git=true \
-      --dry-run
-else
-    docforge \
-      -f ${MANIFEST_PATH} \
-      -d tmp \
-      --hugo \
-      --use-git=true \
-      --dry-run
+  GIT_OAUTH_TOKEN=${GIT_OAUTH_TOKEN:-$(getGitHubToken github_com)}
+  test $GIT_OAUTH_TOKEN
+  tokenArg="--github-oauth-token $GIT_OAUTH_TOKEN"
 fi
 
+echo "Running docforge command..."
+docforge \
+  -f ${MANIFEST_PATH} \
+  -d tmp \
+  ${tokenArg} \
+  --hugo \
+  --use-git=true \
+  --dry-run
 
 rm -rf ${tmpConfigPath}
