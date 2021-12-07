@@ -102,7 +102,12 @@ getGitHubToken() {
 }
 
 # Set config file
-tmpConfigPath="tmp-config"
+tmpConfigPath=$("mktemp")
+function cleanup {
+    rm -rf "$tmpConfigPath"
+}
+trap cleanup EXIT ERR INT TERM
+
 sed "s@REPO_PATH@${REPO_PATH}@g" ${CONFIG_PATH} > ${tmpConfigPath}
 sed -i "s/REPO_NAME/${REPO_NAME}/g" ${tmpConfigPath}
 
@@ -140,5 +145,3 @@ docforge \
   --hugo \
   --use-git=true \
   --dry-run
-
-rm -rf ${tmpConfigPath}
