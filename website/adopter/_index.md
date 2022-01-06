@@ -2,7 +2,7 @@
 title: Adopters
 url: /adopter
 ---
-    
+
 # See who is using Gardener
 ##  Gardener adopters in production environments that have publicly shared details of their usage.
 ![teaser](https://raw.githubusercontent.com/gardener/documentation/master/website/adopter/images/teaser.svg)
@@ -20,5 +20,6 @@ url: /adopter
 |<img src="./images/tsystems.png" alt="T-Systems"/>| Supporting and managing multiple application landscapes on-premises and across different hyperscaler infrastructures can be painful. At <a href="https://www.t-systems.com/" target="_blank">T-Systems</a> we use Gardener both for internal usage and to manage clusters for our customers. We love the openness of the project, the flexibility and the architecture that allows us to manage clusters around the world with only one team from one single pane of glass and to meet industry specific certification standards. The sovereignty by design is another great value, the technology implicitly brings along. |
 |<img src="./images/23technologies.png" alt="23 Technologies"/>| The German-based company <a href="https://23technologies.cloud" target="_blank">23 Technologies</a> uses Gardener to offer an enterprise-class Kubernetes engine for industrial use cases as well as cloud service providers and offers managed and professional services for it. |
 |<img src="./images/b1-systems.png" alt="B1 Systems GmbH"/>| <a href="https://www.b1-systems.de" target="_blank">B1 Systems GmbH</a> is a international provider of Linux &amp; Open Source consulting, training, managed service &amp; support. We are founded in 2004 and based in Germany. Our team of 140 Linux experts offers tailor-made solutions based on cloud &amp; container technologies, virtualization &amp; high availability as well as monitoring, system &amp; configuration management. B1 is using Gardener internally and also set up solutions/environments for customers. |
+|<img src="./images/finleap-connect.png" alt="finleap connect GmbH"/>| <a href="https://connect.finleap.com" target="_blank">finleap connect GmbH</a> is the leading independent Open Banking platform provider in Europe. It enables companies across a multitude of industries to provide the next generation of financial services by understanding how customers transact and interact. With its “full-stack” platform of solutions, finleap connect makes it possible for its clients to compliantly access the financial transactions data of customers, enrich said data with analytics tools, provide digital banking services and deliver high-quality, digital financial services products and services to customers. Gardener uniquly enables us to deploy our platform in Europe and across the globe in a uniform way on the providers preferred by our customers.
 
 ### If you’re using Gardener and you aren’t on this list, [submit a pull request!](https://github.com/gardener/documentation/pulls)
