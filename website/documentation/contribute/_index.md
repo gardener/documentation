@@ -51,7 +51,7 @@ You are welcome to contribute code to Gardener in order to fix a bug or to imple
 The following rules govern code contributions:
 
 * Contributions must be licensed under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0)
-* You need to sign the [Developer Certificate of Origin](#developer-certificate-of-origin).
+* You need to sign the [Developer Certificate of Origin](#developer-certificate-of-origin)
 
 ## Contributing Documentation
 
@@ -60,7 +60,7 @@ You are welcome to contribute documentation to Gardener.
 The following rules govern documentation contributions:
 
 * Contributions must be licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/legalcode)
-* You need to sign the [Developer Certificate of Origin](#developer-certificate-of-origin).
+* You need to sign the [Developer Certificate of Origin](#developer-certificate-of-origin)
 
 ## Developer Certificate of Origin
 
@@ -78,9 +78,9 @@ Due to legal reasons, contributors will be asked to accept a Developer Certifica
 
 * If your patch is not getting reviewed or you need a specific person to review it, you can @-reply a reviewer asking for a review in the pull request or a comment, or you can ask for a review on our [mailing list](https://groups.google.com/forum/?fromgroups#!forum/gardener).
 
-* If you add new features, make sure that they are documented in the [Gardener documentation](https://github.com/gardener/documentation)
+* If you add new features, make sure that they are documented in the [Gardener documentation](https://github.com/gardener/documentation).
 
-* If your changes are relevant for operators, consider to update the [ops toolbelt image](https://github.com/gardener/ops-toolbelt)
+* If your changes are relevant for operators, consider to update the [ops toolbelt image](https://github.com/gardener/ops-toolbelt).
 
 * Post review:
   * If a review requires you to change your commit(s), please test the changes again.
@@ -119,13 +119,13 @@ ZenHub is used for planning:
 
 ## Security Release Process
 
-See [Security Release Process](https://github.com/gardener/documentation/blob/master/security-release-process.md)
+See [Security Release Process](https://github.com/gardener/documentation/blob/master/security-release-process.md).
 
 ## Community
 
 ### Slack Channel
 
-[#gardener](https://kubernetes.slack.com/messages/gardener), sign up [here](http://slack.k8s.io/)
+[#gardener](https://kubernetes.slack.com/messages/gardener), sign up [here](http://slack.k8s.io/).
 
 ### Mailing List
 

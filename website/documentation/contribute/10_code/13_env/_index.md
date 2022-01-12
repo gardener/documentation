@@ -10,11 +10,11 @@ The API server extends the Kubernetes API via the user-aggregated API server con
 However, if you want to develop it, you may want to work locally with the Gardener without building a Docker image and deploying it to a cluster each and every time.
 That means that the Gardener runs outside a Kubernetes cluster which requires providing a [Kubeconfig](https://kubernetes.io/docs/tasks/access-application-cluster/authenticate-across-clusters-kubeconfig/) in your local filesystem and point the Gardener to it when starting it (see below).
 
-Further details could be found in
+Further details could be found in:
 
 1. [Principles of Kubernetes](https://kubernetes.io/docs/concepts/), and its [components](https://kubernetes.io/docs/concepts/overview/components/)
 1. [Kubernetes Development Guide](https://github.com/kubernetes/community/tree/master/contributors/devel)
-2. [Architecture of Gardener](https://github.com/gardener/documentation/wiki/Architecture.md)
+2. [Architecture of Gardener](https://github.com/gardener/gardener/blob/master/docs/concepts/architecture.md)
 
 This setup is based on [minikube](https://github.com/kubernetes/minikube), a Kubernetes cluster running on a single node. Docker for Desktop and [kind](https://github.com/kubernetes-sigs/kind) are also supported.
 
@@ -85,7 +85,7 @@ You'll need to have [minikube](https://github.com/kubernetes/minikube#installati
 
 Alternatively, you can also install Docker for Desktop and [kind](https://github.com/kubernetes-sigs/kind).
 
-In case you want to use the "Docker for Mac Kubernetes" or if you want to build Docker images for the Gardener you have to install Docker itself. On MacOS, please use [Docker for MacOS](https://docs.docker.com/docker-for-mac/) which can be downloaded [here](https://download.docker.com/mac/stable/Docker.dmg).
+In case you want to use the "Docker for Mac Kubernetes" or if you want to build Docker images for the Gardener you have to install Docker itself. On MacOS, please use [Docker for MacOS](https://docs.docker.com/docker-for-mac/). Instructions on how to install it can be found [here](https://docs.docker.com/desktop/mac/install/).
 
 On other OS, please check the [Docker installation documentation](https://docs.docker.com/install/).
 
@@ -118,7 +118,7 @@ This will create symbolic links for the GNU utilities with `g` prefix in `/usr/l
 
 ## [Windows] WSL2
 
-Apart from Linux distributions and MacOS, the local gardener setup can also run on the Windows Subsystem for Linux 2. 
+Apart from Linux distributions and MacOS, the local Gardener setup can also run on the Windows Subsystem for Linux 2. 
 
 While WSL1, plain docker for windows and various Linux distributions and local Kubernetes environments may be supported, this setup was verified with:
 * [WSL2](https://docs.microsoft.com/en-us/windows/wsl/wsl2-index) 
@@ -147,12 +147,14 @@ cd gardener
 
 ### Start the Gardener
 
-:warning: Before you start developing, please ensure to comply with the following requirements:
+{{% alert color="warning" title="Warning" %}}
+Before you start developing, please ensure to comply with the following requirements:
+{{% /alert %}}
 
 1. You have understood the [principles of Kubernetes](https://kubernetes.io/docs/concepts/), and its [components](https://kubernetes.io/docs/concepts/overview/components/), what their purpose is and how they interact with each other.
-2. You have understood the [architecture of Gardener](https://github.com/gardener/documentation/wiki/Architecture.md), and what the various clusters are used for.
+2. You have understood the [architecture of Gardener](https://github.com/gardener/gardener/blob/master/docs/concepts/architecture.md), and what the various clusters are used for.
 
-#### Start a local kubernetes cluster
+#### Start a local Kubernetes cluster
 
 For the development of Gardener you need some kind of Kubernetes cluster, which can be used as a "garden" cluster.
 I.e. you need a Kubernetes API server on which you can register a `APIService` Gardener's own Extension API Server.  
@@ -298,10 +300,12 @@ time="2019-11-06T15:24:18+02:00" level=info msg="Seed controller initialized."
 [...]
 ```
 
-:warning: The Gardenlet will handle all your seeds for this development scenario, although, for productive usage it is recommended to run it once per seed, see [this document](https://raw.githubusercontent.com/gardener/gardener/master/docs/development/../concepts/gardenlet.md) for more information.
+{{% alert color="warning" title="Warning" %}}
+BThe Gardenlet will handle all your seeds for this development scenario, although, for productive usage it is recommended to run it once per seed, see [this document](https://raw.githubusercontent.com/gardener/gardener/master/docs/development/../concepts/gardenlet.md) for more information.
 See the [Appendix](#appendix) on how to configure the Seed clusters for the local development scenario. 
+{{% /alert %}}
 
-Please checkout the [Gardener Extensions Manager](https://github.com/gardener/gem) to install extension controllers - make sure that you install all of them required for your local development.
+Please checkout the [Gardener Extensions Manager](https://github.com/gardener/gem) to install extension controllers - make sure that you install all of the required ones for your local development.
 Also, please refer to [this document](https://raw.githubusercontent.com/gardener/gardener/master/docs/development/../extensions/controllerregistration.md) for further information about how extensions are registered in case you want to use other versions than the latest releases.
 
 The Gardener should now be ready to operate on Shoot resources. You can use
@@ -313,7 +317,9 @@ No resources found.
 
 to operate against your local running Gardener API Server.
 
-> Note: It may take several seconds until the `minikube` cluster recognizes that the Gardener API server has been started and is available. `No resources found` is the expected result of our initial development setup.
+{{% alert color="info" title="Note" %}}
+It may take several seconds until the `minikube` cluster recognizes that the Gardener API server has been started and is available. `No resources found` is the expected result of our initial development setup.
+{{% /alert %}}
 
 #### Limitations of local development setup
 

@@ -46,13 +46,13 @@ In this example we'll follow these steps to create a Seed cluster on AKS:
 
 Summary of prerequisites:
 - An Azure AKS cluster with:
-  - Helm initialized,
-  - an ingress controller deployed,
-  - a wildcard DNS record pointing the ingress,
-  - `az` command line client configured for Azure subscription,
-- An Azure service principle to provide Azure credentials to Gardener,
-- A Route53 Hosted Zone and AWS account credentials with permissions on that Route53 Zone,
-  - `aws` command line client configured for this account,
+  * Helm initialized
+  * an ingress controller deployed
+  * a wildcard DNS record pointing the ingress
+  * `az` command line client configured for Azure subscription
+- An Azure service principle to provide Azure credentials to Gardener
+- A Route53 Hosted Zone and AWS account credentials with permissions on that Route53 Zone
+  * `aws` command line client configured for this account
 - `gardenctl` command line client configured for the AKS cluster's kubeconfig
 
 **Note**: Gardener doesn't have support for Azure DNS yet (see
@@ -75,7 +75,7 @@ for later use.
 
 ## Deploy AKS cluster
 
-Here you can find a summary for creating an AKS cluster, if you already
+Here you can find a summary for creating an AKS cluster. If you already
 have one, skip this step.
 
 ```
@@ -220,7 +220,7 @@ etcd-for-test-0   2/2     Running   0          1m
 
 ## Deploy Gardener Helm Chart
 
-Check (current releases)[https://github.com/gardener/gardener/releases] and
+Check [current releases](https://github.com/gardener/gardener/releases) and
 pick a suitable one to install.
 
 ```
@@ -228,7 +228,7 @@ GARDENER_RELEASE=0.17.1
 ```
 
 gardener-controller-manager will need to maintain some DNS records for Seed.
-So, you need to provide Route53 credentials in the values.yaml file:
+So, you need to provide Route53 credentials in the `values.yaml` file:
 * **global.controller.internalDomain.hostedZoneID**
 * **global.controller.internalDomain.domain**: Here pick a subdomain for your
   Gardener to maintain DNS records for your Shoot clusters. This domain has
@@ -724,7 +724,7 @@ issues:
 # Access Shoot cluster
 
 The `gardenctl` tool provides a convenient wrapper to operate on both
-cluster and cloud providers, here are some commands you can run
+cluster and cloud providers, here are some commands you can run:
 
 ```
 # select target shoot cluster
