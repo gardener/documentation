@@ -17,4 +17,4 @@ cluster 24 / 7 for reasons of cost?
 
 The Gardener gives you the possibility to scale your cluster down to **zero nodes**.
 
-..read some more on [Hibernate a Cluster](https://github.com/gardener/gardener/edit/master/docs/usage/shoot_hibernate.md).
+..read some more on [Hibernate a Cluster](https://github.com/gardener/gardener/blob/master/docs/usage/shoot_hibernate.md).
