@@ -7,12 +7,27 @@ weight: 100
 ---
 # Contributing to Gardener
 
-## Code of conduct
+## Welcome
+Welcome to the Contributor section of Gardener. Here you can learn how it is possible for you to contribute your ideas and expertise to the project and have it grow even more. 
 
+## Prerequisites
+Before you begin contributing to Gardener, there are a couple of things you should become familiar with and complete first. 
+
+### Code of Conduct
 All members of the Gardener community must abide by the
 [CNCF Code of Conduct](https://github.com/cncf/foundation/blob/master/code-of-conduct.md).
 Only by respecting each other can we develop a productive, collaborative community.
 Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting [gardener.opensource@sap.com](mailto:gardener.opensource@sap.com) and/or a Gardener project maintainer.
+
+### Developer Certificate of Origin
+
+Due to legal reasons, contributors will be asked to accept a Developer Certificate of Origin (DCO) before they submit the first pull request to this projects, this happens in an automated fashion during the submission process. We use [the standard DCO text of the Linux Foundation](https://developercertificate.org/).
+
+### License
+Your contributions to Gardener must be licensed properly:
+
+* Code contributions must be licensed under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0)
+* Documentation contributions must be licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/legalcode)
 
 ## Contributing
 
@@ -42,29 +57,7 @@ Should you wish to work on an issue, please claim it first by commenting on the 
 
 If you have questions about one of the issues, with or without the tag, please comment on them and one of the maintainers will clarify it.
 
-We kindly ask you to follow the [Pull Request Checklist](#Pull-Request-Checklist) to ensure reviews can happen accordingly.
-
-## Contributing Code
-
-You are welcome to contribute code to Gardener in order to fix a bug or to implement a new feature.
-
-The following rules govern code contributions:
-
-* Contributions must be licensed under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0)
-* You need to sign the [Developer Certificate of Origin](#developer-certificate-of-origin)
-
-## Contributing Documentation
-
-You are welcome to contribute documentation to Gardener.
-
-The following rules govern documentation contributions:
-
-* Contributions must be licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/legalcode)
-* You need to sign the [Developer Certificate of Origin](#developer-certificate-of-origin)
-
-## Developer Certificate of Origin
-
-Due to legal reasons, contributors will be asked to accept a Developer Certificate of Origin (DCO) before they submit the first pull request to this projects, this happens in an automated fashion during the submission process. We use [the standard DCO text of the Linux Foundation](https://developercertificate.org/).
+We kindly ask you to follow the [Pull Request Checklist](#pull-request-checklist) to ensure reviews can happen accordingly.
 
 ## Pull Request Checklist
 
@@ -90,22 +83,7 @@ Due to legal reasons, contributors will be asked to accept a Developer Certifica
   
 ## Contributing Bigger Changes
 
-If you want to contribute bigger changes to Gardener, such as when introducing new API resources and their corresponding controllers, or implementing an approved [Gardener Enhancement Proposal](https://github.com/gardener/gardener/tree/master/docs/proposals), follow these guidelines:
-
-* Avoid proposing a big change in one single PR. Instead, split your work into multiple stages which are independently mergeable and create one PR for each stage. For example, if introducing a new API resource and its controller, these stages could be:
-  * API resource types, including defaults and generated code.
-  * API resource validation.
-  * API server storage.
-  * Admission plugin(s), if any.
-  * Controller(s), including changes to existing controllers. Split this phase further into different functional subsets if appropriate.
-  
-* If you realize later that changes to artifacts introduced in a previous stage are required, by all means make them and explain in the PR why they were needed.
-  
-* Consider splitting a big PR further into multiple commits to allow for more focused reviews. For example, you could add unit tests / documentation in separate commits from the rest of the code. If you have to adapt your PR to review feedback, prefer doing that also in a separate commit to make it easier for reviewers to check how their feedback has been addressed. 
-
-* To make the review process more efficient and avoid too many long discussions in the PR itself, ask for a "main reviewer" to be assigned to your change, then work with this person to make sure he or she understands it in detail, and agree together on any improvements that may be needed. If you can't reach an agreement on certain topics, comment on the PR and invite other people to join the discussion.
-
-* Even if you have a "main reviewer" assigned, you may still get feedback from other reviewers. In general, these "non-main reviewers" are advised to focus more on the design and overall approach rather than the implementation details. Make sure that you address any concerns on this level appropriately.
+If you want to contribute bigger changes to Gardener, such as when introducing new API resources and their corresponding controllers, or implementing an approved [Gardener Enhancement Proposal](https://github.com/gardener/gardener/tree/master/docs/proposals), follow the guidelines outlined [here](./10_code/10_contributing_bigger_changes/_index.md).
 
 ## Issues and Planning
 
@@ -133,25 +111,5 @@ See [Security Release Process](https://github.com/gardener/documentation/blob/ma
 
 The mailing list is hosted through Google Groups. To receive the lists' emails, [join](https://support.google.com/groups/answer/1067205) the group, as you would any other Google Group.
 
-### Twitter
-
-Follow [@GardenerProject](https://twitter.com/GardenerProject) on Twitter. Please mention @GardenerProject
-in your own posts about Gardener.
-
-### Accessing community documents
-
-In order to foster real time collaboration there are working documents and notes that are taken in Google Docs,
-and then transferred to this repository if appropriate.
-
-To gain edit access for these documents, you must subscribe to the
-[gardener mailing list](https://groups.google.com/forum/?fromgroups#!forum/gardener),
-as these documents are shared automatically with anyone who subscribes to that list.
-
-### Bi-Weekly Meetings
-
-We have a PUBLIC and RECORDED bi-weekly meeting. We meet every other Friday at [10:00 CET](https://www.google.de/search?q=10+CET+to+local+time) over Zoom. Find recordings in the [Gardener Youtube channel](https://www.youtube.com/channel/UCwUhwKFREV8Su0gwAJQX7tw/videos). Let us know if you want to participate and live in a timezone where 10:00 CET is in the night, we can also schedule meetings on Thursday [17:00 CET](https://www.google.de/search?q=17+CET+to+local+time).
-
-See the meeting calendar on the web at [calendar.google.com](https://calendar.google.com/calendar/embed?src=gardener.cloud.community%40gmail.com), or paste this [iCal url](https://calendar.google.com/calendar/ical/gardener.cloud.community%40gmail.com/public/basic.ics) into any iCal client.
-
-If you have a topic you'd like to present or would like to see discussed, please propose a specific date on the [Gardener Community Meeting Agenda](https://docs.google.com/document/d/1314v8ziVNQPjdBrWp-Y4BYrTDlv7dq2cWDFIa9SMaP4). Find minutes in the same document. Please upload slides or other documents you presented to the
-[Gardener Community Meeting folder](https://drive.google.com/drive/u/0/folders/1myXFoaFL_9fYJdUwnZcIXMBpx3dynhM8). Subscribe to the [gardener mailing list](https://groups.google.com/forum/?fromgroups#!forum/gardener) to get edit permissions.
+### Other
+For additional channels where you can reach us, as well as links to our bi-weekly meetings, visit the [Community page](./30_community/_index.md).
