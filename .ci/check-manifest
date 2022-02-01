@@ -10,12 +10,6 @@
 # otherwise the script will exist with status code 0
 set -e
 
-if [[ $(uname) == 'Darwin' ]]; then
-  READLINK_BIN="greadlink"
-else
-  READLINK_BIN="readlink"
-fi
-
 REPO_PATH=""
 REPO_NAME=""
 MANIFEST_PATH=""
@@ -69,12 +63,12 @@ echo "USE_CACHE= ${USE_CACHE}"
 echo "DIFF_DIRS= ${DIFF_DIRS}"
 echo "CONFIG_PATH= ${CONFIG_PATH}"
 
-cd ${REPO_PATH}
+cd "${REPO_PATH}"
 diffExist=false
 
-for dir in $(echo $DIFF_DIRS | tr ";" "\n"); do
+for dir in $(echo "$DIFF_DIRS" | tr ";" "\n"); do
   diff=$(git diff origin/master --name-only | grep "^${dir}" || true)
-  if [[ ! -z "${diff}" ]] ; then
+  if [[ -n "${diff}" ]] ; then
     diffExist=true
     break
   fi
@@ -84,6 +78,8 @@ if [[ "${diffExist}" = false ]] ; then
     echo "There is no diff in the checked directories so the script exits successfully"
     exit 0
 fi
+
+echo "===========1============'${1}'"
 
 getGitHubToken() {
   # Check if gardener-ci is available (in local setup)
@@ -108,10 +104,10 @@ function cleanup {
 }
 trap cleanup EXIT ERR INT TERM
 
-sed "s@REPO_PATH@${REPO_PATH}@g" ${CONFIG_PATH} > ${tmpConfigPath}
-sed -i "s/REPO_NAME/${REPO_NAME}/g" ${tmpConfigPath}
+sed "s@REPO_PATH@${REPO_PATH}@g" "${CONFIG_PATH}" > "${tmpConfigPath}"
+sed -i "s/REPO_NAME/${REPO_NAME}/g" "${tmpConfigPath}"
 
-export DOCFORGECONFIG=${tmpConfigPath}
+export DOCFORGE_CONFIG="${tmpConfigPath}"
 
 if [[ "${USE_CACHE}" = true ]] ; then
   # Set cache dir
@@ -133,15 +129,17 @@ fi
 tokenArg=""
 if [[ "${USE_TOKEN}" = true ]] ; then
   GIT_OAUTH_TOKEN=${GIT_OAUTH_TOKEN:-$(getGitHubToken github_com)}
-  test $GIT_OAUTH_TOKEN
+  test "$GIT_OAUTH_TOKEN"
   tokenArg="--github-oauth-token $GIT_OAUTH_TOKEN"
 fi
 
+# To support relative paths in manifest.yaml, manifest path should be valid URL that is mapped to local repo
+manifestArg="https://github.com/gardener/${REPO_NAME}/blob/check-manifest${MANIFEST_PATH}"
+
 echo "Running docforge command..."
 docforge \
-  -f ${MANIFEST_PATH} \
+  -f "${manifestArg}" \
   -d tmp \
-  ${tokenArg} \
+  "${tokenArg}" \
   --hugo \
-  --use-git=true \
   --dry-run

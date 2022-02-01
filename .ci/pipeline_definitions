@@ -8,7 +8,7 @@ documentation:
       component_descriptor: ~
     steps:
       check-manifest-entrypoint:
-        image: "eu.gcr.io/gardener-project/gardener-website-generator:stable"
+        image: "eu.gcr.io/gardener-project/gardener-website-generator:10.28.0"
         cache_paths: ['.docforge']
   jobs:
     release:

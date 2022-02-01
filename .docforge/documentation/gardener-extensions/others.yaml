@@ -4,14 +4,12 @@ structure:
     frontmatter:
       title: DNS services
       description: Gardener extension controller for DNS services for shoot clusters
-  nodes:
-  - nodesSelector:
-      path: https://github.com/gardener/gardener-extension-shoot-dns-service/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+  nodesSelector:
+    path: https://github.com/gardener/gardener-extension-shoot-dns-service/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
 - name: gardener-extension-shoot-cert-service
   properties:
     frontmatter:
-      title: Certificate services 
+      title: Certificate services
       description: Gardener extension controller for certificate services for shoot clusters
-  nodes:
-  - nodesSelector:
-      path: https://github.com/gardener/gardener-extension-shoot-cert-service/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+  nodesSelector:
+    path: https://github.com/gardener/gardener-extension-shoot-cert-service/blob/DEFAULT_BRANCH/.docforge/manifest.yaml

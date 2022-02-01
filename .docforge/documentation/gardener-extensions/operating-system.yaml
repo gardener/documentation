@@ -4,30 +4,26 @@ structure:
     frontmatter:
       title: Garden Linux OS
       description: Gardener extension controller for the Garden Linux operating system
-  nodes:
-  - nodesSelector:
-      path: https://github.com/gardener/gardener-extension-os-gardenlinux/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+  nodesSelector:
+    path: https://github.com/gardener/gardener-extension-os-gardenlinux/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
 - name: gardener-extension-os-suse-chost
   properties:
     frontmatter:
       title: SUSE CHost OS
       description: Gardener extension controller for the SUSE Container Host operating system (CHost)
-  nodes:
-  - nodesSelector:
-      path: https://github.com/gardener/gardener-extension-os-suse-chost/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+  nodesSelector:
+    path: https://github.com/gardener/gardener-extension-os-suse-chost/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
 - name: gardener-extension-os-ubuntu
   properties:
     frontmatter:
       title: Ubuntu OS
       description: Gardener extension controller for the Ubuntu operating system
-  nodes:
-  - nodesSelector:
-      path: https://github.com/gardener/gardener-extension-os-ubuntu/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+  nodesSelector:
+    path: https://github.com/gardener/gardener-extension-os-ubuntu/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
 - name: gardener-extension-os-coreos
   properties:
     frontmatter:
       title: CoreOS/FlatCar OS
       description: Gardener extension controller for the CoreOS/FlatCar Container Linux operating system
-  nodes:
-  - nodesSelector:
-      path: https://github.com/gardener/gardener-extension-os-coreos/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+  nodesSelector:
+    path: https://github.com/gardener/gardener-extension-os-coreos/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
