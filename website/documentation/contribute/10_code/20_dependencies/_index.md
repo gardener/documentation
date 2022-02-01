@@ -44,6 +44,5 @@ make revendor
 
 The dependencies are installed into the `vendor` folder which **should be added** to the VCS.
 
-{{% alert color="warning" title="Warning" %}}
-Make sure that you test the code after you have updated the dependencies!
-{{% /alert %}}
+
+:warning: Make sure that you test the code after you have updated the dependencies!
