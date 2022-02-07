@@ -85,7 +85,7 @@ gardenClientConnection:
     namespace: garden
 ```
 
-5. Define either `seedSelector` or `seedConfig` (see [this document](https://raw.githubusercontent.com/gardener/gardener/master/docs/deployment/../concepts/gardenlet.md#seed-config-vs-seed-selector)
+5. Define either `seedSelector` or `seedConfig` (see [this document](https://raw.githubusercontent.com/gardener/gardener/master/docs/deployment/../concepts/gardenlet.md#seed-config-vs-seed-selector)).
 
 Now you are ready to deploy the Helm chart:
 
@@ -97,5 +97,8 @@ helm install charts/gardener/gardenlet \
   --wait
 ```
 
-:warning: A current prerequisite of Kubernetes clusters that are used as seeds is to have a pre-deployed `nginx-ingress-controller` to make the Gardener work properly.
+{{% warning color="warning" title="Warning" %}}
+A current prerequisite of Kubernetes clusters that are used as seeds is to have a pre-deployed `nginx-ingress-controller` to make the Gardener work properly.
 Moreover, there should exist a DNS record `*.ingress.<SEED-CLUSTER-DOMAIN>` where `<SEED-CLUSTER-DOMAIN>` is the value of the `.dns.ingressDomain` field of [a Seed cluster resource](https://raw.githubusercontent.com/gardener/gardener/master/docs/deployment/../../example/50-seed.yaml) (or the [respective Gardenlet configuration](https://raw.githubusercontent.com/gardener/gardener/master/docs/deployment/../../example/20-componentconfig-gardenlet.yaml#L84-L85)).
+{{% /alert %}}
+

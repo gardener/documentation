@@ -10,18 +10,18 @@ As a consequence, there are several configuration options for the various custom
 
 This document describes the
 
-1. [configuration and usage of Gardener as operator/administrator](#configuration-and-usage-of-gardener-as-operatoradministrator).
-2. [configuration and usage of Gardener as end-user/stakeholder/customer](#configuration-and-usage-of-gardener-as-end-userstakeholdercustomer).
+1. [configuration and usage of Gardener as operator/administrator](#configuration-and-usage-of-gardener-as-operatoradministrator)
+2. [configuration and usage of Gardener as end-user/stakeholder/customer](#configuration-and-usage-of-gardener-as-end-userstakeholdercustomer)
 
 ## Configuration and Usage of Gardener as Operator/Administrator
 
 When we use the terms "operator/administrator" we refer to both the people deploying and operating Gardener.
 Gardener consists out of four components:
 
-1. `gardener-apiserver`, a Kubernetes-native API extension that serves custom resources in the Kubernetes-style (like `Seed`s and `Shoot`s), and a component that contains multiple admission plugins.
-1. `gardener-controller-manager`, a component consisting out of multiple controllers that implement reconciliation and deletion flows for some of the custom resources (e.g., it contains the logic for maintaining `Shoot`s, reconciling `Plant`s, etc.).
-1. `gardener-scheduler`, a component that assigns newly created `Shoot` clusters to appropriate `Seed` clusters.
-1. `gardenlet`, a component running in seed clusters and consisting out of multiple controllers that implement reconciliation and deletion flows for some of the custom resources (e.g., it contains the logic for reconciliation and deletion of `Shoot`s).
+1. `gardener-apiserver`, a Kubernetes-native API extension that serves custom resources in the Kubernetes-style (like seeds and shoots), and a component that contains multiple admission plugins.
+1. `gardener-controller-manager`, a component consisting out of multiple controllers that implement reconciliation and deletion flows for some of the custom resources (e.g., it contains the logic for maintaining shoots, reconciling plants, etc.).
+1. `gardener-scheduler`, a component that assigns newly created shoot clusters to appropriate seed clusters.
+1. `gardenlet`, a component running in seed clusters and consisting out of multiple controllers that implement reconciliation and deletion flows for some of the custom resources (e.g., it contains the logic for reconciliation and deletion of shoots).
 
 Each of these components have various configuration options.
 The `gardener-apiserver` uses the standard API server library maintained by the Kubernetes community, and as such it mainly supports command line flags.
@@ -36,19 +36,19 @@ Please take a look at [this](https://raw.githubusercontent.com/gardener/gardener
 
 The Gardener scheduler also only supports one command line flag which should be a path to a valid scheduler configuration file.
 Please take a look at [this](https://raw.githubusercontent.com/gardener/gardener/master/docs/usage/../../example/20-componentconfig-gardener-scheduler.yaml) example configuration.
-Information about the concepts of the Gardener scheduler can be found [here](https://raw.githubusercontent.com/gardener/gardener/master/docs/usage/../concepts/scheduler.md)
+Information about the concepts of the Gardener scheduler can be found [here](https://raw.githubusercontent.com/gardener/gardener/master/docs/usage/../concepts/scheduler.md).
 
 ### Configuration file for Gardenlet
 
 The Gardenlet also only supports one command line flag which should be a path to a valid gardenlet configuration file.
 Please take a look at [this](https://raw.githubusercontent.com/gardener/gardener/master/docs/usage/../../example/20-componentconfig-gardenlet.yaml) example configuration.
-Information about the concepts of the Gardenlet can be found [here](https://raw.githubusercontent.com/gardener/gardener/master/docs/usage/../concepts/gardenlet.md)
+Information about the concepts of the Gardenlet can be found [here](https://raw.githubusercontent.com/gardener/gardener/master/docs/usage/../concepts/gardenlet.md).
 
 ### System configuration
 
 After successful deployment of the four components you need to setup the system.
 Let's first focus on some "static" configuration.
-When the `gardenlet` starts it scans the `garden` namespace of the garden cluster for `Secret`s that have influence on its reconciliation loops, mainly the `Shoot` reconciliation:
+When the `gardenlet` starts it scans the `garden` namespace of the garden cluster for Secrets that have influence on its reconciliation loops, mainly the Shoot reconciliation:
 
 * **Internal domain secret**, contains the DNS provider credentials (having appropriate privileges) which will be used to create/delete so-called "internal" DNS records for the Shoot clusters, please see [this](https://raw.githubusercontent.com/gardener/gardener/master/docs/usage/../../example/10-secret-internal-domain.yaml) for an example.
   * This secret is used in order to establish a stable endpoint for shoot clusters which is used internally by all control plane components.
@@ -59,8 +59,10 @@ When the `gardenlet` starts it scans the `garden` namespace of the garden cluste
   * Not every end-user/stakeholder/customer has its own domain, however, Gardener needs to create a DNS record for every shoot cluster.
   * As landscape operator you might want to define a default domain owned and controlled by you that is used for all shoot clusters that don't specify their own domain.
 
-:warning: Please note that the mentioned domain secrets are only needed if you have at least one seed cluster that is not tainted with `seed.gardener.cloud/disable-dns`.
+{{% alert color="warning" title="Warning" %}} 
+Please note that the mentioned domain secrets are only needed if you have at least one seed cluster that is not tainted with `seed.gardener.cloud/disable-dns`.
 Seeds with this taint don't create any DNS records for shoots scheduled on it, hence, if you only have such seeds, you don't need to create the domain secrets.
+{{% /alert %}}
 
 * **Alerting secrets** (optional), contain the alerting configuration and credentials for the [AlertManager](https://prometheus.io/docs/alerting/alertmanager/) to send email alerts. It is also possible to configure the monitoring stack to send alerts to an AlertManager not deployed by Gardener to handle alerting. Please see [this](https://raw.githubusercontent.com/gardener/gardener/master/docs/usage/../../example/10-secret-alerting.yaml) for an example.
   * If email alerting is configured:
@@ -86,4 +88,4 @@ As an operator/administrator you have to configure some of them to make the syst
 As an end-user/stakeholder/customer you are using a Gardener landscape that has been setup for you by another team.
 You don't need to care about how Gardener itself has to be configured or how it has to be deployed.
 Take a look at [this document](https://raw.githubusercontent.com/gardener/gardener/master/docs/usage/../concepts/apiserver.md) - it describes which resources are offered by Gardener.
-You may want to have a more detailed look for `Project`s, `SecretBinding`s, `Shoot`s, `Plant`s, and `(Cluster)OpenIDConnectPreset`s.
+You may want to have a more detailed look for `Project`, `SecretBinding`, `Shoot`, `Plant`, and `(Cluster)OpenIDConnectPreset`.
