@@ -39,25 +39,49 @@ Primary color
 {{% /alert %}}
 
 ## mermaid
-Reference documentation [here](https://learn.netlify.com/en/shortcodes/mermaid/)
+Reference documentation [here](https://mermaid-js.github.io/mermaid/#/README). The [GitHub mermaid](https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/) fenced code block syntax is used.
 
-Please note that mermaid diagrams do not scale and will trigger rendering of a horizontal scrollbar on small devices if they overflow. Prefer vertical diagram layouts and use only if necessary.
-
-```
-{{%/* mermaid align="left" */%}}
+~~~
+```mermaid
 graph LR;
     A[Hard edge] -->|Link text| B(Round edge)
     B --> C{Decision}
     C -->|One| D[Result one]
     C -->|Two| E[Result two]
-{{%/* /mermaid */%}}
 ```
-produces
+~~~
 
-{{< mermaid align="left" >}}
+produces:
+
+```mermaid
 graph LR;
     A[Hard edge] -->|Link text| B(Round edge)
     B --> C{Decision}
     C -->|One| D[Result one]
     C -->|Two| E[Result two]
-{{< /mermaid >}}
+```
+
+Default settings can be overridden using the %%init%% header at the start of the diagram definition.
+See the [Mermaid theming documentation](https://mermaid-js.github.io/mermaid/#/theming?id=themes-at-the-local-or-current-level)
+
+~~~
+```mermaid
+%%{init: {'theme': 'neutral', 'themeVariables': { 'mainBkg': '#eee'}}}%%
+graph LR;
+    A[Hard edge] -->|Link text| B(Round edge)
+    B --> C{Decision}
+    C -->|One| D[Result one]
+    C -->|Two| E[Result two]
+```
+~~~
+
+produces:
+
+```mermaid
+%%{init: {'theme': 'neutral', 'themeVariables': { 'mainBkg': '#eee'}}}%%
+graph LR;
+    A[Hard edge] -->|Link text| B(Round edge)
+    B --> C{Decision}
+    C -->|One| D[Result one]
+    C -->|Two| E[Result two]
+```
