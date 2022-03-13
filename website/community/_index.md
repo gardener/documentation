@@ -25,7 +25,7 @@ url: /community
                 <!-- FIXME -->
                 <img src="https://gardener.cloud/images/branding/github-mark-logo-green.svg"><span>GitHub</span>
             </a>
-            <span>Eveyone is welcome to contribute with what they can - an issue or a pull request. 
+            <span>Everyone is welcome to contribute with what they can - an issue or a pull request. 
                 Check Gardener project there and our contributors guide to help you get started.</span>
         </div>
     </div>

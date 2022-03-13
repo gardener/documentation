@@ -79,8 +79,6 @@ if [[ "${diffExist}" = false ]] ; then
     exit 0
 fi
 
-echo "===========1============'${1}'"
-
 getGitHubToken() {
   # Check if gardener-ci is available (in local setup)
   command -v gardener-ci >/dev/null && gardenci="true" || gardenci=""
