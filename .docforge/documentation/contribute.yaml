@@ -1,6 +1,0 @@
-nodesSelector:
-  path: https://github.com/gardener/documentation/tree/master/website/documentation/contribute
-links:
-  downloads:
-    scope:
-      "gardener/documentation/(blob|raw)/(.*)/website": ~

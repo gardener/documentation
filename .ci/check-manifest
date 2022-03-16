@@ -10,12 +10,6 @@
 # otherwise the script will exist with status code 0
 set -e
 
-if [[ $(uname) == 'Darwin' ]]; then
-  READLINK_BIN="greadlink"
-else
-  READLINK_BIN="readlink"
-fi
-
 REPO_PATH=""
 REPO_NAME=""
 MANIFEST_PATH=""
@@ -24,41 +18,40 @@ USE_CACHE=false
 DIFF_DIRS=""
 CONFIG_PATH=""
 
-for arg in "$@"
-do
-    case $arg in
-        --repo-path)
-        REPO_PATH=${2}
-        shift
-        ;;
-        --repo-name)
-        REPO_NAME=${2}
-        shift
-        ;;
-        --manifest-path)
-        MANIFEST_PATH=${2}
-        shift
-        ;;
-        --use-token)
-        USE_TOKEN=${2}
-        shift
-        ;;
-        --use-cache)
-        USE_CACHE=${2}
-        shift
-        ;;
-        --diff-dirs)
-        DIFF_DIRS=${2}
-        shift
-        ;;
-        --config-path)
-        CONFIG_PATH=${2}
-        shift
-        ;;
-        *)
-        shift
-        ;;
-    esac
+for arg in "$@"; do
+  case $arg in
+  --repo-path)
+    REPO_PATH=${2}
+    shift
+    ;;
+  --repo-name)
+    REPO_NAME=${2}
+    shift
+    ;;
+  --manifest-path)
+    MANIFEST_PATH=${2}
+    shift
+    ;;
+  --use-token)
+    USE_TOKEN=${2}
+    shift
+    ;;
+  --use-cache)
+    USE_CACHE=${2}
+    shift
+    ;;
+  --diff-dirs)
+    DIFF_DIRS=${2}
+    shift
+    ;;
+  --config-path)
+    CONFIG_PATH=${2}
+    shift
+    ;;
+  *)
+    shift
+    ;;
+  esac
 done
 
 echo "REPO_PATH= ${REPO_PATH}"
@@ -69,20 +62,20 @@ echo "USE_CACHE= ${USE_CACHE}"
 echo "DIFF_DIRS= ${DIFF_DIRS}"
 echo "CONFIG_PATH= ${CONFIG_PATH}"
 
-cd ${REPO_PATH}
+cd "${REPO_PATH}"
 diffExist=false
 
-for dir in $(echo $DIFF_DIRS | tr ";" "\n"); do
+for dir in $(echo "$DIFF_DIRS" | tr ";" "\n"); do
   diff=$(git diff origin/master --name-only | grep "^${dir}" || true)
-  if [[ ! -z "${diff}" ]] ; then
+  if [[ -n "${diff}" ]]; then
     diffExist=true
     break
   fi
 done
 
-if [[ "${diffExist}" = false ]] ; then
-    echo "There is no diff in the checked directories so the script exits successfully"
-    exit 0
+if [[ "${diffExist}" = false ]]; then
+  echo "There is no diff in the checked directories so the script exits successfully"
+  exit 0
 fi
 
 getGitHubToken() {
@@ -93,9 +86,9 @@ getGitHubToken() {
     technicalUser=$(gardener-ci config model_element --cfg-type github --cfg-name "${1}" --key credentials | sed -e "s/^GithubCredentials //" -e "s/'/\"/g")
     if [[ -n "${technicalUser}" ]]; then
       # get auth token and strip lead/trail quotes
-      authToken=$(sed -e 's/"//g' <<<$(jq -n '$c.authToken' --argjson c "$technicalUser"))
+      authToken=$(jq -r '.authToken' <<<"$technicalUser")
       # get username and strip lead/trail quotes
-      username=$(sed -e 's/"//g' <<<$(jq -n '$c.username' --argjson c "$technicalUser"))
+      username=$(jq -r '.username' <<<"$technicalUser")
       echo "${username}:${authToken}"
     fi
   fi
@@ -104,16 +97,16 @@ getGitHubToken() {
 # Set config file
 tmpConfigPath=$("mktemp")
 function cleanup {
-    rm -rf "$tmpConfigPath"
+  rm -rf "$tmpConfigPath"
 }
 trap cleanup EXIT ERR INT TERM
 
-sed "s@REPO_PATH@${REPO_PATH}@g" ${CONFIG_PATH} > ${tmpConfigPath}
-sed -i "s/REPO_NAME/${REPO_NAME}/g" ${tmpConfigPath}
+sed "s@REPO_PATH@${REPO_PATH}@g" "${CONFIG_PATH}" >"${tmpConfigPath}"
+sed -i "s/REPO_NAME/${REPO_NAME}/g" "${tmpConfigPath}"
 
-export DOCFORGECONFIG=${tmpConfigPath}
+export DOCFORGE_CONFIG="${tmpConfigPath}"
 
-if [[ "${USE_CACHE}" = true ]] ; then
+if [[ "${USE_CACHE}" = true ]]; then
   # Set cache dir
   if [[ -d "${HOME}/.docforge" ]]; then
     docforgeCacheDir="${HOME}/.docforge"
@@ -130,18 +123,18 @@ if [[ "${USE_CACHE}" = true ]] ; then
   echo "cache dir is set to: ${docforgeCacheDir}"
 fi
 
-tokenArg=""
-if [[ "${USE_TOKEN}" = true ]] ; then
+if [[ "${USE_TOKEN}" = true ]]; then
   GIT_OAUTH_TOKEN=${GIT_OAUTH_TOKEN:-$(getGitHubToken github_com)}
-  test $GIT_OAUTH_TOKEN
-  tokenArg="--github-oauth-token $GIT_OAUTH_TOKEN"
+  gitToken=$GIT_OAUTH_TOKEN
 fi
+
+# To support relative paths in manifest.yaml, manifest path should be valid URL that is mapped to local repo
+manifestURL="https://github.com/gardener/${REPO_NAME}/blob/check-manifest${MANIFEST_PATH#"$REPO_PATH"}"
 
 echo "Running docforge command..."
 docforge \
-  -f ${MANIFEST_PATH} \
+  -f "${manifestURL}" \
   -d tmp \
-  ${tokenArg} \
+  ${gitToken:+--github-oauth-token $gitToken} \
   --hugo \
-  --use-git=true \
   --dry-run
