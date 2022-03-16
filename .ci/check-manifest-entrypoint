@@ -11,9 +11,9 @@ else
 fi
 
 repoPath="$(${READLINK_BIN} -f "$(dirname "${0}")/..")"
-manifestPath="/.docforge/website.yaml"
+manifestPath="${repoPath}/.docforge/website.yaml"
 diffDirs=".docforge/;website/"
 configPath="${repoPath}/.ci/check-manifest-config"
 scriptPath="${repoPath}/.ci/check-manifest"
 
-${scriptPath} --repo-path "${repoPath}" --repo-name "documentation" --manifest-path ${manifestPath} --use-token true --use-cache true --diff-dirs ${diffDirs} --config-path "${configPath}"
+${scriptPath} --repo-path "${repoPath}" --repo-name "documentation" --manifest-path "${manifestPath}" --use-token true --use-cache true --diff-dirs ${diffDirs} --config-path "${configPath}"
