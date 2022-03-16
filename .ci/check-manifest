@@ -129,7 +129,7 @@ if [[ "${USE_TOKEN}" = true ]]; then
 fi
 
 # To support relative paths in manifest.yaml, manifest path should be valid URL that is mapped to local repo
-manifestURL="https://github.com/gardener/${REPO_NAME}/blob/check-manifest${MANIFEST_PATH#"$REPO_PATH"}"
+manifestURL="https://github.com/gardener/${REPO_NAME}/blob/DEFAULT_BRANCH${MANIFEST_PATH#"$REPO_PATH"}"
 
 echo "Running docforge command..."
 docforge \
