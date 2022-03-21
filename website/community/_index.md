@@ -9,7 +9,7 @@ url: /community
         <div class="row">
             <div class="col-4">
                 <a target="_blank" class="action-header" href="https://twitter.com/GardenerProject">
-                    <img src="https://gardener.cloud/images/branding/twitter-logo-green.svg">
+                    <img src="../../images/community/twitter-logo-green.svg">
                     <span>@GardenerProject</span>
                 </a>
                 <span>Follow the latest project updates on Twitter</span>
@@ -17,7 +17,7 @@ url: /community
             <div class="col-4">
                 <a target="_blank" class="action-header"
                     href="https://github.com/gardener/community/wiki/2021-Community-Call">
-                    <img src="https://gardener.cloud/images/lp/comms-community-meetings.svg">
+                    <img src="../../images/community/comms-community-meetings.svg">
                     <span>Community Meetings</span>
                 </a>
                 <span>You are welcome on our community meetings where you can engage with other contributors in person.
@@ -25,7 +25,7 @@ url: /community
             </div>
             <div class="col-4">
                 <a target="_blank" class="action-header" href="https://github.com/gardener">
-                    <img src="https://gardener.cloud/images/branding/github-mark-logo-green.svg">
+                    <img src="../../images/community/github-mark-logo-green.svg">
                     <span>GitHub</span>
                 </a>
                 <span>Everyone is welcome to contribute with what they can - an issue or a pull request.
@@ -36,14 +36,14 @@ url: /community
             <div class="col-4">
                 <a target="_blank" class="action-header"
                     href="https://www.youtube.com/channel/UCwUhwKFREV8Su0gwAJQX7tw">
-                    <img src="https://gardener.cloud/images/branding/youtube-logo-green.svg">
+                    <img src="../../images/community/youtube-logo-green.svg">
                     <span>Gardener Project</span>
                 </a>
                 <span>Watch videos and community meetings recordings on our YouTube channel</span>
             </div>
             <div class="col-4">
                 <a target="_blank" class="action-header" href="https://kubernetes.slack.com/messages/gardener">
-                    <img src="https://gardener.cloud/images/branding/slack-logo-green.svg">
+                    <img src="../../images/community/slack-logo-green.svg">
                     <span>#gardener</span>
                 </a>
                 <span>Discuss Gardener on our Slack channel in the Kubernetes workspace</span>
