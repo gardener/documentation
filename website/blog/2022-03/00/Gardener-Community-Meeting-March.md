@@ -1,0 +1,31 @@
+---
+title: Community Call - Deploying and Developing Gardener Locally
+linkTitle: Community Call - Deploying and Developing Gardener Locally
+newsSubtitle: March 25, 2022
+publishdate: 2022-03-23
+authors:
+- name: Nikolay Boshnakov
+  email: nikolay.boshnakov@sap.com
+  avatar: https://avatars.githubusercontent.com/u/25197046?s=400&u=56175926393a77892662001f0dca5a439d1e771f&v=4
+aliases: ["/blog/2022/03/25/01"]
+---
+
+So far, deploying Gardener locally was not possible end-to-end. While you certainly could run the Gardener components in a minikube or kind cluster, creating shoot clusters always required to register seeds backed by cloud provider infrastructure like AWS, Azure, etc..
+
+Consequently, developing Gardener locally was similarly complicated, and the entry barrier for new contributors was way too high.
+
+In a previous community call ([Hackathon "Hack The Metal"](https://www.youtube.com/watch?v=ZPAisXqjoTI&ab_channel=GardenerProject)), we already presented a new approach for overcoming these hurdles and complexities.
+
+Now we would like to present the [Local Provider Extension](https://github.com/gardener/gardener/blob/master/docs/extensions/provider-local.md) for Gardener and show how it can be used to deploy Gardener locally, allowing you to quickly get your feet wet with the project. 
+
+In this session, Tim Ebert goes through the process of setting up a local Gardener cluster. After his demonstration, Raphael Franzka showcases a different approach to building your clusters locally, which, while more complicated, offers a much faster build time. 
+
+You can find the tutorials in this community call at:
+* [Deploying Gardener locally](https://github.com/gardener/gardener/blob/master/docs/deployment/getting_started_locally.md)
+* [Running Gardener locally](https://github.com/gardener/gardener/blob/master/docs/development/getting_started_locally.md)
+
+Feel free to try out the guides upfront and join one of our scheduled meetings with your questions! We will have plenty of time to clarify them and look at any issues you might have encountered.
+
+## Recording
+
+{{< youtube id="nV_JI8YWwY4" title="Deploying and Developing Gardener Locally (Without Any External Infrastructure!)" >}}
