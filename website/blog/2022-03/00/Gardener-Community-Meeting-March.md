@@ -18,7 +18,7 @@ In a previous community call ([Hackathon "Hack The Metal"](https://www.youtube.c
 
 Now we would like to present the [Local Provider Extension](https://github.com/gardener/gardener/blob/master/docs/extensions/provider-local.md) for Gardener and show how it can be used to deploy Gardener locally, allowing you to quickly get your feet wet with the project. 
 
-In this session, Tim Ebert goes through the process of setting up a local Gardener cluster. After his demonstration, Raphael Franzka showcases a different approach to building your clusters locally, which, while more complicated, offers a much faster build time. 
+In this session, [Tim Ebert](https://github.com/timebertt) goes through the process of setting up a local Gardener cluster. After his demonstration, [Rafael Franzke](https://github.com/rfranzke) showcases a different approach to building your clusters locally, which, while more complicated, offers a much faster build time. 
 
 You can find the tutorials in this community call at:
 * [Deploying Gardener locally](https://github.com/gardener/gardener/blob/master/docs/deployment/getting_started_locally.md)
