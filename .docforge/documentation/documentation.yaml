@@ -33,12 +33,20 @@ structure:
       weight: 4
   nodesSelector:
     path: https://github.com/gardener/gardenctl/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+- name: faq
+  properties:
+    frontmatter:
+      title: FAQ
+      description: Commonly asked questions about Gardener
+      weight: 5
+  nodesSelector:
+    path: /website/documentation/faq
 - name: other-components
   properties:
     frontmatter:
       title: Other Components
       description: Other components included in the Gardener project
-      weight: 5
+      weight: 6
   nodesSelector:
     path: ./other-components.yaml
 - name: contribute
@@ -46,6 +54,6 @@ structure:
     frontmatter:
       title: Contribute
       description: The project's contributor guide for code and documentation
-      weight: 6
+      weight: 7
   nodesSelector:
     path: /website/documentation/contribute
