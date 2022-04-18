@@ -22,7 +22,9 @@ All the color options are `info`|`warning`|`primary`
 
 You can also omit the title section from an alert, useful when creating notes. 
 
-It is important to note that the text that the "alerts" shortcode wraps will not be processed during site building. Do not use shortcodes in it.
+It is important to note that the text that the "alerts" shortcode wraps will not be processed during site building. Do not use shortcodes in it. 
+
+You should also avoid mixing HTML and markdown formatting in shortcodes, since it won't render correctly when the site is built. 
 
 ### Alert Examples
 
@@ -39,7 +41,7 @@ Primary color
 {{% /alert %}}
 
 ## mermaid
-Reference documentation [here](https://mermaid-js.github.io/mermaid/#/README). The [GitHub mermaid](https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/) fenced code block syntax is used.
+The [GitHub mermaid](https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/) fenced code block syntax is used. You can find additional documentation at [mermaid's official website](https://mermaid-js.github.io/mermaid/#/README). 
 
 ~~~
 ```mermaid
@@ -62,7 +64,7 @@ graph LR;
 ```
 
 Default settings can be overridden using the %%init%% header at the start of the diagram definition.
-See the [Mermaid theming documentation](https://mermaid-js.github.io/mermaid/#/theming?id=themes-at-the-local-or-current-level)
+See the [mermaid theming documentation](https://mermaid-js.github.io/mermaid/#/theming?id=themes-at-the-local-or-current-level).
 
 ~~~
 ```mermaid
