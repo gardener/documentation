@@ -12,7 +12,4 @@ a publishing platform mechanisms, such as Hugo's layouts. Considering that the s
 might be published by multiple platforms you should be considerate in using markup that may bind it 
 to a particular one.
 
-You should also avoid mixing HTML and markdown formatting, since it won't render correctly when the
-site is built. 
-
 We support the use of certain shortcodes. You can find more about the currently supported shortcodes and their documentation [here](../30_shortcodes/_index.md).

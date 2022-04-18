@@ -22,7 +22,9 @@ All the color options are `info`|`warning`|`primary`
 
 You can also omit the title section from an alert, useful when creating notes. 
 
-It is important to note that the text that the "alerts" shortcode wraps will not be processed during site building. Do not use shortcodes in it.
+It is important to note that the text that the "alerts" shortcode wraps will not be processed during site building. Do not use shortcodes in it. 
+
+You should also avoid mixing HTML and markdown formatting in shortcodes, since it won't render correctly when the site is built. 
 
 ### Alert Examples
 
