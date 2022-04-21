@@ -8,6 +8,40 @@ structure:
       index: true
   nodesSelector:
     path: https://github.com/gardener/gardener/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+  nodes:
+  - name: development
+    nodes:
+    - name: changing-the-api.md
+      source: https://github.com/gardener/gardener/blob/master/docs/development/changing-the-api.md
+      properties:
+        frontmatter:
+          title: Changing the APIs
+  - name: proposals
+    nodes:
+    - name: 08-shoot-apiserver-via-sni.md
+      source: https://github.com/gardener/gardener/blob/master/docs/proposals/08-shoot-apiserver-via-sni.md
+      properties:
+        frontmatter:
+          title: Shoot apiserver via SNI
+    - name: 04-new-core-gardener-cloud-apis.md
+      source: https://github.com/gardener/gardener/blob/master/docs/proposals/04-new-core-gardener-cloud-apis.md
+      properties:
+        frontmatter:
+          title: New Core Gardener Cloud APIs
+  - name: concepts
+    nodes:
+    - name: cluster-api.md
+      source: https://github.com/gardener/gardener/blob/master/docs/concepts/cluster-api.md
+      properties:
+        frontmatter:
+          title: Cluster API
+  - name: deployment
+    nodes:
+    - name: gardenlet_api_access.md
+      source: https://github.com/gardener/gardener/blob/master/docs/deployment/gardenlet_api_access.md
+      properties:
+        frontmatter:
+          title: Gardenlet API Access
 - name: extensions
   properties:
     frontmatter:
