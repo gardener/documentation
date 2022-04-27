@@ -6,35 +6,6 @@ structure:
       description: Declarative way of managing machines for Kubernetes cluster
   nodesSelector:
     path: https://github.com/gardener/machine-controller-manager/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
-  nodes:
-  - name: docs
-    nodes:
-    - name: FAQ.md
-      source: https://github.com/gardener/machine-controller-manager/blob/master/docs/FAQ.md
-      properties:
-        frontmatter:
-          title: Machine Controller Manager FAQ
-          description: Commonly asked questions about MCM
-    - name: docs
-      nodes:
-      - name: apis.md
-        source: https://github.com/gardener/machine-controller-manager/blob/master/docs/docs/apis.md
-        properties:
-          frontmatter:
-            title: APIs
-    - name: development
-      nodes:
-      - name: cp_support_old.md
-        source: https://github.com/gardener/machine-controller-manager/blob/master/docs/development/cp_support_old.md
-        properties:
-          frontmatter:
-            title: Adding Support for a Cloud Provider (Legacy)
-            draft: false
-      - name: cp_support_new.md
-        source: https://github.com/gardener/machine-controller-manager/blob/master/docs/development/cp_support_new.md
-        properties:
-          frontmatter:
-            title: Adding Support for a Cloud Provider
 - name: etcd-druid
   properties:
     frontmatter:
