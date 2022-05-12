@@ -14,11 +14,9 @@ disclosure but will need help from relevant developers and release managers
 to successfully run this process. The Gardener Security Team consists of the
 following volunteers:
 
-* Olaf Beier, (**[@olafbeier](https://github.com/olafbeier)**)
 * Vasu Chandrasekhara, (**[@vasu1124](https://github.com/vasu1124)**)
 * Alban Crequy, (**[@alban](https://github.com/alban)**)
 * Donka Dimitrova, (**[@donistz](https://github.com/donistz)**)
-* Norbert Hamann, (**[@norberthamann](https://github.com/norberthamann)**)
 * Claudia H&ouml;lters, (**[@hoeltcl](https://github.com/hoeltcl)**)
 * Vedran Lerenc, (**[@vlerenc](https://github.com/vlerenc)**)
 * Dirk Marwinski, (**[@marwinski](https://github.com/marwinski)**)
