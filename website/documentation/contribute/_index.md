@@ -35,10 +35,7 @@ Gardener uses GitHub to manage reviews of pull requests.
 
 * If you are a new contributor see: [Steps to Contribute](#steps-to-contribute)
 
-* If you have a trivial fix or improvement, go ahead and create a pull request,
-  addressing (with `@...`) a suitable maintainer of this repository (see
-  [OWNERS](https://github.com/kubernetes/community/blob/master/contributors/guide/owners.md) of the
-  repository you want to contribute to) in the description of the pull request.
+* If you have a trivial fix or improvement, go ahead and create a pull request.
 
 * If you plan to do something more involved, first discuss your ideas
   on our [mailing list](https://groups.google.com/forum/?fromgroups#!forum/gardener).
@@ -65,7 +62,7 @@ We kindly ask you to follow the [Pull Request Checklist](#pull-request-checklist
 
 * Commits should be as small as possible, while ensuring that each commit is correct independently (i.e., each commit should compile and pass tests).
 
-* Test your changes as thoroughly as possible before your commit them. Preferably, automate your test by unit / integration (e.g. [Gardener integration testing](https://github.com/gardener/gardener/blob/master/docs/development/testing.md#integration-tests-envtests)) tests. If tested manually, provide information about the test scope in the PR description (e.g. “Test passed: Upgrade K8s version from 1.14.5 to 1.15.2 on AWS, Azure, GCP, Alicloud, Openstack.”).
+* Test your changes as thoroughly as possible before your commit them. Preferably, automate your testing with [unit / integration tests](https://github.com/gardener/gardener/blob/master/docs/development/testing.md). If tested manually, provide information about the test scope in the PR description (e.g. “Test passed: Upgrade K8s version from 1.14.5 to 1.15.2 on AWS, Azure, GCP, Alicloud, Openstack.”).
 
 * Create _Work In Progress [WIP]_ pull requests only if you need a clarification or an explicit review before you can continue your work item.
 
