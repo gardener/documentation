@@ -20,8 +20,8 @@ propose changes to this document in a pull request.
 | [API Objects and Technical Components](#api-objects-and-technical-components) | `code` | <code>Deploy a \`Pod\`.</code> |
 | [Inline Code and Inline Commands](#inline-code-and-inline-commands)| `code` | <code>For declarative management, use \`kubectl apply\`.</code> |
 | [Object Field Names and Field Values](#object-field-names-and-field-values)|`code` | <code>Set the value of \`image\` to \`nginx:1.8\`.</code> |
-| [Links and References](#links-and-references) | [link]() | `[link name](url)` |
-| [Headers](#headers) | various | `# Header`
+| [Links and References](#links-and-references) | [link]() | `Visit the [Gardener website](https://gardener.cloud/)` |
+| [Headers](#headers) | various | `# API Server`
 
 
 ### User Interface Elements
@@ -111,9 +111,10 @@ Another thing to keep in mind is that markdown links do not work in [shortcodes]
 
 ### Headers
 
-Begin each topic with an H1 for the title, followed by H2 for each main part of it. If the main parts contain sub-parts, use H3 for them. Try to avoid using H4-H6, since it will make your topic look too cluttered. 
-
-If you feel that you need to use a higher level of header, try to instead split the part into smaller chunks. 
+* Use H1 for the title of the topic.
+* Use H2 for each main section. 
+* Use H3 for any sub-section in the main sections. 
+* Avoid using H4-H6. Try moving the additional information to a new topic instead.
 
 ## Code Snippet Formatting
 
