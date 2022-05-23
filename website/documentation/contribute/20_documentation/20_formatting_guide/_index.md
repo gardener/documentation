@@ -1,19 +1,14 @@
 ---
-title: Style Guide
+title: Formatting Guide
 ---
 
-This page gives writing style guidelines for the Gardener documentation.
+This page gives writing formatting guidelines for the Gardener documentation. For style guidelines, see the [Style Guide](../40_style_guide/_index.md).
+
 These are guidelines, not rules. Use your best judgment, and feel free to
 propose changes to this document in a pull request.
 
-* [Language](#language)
 * [Formatting of Inline Elements](#formatting-of-inline-elements)
 * [Code Snippet Formatting](#code-snippet-formatting)
-
-## Language
-
-* Gardener documentation uses US English. 
-* Keep it simple and use words that non-native English speakers are also familiar with.
 
 ## Formatting of Inline Elements
 
@@ -25,6 +20,8 @@ propose changes to this document in a pull request.
 | [API Objects and Technical Components](#api-objects-and-technical-components) | `code` | <code>Deploy a \`Pod\`.</code> |
 | [Inline Code and Inline Commands](#inline-code-and-inline-commands)| `code` | <code>For declarative management, use \`kubectl apply\`.</code> |
 | [Object Field Names and Field Values](#object-field-names-and-field-values)|`code` | <code>Set the value of \`image\` to \`nginx:1.8\`.</code> |
+| [Links and References](#links-and-references) | [link]() | `Visit the [Gardener website](https://gardener.cloud/)` |
+| [Headers](#headers) | various | `# API Server`
 
 
 ### User Interface Elements
@@ -104,6 +101,20 @@ Use backticks (\`) for field names, and field values.
 | Set the value of `imagePullPolicy` to `Always`. | Set the value of `imagePullPolicy` to "Always". |
 | Set the value of `image` to `nginx:1.8`. | the value of `image` to nginx:1.8. |
 
+### Links and References
+
+|  Do  | Don't |
+|:---|:---|
+| Use a descriptor of the link's destination: "For more information, visit [Gardener's website]()." | Use a generic placeholder: "For more information, go [here]()." |
+
+Another thing to keep in mind is that markdown links do not work in [shortcodes](../30_shortcodes/_index.md). To circumvent this problem, you can use HTML links.
+
+### Headers
+
+* Use H1 for the title of the topic.
+* Use H2 for each main section. 
+* Use H3 for any sub-section in the main sections. 
+* Avoid using H4-H6. Try moving the additional information to a new topic instead.
 
 ## Code Snippet Formatting
 
