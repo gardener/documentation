@@ -1,7 +1,7 @@
 ---
 Title: Style Guide
 ---
-This page gives writing style guidelines for the Gardener documentation. For formatting guidelines, see the [Formatting Guide](../20_format_guide/_index.md).
+This page gives writing style guidelines for the Gardener documentation. For formatting guidelines, see the [Formatting Guide](../20_formatting_guide/_index.md).
 
 These are guidelines, not rules. Use your best judgment, and feel free to
 propose changes to this document in a pull request.
@@ -89,6 +89,6 @@ By using a metadata section you can also skip adding a title header or overwrite
 * Task and tutorial topic titles begin with a verb.
 
 ## Related links
-* [Formatting Guide](../20_format_guide/_index.md)
+* [Formatting Guide](../20_formatting_guide/_index.md)
 * [Contributors Guide](https://github.com/gardener/documentation/blob/master/website/documentation/contribute/_index.md)
 * [SAPterm](https://www.sapterm.com/)
