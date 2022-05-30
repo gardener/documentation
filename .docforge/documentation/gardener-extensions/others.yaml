@@ -20,3 +20,10 @@ structure:
       description: Gardener extension controller for OpenID Connect services for shoot clusters
   nodesSelector:
     path: https://github.com/gardener/gardener-extension-shoot-oidc-service/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+- name: gardener-extension-shoot-networking-filter
+  properties:
+    frontmatter:
+      title: Egress filtering
+      description: Gardener extension controller for egress filtering for shoot clusters
+  nodesSelector:
+    path: https://github.com/gardener/gardener-extension-shoot-networking-filter/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
