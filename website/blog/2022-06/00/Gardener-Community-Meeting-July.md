@@ -1,0 +1,33 @@
+---
+title: Community Call - Gardener Extension Development
+linkTitle: Community Call - Gardener Extension Development
+newsSubtitle: June 17, 2022
+publishdate: 2022-06-17
+authors:
+- name: Nikolay Boshnakov
+  email: nikolay.boshnakov@sap.com
+  avatar: https://avatars.githubusercontent.com/u/25197046?s=400&u=56175926393a77892662001f0dca5a439d1e771f&v=4
+aliases: ["/blog/2022/06/17/01"]
+---
+
+## Presenters
+
+This community call was led by [Jens Schneider](https://github.com/jensac) and [Lothar Gesslein](https://github.com/gesslein).
+
+## Overview
+
+Starting the development of a new Gardener extension can be challenging, when you are not an expert in the Gardener ecosystem yet. Therefore, the first half of this community call led by Jens Schneider aims to provide a "getting started tutorial" at a beginner level. [23Technologies](https://23technologies.cloud/en) have developed a minimal working example for Gardener extensions, [gardener-extension-mwe](https://github.com/23technologies/gardener-extension-mwe), hosted in a Github repository. Jens is following the [Getting started with Gardener extension development](https://23technologies.cloud/en/blog/gardener-ext-dev) tutorial, which 
+
+In the second part of the community call, Lothar Gesslein introduces the [gardener-extension-shoot-flux](https://github.com/23technologies/gardener-extension-shoot-flux), which allows for the automated installation of arbitrary Kubernetes resources into shoot clusters. As this extension relies on [Flux](https://fluxcd.io/), an overview of Flux's capabilities is also provided.
+
+If you are left with any questions regarding the content, you might find the answers at the Q&A session and discussion held at the end.
+
+You can find the tutorials in this community call at:
+- [Getting started with Gardener extension development](https://23technologies.cloud/en/blog/gardener-ext-dev)
+- [A Gardener Extension for universal Shoot Configuration](https://23technologies.cloud/en/blog/gardener-ext-shoot-flux)
+
+Feel free to try out the guides upfront and join one of our scheduled meetings with your questions! We will have plenty of time to clarify them and look at any issues you might have encountered.
+
+## Recording
+
+{{< youtube id="nG2FRYL05mc" title="Gardener Extension Development - From scratch to the gardener-extension-shoot-flux)" >}}
