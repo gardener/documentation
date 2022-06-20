@@ -10,9 +10,15 @@ authors:
 aliases: ["/blog/2022/06/17/01"]
 ---
 
-Starting the development of a new Gardener extension can be challenging, when you are not an expert in the Gardener ecosystem yet. Therefore, the first half of this community call led by [Jens Schneider](https://github.com/jensac) aims to provide a "getting started tutorial" at a beginner level. [23Technologies](https://23technologies.cloud/en) have developed a minimal working example for Gardener extensions, [gardener-extension-mwe](https://github.com/23technologies/gardener-extension-mwe), hosted in a Github repository. Jens is following the [Getting started with Gardener extension development](https://23technologies.cloud/en/blog/gardener-ext-dev) tutorial, which 
+## Presenters
 
-In the second part of the community call, [Lothar Gesslein](https://github.com/gesslein) introduces the [gardener-extension-shoot-flux](https://github.com/23technologies/gardener-extension-shoot-flux), which allows for the automated installation of arbitrary Kubernetes resources into shoot clusters. As this extension relies on [Flux](https://fluxcd.io/), an overview of Flux's capabilities is also provided.
+This community call was led by [Jens Schneider](https://github.com/jensac) and [Lothar Gesslein](https://github.com/gesslein).
+
+## Overview
+
+Starting the development of a new Gardener extension can be challenging, when you are not an expert in the Gardener ecosystem yet. Therefore, the first half of this community call led by Jens Schneider aims to provide a "getting started tutorial" at a beginner level. [23Technologies](https://23technologies.cloud/en) have developed a minimal working example for Gardener extensions, [gardener-extension-mwe](https://github.com/23technologies/gardener-extension-mwe), hosted in a Github repository. Jens is following the [Getting started with Gardener extension development](https://23technologies.cloud/en/blog/gardener-ext-dev) tutorial, which 
+
+In the second part of the community call, Lothar Gesslein introduces the [gardener-extension-shoot-flux](https://github.com/23technologies/gardener-extension-shoot-flux), which allows for the automated installation of arbitrary Kubernetes resources into shoot clusters. As this extension relies on [Flux](https://fluxcd.io/), an overview of Flux's capabilities is also provided.
 
 If you are left with any questions regarding the content, you might find the answers at the Q&A session and discussion held at the end.
 
