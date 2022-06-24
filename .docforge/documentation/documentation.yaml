@@ -28,6 +28,8 @@ structure:
 - name: gardenctl-v2
   properties:
     frontmatter:
+      aliases: 
+        - /docs/gardenctl/
       title: Gardenctl V2
       description: The command line interface to control your clusters
       weight: 4
