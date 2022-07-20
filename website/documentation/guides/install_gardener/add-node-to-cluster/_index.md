@@ -1,5 +1,5 @@
 ---
-title: Manually adding a node to an existing cluster
+title: Manually Adding a Node to an Existing Cluster
 description: How to add a node to an existing cluster without the support of Gardener
 level: advanced
 reviewer: Gaurav Gupta
@@ -14,7 +14,7 @@ This tutorial is useful for those end-users who need specifically configured nod
 by Gardener. For example: an end-user who wants some workload that requires `runnc` instead of `runc` as container 
 runtime.
 
-![teaser](teaser.svg)
+![teaser](./images/teaser.svg)
 
 ## Disclaimer
 

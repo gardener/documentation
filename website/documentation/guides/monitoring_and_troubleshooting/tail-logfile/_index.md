@@ -14,7 +14,7 @@ help if you want to monitor more than one pod at a time.
 This is something you really need a lot, at least if you run several instances of a pod behind a `deployment`. 
 This is even more so if you don't have a Kibana setup or similar. 
 
-<img src="howto-kubetail.png" width="100%">
+<img src="./images/howto-kubetail.png" width="100%">
 
 ## Solution
 Luckily, there are smart developers out there who always come up with solutions. The **finding of the week** is 

@@ -1,5 +1,5 @@
 ---
-title: Orchestration of container startup
+title: Orchestration of Container Startup
 description: "How to orchestrate startup sequence of multiple containers"
 level: beginner
 category: Getting Started

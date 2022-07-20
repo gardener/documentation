@@ -1,5 +1,5 @@
 ---
-title: Create a Shoot cluster into existing AWS VPC
+title: Create a Shoot Cluster into Existing AWS VPC
 level: intermediate
 category: Operation
 scope: app-developer

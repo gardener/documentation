@@ -21,7 +21,7 @@ Inspired by [@sindresorhus' awesome](https://github.com/sindresorhus/awesome)
 * [Kubernetes: The Future of Cloud Hosting](https://github.com/meteorhacks/meteorhacks.github.io/blob/master/_posts/2015-04-22-learn-kubernetes-the-future-of-the-cloud.md) by [Meteorhacks](https://twitter.com/meteorhacks)
 * [Kubernetes by Google](http://thevirtualizationguy.wordpress.com/tag/kubernetes/) by [Gaston Pantana](https://twitter.com/GastonPantana)
 * [Key Concepts](http://blog.arungupta.me/key-concepts-kubernetes/) by [Arun Gupta](https://twitter.com/arungupta)
-* [Application Containers: Kubernetes and Docker from Scratch](http://keithtenzer.com/2015/06/01/application-containers-kubernetes-and-docker-from-scratch/) by [Keith Tenzer](https://twitter.com/keithtenzer)
+* [Application Containers: Kubernetes and Docker from Scratch](https://keithtenzer.com/containers/application-containers-kubernetes-and-docker-from-scratch/) by [Keith Tenzer](https://twitter.com/keithtenzer)
 * [Learn the Kubernetes Key Concepts in 10 Minutes](http://omerio.com/2015/12/18/learn-the-kubernetes-key-concepts-in-10-minutes/) by [Omer Dawelbeit](https://twitter.com/omerio)
 * [Top Reasons Businesses Should Move to Kubernetes Now](http://supergiant.io/blog/top-reasons-businesses-should-move-to-kubernetes-now) by [Mike Johnston](https://github.com/gopherstein)
 * [The Children's Illustrated Guide to Kubernetes](http://deis.com/blog/2016/kubernetes-illustrated-guide/) by [Deis](https://github.com/deis) :-)
@@ -33,7 +33,6 @@ Inspired by [@sindresorhus' awesome](https://github.com/sindresorhus/awesome)
 *Learn Kubernetes using an interactive environment without requiring downloads or configuration*
 
 * [Interactive Tutorial](https://kubernetes.io/docs/tutorials/kubernetes-basics/cluster-interactive/)
-* [Katacoda](http://www.katacoda.com/courses/kubernetes)
 * [Play with Kubernetes](http://labs.play-with-k8s.com/)
 * [Kubernetes Bootcamp](http://kubernetesbootcamp.github.io/kubernetes-bootcamp/)
 
@@ -53,7 +52,7 @@ Inspired by [@sindresorhus' awesome](https://github.com/sindresorhus/awesome)
 ### Tutorials
 
   - [Kubernetes Tutorials by Kubernetes Team](http://kubernetes.io/docs/tutorials/)
-  - [Kubernetes By Example by OpenShift Team](http://kubernetesbyexample.com)
+  - [Kubernetes By Example by OpenShift Team](https://kubebyexample.com/)
   - [Kubernetes Tutorial by Tutorialspoint](http://www.tutorialspoint.com/kubernetes/)
   
 ## Package Managers
@@ -64,7 +63,6 @@ Inspired by [@sindresorhus' awesome](https://github.com/sindresorhus/awesome)
 ## RPC
 
 * [gRPC](http://grpc.io)
-* [Micro](https://github.com/micro/kubernetes)
 
 ## Secret Generation and Management
 
@@ -87,7 +85,7 @@ Inspired by [@sindresorhus' awesome](https://github.com/sindresorhus/awesome)
 *Some of the awesome findings and experiments on using Kubernetes with Raspberry Pi.*
 
 * [Kubecloud](http://kubecloud.io)
-* [Setting up a Kubernetes on ARM cluster](http://kubecloud.io/kubernetes-on-arm-cluster/)
+* [Setting up a Kubernetes on ARM cluster](https://kubecloud.io/setting-up-a-kubernetes-on-arm-cluster-on-raspberry-pis-f7f64065138c)
 * [Setup Kubernetes on a Raspberry Pi Cluster easily the official way!](https://blog.hypriot.com/post/setup-kubernetes-raspberry-pi-cluster/) by [Mathias Renner and Lucas Käldström](https://blog.hypriot.com/crew/)
 * [How to Build a Kubernetes Cluster with ARM Raspberry Pi then run .NET Core on OpenFaas](https://www.hanselman.com/blog/HowToBuildAKubernetesClusterWithARMRaspberryPiThenRunNETCoreOnOpenFaas.aspx) by [Scott Hanselman](https://twitter.com/shanselman)
 

@@ -8,7 +8,7 @@ category: Getting Started
 scope: app-developer
 ---
 
-![antipattern](howto-antipattern.png)
+![antipattern](./images/howto-antipattern.png)
 
 This HowTo covers common kubernetes antipatterns that we have seen over the past months.
 

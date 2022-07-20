@@ -1,5 +1,5 @@
 ---
-title: Out-Dated HTML and JS files delivered
+title: Out-Dated HTML and JS Files Delivered
 description: "Why is my application always outdated?"
 level: intermediate
 category: Services
@@ -21,7 +21,7 @@ to their Kubernetes services create an ingress resource that defines rules,
 including the URI path, backing service name, and other information. The Ingress controller 
 can then automatically program a frontend load balancer to enable Ingress configuration.
 
-![nginx](howto-nginx.svg)
+![nginx](./images/howto-nginx.svg)
 
 
 ## Example Ingress Configuration

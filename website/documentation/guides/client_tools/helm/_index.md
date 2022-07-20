@@ -1,5 +1,5 @@
 ---
-title: Use a Helm chart to deploy some application or service
+title: Use a Helm Chart to Deploy an Application or Service
 level: intermediate
 category: Helm
 scope: app-developer
@@ -8,7 +8,7 @@ scope: app-developer
 
 Basically, [Helm Charts](https://helm.sh/docs/topics/charts/) can be installed as described e.g. in the Helm 
 [QuickStart Guide](https://helm.sh/docs/intro/quickstart/). However, our clusters come with 
-[RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) enabled by default hence Helm must be installed as follows:
+[RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) enabled by default, hence Helm must be installed as follows:
 
 ## Create a Service Account
  

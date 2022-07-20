@@ -1,5 +1,5 @@
 ---
-title: Dockerfile pitfalls
+title: Dockerfile Pitfalls
 description: "Common Dockerfile pitfalls"
 level: beginner
 reviewer: Tieyan Fu

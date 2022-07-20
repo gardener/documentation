@@ -1,5 +1,5 @@
 ---
-title: Storing secrets in git 💀
+title: Storing Secrets in git 💀
 description: "Never ever commit a kubeconfig.yaml into github"
 level: intermediate
 category: Fails

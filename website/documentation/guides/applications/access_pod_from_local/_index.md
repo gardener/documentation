@@ -1,5 +1,5 @@
 ---
-title:  Access a port of a pod locally
+title:  Access a Port of a Pod Locally
 level: beginner
 reviewer: Tieyan Fu
 status: Reviewed
@@ -39,7 +39,7 @@ application running on your system. Finally, sometimes port forwarding is cancel
 This leads to a kind of shaky approach. A more robust approach is to access the application using kube-proxy.
 
 
-![port-forward](howto-port-forward.svg)
+![port-forward](./images/howto-port-forward.svg)
 
 
 ## Solution 2: Using apiserver proxy
