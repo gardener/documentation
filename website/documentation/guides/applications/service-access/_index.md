@@ -1,5 +1,5 @@
 ---
-title: Access service from outside Kubernetes cluster
+title: Access Service from Outside Kubernetes Cluster
 description: "Is there an ingress deployed and how is it configured"
 level: beginner
 reviewer: Tieyan Fu

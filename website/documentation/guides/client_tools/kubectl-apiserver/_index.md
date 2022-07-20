@@ -1,5 +1,5 @@
 ---
-title: Automated deployment
+title: Automated Deployment
 description: "Automated deployment with kubectl"
 level: advanced
 category: CI/CD

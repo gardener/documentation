@@ -1,5 +1,5 @@
 ---
-title: Container image not updating
+title: Container Image not Updating
 description: "Updating Images in your cluster during development"
 level: intermediate
 category: Fails

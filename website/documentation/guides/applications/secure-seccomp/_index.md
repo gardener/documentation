@@ -1,5 +1,5 @@
 ---
-title: Custom Seccomp profile
+title: Custom Seccomp Profile
 level: advanced
 category: Security
 scope: operator

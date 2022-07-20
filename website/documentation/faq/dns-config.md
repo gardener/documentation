@@ -4,7 +4,7 @@ title: What are the meanings of different DNS configuration options?
 
 ## Can you adapt a DNS configuration to be used by the workload on the cluster (CoreDNS configuration)?
 
-Yes, you can. Information on that can be found in [Custom DNS Configuration](https://github.com/gardener/gardener/blob/master/docs/usage/custom-dns.md).
+Yes, you can. Information on that can be found in [Custom DNS Configuration](https://github.com/gardener/gardener/blob/master/docs/usage/custom-dns-config.md).
 
 ## How to use custom domain names using a DNS provider?
   

@@ -15,14 +15,14 @@ in case anything was leaked. However, this is not possible with the initial or m
 cluster.
 
 
-![teaser](teaser.svg)
+![teaser](./images/teaser.svg)
 
 
 ## Pitfall
 
 Never distribute the `kubeconfig`, which you can download directly within the Gardener dashboard, for a productive cluster.
 
-![kubeconfig-dont](kubeconfig-initial.png)
+![kubeconfig-dont](./images/kubeconfig-initial.png)
 
 
 

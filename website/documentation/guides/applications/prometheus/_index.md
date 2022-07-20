@@ -1,5 +1,5 @@
 ---
-title: Using Prometheus and Grafana to monitor K8s
+title: Using Prometheus and Grafana to Monitor K8s
 description: "How to deploy and configure Prometheus and Grafana to collect and monitor kubelet container metrics"
 level: advanced
 category: Monitoring
@@ -51,7 +51,7 @@ metric analytics and visualization suite. It is popular for for visualizing time
  and application analytics but many use it in other domains including industrial sensors, home automation, weather, and
   process control [see [Grafana Documentation](http://docs.grafana.org/)].
 
-Grafana accesses data via [Data Sources](http://docs.grafana.org/guides/basic_concepts/). The continuously growing 
+Grafana accesses data via [Data Sources](https://grafana.com/docs/grafana/latest/basics/). The continuously growing 
 list of supported backends includes Prometheus.
 
 Dashboards are created by combining panels, e.g. [Graph](http://docs.grafana.org/reference/graph/) and [Dashlist](http://docs.grafana.org/reference/dashlist/). 

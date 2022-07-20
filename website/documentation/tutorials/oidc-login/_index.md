@@ -32,11 +32,11 @@ Create a tenant in an OIDC compatible Identity Provider. For simplicity, we use 
 
 1. In your tenant, create a client application to use authentication with `kubectl`:
 
-   ![Create client application](./Create-client-application.png)
+   ![Create client application](./images/Create-client-application.png)
 
 2. Provide a *Name*, choose *Native* as application type, and choose *CREATE*.
 
-   ![Choose application type](./Choose-application-type.png)
+   ![Choose application type](./images/Choose-application-type.png)
 
 3. On tab *Settings*, copy the following parameters to a local text file:
 
@@ -46,20 +46,20 @@ Create a tenant in an OIDC compatible Identity Provider. For simplicity, we use 
     * *Client ID*
     * *Client Secret*
 
-      ![Basic information](Basic-information.png)
+      ![Basic information](./images/Basic-information.png)
 
 4. Configure the client to have a callback url of http://localhost:8000. This callback connects to your local `kubectl oidc-login` plugin:
 
-   ![Configure callback](./Configure-callback.png)
+   ![Configure callback](./images/Configure-callback.png)
 
 5. Save your changes.
 
 
-4. Verify that `https://<Auth0 Domain>/.well-known/openid-configuration` is reachable.
+6. Verify that `https://<Auth0 Domain>/.well-known/openid-configuration` is reachable.
 
-5. Choose *Users & Roles* \> *Users* \> *CREATE USERS* to create a user with a user and password:
+7. Choose *Users & Roles* \> *Users* \> *CREATE USERS* to create a user with a user and password:
 
-   ![Create user](./Create-user.png)
+   ![Create user](./images/Create-user.png)
 
    > Users must have a *verified* email address.
 
@@ -188,7 +188,7 @@ As administrator, apply the cluster role binding in your shoot cluster.
 
 3. Enter your login credentials. 
 
-    ![Login through identity provider](./Login-through-identity-provider.png)
+    ![Login through identity provider](./images/Login-through-identity-provider.png)
 
     You should get a successful response from the API server:
 
@@ -231,4 +231,3 @@ If the last step is successful, you’ve configured your cluster to authenticate
 ## Related Links
 
 [Auth0 Pricing](https://auth0.com/pricing/)
-

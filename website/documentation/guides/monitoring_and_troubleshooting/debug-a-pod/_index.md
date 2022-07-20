@@ -1,5 +1,5 @@
 ---
-title: How to debug a pod
+title: How to Debug a Pod
 description: "Your pod doesn't run as expected. Are there any log files? Where? How could I debug a pod?"
 level: intermediate
 reviewer: Tieyan Fu
@@ -323,7 +323,7 @@ Events:
 
 More details in 
 -   [Managing Compute Resources for Containters](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/)
--   [Resource Quality of Service in Kubernetes](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/node/resource-qos.md)
+-   [Resource Quality of Service in Kubernetes](https://github.com/kubernetes/design-proposals-archive/blob/main/node/resource-qos.md)
 
 
 Remark:   
@@ -346,7 +346,7 @@ image (see [Images](https://kubernetes.io/docs/concepts/containers/images/)).
 As a best practice you should not use the tag `latest` and change the image tag whenever you changed anything in your 
 image (see [Configuration Best Practices](https://kubernetes.io/docs/concepts/configuration/overview/#container-images)).
 
-Find more details in [FAQ Container Image not updating](https://github.com/gardener/documentation/blob/master/website/documentation/guides/applications/image-pull-policy/_index.md)
+Find more details in [FAQ Container Image not updating](https://github.com/gardener/documentation/blob/master/website/documentation/guides/applications/image-pull-policy/_index.md).
 
       
 
@@ -356,7 +356,7 @@ Find more details in [FAQ Container Image not updating](https://github.com/garde
 -   [Logging Architecture](https://kubernetes.io/docs/concepts/cluster-administration/logging/)
 -   [Configure Default Memory Requests and Limits for a Namespace](https://kubernetes.io/docs/tasks/administer-cluster/memory-default-namespace/)
 -   [Managing Compute Resources for Containters](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/)
--   [Resource Quality of Service in Kubernetes](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/node/resource-qos.md)
+-   [Resource Quality of Service in Kubernetes](https://github.com/kubernetes/design-proposals-archive/blob/main/node/resource-qos.md)
 -   [Interactive Tutorial Troubleshooting with Kubectl](https://kubernetes.io/docs/tutorials/kubernetes-basics/explore-intro/)
 -   [Images](https://kubernetes.io/docs/concepts/containers/images/)
 -   [Kubernetes Best Practises](https://kubernetes.io/docs/concepts/configuration/overview/#container-images)

@@ -1,5 +1,5 @@
 ---
-title: Kubeconfig context as bash prompt
+title: Kubeconfig Context as bash Prompt
 description: "Expose the active kubeconfig into bash"
 level: beginner
 reviewer: Tieyan Fu
@@ -13,7 +13,7 @@ scope: app-developer
 Use the Kubernetes command-line tool, *kubectl*, to deploy and manage applications on Kubernetes. 
 Using kubectl, you can inspect cluster resources; create, delete, and update components
 
-![port-forward](howto-kubeconfig-bash.gif)
+![port-forward](./images/howto-kubeconfig-bash.gif)
 
 
 By default, the kubectl configuration is located at `~/.kube/config`.
@@ -91,6 +91,6 @@ Copy following code to `Microsoft.PowerShell_profile.ps1`
  $host.ui.rawui.WindowTitle = prompt_k8s
 ```
 
-![port-forward](howto-bash_kubeconfig_powershell.png)
+![port-forward](./images/howto-bash_kubeconfig_powershell.png)
 
 If you want to switch to different cluster, you can set `KUBECONFIG` to new value, and re-run the file `Microsoft.PowerShell_profile.ps1`

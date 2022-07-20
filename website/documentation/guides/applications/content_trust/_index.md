@@ -17,7 +17,7 @@ at inception. Surprise surprise, deterministic operations.
 ## A Lesson in Deterministic Ops
 Docker Tags are about as reliable and disposable as this guy down here.
 
-![docker-labels](howto-content-trust.svg)
+![docker-labels](./images/howto-content-trust.svg)
 
 
 Seems simple enough. You have probably already deployed hundreds of YAML's or started endless count of Docker container.
@@ -72,7 +72,7 @@ However, there’s an additionally hidden danger. It is possible for an attacker
 one infected with malware. 
 
 
-![docker-content-trust](howto-content-trust-replace.svg)
+![docker-content-trust](./images/howto-content-trust-replace.svg)
 
 
 [Docker Content trust](https://docs.docker.com/engine/security/trust/content_trust/) gives 

@@ -10,7 +10,7 @@ scope: app-developer
 You can configure a **NetworkPolicy** to deny all the traffic from other namespaces while allowing all the traffic 
 coming from the same namespace the pod was deployed into.                                           
 
-<img src="howto-namespaceisolation.png" width="100%">
+<img src="./images/howto-namespaceisolation.png" width="100%">
 
 **There are many reasons why you may chose to employ Kubernetes network policies:**
  - Isolate multi-tenant deployments
@@ -49,7 +49,7 @@ kubectl expose deployment nginx --port=80 --type=NodePort -n=customer2
 --- 
 
 ## Test without NP
-<img src="howto-namespaceisolation-without.png" width="80%">
+<img src="./images/howto-namespaceisolation-without.png" width="80%">
 
 Create a pod with *curl* preinstalled inside the namespace *customer1* 
 ```bash
@@ -70,7 +70,7 @@ Both calls are done in a pod within namespace customer1 and both nginx servers a
 
 --- 
 ## Test with NP
-<img src="howto-namespaceisolation-with.png" width="80%">
+<img src="./images/howto-namespaceisolation-with.png" width="80%">
 
 Install the **NetworkPolicy** from your shell
 

@@ -1,5 +1,5 @@
 ---
-title: Setting up a Seed Cluster
+title: Setting Up a Seed Cluster
 description: "How to configure a Kubernetes cluster as a Gardener seed"
 level: advanced
 category: Setup Gardener

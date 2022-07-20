@@ -1,5 +1,5 @@
 ---
-title: Container image not pulled
+title: Container Image not Pulled
 description: "Wrong Container Image or Invalid Registry Permissions"
 level: beginner
 reviewer: Tieyan Fu

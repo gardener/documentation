@@ -16,7 +16,7 @@ First thing first, let’s create a k8s cluster with GPU accelerated nodes. In t
 **p2.xlarge** EC2 instance because it's the cheapest available option at the moment. Use such cheap instances 
 for learning to limit your resource costs. **This costs around 1€/hour per GPU**
 
-![gpu-selection](howto-gpu.png)
+![gpu-selection](./images/howto-gpu.png)
 
 ## Install NVidia Driver as Daemonset
 

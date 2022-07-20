@@ -46,7 +46,7 @@ All of the described approaches involve scheduling a pod with root permissions a
 
 Navigate to the cluster overview page and find the `Terminal` in the `Access` tile.
 
-<img style="margin-left:0;width:80%;height:auto;" alt="Access Tile" src="resources/9fb6ca4ff9b7480f93debba833f48590.png"/>
+<img style="margin-left:0;width:80%;height:auto;" alt="Access Tile" src="./images/9fb6ca4ff9b7480f93debba833f48590.png"/>
 <br>
 
 Select the target Cluster (Garden, Seed / Control Plane, Shoot cluster) depending on the requirements and 
@@ -54,13 +54,13 @@ access rights (only certain users have access to the Seed Control Plane).
 
 To open the terminal configuration, click on the top right-hand corner of the screen.
 
-<img style="margin-left:0" alt="Terminal configuration" src="resources/db573582bfc544d294cbde8906a74e07.png"/>
+<img style="margin-left:0" alt="Terminal configuration" src="./images/db573582bfc544d294cbde8906a74e07.png"/>
 <br>
 
 Set the Terminal Runtime to "Privileged.
 Also specify the target node from the drop-down menu.
 
-<img style="margin-left:0;width:50%;height:auto"  alt="Dashboard terminal pod configuration" src="resources/f7b10d48edf44c17ba838ff5c429e39d.png"/>
+<img style="margin-left:0;width:50%;height:auto"  alt="Dashboard terminal pod configuration" src="./images/f7b10d48edf44c17ba838ff5c429e39d.png"/>
 <br>
 
 The dashboard then schedules a pod and opens a shell session to the node.
@@ -69,7 +69,7 @@ To get access to common binaries installed on the host, prefix the command with 
 Note that the path depends on where the root path is mounted in the container.
 In the default image used by the Dashboard, it is under `/hostroot`.
 
-<img style="margin-left:0"  alt="Dashboard terminal pod configuration" src="resources/3da659e9cc4744a2ad3e1c6a50d39c04.png"/>
+<img style="margin-left:0"  alt="Dashboard terminal pod configuration" src="./images/3da659e9cc4744a2ad3e1c6a50d39c04.png"/>
 <br>
 
 ## gardenctl shell
@@ -234,7 +234,7 @@ Despite some cloud provider specifics they can be generalized to the following l
 
 The following diagram shows an overview how the SSH access to the target instance works:
 
-<img style="margin-left:0"  alt="SSH Bastion diagram" src="resources/913441003e5641bc90249bdc07d55656.png"/>
+<img style="margin-left:0"  alt="SSH Bastion diagram" src="./images/913441003e5641bc90249bdc07d55656.png"/>
 <br>
 
 This guide demonstrates the setup of a bastion on AWS.

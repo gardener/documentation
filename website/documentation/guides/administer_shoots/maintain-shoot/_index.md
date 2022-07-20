@@ -38,7 +38,7 @@ kubectl get cloudprofile [IAAS-SPECIFIC-PROFILE] -o yaml
 
 | Path |  Description  |  More information |
 |:-----|:-----|:-----|
-|`spec.kubernetes.versions`| The supported Kubernetes version `major.minor.patch`. | [Patch releases](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/release/versioning.md#patch-releases)|
+|`spec.kubernetes.versions`| The supported Kubernetes version `major.minor.patch`. | [Patch releases](https://github.com/kubernetes/design-proposals-archive/blob/main/release/versioning.md#patch-releases)|
 |`spec.machineImages`| The supported operating system versions for worker nodes. | 
 
 Both the Kubernetes version, and the operating system version follow semantic versioning that allows Gardener to handle updates automatically. 
