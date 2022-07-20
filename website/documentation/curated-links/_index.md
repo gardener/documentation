@@ -4,7 +4,7 @@ url: /curated-links
 icon: navigation_links.svg
 ---
 
-A curated list of awesome kubernetes sources
+A curated list of awesome Kubernetes sources.
 Inspired by [@sindresorhus' awesome](https://github.com/sindresorhus/awesome)
 
 
@@ -13,7 +13,7 @@ Inspired by [@sindresorhus' awesome](https://github.com/sindresorhus/awesome)
 * [Install Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
 * [Run a Kubernetes Cluster on your local machine](https://kubernetes.io/docs/tasks/tools/install-minikube/)
 
-### A place that marks the beginning of a journey
+### A Place That Marks the Beginning of a Journey
 
 * [Kubernetes Community Overview and Contributions Guide](https://docs.google.com/presentation/d/1JqcALpsg07eH665ZXQrIvOcin6SzzsIUjMRRVivrZMg/edit?usp=sharing) by [Ihor Dvoretskyi](https://twitter.com/idvoretskyi/)
 * [An Intro to Google’s Kubernetes and How to Use It](http://www.ctl.io/developers/blog/post/what-is-kubernetes-and-how-to-use-it/) by [Laura Frank](https://twitter.com/rhein_wein)
@@ -42,6 +42,9 @@ Inspired by [@sindresorhus' awesome](https://github.com/sindresorhus/awesome)
 
 *List of available free online courses([MOOC](https://en.wikipedia.org/wiki/Massive_open_online_course)) and tutorials*
 
+  - [DevOps with Kubernetes](https://devopswithkubernetes.com/)
+  - [Introduction to Kubernetes](https://www.my-mooc.com/en/mooc/introduction-to-kubernetes/)
+
 ### Courses
 
   - [Scalable Microservices with Kubernetes at Udacity](http://in.udacity.com/course/scalable-microservices-with-kubernetes--ud615)
@@ -63,7 +66,7 @@ Inspired by [@sindresorhus' awesome](https://github.com/sindresorhus/awesome)
 * [gRPC](http://grpc.io)
 * [Micro](https://github.com/micro/kubernetes)
 
-## Secret generation and management
+## Secret Generation and Management
 
 * [Vault auth plugin backend: Kubernetes](http://www.vaultproject.io/docs/auth/kubernetes.html)
 * [Vault controller](https://github.com/kelseyhightower/vault-controller)

@@ -34,12 +34,26 @@ structure:
       description: The command line interface to control your clusters
       weight: 4
   source: https://github.com/gardener/gardenctl-v2/blob/DEFAULT_BRANCH/README.md
+- name: guides
+  properties:
+    frontmatter:
+      title: Guides
+      weight: 5
+  nodesSelector:
+    path: /website/documentation/guides
+- name: tutorials
+  properties:
+    frontmatter:
+      title: Tutorials
+      weight: 6
+  nodesSelector:
+    path: /website/documentation/tutorials
 - name: faq
   properties:
     frontmatter:
       title: FAQ
       description: Commonly asked questions about Gardener
-      weight: 5
+      weight: 7
   nodesSelector:
     path: /website/documentation/faq
 - name: other-components
@@ -47,14 +61,22 @@ structure:
     frontmatter:
       title: Other Components
       description: Other components included in the Gardener project
-      weight: 6
+      weight: 8
   nodesSelector:
     path: ./other-components.yaml
+- name: curated-links
+  properties:
+    frontmatter:
+      title: Curated Links
+      description: Interesting and useful content on Kubernetes 
+      weight: 9
+  nodesSelector:
+    path: /website/documentation/curated-links
 - name: contribute
   properties:
     frontmatter:
       title: Contribute
       description: The project's contributor guide for code and documentation
-      weight: 7
+      weight: 10
   nodesSelector:
     path: /website/documentation/contribute
