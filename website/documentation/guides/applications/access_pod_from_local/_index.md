@@ -17,11 +17,10 @@ This tutorial presents two options:
 - Using Kubernetes port forward
 - Using Kubernetes apiserver proxy
 
-Please note that the options described here are mostly for quick testing or troubleshooting your application. For enabling access to your application for productive environment, please refer to [Access my service](../service-access/_index.md)
+Please note that the options described here are mostly for quick testing or troubleshooting your application. For enabling access to your application for productive environment, please refer to [Services](https://kubernetes.io/docs/concepts/services-networking/service/).
 
 ## Solution 1: Using Kubernetes port forward
-You could use the port forwarding functionality of `kubectl` to access the pods from your 
-local host __without involving a service__.
+You could use the port forwarding functionality of `kubectl` to access the pods from your local host __without involving a service__.
 
 To access any pod follow these steps:
 
@@ -49,7 +48,7 @@ There are several different proxies used with Kubernetes, [the official document
 In this tutorial we are using apiserver proxy to enable access to services running in Kubernetes without using an Ingress. __Different from the first solution, a service is required for this solution__ .
 
 Use the following URL to access a service via apiserver proxy. For details about apiserver proxy URLs read
-[Discovering builtin services](https://kubernetes.io/docs/tasks/access-application-cluster/access-cluster/#discovering-builtin-services)
+[Discovering builtin services](https://kubernetes.io/docs/tasks/access-application-cluster/access-cluster-services/#discovering-builtin-services).
 
 
 `https://<cluster-master>/api/v1/namespace/<namespace>/services/<service>:<service-port>/proxy/<service-endpoint>`
@@ -62,5 +61,4 @@ Use the following URL to access a service via apiserver proxy. For details about
 | api.testclstr.cpet.k8s.sapcloud.io     | default | docker-nodejs-svc |  4500          |   /cpu?baseNumber=4 | `https://api.testclstr.cpet.k8s.sapcloud.io/api/v1/namespaces/default/services/docker-nodejs-svc:4500/proxy/cpu?baseNumber=4`
 
 There are applications, which do __not__ yet support relative URLs like [Prometheus](https://github.com/prometheus/prometheus/issues/1583) (as of end of November, 2017).
-This typically leads to missing JavaScript objects when trying to open the URL in a browser. In this case use the 
-`port-forward` approach described above.
+This typically leads to missing JavaScript objects when trying to open the URL in a browser. In this case use the `port-forward` approach described above.
