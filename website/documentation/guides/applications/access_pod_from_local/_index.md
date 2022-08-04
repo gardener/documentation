@@ -17,7 +17,7 @@ This tutorial presents two options:
 - Using Kubernetes port forward
 - Using Kubernetes apiserver proxy
 
-Please note that the options described here are mostly for quick testing or troubleshooting your application. For enabling access to your application for productive environment, please refer to [Services](https://kubernetes.io/docs/concepts/services-networking/service/).
+Please note that the options described here are mostly for quick testing or troubleshooting your application. For enabling access to your application for productive environment, please refer to [Service](https://kubernetes.io/docs/concepts/services-networking/service/) and [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/).
 
 ## Solution 1: Using Kubernetes port forward
 You could use the port forwarding functionality of `kubectl` to access the pods from your local host __without involving a service__.
