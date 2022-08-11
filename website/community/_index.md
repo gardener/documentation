@@ -19,6 +19,6 @@ The recordings are published on the [Gardener Project YouTube channel](https://w
 
 <br>
 
-**Google Calendar**
-<iframe src="https://calendar.google.com/calendar/embed?src=gardener.cloud.community%40gmail.com&ctz=Europe%2FBerlin" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+<p style="margin-top:30px"><strong>Google Calendar</strong></p>
+<iframe src="https://calendar.google.com/calendar/embed?src=gardener.cloud.community%40gmail.com&ctz=Europe%2FBerlin" style="border: 0;margin-bottom:30px" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
