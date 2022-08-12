@@ -41,13 +41,6 @@ structure:
       description: Gardener extension controller for the vSphere cloud provider
   nodesSelector:
     path: https://github.com/gardener/gardener-extension-provider-vsphere/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
-- name: gardener-extension-provider-kubevirt
-  properties:
-    frontmatter:
-      title: Provider KubeVirt
-      description: Gardener Extension Provider for KubeVirt
-  nodesSelector:
-    path: https://github.com/gardener/gardener-extension-provider-kubevirt/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
 - name: gardener-extension-provider-openshift
   properties:
     frontmatter:
