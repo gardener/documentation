@@ -41,13 +41,6 @@ structure:
       description: Gardener extension controller for the vSphere cloud provider
   nodesSelector:
     path: https://github.com/gardener/gardener-extension-provider-vsphere/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
-- name: gardener-extension-provider-openshift
-  properties:
-    frontmatter:
-      title: Provider OpenShift
-      description: Gardener extension for the OpenShift cloud provider
-  nodesSelector:
-    path: https://github.com/gardener/gardener-extension-provider-openshift/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
 - name: gardener-extension-provider-equinix-metal
   properties:
     frontmatter:
