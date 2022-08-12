@@ -21,7 +21,7 @@ This meeting will explore the uses of [Cilium](https://cilium.io/), an open sour
 
 Viewers will be shown how to check for connectivity and how to carry out basic troubleshooting. Later on in the meeting, an overview will be given of the network policy and the procedure for switching from Calico will be demonstrated.
 
-There is going to be time after the main part to answer questions and look at any issues you might have encountered. Come join us!
+Q&A is planned after the main part to look at any issues you might have encountered. Come join us!
 
 ## Meeting Link
 
