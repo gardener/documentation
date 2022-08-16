@@ -1,5 +1,5 @@
 ---
-title: Manually adding a node to an existing cluster
+title: Manually Adding a Node to an Existing Cluster
 authors: 
 - name: Andreas Herz
   email: andreas.herz@sap.com

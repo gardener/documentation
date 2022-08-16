@@ -1,5 +1,5 @@
 ---
-title: Cookies are dangerous... 
+title: Cookies are Dangerous... 
 authors: 
 - name: Andreas Herz
   email: andreas.herz@sap.com

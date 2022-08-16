@@ -1,5 +1,5 @@
 ---
-title: PingCAP’s Experience in Implementing their Managed TiDB Service with Gardener
+title: PingCAP’s Experience in Implementing Their Managed TiDB Service with Gardener
 linkTitle: PingCAP's TiDB Cloud
 newsSubtitle: A Gardener Success Story
 publishdate: 2020-05-27
