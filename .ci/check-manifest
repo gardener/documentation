@@ -125,7 +125,7 @@ fi
 
 if [[ "${USE_TOKEN}" = true ]]; then
   GIT_OAUTH_TOKEN=${GIT_OAUTH_TOKEN:-$(getGitHubToken github_com)}
-  gitToken=$GIT_OAUTH_TOKEN
+  gitTokenMap="github.com=${GIT_OAUTH_TOKEN}"
 fi
 
 # To support relative paths in manifest.yaml, manifest path should be valid URL that is mapped to local repo
@@ -135,6 +135,6 @@ echo "Running docforge command..."
 docforge \
   -f "${manifestURL}" \
   -d tmp \
-  ${gitToken:+--github-oauth-token $gitToken} \
+  ${gitTokenMap:+--github-oauth-token-map $gitTokenMap} \
   --hugo \
   --dry-run
