@@ -1,5 +1,5 @@
 ---
-title: Big things come in small packages
+title: Big Things Come in Small Packages
 authors: 
 - name: Andreas Herz
   email: andreas.herz@sap.com

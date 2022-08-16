@@ -1,5 +1,5 @@
 ---
-title: Hibernate a Cluster to save money
+title: Hibernate a Cluster to Save Money
 authors: 
 - name: Andreas Herz
   email: andreas.herz@sap.com
