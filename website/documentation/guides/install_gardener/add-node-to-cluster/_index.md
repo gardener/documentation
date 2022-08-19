@@ -7,7 +7,7 @@ category: Operation
 scope: app-developer
 ---
 # Manually adding a node to an existing cluster
-Gardener has an excellent ability to [automatically scale machines](../../../../blog/2021-01/00/Machine-Controller-Manager.md) for the cluster. From the point of view 
+Gardener has an excellent ability to [automatically scale machines](../../../../blog/2021/01.25-Machine-Controller-Manager.md) for the cluster. From the point of view 
 of scalability, there is no need for manual intervention. 
 
 This tutorial is useful for those end-users who need specifically configured nodes, which are not yet supported 
