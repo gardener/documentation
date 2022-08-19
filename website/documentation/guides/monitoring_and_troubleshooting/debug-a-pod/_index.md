@@ -243,7 +243,7 @@ In case your application needs more resources, Kubernetes distinguishes between 
 specify the guaranteed amount of resource, whereas `limit` tells Kubernetes the maximum amount of resource the container might 
 need.  Mathematically both settings could be described by the relation `0 <= requests <= limit`. For both settings you need to 
 consider the total amount of resources the available nodes provide. For a detailed description of the concept see [Resource Quality of 
-Service in Kubernetes](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/node/resource-qos.md).
+Service in Kubernetes](https://github.com/kubernetes/design-proposals-archive/blob/main/node/resource-qos.md).
 
 Use `kubectl describe nodes` to get a first overview of the resource consumption of your cluster. Of special interest are the 
 figures indicating the amount of CPU and Memory Requests at the bottom of the output.
