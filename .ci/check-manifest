@@ -73,6 +73,9 @@ echo "${remotes}"
 echo "BRANCHES:"
 branches=$(git branch -a)
 echo "${branches}"
+echo "DIFF Master:"
+diffMaster=$(git diff master --name-only --)
+echo "${diffMaster}"
 
 for dir in $(echo "$DIFF_DIRS" | tr ";" "\n"); do
   echo "COMMAND:"
