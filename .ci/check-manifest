@@ -63,7 +63,12 @@ echo "DIFF_DIRS= ${DIFF_DIRS}"
 echo "CONFIG_PATH= ${CONFIG_PATH}"
 
 cd "${REPO_PATH}"
-diffExist=false
+
+origin_remote=$(git remote -v | grep origin)
+if [ -z "${origin_remote}" ]; then
+  git remote add origin https://github.com/gardener/${REPO_NAME}.git
+  git fetch origin
+fi
 
 echo "PWD"
 pwd
@@ -73,14 +78,9 @@ echo "${remotes}"
 echo "BRANCHES:"
 branches=$(git branch -a)
 echo "${branches}"
-echo "DIFF Master:"
-diffMaster=$(git diff master --name-only --)
-echo "${diffMaster}"
 
+diffExist=false
 for dir in $(echo "$DIFF_DIRS" | tr ";" "\n"); do
-  echo "COMMAND:"
-  echo "git diff origin/master --name-only -- | grep \"^${dir}\" || true"
-
   diff=$(git diff origin/master --name-only -- | grep "^${dir}" || true)
   if [[ -n "${diff}" ]]; then
     diffExist=true
