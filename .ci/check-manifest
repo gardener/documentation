@@ -65,7 +65,17 @@ echo "CONFIG_PATH= ${CONFIG_PATH}"
 cd "${REPO_PATH}"
 diffExist=false
 
+echo "PWD"
+pwd
+echo "REMOTES:"
+git remote -v
+echo "BRANCHES:"
+git branch -a
+
 for dir in $(echo "$DIFF_DIRS" | tr ";" "\n"); do
+  echo "COMMAND:"
+  echo "git diff origin/master --name-only -- | grep \"^${dir}\" || true"
+
   diff=$(git diff origin/master --name-only -- | grep "^${dir}" || true)
   if [[ -n "${diff}" ]]; then
     diffExist=true
