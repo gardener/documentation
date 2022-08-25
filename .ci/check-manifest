@@ -64,7 +64,7 @@ echo "CONFIG_PATH= ${CONFIG_PATH}"
 
 cd "${REPO_PATH}"
 
-origin_remote=$(git remote -v | grep origin)
+origin_remote=$(git remote -v | grep origin || true)
 echo "ORIGIN_REMOTE"
 echo ${origin_remote}
 if [ -z "${origin_remote}" ]; then
