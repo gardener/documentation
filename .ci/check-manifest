@@ -68,9 +68,11 @@ diffExist=false
 echo "PWD"
 pwd
 echo "REMOTES:"
-git remote -v
+remotes=$(git remote -v)
+echo "${remotes}"
 echo "BRANCHES:"
-git branch -a
+branches=$(git branch -a)
+echo "${branches}"
 
 for dir in $(echo "$DIFF_DIRS" | tr ";" "\n"); do
   echo "COMMAND:"
