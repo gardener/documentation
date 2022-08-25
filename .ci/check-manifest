@@ -65,23 +65,10 @@ echo "CONFIG_PATH= ${CONFIG_PATH}"
 cd "${REPO_PATH}"
 
 origin_remote=$(git remote -v | grep origin || true)
-echo "ORIGIN_REMOTE"
-echo ${origin_remote}
 if [ -z "${origin_remote}" ]; then
-  echo "ADD REMOTE"
   git remote add origin "https://github.com/gardener/${REPO_NAME}.git"
-  echo "FETCH ORIGIN"
   git fetch origin
 fi
-
-echo "PWD"
-pwd
-echo "REMOTES:"
-remotes=$(git remote -v)
-echo "${remotes}"
-echo "BRANCHES:"
-branches=$(git branch -a)
-echo "${branches}"
 
 diffExist=false
 for dir in $(echo "$DIFF_DIRS" | tr ";" "\n"); do
