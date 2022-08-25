@@ -65,8 +65,12 @@ echo "CONFIG_PATH= ${CONFIG_PATH}"
 cd "${REPO_PATH}"
 
 origin_remote=$(git remote -v | grep origin)
+echo "ORIGIN_REMOTE"
+echo ${origin_remote}
 if [ -z "${origin_remote}" ]; then
-  git remote add origin https://github.com/gardener/${REPO_NAME}.git
+  echo "ADD REMOTE"
+  git remote add origin "https://github.com/gardener/${REPO_NAME}.git"
+  echo "FETCH ORIGIN"
   git fetch origin
 fi
 
