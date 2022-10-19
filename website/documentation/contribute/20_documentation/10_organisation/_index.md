@@ -14,7 +14,7 @@ The Gardener project implements the *documentation-as-code* paradigm. Essentiall
 
 Documentation that can be affiliated to component is hosted and maintained in the component repository.
 
-A recommended template for organizing documentation sources is to place them all in a `docs` folder and organize it there per role activity. For example:
+A template for organizing documentation sources is to place them all in a `docs` folder and organize it there per role activity. For example:
 
 ```
 repositoryX
@@ -27,7 +27,7 @@ repositoryX
    |_ deployment
 ```
 
-Do not use folders just because they are in the template. Stick to the predefined roles and corresponding activities for naming convention. A system makes it easier to maintain and get oriented.
+Do not use folders just because they are in the template. Stick to the predefined roles and corresponding activities for naming convention. A system makes it easier to maintain and get oriented. While recommended, this is not a mandatory way of organizing the documentation.
 
 - User: `usage`
 - Operator: `operations`
@@ -41,11 +41,11 @@ Do not use folders just because they are in the template. Stick to the predefine
 The Gardener website is one of the multiple optional publishing channels where the source material might end up as documentation. We use docforge and automated integration and publish process to enable transparent change
 management. 
 
-To have documentation published on the website it is necessary to use the docforge manifests available at [gardener/documentation/.docforge] adn register a reference to your documentation.
+To have documentation published on the website it is necessary to use the docforge manifests available at [gardener/documentation/.docforge](https://github.com/gardener/documentation/tree/master/.docforge) and register a reference to your documentation.
 
 {{% alert color="info" title="Note" %}} 
 This is work in progress and we are transitioning to a more transparent way of integrating component documentation. This guide will be updated as we progress.
 {{% /alert %}}
  
 These manifests describe a particular publishing goal, i.e. using Hugo to publish on the website, and you will find out that they contain Hugo-specific front-matter properties.
-Consult with the documentation maintainers for details. Use the gardener channel in slack or open a PR.
+Consult with the documentation maintainers for details. Use the gardener channel in [slack](https://kubernetes.slack.com/messages/gardener) or [open a PR](https://github.com/gardener/documentation/pulls).

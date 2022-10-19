@@ -4,11 +4,11 @@ title: Formatting Guide
 
 This page gives writing formatting guidelines for the Gardener documentation. For style guidelines, see the [Style Guide](../40_style_guide/_index.md).
 
-These are guidelines, not rules. Use your best judgment, and feel free to
-propose changes to this document in a pull request.
+These are guidelines, not rules. Use your best judgment, and feel free to propose changes to this document in a pull request.
 
 * [Formatting of Inline Elements](#formatting-of-inline-elements)
 * [Code Snippet Formatting](#code-snippet-formatting)
+* [Related Links](#related-links)
 
 ## Formatting of Inline Elements
 
@@ -118,14 +118,14 @@ Another thing to keep in mind is that markdown links do not work in [shortcodes]
 
 ## Code Snippet Formatting
 
-### Don't include the command prompt
+### Don't Include the Command Prompt
 
 |  Do  | Don't |
 |:---|:---|
 | `kubectl get pods`  | `$ kubectl get pods` |
 
 
-### Separate commands from output
+### Separate Commands from Output
 
 <code>
 Verify that the pod is running on your chosen node:
@@ -154,7 +154,10 @@ kubectl describe pod <pod-name>
 
 </code>
 
-
 ### Versioning Kubernetes examples
 
 Make code examples and configuration examples that include version information consistent with the accompanying text. Identify the Kubernetes version in the **Prerequisites** section.
+
+## Related links
+* [Style Guide](../40_style_guide/_index.md)
+* [Contributors Guide](../_index.md)

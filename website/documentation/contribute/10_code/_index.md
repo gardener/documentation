@@ -1,5 +1,5 @@
 ---
-title: Code
+title: Contributing Code
 url: /contribute/code/
 ---
 
