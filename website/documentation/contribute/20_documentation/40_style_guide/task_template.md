@@ -28,5 +28,5 @@ Screenshot of the final status once all the steps have been completed.
 
 ## Related Links
 Provide links to other relevant topics, if applicable. Once someone has completed these steps, what might they want to do next?
-* [Link 1](./task_template.md)
-* [Link 2](./task_template.md)
+* [Link 1]()
+* [Link 2]()

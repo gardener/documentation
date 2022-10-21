@@ -27,4 +27,4 @@ The recordings are published on the [Gardener Project YouTube channel](https://w
 
 ### Presenting a Topic
 
-If there is a topic you would like to present, message us in our slack channel or get in touch with [Jessica Katz](mailto:jessica.katz@sap.com).
+If there is a topic you would like to present, message us in our [#gardener](https://kubernetes.slack.com/messages/gardener) slack channel or get in touch with [Jessica Katz](mailto:jessica.katz@sap.com).

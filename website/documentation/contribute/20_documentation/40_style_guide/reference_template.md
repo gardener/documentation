@@ -11,9 +11,9 @@ This section gives the user all the information needed in order to understand th
 
 | Content Type | Definition | Example|
 |:----|:-----|:-----|
-| Name 1 | Definition of Name 1 | [Relevant link](./page.md) |
-| Name 2 | Definition of Name 2 | [Relevant link](./page.md) |
+| Name 1 | Definition of Name 1 | [Relevant link]() |
+| Name 2 | Definition of Name 2 | [Relevant link]() |
 
 ## Related Links
-* [Link 1](./page.md)
-* [Link 2](./page.md)
+* [Link 1]()
+* [Link 2]()

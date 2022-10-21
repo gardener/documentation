@@ -14,7 +14,7 @@ The Gardener project implements the *documentation-as-code* paradigm. Essentiall
 
 Documentation that can be affiliated to component is hosted and maintained in the component repository.
 
-A template for organizing documentation sources is to place them all in a `docs` folder and organize it there per role activity. For example:
+A good way to organize your documentation is to place it in a 'docs' folder and create separate subfolders per role activity. For example:
 
 ```
 repositoryX

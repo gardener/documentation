@@ -19,5 +19,5 @@ This adds additional information that belongs to the topic discussed in the pare
 This section gives the user all the information needed in order to understand the topic.
 
 ## Related Links
-* [Link 1](./page.md)
-* [Link 2](./page.md)
+* [Link 1]()
+* [Link 2]()
