@@ -2,7 +2,7 @@
 title: Markdown
 ---
 
-Hugo uses Markdown for its simple content format. However, there are a lot of things that Markdown 
+Hugo uses [Markdown](https://www.markdownguide.org/) for its simple content format. However, there are a lot of things that Markdown 
 doesn't support well. You could use pure HTML to expand possibilities. A typical example is reducing
 the original dimensions of an image.
 
@@ -12,4 +12,8 @@ a publishing platform mechanisms, such as Hugo's layouts. Considering that the s
 might be published by multiple platforms you should be considerate in using markup that may bind it 
 to a particular one.
 
-We support the use of certain shortcodes. You can find more about the currently supported shortcodes and their documentation [here](../30_shortcodes/_index.md).
+For the same reason, avoid inline scripts and styles in your content. If you absolutely need to use them and they are not working as expected, please create a documentation issue and describe your case.
+
+{{% alert color="info" title="Tip" %}}
+Markdown is great for its simplicity but may be also constraining for the same reason. Before looking at HTML to make up for that, first check the [shortcodes](https://github.com/gardener/documentation/blob/master/website/documentation/contribute/20_documentation/30_shortcodes/_index.md) for alternatives.
+{{% /alert %}}

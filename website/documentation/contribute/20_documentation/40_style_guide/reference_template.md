@@ -4,6 +4,7 @@ Description: Describes the contents of a reference topic
 ---
 
 # Topic Title
+(the topic title can also be placed in the frontmatter)
 
 ## Content
 This section gives the user all the information needed in order to understand the topic.

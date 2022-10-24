@@ -1,8 +1,7 @@
 ---
-title: Documentation
+title: Contributing Documentation
 url: /contribute/docs/
 ---
-# Contributing Documentation
 
 You are welcome to **contribute documentation** to Gardener.
 
