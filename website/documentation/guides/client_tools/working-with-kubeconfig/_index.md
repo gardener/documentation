@@ -26,12 +26,12 @@ Never distribute the `kubeconfig`, which you can download directly within the Ga
 
 
 
-## Create custom kubeconfig file for each user
+## Create a Custom kubeconfig File for Each User
 
 Create a separate `kubeconfig` for each user. One of the big advantages is, that you can revoke them and control 
 the permissions better. A limitation to single namespaces is also possible here.
 
-The script creates a new `ServiceAccount` with read privileges in the whole cluster (Secretes are excluded).
+The script creates a new `ServiceAccount` with read privileges in the whole cluster (Secrets are excluded).
 To run the script [jq](https://stedolan.github.io/jq/), a lightweight and flexible command-line JSON processor, must 
 be installed.
 
@@ -100,5 +100,3 @@ cluster-admin	    | system:masters group	        | Allows super-user access to p
 admin	            | None                          | Allows admin access, intended to be granted within a namespace using a RoleBinding. If used in a RoleBinding, allows read/write access to most resources in a namespace, including the ability to create roles and rolebindings within the namespace. It does not allow write access to resource quota or to the namespace itself.
 edit	            | None	                        | Allows read/write access to most objects in a namespace. It does not allow viewing or modifying roles or rolebindings.
 view	            | None                          | Allows read-only access to see most objects in a namespace. It does not allow viewing roles or rolebindings. It does not allow viewing secrets, since those are escalating.
-
-

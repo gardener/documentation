@@ -1,14 +1,12 @@
 ---
 title:  Authenticating with an Identity Provider
-description: "Authenticating with an Identity Provider using OpenID Connect"
+description: "Use OpenID Connect to authenticate users to access shoot clusters"
 level: advanced
 index: 40
 category: Security
 scope: operator
 publishdate: 2020-12-01
 ---
-
-Use an identity provider to authenticate users to access shoot clusters.
 
 ## Prerequisites
 
@@ -24,7 +22,9 @@ Kubernetes on its own doesn’t provide any user management. In other words, use
 4. [Authorize an authenticated user](#authorize-an-authenticated-user) using role-based access control (RBAC).
 5. [Verify the result](#verify-the-result)
 
-> Gardener allows administrators to modify aspects of the control plane setup. It gives administrators full control of how the control plane is parameterized. While this offers much flexibility, administrators need to ensure that they don’t configure a control plane that goes beyond the service level agreements of the responsible operators team.  
+{{% alert color="info"  title="Note" %}}
+Gardener allows administrators to modify aspects of the control plane setup. It gives administrators full control of how the control plane is parameterized. While this offers much flexibility, administrators need to ensure that they don’t configure a control plane that goes beyond the service level agreements of the responsible operators team.  
+{{% /alert %}}
 
 ## Configure an Identity Provider
 
@@ -198,12 +198,14 @@ As administrator, apply the cluster role binding in your shoot cluster.
     service/kubernetes   ClusterIP   100.64.0.1   <none>        443/TCP   86m
     ``` 
 
-    > After a successful login, `kubectl` uses a token for authentication so that you don’t have to provide user and password for every new `kubectl` command. How long the token is valid can be configured. If you want to log in again earlier, reset plugin `oidc-login`:
-    > 1. Delete directory `~/.kube/cache/oidc-login`.
-    > 1. Delete the browser cache.
-    >
+{{% alert color="info"  title="Note" %}}
+After a successful login, `kubectl` uses a token for authentication so that you don’t have to provide user and password for every new `kubectl` command. How long the token is valid can be configured. If you want to log in again earlier, reset plugin `oidc-login`:
+1. Delete directory `~/.kube/cache/oidc-login`.
+2. Delete the browser cache.
+{{% /alert %}}
 
-4. To see if your user uses cluster role `view`, do some checks with `kubectl auth can-i`.
+
+3. To see if your user uses cluster role `view`, do some checks with `kubectl auth can-i`.
 
     * The response for the following commands should be `no`:
    
@@ -230,4 +232,4 @@ If the last step is successful, you’ve configured your cluster to authenticate
 
 ## Related Links
 
-[Auth0 Pricing](https://auth0.com/pricing/)
+- [Auth0 Pricing](https://auth0.com/pricing/)
