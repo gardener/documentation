@@ -64,7 +64,7 @@ We kindly ask you to follow the [Pull Request Checklist](#pull-request-checklist
 
 * Test your changes as thoroughly as possible before your commit them. Preferably, automate your testing with [unit / integration tests](https://github.com/gardener/gardener/blob/master/docs/development/testing.md). If tested manually, provide information about the test scope in the PR description (e.g. “Test passed: Upgrade K8s version from 1.14.5 to 1.15.2 on AWS, Azure, GCP, Alicloud, Openstack.”).
 
-* Create _Work In Progress [WIP]_ pull requests only if you need a clarification or an explicit review before you can continue your work item.
+* Create *Work In Progress [WIP]* pull requests only if you need a clarification or an explicit review before you can continue your work item.
 
 * If your patch is not getting reviewed or you need a specific person to review it, you can @-reply a reviewer asking for a review in the pull request or a comment, or you can ask for a review on our [mailing list](https://groups.google.com/forum/?fromgroups#!forum/gardener).
 
@@ -80,7 +80,7 @@ We kindly ask you to follow the [Pull Request Checklist](#pull-request-checklist
   
 ## Contributing Bigger Changes
 
-If you want to contribute bigger changes to Gardener, such as when introducing new API resources and their corresponding controllers, or implementing an approved [Gardener Enhancement Proposal](https://github.com/gardener/gardener/tree/master/docs/proposals), follow the guidelines outlined [here](./10_code/10_contributing_bigger_changes/_index.md).
+If you want to contribute bigger changes to Gardener, such as when introducing new API resources and their corresponding controllers, or implementing an approved [Gardener Enhancement Proposal](https://github.com/gardener/gardener/tree/master/docs/proposals), follow the guidelines outlined in [Contributing Bigger Changes](./10_code/10_contributing_bigger_changes/_index.md).
 
 ## Issues and Planning
 
@@ -106,7 +106,7 @@ See [Security Release Process](https://github.com/gardener/documentation/blob/ma
 
 [gardener@googlegroups.com](https://groups.google.com/forum/?fromgroups#!forum/gardener)
 
-The mailing list is hosted through Google Groups. To receive the lists' emails, [join](https://support.google.com/groups/answer/1067205) the group, as you would any other Google Group.
+The mailing list is hosted through Google Groups. To receive the lists' emails, [join the group](https://support.google.com/groups/answer/1067205) as you would any other Google Group.
 
 ### Other
-For additional channels where you can reach us, as well as links to our bi-weekly meetings, visit the [Community page](./30_community/_index.md).
+For additional channels where you can reach us, as well as links to our bi-weekly meetings, visit the [Community page](../../community/_index.md).

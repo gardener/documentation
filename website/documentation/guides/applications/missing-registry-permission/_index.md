@@ -1,5 +1,5 @@
 ---
-title: Container Image not Pulled
+title: Container Image Not Pulled
 description: "Wrong Container Image or Invalid Registry Permissions"
 level: beginner
 reviewer: Tieyan Fu
@@ -8,30 +8,27 @@ category: Fails
 scope: app-developer
 ---
 
-
-
 ## Problem
-Two of the most common problems are specifying the wrong container image or trying to use 
-private images without providing registry credentials.
+Two of the most common causes of this problems are specifying the wrong container image or trying to use private images without providing registry credentials.
 
-**Note:** There is no observable difference in Pod status between a missing image and incorrect registry permissions. 
-In either case, Kubernetes will report an ErrImagePull status for the Pods. For this reason, this article deals with 
+{{% alert color="info"  title="Note" %}}
+There is no observable difference in pod status between a missing image and incorrect registry permissions. 
+In either case, Kubernetes will report an `ErrImagePull` status for the pods. For this reason, this article deals with 
 both scenarios.
+{{% /alert %}}
 
 ## Example
-Let's see an example. We'll create a pod named *fail* referencing a non-existent Docker image:
-
+Let's see an example. We'll create a pod named *fail*, referencing a non-existent Docker image:
 
 ```sh
 kubectl run -i --tty fail --image=tutum/curl:1.123456
 ```
 
-the command prompt doesn't return and you can press `ctrl+c`
+The command doesn't return and you can terminate the process with `Ctrl+C`.
 
+## Error Analysis
 
-## Error analysis
-
-We can then inspect our Pods and see that we have one Pod with a status of **ErrImagePull** or **ImagePullBackOff**.
+We can then inspect our pods and see that we have one pod with a status of **ErrImagePull** or **ImagePullBackOff**.
 
 ```sh
 $ (minikube) kubectl get pods
@@ -43,14 +40,13 @@ $ (minikube)
 
 ```
 
-For some additional information, we can `describe` the failing Pod.
+For some additional information, we can `describe` the failing pod.
 
 ```sh 
 kubectl describe pod fail-6667d7685d-7v6w8
 ```
 
-
-As you can see in the events section, your image can't be pulled
+As you can see in the events section, your image can't be pulled:
 
 ```
 Name:		fail-6667d7685d-7v6w8
@@ -75,7 +71,6 @@ Events:
   1m		<invalid>	6	kubelet, minikube	spec.containers{fail}	Normal		BackOff			Back-off pulling image "tutum/curl:1.123456"
 ```  
   
-  
 **Why couldn't Kubernetes pull the image?**
 There are three primary candidates besides network connectivity issues:
  - The image tag is incorrect
@@ -84,20 +79,21 @@ There are three primary candidates besides network connectivity issues:
 
 If you don't notice a typo in your image tag, then it's time to test using your local machine. I usually start by 
 running **docker pull on my local development machine** with the exact same image tag. In this case, I would 
-run `docker pull tutum/curl:1.123456`
+run `docker pull tutum/curl:1.123456`.
 
-If this succeeds, then it probably means that Kubernetes doesn't have correct permissions to pull that image. 
+If this succeeds, then it probably means that Kubernetes doesn't have the correct permissions to pull that image. 
 
-Add the docker registry user/pwd to your cluster
+Add the docker registry user/pwd to your cluster:
 
 ```sh
 kubectl create secret docker-registry dockersecret --docker-server=https://index.docker.io/v1/ --docker-username=<username> --docker-password=<password> --docker-email=<email>
 ```
 
-If the exact image tag fails, then I will test without an explicit image tag - ```docker pull 
-tutum/curl``` - which will attempt to pull the latest tag. If this succeeds, then that means 
-the originally specified tag doesn't exist. Go to the Docker registry and check which tags are available for this image.
+If the exact image tag fails, then I will test without an explicit image tag:
 
-If ```docker pull tutum/curl``` (without an exact tag) fails, then we have a bigger problem - 
-that image does not exist at all in our image registry.
+```sh
+docker pull tutum/curl
+``` 
+This command will attempt to pull the latest tag. If this succeeds, then that means the originally specified tag doesn't exist. Go to the Docker registry and check which tags are available for this image.
 
+If `docker pull tutum/curl` (without an exact tag) fails, then we have a bigger problem - that image does not exist at all in our image registry.

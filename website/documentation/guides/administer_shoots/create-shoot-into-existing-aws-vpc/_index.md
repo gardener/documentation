@@ -1,26 +1,27 @@
 ---
-title: Create a Shoot Cluster into Existing AWS VPC
+title: Create a Shoot Cluster into an Existing AWS VPC
 level: intermediate
 category: Operation
 scope: app-developer
 ---
 
-# Create a Shoot cluster into existing AWS VPC
+# Create a Shoot Cluster into an Existing AWS VPC
 
-Gardener can create a new VPC, or use an existing one for your Shoot cluster. Depending on your needs you may want to create Shoot(s) into already created VPC. 
-The tutorial describes how to create a Shoot cluster into existing AWS VPC. The steps are identical for Alicloud, Azure, and GCP. Please note that the existing VPC must be in the same region like the shoot cluster that you want to deploy into the VPC.
+Gardener can create a new VPC, or use an existing one for your shoot cluster. Depending on your needs, you may want to create shoot(s) into an already created VPC. 
+The tutorial describes how to create a shoot cluster into an existing AWS VPC. The steps are identical for Alicloud, Azure, and GCP. Please note that the existing VPC must be in the same region like the shoot cluster that you want to deploy into the VPC.
 
 ## TL;DR
 
-If `.spec.provider.infrastructureConfig.networks.vpc.cidr` is specified, Gardener will create a new VPC with the given CIDR block and respectively will delete it on Shoot deletion.  
-If `.spec.provider.infrastructureConfig.networks.vpc.id` is specified, Gardener will use the existing VPC and respectively won't delete it on Shoot deletion.
+If `.spec.provider.infrastructureConfig.networks.vpc.cidr` is specified, Gardener will create a new VPC with the given CIDR block and respectively will delete it on shoot deletion.  
+If `.spec.provider.infrastructureConfig.networks.vpc.id` is specified, Gardener will use the existing VPC and respectively won't delete it on shoot deletion.
 
+{{% alert color="info"  title="Note" %}}
+It's not recommended to create a shoot cluster into a VPC that is managed by Gardener (that is created for another shoot cluster). In this case the deletion of the initial shoot cluster will fail to delete the VPC because there will be resources attached to it.
 
-> It's not recommended to create a Shoot cluster into VPC that is managed by Gardener (that is created for another Shoot cluster). In this case the deletion of the initial Shoot cluster will fail to delete the VPC because there will be resources attached to it.  
-> Gardener won't delete any manually created (unmanaged) resources in your cloud provider account.
+Gardener won't delete any manually created (unmanaged) resources in your cloud provider account.
+{{% /alert %}}
 
-
-## 1. Configure AWS CLI
+## 1. Configure the AWS CLI
 
 The `aws configure` command is a convenient way to setup your AWS CLI. It will prompt you for your credentials and settings which will be used in the following AWS CLI invocations.
 
@@ -32,7 +33,7 @@ Default region name [None]: <DEFAULT_REGION>
 Default output format [None]: <DEFAULT_OUTPUT_FORMAT>
 ```
 
-## 2. Create VPC
+## 2. Create a VPC
 
 Create the VPC by running the following command:
 
@@ -61,15 +62,15 @@ $ aws ec2 create-vpc --cidr-block <cidr-block>
 }
 ```
 
-Gardener requires the VPC to have enabled [DNS support](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html), i.e the attributes `enableDnsSupport` and `enableDnsHostnames` must be set to true. `enableDnsSupport` attribute is enabled by default, `enableDnsHostnames` - not. Set the `enableDnsHostnames` attribute to true:
+Gardener requires the VPC to have enabled [DNS support](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html), i.e the attributes `enableDnsSupport` and `enableDnsHostnames` must be set to *true*. `enableDnsSupport` attribute is enabled by default, `enableDnsHostnames` - not. Set the `enableDnsHostnames` attribute to *true*:
 
 ```bash
 $ aws ec2 modify-vpc-attribute --vpc-id vpc-ff7bbf86 --enable-dns-hostnames
 ```
 
-## 3. Create Internet Gateway
+## 3. Create an Internet Gateway
 
-Gardener also requires that an internet gateway is attached to the VPC. You can create one using:
+Gardener also requires that an internet gateway is attached to the VPC. You can create one by using:
 
 ```bash
 $ aws ec2 create-internet-gateway
@@ -90,7 +91,7 @@ $ aws ec2 attach-internet-gateway --internet-gateway-id igw-c0a643a9 --vpc-id vp
 
 ## 4. Create the Shoot
 
-Prepare your Shoot manifest (you could check the [example manifests](https://github.com/gardener/gardener/tree/master/example)). Please make sure that you choose the
+Prepare your shoot manifest (you could check the [example manifests](https://github.com/gardener/gardener/tree/master/example)). Please make sure that you choose the
 region in which you had created the VPC earlier (step 2). Also, put your VPC ID in the `.spec.provider.infrastructureConfig.networks.vpc.id` field:
 
 ```yaml
@@ -107,13 +108,13 @@ spec:
     # ...
 ```
 
-Apply your Shoot manifest.
+Apply your shoot manifest:
 
 ```bash
 $ kubectl apply -f your-shoot-aws.yaml
 ```
 
-Ensure that the Shoot cluster is properly created.
+Ensure that the shoot cluster is properly created:
 
 ```bash
 $ kubectl get shoot $SHOOT_NAME -n $SHOOT_NAMESPACE
