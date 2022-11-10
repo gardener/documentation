@@ -1,6 +1,6 @@
 ---
 title: Kubernetes Antipatterns
-description: "Common Antipatterns for Kubernetes and Docker"
+description: "Common antipatterns for Kubernetes and Docker"
 level: beginner
 reviewer: Tieyan Fu
 last_reviewed: 12.06.2018
@@ -10,7 +10,7 @@ scope: app-developer
 
 ![antipattern](./images/howto-antipattern.png)
 
-This HowTo covers common kubernetes antipatterns that we have seen over the past months.
+This HowTo covers common Kubernetes antipatterns that we have seen over the past months.
 
 
 ## Running as Root User
@@ -22,7 +22,7 @@ Watch the very good presentation by Liz Rice at the KubeCon 2018
 
 Use `RUN groupadd -r anygroup && useradd -r -g anygroup myuser` to create a group and add a user to it. Use the `USER` command to switch to this user.  Note that you may also consider to provide [an explicit UID/GID](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#user) if required. 
 
-For Example:
+For example:
 
 ```
 ARG GF_UID="500"
@@ -47,7 +47,7 @@ must communicate with a database. Existing pods are terminated and new pods are 
 
 Create services instead. They provide a logical name that can be assigned independently of the varying number and IP addresses of containers. Services are the basic concept for load balancing within Kubernetes.
 
-## More than One Process in a Container
+## More Than One Process in a Container
 A docker file provides a `CMD` and `ENTRYPOINT` to start the image. `CMD` is often used around a script that makes a configuration and then 
 starts the container. Do not try to start multiple processes with this script. It is important to consider the separation of concerns when creating docker images. Running multiple processes in a single pod makes managing your containers, collecting logs and updating each process more difficult. 
 
@@ -67,7 +67,6 @@ Starting an image with *tomcat* is tempting. If no tags are specified, a contain
 Make sure you always use a tag or even better the **sha256 hash** of the image e.g. `tomcat@sha256:c34ce3c1fcc0c7431e1392cc3abd0dfe2192ffea1898d5250f199d3ac8d8720f`. 
 
 ### Why Use the sha256 Hash? 
-
 Tags are not immutable and can be overwritten by a developer at any time. In this case you don't have complete control over your image - which is bad.
 
 ## Different Images per Environment
@@ -76,7 +75,7 @@ Don't create different images for development, testing, staging and production e
 ## Depend on Start Order of Pods
 Applications often depend on containers being started in a certain order. For example, a database container must be up and running before an application can connect to it. The application should be resilient to such changes, as the db pod can be unreachable or restarted at any time. The application container should be able to handle such situations without terminating or crashing. 
 
-## Additional Anti-Patterns and Patterns...
+## Additional Anti-Patterns and Patterns
 In the community, vast experience has been collected to improve the stability and usability of Docker and Kubernetes.
 
 Refer to [Kubernetes Production Patterns](https://github.com/gravitational/workshop/blob/master/k8sprod.md) for more information.
