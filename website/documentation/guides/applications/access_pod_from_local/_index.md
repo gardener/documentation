@@ -9,7 +9,8 @@ scope: app-developer
 ---
 
 ## Question
-You deployed an application with a web UI or an internal endpoint in your Kubernetes (K8s) cluster.  How could I access this endpoint **without an external load balancer** (e.g. Ingress)?
+You have deployed an application with a web UI or an internal endpoint in your Kubernetes (K8s) cluster. How to access this endpoint **without an external load balancer** (e.g. Ingress)?
+
 This tutorial presents two options:
 
 - Using Kubernetes port forward
@@ -36,11 +37,9 @@ The main drawback of this approach is that the pod's name changes as soon as it 
 
 ## Solution 2: Using the apiserver proxy of Your Kubernetes Cluster
 
-There are [several different proxies](https://kubernetes.io/docs/concepts/cluster-administration/proxies/) when using Kubernetes.
+There are [several different proxies](https://kubernetes.io/docs/concepts/cluster-administration/proxies/) in Kubernetes. In this tutorial we will be using *apiserver proxy* to enable the access to the services in your cluster without Ingress. **Unlike the first solution, here a service is required.**
 
-In this tutorial we are using *apiserver proxy* to enable accessing services in your cluster without Ingress. **Unlike the first solution, here a service is required.**
-
-Use the following format to compose a URL accessing your service through an existing proxy on the Kubernetes cluster:
+Use the following format to compose a URL for accessing your service through an existing proxy on the Kubernetes cluster:
 
 `https://<your-cluster-master>/api/v1/namespace/<your-namespace>/services/<your-service>:<your-service-port>/proxy/<service-endpoint>`
 
@@ -51,9 +50,9 @@ Use the following format to compose a URL accessing your service through an exis
 | api.testclstr.cpet.k8s.sapcloud.io     | default | nginx-svc     |  80                |   /           | `http://api.testclstr.cpet.k8s.sapcloud.io/api/v1/namespaces/default/services/nginx-svc:80/proxy/`
 | api.testclstr.cpet.k8s.sapcloud.io     | default | docker-nodejs-svc |  4500          |   /cpu?baseNumber=4 | `https://api.testclstr.cpet.k8s.sapcloud.io/api/v1/namespaces/default/services/docker-nodejs-svc:4500/proxy/cpu?baseNumber=4`
 
-For a detailed discussion of the format, please refer to the [official documentation](https://kubernetes.io/docs/tasks/access-application-cluster/access-cluster/#discovering-builtin-services).
+For more details on the format, please refer to the [official documentation](https://kubernetes.io/docs/tasks/access-application-cluster/access-cluster/#discovering-builtin-services).
 
 {{% alert color="info"  title="Note" %}}
-There are applications which do not yet support relative URLs, like [Prometheus](https://github.com/prometheus/prometheus/issues/1583) (as of end of June, 2021).
+There are applications which do not support relative URLs yet, e.g. [Prometheus](https://github.com/prometheus/prometheus/issues/1583) (as of November, 2022).
 This typically leads to missing JavaScript objects, which could be investigated with your browser's development tools. If such an issue occurs, please use the `port-forward` approach [described above](#solution-1-using-kubernetes-port-forward).
 {{% /alert %}}

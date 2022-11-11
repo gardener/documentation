@@ -90,8 +90,7 @@ image name indicates a misspelling.
 
 ## The App Runs in an Error State Caused e.g. by Missing Environmental Variables (ConfigMaps) or Secrets
 
-This example illustrates the behavior in case of the app expects environment variables but the corresponding 
-Kubernetes artifacts are missing.
+This example illustrates the behavior in the case when the app expects environment variables but the corresponding Kubernetes artifacts are missing.
 
 First, cleanup  with:
 
@@ -128,7 +127,7 @@ spec:
 Now, the command `kubectl get pods` lists the pod `termination-demo-xxx` in the state `Error` or `CrashLoopBackOff`. 
 The command `kubectl describe pod termination-demo-xxx` tells you that there is no error during startup but gives no clue about what caused the crash.
 
-```sh
+```bash
 Events:
   FirstSeen	LastSeen	Count	From							SubObjectPath					Type		Reason		Message
   ---------	--------	-----	----							-------------					--------	------		-------
@@ -189,7 +188,7 @@ Note that once you fix the error and re-run the scenario, you might still see th
 It is because the container finishes the command `sed ...` and runs to completion.  In order to keep the container in a `Running` status,
 a long running task is required, e.g.:
 
-```ymal
+```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -285,7 +284,7 @@ spec:
 The command `kubectl get pods` lists the pod `termination-demo-xxx` in the state `Pending`. More details on why this happens
 could be found by using the command `kubectl describe pod termination-demo-xxx`:
 
-```sh
+```bash
 $ kubectl describe po termination-demo-fdb7bb7d9-mzvfw
 Name:           termination-demo-fdb7bb7d9-mzvfw
 Namespace:      default
