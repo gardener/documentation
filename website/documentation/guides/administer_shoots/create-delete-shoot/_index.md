@@ -27,7 +27,7 @@ In order to delete your cluster, you have to set an annotation confirming the de
 ```bash
 $ ./hack/usage/delete shoot johndoe-1 johndoe
 ```
-( `hack` bash script can be found here [https://github.com/gardener/gardener/blob/master/hack/usage/delete](https://github.com/gardener/gardener/blob/master/hack/usage/delete))
+(the `hack` bash script can be found at [GitHub](https://github.com/gardener/gardener/blob/master/hack/usage/delete))
 
 # Configure a Shoot cluster alert receiver
 
