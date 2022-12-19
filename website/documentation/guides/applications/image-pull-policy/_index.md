@@ -35,9 +35,9 @@ and push it to the registry.
 ```sh
 #!/usr/bin/env bash
 
-# Set the docker image name and the coresponding repository
+# Set the docker image name and the corresponding repository
 # Ensure that you change them in the deployment.yml as well.
-# You must be logged in with docker login…
+# You must be logged in with docker login.
 #
 # CHANGE THIS TO YOUR Docker.io SETTINGS
 #

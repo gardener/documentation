@@ -32,7 +32,7 @@ More details can be found in the [Kubernetes documentation](https://kubernetes.i
 
 The main drawback of this approach is that the pod's name changes as soon as it is restarted. Moreover, you need to have a web browser on your client and you need to make sure that the local port is not already used by an application running on your system. Finally, sometimes the port forwarding is canceled due to nonobvious reasons. This leads to a kind of shaky approach. A more stable possibility is based on accessing the app via the kube-proxy, which accesses the corresponding service.
 
-![port-forward](howto-port-forward.svg)
+![port-forward](./images/howto-port-forward.svg)
 
 
 ## Solution 2: Using the apiserver proxy of Your Kubernetes Cluster
