@@ -6,13 +6,14 @@ level: intermediate
 category: Setup
 scope: app-developer
 ---
-## Intro
+
+## Disclaimer
 Be aware, that the following sections might be opinionated. Kubernetes, and the GPU support in particular, 
 are rapidly evolving, which means that this guide is likely to be outdated sometime soon. For this reason, 
 **contributions are highly appreciated** to update this guide.
 
 ## Create a Cluster
-First thing first, let’s create a k8s cluster with GPU accelerated nodes. In this example we will use AWS 
+First thing first, let’s create a Kubernetes (K8s) cluster with GPU accelerated nodes. In this example we will use an AWS 
 **p2.xlarge** EC2 instance because it's the cheapest available option at the moment. Use such cheap instances 
 for learning to limit your resource costs. **This costs around 1€/hour per GPU**
 
@@ -158,7 +159,7 @@ spec:
 ```
 
 ## Test
-To run an example training on a GPU node, start first a base image with Tensorflow with GPU support & Keras
+To run an example training on a GPU node, first start a base image with Tensorflow with GPU support & Keras:
 
 ```yaml
 apiVersion: apps/v1
@@ -188,7 +189,8 @@ spec:
         operator: "Exists"
 ```
 
-Note: the `tolerations` section above is not required if you deploy the `ExtendedResourceToleration`
+{{% alert color="info"  title="Note" %}}
+the `tolerations` section above is not required if you deploy the `ExtendedResourceToleration`
 admission controller to your cluster. You can do this in the `kubernetes` section of your Gardener 
 cluster `shoot.yaml` as follows:
 ```
@@ -197,8 +199,9 @@ cluster `shoot.yaml` as follows:
       admissionPlugins:
       - name: ExtendedResourceToleration
 ```
+{{% /alert %}}
 
-Now exec into the container and start an example Keras training
+Now exec into the container and start an example Keras training:
 
 ```bash
 kubectl exec -it deeplearning-workbench-8676458f5d-p4d2v -- /bin/bash
@@ -206,7 +209,7 @@ cd /keras/example
 python imdb_cnn.py
 ```
 
-## Acknowledgments & References
-* [Andreas Fritzler](https://github.com/afritzler/kubernetes-gpu) from the Gardener Core team for the R&amp;D and providing this setup.
+## Related Links
+* [Andreas Fritzler](https://github.com/afritzler/kubernetes-gpu) from the Gardener Core team for the R&D, who has provided this setup.
 * [Build and install NVIDIA driver on CoreOS](https://github.com/squat/modulus)
 * [Nvidia Device Plugin](https://github.com/kubernetes/kubernetes/blob/master/cluster/addons/device-plugins/nvidia-gpu/daemonset.yaml)

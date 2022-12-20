@@ -1,15 +1,14 @@
 ---
 title: Get a Shell to a Gardener Shoot Worker Node
-description: "Describes the methods for getting shell access to worker nodes."
+description: "Describes the methods for getting shell access to worker nodes"
 level: advanced
 category: Debugging
 scope: operator
 ---
 
-# Get a Shell to a Kubernetes Node 
+## Overview
 
-To troubleshoot certain problems in a Kubernetes cluster, operators need access to the host of the Kubernetes node to troubleshoot 
-problems. This can be required if a node misbehaves or fails to join the cluster in the first place.
+To troubleshoot certain problems in a Kubernetes cluster, operators need access to the host of the Kubernetes node. This can be required if a node misbehaves or fails to join the cluster in the first place.
 
 With access to the host, it is for instance possible to check the `kubelet` logs and interact with common tools such as `systemctl`and `journalctl`.
 
@@ -18,33 +17,34 @@ The options described in the second section do not rely on Kubernetes capabiliti
 
 This guide only covers how to get access to the host, but does not cover troubleshooting methods.
 
-- [Get a Shell to a Kubernetes Node](#get-a-shell-to-a-kubernetes-node)
-- [Get a Shell to an operational cluster node](#get-a-shell-to-an-operational-cluster-node)
+- [Overview](#overview)
+- [Get a Shell to an Operational Cluster Node](#get-a-shell-to-an-operational-cluster-node)
   - [Gardener Dashboard](#gardener-dashboard)
+    - [Result](#result)
   - [gardenctl shell](#gardenctl-shell)
   - [Gardener Ops Toolbelt](#gardener-ops-toolbelt)
-  - [Custom root pod](#custom-root-pod)
-- [SSH access to a node that failed to join the cluster](#ssh-access-to-a-node-that-failed-to-join-the-cluster)
-  - [Identifying the problematic instance](#identifying-the-problematic-instance)
+  - [Custom Root Pod](#custom-root-pod)
+- [SSH Access to a Node That Failed to Join the Cluster](#ssh-access-to-a-node-that-failed-to-join-the-cluster)
+  - [Identifying the Problematic Instance](#identifying-the-problematic-instance)
   - [gardenctl ssh](#gardenctl-ssh)
-  - [SSH with manually created Bastion on AWS](#ssh-with-manually-created-bastion-on-aws)
+  - [SSH with a Manually Created Bastion on AWS](#ssh-with-a-manually-created-bastion-on-aws)
     - [Create the Bastion Security Group](#create-the-bastion-security-group)
-    - [Create the bastion instance](#create-the-bastion-instance)
-  - [Connecting to the target instance](#connecting-to-the-target-instance)
-  - [Cleanup](#cleanup)
+    - [Create the Bastion Instance](#create-the-bastion-instance)
+  - [Connecting to the Target Instance](#connecting-to-the-target-instance)
+- [Cleanup](#cleanup)
 
 
-# Get a Shell to an operational cluster node
+## Get a Shell to an Operational Cluster Node
 
 The following describes four different approaches to get a shell to an operational Shoot worker node.
 As a prerequisite to troubleshooting a Kubernetes node, the node must have joined the cluster successfully and be able to run a pod.
 All of the described approaches involve scheduling a pod with root permissions and mounting the root filesystem.
 
-## Gardener Dashboard
+### Gardener Dashboard
 
 **Prerequisite**: the terminal feature is configured for the Gardener dashboard.
 
-Navigate to the cluster overview page and find the `Terminal` in the `Access` tile.
+1. Navigate to the cluster overview page and find the `Terminal` in the `Access` tile.
 
 <img style="margin-left:0;width:80%;height:auto;" alt="Access Tile" src="./images/9fb6ca4ff9b7480f93debba833f48590.png"/>
 <br>
@@ -52,54 +52,55 @@ Navigate to the cluster overview page and find the `Terminal` in the `Access` ti
 Select the target Cluster (Garden, Seed / Control Plane, Shoot cluster) depending on the requirements and 
 access rights (only certain users have access to the Seed Control Plane).
 
-To open the terminal configuration, click on the top right-hand corner of the screen.
+2. To open the terminal configuration, interact with the top right-hand corner of the screen.
 
 <img style="margin-left:0" alt="Terminal configuration" src="./images/db573582bfc544d294cbde8906a74e07.png"/>
 <br>
 
-Set the Terminal Runtime to "Privileged.
-Also specify the target node from the drop-down menu.
+3. Set the Terminal Runtime to "Privileged". Also, specify the target node from the drop-down menu.
 
 <img style="margin-left:0;width:50%;height:auto"  alt="Dashboard terminal pod configuration" src="./images/f7b10d48edf44c17ba838ff5c429e39d.png"/>
 <br>
 
-The dashboard then schedules a pod and opens a shell session to the node.
+#### Result
 
-To get access to common binaries installed on the host, prefix the command with `chroot /hostroot`. 
+The Dashboard then schedules a pod and opens a shell session to the node.
+
+To get access to the common binaries installed on the host, prefix the command with `chroot /hostroot`. 
 Note that the path depends on where the root path is mounted in the container.
 In the default image used by the Dashboard, it is under `/hostroot`.
 
 <img style="margin-left:0"  alt="Dashboard terminal pod configuration" src="./images/3da659e9cc4744a2ad3e1c6a50d39c04.png"/>
 <br>
 
-## gardenctl shell
+### gardenctl shell
 
 **Prerequisite**: `kubectl` and [gardenctl are available and configured](https://github.com/gardener/gardenctl).
 
-First, target a Garden cluster containing all the Shoot definitions.
+1. First, target a Garden cluster containing all the Shoot definitions.
 
 ```
 $ gardenctl target garden <target-garden>
 ```
 
-Target an available Shoot by name. 
+2. Target an available Shoot by name. 
 This sets up the context and configures the `kubeconfig` file of the Shoot cluster.
 Subsequent commands will execute in this context.
 ```
 $ gardenctl target shoot <target-shoot>
 ```
 
-Get the nodes of the Shoot cluster.
+3. Get the nodes of the Shoot cluster.
 ```
 $ gardenctl kubectl get nodes 
 ```
 
-Pick a node name from the list above and get a root shell access to it.
+4. Pick a node name from the list above and get a root shell access to it.
 ```
 $ gardenctl shell <target-node>
 ```
 
-## Gardener Ops Toolbelt
+### Gardener Ops Toolbelt
 
 **Prerequisite**: `kubectl` is available.
 
@@ -115,13 +116,13 @@ To get root shell access to a node, execute the aforementioned script by supplyi
 $ <path-to-ops-toolbelt-repo>/hacks/ops-pod <target-node>
 ```
 
-## Custom root pod
+### Custom Root Pod
 
 Alternatively, a pod can be [assigned](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/) to a target node and a shell can 
 be opened via [standard Kubernetes means](https://kubernetes.io/docs/tasks/debug-application-cluster/get-shell-running-container/). 
 To enable root access to the node, the pod specification requires proper `securityContext` and `volume` properties.
 
-For instance you can use the following pod manifest, after changing <target-node-name> with the name of the node you want this pod attached to:
+For instance, you can use the following pod manifest, after changing <target-node-name> with the name of the node you want this pod attached to:
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -150,7 +151,7 @@ spec:
   restartPolicy: Never
 ```
 
-# SSH access to a node that failed to join the cluster
+## SSH Access to a Node That Failed to Join the Cluster
 
 This section explores two options that can be used to get SSH access to a node that failed to join the cluster.
 As it is not possible to schedule a pod on the node, the Kubernetes-based methods explored so far cannot be used in this scenario.
@@ -160,21 +161,21 @@ Additionally, Gardener typically provisions worker instances in a private subnet
 For this scenario, cloud providers typically have extensive documentation (e.g [AWS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstances.html) & [GCP](https://cloud.google.com/compute/docs/instances/connecting-to-instance) 
 and in [some cases tooling support](https://cloud.google.com/compute/docs/instances/connecting-advanced#vpn)). 
 However, these approaches are mostly cloud provider specific, require interaction via their CLI and API or sometimes 
-the installation of a [cloud provider specific agent](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-ssm-agent.html) one the node.
+the installation of a [cloud provider specific agent](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-ssm-agent.html) on the node.
 
 Alternatively, `gardenctl` can be used providing a cloud provider agnostic and out-of-the-box support to get ssh access to an instance in a private subnet. 
 Currently `gardenctl` supports AWS, GCP, Openstack, Azure and Alibaba Cloud.
 
-## Identifying the problematic instance
+### Identifying the Problematic Instance
 First, the problematic instance has to be identified. 
-In Gardener, worker pools can be created in different cloud provider regions, zones and accounts. 
+In Gardener, worker pools can be created in different cloud provider regions, zones, and accounts. 
 
 The instance would typically show up as successfully started / running in the cloud provider dashboard or API and it is not immediately obvious which one has a problem. 
 Instead, we can use the Gardener API / CRDs to obtain the faulty instance identifier in a cloud-agnostic way.
 
 Gardener uses the [Machine Controller Manager](https://github.com/gardener/machine-controller-manager) to create the Shoot worker nodes. 
 For each worker node, the Machine Controller Manager creates a `Machine` CRD in the Shoot namespace in the respective `Seed` cluster. 
-Usually the problematic instance can be identified as the respective `Machine` CRD has status `pending`.
+Usually the problematic instance can be identified, as the respective `Machine` CRD has status `pending`.
 
 The instance / node name can be obtained from the `Machine` `.status` field:
 
@@ -183,7 +184,7 @@ $ kubectl get machine <machine-name> -o json | jq -r .status.node
 ```
 
 This is all the information needed to go ahead and use `gardenctl ssh` to get a shell to the node. 
-In addition, the used cloud provider, the specific identifier of the instance and the instance region can be identified from the `Machine` CRD. 
+In addition, the used cloud provider, the specific identifier of the instance, and the instance region can be identified from the `Machine` CRD. 
 
 Get the identifier of the instance via:
 ```
@@ -196,7 +197,7 @@ The `AWSMachineClass` contains the machine image ([ami](https://docs.aws.amazon.
 
 Of course, the information can also be used to get the instance with the cloud provider CLI / API.
 
-## gardenctl ssh
+### gardenctl ssh
 
 Using the node name of the problematic instance, we can use the `gardenctl ssh` command to get SSH access to the cloud provider 
 instance via an automatically set up [bastion host](https://en.wikipedia.org/wiki/Bastion_host).
@@ -205,12 +206,12 @@ After the SSH session has ended, `gardenctl` deletes the created cloud provider 
 
 Use the following commands:
 
-First, target a Garden cluster containing all the Shoot definitions.
+1. First, target a Garden cluster containing all the Shoot definitions.
 ```
 $ gardenctl target garden <target-garden>
 ```
 
-Target an available Shoot by name. 
+2. Target an available Shoot by name. 
 This sets up the context, configures the `kubeconfig` file of the Shoot cluster and downloads the cloud provider credentials.
 Subsequent commands will execute in this context.
 
@@ -218,21 +219,21 @@ Subsequent commands will execute in this context.
 $ gardenctl target shoot <target-shoot>
 ```
 
-This uses the cloud provider credentials to spin up the bastion and to open a shell on the target instance.
+3. This uses the cloud provider credentials to spin up the bastion and to open a shell on the target instance.
 ```
 $ gardenctl ssh <target-node>
 ```
 
-## SSH with manually created Bastion on AWS
+### SSH with a Manually Created Bastion on AWS
 
 In case you are not using `gardenctl` or want to control the bastion instance yourself, you can also manually set it up. 
 The steps described here are generally the same as [those used by `gardenctl` internally](https://github.com/gardener/gardenctl/blob/10a537942b94234914758c0f6d053dc1cf218ecd/pkg/cmd/ssh_aws.go#L53-L52).
-Despite some cloud provider specifics they can be generalized to the following list:
+Despite some cloud provider specifics, they can be generalized to the following list:
 - Open port 22 on the target instance.
-- Create an instance / VM in a public subnet (bastion instance needs to have public ip address).  
-- Set-up security groups, roles and open port 22 for the bastion instance.
+- Create an instance / VM in a public subnet (the bastion instance needs to have a public IP address).  
+- Set-up security groups and roles, and open port 22 for the bastion instance.
 
-The following diagram shows an overview how the SSH access to the target instance works:
+The following diagram shows an overview of how the SSH access to the target instance works:
 
 <img style="margin-left:0"  alt="SSH Bastion diagram" src="./images/913441003e5641bc90249bdc07d55656.png"/>
 <br>
@@ -241,43 +242,43 @@ This guide demonstrates the setup of a bastion on AWS.
 
 **Prerequisites:**
 - The `AWS CLI` is set up.
-- Obtain target instance-id (see [here](#identifying-the-problematic-instance)).
+- Obtain target `instance-id` (see [Identifying the Problematic Instance](#identifying-the-problematic-instance)).
 - Obtain the VPC ID the Shoot resources are created in. This can be found in the `Infrastructure` CRD in the `Shoot` namespace in the `Seed`.
 - Make sure that port 22 on the target instance is open (default for Gardener deployed instances).
-    - Extract security group via 
+    - Extract security group via:
     ```
     $ aws ec2 describe-instances --instance-ids <instance-id>
     ```
-    - Check for rule that allows inbound connections on port 22: 
+    - Check for rule that allows inbound connections on port 22:
     ```
     $ aws ec2 describe-security-groups --group-ids=<security-group-id>
     ```
-    - If not available, create the rule with the following comamnd: 
+    - If not available, create the rule with the following comamnd:
     ```
     $ aws ec2 authorize-security-group-ingress --group-id <security-group-id>  --protocol tcp --port 22 --cidr 0.0.0.0/0
     ``` 
 
-### Create the Bastion Security Group
+#### Create the Bastion Security Group
 
-- The common name of the security group is `<shoot-name>-bsg`. Create the security group:
+1. The common name of the security group is `<shoot-name>-bsg`. Create the security group:
 
   ```
   $ aws ec2 create-security-group --group-name <bastion-security-group-name>  --description ssh-access --vpc-id <VPC-ID>
   ```
 
-- Optionally, create identifying tags for the security group:
+2. Optionally, create identifying tags for the security group:
 
   ```
   $ aws ec2 create-tags --resources <bastion-security-group-id> --tags Key=component,Value=<tag>
   ```
 
-- Create permission in the bastion security group that allows ssh access on port 22.
+3. Create a permission in the bastion security group that allows ssh access on port 22:
 
   ```
   $ aws ec2 authorize-security-group-ingress --group-id <bastion-security-group-id>  --protocol tcp --port 22 --cidr 0.0.0.0/0
   ```
 
-- Create an IAM role for the bastion instance with the name `<shoot-name>-bastions`: 
+4. Create an IAM role for the bastion instance with the name `<shoot-name>-bastions`: 
 
   ```
   $ aws iam create-role --role-name <shoot-name>-bastions
@@ -302,23 +303,23 @@ This guide demonstrates the setup of a bastion on AWS.
 }
 ```
 
-- Create the instance profile with name `<shoot-name>-bastions`:
+5. Create the instance profile and name it `<shoot-name>-bastions`:
   ```
   $ aws iam create-instance-profile --instance-profile-name <name>
   ```
 
-- Add the created role to the instance profile:
+6. Add the created role to the instance profile:
 
   ```
   $ aws iam add-role-to-instance-profile --instance-profile-name <instance-profile-name> --role-name <role-name>
   ```
 
-### Create the bastion instance
+#### Create the Bastion Instance
 
 Next, in order to be able to `ssh` into the bastion instance, the instance has to be set up with a user with a public ssh key.
 Create a user `gardener` that has the same Gardener-generated public ssh key as the target instance.
 
-- First, we need to get the public part of the `Shoot` ssh-key. 
+1. First, we need to get the public part of the `Shoot` ssh-key. 
   The ssh-key is stored in a secret in the the project namespace in the Garden cluster. 
   The name is:  `<shoot-name>-ssh-publickey`. 
   Get the key via: 
@@ -327,7 +328,7 @@ Create a user `gardener` that has the same Gardener-generated public ssh key as 
   $ kubectl get secret aws-gvisor.ssh-keypair -o json | jq -r .data.\"id_rsa.pub\"
   ```
 
-- A script handed over as `user-data` to the bastion `ec2` instance, can be used to create the `gardener` user and add the ssh-key.
+2. A script handed over as `user-data` to the bastion `ec2` instance, can be used to create the `gardener` user and add the ssh-key.
   For your convenience, you can use the following script to generate the `user-data`.
 
 ``` bash
@@ -354,7 +355,7 @@ else
 fi
 ```
 
-- Use the script by handing-over the public ssh-key of the `Shoot` cluster:
+3. Use the script by handing-over the public ssh-key of the `Shoot` cluster:
 
   ```
   $ kubectl get secret aws-gvisor.ssh-keypair -o json | jq -r .data.\"id_rsa.pub\" | ./generate-userdata.sh
@@ -362,13 +363,13 @@ fi
 
   This generates a file called `gardener-bastion-userdata.sh` in the same directory containing the `user-data`.
 
-- The following information is needed to create the bastion instance:
+4. The following information is needed to create the bastion instance:
   
   `bastion-IAM-instance-profile-name`
-    - Use the created instance profile with name `<shoot-name>-bastions` 
+    - Use the created instance profile with the name `<shoot-name>-bastions` 
     
   `image-id`
-    - Possible use the same image-id as for the target instance (or any other image). Has cloud provider specific format (AWS: `ami`). 
+    - It is possible to use the same image-id as the one used for the target instance (or any other image). Has cloud provider specific format (AWS: `ami`). 
     
   `ssh-public-key-name`
   
@@ -384,22 +385,22 @@ fi
     - Use the id of the created bastion security group. 
     
   `file-path-to-userdata`
-    - Use the filepath to `user-data` file generated in the previous step. 
+    - Use the filepath to the `user-data` file generated in the previous step. 
     
   - `bastion-instance-name`
-    - Optional to tag the instance.
+    - Optionaly, you can tag the instance.
     - Usually `<shoot-name>-bastions`
 
-- Create the bastion instance via:
+5. Create the bastion instance via:
 
 ```
 $ ec2 run-instances --iam-instance-profile Name=<bastion-IAM-instance-profile-name> --image-id <image-id>  --count 1 --instance-type t3.nano --key-name <ssh-public-key-name>  --security-group-ids <bastion-security-group-id> --subnet-id <subnet-id> --associate-public-ip-address --user-data <file-path-to-userdata> --tag-specifications ResourceType=instance,Tags=[{Key=Name,Value=<bastion-instance-name>},{Key=component,Value=<mytag>}] ResourceType=volume,Tags=[{Key=component,Value=<mytag>}]"
 ```
-Capture the `instance-id` from the reponse and wait until the `ec2` instance is running and has a public ip address.
+Capture the `instance-id` from the response and wait until the `ec2` instance is running and has a public IP address.
 
-## Connecting to the target instance
+### Connecting to the Target Instance
 
-Save the private key of the ssh-key-pair in a temporary local file for later use.
+1. Save the private key of the ssh-key-pair in a temporary local file for later use:
 
 ```
 $ umask 077
@@ -407,13 +408,13 @@ $ umask 077
 $ kubectl get secret <shoot-name>.ssh-keypair -o json | jq -r .data.\"id_rsa\" | base64 -d > id_rsa.key
 ```
 
-Use the private ssh key to ssh into the bastion instance.
+2. Use the private ssh key to ssh into the bastion instance:
 
 ```
 $ ssh -i <path-to-private-key> gardener@<public-bastion-instance-ip> 
 ```
 
-If that works, connect from your local terminal to the target instance via the bastion.
+3. If that works, connect from your local terminal to the target instance via the bastion:
 
 ```
 $ ssh  -i <path-to-private-key> -o ProxyCommand="ssh -W %h:%p -i <private-key> -o IdentitiesOnly=yes -o StrictHostKeyChecking=no gardener@<public-ip-bastion>" gardener@<private-ip-target-instance> -o IdentitiesOnly=yes -o StrictHostKeyChecking=no

@@ -15,7 +15,7 @@ Kubernetes offers powerful options to get more details about startup or runtime 
 [Application Introspection and Debugging](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application-introspection/) 
 or [Debug Pods and Replication Controllers](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-pod-replication-controller/).
 
-In order to identify pods with potential issues you could e.g. run `kubectl get pods --all-namespaces | grep -iv Running ` to filter 
+In order to identify pods with potential issues, you could e.g. run `kubectl get pods --all-namespaces | grep -iv Running ` to filter 
 out the pods which are not in the state `Running`. One of frequent error state is `CrashLoopBackOff`, which tells that 
 a pod crashes right after the start. Kubernetes then tries to restart the pod again, but often the pod startup fails again.
 
@@ -28,17 +28,15 @@ Here is a short list of possible reasons which might lead to a pod crash:
 1. Persistent volumes can't be created/mounted
 1. The container image is not updated
 
-
 Basically, the commands `kubectl logs ...` and `kubectl describe ...` with different parameters are used to get more 
-detailed information. By calling e.g. `kubectl logs --help` you get more detailed information about the command and its 
+detailed information. By calling e.g. `kubectl logs --help` you can get more detailed information about the command and its 
 parameters.
 
 In the next sections you'll find some basic approaches to get some ideas what went wrong.
 
 Remarks:   
 * Even if the pods seem to be running, as the status `Running` indicates, a high counter of the `Restarts` shows potential problems
-* You can get a good overview of the troubleshooting process with the interactive tutorial [Troubleshooting with Kubectl](https://kubernetes.io/docs/tutorials/kubernetes-basics/explore-intro/)
-available which explains basic debugging activities
+* You can get a good overview of the troubleshooting process with the interactive tutorial [Troubleshooting with Kubectl](https://kubernetes.io/docs/tutorials/kubernetes-basics/explore-intro/) available which explains basic debugging activities
 * The examples below are deployed into the namespace `default`. In case you want to change it, use the optional 
 parameter `--namespace <your-namespace>` to select the target namespace. The examples require a Kubernetes release &ge; _1.8_.
 
@@ -46,18 +44,18 @@ parameter `--namespace <your-namespace>` to select the target namespace. The exa
 Your deployment was successful (no logical/syntactical errors in the manifest files), but the pod(s) aren't running.
 
 ## Error Caused by Wrong Image Name
-You run `kubectl describe pod <your-pod> <your-namespace>` to get detailed information about the pod startup. 
+Start by running `kubectl describe pod <your-pod> <your-namespace>` to get detailed information about the pod startup. 
 
-In the `Events` section, you get an error message like `Failed to pull image ...` and `Reason: Failed`. The pod is 
+In the `Events` section, you should get an error message like `Failed to pull image ...` and `Reason: Failed`. The pod is 
 in state `ImagePullBackOff`.
 
-The example below is based on [demo in Kubernetes documentation](https://kubernetes.io/docs/tasks/debug-application-cluster/determine-reason-pod-failure/). In all examples the `default` namespace is used.
+The example below is based on a [demo in the Kubernetes documentation](https://kubernetes.io/docs/tasks/debug-application-cluster/determine-reason-pod-failure/). In all examples, the `default` namespace is used.
 
-First, cleanup  with  
+First, perform a cleanup with:
 
 ```kubectl delete pod termination-demo```
     
-Next, create a resource based on the yaml content below
+Next, create a resource based on the yaml content below:
 ```yaml
 apiVersion: v1
 kind: Pod 
@@ -83,16 +81,15 @@ Events:
   2m		54s		10	kubelet, ip-10-250-17-112.eu-west-1.compute.internal							Warning		FailedSync		Error syncing pod
   2m		54s		6	kubelet, ip-10-250-17-112.eu-west-1.compute.internal	spec.containers{termination-demo-container}	Normal		BackOff			Back-off pulling image "debiann"
   ```
-The error message with `Reason: Failed` tells that there is an error during pulling the image. A closer look at the 
+The error message with `Reason: Failed` tells you that there is an error during pulling the image. A closer look at the 
 image name indicates a misspelling.
-
 
 
 ## The App Runs in an Error State Caused e.g. by Missing Environmental Variables (ConfigMaps) or Secrets
 
 This example illustrates the behavior in the case when the app expects environment variables but the corresponding Kubernetes artifacts are missing.
 
-First, cleanup  with:
+First, perform a cleanup with:
 
 ```yaml
 kubectl delete deployment termination-demo
@@ -148,7 +145,7 @@ The command `kubectl get logs termination-demo-xxx` gives access to the output, 
 ```
 
 So you need to have a closer look at the application. In this case, the environmental variable `MYFILE` is missing. To fix this
-issue, you could e.g. add a ConfigMap to your deployment as is shown in the manifest listed below.
+issue, you could e.g. add a ConfigMap to your deployment as is shown in the manifest listed below:
 
 ```yaml
 apiVersion: v1
@@ -224,26 +221,23 @@ spec:
             name: app-env
 ```
 
-
 ## Too High Resource Consumption (Memory and/or CPU) or Too Strict Quota Settings
 
 You can optionally specify the amount of memory and/or CPU your container gets during runtime. In case these settings are missing, 
 the default requests settings are taken: CPU: 0m (in Milli CPU) and RAM: 0Gi, which indicate no other limits other than the 
-ones of the node(s) itself. For more details, e.g. about how to configure limits, see [Configure Default Memory Requests and 
-Limits for a Namespace](https://kubernetes.io/docs/tasks/administer-cluster/memory-default-namespace/).
+ones of the node(s) itself. For more details, e.g. about how to configure limits, see [Configure Default Memory Requests and Limits for a Namespace](https://kubernetes.io/docs/tasks/administer-cluster/memory-default-namespace/).
 
 In case your application needs more resources, Kubernetes distinguishes between `requests` and `limit` settings: `requests` 
 specify the guaranteed amount of resource, whereas `limit` tells Kubernetes the maximum amount of resource the container might 
-need.  Mathematically both settings could be described by the relation `0 <= requests <= limit`. For both settings you need to 
-consider the total amount of resources your nodes provide. For a detailed description of the concept, see [Resource Quality of 
-Service in Kubernetes](https://github.com/kubernetes/design-proposals-archive/blob/main/node/resource-qos.md).
+need.  Mathematically, both settings could be described by the relation `0 <= requests <= limit`. For both settings you need to 
+consider the total amount of resources your nodes provide. For a detailed description of the concept, see [Resource Quality of Service in Kubernetes](https://github.com/kubernetes/design-proposals-archive/blob/main/node/resource-qos.md).
 
 Use `kubectl describe nodes` to get a first overview of the resource consumption in your cluster. Of special interest are the 
 figures indicating the amount of CPU and Memory Requests at the bottom of the output.
 
 The next example demonstrates what happens in case the CPU request is too high in order to be managed by your cluster.
 
-First, cleanup  with:
+First, perform a cleanup with:
 
 ```yaml
 kubectl delete deployment termination-demo
@@ -318,14 +312,13 @@ You can find more details in:
 - [Managing Compute Resources for Containters](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/)
 - [Resource Quality of Service in Kubernetes](https://github.com/kubernetes/design-proposals-archive/blob/main/node/resource-qos.md)
 
-
 Remarks:
 - This example works similarly when specifying a too high request for memory
 - In case you configured an autoscaler range when creating your Kubernetes cluster, another worker node will be spinned up automatically if you didn't reach the maximum number of worker nodes
 - In case your app is running out of memory (the memory settings are too small), you will typically find an `OOMKilled` (Out Of Memory) message in the `Events` section of the `kubectl describe pod ...` output
 
 
-## The Container Image is Not Updated
+## The Container Image Is Not Updated
 
 You applied a fix in your app, created a new container image and pushed it into your container repository. After redeploying your Kubernetes manifests, you expected to get the updated app, but the same bug is still in the new deployment present.
 

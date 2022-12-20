@@ -8,10 +8,9 @@ scope: app-developer
 
 ## Problem
 
-**After updating your HTML and JavaScript sources in your web application, 
-the kubernetes cluster delivers outdated versions - why?**
+**After updating your HTML and JavaScript sources in your web application, the Kubernetes cluster delivers outdated versions - why?**
 
-## Preamble
+## Overview
 By default, Kubernetes service pods are not accessible from the external 
 network, but only from other pods within the same Kubernetes cluster. 
 
@@ -45,30 +44,27 @@ where:
  - **&lt;GARDENER-PROJECT&gt;**: You project name in the Gardener
 
 
-## What is the underlying problem?
+## Diagnosing the Problem
 
-The ingress controller we are using is **NGINX**.
-
-> NGINX  is a software load balancer, web server, and **content cache** built on top of open 
+The ingress controller we are using is **NGINX**. NGINX is a software load balancer, web server, and **content cache** built on top of open 
 source NGINX.
-
 
 **NGINX caches the content as specified in the HTTP header.** If the HTTP header is missing, 
 it is assumed that the cache is **forever** and NGINX never updates the content in the 
 stupidest case.
 
 ## Solution
-In general you can avoid this pitfall with one of the solutions below:
+In general, you can avoid this pitfall with one of the solutions below:
 
- - use a cache buster + HTTP-Cache-Control(prefered)
- - use HTTP-Cache-Control with a lower retention period
- - disable the caching in the ingress (just for dev purpose)
+ - Use a cache buster + HTTP-Cache-Control (prefered)
+ - Use HTTP-Cache-Control with a lower retention period
+ - Disable the caching in the ingress (just for dev purposes)
  
-Learning how to set the HTTP header or setup a cache buster is left to the read as an exercise
-for your web framework (e.g. Express/NodeJS, SpringBoot,...)
+Learning how to set the HTTP header or setup a cache buster is left to you, as an exercise
+for your web framework (e.g. Express/NodeJS, SpringBoot, ...)
 
-Here an example how to disable the cache control for your ingress done with an annotation in your
- ingress YAML (during development).
+Here is an example on how to disable the cache control for your ingress, done with an annotation in your
+ingress YAML (during development).
  
 ```yaml
 ---

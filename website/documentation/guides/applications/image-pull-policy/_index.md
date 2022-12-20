@@ -6,7 +6,7 @@ category: Fails
 scope: app-developer
 ---
 
-## Preface
+## Introduction
 A container image should use a fixed tag or the SHA of the image. It should not use the tags **latest**, **head**, **canary**, or other tags that are designed to be *floating*.
 
 ## Problem

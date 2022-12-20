@@ -38,22 +38,21 @@ Create a tenant in an OIDC compatible Identity Provider. For simplicity, we use 
 
    ![Choose application type](./images/Choose-application-type.png)
 
-3. On tab *Settings*, copy the following parameters to a local text file:
+3. In the tab *Settings*, copy the following parameters to a local text file:
 
     * *Domain*
 
-      > Corresponds to the **issuer** in OIDC. It must be an `https`-secured endpoint (Auth0 requires a trailing `/` at the end). More information: [Issuer Identifier](https://openid.net/specs/openid-connect-core-1_0.html#Terminology).
+      Corresponds to the **issuer** in OIDC. It must be an `https`-secured endpoint (Auth0 requires a trailing `/` at the end). For more information, see [Issuer Identifier](https://openid.net/specs/openid-connect-core-1_0.html#Terminology).
     * *Client ID*
     * *Client Secret*
 
       ![Basic information](./images/Basic-information.png)
 
-4. Configure the client to have a callback url of http://localhost:8000. This callback connects to your local `kubectl oidc-login` plugin:
+4. Configure the client to have a callback url of `http://localhost:8000`. This callback connects to your local `kubectl oidc-login` plugin:
 
    ![Configure callback](./images/Configure-callback.png)
 
 5. Save your changes.
-
 
 6. Verify that `https://<Auth0 Domain>/.well-known/openid-configuration` is reachable.
 
@@ -61,11 +60,14 @@ Create a tenant in an OIDC compatible Identity Provider. For simplicity, we use 
 
    ![Create user](./images/Create-user.png)
 
-   > Users must have a *verified* email address.
+  {{% alert color="info"  title="Note" %}}
+  Users must have a *verified* email address.
+  {{% /alert %}}
 
-## Configure a local `kubectl` `oidc-login`
 
-1. Install the `kubectl` plugin [oidc-login](https://github.com/int128/kubelogin). We highly recommend the [krew](https://github.com/kubernetes-sigs/krew) install tool, which also makes other plugins easily available.
+## Configure a Local `kubectl` `oidc-login`
+
+1. Install the `kubectl` plugin [oidc-login](https://github.com/int128/kubelogin). We highly recommend the [krew](https://github.com/kubernetes-sigs/krew) installation tool, which also makes other plugins easily available.
 
     ```console
     kubectl krew install oidc-login
@@ -121,9 +123,9 @@ Create a tenant in an OIDC compatible Identity Provider. For simplicity, we use 
           - --oidc-extra-scope=email,offline_access,profile
     ``` 
 
-To test our OIDC-based authentication, context `shoot--project--mycluster` of `~/.kube/config-oidc` is used in a later step. For now, continue to use the configuration `~/.kube/config` with administration rights for your cluster.
+To test our OIDC-based authentication, the context `shoot--project--mycluster` of `~/.kube/config-oidc` is used in a later step. For now, continue to use the configuration `~/.kube/config` with administration rights for your cluster.
 
-## Configure the shoot cluster
+## Configure the Shoot Cluster
 
 Modify the shoot cluster YAML as follows, using the client ID and the domain (as issuer) from the settings of the client application you created in Auth0:
 
@@ -145,10 +147,9 @@ spec:
 
 This change of the `Shoot` manifest triggers a reconciliation. Once the reconciliation is finished, your OIDC configuration is applied. It **doesn't** invalidate other certificate-based authentication methods. Wait for Gardener to reconcile the change. It can take up to 5 minutes.
 
+## Authorize an Authenticated User
 
-## Authorize an authenticated user
-
-In Auth0, you created a user with a verified email address, `test@test.com` in our example. For simplicity, we authorize a single user identified by this email address with cluster role `view`:
+In Auth0, you created a user with a verified email address, `test@test.com` in our example. For simplicity, we authorize a single user identified by this email address with the cluster role `view`:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -167,7 +168,7 @@ subjects:
 
 As administrator, apply the cluster role binding in your shoot cluster. 
 
-## Verify the result
+## Verify the Result
 
 1. To step into the shoes of your user, use the prepared `kubeconfig` file `~/.kube/config-oidc`, and switch to the context that uses `oidc-login`:
    
@@ -204,8 +205,7 @@ After a successful login, `kubectl` uses a token for authentication so that you 
 2. Delete the browser cache.
 {{% /alert %}}
 
-
-3. To see if your user uses cluster role `view`, do some checks with `kubectl auth can-i`.
+3. To see if your user uses the cluster role `view`, do some checks with `kubectl auth can-i`.
 
     * The response for the following commands should be `no`:
    
