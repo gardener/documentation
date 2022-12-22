@@ -5,25 +5,23 @@ category: Security
 scope: operator
 ---
 
-# Custom Seccomp profile
-
-## Context
+## Overview
 
 [Seccomp](https://en.wikipedia.org/wiki/Seccomp) (secure computing mode) is a security facility in the Linux kernel for restricting the set of system calls applications can make.
 
-Starting from Kubernetes v1.3.0 the Seccomp feature is in `Alpha`. To configure it on a `Pod`, the following annotations can be used:
+Starting from Kubernetes v1.3.0, the Seccomp feature is in `Alpha`. To configure it on a `Pod`, the following annotations can be used:
 
 - `seccomp.security.alpha.kubernetes.io/pod: <seccomp-profile>` where `<seccomp-profile>` is the seccomp profile to apply to all containers in a `Pod`.
 - `container.seccomp.security.alpha.kubernetes.io/<container-name>: <seccomp-profile>` where `<seccomp-profile>` is the seccomp profile to apply to `<container-name>` in a `Pod`.
 
 More details can be found in the `PodSecurityPolicy` [documentation](https://kubernetes.io/docs/concepts/policy/pod-security-policy/#seccomp).
 
-## Installation of custom profile
+## Installation of a Custom Profile
 
 By default, kubelet loads custom Seccomp profiles from `/var/lib/kubelet/seccomp/`. There are two ways in which Seccomp profiles can be added to a `Node`:
 
 - to be baked in the machine image
-- to be added at runtime.
+- to be added at runtime
 
 This guide focuses on creating those profiles via a `DaemonSet`.
 
@@ -48,7 +46,9 @@ data:
     }
 ```
 
-> The policy above is a very simple one and not siutable for complex applications. The [default docker profile](https://github.com/moby/moby/blob/v17.05.0-ce/profiles/seccomp/default.json) can be used a reference. Feel free to modify it to your needs.
+{{% alert color="info"  title="Note" %}}
+The policy above is a very simple one and not suitable for complex applications. The [default docker profile](https://github.com/moby/moby/blob/v17.05.0-ce/profiles/seccomp/default.json) can be used a reference. Feel free to modify it to your needs.
+{{% /alert %}}
 
 Apply the `ConfigMap` in your cluster:
 
@@ -57,7 +57,7 @@ $ kubectl apply -f seccomp-profile.yaml
 configmap/seccomp-profile created
 ```
 
-The next steps is to create the `DaemonSet` seccomp installer. It's going to copy the policy from above in `/var/lib/kubelet/seccomp/my-profile.json`.
+The next steps is to create the `DaemonSet` Seccomp installer. It's going to copy the policy from above in `/var/lib/kubelet/seccomp/my-profile.json`.
 
 Create a file called `seccomp-installer.yaml` with the following content:
 
@@ -112,9 +112,9 @@ NAME                      READY   STATUS    RESTARTS   AGE
 seccomp-installer-wjbxq   1/1     Running   0          21s
 ```
 
-## Create a Pod using custom Seccomp profile
+## Create a Pod Using a Custom Seccomp Profile
 
-Finally we want to create a profile which uses our new Seccomp profile `my-profile.json`.
+Finally, we want to create a profile which uses our new Seccomp profile `my-profile.json`.
 
 Create a file called `my-seccomp-pod.yaml` with the following content:
 
@@ -135,7 +135,7 @@ spec:
     image: k8s.gcr.io/pause:3.1
 ```
 
-Create the `Pod` and see that's running:
+Create the `Pod` and see that it's running:
 
 ```console
 $ kubectl apply -f my-seccomp-pod.yaml
@@ -148,7 +148,7 @@ seccomp-app  1/1     Running   0          42s
 
 ## Throubleshooting
 
-If an invalid or not existing profile is used then the `Pod` will be stuck in `ContainerCreating` phase:
+If an invalid or a non-existing profile is used, then the `Pod` will be stuck in `ContainerCreating` phase:
 
 `broken-seccomp-pod.yaml`:
 
@@ -186,9 +186,9 @@ Events:
 for sandbox "broken-seccomp": failed to generate seccomp security options for container: cannot load seccomp profile "/var/lib/kubelet/seccomp/not-existing-profile.json": open /var/lib/kubelet/seccomp/not-existing-profile.json: no such file or directory
 ```
 
-## Further reading
+## Related Links
 
-- https://en.wikipedia.org/wiki/Seccomp
-- https://docs.docker.com/engine/security/seccomp
-- https://lwn.net/Articles/656307/
-- http://man7.org/conf/lpc2015/limiting_kernel_attack_surface_with_seccomp-LPC_2015-Kerrisk.pdf
+- [Seccomp](https://en.wikipedia.org/wiki/Seccomp)
+- [A Seccomp Overview](https://lwn.net/Articles/656307/)
+- [Seccomp Security Profiles for Docker](https://docs.docker.com/engine/security/seccomp)
+- [Using Seccomp to Limit the Kernel Attack Surface](https://man7.org/conf/lpc2015/limiting_kernel_attack_surface_with_seccomp-LPC_2015-Kerrisk.pdf)

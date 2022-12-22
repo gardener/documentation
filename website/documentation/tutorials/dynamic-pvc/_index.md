@@ -1,23 +1,23 @@
 ---
 title: Dynamic Volume Provisioning
-description: Running a Postgres database on Kubernetes and dynamically provision and mount the storage volumes needed by the database
+description: "Running a Postgres database on Kubernetes"
 layout: single-page
 level: beginner
 category: Getting Started
 scope: app-developer
 ---
 
-## Introduction
-The example shows how to run a postgres database on Kubernetes and how to dynamically provision and mount the storage 
+## Overview
+The example shows how to run a Postgres database on Kubernetes and how to dynamically provision and mount the storage 
 volumes needed by the database
 
-## Run postgres database
-Define the following Kubernetes resources in a yaml file
+## Run Postgres Database
+Define the following Kubernetes resources in a yaml file:
 
 - PersistentVolumeClaim (PVC)
 - Deployment
 
-#### PersistentVolumeClaim
+### PersistentVolumeClaim
 
 ```yaml
 apiVersion: v1
@@ -33,10 +33,10 @@ spec:
   storageClassName: 'default'
 ```
 
-This defines a PVC using storage class `default`.  Storage classes abstract from the underlying storage provider as well 
+This defines a PVC using the storage class `default`. Storage classes abstract from the underlying storage provider as well 
 as other parameters, like disk-type (e.g.; solid-state vs standard disks).
 
-The default storage class has annotation **{"storageclass.kubernetes.io/is-default-class":"true"}**.
+The default storage class has the annotation **{"storageclass.kubernetes.io/is-default-class":"true"}**.
 
 ```bash
 
@@ -55,8 +55,8 @@ Events:                <none>
 
 ```
 
-A Persistent Volume is automatically created when it is dynamically provisioned. In following example, the PVC is defined 
-as "postgresdb-pvc", and a corresponding PV "pvc-06c81c30-72ea-11e8-ada2-aa3b2329c8bb" is created and associated with pvc automatically.
+A Persistent Volume is automatically created when it is dynamically provisioned. In the following example, the PVC is defined 
+as "postgresdb-pvc", and a corresponding PV "pvc-06c81c30-72ea-11e8-ada2-aa3b2329c8bb" is created and associated with the PVC automatically.
 
 ```bash
 $ kubectl create -f .\postgres_deployment.yaml
@@ -72,21 +72,21 @@ postgresdb-pvc   Bound     pvc-06c81c30-72ea-11e8-ada2-aa3b2329c8bb   9Gi       
 ```
 
 Notice that the **RECLAIM POLICY** is **Delete** (default value), which is one of the two reclaim policies, the other
-one is **Retain**. (A third policy **Recycle** has been deprecated).  In case of **Delete**, the PV is deleted automatically 
+one is **Retain**. (A third policy **Recycle** has been deprecated). In the case of **Delete**, the PV is deleted automatically 
 when the PVC is removed, and the data on the PVC will also be lost.
 
-On the other hand, PV with **Retain** policy will not be deleted when the PVC is removed, and moved to **Release** status, so 
+On the other hand, a PV with **Retain** policy will not be deleted when the PVC is removed, and moved to **Release** status, so 
 that data can be recovered by Administrators later.
 
-You can use the `kubectl patch` command to change the reclaim policy as described here [here](https://kubernetes.io/docs/tasks/administer-cluster/change-pv-reclaim-policy/)
-or use `kubectl edit pv <pv-name>` to edit online as below:
+You can use the `kubectl patch` command to change the reclaim policy as described in [Change the Reclaim Policy of a PersistentVolume](https://kubernetes.io/docs/tasks/administer-cluster/change-pv-reclaim-policy/)
+or use `kubectl edit pv <pv-name>` to edit it online as shown below:
 
 ```bash
 $ kubectl get pv
 NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS    CLAIM                    STORAGECLASS   REASON    AGE
 pvc-06c81c30-72ea-11e8-ada2-aa3b2329c8bb   9Gi        RWO            Delete           Bound     default/postgresdb-pvc   default                  44m
 
-# change the relcaim policy from "Delete" to "Retain"
+# change the reclaim policy from "Delete" to "Retain"
 $ kubectl edit pv pvc-06c81c30-72ea-11e8-ada2-aa3b2329c8bb
 persistentvolume "pvc-06c81c30-72ea-11e8-ada2-aa3b2329c8bb" edited
 
@@ -96,11 +96,10 @@ NAME                                       CAPACITY   ACCESS MODES   RECLAIM POL
 pvc-06c81c30-72ea-11e8-ada2-aa3b2329c8bb   9Gi        RWO            Retain           Bound     default/postgresdb-pvc   default                  45m
 ```
 
+### Deployment
 
-#### Deployment
-
-Once a PVC is created, you can use it in your container via `volumes.persistentVolumeClaim.claimName`.   In below 
-example, pvc **postgresdb-pvc** is mounted as readable and writable, and in `volumeMounts` two paths in the container are mounted to subfolders in the volume.
+Once a PVC is created, you can use it in your container via `volumes.persistentVolumeClaim.claimName`. In the below 
+example, the PVC **postgresdb-pvc** is mounted as readable and writable, and in `volumeMounts` two paths in the container are mounted to subfolders in the volume.
 
 ```yaml
 apiVersion: apps/v1
@@ -175,11 +174,10 @@ root@postgres-7f485fd768-c5jf9:/# ls /var/log/postgresql/logs/
 
 ```
 
+## Deleting a PersistentVolumeClaim
 
-#### Deleting a PersistentVolumeClaim
-
-In case of "Delete" policy, deleting a PVC will also delete its associated PV.  If "Retain" is the reclaim policy, the 
-PV will change status from **Bound** to **Released** when PVC is deleted.
+In case of a **Delete** policy, deleting a PVC will also delete its associated PV. If **Retain** is the reclaim policy, the 
+PV will change status from **Bound** to **Released** when the PVC is deleted.
 
 ```bash
 # Check pvc and pv before deletion

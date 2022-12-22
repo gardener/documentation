@@ -1,6 +1,6 @@
 ---
 title: Orchestration of Container Startup
-description: "How to orchestrate startup sequence of multiple containers"
+description: "How to orchestrate a startup sequence of multiple containers"
 level: beginner
 category: Getting Started
 scope: app-developer
@@ -8,18 +8,21 @@ scope: app-developer
 
 ## Disclaimer
 
-If an application depends on other services deployed separately do not rely on a certain start sequence of containers 
-but ensure that the application can cope with unavailability of the services it depends on.
-
+If an application depends on other services deployed separately, do not rely on a certain start sequence of containers. Instead, 
+ensure that the application can cope with unavailability of the services it depends on.
 
 ## Introduction
-Kubernetes offers a feature called [InitContainers](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) to perform some tasks during a pod's initialization.
-In this tutorial we demonstrate how to use it orchestrate starting sequence of multiple containers.  The tutorial uses the example app  [url-shortener](https://medium.com/@xcoulon/deploying-your-first-web-app-on-minikube-6e98d2884b3a) which consists of two components:
+Kubernetes offers a feature called [InitContainers](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) 
+to perform some tasks during a pod's initialization.
+In this tutorial, we demonstrate how to use `InitContainers` in order to orchestrate a starting sequence of multiple containers. 
+The tutorial uses the example app [url-shortener](https://medium.com/@xcoulon/deploying-your-first-web-app-on-minikube-6e98d2884b3a), 
+which consists of two components:
 
 - postgresql database
-- webapp which depends on postgresql database and provides two endpoints: create a short url from a given location, and redirect  from a given short URL to the corresponding target location.
+- webapp which depends on the postgresql database and provides two endpoints: *create a short url from a given location* and *redirect from a given short URL to the corresponding target location*
 
-This app represents the minimal example where an application relies on another service or database.  In this example, if the application starts before database is ready, the application will fail as shown below:
+This app represents the minimal example where an application relies on another service or database. In this example, 
+if the application starts before the database is ready, the application will fail as shown below:
 
 ```bash
 $ kubectl logs webapp-958cf5567-h247n
@@ -43,10 +46,11 @@ webapp-958cf5567-h247n   0/1       CrashLoopBackOff   3         56s
 
 ```
 
-If the `restartPolicy` is set to `Always` (default) in yaml, the application will continue to restart the pod with an exponential back-off delay in case of failure.
+If the `restartPolicy` is set to `Always` (default) in the yaml file, the application will continue to restart the pod with an exponential back-off delay in case of failure.
 
 ## Using InitContaniner
-To avoid such situation, `InitContainers ` can be defined which are executed prior to the application container.  If one InitContainers fails, the application container won't be triggered.
+To avoid such a situation, `InitContainers` can be defined, which are executed prior to the application container. If one 
+of the `InitContainers` fails, the application container won't be triggered.
 
 ```yaml
 apiVersion: apps/v1
@@ -84,10 +88,10 @@ spec:
         - containerPort: 8080
 ```
 
-In above example, the `InitContainers` uses docker image `postgres:9.6.5` which is different from the application container.
+In the above example, the `InitContainers` use the docker image `postgres:9.6.5`, which is different from the application container.
 This also brings the advantage of not having to include unnecessary tools (e.g. pg_isready) in the application container.
 
-With introduction of `InitContainers`, the pod startup will look like following in case database is not available yet:
+With introduction of `InitContainers`, in case the database is not available yet, the pod startup will look like similarly to:
 
 ```bash
 $ kubectl get po -w

@@ -47,10 +47,10 @@ Use the following format to compose a URL for accessing your service through an 
 
 | your-main-cluster  | your-namespace | your-service  | your-service-port  | your-service-endpoint  | url to access service  |
 | ------------------|:--------------------: | -----------:| ----------------:| ----------------:| ----------------:|
-| api.testclstr.cpet.k8s.sapcloud.io     | default | nginx-svc     |  80                |   /           | `http://api.testclstr.cpet.k8s.sapcloud.io/api/v1/namespaces/default/services/nginx-svc:80/proxy/`
-| api.testclstr.cpet.k8s.sapcloud.io     | default | docker-nodejs-svc |  4500          |   /cpu?baseNumber=4 | `https://api.testclstr.cpet.k8s.sapcloud.io/api/v1/namespaces/default/services/docker-nodejs-svc:4500/proxy/cpu?baseNumber=4`
+| api.testclstr.cpet.k8s.sapcloud.io     | default | nginx-svc     |  80                |   /           | `http://api.testclstr.cpet.k8s.sapcloud.io/api/v1/namespaces/default/services/nginx-svc:80/proxy/` |
+| api.testclstr.cpet.k8s.sapcloud.io     | default | docker-nodejs-svc |  4500          |   /cpu?baseNumber=4 | `https://api.testclstr.cpet.k8s.sapcloud.io/api/v1/namespaces/default/services/docker-nodejs-svc:4500/proxy/cpu?baseNumber=4` |
 
-For more details on the format, please refer to the [official documentation](https://kubernetes.io/docs/tasks/access-application-cluster/access-cluster/#discovering-builtin-services).
+For more details on the format, please refer to the [official Kubernetes documentation](https://kubernetes.io/docs/tasks/access-application-cluster/access-cluster/#discovering-builtin-services).
 
 {{% alert color="info"  title="Note" %}}
 There are applications which do not support relative URLs yet, e.g. [Prometheus](https://github.com/prometheus/prometheus/issues/1583) (as of November, 2022).

@@ -7,7 +7,6 @@ icon: navigation_links.svg
 A curated list of awesome Kubernetes sources.
 Inspired by [@sindresorhus' awesome](https://github.com/sindresorhus/awesome)
 
-
 ### Setup
 * [Install Docker for Mac](https://docs.docker.com/docker-for-mac/)
 * [Install Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
@@ -33,7 +32,6 @@ Inspired by [@sindresorhus' awesome](https://github.com/sindresorhus/awesome)
 * [Interactive Tutorial](https://kubernetes.io/docs/tutorials/kubernetes-basics/cluster-interactive/)
 * [Play with Kubernetes](http://labs.play-with-k8s.com/)
 * [Kubernetes Bootcamp](http://kubernetesbootcamp.github.io/kubernetes-bootcamp/)
-
 
 ## Massive Open Online Courses / Tutorials
 
@@ -86,7 +84,6 @@ Inspired by [@sindresorhus' awesome](https://github.com/sindresorhus/awesome)
 * [Setting up a Kubernetes on ARM cluster](https://kubecloud.io/setting-up-a-kubernetes-on-arm-cluster-on-raspberry-pis-f7f64065138c)
 * [Setup Kubernetes on a Raspberry Pi Cluster easily the official way!](https://blog.hypriot.com/post/setup-kubernetes-raspberry-pi-cluster/) by [Mathias Renner and Lucas Käldström](https://blog.hypriot.com/crew/)
 * [How to Build a Kubernetes Cluster with ARM Raspberry Pi then run .NET Core on OpenFaas](https://www.hanselman.com/blog/HowToBuildAKubernetesClusterWithARMRaspberryPiThenRunNETCoreOnOpenFaas.aspx) by [Scott Hanselman](https://twitter.com/shanselman)
-
 
 ## Contributing
 
