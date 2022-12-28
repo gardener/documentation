@@ -30,60 +30,135 @@ Create a separate `kubeconfig` for each user. One of the big advantages of this 
 the permissions better. A limitation to single namespaces is also possible here.
 
 The script creates a new `ServiceAccount` with read privileges in the whole cluster (Secrets are excluded).
-To run the script, [jq](https://stedolan.github.io/jq/), a lightweight and flexible command-line JSON processor, must 
-be installed.
+To run the script, [Deno](https://deno.land/), a secure TypeScript runtime must be installed.
 
 
-```bash
-#!/bin/bash
+```TypeScript
+#!/usr/bin/env -S deno run --allow-run
 
-if [[ -z "$1" ]] ;then
-  echo "usage: $0 <username>"
-  exit 1
-fi
+/*
+* This script create Kubernetes ServiceAccount and other required resource and print KUBECONFIG to console.
+* Depending on your requirements you might want change clusterRoleBindingTemplate() function
+*
+* In order to execute this script it's required to install Deno.js https://deno.land/ (TypeScript & JavaScript runtime).
+* It's single executable binary for the major OSs from the original author of the Node.js
+* example: deno run --allow-run kubeconfig-for-custom-user.ts d00001
+* example: deno run --allow-run kubeconfig-for-custom-user.ts d00001 --delete
+*
+* known issue: shebang does works under the Linux but not for Windows Linux Subsystem
+*/
 
-user=$1
-kubectl create sa ${user}
-secret=$(kubectl get sa ${user} -o json | jq -r .secrets[].name)
-kubectl get secret ${secret} -o json | jq -r '.data["ca.crt"]' | base64 -D > ca.crt
+const KUBECTL = "/usr/local/bin/kubectl" //or
+// const KUBECTL = "C:\\Program Files\\Docker\\Docker\\resources\\bin\\kubectl.exe"
 
-user_token=$(kubectl get secret ${secret} -o json | jq -r '.data["token"]' | base64 -D)
-c=`kubectl config current-context`
-cluster_name=`kubectl config get-contexts $c | awk '{print $3}' | tail -n 1`
-endpoint=`kubectl config view -o jsonpath="{.clusters[?(@.name == \"${cluster_name}\")].cluster.server}"`
+const serviceAccName = Deno.args[0]
+const deleteIt = Deno.args[1]
+if (serviceAccName == undefined || serviceAccName == "--delete" ) {
+    console.log("please provide username as an argument, for example: deno run --allow-run kubeconfig-for-custom-user.ts USER_NAME [--delete]")
+    Deno.exit(1)
+}
 
-# Set up the config
-KUBECONFIG=k8s-${user}-conf kubectl config set-cluster ${cluster_name} \
-    --embed-certs=true \
-    --server=${endpoint} \
-    --certificate-authority=./ca.crt
+if (deleteIt == "--delete") {
+    exec([KUBECTL, "delete", "serviceaccount", serviceAccName])
+    exec([KUBECTL, "delete", "secret", `${serviceAccName}-secret`])
+    exec([KUBECTL, "delete", "clusterrolebinding", `view-${serviceAccName}-global`])
+    Deno.exit(0)
+}
 
-KUBECONFIG=k8s-${user}-conf kubectl config set-credentials ${user}-${cluster_name#cluster-} --token=${user_token}
-KUBECONFIG=k8s-${user}-conf kubectl config set-context ${user}-${cluster_name#cluster-} \
-    --cluster=${cluster_name} \
-    --user=${user}-${cluster_name#cluster-}
-KUBECONFIG=k8s-${user}-conf kubectl config use-context ${user}-${cluster_name#cluster-}
+await exec([KUBECTL, "create", "serviceaccount", serviceAccName, "-o", "json"])
 
-cat <<EOF | kubectl create -f -
+await exec([KUBECTL, "create", "-o", "json", "-f", "-"], secretYamlTemplate())
+let secret = await exec([KUBECTL, "get", "secret", `${serviceAccName}-secret`, "-o", "json"])
+let caCRT = secret.data["ca.crt"];
+let userToken = atob(secret.data["token"]); //decode base64
+
+let kubeConfig = await exec([KUBECTL, "config", "view", "--minify", "-o", "json"]);
+let clusterApi = kubeConfig.clusters[0].cluster.server
+let clusterName = kubeConfig.clusters[0].name
+
+await exec([KUBECTL, "create", "-o", "json", "-f", "-"], clusterRoleBindingTemplate())
+
+console.log(kubeConfigTemplate(caCRT, userToken, clusterApi, clusterName, serviceAccName + "-" + clusterName))
+
+async function exec(args: string[], stdInput?: string): Promise<Object> {
+    console.log("# "+args.join(" "))
+    let opt: Deno.RunOptions = {
+        cmd: args,
+        stdout: "piped",
+        stderr: "piped",
+        stdin: "piped",
+    };
+
+    const p = Deno.run(opt);
+
+    if (stdInput != undefined) {
+        await p.stdin.write(new TextEncoder().encode(stdInput));
+        await p.stdin.close();
+    }
+
+    const status = await p.status()
+    const output = await p.output()
+    const stderrOutput = await p.stderrOutput()
+    if (status.code === 0) {
+        return JSON.parse(new TextDecoder().decode(output))
+    } else {
+        let error = new TextDecoder().decode(stderrOutput);
+        return ""
+    }
+}
+
+function clusterRoleBindingTemplate() {
+    return `
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: view-${user}-global
+  name: view-${serviceAccName}-global
 subjects:
 - kind: ServiceAccount
-  name: ${user}
+  name: ${serviceAccName}
   namespace: default
 roleRef:
   kind: ClusterRole
   name: view
-  apiGroup: rbac.authorization.k8s.io
+  apiGroup: rbac.authorization.k8s.io    
+`
+}
 
-EOF
+function secretYamlTemplate() {
+    return `
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ${serviceAccName}-secret
+  annotations:
+    kubernetes.io/service-account.name: ${serviceAccName}
+type: kubernetes.io/service-account-token`
+}
 
+function kubeConfigTemplate(certificateAuthority: string, token: string, clusterApi: string, clusterName: string, username: string) {
+    return `
+## KUBECONFIG generated on ${new Date()}
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: ${certificateAuthority}
+    server: ${clusterApi}
+  name: ${clusterName}
+contexts:
+- context:
+    cluster: ${clusterName}
+    user: ${username}
+  name: ${clusterName}
+current-context: ${clusterName}
+kind: Config
+preferences: {}
+users:
+- name: ${username}
+  user:
+    token: ${token}
+`
+}
 
-echo "done! Test with: "
-echo "export KUBECONFIG=k8s-${user}-conf"
-echo "kubectl get pods"
 ```
 
 If **edit** or **admin** rights are to be assigned, the `ClusterRoleBinding` must be adapted in the `roleRef` section 
