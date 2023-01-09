@@ -30,7 +30,7 @@ Create a separate `kubeconfig` for each user. One of the big advantages of this 
 the permissions better. A limitation to single namespaces is also possible here.
 
 The script creates a new `ServiceAccount` with read privileges in the whole cluster (Secrets are excluded).
-To run the script, [Deno](https://deno.land/), a secure TypeScript runtime must be installed.
+To run the script, [Deno](https://deno.land/), a secure TypeScript runtime, must be installed.
 
 
 ```TypeScript
