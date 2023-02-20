@@ -21,7 +21,6 @@ This guide only covers how to get access to the host, but does not cover trouble
 - [Get a Shell to an Operational Cluster Node](#get-a-shell-to-an-operational-cluster-node)
   - [Gardener Dashboard](#gardener-dashboard)
     - [Result](#result)
-  - [gardenctl shell](#gardenctl-shell)
   - [Gardener Ops Toolbelt](#gardener-ops-toolbelt)
   - [Custom Root Pod](#custom-root-pod)
 - [SSH Access to a Node That Failed to Join the Cluster](#ssh-access-to-a-node-that-failed-to-join-the-cluster)
@@ -72,33 +71,6 @@ In the default image used by the Dashboard, it is under `/hostroot`.
 
 <img style="margin-left:0"  alt="Dashboard terminal pod configuration" src="./images/3da659e9cc4744a2ad3e1c6a50d39c04.png"/>
 <br>
-
-### gardenctl shell
-
-**Prerequisite**: `kubectl` and [gardenctl are available and configured](https://github.com/gardener/gardenctl).
-
-1. First, target a Garden cluster containing all the Shoot definitions.
-
-```
-$ gardenctl target garden <target-garden>
-```
-
-2. Target an available Shoot by name. 
-This sets up the context and configures the `kubeconfig` file of the Shoot cluster.
-Subsequent commands will execute in this context.
-```
-$ gardenctl target shoot <target-shoot>
-```
-
-3. Get the nodes of the Shoot cluster.
-```
-$ gardenctl kubectl get nodes 
-```
-
-4. Pick a node name from the list above and get a root shell access to it.
-```
-$ gardenctl shell <target-node>
-```
 
 ### Gardener Ops Toolbelt
 
