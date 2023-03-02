@@ -16,7 +16,7 @@ Fixes #
 <!-- If you are opening a PR in response to a specific issue, linking it will automatically 
 close the issue once the PR has been merged -->
 **Special notes for your reviewer**:
-<!-- Any additional information your reviwer might need to know to better process your PR -->
+<!-- Any additional information your reviewer might need to know to better process your PR -->
 **Release note**:
 <!--  Write your release note:
 1. Enter your release note in the below block.
