@@ -72,7 +72,7 @@ The deployment of [Prometheus](https://github.com/kubernetes/charts/tree/master/
 Make sure to implement the [Helm settings](https://github.com/gardener/documentation/blob/master/website/documentation/guides/client_tools/helm/_index.md) before deploying the Helm charts.
 
 The Kubernetes clusters provided by [Gardener](https://github.com/gardener) use role based 
-access control ([RBAC](https://kubernetes.io/docs/admin/authorization/rbac/)). To authorize the Prometheus 
+access control ([RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)). To authorize the Prometheus 
 node-exporter to access hardware and OS relevant metrics of your cluster's worker nodes, specific artifacts need to be 
 deployed.
 

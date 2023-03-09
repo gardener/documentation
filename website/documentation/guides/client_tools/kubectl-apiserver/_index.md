@@ -23,7 +23,7 @@ You can use kubectl and connect to the API-server of your cluster.
 2. Bind a role to the newly created serviceuser:
    
    {{% alert color="warning"  title="Warning" %}}
-   In this example, the preconfigured role `edit` and the namespace `default` is being used, please adjust the role to a more strict scope! For more information, see [Using RBAC Authorization](https://kubernetes.io/docs/admin/authorization/rbac/).
+   In this example, the preconfigured role `edit` and the namespace `default` is being used, please adjust the role to a more strict scope! For more information, see [Using RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
    {{% /alert %}}
    ```
    kubectl create rolebinding deploy-default-role --clusterrole=edit --serviceaccount=default:deploy-user --namespace=default
