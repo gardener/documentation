@@ -14,58 +14,21 @@ These are guidelines, not rules. Use your best judgment, and feel free to propos
 
 | Type of Text | Formatting | Markdown Syntax |
 |:---|:---|:---|
-| [User Interface Elements](#user-interface-elements) | *italics* | `Choose *CLUSTERS*`. |
+| [API Objects and Technical Components](#api-objects-and-technical-components) | `code` | <code>Deploy a \`Pod\`.</code> |
 | [New Terms and Emphasis](#new-terms-and-emphasis) | **bold** | `Do **not** stop it.` |
 | [Technical Names](#technical-names) | `code` | <code>Open file \`root.yaml\`.</code> |
-| [API Objects and Technical Components](#api-objects-and-technical-components) | `code` | <code>Deploy a \`Pod\`.</code> |
+| [User Interface Elements](#user-interface-elements) | *italics* | `Choose *CLUSTERS*`. |
 | [Inline Code and Inline Commands](#inline-code-and-inline-commands)| `code` | <code>For declarative management, use \`kubectl apply\`.</code> |
 | [Object Field Names and Field Values](#object-field-names-and-field-values)|`code` | <code>Set the value of \`image\` to \`nginx:1.8\`.</code> |
 | [Links and References](#links-and-references) | [link]() | `Visit the [Gardener website](https://gardener.cloud/)` |
-| [Headers](#headers) | various | `# API Server`
-
-
-### User Interface Elements
-
-When referring to UI elements, refrain from using verbs like "Click" or "Select with right mouse button". This level of detail is hardly ever needed and also invalidates a procedure if other devices are used. For example, for a tablet you'd say "Tap on".
-
-Use *italics* when you refer to UI elements.
-
-| UI Element | Standard Formulation | Markdown Syntax |
-|:---|:---|:---|
-| Button, Menu path | Choose *UI Element*. | `Choose *UI Element*.` |
-| Menu path, context menu, navigation path  |  Choose *System* \> *User Profile* \> *Own Data*. | `Choose *System* \> *User Profile* \> *Own Data*.` |
-| Entry fields | Enter your password. | `Enter your password.` |
-| Checkbox, radio button | Select *Filter*. | `Select *Filter*.` |
-| Expandable screen elements | Expand *User Settings*.<br>Collapse *User Settings*. | `Expand *User Settings*`.<br>`Collapse *User Settings*.` |
-
-
-### New Terms and Emphasis
-
-Use **bold** to emphasize something or to introduce a new term.
-
-|  Do  | Don't |
-|:---|:---|
-|  A **cluster** is a set of nodes ...  | A "cluster" is a set of nodes ...    |
-|  The system does **not** delete your objects.   | The system does not(!) delete your objects.    |
-
-
-### Technical Names
-
-Use code style (using backticks) for filenames, technical componentes, directories, and paths.
-
-|  Do  | Don't |
-|:---|:---|
-| Open file `envars.yaml`.   |  Open the envars.yaml file.   |
-| Go to directory `/docs/tutorials`.   |  Go to the /docs/tutorials directory.   |
-| Open file `/_data/concepts.yaml`.  | Open the /_data/concepts.yaml file. |
+| [Headers](#headers) | various | `# API Server` |
 
 
 ### API Objects and Technical Components
 
 When you refer to an API object, use the same uppercase and lowercase letters
-that are used in the actual object name, and use backticks to format them. Typically, the names of API
-objects use
-[camel case](https://en.wikipedia.org/wiki/Camel_case).
+that are used in the actual object name, and use backticks (\`) to format them. Typically, the names of API
+objects use [camel case](https://en.wikipedia.org/wiki/Camel_case).
 
 Don't split the API object name into separate words. For example, use
 `PodTemplateList`, not Pod Template List.
@@ -80,6 +43,39 @@ leads to an awkward construction.
 | A `PodList` is a list of Pods. | A Pod List is a list of pods.  |
 | The `gardener-control-manager` has control loops... | The gardener-control-manager has control loops...|
 | The `gardenlet` starts up with a bootstrap `kubeconfig` having a bootstrap token that allows to create `CertificateSigningRequest` (CSR) resources. | The gardenlet starts up with a bootstrap kubeconfig having a bootstrap token that allows to create CertificateSigningRequest (CSR) resources. |
+
+### New Terms and Emphasis
+
+Use **bold** to emphasize something or to introduce a new term.
+
+|  Do  | Don't |
+|:---|:---|
+|  A **cluster** is a set of nodes ...  | A "cluster" is a set of nodes ...    |
+|  The system does **not** delete your objects.   | The system does not(!) delete your objects.    |
+
+### Technical Names
+
+Use backticks (\`) for filenames, technical componentes, directories, and paths.
+
+|  Do  | Don't |
+|:---|:---|
+| Open file `envars.yaml`.   |  Open the envars.yaml file.   |
+| Go to directory `/docs/tutorials`.   |  Go to the /docs/tutorials directory.   |
+| Open file `/_data/concepts.yaml`.  | Open the /_data/concepts.yaml file. |
+
+### User Interface Elements
+
+When referring to UI elements, refrain from using verbs like "Click" or "Select with right mouse button". This level of detail is hardly ever needed and also invalidates a procedure if other devices are used. For example, for a tablet you'd say "Tap on".
+
+Use *italics* when you refer to UI elements.
+
+| UI Element | Standard Formulation | Markdown Syntax |
+|:---|:---|:---|
+| Button, Menu path | Choose *UI Element*. | `Choose *UI Element*.` |
+| Menu path, context menu, navigation path  |  Choose *System* \> *User Profile* \> *Own Data*. | `Choose *System* \> *User Profile* \> *Own Data*.` |
+| Entry fields | Enter your password. | `Enter your password.` |
+| Checkbox, radio button | Select *Filter*. | `Select *Filter*.` |
+| Expandable screen elements | Expand *User Settings*.<br>Collapse *User Settings*. | `Expand *User Settings*`.<br>`Collapse *User Settings*.` |
 
 ### Inline Code and Inline Commands
 
@@ -96,24 +92,25 @@ Use backticks (\`) for field names, and field values.
 
 |  Do  | Don't |
 |:---|:---|
-| Set the value of the `replicas` field in the configuration file.   | Set the value of the "replicas" field in the configuration file.    |
-| The value of the `exec` field is an `ExecAction` object.   | The value of the "exec" field is an ExecAction object.    |
+| Set the value of the `replicas` field in the configuration file.  | Set the value of the "replicas" field in the configuration file.    |
+| The value of the `exec` field is an `ExecAction` object.  | The value of the "exec" field is an ExecAction object.    |
 | Set the value of `imagePullPolicy` to `Always`. | Set the value of `imagePullPolicy` to "Always". |
-| Set the value of `image` to `nginx:1.8`. | the value of `image` to nginx:1.8. |
+| Set the value of `image` to `nginx:1.8`. | Set the value of `image` to nginx:1.8. |
 
 ### Links and References
 
 |  Do  | Don't |
 |:---|:---|
-| Use a descriptor of the link's destination: "For more information, visit [Gardener's website]()." | Use a generic placeholder: "For more information, go [here]()." |
+| Use a descriptor of the link's destination: "For more information, visit [Gardener's website](#links-and-references)." | Use a generic placeholder: "For more information, go [here](#links-and-references)." |
+| Use relative links when linking to content in the same repository: `[Style Guide](../40_style_guide/_index.md)`| Use absolute links when linking to content in the same repository: `[Style Guide](https://github.com/gardener/documentation/blob/master/website/documentation/contribute/20_documentation/40_style_guide/_index.md)` |
 
-Another thing to keep in mind is that markdown links do not work in [shortcodes](../30_shortcodes/_index.md). To circumvent this problem, you can use HTML links.
+Another thing to keep in mind is that markdown links do not work in certain [shortcodes](../30_shortcodes/_index.md) (e.g., mermaid). To circumvent this problem, you can use HTML links.
 
 ### Headers
 
-* Use H1 for the title of the topic.
-* Use H2 for each main section. 
-* Use H3 for any sub-section in the main sections. 
+* Use H1 for the title of the topic. (`# H1 Title`)
+* Use H2 for each main section. (`## H2 Title`)
+* Use H3 for any sub-section in the main sections. (`### H3 Title`)
 * Avoid using H4-H6. Try moving the additional information to a new topic instead.
 
 ## Code Snippet Formatting
@@ -154,10 +151,10 @@ kubectl describe pod <pod-name>
 
 </code>
 
-### Versioning Kubernetes examples
+### Versioning Kubernetes Examples
 
 Make code examples and configuration examples that include version information consistent with the accompanying text. Identify the Kubernetes version in the **Prerequisites** section.
 
-## Related links
+## Related Links
 * [Style Guide](../40_style_guide/_index.md)
-* [Contributors Guide](../_index.md)
+* [Contributors Guide](../../_index.md)

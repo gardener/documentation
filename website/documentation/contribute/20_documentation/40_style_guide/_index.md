@@ -106,9 +106,9 @@ If you want to add an image to your topic, it is recommended to follow the guide
 * Concept and reference topic titles should be simple and succint
 * Task and tutorial topic titles begin with a verb
 
-## Related links
+## Related Links
 * [Formatting Guide](../20_formatting_guide/_index.md)
-* [Contributors Guide](../_index.md)
+* [Contributors Guide](../../_index.md)
 * [Shortcodes](../30_shortcodes/_index.md)
 * [Images](../45_images/_index.md)
 * [SAPterm](https://www.sapterm.com/)
