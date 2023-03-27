@@ -39,10 +39,14 @@ leads to an awkward construction.
 |  Do  | Don't |
 |:---|:---|
 | The `Pod` has two containers.   | The pod has two containers.    |
-| The `Deployment` is responsible for ...   |  The Deployment object is responsible for ...    |
+| The `Deployment` is responsible for...   |  The Deployment object is responsible for...    |
 | A `PodList` is a list of Pods. | A Pod List is a list of pods.  |
 | The `gardener-control-manager` has control loops... | The gardener-control-manager has control loops...|
 | The `gardenlet` starts up with a bootstrap `kubeconfig` having a bootstrap token that allows to create `CertificateSigningRequest` (CSR) resources. | The gardenlet starts up with a bootstrap kubeconfig having a bootstrap token that allows to create CertificateSigningRequest (CSR) resources. |
+
+{{% alert color="info"  title="Note" %}}
+Due to the way the website is built from content taken from different repositories, when editing or updating already existing documentation, you should follow the style used in the topic. When contributing new documentation, follow the guidelines outlined in this guide.
+{{% /alert %}}
 
 ### New Terms and Emphasis
 
