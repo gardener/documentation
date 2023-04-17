@@ -14,6 +14,8 @@ Inspired by [@sindresorhus' awesome](https://github.com/sindresorhus/awesome)
 
 ### A Place That Marks the Beginning of a Journey
 
+* Read the [kubernetes.io](https://kubernetes.io/docs/home) documentation
+* Take an online [Udemy course](https://www.udemy.com/course/learn-kubernetes)
 * [Kubernetes Community Overview and Contributions Guide](https://docs.google.com/presentation/d/1JqcALpsg07eH665ZXQrIvOcin6SzzsIUjMRRVivrZMg/edit?usp=sharing) by [Ihor Dvoretskyi](https://twitter.com/idvoretskyi/)
 * [An Intro to Google’s Kubernetes and How to Use It](http://www.ctl.io/developers/blog/post/what-is-kubernetes-and-how-to-use-it/) by [Laura Frank](https://twitter.com/rhein_wein)
 * [Getting Started on Kubernetes](http://containertutorials.com/get_started_kubernetes/index.html) by [Rajdeep Dua](https://twitter.com/rajdeepdua)
