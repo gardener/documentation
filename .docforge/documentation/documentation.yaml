@@ -28,7 +28,7 @@ structure:
 - name: gardenctl-v2
   properties:
     frontmatter:
-      aliases: 
+      aliases:
         - /docs/gardenctl/
       title: Gardenctl V2
       description: The command line interface to control your clusters
@@ -41,13 +41,6 @@ structure:
       weight: 5
   nodesSelector:
     path: /website/documentation/guides
-- name: tutorials
-  properties:
-    frontmatter:
-      title: Tutorials
-      weight: 6
-  nodesSelector:
-    path: /website/documentation/tutorials
 - name: faq
   properties:
     frontmatter:
@@ -68,7 +61,7 @@ structure:
   properties:
     frontmatter:
       title: Curated Links
-      description: Interesting and useful content on Kubernetes 
+      description: Interesting and useful content on Kubernetes
       weight: 9
   nodesSelector:
     path: /website/documentation/curated-links
