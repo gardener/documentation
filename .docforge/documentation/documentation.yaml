@@ -44,6 +44,10 @@ structure:
   nodes:
     ### /docs/guides/high-availability
     - name: 020-high-availability
+      properties:
+        frontmatter:
+          title: High Availability
+          weight: 20
       nodes:
       - name: 10-best-practices
         properties:
@@ -77,6 +81,10 @@ structure:
         source: https://github.com/gardener/chaos-engineering/blob/main/docs/tutorials/getting_started.md
     ### /docs/guides/networking
     - name: 030-networking
+      properties:
+        frontmatter:
+          title: Networking
+          weight: 30
       nodes:
       - name: DNS-extension
         properties:
@@ -119,14 +127,13 @@ structure:
         - name: _index.md
           properties:
             frontmatter:
-              title: Gardener Yourself a Shoot with Istio, Custom Domains, and Certificates
-              description: A walkthrough for setting up clusters networking with Istio, custom domains and certificates
+              title: Create Shoot with Istio, Custom Domains, and Certificates
+              description: "A walkthrough for setting up clusters networking with Istio, custom domains and certificates"
               level: beginner
+              publishdate: 2020-05-15
               category: Networking
               scope: operator
-              publishdate: 2020-05-15
-              aliases: ["/docs/tutorials/shoot-with-istio-dns-certs"]
-              tags: ["tutorial"]
+              aliases: ["/shoot-with-istio-dns-certs"]
           source: https://github.com/gardener/gardener-extension-shoot-cert-service/blob/master/docs/tutorial-custom-domain-with-istio.md
 - name: faq
   properties:
