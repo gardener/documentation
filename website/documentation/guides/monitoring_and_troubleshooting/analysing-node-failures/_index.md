@@ -41,13 +41,17 @@ In case the node had failing conditions, you'd find logs like this:
 2023-04-05 12:02:08	{"log":"Machine shoot--demo--cluster-pool-z1-6dffc-jh4z4 is unhealthy - changing MachineState to Unknown. Node conditions: [{Type:ClusterNetworkProblem Status:False LastHeartbeatTime:2023-04-05 11:58:39 +0000 UTC LastTransitionTime:2023-03-23 11:59:29 +0000 UTC Reason:NoNetworkProblems Message:no cluster network problems} ... {Type:Ready Status:Unknown LastHeartbeatTime:2023-04-05 11:55:27 +0000 UTC LastTransitionTime:2023-04-05 12:02:07 +0000 UTC Reason:NodeStatusUnknown Message:Kubelet stopped posting node status.}]","pid":"1","severity":"WARN","source":"machine_util.go:637"}
 ```
 
-In the example above, the reason for an unhealthy node was that `kubelet` failed to renew its heartbeat.
+In the example above, the reason for an unhealthy node was that `kubelet` failed to renew its heartbeat. Typical reasons would be either a broken VM (that couldn't execute `kubelet` anymore) or a broken network. Note that some VM terminations performed by the infrastructure provider are actually expected (e.g., [scheduled events on AWS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html))
+
+In both cases, the infrastructure provider might be able to provide more information on particular VM or network failures.
+
 Whatever the failure condition might have been, if a node gets unhealthy, it will be terminated by `machine-controller-manager` after the `machineHealthTimeout` has elapsed (this parameter can be configured in your [shoot spec](https://github.com/gardener/gardener/blob/v1.68.0/example/90-shoot.yaml#L132)).
 
 ### Check the Node Logs
 For each `node` the kernel and `kubelet` logs, as well as a few others, are scraped and can be queried with this query `{nodename="<node-name>"}`
-This might reveal OS specific issues or in the absence of any logs (e.g., after the node went unhealthy) might indicate a network disruption.
-Infrastructure provides might be able to provide more information on particular VM failures in such cases.
+This might reveal OS specific issues or, in the absence of any logs (e.g., after the node went unhealthy), might indicate a network disruption or sudden VM termination. Note that some VM terminations performed by the infrastructure provider are actually expected (e.g., [scheduled events on AWS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html)).
+
+Infrastructure providers might be able to provide more information on particular VM failures in such cases.
 
 ### Check the Network Problem Detector Dashboard
 If your Gardener installation utilizes [gardener-extension-shoot-networking-problemdetector](https://github.com/gardener/gardener-extension-shoot-networking-problemdetector), you can check the dashboard named "Network Problem Detector" in Grafana for hints on network issues on the node of interest.
