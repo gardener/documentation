@@ -33,7 +33,7 @@ structure:
       title: Gardenctl V2
       description: The command line interface to control your clusters
       weight: 4
-  source: https://github.com/gardener/gardenctl-v2/blob/DEFAULT_BRANCH/README.md
+  source: https://github.com/gardener/gardenctl-v2/blob/master/README.md
 - name: guides
   properties:
     frontmatter:
