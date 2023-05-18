@@ -37,6 +37,6 @@ EXAMPLE
 Some guidelines and tips for writing release notes include:
 - Be as descriptive as needed.
 - Only use lists if you are describing multiple different additions.
-- You can freely use [markdown formatting](../20_documentation/20_formatting_guide/_index.md#formatting-of-inline-elements), including links.
+- You can freely use [markdown formatting](../documentation/formatting-guide/_index.md#formatting-of-inline-elements), including links.
 
 You can find various examples in the Releases sections of the [gardener/documentation](https://github.com/gardener/documentation/releases) and [gardener/gardener](https://github.com/gardener/gardener/releases) repositories.

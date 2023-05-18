@@ -34,11 +34,19 @@ structure:
       description: The command line interface to control your clusters
       weight: 4
   source: https://github.com/gardener/gardenctl-v2/blob/master/README.md
+- name: other-components
+  properties:
+    frontmatter:
+      title: Other Components
+      description: Other components included in the Gardener project
+      weight: 5
+  nodesSelector:
+    path: ./other-components.yaml
 - name: guides
   properties:
     frontmatter:
       title: Guides
-      weight: 5
+      weight: 7
   nodesSelector:
     path: ./guides.yaml
 - name: faq
@@ -46,17 +54,9 @@ structure:
     frontmatter:
       title: FAQ
       description: Commonly asked questions about Gardener
-      weight: 7
-  nodesSelector:
-    path: /website/documentation/faq
-- name: other-components
-  properties:
-    frontmatter:
-      title: Other Components
-      description: Other components included in the Gardener project
       weight: 8
   nodesSelector:
-    path: ./other-components.yaml
+    path: /website/documentation/faq
 - name: resources
   properties:
     frontmatter:

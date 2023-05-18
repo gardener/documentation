@@ -2,6 +2,7 @@
 title: Curated Links
 url: /curated-links
 icon: navigation_links.svg
+weight: 10
 ---
 
 A curated list of awesome Kubernetes sources.

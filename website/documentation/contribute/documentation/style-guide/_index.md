@@ -1,7 +1,7 @@
 ---
 Title: Style Guide
 ---
-This page gives writing style guidelines for the Gardener documentation. For formatting guidelines, see the [Formatting Guide](../20_formatting_guide/_index.md).
+This page gives writing style guidelines for the Gardener documentation. For formatting guidelines, see the [Formatting Guide](../formatting-guide/_index.md).
 
 These are guidelines, not rules. Use your best judgment, and feel free to propose changes to this document in a Pull Request.
 
@@ -73,11 +73,11 @@ By using a metadata section you can also skip adding a title header or overwrite
 
 ### Alerts
 
-If you want to add a note, tip, or a warning to your topic, use the templates provides in the [Shortcodes](../30_shortcodes/_index.md#alert) documentation.
+If you want to add a note, tip, or a warning to your topic, use the templates provides in the [Shortcodes](../shortcodes/_index.md#alert) documentation.
 
 ### Images
 
-If you want to add an image to your topic, it is recommended to follow the guidelines outlined in the [Images](../45_images/_index.md) documentation.
+If you want to add an image to your topic, it is recommended to follow the guidelines outlined in the [Images](../images/_index.md) documentation.
 
 ### General Tips
 
@@ -107,8 +107,8 @@ If you want to add an image to your topic, it is recommended to follow the guide
 * Task and tutorial topic titles begin with a verb
 
 ## Related Links
-* [Formatting Guide](../20_formatting_guide/_index.md)
+* [Formatting Guide](../formatting-guide/_index.md)
 * [Contributors Guide](../../_index.md)
-* [Shortcodes](../30_shortcodes/_index.md)
-* [Images](../45_images/_index.md)
+* [Shortcodes](../shortcodes/_index.md)
+* [Images](../images/_index.md)
 * [SAPterm](https://www.sapterm.com/)

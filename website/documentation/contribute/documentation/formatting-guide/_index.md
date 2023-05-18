@@ -2,7 +2,7 @@
 title: Formatting Guide
 ---
 
-This page gives writing formatting guidelines for the Gardener documentation. For style guidelines, see the [Style Guide](../40_style_guide/_index.md).
+This page gives writing formatting guidelines for the Gardener documentation. For style guidelines, see the [Style Guide](../style-guide/_index.md).
 
 These are guidelines, not rules. Use your best judgment, and feel free to propose changes to this document in a pull request.
 
@@ -106,9 +106,9 @@ Use backticks (\`) for field names, and field values.
 |  Do  | Don't |
 |:---|:---|
 | Use a descriptor of the link's destination: "For more information, visit [Gardener's website](#links-and-references)." | Use a generic placeholder: "For more information, go [here](#links-and-references)." |
-| Use relative links when linking to content in the same repository: `[Style Guide](../40_style_guide/_index.md)`| Use absolute links when linking to content in the same repository: `[Style Guide](https://github.com/gardener/documentation/blob/master/website/documentation/contribute/20_documentation/40_style_guide/_index.md)` |
+| Use relative links when linking to content in the same repository: `[Style Guide](../style-guide/_index.md)`| Use absolute links when linking to content in the same repository: `[Style Guide](https://github.com/gardener/documentation/blob/master/website/documentation/contribute/documentation/style-guide/_index.md)` |
 
-Another thing to keep in mind is that markdown links do not work in certain [shortcodes](../30_shortcodes/_index.md) (e.g., mermaid). To circumvent this problem, you can use HTML links.
+Another thing to keep in mind is that markdown links do not work in certain [shortcodes](../shortcodes/_index.md) (e.g., mermaid). To circumvent this problem, you can use HTML links.
 
 ### Headers
 
@@ -160,5 +160,5 @@ kubectl describe pod <pod-name>
 Make code examples and configuration examples that include version information consistent with the accompanying text. Identify the Kubernetes version in the **Prerequisites** section.
 
 ## Related Links
-* [Style Guide](../40_style_guide/_index.md)
+* [Style Guide](../style-guide/_index.md)
 * [Contributors Guide](../../_index.md)

@@ -1,6 +1,5 @@
 ---
 title: Contributing Bigger Changes
-#description:
 sidebar: true
 menu: sln
 weight: 60

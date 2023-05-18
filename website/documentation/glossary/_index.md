@@ -1,8 +1,6 @@
 ---
 title: Glossary
-aliases: ["/docs/resources/terms"]
 description: Commonly used terms in Gardener
-weight: 110
 ---
 ## Purpose
 

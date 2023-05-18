@@ -1,6 +1,6 @@
 ---
 title: Contributing Code
-url: /contribute/code/
+url: docs/contribute/code/
 ---
 
 You are welcome to **contribute code** to Gardener in order to fix a bug or to implement a new feature.
