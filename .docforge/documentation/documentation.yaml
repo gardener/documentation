@@ -33,137 +33,51 @@ structure:
       title: Gardenctl V2
       description: The command line interface to control your clusters
       weight: 4
-  source: https://github.com/gardener/gardenctl-v2/blob/DEFAULT_BRANCH/README.md
-- name: guides
-  properties:
-    frontmatter:
-      title: Guides
-      weight: 5
-  nodesSelector:
-    path: /website/documentation/guides
-  nodes:
-    ### /docs/guides/high-availability
-    - name: 020-high-availability
-      properties:
-        frontmatter:
-          title: High Availability
-          weight: 20
-      nodes:
-      - name: 10-best-practices
-        properties:
-          frontmatter:
-            title: Best Practices
-            level: advanced
-            category: High Availability
-            scope: app-developer
-            publishdate: 2023-03-17
-            aliases: ["/readmore/shoot-high-availability-best-practices"]
-        source: https://github.com/gardener/gardener/blob/master/docs/usage/shoot_high_availability_best_practices.md
-      - name: 20-control-plane
-        properties:
-          frontmatter:
-            title: Control Plane
-            level: intermediate
-            category: High Availability
-            scope: app-developer
-            publishdate: 2023-03-17
-            aliases: ["/readmore/shoot-high-availability-control-plane"]
-        source: https://github.com/gardener/gardener/blob/master/docs/usage/shoot_high_availability.md
-      - name: 30-chaos-engineering
-        properties:
-          frontmatter:
-            title: Chaos Engineering
-            level: advanced
-            category: High Availability
-            scope: app-developer
-            publishdate: 2023-03-17
-            aliases: ["/readmore/shoot-high-availability-chaos-engineering"]
-        source: https://github.com/gardener/chaos-engineering/blob/main/docs/tutorials/getting_started.md
-    ### /docs/guides/networking
-    - name: 030-networking
-      properties:
-        frontmatter:
-          title: Networking
-          weight: 30
-      nodes:
-      - name: DNS-extension
-        properties:
-          frontmatter:
-            title: Managing DNS with Gardener
-            description: "Setup Gardener-managed DNS records in cluster."
-            level: beginner
-            last_reviewed: 07.19.2022
-            publishdate: 2022-19-07
-            category: Networking
-            scope: operator
-            aliases: ["/managing-dns-with-gardener", "/docs/015-guides/030-networking-lb/managed-dns"]
-        source: https://github.com/gardener/gardener-extension-shoot-dns-service/blob/master/docs/usage/dns_names.md
-      - name: certificate-extension
-        properties:
-          frontmatter:
-            title: Manage Certificates with Gardener
-            description: "Use the Gardener cert-management to get fully managed, publicly trusted TLS certificates"
-            level: beginner
-            last_reviewed: 07.29.2022
-            publishdate: 2022-29-07
-            category: Networking
-            scope: operator
-            aliases: ["/managing-certificates-with-gardener", "/docs/015-guides/030-networking-lb/managed-certs-from-lets-encrypt"]
-        source: https://github.com/gardener/gardener-extension-shoot-cert-service/blob/master/docs/usage/request_cert.md
-      - name: certificate-extension-default-domain
-        properties:
-          frontmatter:
-            title: Manage Certificates with Gardener for Default Domain
-            description: "Use the Gardener cert-management to get fully managed, publicly trusted TLS certificates"
-            level: beginner
-            last_reviewed: 07.29.2022
-            publishdate: 2022-29-07
-            category: Networking
-            scope: operator
-            aliases: ["/managing-certificates-with-gardener-default-domain"]
-        source: https://github.com/gardener/gardener-extension-shoot-cert-service/blob/master/docs/usage/request_default_domain_cert.md
-      - name: shoot-istio-dns-certs
-        nodes:
-        - name: _index.md
-          properties:
-            frontmatter:
-              title: Create Shoot with Istio, Custom Domains, and Certificates
-              description: "A walkthrough for setting up clusters networking with Istio, custom domains and certificates"
-              level: beginner
-              publishdate: 2020-05-15
-              category: Networking
-              scope: operator
-              aliases: ["/shoot-with-istio-dns-certs"]
-          source: https://github.com/gardener/gardener-extension-shoot-cert-service/blob/master/docs/tutorial-custom-domain-with-istio.md
-- name: faq
-  properties:
-    frontmatter:
-      title: FAQ
-      description: Commonly asked questions about Gardener
-      weight: 7
-  nodesSelector:
-    path: /website/documentation/faq
+  source: https://github.com/gardener/gardenctl-v2/blob/master/README.md
 - name: other-components
   properties:
     frontmatter:
       title: Other Components
       description: Other components included in the Gardener project
-      weight: 8
+      weight: 5
   nodesSelector:
     path: ./other-components.yaml
-- name: curated-links
+- name: guides
   properties:
     frontmatter:
-      title: Curated Links
+      title: Guides
+      weight: 7
+  nodesSelector:
+    path: ./guides.yaml
+- name: faq
+  properties:
+    frontmatter:
+      title: FAQ
+      description: Commonly asked questions about Gardener
+      weight: 8
+  nodesSelector:
+    path: /website/documentation/faq
+- name: resources
+  properties:
+    frontmatter:
+      title: Resources
       description: Interesting and useful content on Kubernetes
       weight: 9
   nodesSelector:
-    path: /website/documentation/curated-links
+    path: /website/documentation/resources
+- name: glossary
+  properties:
+    frontmatter:
+      title: Glossary
+      description: Commonly used Gardener specific terms
+      weight: 10
+  nodesSelector:
+    path: /website/documentation/glossary
 - name: contribute
   properties:
     frontmatter:
       title: Contribute
       description: The project's contributor guide for code and documentation
-      weight: 10
+      weight: 11
   nodesSelector:
     path: /website/documentation/contribute

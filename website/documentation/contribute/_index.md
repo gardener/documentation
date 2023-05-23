@@ -64,7 +64,7 @@ We kindly ask you to follow the [Pull Request Checklist](#pull-request-checklist
 
 * Test your changes as thoroughly as possible before your commit them. Preferably, automate your testing with [unit / integration tests](https://github.com/gardener/gardener/blob/master/docs/development/testing.md). If tested manually, provide information about the test scope in the PR description (e.g., “Test passed: Upgrade K8s version from 1.14.5 to 1.15.2 on AWS, Azure, GCP, Alicloud, Openstack.”).
 
-* When creating the PR, make your [Pull Request description](./30_pr_description/_index.md) as detailed as possible to help out the reviewers.
+* When creating the PR, make your [Pull Request description](./pr-description/_index.md) as detailed as possible to help out the reviewers.
 
 * Create *Work In Progress [WIP]* pull requests only if you need a clarification or an explicit review before you can continue your work item.
 
@@ -82,7 +82,7 @@ We kindly ask you to follow the [Pull Request Checklist](#pull-request-checklist
   
 ## Contributing Bigger Changes
 
-If you want to contribute bigger changes to Gardener, such as when introducing new API resources and their corresponding controllers, or implementing an approved [Gardener Enhancement Proposal](https://github.com/gardener/gardener/tree/master/docs/proposals), follow the guidelines outlined in [Contributing Bigger Changes](./10_code/10_contributing_bigger_changes/_index.md).
+If you want to contribute bigger changes to Gardener, such as when introducing new API resources and their corresponding controllers, or implementing an approved [Gardener Enhancement Proposal](https://github.com/gardener/gardener/tree/master/docs/proposals), follow the guidelines outlined in [Contributing Bigger Changes](./code/contributing-bigger-changes/_index.md).
 
 ## Issues and Planning
 

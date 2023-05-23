@@ -8,20 +8,14 @@ structure:
       title: Blogs
       layout: blog-list
       aggregate: true
-- name: adopter
-  nodes:
-  - source: /website/adopter/_index.md
-    properties:
-      frontmatter:
-        title: Adopters
-        url: /adopter
 - name: community
+  nodesSelector:
+    path: /website/community
+  properties:
+    frontmatter:
+      title: Community
+      url: /community
   nodes:
-  - source: /website/community/_index.md
-    properties:
-      frontmatter:
-        title: Community
-        url: /community
 - name: docs
   nodesSelector:
     path: ./documentation/documentation.yaml
