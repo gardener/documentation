@@ -11,7 +11,7 @@ structure:
 - name: extensions
   properties:
     frontmatter:
-      title: Gardener Extensions
+      title: Extensions
       description: The infrastructure, networking, OS and other extension components for Gardener
       weight: 2
   nodesSelector:
