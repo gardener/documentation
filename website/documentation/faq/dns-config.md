@@ -30,9 +30,9 @@ For other providers like [Netlify](https://www.netlify.com/) and [infoblox](http
 For this purpose, the shoot-dns-service extension is used (DNSProvider and DNSEntry resources).
 
 You can read more on it in these documents:
-* [Deployment of the Shoot DNS Service Extension](https://gardener.cloud/docs/extensions/others/gardener-extension-shoot-dns-service/docs/installation/deployment/)
-* [Request DNS Names in Shoot Clusters](https://gardener.cloud/docs/extensions/others/gardener-extension-shoot-dns-service/docs/usage/dns_names/)
-* [DNS Providers](https://gardener.cloud/docs/extensions/others/gardener-extension-shoot-dns-service/docs/usage/dns_providers/)
-* [Gardener DNS Management for Shoots](https://gardener.cloud/docs/extensions/others/gardener-extension-shoot-dns-service/docs/installation/setup/)
-* [Request X.509 Certificates](https://gardener.cloud/docs/extensions/others/gardener-extension-shoot-cert-service/docs/usage/request_cert/)
-* [Gardener Certificate Management](https://gardener.cloud/docs/extensions/others/gardener-extension-shoot-cert-service/docs/installation/setup/)
+* [Deployment of the Shoot DNS Service Extension](https://github.com/gardener/gardener-extension-shoot-dns-service/blob/master/docs/installation/deployment.md)
+* [Request DNS Names in Shoot Clusters](https://github.com/gardener/gardener-extension-shoot-dns-service/blob/master/docs/usage/dns_names.md)
+* [DNS Providers](https://github.com/gardener/gardener-extension-shoot-dns-service/blob/master/docs/usage/dns_providers.md)
+* [Gardener DNS Management for Shoots](https://github.com/gardener/gardener-extension-shoot-dns-service/blob/master/docs/installation/setup.md)
+* [Request X.509 Certificates](https://github.com/gardener/gardener-extension-shoot-cert-service/blob/master/docs/usage/request_cert.md)
+* [Gardener Certificate Management](https://github.com/gardener/gardener-extension-shoot-cert-service/blob/master/docs/installation/setup.md)

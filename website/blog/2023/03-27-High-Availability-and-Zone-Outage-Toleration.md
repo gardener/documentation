@@ -71,7 +71,7 @@ In general, the question is also whether you have the fail-over capacity already
 
 Also, consider fall-back worker pools (with different/alternative machine types) and [cluster autoscaler expanders](https://github.com/gardener/autoscaler/blob/machine-controller-manager-provider/cluster-autoscaler/FAQ.md#what-are-expanders) using a [priority-based strategy](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/expander/priority/readme.md).
 
-Gardener-managed clusters deploy the [cluster autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler) or CA for short and you can [tweak the general CA knobs](https://gardener.cloud/docs/gardener/api-reference/core/#clusterautoscaler) for Gardener-managed clusters like this:
+Gardener-managed clusters deploy the [cluster autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler) or CA for short and you can [tweak the general CA knobs](https://github.com/gardener/gardener/blob/master/docs/api-reference/core.md#clusterautoscaler) for Gardener-managed clusters like this:
 
 ``` yaml
 apiVersion: core.gardener.cloud/v1beta1
@@ -116,7 +116,7 @@ The problem comes with the number of replicas. It's easy only if the number is s
 
 So, HPA it is then for most of the cases. However, what is the resource (e.g. CPU or memory) that drives the number of desired replicas? Again, this is up to you, but not always are CPU or memory the best choices. In some cases, [custom metrics](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#scaling-on-custom-metrics) may be more appropriate, e.g. requests per second (it was also for us).
 
-You will have to create specific `HorizontalPodAutoscaler` resources for your scale target and can [tweak the general HPA knobs](https://gardener.cloud/docs/gardener/api-reference/core/#horizontalpodautoscalerconfig) for Gardener-managed clusters like this:
+You will have to create specific `HorizontalPodAutoscaler` resources for your scale target and can [tweak the general HPA knobs](https://github.com/gardener/gardener/blob/master/docs/api-reference/core.md#horizontalpodautoscalerconfig) for Gardener-managed clusters like this:
 
 ``` yaml
 apiVersion: core.gardener.cloud/v1beta1
@@ -141,7 +141,7 @@ A few caveats though:
 - You cannot use HPA and VPA on the same metrics as they would influence each other, which would lead to pod trashing (more replicas require fewer resources; fewer resources require more replicas)
 - Scaling horizontally doesn't cause downtimes (at least not when out-scaling and only one replica is affected when in-scaling), but scaling vertically does (if the pod runs OOM anyway, but also when new recommendations are applied, resource requests for existing pods may be changed, which causes the pods to be rescheduled). Although the discussion is going on for a very long time now, that is still not supported in-place yet (see [KEP 1287](https://github.com/kubernetes/enhancements/blob/master/keps/sig-node/1287-in-place-update-pod-resources/README.md), [implementation in Kubernetes](https://github.com/kubernetes/kubernetes/pull/102884), [implementation in VPA](https://github.com/kubernetes/autoscaler/issues/4016)).
 
-VPA is a useful tool and Gardener-managed clusters deploy a VPA by default for you (HPA is supported anyway as it's built into the kube-controller-manager). You will have to create specific `VerticalPodAutoscaler` resources for your scale target and can [tweak the general VPA knobs](https://gardener.cloud/docs/gardener/api-reference/core/#verticalpodautoscaler) for Gardener-managed clusters like this:
+VPA is a useful tool and Gardener-managed clusters deploy a VPA by default for you (HPA is supported anyway as it's built into the kube-controller-manager). You will have to create specific `VerticalPodAutoscaler` resources for your scale target and can [tweak the general VPA knobs](https://github.com/gardener/gardener/blob/master/docs/api-reference/core.md#verticalpodautoscaler) for Gardener-managed clusters like this:
 
 ``` yaml
 apiVersion: core.gardener.cloud/v1beta1
@@ -445,4 +445,4 @@ The Gardener project is Open Source and [hosted on GitHub](https://github.com/ga
 
 Feedback and contributions are always welcome!
 
-All channels for getting in touch or learning about the project are listed on our [landing page](https://gardener.cloud/docs/contribute/#community). We are cordially inviting interested parties to join our [bi-weekly meetings](https://gardener.cloud/docs/contribute/#bi-weekly-meetings).
+All channels for getting in touch or learning about the project are listed on our [landing page](../../documentation/contribute/_index.md#community). We are cordially inviting interested parties to join our [bi-weekly meetings](../../documentation/contribute/_index.md#bi-weekly-meetings).

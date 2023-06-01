@@ -1,4 +1,11 @@
 structure:
+- name: adopter
+  nodes:
+  - source: /website/adopter/_index.md
+    properties:
+      frontmatter:
+        title: Adopters
+        url: /adopter
 - name: blog
   nodesSelector:
     path: /website/blog
@@ -19,4 +26,3 @@ structure:
 - name: docs
   nodesSelector:
     path: ./documentation/documentation.yaml
-
