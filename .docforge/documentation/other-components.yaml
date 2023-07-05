@@ -5,3 +5,6 @@ structure:
 - name: etcd-druid
   nodesSelector:
     path: https://github.com/gardener/etcd-druid/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+- name: etcd-backup-restore
+  nodesSelector:
+    path: https://github.com/gardener/etcd-backup-restore/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
