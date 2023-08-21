@@ -3,7 +3,6 @@ title: Dynamic Volume Provisioning
 description: "Running a Postgres database on Kubernetes"
 layout: single-page
 level: beginner
-category: Getting Started
 scope: app-developer
 ---
 

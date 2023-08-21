@@ -2,7 +2,6 @@
 title: Using Prometheus and Grafana to Monitor K8s
 description: "How to deploy and configure Prometheus and Grafana to collect and monitor kubelet container metrics"
 level: advanced
-category: Monitoring
 scope: app-developer
 ---
 
