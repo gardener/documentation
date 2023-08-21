@@ -2,7 +2,6 @@
 title: Out-Dated HTML and JS Files Delivered
 description: "Why is my application always outdated?"
 level: intermediate
-category: Services
 scope: app-developer
 ---
 

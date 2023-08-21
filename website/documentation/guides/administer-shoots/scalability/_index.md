@@ -3,7 +3,6 @@ title:  Scalability of Gardener Managed Kubernetes Clusters
 description: "Know the boundary conditions when scaling your workloads"
 level: advanced
 index: 40
-category: Operations
 scope: Users
 publishdate: 2023-05-23
 ---

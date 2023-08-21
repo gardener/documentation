@@ -2,7 +2,6 @@
 title: Get a Shell to a Gardener Shoot Worker Node
 description: "Describes the methods for getting shell access to worker nodes"
 level: advanced
-category: Debugging
 scope: operator
 ---
 

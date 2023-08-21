@@ -3,7 +3,6 @@ title:  Authenticating with an Identity Provider
 description: "Use OpenID Connect to authenticate users to access shoot clusters"
 level: advanced
 index: 40
-category: Security
 scope: operator
 publishdate: 2020-12-01
 ---
