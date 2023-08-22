@@ -6,7 +6,7 @@
 
 # For the integration-test step the following environment variables are used:
 # GIT_OAUTH_TOKEN - used for fetch the content from Github
-# CHECKED_DIRS - the directories which will be checked for diff against origin/master. If Diff exists then the checks will be triggered.
+# CHECKED_DIRS - the directories which will be checked for diff against repo's remote default branch. If Diff exists then the checks will be triggered.
 # otherwise the script will exist with status code 0
 set -e
 
@@ -72,7 +72,8 @@ fi
 
 diffExist=false
 for dir in $(echo "$DIFF_DIRS" | tr ";" "\n"); do
-  diff=$(git diff origin/master --name-only -- | grep "^${dir}" || true)
+  remote_default_branch=$(git symbolic-ref refs/remotes/origin/HEAD --short)
+  diff=$(git diff "$remote_default_branch" --name-only -- | grep "^${dir}" || true)
   if [[ -n "${diff}" ]]; then
     diffExist=true
     break
