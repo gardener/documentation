@@ -3,6 +3,7 @@ title: Fun with kubectl Aliases
 description: "Some bash tips that save you some time"
 level: beginner
 index: 40
+category: kubectl
 scope: app-developer
 publishdate: 2019-01-01
 aliases: [ "/readmore/bash_tips" ]
