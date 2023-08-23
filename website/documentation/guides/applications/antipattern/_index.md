@@ -4,6 +4,7 @@ description: "Common antipatterns for Kubernetes and Docker"
 level: beginner
 reviewer: Tieyan Fu
 last_reviewed: 12.06.2018
+category: Getting Started
 scope: app-developer
 ---
 

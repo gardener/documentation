@@ -2,6 +2,7 @@
 title: Auditing Kubernetes for Secure Setup
 description: "A few insecure configurations in Kubernetes"
 level: advanced
+category: Security
 scope: operator
 ---
 

@@ -2,6 +2,7 @@
 title: Shoot Cluster Maintenance
 description: "Understanding and configuring Gardener's Day-2 operations for Shoot clusters."
 level: advanced
+category: Operation
 scope: operator
 ---
 

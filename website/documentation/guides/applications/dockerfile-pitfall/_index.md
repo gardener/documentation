@@ -4,6 +4,7 @@ description: "Common Dockerfile pitfalls"
 level: beginner
 reviewer: Tieyan Fu
 last_reviewed: 22.06.2018
+category: Fails
 scope: app-developer
 ---
 
