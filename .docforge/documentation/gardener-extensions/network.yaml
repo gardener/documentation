@@ -1,15 +1,19 @@
 structure:
-- name: gardener-extension-networking-calico
+- dir: gardener-extension-networking-calico
   properties:
     frontmatter:
       title: Calico CNI
       description: Gardener extension controller for the Calico CNI network plugin
-  nodesSelector:
-    path: https://github.com/gardener/gardener-extension-networking-calico/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
-- name: gardener-extension-networking-cilium
+  structure:
+  - file: _index.md
+    source:  https://github.com/gardener/gardener-extension-networking-calico/blob/DEFAULT_BRANCH/README.md
+  - fileTree:  https://github.com/gardener/gardener-extension-networking-calico/tree/DEFAULT_BRANCH/docs
+- dir: gardener-extension-networking-cilium
   properties:
     frontmatter:
       title: Cilium CNI
       description: Gardener extension controller for the Cilium CNI network plugin
-  nodesSelector:
-    path: https://github.com/gardener/gardener-extension-networking-cilium/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+  structure:
+  - file: _index.md
+    source:  https://github.com/gardener/gardener-extension-networking-cilium/blob/DEFAULT_BRANCH/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-networking-cilium/tree/DEFAULT_BRANCH/docs

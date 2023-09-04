@@ -1,50 +1,88 @@
 structure:
-- name: gardener-extension-provider-aws
+- dir: gardener-extension-provider-aws
   properties:
     frontmatter:
       title: Provider AWS
       description: Gardener extension controller for the AWS cloud provider
-  nodesSelector:
-    path: https://github.com/gardener/gardener-extension-provider-aws/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
-- name: gardener-extension-provider-gcp
+  structure:
+  - file: _index.md
+    source:  https://github.com/gardener/gardener-extension-provider-aws/blob/DEFAULT_BRANCH/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-provider-aws/tree/DEFAULT_BRANCH/docs
+  - dir: tutorials
+    properties:
+      frontmatter:
+        title: Tutorials
+        weight: 1
+        persona: Developers
+- dir: gardener-extension-provider-gcp
   properties:
     frontmatter:
       title: Provider GCP
       description: Gardener extension controller for the GCP cloud provider
-  nodesSelector:
-    path: https://github.com/gardener/gardener-extension-provider-gcp/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
-- name: gardener-extension-provider-azure
+  structure:
+  - file: _index.md
+    source: https://github.com/gardener/gardener-extension-provider-gcp/blob/DEFAULT_BRANCH/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-provider-gcp/tree/DEFAULT_BRANCH/docs
+  - dir: tutorials
+    properties:
+      frontmatter:
+        title: Tutorials
+        weight: 1
+        persona: Developers
+- dir: gardener-extension-provider-azure
   properties:
     frontmatter:
       title: Provider Azure
       description: Gardener extension controller for the Azure cloud provider
-  nodesSelector:
-    path: https://github.com/gardener/gardener-extension-provider-azure/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
-- name: gardener-extension-provider-alicloud
+  structure:
+  - file: _index.md
+    source: https://github.com/gardener/gardener-extension-provider-azure/blob/DEFAULT_BRANCH/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-provider-azure/tree/DEFAULT_BRANCH/docs
+  - dir: tutorials
+    properties:
+      frontmatter:
+        title: Tutorials
+        weight: 1
+        persona: Developers
+- dir: gardener-extension-provider-alicloud
   properties:
     frontmatter:
       title: Provider Alicloud
       description: Gardener extension controller for the Alibaba cloud provider
-  nodesSelector:
-    path: https://github.com/gardener/gardener-extension-provider-alicloud/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
-- name: gardener-extension-provider-openstack
+  structure:
+  - file: _index.md
+    source:  https://github.com/gardener/gardener-extension-provider-alicloud/blob/DEFAULT_BRANCH/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-provider-alicloud/tree/DEFAULT_BRANCH/docs
+  - dir: tutorials
+    properties:
+      frontmatter:
+        title: Tutorials
+        weight: 1
+        persona: Developers
+- dir: gardener-extension-provider-openstack
   properties:
     frontmatter:
       title: Provider Openstack
       description: Gardener extension controller for the OpenStack cloud provider
-  nodesSelector:
-    path: https://github.com/gardener/gardener-extension-provider-openstack/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
-- name: gardener-extension-provider-vsphere
+  structure:
+  - file: _index.md
+    source:  https://github.com/gardener/gardener-extension-provider-openstack/blob/DEFAULT_BRANCH/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-provider-openstack/tree/DEFAULT_BRANCH/docs
+- dir: gardener-extension-provider-vsphere
   properties:
     frontmatter:
       title: Provider vSphere
       description: Gardener extension controller for the vSphere cloud provider
-  nodesSelector:
-    path: https://github.com/gardener/gardener-extension-provider-vsphere/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
-- name: gardener-extension-provider-equinix-metal
+  structure:
+  - file: _index.md
+    source:  https://github.com/gardener/gardener-extension-provider-vsphere/blob/DEFAULT_BRANCH/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-provider-aws/tree/DEFAULT_BRANCH/docs
+- dir: gardener-extension-provider-equinix-metal
   properties:
     frontmatter:
       title: Provider Equinix Metal
       description: Gardener extension controller for the Equinix Metal cloud provider
-  nodesSelector:
-    path: https://github.com/gardener/gardener-extension-provider-equinix-metal/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+  structure:
+  - file: _index.md
+    source:  https://github.com/gardener/gardener-extension-provider-equinix-metal/blob/DEFAULT_BRANCH/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-provider-equinix-metal/tree/DEFAULT_BRANCH/docs

@@ -1,29 +1,38 @@
 structure:
-- name: gardener-extension-shoot-dns-service
+- dir: gardener-extension-shoot-dns-service
   properties:
     frontmatter:
       title: DNS services
       description: Gardener extension controller for DNS services for shoot clusters
-  nodesSelector:
-    path: https://github.com/gardener/gardener-extension-shoot-dns-service/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
-- name: gardener-extension-shoot-cert-service
+  structure:
+  - file: _index.md
+    source:  https://github.com/gardener/gardener-extension-shoot-dns-service/blob/DEFAULT_BRANCH/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-shoot-dns-service/tree/DEFAULT_BRANCH/docs
+- dir: gardener-extension-shoot-cert-service
   properties:
     frontmatter:
       title: Certificate services
       description: Gardener extension controller for certificate services for shoot clusters
-  nodesSelector:
-    path: https://github.com/gardener/gardener-extension-shoot-cert-service/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
-- name: gardener-extension-shoot-oidc-service
+  structure:
+  - file: _index.md
+    source:  https://github.com/gardener/gardener-extension-shoot-cert-service/blob/DEFAULT_BRANCH/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-shoot-cert-service/tree/DEFAULT_BRANCH/docs
+- dir: gardener-extension-shoot-oidc-service
   properties:
     frontmatter:
       title: OpenID Connect services
       description: Gardener extension controller for OpenID Connect services for shoot clusters
-  nodesSelector:
-    path: https://github.com/gardener/gardener-extension-shoot-oidc-service/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
-- name: gardener-extension-shoot-networking-filter
+  structure:
+  - file: _index.md
+    source:  https://github.com/gardener/gardener-extension-shoot-oidc-service/blob/DEFAULT_BRANCH/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-shoot-oidc-service/tree/DEFAULT_BRANCH/docs
+- dir: gardener-extension-shoot-networking-filter
   properties:
     frontmatter:
       title: Egress filtering
       description: Gardener extension controller for egress filtering for shoot clusters
-  nodesSelector:
-    path: https://github.com/gardener/gardener-extension-shoot-networking-filter/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+  structure:
+  - file: _index.md
+    source:  https://github.com/gardener/gardener-extension-shoot-networking-filter/blob/DEFAULT_BRANCH/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-shoot-networking-filter/tree/DEFAULT_BRANCH/docs
+

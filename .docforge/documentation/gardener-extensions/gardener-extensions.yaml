@@ -1,41 +1,41 @@
 structure:
-- name: infrastructure-extensions
+- dir: infrastructure-extensions
   properties:
     frontmatter:
       title: Infrastructure Extensions
       description: Gardener extension controllers for the different infrastructures
       weight: 1
-  nodesSelector:
-    path: ./infrastructure.yaml
-- name: os-extensions
+  structure:
+  - manifest: ./infrastructure.yaml
+- dir: os-extensions
   properties:
     frontmatter:
       title: Operating System Extensions
       description: Gardener extension controllers for the supported operating systems
       weight: 2
-  nodesSelector:
-    path: ./operating-system.yaml
-- name: network-extensions
+  structure:
+  - manifest: ./operating-system.yaml
+- dir: network-extensions
   properties:
     frontmatter:
       title: Network Extensions
       description: Gardener extension controllers for the supported container network interfaces
       weight: 3
-  nodesSelector:
-    path: ./network.yaml
-- name: container-runtime-extensions
+  structure:
+  - manifest: ./network.yaml
+- dir: container-runtime-extensions
   properties:
     frontmatter:
       title: Container Runtime Extensions
       description: Gardener extensions for the supported container runtime interfaces
       weight: 4
-  nodesSelector:
-    path: ./container-runtime.yaml
-- name: others
+  structure:
+  - manifest: ./container-runtime.yaml
+- dir: others
   properties:
     frontmatter:
       title: Others
       description: Other Gardener extensions
       weight: 5
-  nodesSelector:
-    path: ./others.yaml
+  structure:
+  - manifest: ./others.yaml

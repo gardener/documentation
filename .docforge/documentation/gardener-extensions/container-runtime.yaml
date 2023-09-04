@@ -1,8 +1,9 @@
 structure:
-- name: gardener-extension-runtime-gvisor
+- dir: gardener-extension-runtime-gvisor
   properties:
     frontmatter:
       title: GVisor container runtime
       description: Gardener extension controller for the gVisor container runtime sandbox
-  nodesSelector:
-    path: https://github.com/gardener/gardener-extension-runtime-gvisor/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+  structure:
+  - file: _index.md
+    source: https://github.com/gardener/gardener-extension-runtime-gvisor/blob/DEFAULT_BRANCH/README.md
