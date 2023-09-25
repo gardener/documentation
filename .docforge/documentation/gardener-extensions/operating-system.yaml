@@ -1,29 +1,37 @@
 structure:
-- name: gardener-extension-os-gardenlinux
+- dir: gardener-extension-os-gardenlinux
   properties:
     frontmatter:
       title: Garden Linux OS
       description: Gardener extension controller for the Garden Linux operating system
-  nodesSelector:
-    path: https://github.com/gardener/gardener-extension-os-gardenlinux/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
-- name: gardener-extension-os-suse-chost
+  structure:
+  - file: _index.md
+    source:  https://github.com/gardener/gardener-extension-os-gardenlinux/blob/DEFAULT_BRANCH/README.md
+- dir: gardener-extension-os-suse-chost
   properties:
     frontmatter:
       title: SUSE CHost OS
       description: Gardener extension controller for the SUSE Container Host operating system (CHost)
-  nodesSelector:
-    path: https://github.com/gardener/gardener-extension-os-suse-chost/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
-- name: gardener-extension-os-ubuntu
+  structure:
+  - file: _index.md
+    source:  https://github.com/gardener/gardener-extension-os-suse-chost/blob/DEFAULT_BRANCH/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-os-suse-chost/tree/DEFAULT_BRANCH/docs
+- dir: gardener-extension-os-ubuntu
   properties:
     frontmatter:
       title: Ubuntu OS
       description: Gardener extension controller for the Ubuntu operating system
-  nodesSelector:
-    path: https://github.com/gardener/gardener-extension-os-ubuntu/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
-- name: gardener-extension-os-coreos
+  structure:
+  - file: _index.md
+    source:  https://github.com/gardener/gardener-extension-os-ubuntu/blob/DEFAULT_BRANCH/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-os-ubuntu/tree/DEFAULT_BRANCH/docs
+- dir: gardener-extension-os-coreos
   properties:
     frontmatter:
       title: CoreOS/FlatCar OS
       description: Gardener extension controller for the CoreOS/FlatCar Container Linux operating system
-  nodesSelector:
-    path: https://github.com/gardener/gardener-extension-os-coreos/blob/DEFAULT_BRANCH/.docforge/manifest.yaml
+  structure:
+  - file: _index.md
+    source:  https://github.com/gardener/gardener-extension-os-coreos/blob/DEFAULT_BRANCH/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-os-coreos/tree/DEFAULT_BRANCH/docs
+

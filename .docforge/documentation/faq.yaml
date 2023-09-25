@@ -1,8 +1,9 @@
-- name: faq
+structure:
+- dir: faq
   properties:
     frontmatter:
       title: FAQ
       description: Commonly asked questions about Gardener
       weight: 7
-  nodesSelector:
-    path: https://github.com/gardener/documentation/tree/master/website/documentation/faq
+  structure:
+  - fileTree: /website/documentation/faq
