@@ -11,7 +11,7 @@ structure:
       frontmatter:
         title: Best Practices
         level: advanced
-        persona: High Availability
+        category: High Availability
         scope: app-developer
         publishdate: 2023-03-17
         aliases: ["/readmore/shoot-high-availability-best-practices"]
@@ -21,7 +21,7 @@ structure:
       frontmatter:
         title: Control Plane
         level: intermediate
-        persona: High Availability
+        category: High Availability
         scope: app-developer
         publishdate: 2023-03-17
         aliases: ["/readmore/shoot-high-availability-control-plane"]
@@ -31,7 +31,7 @@ structure:
       frontmatter:
         title: Chaos Engineering
         level: advanced
-        persona: High Availability
+        category: High Availability
         scope: app-developer
         publishdate: 2023-03-17
         aliases: ["/readmore/shoot-high-availability-chaos-engineering"]
@@ -50,7 +50,7 @@ structure:
         level: beginner
         last_reviewed: 07.19.2022
         publishdate: 2022-19-07
-        persona: Networking
+        category: Networking
         scope: operator
         aliases: ["/managing-dns-with-gardener", "/docs/015-guides/030-networking-lb/managed-dns"]
     source: https://github.com/gardener/gardener-extension-shoot-dns-service/blob/DEFAULT_BRANCH/docs/usage/dns_names.md
@@ -62,7 +62,7 @@ structure:
         level: beginner
         last_reviewed: 07.29.2022
         publishdate: 2022-29-07
-        persona: Networking
+        category: Networking
         scope: operator
         aliases: ["/managing-certificates-with-gardener", "/docs/015-guides/030-networking-lb/managed-certs-from-lets-encrypt"]
     source: https://github.com/gardener/gardener-extension-shoot-cert-service/blob/DEFAULT_BRANCH/docs/usage/request_cert.md
@@ -74,7 +74,7 @@ structure:
         level: beginner
         last_reviewed: 07.29.2022
         publishdate: 2022-29-07
-        persona: Networking
+        category: Networking
         scope: operator
         aliases: ["/managing-certificates-with-gardener-default-domain"]
     source: https://github.com/gardener/gardener-extension-shoot-cert-service/blob/DEFAULT_BRANCH/docs/usage/request_default_domain_cert.md
