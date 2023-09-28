@@ -1,9 +1,9 @@
 structure:
 - dir: faq
-  properties:
+  structure:
+  - file: _index.md
     frontmatter:
       title: FAQ
       description: Commonly asked questions about Gardener
       weight: 7
-  structure:
   - fileTree: /website/documentation/faq
