@@ -1,57 +1,56 @@
 structure:
 - dir: gardener
-  properties:
+  structure:
+  - file: _index.md
     frontmatter:
       title: Gardener
       description: The core component providing the extension API server of your Kubernetes cluster
       weight: 1
       index: true
-  structure:
-  - file: _index.md
     source: https://github.com/gardener/gardener/blob/DEFAULT_BRANCH/docs/README.md
   - dir: api-reference
-    properties:
+    structure:
+    - file: _index.md
       frontmatter:
         title: API Reference
         weight: 1
         aliases: "/api-reference/"
         persona: Developers
-    structure:
     - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/api-reference
   - dir: concepts
-    properties:
+    structure:
+    - file: _index.md
       frontmatter:
         title: Concepts
         weight: 2
         persona: Operators
-    structure:
     - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/concepts
   - dir: deployment
-    properties:
+    structure:
+    - file: _index.md
       frontmatter:
         title: Deployment
         weight: 3
         persona: Operators
-    structure:
     - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/deployment
   - dir: development
     structure:
     - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/development
   - dir: extensions
-    properties:
+    structure:
+    - file: _index.md
       frontmatter:
         title: Extensions
         weight: 4
         persona: Developers
-    structure:
     - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/extensions
   - dir: monitoring
-    properties:
+    structure:
+    - file: _index.md
       frontmatter:
         title: Monitoring
         weight: 5
         persona: Operators
-    structure:
     - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/monitoring
   - dir: operations
     structure:
@@ -60,83 +59,82 @@ structure:
     structure:
     - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/usage
 - dir: extensions
-  properties:
+  structure:
+  - file: _index.md
     frontmatter:
       title: Extensions
       description: The infrastructure, networking, OS and other extension components for Gardener
       weight: 2
-  structure:
   - manifest: ./gardener-extensions/gardener-extensions.yaml
 - dir: dashboard
-  properties:
+  structure:
+  - file: _index.md
     frontmatter:
       title: Dashboard
       description: The web UI for managing your projects and clusters
       weight: 3
       index: true
-  structure:
-  - file: _index.md
     source: https://github.com/gardener/dashboard/blob/DEFAULT_BRANCH/README.md
   - fileTree: https://github.com/gardener/dashboard/tree/DEFAULT_BRANCH/docs
   - dir: architecture
-    properties:
+    structure:
+    - file: _index.md
       frontmatter:
         title: Architecture
         weight: 1
         persona: Developers
 - file: gardenctl-v2
-  properties:
-    frontmatter:
-      aliases:
-        - /docs/gardenctl/
-      title: Gardenctl V2
-      description: The command line interface to control your clusters
-      weight: 4
+  frontmatter:
+    aliases:
+      - /docs/gardenctl/
+    title: Gardenctl V2
+    description: The command line interface to control your clusters
+    weight: 4
   source: https://github.com/gardener/gardenctl-v2/blob/DEFAULT_BRANCH/README.md
 - dir: other-components
-  properties:
+  structure:
+  - file: _index.md
     frontmatter:
       title: Other Components
       description: Other components included in the Gardener project
       weight: 5
-  structure:
   - manifest: ./other-components.yaml
 - dir: guides
-  properties:
+  structure:
+  - file: _index.md
     frontmatter:
       title: Guides
       weight: 7
-  structure:
   - manifest: ./guides.yaml
 - dir: faq
-  properties:
+  structure:
+  - file: _index.md
     frontmatter:
       title: FAQ
       description: Commonly asked questions about Gardener
       weight: 8
-  structure:
   - fileTree: /website/documentation/faq
 - dir: resources
-  properties:
+  structure:
+  - file: _index.md
     frontmatter:
       title: Resources
       description: Interesting and useful content on Kubernetes
       weight: 9
-  structure:
   - fileTree: /website/documentation/resources
 - dir: glossary
-  properties:
+  structure:
+  - file: _index.md
     frontmatter:
       title: Glossary
       description: Commonly used Gardener specific terms
       weight: 10
-  structure:
   - fileTree: /website/documentation/glossary
 - dir: contribute
-  properties:
+  structure:
+  - file: _index.md
     frontmatter:
       title: Contribute
       description: The project's contributor guide for code and documentation
       weight: 11
-  structure:
   - fileTree: /website/documentation/contribute
