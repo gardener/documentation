@@ -116,11 +116,6 @@ structure:
   - fileTree: /website/documentation/faq
 - dir: resources
   structure:
-  - file: _index.md
-    frontmatter:
-      title: Resources
-      description: Interesting and useful content on Kubernetes
-      weight: 9
   - fileTree: /website/documentation/resources
 - dir: glossary
   structure:
