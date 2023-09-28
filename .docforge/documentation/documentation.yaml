@@ -62,7 +62,7 @@ structure:
   structure:
   - file: _index.md
     frontmatter:
-      title: Extensions
+      title: List of extensions
       description: The infrastructure, networking, OS and other extension components for Gardener
       weight: 2
   - manifest: ./gardener-extensions/gardener-extensions.yaml
