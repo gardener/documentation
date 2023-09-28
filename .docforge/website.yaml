@@ -2,23 +2,12 @@ structure:
 - dir: adopter
   structure:
   - file: /website/adopter/_index.md
-    frontmatter:
-      title: Adopters
-      url: /adopter
 - dir: blog
   structure:
-  - file: _index.md
-    frontmatter:
-      title: Blogs
-      layout: blog-list
-      aggregate: true
   - fileTree: /website/blog
 - dir: community
   structure:
   - file: /website/community/_index.md
-    frontmatter:
-      title: Community
-      url: /community
 - dir: docs
   structure:
   - manifest: ./documentation/documentation.yaml
