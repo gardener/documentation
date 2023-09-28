@@ -2,52 +2,53 @@ structure:
 - dir: machine-controller-manager
   structure:
   - file: _index.md
-    properties:
-      frontmatter:
-        title: Machine Controller Manager
-        weight: 1
-        description: Declarative way of managing machines for Kubernetes cluster
+    frontmatter:
+      title: Machine Controller Manager
+      weight: 1
+      description: Declarative way of managing machines for Kubernetes cluster
     source:  https://github.com/gardener/machine-controller-manager/blob/DEFAULT_BRANCH/README.md
   - fileTree: https://github.com/gardener/machine-controller-manager/tree/DEFAULT_BRANCH/docs
+    excludeFiles:
+    - FAQ.md
   - dir: documents
-    properties:
+    structure:
+    - file: _index.md
       frontmatter:
         title: Documents
         weight: 2
         persona: Developers
   - dir: proposals
-    properties:
+    structure:
+    - file: _index.md
       frontmatter:
         title: Proposals
         weight: 3
         persona: Developers
   - dir: todo
-    properties:
+    structure:
+    - file: _index.md
       frontmatter:
         title: ToDo
         weight: 4
         persona: Developers
-  #- file: faq
-  #  properties:
-  #    frontmatter:
-  #      title: FAQ
-  #      description: Frequently Asked Questions
-  #      weight: 5
-  #      persona: Operators
-  #  source:  https://github.com/gardener/machine-controller-manager/blob/DEFAULT_BRANCH/docs/FAQ.md
+  - file: faq
+    frontmatter:
+      title: FAQ
+      description: Frequently Asked Questions
+      weight: 5
+      persona: Operators
+    source:  https://github.com/gardener/machine-controller-manager/blob/DEFAULT_BRANCH/docs/FAQ.md
 - dir: etcd-druid
   structure:
   - file: _index.md
-    properties:
-      frontmatter:
-        title: Etcd Druid
-        description: A druid for etcd management in Gardener
+    frontmatter:
+      title: Etcd Druid
+      description: A druid for etcd management in Gardener
     source: https://github.com/gardener/etcd-druid/blob/DEFAULT_BRANCH/README.md
   - file: api-reference
-    properties:
-      frontmatter:
-        title: API Reference
-        weight: 1
-        persona: Developers
+    frontmatter:
+      title: API Reference
+      weight: 1
+      persona: Developers
     source: https://github.com/gardener/etcd-druid-api/blob/DEFAULT_BRANCH/docs/api-reference/druid.md
   - fileTree: https://github.com/gardener/etcd-druid-api/tree/DEFAULT_BRANCH/docs
