@@ -1,88 +1,83 @@
 structure:
 - dir: gardener-extension-provider-aws
-  properties:
+  structure:
+  - file: _index.md
     frontmatter:
       title: Provider AWS
       description: Gardener extension controller for the AWS cloud provider
-  structure:
-  - file: _index.md
     source:  https://github.com/gardener/gardener-extension-provider-aws/blob/DEFAULT_BRANCH/README.md
   - fileTree: https://github.com/gardener/gardener-extension-provider-aws/tree/DEFAULT_BRANCH/docs
   - dir: tutorials
-    properties:
-      frontmatter:
-        title: Tutorials
-        weight: 1
-        persona: Developers
+    frontmatter:
+      title: Tutorials
+      weight: 1
+      persona: Developers
 - dir: gardener-extension-provider-gcp
-  properties:
+  structure:
+  - file: _index.md
     frontmatter:
       title: Provider GCP
       description: Gardener extension controller for the GCP cloud provider
-  structure:
-  - file: _index.md
     source: https://github.com/gardener/gardener-extension-provider-gcp/blob/DEFAULT_BRANCH/README.md
   - fileTree: https://github.com/gardener/gardener-extension-provider-gcp/tree/DEFAULT_BRANCH/docs
   - dir: tutorials
-    properties:
+    structure:
+    - file: _index.md
       frontmatter:
         title: Tutorials
         weight: 1
         persona: Developers
 - dir: gardener-extension-provider-azure
-  properties:
+  structure:
+  - file: _index.md
     frontmatter:
       title: Provider Azure
       description: Gardener extension controller for the Azure cloud provider
-  structure:
-  - file: _index.md
     source: https://github.com/gardener/gardener-extension-provider-azure/blob/DEFAULT_BRANCH/README.md
   - fileTree: https://github.com/gardener/gardener-extension-provider-azure/tree/DEFAULT_BRANCH/docs
   - dir: tutorials
-    properties:
+    structure:
+    - file: _index.md
       frontmatter:
         title: Tutorials
         weight: 1
         persona: Developers
 - dir: gardener-extension-provider-alicloud
-  properties:
+  structure:
+  - file: _index.md
     frontmatter:
       title: Provider Alicloud
       description: Gardener extension controller for the Alibaba cloud provider
-  structure:
-  - file: _index.md
     source:  https://github.com/gardener/gardener-extension-provider-alicloud/blob/DEFAULT_BRANCH/README.md
   - fileTree: https://github.com/gardener/gardener-extension-provider-alicloud/tree/DEFAULT_BRANCH/docs
   - dir: tutorials
-    properties:
+    structure:
+    - file: _index.md
       frontmatter:
         title: Tutorials
         weight: 1
         persona: Developers
 - dir: gardener-extension-provider-openstack
-  properties:
+  structure:
+  - file: _index.md
     frontmatter:
       title: Provider Openstack
       description: Gardener extension controller for the OpenStack cloud provider
-  structure:
-  - file: _index.md
     source:  https://github.com/gardener/gardener-extension-provider-openstack/blob/DEFAULT_BRANCH/README.md
   - fileTree: https://github.com/gardener/gardener-extension-provider-openstack/tree/DEFAULT_BRANCH/docs
 - dir: gardener-extension-provider-vsphere
-  properties:
+  structure:
+  - file: _index.md
     frontmatter:
       title: Provider vSphere
       description: Gardener extension controller for the vSphere cloud provider
-  structure:
-  - file: _index.md
     source:  https://github.com/gardener/gardener-extension-provider-vsphere/blob/DEFAULT_BRANCH/README.md
   - fileTree: https://github.com/gardener/gardener-extension-provider-aws/tree/DEFAULT_BRANCH/docs
 - dir: gardener-extension-provider-equinix-metal
-  properties:
+  structure:
+  - file: _index.md
     frontmatter:
       title: Provider Equinix Metal
       description: Gardener extension controller for the Equinix Metal cloud provider
-  structure:
-  - file: _index.md
     source:  https://github.com/gardener/gardener-extension-provider-equinix-metal/blob/DEFAULT_BRANCH/README.md
   - fileTree: https://github.com/gardener/gardener-extension-provider-equinix-metal/tree/DEFAULT_BRANCH/docs

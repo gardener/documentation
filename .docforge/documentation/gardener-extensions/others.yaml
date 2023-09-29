@@ -1,38 +1,34 @@
 structure:
 - dir: gardener-extension-shoot-dns-service
-  properties:
+  structure:
+  - file: _index.md
     frontmatter:
       title: DNS services
       description: Gardener extension controller for DNS services for shoot clusters
-  structure:
-  - file: _index.md
     source:  https://github.com/gardener/gardener-extension-shoot-dns-service/blob/DEFAULT_BRANCH/README.md
   - fileTree: https://github.com/gardener/gardener-extension-shoot-dns-service/tree/DEFAULT_BRANCH/docs
 - dir: gardener-extension-shoot-cert-service
-  properties:
+  structure:
+  - file: _index.md
     frontmatter:
       title: Certificate services
       description: Gardener extension controller for certificate services for shoot clusters
-  structure:
-  - file: _index.md
     source:  https://github.com/gardener/gardener-extension-shoot-cert-service/blob/DEFAULT_BRANCH/README.md
   - fileTree: https://github.com/gardener/gardener-extension-shoot-cert-service/tree/DEFAULT_BRANCH/docs
 - dir: gardener-extension-shoot-oidc-service
-  properties:
+  structure:
+  - file: _index.md
     frontmatter:
       title: OpenID Connect services
       description: Gardener extension controller for OpenID Connect services for shoot clusters
-  structure:
-  - file: _index.md
     source:  https://github.com/gardener/gardener-extension-shoot-oidc-service/blob/DEFAULT_BRANCH/README.md
   - fileTree: https://github.com/gardener/gardener-extension-shoot-oidc-service/tree/DEFAULT_BRANCH/docs
 - dir: gardener-extension-shoot-networking-filter
-  properties:
+  structure:
+  - file: _index.md
     frontmatter:
       title: Egress filtering
       description: Gardener extension controller for egress filtering for shoot clusters
-  structure:
-  - file: _index.md
     source:  https://github.com/gardener/gardener-extension-shoot-networking-filter/blob/DEFAULT_BRANCH/README.md
   - fileTree: https://github.com/gardener/gardener-extension-shoot-networking-filter/tree/DEFAULT_BRANCH/docs
 

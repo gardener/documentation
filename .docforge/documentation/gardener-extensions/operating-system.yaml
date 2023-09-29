@@ -1,37 +1,33 @@
 structure:
 - dir: gardener-extension-os-gardenlinux
-  properties:
+  structure:
+  - file: _index.md
     frontmatter:
       title: Garden Linux OS
       description: Gardener extension controller for the Garden Linux operating system
-  structure:
-  - file: _index.md
     source:  https://github.com/gardener/gardener-extension-os-gardenlinux/blob/DEFAULT_BRANCH/README.md
 - dir: gardener-extension-os-suse-chost
-  properties:
+  structure:
+  - file: _index.md
     frontmatter:
       title: SUSE CHost OS
       description: Gardener extension controller for the SUSE Container Host operating system (CHost)
-  structure:
-  - file: _index.md
     source:  https://github.com/gardener/gardener-extension-os-suse-chost/blob/DEFAULT_BRANCH/README.md
   - fileTree: https://github.com/gardener/gardener-extension-os-suse-chost/tree/DEFAULT_BRANCH/docs
 - dir: gardener-extension-os-ubuntu
-  properties:
+  structure:
+  - file: _index.md
     frontmatter:
       title: Ubuntu OS
       description: Gardener extension controller for the Ubuntu operating system
-  structure:
-  - file: _index.md
     source:  https://github.com/gardener/gardener-extension-os-ubuntu/blob/DEFAULT_BRANCH/README.md
   - fileTree: https://github.com/gardener/gardener-extension-os-ubuntu/tree/DEFAULT_BRANCH/docs
 - dir: gardener-extension-os-coreos
-  properties:
+  structure:
+  - file: _index.md
     frontmatter:
       title: CoreOS/FlatCar OS
       description: Gardener extension controller for the CoreOS/FlatCar Container Linux operating system
-  structure:
-  - file: _index.md
     source:  https://github.com/gardener/gardener-extension-os-coreos/blob/DEFAULT_BRANCH/README.md
   - fileTree: https://github.com/gardener/gardener-extension-os-coreos/tree/DEFAULT_BRANCH/docs
 

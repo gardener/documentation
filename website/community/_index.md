@@ -1,3 +1,8 @@
+---
+title: Community
+url: /community
+---
+
 ## Community Calls
 Join our community calls to connect with other Gardener enthusiasts and watch cool presentations.
 
