@@ -22,7 +22,6 @@ structure:
       title: Network Extensions
       description: Gardener extension controllers for the supported container network interfaces
       weight: 3
-  structure:
   - manifest: ./network.yaml
 - dir: container-runtime-extensions
   structure:
