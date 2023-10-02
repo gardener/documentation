@@ -6,7 +6,6 @@ structure:
       title: Gardener
       description: The core component providing the extension API server of your Kubernetes cluster
       weight: 1
-      index: true
     source: https://github.com/gardener/gardener/blob/DEFAULT_BRANCH/docs/README.md
   - dir: api-reference
     structure:
@@ -14,7 +13,8 @@ structure:
       frontmatter:
         title: API Reference
         weight: 1
-        aliases: "/api-reference/"
+        aliases: 
+        - "/api-reference/"
         persona: Developers
     - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/api-reference
   - dir: concepts
@@ -73,7 +73,6 @@ structure:
       title: Dashboard
       description: The web UI for managing your projects and clusters
       weight: 3
-      index: true
     source: https://github.com/gardener/dashboard/blob/DEFAULT_BRANCH/README.md
   - fileTree: https://github.com/gardener/dashboard/tree/DEFAULT_BRANCH/docs
   - dir: architecture
