@@ -119,17 +119,7 @@ structure:
   - fileTree: /website/documentation/resources
 - dir: glossary
   structure:
-  - file: _index.md
-    frontmatter:
-      title: Glossary
-      description: Commonly used Gardener specific terms
-      weight: 10
   - fileTree: /website/documentation/glossary
 - dir: contribute
   structure:
-  - file: _index.md
-    frontmatter:
-      title: Contribute
-      description: The project's contributor guide for code and documentation
-      weight: 11
   - fileTree: /website/documentation/contribute
