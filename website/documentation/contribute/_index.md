@@ -3,7 +3,7 @@ title: Contribute
 description: Contributors guides for code and documentation
 sidebar: true
 menu: sln
-weight: 100
+weight: 10
 ---
 # Contributing to Gardener
 
