@@ -62,7 +62,7 @@ structure:
   structure:
   - file: _index.md
     frontmatter:
-      title: List of extensions
+      title: List of Extensions
       description: The infrastructure, networking, OS and other extension components for Gardener
       weight: 2
   - manifest: ./gardener-extensions/gardener-extensions.yaml
@@ -103,6 +103,7 @@ structure:
   - file: _index.md
     frontmatter:
       title: Guides
+      persona: Developers
       weight: 7
   - manifest: ./guides.yaml
 - dir: faq
@@ -111,6 +112,7 @@ structure:
     frontmatter:
       title: FAQ
       description: Commonly asked questions about Gardener
+      persona: Developers
       weight: 8
   - fileTree: /website/documentation/faq
 - dir: resources
