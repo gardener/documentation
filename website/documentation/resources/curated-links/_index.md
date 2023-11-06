@@ -19,7 +19,6 @@ Inspired by [@sindresorhus' awesome](https://github.com/sindresorhus/awesome)
 * Take an online [Udemy course](https://www.udemy.com/course/learn-kubernetes)
 * [Kubernetes Community Overview and Contributions Guide](https://docs.google.com/presentation/d/1JqcALpsg07eH665ZXQrIvOcin6SzzsIUjMRRVivrZMg/edit?usp=sharing) by [Ihor Dvoretskyi](https://twitter.com/idvoretskyi/)
 * [An Intro to Google’s Kubernetes and How to Use It](http://www.ctl.io/developers/blog/post/what-is-kubernetes-and-how-to-use-it/) by [Laura Frank](https://twitter.com/rhein_wein)
-* [Getting Started on Kubernetes](http://containertutorials.com/get_started_kubernetes/index.html) by [Rajdeep Dua](https://twitter.com/rajdeepdua)
 * [Kubernetes: The Future of Cloud Hosting](https://github.com/meteorhacks/meteorhacks.github.io/blob/master/_posts/2015-04-22-learn-kubernetes-the-future-of-the-cloud.md) by [Meteorhacks](https://twitter.com/meteorhacks)
 * [Kubernetes by Google](http://thevirtualizationguy.wordpress.com/tag/kubernetes/) by [Gaston Pantana](https://twitter.com/GastonPantana)
 * [Application Containers: Kubernetes and Docker from Scratch](https://keithtenzer.com/containers/application-containers-kubernetes-and-docker-from-scratch/) by [Keith Tenzer](https://twitter.com/keithtenzer)
@@ -32,7 +31,7 @@ Inspired by [@sindresorhus' awesome](https://github.com/sindresorhus/awesome)
 *Learn Kubernetes using an interactive environment without requiring downloads or configuration*
 
 * [Interactive Tutorial](https://kubernetes.io/docs/tutorials/kubernetes-basics/cluster-interactive/)
-* [Play with Kubernetes](http://labs.play-with-k8s.com/)
+* [Kubernetes: From Basics to Guru](https://www.oreilly.com/playlists/330a1112-13ee-4e72-8b2a-6fd8766fddae/)
 * [Kubernetes Bootcamp](http://kubernetesbootcamp.github.io/kubernetes-bootcamp/)
 
 ## Massive Open Online Courses / Tutorials
