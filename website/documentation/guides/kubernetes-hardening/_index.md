@@ -9,7 +9,7 @@ tags: ["task"]
 ---
 
 ## Overview
-The Gardener team takes security very seriously, which is why we mandate the Security Technical Implementation Guide (STIG) for Kubernetes as published by the Defense Information Systems Agency (DISA) [here](https://public.cyber.mil/stigs/downloads/). In combination with the control change above, this offers Gardener stakeholders the opportunity to adopt and show SCR03 compliance with DISA Kubernetes STIG as well. The latest release in machine readable format can be found in the [STIGs Document Library](https://public.cyber.mil/stigs/downloads/?_dl_facet_stigs=container-platform) by searching for Kubernetes.
+The Gardener team takes security very seriously, which is why we mandate the Security Technical Implementation Guide (STIG) for Kubernetes as published by the Defense Information Systems Agency (DISA) [here](https://public.cyber.mil/stigs/downloads/). In combination with the control change above, this offers Gardener adopters the opportunity to show compliance with DISA Kubernetes STIG. The latest release in machine readable format can be found in the [STIGs Document Library](https://public.cyber.mil/stigs/downloads/?_dl_facet_stigs=container-platform) by searching for Kubernetes.
 
 ## Kubernetes Clusters Security Requirements
 
