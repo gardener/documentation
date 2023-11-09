@@ -1,6 +1,5 @@
 ---
 title: Adding Already Existing Documentation
-description: Adding external Github documentation via manifest changes
 ---
 
 ## Overview
@@ -12,12 +11,11 @@ Sample codeblock:
 - dir: machine-controller-manager
   structure:
   - file: _index.md
-    properties:
-      frontmatter:
-        title: Machine Controller Manager
-        weight: 1
-        description: Declarative way of managing machines for Kubernetes cluster
-    source:  https://github.com/gardener/machine-controller-manager/blob/DEFAULT_BRANCH/README.md
+    frontmatter:
+      title: Machine Controller Manager
+      weight: 1
+      description: Declarative way of managing machines for Kubernetes cluster
+    source: https://github.com/gardener/machine-controller-manager/blob/DEFAULT_BRANCH/README.md
   - fileTree: https://github.com/gardener/machine-controller-manager/tree/DEFAULT_BRANCH/docs
 ```
 
@@ -25,7 +23,7 @@ This short code snippet adds a whole repository worth of content and contains ex
 - `- dir: <dir-name>` - the name of the directory in the navigation path; must correspond to the folder name if it already exists in the main repo
 - `structure:` - required after using `dir`; shows that the following lines contain a file structure
 - `- file: _index.md` - creates an index file
-- `properties:` - allows for manual setting/overwriting of the various properties a file can have
+- `frontmatter:` - allows for manual setting/overwriting of the various properties a file can have
 - `source: <link>` - where the content is located; in this case, a single file
 - `- fileTree: <link>` - where the content is located; in this case, a whole folder
 
@@ -73,7 +71,15 @@ You can add a single topic to the website by providing a link to it in the manif
 You can also add multiple topics to the website at once.
 
 {{% alert color="info"  title="Note" %}}
-If the content you want to add does not have an `_index.md` file in it, it won't show up as a single section on the website.
+If the content you want to add does not have an `_index.md` file in it, it won't show up as a single section on the website. You can fix this by adding the following after the `structure:` element:
+
+```yaml
+- file: _index.md
+  frontmatter:
+    title: <topic-name>
+    description: <topic-description>
+    weight: <weight>
+```
 {{% /alert %}}
 
 #### Through a Folder
@@ -99,11 +105,6 @@ If the content you want to add does not have an `_index.md` file in it, it won't
 ```yaml
 - dir: <dir-name>
   structure:
-  - file: _index.md
-    frontmatter:
-      title: <topic-name>
-      description: <topic-description>
-      weight: <weight>
   - manifest: https://github.com/<path>/manifest.yaml
 ```
 
@@ -113,11 +114,6 @@ If the content you want to add does not have an `_index.md` file in it, it won't
 ```yaml
 - dir: extensions
   structure:
-  - file: _index.md
-    frontmatter:
-      title: List of Extensions
-      description: The infrastructure, networking, OS and other extension components for Gardener
-      weight: 2
   - manifest: https://github.com/gardener/documentation/blob/master/.docforge/documentation/gardener-extensions/gardener-extensions.yaml
 ```
 </details>
