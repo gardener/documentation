@@ -85,6 +85,10 @@ We kindly ask you to follow the [Pull Request Checklist](#pull-request-checklist
 
 If you want to contribute bigger changes to Gardener, such as when introducing new API resources and their corresponding controllers, or implementing an approved [Gardener Enhancement Proposal](https://github.com/gardener/gardener/tree/master/docs/proposals), follow the guidelines outlined in [Contributing Bigger Changes](./code/contributing-bigger-changes/_index.md).
 
+## Adding Already Existing Documentation
+
+If you want to add documentation that already exists on GitHub to the website, you should update the central manifest instead of duplicating the content. To find out how to do that, see [Adding Already Existing Documentation](./documentation/adding-existing-documentation/_index.md).
+
 ## Issues and Planning
 
 We use GitHub issues to track bugs and enhancement requests. Please provide as much context as possible when you open an issue. The information you provide must be comprehensive enough to reproduce that issue for the assignee. Therefore, contributors may use but aren't restricted to the issue template provided by the Gardener maintainers.
