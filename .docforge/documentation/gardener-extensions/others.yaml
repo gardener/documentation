@@ -31,4 +31,27 @@ structure:
       description: Gardener extension controller for egress filtering for shoot clusters
     source:  https://github.com/gardener/gardener-extension-shoot-networking-filter/blob/DEFAULT_BRANCH/README.md
   - fileTree: https://github.com/gardener/gardener-extension-shoot-networking-filter/tree/DEFAULT_BRANCH/docs
-
+- dir: gardener-extension-shoot-networking-problemdetector
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: Networking problemdetector
+      description: Gardener extension for deploying network problem detector
+    source: https://github.com/gardener/gardener-extension-shoot-networking-problemdetector/blob/DEFAULT_BRANCH/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-shoot-networking-problemdetector/tree/main/docs
+- dir: gardener-extension-shoot-lakom-service
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: Lakom service
+      description: A k8s admission controller verifying pods are using signed images (cosign signatures) and a gardener extension to install it for shoots and seeds.
+    source: https://github.com/gardener/gardener-extension-shoot-lakom-service/blob/DEFAULT_BRANCH/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-shoot-lakom-service/tree/main/docs
+- dir: gardener-extension-registry-cache
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: Registry cache
+      description: Gardener extension controller which deploys pull-through caches for container registries.
+    source: https://github.com/gardener/gardener-extension-registry-cache/blob/DEFAULT_BRANCH/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-registry-cache/tree/main/docs
