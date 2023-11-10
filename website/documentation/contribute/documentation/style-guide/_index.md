@@ -59,21 +59,18 @@ There are a number of [predefined](https://gohugo.io/content-management/front-ma
 - `weight` a positive integer number that controls the ordering of the content in navigation structures.
 - `description` describes the content. For some content types such as documentation guides, it may be rendered in the UI.
 - `url` if specified, it will override the default url constructed from the file path to the content. Make sure the url you specify is consistent and meaningful. Prefer short paths. Do not provide redundant URLs!
-- `categories` specifies the type of user the topic is aimed towards. Currently only used in the public website.
+- `persona` specifies the type of user the topic is aimed towards. Use only a single persona per topic.
   ```
-  categories:
-  - Users
-  - Operators
-  - Developers
+  persona: Users / Operators / Developers
   ```
 
-While this section will be automatically generated if your topic has a title header, adding more detailed information helps other users, developers and technical writers better sort, classify and understand the topic. 
+While this section will be automatically generated if your topic has a title header, adding more detailed information helps other users, developers, and technical writers better sort, classify and understand the topic. 
 
 By using a metadata section you can also skip adding a title header or overwrite it in the navigation section. 
 
 ### Alerts
 
-If you want to add a note, tip, or a warning to your topic, use the templates provides in the [Shortcodes](../shortcodes/_index.md#alert) documentation.
+If you want to add a note, tip or a warning to your topic, use the templates provides in the [Shortcodes](../shortcodes/_index.md#alert) documentation.
 
 ### Images
 

@@ -23,10 +23,9 @@ This short code snippet adds a whole repository worth of content and contains ex
 - `- dir: <dir-name>` - the name of the directory in the navigation path; must correspond to the folder name if it already exists in the main repo
 - `structure:` - required after using `dir`; shows that the following lines contain a file structure
 - `- file: _index.md` - creates an index file
-- `frontmatter:` - allows for manual setting/overwriting of the various properties a file can have
+- `frontmatter:` - allows for manual setting/overwriting of the various properties a file can have; for examples, see the [Style Guide](../style-guide/_index.md#front-matter)
 - `source: <link>` - where the content is located; in this case, a single file
 - `- fileTree: <link>` - where the content is located; in this case, a whole folder
-
 
 ## Adding Existing Documentation
 
