@@ -49,15 +49,15 @@ Sample codeblock:
 ```yaml
 ---
 title: Getting Started
-Description: Guides to get you accustomed with Gardener
-Weight: 10
+description: Guides to get you accustomed with Gardener
+weight: 10
 ---
 ```
 
 There are a number of [predefined](https://gohugo.io/content-management/front-matter#predefined) front matter properites, but not all of them are considered by the layouts developed for the website. The most essential ones to consider are:
 - `title` the content title that will be used as page title and in navigation structures.
-- `weight` a positive integer number that controls the ordering of the content in navigation structures.
 - `description` describes the content. For some content types such as documentation guides, it may be rendered in the UI.
+- `weight` a positive integer number that controls the ordering of the content in navigation structures.
 - `url` if specified, it will override the default url constructed from the file path to the content. Make sure the url you specify is consistent and meaningful. Prefer short paths. Do not provide redundant URLs!
 - `persona` specifies the type of user the topic is aimed towards. Use only a single persona per topic.
   ```
