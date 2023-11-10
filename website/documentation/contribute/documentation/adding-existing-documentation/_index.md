@@ -20,12 +20,14 @@ Sample codeblock:
 ```
 
 This short code snippet adds a whole repository worth of content and contains examples of some of the most important elements:
-- `- dir: <dir-name>` - the name of the directory in the navigation path; must correspond to the folder name if it already exists in the main repo
+- `- dir: <dir-name>` - the name of the directory in the navigation path
 - `structure:` - required after using `dir`; shows that the following lines contain a file structure
-- `- file: _index.md` - creates an index file
-- `frontmatter:` - allows for manual setting/overwriting of the various properties a file can have; for examples, see the [Style Guide](../style-guide/_index.md#front-matter)
-- `source: <link>` - where the content is located; in this case, a single file
-- `- fileTree: <link>` - where the content is located; in this case, a whole folder
+- `- file: _index.md` - the content will be a single file; also creates an index file
+- `frontmatter:` - allows for manual setting/overwriting of the various properties a file can have
+- `source: <link>` - where the content for the `file` element is located
+- `- fileTree: <link>` - the content will be a whole folder; also gives the location of the content
+
+Check the [Notes and Tips](#notes-and-tips) section for useful advice when making changes to the manifest files.
 
 ## Adding Existing Documentation
 
@@ -37,7 +39,7 @@ Proper identation is incredibly important, as yaml relies on it for nesting!
 
 ### Adding a Single File
 
-You can add a single topic to the website by providing a link to it in the manifest. You can chain multiple topics that way.
+You can add a single topic to the website by providing a link to it in the manifest.
 
 ```yaml
 - dir: <dir-name>
@@ -67,7 +69,7 @@ You can add a single topic to the website by providing a link to it in the manif
 
 ### Adding Multiple Files
 
-You can also add multiple topics to the website at once.
+You can also add multiple topics to the website at once, either through linking a whole folder or a manifest than contains the documentation structure.
 
 {{% alert color="info"  title="Note" %}}
 If the content you want to add does not have an `_index.md` file in it, it won't show up as a single section on the website. You can fix this by adding the following after the `structure:` element:
@@ -81,7 +83,7 @@ If the content you want to add does not have an `_index.md` file in it, it won't
 ```
 {{% /alert %}}
 
-#### Through a Folder
+#### Linking a Folder
 
 ```yaml
   - dir: <dir-name>
@@ -99,7 +101,7 @@ If the content you want to add does not have an `_index.md` file in it, it won't
 ```
 </details>
 
-#### Through a Manifest File
+#### Linking a Manifest File
 
 ```yaml
 - dir: <dir-name>
@@ -116,3 +118,9 @@ If the content you want to add does not have an `_index.md` file in it, it won't
   - manifest: https://github.com/gardener/documentation/blob/master/.docforge/documentation/gardener-extensions/gardener-extensions.yaml
 ```
 </details>
+
+### Notes and Tips
+
+- If you want to place a file inside of an already existing directory in the main repo, you need to create a `dir` element that matches its name. If one already exists, simply add your link to its `structure` element. 
+- You can chain multiple files, folders, and manifests inside of a single `structure` element.
+- For examples of `frontmatter` elements, see the [Style Guide](../style-guide/_index.md#front-matter).
