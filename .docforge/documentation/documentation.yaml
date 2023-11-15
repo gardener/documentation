@@ -82,8 +82,8 @@ structure:
         title: Architecture
         weight: 1
         persona: Developers
-- dir: getting-started
-  fileTree: /website/documentation/getting-started
+- fileTree: getting-started
+  source: /website/documentation/getting-started
 - file: gardenctl-v2
   frontmatter:
     aliases:
