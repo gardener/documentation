@@ -49,7 +49,7 @@ Gardener uses GitHub to manage reviews of pull requests.
   Practices for Production
   Environments](http://peter.bourgon.org/go-in-production/#formatting-and-style).
 
-## Steps to Contribute
+### Steps to Contribute
 
 Should you wish to work on an issue, please claim it first by commenting on the GitHub issue that you want to work on it. This is to prevent duplicated efforts from contributors on the same issue.
 
@@ -57,7 +57,7 @@ If you have questions about one of the issues, with or without the tag, please c
 
 We kindly ask you to follow the [Pull Request Checklist](#pull-request-checklist) to ensure reviews can happen accordingly.
 
-## Pull Request Checklist
+### Pull Request Checklist
 
 * Branch from the master branch and, if needed, rebase to the current master branch before submitting your pull request. If it doesn't merge cleanly with master you may be asked to rebase your changes.
 
@@ -81,9 +81,13 @@ We kindly ask you to follow the [Pull Request Checklist](#pull-request-checklist
   * Set respective comments in your GitHub review to resolved.
   * Create a general PR comment to notify the reviewers that your amendments are ready for another round of review.
   
-## Contributing Bigger Changes
+### Contributing Bigger Changes
 
 If you want to contribute bigger changes to Gardener, such as when introducing new API resources and their corresponding controllers, or implementing an approved [Gardener Enhancement Proposal](https://github.com/gardener/gardener/tree/master/docs/proposals), follow the guidelines outlined in [Contributing Bigger Changes](./code/contributing-bigger-changes/_index.md).
+
+### Adding Already Existing Documentation
+
+If you want to add documentation that already exists on GitHub to the website, you should update the central manifest instead of duplicating the content. To find out how to do that, see [Adding Already Existing Documentation](./documentation/adding-existing-documentation/_index.md).
 
 ## Issues and Planning
 

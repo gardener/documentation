@@ -49,31 +49,28 @@ Sample codeblock:
 ```yaml
 ---
 title: Getting Started
-Description: Guides to get you accustomed with Gardener
-Weight: 10
+description: Guides to get you accustomed with Gardener
+weight: 10
 ---
 ```
 
 There are a number of [predefined](https://gohugo.io/content-management/front-matter#predefined) front matter properites, but not all of them are considered by the layouts developed for the website. The most essential ones to consider are:
 - `title` the content title that will be used as page title and in navigation structures.
-- `weight` a positive integer number that controls the ordering of the content in navigation structures.
 - `description` describes the content. For some content types such as documentation guides, it may be rendered in the UI.
+- `weight` a positive integer number that controls the ordering of the content in navigation structures.
 - `url` if specified, it will override the default url constructed from the file path to the content. Make sure the url you specify is consistent and meaningful. Prefer short paths. Do not provide redundant URLs!
-- `categories` specifies the type of user the topic is aimed towards. Currently only used in the public website.
+- `persona` specifies the type of user the topic is aimed towards. Use only a single persona per topic.
   ```
-  categories:
-  - Users
-  - Operators
-  - Developers
+  persona: Users / Operators / Developers
   ```
 
-While this section will be automatically generated if your topic has a title header, adding more detailed information helps other users, developers and technical writers better sort, classify and understand the topic. 
+While this section will be automatically generated if your topic has a title header, adding more detailed information helps other users, developers, and technical writers better sort, classify and understand the topic. 
 
 By using a metadata section you can also skip adding a title header or overwrite it in the navigation section. 
 
 ### Alerts
 
-If you want to add a note, tip, or a warning to your topic, use the templates provides in the [Shortcodes](../shortcodes/_index.md#alert) documentation.
+If you want to add a note, tip or a warning to your topic, use the templates provides in the [Shortcodes](../shortcodes/_index.md#alert) documentation.
 
 ### Images
 
