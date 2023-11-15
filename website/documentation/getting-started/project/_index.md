@@ -1,6 +1,6 @@
 ---
 title: Gardener Projects
-weight: 2
+weight: 3
 ---
 
 ## Overview

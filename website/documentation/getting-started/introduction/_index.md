@@ -1,6 +1,6 @@
 ---
 title: Introduction to Gardener
-weight: 0
+weight: 1
 ---
 
 ## Problem Space

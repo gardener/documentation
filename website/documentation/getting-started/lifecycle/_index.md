@@ -1,6 +1,6 @@
 ---
 title: Shoot Lifecycle
-weight: 4
+weight: 5
 ---
 
 ## Reconciliation in K8s
