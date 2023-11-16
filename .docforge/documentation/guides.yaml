@@ -72,3 +72,14 @@ structure:
       scope: operator
       aliases: ["/managing-certificates-with-gardener-default-domain"]
     source: https://github.com/gardener/gardener-extension-shoot-cert-service/blob/DEFAULT_BRANCH/docs/usage/request_default_domain_cert.md
+  - file: dual-stack-ipv4-ipv6-ingress-aws
+    frontmatter:
+      title: Enable IPv4/IPv6 (dual-stack) Ingress on AWS
+      description: "Use IPv4/IPv6 (dual-stack) Ingress in an IPv4 single-stack cluster on AWS"
+      level: beginner
+      last_reviewed: 11.16.2022
+      publishdate: 2023-16-11
+      category: Networking
+      scope: operator
+      aliases: ["/enable-dual-stack-ingress-on-aws"]
+    source: https://github.com/gardener/gardener-extension-provider-aws/blob/master/docs/usage/dual-stack-ingress.md
