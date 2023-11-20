@@ -109,7 +109,7 @@ Please test the following steps on a non-productive landscape to make sure that 
     storage: true
     ```
 
-2. Convert custom-resources to newest version.
+2. Convert `custom-resources` to the newest version.
 
     ```bash
     kubectl get <custom-resource-name> -A -ojson | k apply -f -
