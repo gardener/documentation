@@ -75,7 +75,7 @@ Inspect all your CRDs that have conversion webhooks in place. If you have more t
 For convenience, we have provided the necessary steps below.
 
 {{% alert color="info" title="Note" %}}
-Please test the following steps on a non-productive landscape, to make sure that the new CR version doesn’t break any of your existing workload.
+Please test the following steps on a non-productive landscape to make sure that the new CR version doesn’t break any of your existing workloads.
 {{% /alert %}}
 
 
