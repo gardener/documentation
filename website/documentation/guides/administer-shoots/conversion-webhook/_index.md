@@ -79,7 +79,7 @@ Please test the following steps on a non-productive landscape to make sure that 
 {{% /alert %}}
 
 
-1. Please check/set the old CR version has `storage:false` and set the new CR version to `storage:true`.
+1. Please check/set the old CR version to `storage:false` and set the new CR version to `storage:true`.
 
     For sake of example, let’s consider 2 versions `v1beta1` (old) and `v1` (new).
 
