@@ -72,7 +72,7 @@ Below we give the steps needed to be taken in order to fix the CRDs reported by 
 
 Inspect all your CRDs that have conversion webhooks in place. If you have more than 1 version defined in its `spec.status.storedVersions` field, then initiate migration as described in the K8S guide https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definition-versioning/#upgrade-existing-objects-to-a-new-stored-version , option2.
 
-For convenience, we provided the necessary steps below.
+For convenience, we have provided the necessary steps below.
 
 {{% alert color="info" title="Note" %}}
 Please test the following steps on a non-productive landscape, to make sure that the new CR version doesn’t break any of your existing workload.
