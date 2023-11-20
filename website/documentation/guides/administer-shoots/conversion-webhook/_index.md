@@ -13,7 +13,7 @@ The CustomResourceDefinition API provides a workflow for introducing and upgradi
 
 This creates a mismatch between the requested and stored version for all clients (kubectl, KCM, etc.). When the CRD also declares the usage of a conversion webhook, it gets called whenever a client requests information about a resource that still exists in the old version. If the CRD is created by the end-user, the webhook runs on the shoot side, whereas controllers / kapi-servers run separated, as part of the control-plane. For the webhook to be reachable a working VPN connection seed -> shoot is essential. In scenarios where the VPN connection is broken, **kube-controller-manager** eventually stops its garbage collection as that requires to list `v1.PartialObjectMetadata` for everything to build a dependency graph. Without kube-controller-manager Garbage Collector, managed resources get stuck during update/rollout.
 
-## Breaking situations
+## Breaking Situations
 
 When a user upgrades to `failureTolerance: node|zone`, that will cause the VPN **deployments** to be _replaced_ by **statefulsets**. However, as the VPN connection is broken upon teardown of the deployment, garbage collection will fail leading to a situation that is stuck until an operator manually tackles it.
 
