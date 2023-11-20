@@ -19,7 +19,7 @@ When a user upgrades to `failureTolerance: node|zone`, that will cause the VPN *
 
 Such a situation can be avoided if the end-user has correctly configured CRDs containing conversion webhooks.
 
-## Check problematic CRDs
+## Checking Problematic CRDs
 
 In order to make sure there are no version problematic CRDs, please run the script below in your shoot. It will return the name of the CRDs in case they have one of the 2 problems:
 - the returned version of the CR is different than what is maintained in the `status.storedVersions` field of the CRD.
