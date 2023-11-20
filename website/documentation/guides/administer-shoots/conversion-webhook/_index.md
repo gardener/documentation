@@ -70,7 +70,7 @@ echo "Problematic CRDs are reported above."
 
 Below we give the steps needed to be taken in order to fix the CRDs reported by the script above.
 
-Inspect all your CRDs that have conversion webhooks in place. If you have more than 1 version defined in its `spec.status.storedVersions` field, then initiate migration as described in the K8S guide https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definition-versioning/#upgrade-existing-objects-to-a-new-stored-version , option2.
+Inspect all your CRDs that have conversion webhooks in place. If you have more than 1 version defined in its `spec.status.storedVersions` field, then initiate migration as described in **Option 2** in the [Upgrade existing objects to a new stored version](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definition-versioning/#upgrade-existing-objects-to-a-new-stored-version) guide.
 
 For convenience, we have provided the necessary steps below.
 
