@@ -7,7 +7,7 @@ scope: users
 
 ## Reasoning
 
-**Custom Resource Definition (CRD)** is what you use to define a `Custom Resources`. This is a powerful way to extend Kubernetes capabilities beyond the default installation, adding any kind of API objects useful for your application.
+**Custom Resource Definition (CRD)** is what you use to define a `Custom Resource`. This is a powerful way to extend Kubernetes capabilities beyond the default installation, adding any kind of API objects useful for your application.
 
 The CustomResourceDefinition API provides a workflow for introducing and upgrading to new versions of a CustomResourceDefinition. In a scenario where a CRD adds support for a new version and switches its `spec.versions.storage` field to it (i.e., from `v1beta1` to `v1)`, existing objects are not migrated in etcd. For more information, see [Versions in CustomResourceDefinitions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definition-versioning/#previous-storage-versions).
 
