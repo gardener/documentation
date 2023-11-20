@@ -15,7 +15,7 @@ This creates a mismatch between the requested and stored version for all clients
 
 ## Breaking Situations
 
-When a user upgrades to `failureTolerance: node|zone`, that will cause the VPN **deployments** to be _replaced_ by **statefulsets**. However, as the VPN connection is broken upon teardown of the deployment, garbage collection will fail leading to a situation that is stuck until an operator manually tackles it.
+When a user upgrades to `failureTolerance: node|zone`, that will cause the VPN **deployments** to be _replaced_ by **statefulsets**. However, as the VPN connection is broken upon teardown of the deployment, garbage collection will fail, leading to a situation that is stuck until an operator manually tackles it.
 
 Such a situation can be avoided, if the end-user has correctly configured CRDs containing conversion webhooks.
 
