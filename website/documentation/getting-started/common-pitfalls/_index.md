@@ -23,7 +23,7 @@ Most scalability dimensions are interconnected with others. If a cluster grows b
 
 Take the number of nodes and pods, for example. Both are connected and you cannot grow both towards their individual limits, as you would face issues way before reaching any limits.
 
-Reading the [Scalability of Gardener Managed Kubernetes Clusters](https://github.com/gardener/documentation/blob/master/website/documentation/guides/administer-shoots/scalability/_index.md) guide is strongly recommended in order to understand the topic of scalability within K8s and Gardener.
+Reading the [Scalability of Gardener Managed Kubernetes Clusters](https://github.com/gardener/documentation/blob/master/website/documentation/guides/administer-shoots/scalability/_index.md) guide is strongly recommended in order to understand the topic of scalability within Kubernetes and Gardener.
 
 ### A Small Sample of Things That Can Grow Beyond Reasonable Limits
 
@@ -40,7 +40,7 @@ When scaling a cluster, there are plenty of resources that can be exhausted or r
 
 ![](./images/capacity.png)
 
-Sometimes requests cannot be fulfilled due to shortages on the infrastructure side. For example, a certain instance type might not be available and new K8s nodes of this type cannot be added.
+Sometimes requests cannot be fulfilled due to shortages on the infrastructure side. For example, a certain instance type might not be available and new Kubernetes nodes of this type cannot be added.
 
 Sometimes, it is not the physical capacity but exhausted quotas within an infrastructure account that result in limits. Obviously, there should be sufficient quota to create as many VMs as needed. But there are also other resources that are created in the infrastructure that need proper quotas:
 - Loadbalancers
@@ -55,7 +55,7 @@ Sometimes, it is not the physical capacity but exhausted quotas within an infras
 
 Upon cluster creation, there are several settings that are network related. For example, the address space for Pods has to be defined. In this case, it is a `/16` subnet that includes a total of 65.536 hosts. However, that does not imply that you can easily use all addresses at the same point in time. 
 
-As part of the K8s network setup, the `/16` network is divided into smaller subnets and each node gets a distinct subnet. The size of this subnet defaults to `/24`. It can also be specified (but not changed later).
+As part of the Kubernetes network setup, the `/16` network is divided into smaller subnets and each node gets a distinct subnet. The size of this subnet defaults to `/24`. It can also be specified (but not changed later).
 
 Now, as you create more nodes, you have a total of 256 subnets that can be assigned to nodes, thus limiting the total number of nodes of this cluster to 256.
 
@@ -81,11 +81,11 @@ A user can update the credentials stored in the project namespace and reconcile 
 
 ## AutoUpdate Breaking Clusters
 
-Gardener can automatically update a shoot's K8s patch version, when a new patch version is labeled as "supported". Automatically updating of the OS images works in a similar way. Both are triggered by the "supported" classification in the respective cloudprofile and can be enabled/disabled as part a shoot's spec.
+Gardener can automatically update a shoot's Kubernetes patch version, when a new patch version is labeled as "supported". Automatically updating of the OS images works in a similar way. Both are triggered by the "supported" classification in the respective cloudprofile and can be enabled/disabled as part a shoot's spec.
 
-Additionally, when a minor K8s / OS version expires, Gardener will force-update the shoot to the next supported version. 
+Additionally, when a minor Kubernetes / OS version expires, Gardener will force-update the shoot to the next supported version. 
 
-Turning on AutoUpdate for a shoot may be convenient but comes at the risk of potentially unwanted changes. While it is possible to switch to another OS version, updates to the K8s version are a one way operation and cannot be reverted.
+Turning on AutoUpdate for a shoot may be convenient but comes at the risk of potentially unwanted changes. While it is possible to switch to another OS version, updates to the Kubernetes version are a one way operation and cannot be reverted.
 
 {{% alert color="info"  title="Recommendation" %}}
 Control the version lifecycle separately for any cluster that hosts important workload.
@@ -98,7 +98,7 @@ Control the version lifecycle separately for any cluster that hosts important wo
 ![](./images/node-draining.gif)
 
 Typically, Nodes are drained when:
-- there is a update of the OS / K8s minor version
+- there is a update of the OS / Kubernetes minor version
 - operator cordons & drains a node
 - the cluster-autoscaler wants to scale down
 
@@ -134,7 +134,7 @@ If the usage profile changes over time, the VPA can help a lot to adapt the reso
 
 ## Webhooks
 
-### User-Deployed Webhooks in K8s
+### User-Deployed Webhooks in Kubernetes
 
 ![](./images/user-webhook.gif)
 
@@ -163,7 +163,7 @@ What can go wrong (i.e., the webhook is not reachable and thus blocking the crea
 
 ![](./images/timeout.png)
 
-Webhooks are a very helpful feature of K8s. However, they can easily be configured to break a Shoot cluster. Take the timeout, for example. High timeouts (>15s) can lead to blocking requests of control plane components. That's because most control-plane API calls are made with a client-side timeout of 30s, so if a webhook has `timeoutSeconds=30`, the overall request might still fail as there is overhead in communication with the API server and other potential webhooks.
+Webhooks are a very helpful feature of Kubernetes. However, they can easily be configured to break a Shoot cluster. Take the timeout, for example. High timeouts (>15s) can lead to blocking requests of control plane components. That's because most control-plane API calls are made with a client-side timeout of 30s, so if a webhook has `timeoutSeconds=30`, the overall request might still fail as there is overhead in communication with the API server and other potential webhooks.
 
 {{% alert color="info"  title="Recommendation" %}}
 Webhooks (esp. mutating) may be called sequentially and thus adding up their individual timeouts. Even if the `faliurePolicy` is ignored, the timeout will stop the request.

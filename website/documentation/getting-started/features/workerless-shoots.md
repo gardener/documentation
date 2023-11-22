@@ -7,7 +7,7 @@ weight: 2
 
 ![](./images/workerless-shoots.png)
 
-Sometimes, there may be use cases for K8s clusters that don't require Pods but only features of the control plane. Gardener can create the so-called "workerless" Shoots, which are exactly that. A K8s cluster without Nodes (and without any controller related to them).
+Sometimes, there may be use cases for Kubernetes clusters that don't require Pods but only features of the control plane. Gardener can create the so-called "workerless" Shoots, which are exactly that. A Kubernetes cluster without Nodes (and without any controller related to them).
 
 In a scenario where you already have multiple clusters, you can use it for orchestration (leases) or factor out components that require many CRDs.
 

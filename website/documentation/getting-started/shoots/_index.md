@@ -5,9 +5,9 @@ weight: 4
 
 ## Overview
 
-![](./images/k8s-cluster.png)
+![](./images/Kubernetes-cluster.png)
 
-A K8s cluster consists of a control plane and a data plane. The data plane runs the actual containers on nodes (which translate to physical or virtual machines). For the control and data plane to work together properly, lots of components need matching configuration.
+A Kubernetes cluster consists of a control plane and a data plane. The data plane runs the actual containers on nodes (which translate to physical or virtual machines). For the control and data plane to work together properly, lots of components need matching configuration.
 
 Some configurations are standardized but some are also very specific to the needs of a cluster's user / workload. Ideally, you want a properly configured cluster with the possibility to fine-tune some settings.
 
@@ -23,7 +23,7 @@ Luckily there is a dashboard to get started.
 
 Every cluster needs a name - after all, it is a Kubernetes resource and therefore unique within a namespace.
 
-The K8s version will be used as a starting point. Once a newer version is available, you can update (but not downgrade, not supported by K8s in general).
+The Kubernetes version will be used as a starting point. Once a newer version is available, you can update (but not downgrade, not supported by Kubernetes in general).
 
 The "purpose" defines some configuration (like a monitoring stack or alerting rules) and generally indicates the importance of a cluster.
 
@@ -61,7 +61,7 @@ Once per day, all clusters reconcile. This means all controllers will check if t
 
 It is also possible to confine updates to the shoot spec to be applied only during this time. This can come in handy when you want to bundle changes or prevent changes to be applied outside a well-known time window.
 
-You can allow Gardener to automatically update your cluster's K8s patch version and/or OS version (of the nodes). Take this decision consciously! Whenever a new K8s patch version or OS version is set to "supported" in the respective cloudprofile, auto update will upgrade your cluster during the next maintenance window. If you fail to (manually) upgrade the K8s or OS version before they expire, force-upgrades will take place during the maintenance window.
+You can allow Gardener to automatically update your cluster's Kubernetes patch version and/or OS version (of the nodes). Take this decision consciously! Whenever a new Kubernetes patch version or OS version is set to "supported" in the respective cloudprofile, auto update will upgrade your cluster during the next maintenance window. If you fail to (manually) upgrade the Kubernetes or OS version before they expire, force-upgrades will take place during the maintenance window.
 
 ### Result
 
@@ -77,7 +77,7 @@ The result of user configuration and defaulting is a shoot resource that, once a
 
 ![](./images/access-shoot.png)
 
-Static credentials for Shoots are discontinued with K8s v1.27 in Gardener. Use short lived credentials instead. You can create/request tokens directly via Gardener or delegate authentication to an identity provider.
+Static credentials for Shoots are discontinued with Kubernetes v1.27 in Gardener. Use short lived credentials instead. You can create/request tokens directly via Gardener or delegate authentication to an identity provider.
 
 A short-lived admin kubeconfig can be requested by using kubectl. If this is something you do frequently, consider switching to gardentctl (v2), which helps with it.
 
@@ -109,7 +109,7 @@ You can configure much more, for example, the health timeout after which a machi
 
 ## How to Change Things
 
-Since a shoot is just another K8s resource, changes can be applied via kubectl. For convenience, the basic settings are configurable via the dashboard's UI. It also has a "yaml" tab where you can alter all of the shoot's specification. Once applied, the cluster will reconcile eventually and your changes become active (or cause an error).
+Since a shoot is just another Kubernetes resource, changes can be applied via kubectl. For convenience, the basic settings are configurable via the dashboard's UI. It also has a "yaml" tab where you can alter all of the shoot's specification. Once applied, the cluster will reconcile eventually and your changes become active (or cause an error).
 
 ![](./images/change-things.png)
 
@@ -121,4 +121,4 @@ Once created, most of the network aspects of a cluster become immutable. On an i
 
 ![](./images/immutablity.png)
 
-Some other things can be changed, but not reverted. While it is possible to add more zones to a cluster on an infrastructure level (assuming that an appropriate CIDR range is available), removing zones is not supported. Similarly, upgrading K8s versions is comparable to a one-way ticket. As of now, K8s does not support downgrading. Lastly, the HA setting of the control plane is immutable once specified.
+Some other things can be changed, but not reverted. While it is possible to add more zones to a cluster on an infrastructure level (assuming that an appropriate CIDR range is available), removing zones is not supported. Similarly, upgrading Kubernetes versions is comparable to a one-way ticket. As of now, Kubernetes does not support downgrading. Lastly, the HA setting of the control plane is immutable once specified.
