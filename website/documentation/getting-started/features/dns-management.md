@@ -5,7 +5,7 @@ weight: 4
 
 ## External DNS Management
 
-When you deploy to K8s, there is no native management of DNS. Instead, you get IPv4 addresses via cloud-controller-manager requested for every Service of type LoadBalancer. Of course, the Ingress resource helps here, but how is the DNS zone for the ingress controller managed?
+When you deploy to Kubernetes, there is no native management of DNS. Instead, you get IPv4 addresses via cloud-controller-manager requested for every Service of type LoadBalancer. Of course, the Ingress resource helps here, but how is the DNS zone for the ingress controller managed?
 
 Essentially, some sort of automation for DNS management is missing.
 
@@ -13,7 +13,7 @@ Essentially, some sort of automation for DNS management is missing.
 
 ![](./images/automate-dns-management.png)
 
-From a user's perspective, it is desirable to work with already known resources and concepts. Hence, the DNS management offered by Gardener plugs seamlessly into K8s resources and a user does not need to "leave" the context of the Shoot cluster.
+From a user's perspective, it is desirable to work with already known resources and concepts. Hence, the DNS management offered by Gardener plugs seamlessly into Kubernetes resources and a user does not need to "leave" the context of the Shoot cluster.
 
 To request a DNS record creation / update, a Service or Ingress resource is annotated accordingly. The shoot-dns-service extension will (if configured) will pick up the request and create a DNSEntry resource + reconcile it to have an actual DNS record created at a configured DNS provider. Gardener supports the following providers:
 - aws-route53

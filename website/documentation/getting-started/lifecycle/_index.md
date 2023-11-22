@@ -3,13 +3,13 @@ title: Shoot Lifecycle
 weight: 5
 ---
 
-## Reconciliation in K8s
+## Reconciliation in Kubernetes
 
 The starting point of all reconciliation cycles is the constant observation of both the desired and actual state. A component would analyze any differences between the two states and try to converge the actual towards the desired state using appropriate actions. Typically, a component is responsible for a single resource type but it also watches others that have an implication on it.
 
-As an example, the K8s controller for ReplicaSets will watch Pods belonging to it in order to ensure that the specified replica count is fulfilled. If one Pod gets deleted, the controller will create a new pod to enforce the desired over the actual state.
+As an example, the Kubernetes controller for ReplicaSets will watch Pods belonging to it in order to ensure that the specified replica count is fulfilled. If one Pod gets deleted, the controller will create a new pod to enforce the desired over the actual state.
 
-This is all standard behaviour, as Gardener is following the native K8s approach. All elements of a shoot cluster have a representation in K8s resources and controllers are watching / acting upon them.
+This is all standard behaviour, as Gardener is following the native Kubernetes approach. All elements of a shoot cluster have a representation in Kubernetes resources and controllers are watching / acting upon them.
 
 If we pick up the example of the ReplicaSet - a user typically creates a Deployment resource and the ReplicaSet is implicitly generated on the way to create the Pods. Similarly, Gardener takes the user's intent (shoot) and creates lots of domain specific resources on the way. They all reconcile and make sure their actual and desired states match.
 
@@ -17,7 +17,7 @@ If we pick up the example of the ReplicaSet - a user typically creates a Deploym
 
 ![](./images/update-shoot-state.png)
 
-Based on the shoot's specifications, Gardener will create network resources on a hyperscaler, backup resources for the ETCD, credentials, and other resources, but also representations of the worker pools. Eventually, this process will result in a fully functional K8s cluster. 
+Based on the shoot's specifications, Gardener will create network resources on a hyperscaler, backup resources for the ETCD, credentials, and other resources, but also representations of the worker pools. Eventually, this process will result in a fully functional Kubernetes cluster. 
 
 If a user changes the desired state, Gardener will reconcile the shoot and run through the same cycle to ensure the actual state matches the desired state.
 
@@ -39,11 +39,11 @@ Updating the calico image will cause all calico pods to be re-created. Another e
 
 When a user changes the shoot spec, it can also have significant impact on the cluster. Imagine that a user changes the machine type of a worker pool. This will cause new machines to be created and old machines to be deleted. Or in other words: all nodes will be drained, the pods will be evicted and then re-created on newly created nodes.
 
-## K8s Version Update (Minor + Patch)
+## Kubernetes Version Update (Minor + Patch)
 
-![](./images/k8s-version-update.png)
+![](./images/Kubernetes-version-update.png)
 
-Some operations are rather common and have to be performed on a regular basis. Updating the K8s version is one them. Patch updates cause relatively little disruption, as only the control-plane pods will be re-created with new images and the kubelets on all nodes will restart.
+Some operations are rather common and have to be performed on a regular basis. Updating the Kubernetes version is one them. Patch updates cause relatively little disruption, as only the control-plane pods will be re-created with new images and the kubelets on all nodes will restart.
 
 A minor version update is more impactful - it will cause all nodes to be recreated and rolls components of the control plane.
 
@@ -51,13 +51,13 @@ A minor version update is more impactful - it will cause all nodes to be recreat
 
 ![](./images/os-update.png)
 
-The OS version is defined for each worker pool and can be changed per worker pool. Contrary to K8s versioning, no semantics apply to OS versions. You can freely switch back and forth. However, as there is no in-place update, each change will cause the entire worker pool to roll and nodes will be replaced.
+The OS version is defined for each worker pool and can be changed per worker pool. Contrary to Kubernetes versioning, no semantics apply to OS versions. You can freely switch back and forth. However, as there is no in-place update, each change will cause the entire worker pool to roll and nodes will be replaced.
 
 ## Version Classifications
 
 ![](./images/version-classifications.png)
 
-Gardener has the following classifications for K8s and OS image versions:
+Gardener has the following classifications for Kubernetes and OS image versions:
 
 - `preview`: still in testing phase (several versions can be in preview at the same time)
 
@@ -75,7 +75,7 @@ Version information is maintained in the relevant cloud profile resource. There 
 
 AutoUpdate for a machine image version will update all node pools to the latest supported version. Whenever a new version is set to `supported`, the cluster will pick it up during its next maintenance window.
 
-For K8s versions the mechanism is the same, it is just not applied to minor updates. This means that the cluster will be kept on the latest supported patch version of a specific minor version.
+For Kubernetes versions the mechanism is the same, it is just not applied to minor updates. This means that the cluster will be kept on the latest supported patch version of a specific minor version.
 
 In case a version used in a cluster expires, there is a force update during the next maintenance window. In a worst case scenario, 2 minor versions expire simultaneously. Then there will be two consecutive minor updates enforced.
 
