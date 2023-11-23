@@ -84,11 +84,6 @@ structure:
         persona: Developers
 - dir: getting-started
   structure:
-  - file: _index.md
-    frontmatter:
-      title: Getting Started
-      persona: Users
-      weight: 4
   - fileTree: /website/documentation/getting-started
 - file: gardenctl-v2
   frontmatter:
