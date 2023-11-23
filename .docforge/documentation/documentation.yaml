@@ -89,7 +89,7 @@ structure:
       title: Getting Started
       persona: Users
       weight: 4
-  - manifest: ./getting-started.yaml
+  - fileTree: /website/documentation/getting-started
 - file: gardenctl-v2
   frontmatter:
     aliases:
