@@ -9,7 +9,7 @@ Let's discuss the problem space first. Why does anyone need something like Garde
 
 ### Running Software
 
-The starting point is this rather simple questions: Why would you want to run some software?
+The starting point is this rather simple question: Why would you want to run some software?
 
 Typically, software is run with a purpose and not just for the sake of running it. Whether it is a digital ledger, a company's inventory or a blog - software provides a service to its user.
 

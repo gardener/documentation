@@ -15,7 +15,7 @@ So let's see what the mission control (control plane) of a Kubernetes cluster lo
 
 ![](./images/kubeception.png)
 
-In the classic setup, there is a dedicated host/VM to host the master components/control plane of a Kubernetes Cluster. However, these are just normal programs that can easily be put into containers. Once in containers, we can make Kubernetes Deployments and Statefulsets (for the etcd) watch over them. And now we put all that into a separate, dedicated Kubernetes cluster - et voilà, we have Kubernetes in Kubernetes, aka Kubeception (named after the famous movie Inception with Leonardo DiCaprio).
+In the classic setup, there is a dedicated host / VM to host the master components / control plane of a Kubernetes Cluster. However, these are just normal programs that can easily be put into containers. Once in containers, we can make Kubernetes Deployments and Statefulsets (for the etcd) watch over them. And now we put all that into a separate, dedicated Kubernetes cluster - et voilà, we have Kubernetes in Kubernetes, aka Kubeception (named after the famous movie Inception with Leonardo DiCaprio).
 
 In Gardener's terminology, the cluster hosting the control plane components is called a Seed cluster. The cluster that end-users actually use (and whose control plane is hosted in the Seed) is called a Shoot cluster.
 
@@ -63,7 +63,7 @@ The [kube-controller-manager](https://kubernetes.io/docs/concepts/overview/compo
 
 The [Kubernetes scheduler](https://kubernetes.io/docs/concepts/scheduling-eviction/kube-scheduler/) will assign Pods to Nodes.
 
-The [Cloud Controller Manager](https://kubernetes.io/docs/concepts/architecture/cloud-controller/) (aka CCM) is the component that contains all functionality to talk to Cloud environments for e.g. create LoadBalancer services.
+The [Cloud Controller Manager](https://kubernetes.io/docs/concepts/architecture/cloud-controller/) (aka CCM) is the component that contains all functionality to talk to Cloud environments (e.g., create LoadBalancer services).
 
 The CSI driver is the storage subsystem of Kubernetes. It provisions and manages anything related to persistence.
 
@@ -129,9 +129,9 @@ Gardener runs various health checks to ensure that the cluster works properly. T
 
 As the title indicates, the HA control plane feature is only about the control plane. Setting up the data plane to span multiple zones is part of the worker spec of a shoot.
 
-HA control planes can be configured as part of the shoot's spec. Available types are:
-- node
-- zone
+HA control planes can be configured as part of the shoot's spec. The available types are:
+- Node
+- Zone
 
 Both work similarly and just differ in the failure domain the concepts are applied to.
 
@@ -146,11 +146,11 @@ Zonal HA is the most likely setup for Shoots with `purpose: production`.
 The starting point is a regular (non-HA) control plane. ETCD and most controllers are singletons and the Kube-APIserver might have been scaled up to several replicas.
 
 To get to an HA setup we need:
-- min 3 replicas of the API server
+- A minimum of 3 replicas of the API server
 - 3 replicas for ETCD (both main and events)
-- a second instance for each controller (e.g., controller manager, csi-driver, scheduler, etc.) that can take over in case of failure (active/passive).
+- A second instance for each controller (e.g., controller manager, csi-driver, scheduler, etc.) that can take over in case of failure (active / passive).
 
-Now, we have to ensure those pods get distributed over zones using the well-known patterns of podTopologySpreadConstraints, Affinities, and so on.
+After that, we have to ensure those pods get distributed over zones using the well-known patterns of podTopologySpreadConstraints, Affinities, and so on.
 
 ## kube-system Namespace
 
@@ -166,7 +166,7 @@ On each node we need a CNI (container network interface) plugin. Gardener offers
 
 The CNI plugin ensures pod-to-pod communication within the cluster. As part of it, it assigns cluster-internal IP addresses to the pods and manages the network devices associated with them. When an overlay network is enabled, calico will also manage the routing of pod traffic between different nodes.
 
-On the other hand, kube-proxy implements the actual service routing (cilium can do this as well and no kube-proxy is needed). Whenever packets go to a service's IP address, they are re-routed based on Iptables rules maintained by kube-proxy to reach the actual pods backing the service. kube-proxy operates on endpoint-slices and manages IPtables on EVERY node. In addition, kube-proxy provides a health check endpoint for services with `externalTrafficPolicy = local`, where traffic only gets to nodes that run a pod matching the selector of the service.
+On the other hand, kube-proxy implements the actual service routing (cilium can do this as well and no kube-proxy is needed). Whenever packets go to a service's IP address, they are re-routed based on Iptables rules maintained by kube-proxy to reach the actual pods backing the service. kube-proxy operates on endpoint-slices and manages IPtables on EVERY node. In addition, kube-proxy provides a health check endpoint for services with `externalTrafficPolicy=local`, where traffic only gets to nodes that run a pod matching the selector of the service.
 
 The egress filter implements basic filtering of outgoing traffic to be compliant with SAPs policies.
 

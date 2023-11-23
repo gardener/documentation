@@ -13,7 +13,7 @@ Some configurations are standardized but some are also very specific to the need
 
 ## Concept of a "Shoot"
 
-A shoot is just another Kubernetes resource. Gardener components watch it and act upon changes (e.g. creation). It comes with reasonable default settings but also allows fine-tuned configuration. And on top of it, you get a status providing health information, information about ongoing operations, and so on.
+A shoot is just another Kubernetes resource. Gardener components watch it and act upon changes (e.g., creation). It comes with reasonable default settings but also allows fine-tuned configuration. And on top of it, you get a status providing health information, information about ongoing operations, and so on.
 
 Luckily there is a dashboard to get started.
 
@@ -68,7 +68,7 @@ You can allow Gardener to automatically update your cluster's Kubernetes patch v
 The result of user configuration and defaulting is a shoot resource that, once applied, will be acted upon by various Gardener components. The status section represents the intermediate steps / results of these operations. A typical shoot creation flow would look like this:
 
 1. Assign control plane to a seed.
-1. Create infrastructure resources in the data plane account (e.g. VPC, gateways, ...)
+1. Create infrastructure resources in the data plane account (e.g., VPC, gateways, ...)
 1. Deploy control plane incl. DNS records.
 1. Create nodes (VMs) and bootstrap kubelets.
 1. Deploy kube-system components to nodes.
@@ -117,7 +117,7 @@ Since a shoot is just another Kubernetes resource, changes can be applied via ku
 
 However, not everything can be changed after the creation of the shoot. For example, it is not possible to move a shoot to a different infrastructure account. This is mainly rooted in the fact that discs and network resources are bound to your account. 
 
-Once created, most of the network aspects of a cluster become immutable. On an infrastructure level the VPC cannot be changed and on a cluster level things like the pod/service cidr ranges, together with the nodeCIDRmask, are set for the lifetime of the cluster.
+Once created, most of the network aspects of a cluster become immutable. On an infrastructure level the VPC cannot be changed and on a cluster level things like the pod / service cidr ranges, together with the nodeCIDRmask, are set for the lifetime of the cluster.
 
 ![](./images/immutablity.png)
 

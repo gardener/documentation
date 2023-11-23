@@ -9,7 +9,7 @@ Kubeception - Kubernetes in Kubernetes in Kubernetes
 
 ![](./images/kubeception.png)
 
-In the classic setup, there is a dedicated host/VM to host the master components/control plane of a Kubernetes Cluster. However, these are just normal programs that can easily be put into containers. Once in containers, Kubernetes Deployments and Statefulsets (for the etcd) can be made to watch over them. And by putting all that into a separate, dedicated Kubernetes cluster you get Kubernetes on Kubernetes, aka Kubeception (named after the famous movie Inception with Leonardo DiCaprio).
+In the classic setup, there is a dedicated host / VM to host the master components / control plane of a Kubernetes Cluster. However, these are just normal programs that can easily be put into containers. Once in containers, Kubernetes Deployments and Statefulsets (for the etcd) can be made to watch over them. And by putting all that into a separate, dedicated Kubernetes cluster you get Kubernetes on Kubernetes, aka Kubeception (named after the famous movie Inception with Leonardo DiCaprio).
 
 But what are the advantages of running Kubernetes on Kubernetes? For one, it makes use of resources more reasonably. Instead of providing a dedicated computer or virtual machine for the control plane of a Kubernetes cluster - which will probably never be the right size but either too small or too big - you can dynamically scale the individual control plane components based on demand and maximize resource usage by combining the control planes of multiple Kubernetes clusters.
 

@@ -17,4 +17,4 @@ As part of the control plane, the following components are deployed in the seed 
 - kube-controller-manager
 - gardener-resource-manager
 - logging and monitoring components
-- extension components (if they support workerless Shoots, see the [Extensions](https://github.com/gardener/gardener/blob/master/docs/extensions/extension.md#what-is-required-to-register-and-support-an-extension-type) topic)
+- extension components (to find out if they support workerless Shoots, see the [Extensions](https://github.com/gardener/gardener/blob/master/docs/extensions/extension.md#what-is-required-to-register-and-support-an-extension-type) topic)

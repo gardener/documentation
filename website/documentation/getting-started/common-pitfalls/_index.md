@@ -81,7 +81,7 @@ A user can update the credentials stored in the project namespace and reconcile 
 
 ## AutoUpdate Breaking Clusters
 
-Gardener can automatically update a shoot's Kubernetes patch version, when a new patch version is labeled as "supported". Automatically updating of the OS images works in a similar way. Both are triggered by the "supported" classification in the respective cloudprofile and can be enabled/disabled as part a shoot's spec.
+Gardener can automatically update a shoot's Kubernetes patch version, when a new patch version is labeled as "supported". Automatically updating of the OS images works in a similar way. Both are triggered by the "supported" classification in the respective cloudprofile and can be enabled / disabled as part a shoot's spec.
 
 Additionally, when a minor Kubernetes / OS version expires, Gardener will force-update the shoot to the next supported version. 
 
@@ -122,7 +122,7 @@ Configure PDBs and allow disruptions.
 
 Pods consume resources and, of course, there are only so many resources available on a single node. Setting requests will make the scheduling much better, as the scheduler has more information available. 
 
-Specifying limits can help, but can also limit an application in unintended ways. A recommendation to start with: 
+Specifying limits can help, but can also limit an application in unintended ways. A recommendation to start with:
 - Do not set CPU limits (CPU is compressible and throttling is really hard to detect)
 - Set memory limits and monitor OOM kills / restarts of workload (typically detectable by container status exit code 137 and corresponding events). This will decrease the likelihood of OOM situations on the node itself. However, for critical workloads it might be better to have uncapped growth and rather risk a node going OOM.
 
@@ -197,7 +197,7 @@ However, sometimes, you simply use helm or kustomize to install a (third-party) 
 
 Conversion webhooks are tricky. Similarly to regular webhooks, they should have a low timeout. However, they cannot be remediated automatically and can cause strange errors. For example, if a webhook is invoked but not available, it can block the garbage collection run by the kube-controller-manager. 
 
-<!-- In turn, deleting Pods, when deleting Deployments will not work automatically. -->
+In turn, when deleting Deployments, pods will not be deleted automatically.
 
 {{% alert color="info"  title="Recommendation" %}}
 Try to avoid conversion webhooks. They are valid and can be used, but should not stay in place forever. Complete the upgrade to a new version of the CRD as soon as possible.

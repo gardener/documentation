@@ -7,10 +7,10 @@ weight: 3
 
 ![](./images/overview.png)
 
-Gardener is all about Kubernetes clusters, which we call Shoots. However, Gardener also does user management, delicate permission management and offers technical accounts to integrate its services into other infrastructure. It allows you to create several quotas and it needs credentials to connect to cloud providers. All of these are arranged in multiple fully contained projects, each of which belongs to a dedicated user and/or group.
+Gardener is all about Kubernetes clusters, which we call Shoots. However, Gardener also does user management, delicate permission management and offers technical accounts to integrate its services into other infrastructure. It allows you to create several quotas and it needs credentials to connect to cloud providers. All of these are arranged in multiple fully contained projects, each of which belongs to a dedicated user and / or group.
 
 {{% alert color="info"  title="Quotas" %}}
-Since all Gardener resources are custom Kubernetes resources, the usual and well established concept of `resourceQuotas` in Kubernetes can also be applied to Gardener resources. With a `resourceQuota` that sets a hard limit on, e.g. `count/shoots.core.gardener.cloud`, you can restrict the number of Shoot clusters that can be created in a Project.
+Since all Gardener resources are custom Kubernetes resources, the usual and well established concept of `resourceQuotas` in Kubernetes can also be applied to Gardener resources. With a `resourceQuota` that sets a hard limit on (e.g., `count/shoots.core.gardener.cloud`) you can restrict the number of Shoot clusters that can be created in a Project.
 {{% /alert %}}
 
 ## Projects on YAML Level
