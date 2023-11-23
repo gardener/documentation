@@ -39,11 +39,11 @@ Finally, there are the Shoot clusters - what Gardener is all about. Shoot cluste
 
 From a very high level point of view, the important components of Gardener are:
 
-### The Gardener API endpoint (i.e., the API server in the Garden Cluster)
+### The Gardener API Endpoint
 
-You connect to it either through the dashboard or with kubectl, given that you have a proper kubeconfig for it.
+You can connect to the Gardener API Endpoint (i.e., the API server in the Garden Cluster) either through the dashboard or with kubectl, given that you have a proper kubeconfig for it.
 
-### The Seeds that run the control planes of the shoot clusters
+### The Seeds Running the Shoot Cluster Control Planes
 
 Inside each Seed is one of the most important controllers in Gardener - the gardenlet. It spawns many other controllers, which will eventually create all resources for a Shoot cluster, including all resources on the cloud providers such as virtual networks, security groups, and virtual machines.
 
