@@ -9,7 +9,7 @@ weight: 8
 
 ![](./images/microservices.jpg)
 
-What we need:
+Running a highly distributed system has advantages, but of course, those come at a cost. In order to succeed, one would need:
 - Logging
 - Tracing
 - No singleton
@@ -21,7 +21,7 @@ What we need:
 
 Most scalability dimensions are interconnected with others. If a cluster grows beyond reasonable defaults, it can still function very well. But tuning it comes at the cost of time and can influence stability negatively. 
 
-Take the number of nodes and pods, for example. Both are connected and you cannot grow both towards their individual limits, as you would face issues way before reaching any limits.
+Take the number of nodes and pods, for example. Both are connected and you cannot grow both towards their individual limits, as you would face issues way before reaching any theoretical limits.
 
 Reading the [Scalability of Gardener Managed Kubernetes Clusters](https://github.com/gardener/documentation/blob/master/website/documentation/guides/administer-shoots/scalability/_index.md) guide is strongly recommended in order to understand the topic of scalability within Kubernetes and Gardener.
 
@@ -30,7 +30,7 @@ Reading the [Scalability of Gardener Managed Kubernetes Clusters](https://github
 ![](./images/hibernation-1.png)
 
 When scaling a cluster, there are plenty of resources that can be exhausted or reach a limit:
-- The API server will be scaled horizontally and vertically by Gardener. However, it can still consume too much resources to fit onto a single node. In this case, a user can only reduce the load on the API server. This should not happen with regular usage patterns.
+- The API server will be scaled horizontally and vertically by Gardener. However, it can still consume too much resources to fit onto a single node on the seed. In this case, a user can only reduce the load on the API server. This should not happen with regular usage patterns though.
 - ETCD disk space: 8GB is the limit. If you have too many resources or a high churn rate, a cluster can run out of ETCD capacity. In such a scenario it will stop working until defragmented, compacted, and cleaned up.
 - The number of nodes is limited by the network configuration (pod cidr range & node cidr mask). Also, there is a reasonable number of nodes (300) that most workloads should not exceed. It is possible to go beyond but doing so requires careful tuning and consideration of connected scaling dimensions (like the number of pods per node).
 
@@ -40,7 +40,7 @@ When scaling a cluster, there are plenty of resources that can be exhausted or r
 
 ![](./images/capacity.png)
 
-Sometimes requests cannot be fulfilled due to shortages on the infrastructure side. For example, a certain instance type might not be available and new Kubernetes nodes of this type cannot be added.
+Sometimes requests cannot be fulfilled due to shortages on the infrastructure side. For example, a certain instance type might not be available and new Kubernetes nodes of this type cannot be added. It is a good practice to use the [cluster-autoscaler's priority expander](https://github.com/gardener/autoscaler/blob/machine-controller-manager-provider/cluster-autoscaler/expander/priority/readme.md) and have a secondary node pool.
 
 Sometimes, it is not the physical capacity but exhausted quotas within an infrastructure account that result in limits. Obviously, there should be sufficient quota to create as many VMs as needed. But there are also other resources that are created in the infrastructure that need proper quotas:
 - Loadbalancers

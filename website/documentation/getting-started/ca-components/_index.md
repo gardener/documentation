@@ -34,9 +34,9 @@ A control-plane has lots of components:
 - CSI driver
 
 Additionally, we deploy components needed to manage the cluster:
-- GRM
-- MCM
-- DNS
+- Gardener Resource Manager (GRM)
+- Machine Controller Manager (MCM)
+- DNS Management
 - VPN
 
 There is also a set of components making our life easier (logging, monitoring) or adding additional features (cert manager).
@@ -119,7 +119,7 @@ For more information, see [Contract: DNSRecord Resources](https://github.com/gar
 
 Gardener runs various health checks to ensure that the cluster works properly. The Network Problem Detector gives information about connectivity within the cluster and to the API server.
 
-**Certificate Management:** allows to request (Let's Encrypt) certificates from within the cluster.
+**Certificate Management:** allows to request certificates via the ACME protocol (e.g. issued by Let's Encrypt) from within the cluster. For detailed information, have a look at the [cert-manager project](https://github.com/gardener/cert-management#certificate-management)
 
 **Observability stack:** Gardener deploy observability components and monitors the control-plane & kube-system namespace.
 
@@ -135,7 +135,7 @@ HA control planes can be configured as part of the shoot's spec. The available t
 
 Both work similarly and just differ in the failure domain the concepts are applied to.
 
-For more information, see the [High Availability Guides](https://gardener.cloud/docs/guides/high-availability/).
+For detailed guidance and more information, see the [High Availability Guides](https://gardener.cloud/docs/guides/high-availability/).
 
 ## Zonal HA Control Planes
 
@@ -150,7 +150,7 @@ To get to an HA setup we need:
 - 3 replicas for ETCD (both main and events)
 - A second instance for each controller (e.g., controller manager, csi-driver, scheduler, etc.) that can take over in case of failure (active / passive).
 
-After that, we have to ensure those pods get distributed over zones using the well-known patterns of podTopologySpreadConstraints, Affinities, and so on.
+To distribute those pods across zones, well-known concepts like podTopologySpreadConstraints or affinities are applied.
 
 ## kube-system Namespace
 
@@ -158,7 +158,7 @@ After that, we have to ensure those pods get distributed over zones using the we
 
 For a fully functional cluster, a few components need to run on the data plane side of the diagram. They all exist in the kube-system namespace. Let's have a closer look at them.
 
-### Daemonsets
+### Networking
 
 ![](./images/kube-system-namespace-2.png)
 
@@ -176,7 +176,7 @@ Well, in case kube-proxy is broken, service traffic will degrade over time (depe
 
 When calico is failing on a node, no new pods can start there as they don't get any IP address assigned. It might also fail to add routes to newly added nodes. Depending on the error, deleting the pod might help.
 
-## DNS System
+### DNS System
 
 ![](./images/kube-system-namespace-3.png)
 
@@ -188,7 +188,7 @@ In case this customization is related to non-Kubernetes entities, a user may con
 
 A broken DNS system on any level will cause disruption / service degradation for applications within the cluster.
 
-## Health Checks and Metrics
+### Health Checks and Metrics
 
 ![](./images/kube-system-namespace-4.png)
 
@@ -196,7 +196,7 @@ Gardener deploys probes checking the health of individual nodes. In a similar fa
 
 They provide the data foundation for Gardener's monitoring stack together with the metrics collecting / exporting components.
 
-## Connectivity Components
+### Connectivity Components
 
 ![](./images/kube-system-namespace-5.png)
 
@@ -204,7 +204,7 @@ From the perspective of the data plane, the shoot's API server is reachable via 
 
 The second component here is the VPN shoot. It initiates a VPN connection to its counterpart in the seed. This way, there is no open port / Loadbalancer needed on the data plane. The VPN connection is used for any traffic flowing from the control plane to the data plane. If the VPN connection is broken, port-forwarding or log querying with kubectl will not work. In addition, webhooks will stop functioning properly.
 
-## csi-driver
+### csi-driver
 
 ![](./images/kube-system-namespace-6.png)
 
