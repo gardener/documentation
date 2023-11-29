@@ -136,14 +136,16 @@ If the usage profile changes over time, the VPA can help a lot to adapt the reso
 
 ![](./images/user-webhook.gif)
 
-By default, any request to the API server will go through a chain of checks. Let's take the example of creating a pod. 
-When the resource is submitted to the API server, it will be checked 
-- is the user authorized to perform this action? 
-- is the pod definitionactually valid?
-- are the specified values allowed?
-Additionally, there is the defaulting - like the injection of a the `default` service account's name, if nothing else is specified.
+By default, any request to the API server will go through a chain of checks. Let's take the example of creating a pod.
 
-This chain of admission control and mutation can be enhanced by the user. Read about [dynamic admission control for more details](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/).
+When the resource is submitted to the API server, it will be checked against the following validations:
+- Is the user authorized to perform this action?
+- Is the pod definitionactually valid?
+- Are the specified values allowed?
+
+Additionally, there is the defaulting - like the injection of the `default` service account's name, if nothing else is specified.
+
+This chain of admission control and mutation can be enhanced by the user. Read about [dynamic admission control](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/) for more details.
 
 `ValidatingWebhookConfiguration`: allow / deny based on custom rules
 

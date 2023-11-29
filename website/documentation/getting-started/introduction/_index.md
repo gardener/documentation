@@ -19,7 +19,7 @@ But still, someone needs to install, configure, and maintain it - regardless of 
 
 For smaller installations things like maintenance, scaling, debugging or configuration can be done in a semi-automatic way. It's probably no fun and most importantly, only a limited amount of instances can be taken care of - similar to how one would take care of a pet.
 
-But when hosting services at scale, there is no way someone can do all this manually at acceptable costs. So we need some vehicle to easily spin up new instances, do lifecycle operations, get some basic failure resilency, and more. How can we achieve that?
+But when hosting services at scale, there is no way someone can do all this manually at acceptable costs. So we need some vehicle to easily spin up new instances, do lifecycle operations, get some basic failure resilience, and more. How can we achieve that?
 
 ## Solution Space 1 - Kubernetes
 
@@ -29,7 +29,7 @@ Let's start solving some of the problems described earlier with Container techno
 
 Container technology is at the core of the solution space. A container forms a vehicle that is shippable, can easily run in any supported environment and generally adds a powerful abstraction layer to the infrastructure.
 
-However, plain containers do not help with resiliency or scaling. Therefore, we need another system for orchestration.
+However, plain containers do not help with resilience or scaling. Therefore, we need another system for orchestration.
 
 ### Orchestration
 
