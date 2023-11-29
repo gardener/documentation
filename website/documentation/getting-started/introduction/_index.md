@@ -13,7 +13,7 @@ The starting point is this rather simple question: Why would you want to run som
 
 Typically, software is run with a purpose and not just for the sake of running it. Whether it is a digital ledger, a company's inventory or a blog - software provides a service to its user.
 
-Which brings us to the way this software is being consumed. Traditionally, software has been shipped on physical / digital media to the customer or end-user. There, someone had to install, configure, and operate it. In recent times, the pattern has shifted. More and more solutions are operated by the vendor or a hosting partner and sold as a service ready to be used.
+Which brings us to the way this software is being consumed. Traditionally, software has been shipped on physical / digital media to the customer or end user. There, someone had to install, configure, and operate it. In recent times, the pattern has shifted. More and more solutions are operated by the vendor or a hosting partner and sold as a service ready to be used.
 
 But still, someone needs to install, configure, and maintain it - regardless of where it is installed. And of course, it will run forever once started and is generally resilient to any kind of failures.
 

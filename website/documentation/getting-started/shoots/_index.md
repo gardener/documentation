@@ -29,9 +29,9 @@ The "purpose" defines some configuration (like a monitoring stack or alerting ru
 
 ![](./images/basic_configurations_2.png)
 
-Start by selecting the infrastructure you want to use. The choice will be mapped to a "cloudprofile" that contains provider specific information like the available (actual) OS images, zones and regions or machine types.
+Start by selecting the infrastructure you want to use. The choice will be mapped to a cloud profile that contains provider specific information like the available (actual) OS images, zones and regions or machine types.
 
-Each data plane runs in an infrastructure account owned by the end-user. By selecting the infrastructure secret, the user grants Gardener access to the respective account to create / manage resources.
+Each data plane runs in an infrastructure account owned by the end user. By selecting the infrastructure secret, the user grants Gardener access to the respective account to create / manage resources.
 
 {{% alert color="info"  title="Note" %}}
 Changing the account after the creation of a cluster is not possible. The credentials can be updated with a new key or even user but have to stay within the same account. 
@@ -39,7 +39,7 @@ Changing the account after the creation of a cluster is not possible. The creden
 Currently, there is no way to move a single cluster to a different account. A user would rather have to re-create a cluster and migrate workloads by different means.
 {{% /alert %}}
 
-As part of the infrastructure choice, the region for data plane has to be chosen as well. The Gardener scheduler will try to place the control-plane on a seed cluster based on a minimal distance strategy. See [Gardener Scheduler](https://github.com/gardener/gardener/blob/master/docs/concepts/scheduler.md) for more details.
+As part of the infrastructure choice, the region for data plane has to be chosen as well. The Gardener scheduler will try to place the control plane on a seed cluster based on a minimal distance strategy. See [Gardener Scheduler](https://github.com/gardener/gardener/blob/master/docs/concepts/scheduler.md) for more details.
 
 ![](./images/basic_configurations_3.png)
 
@@ -47,7 +47,7 @@ Up next, the networking provider for the cluster has to be selected (CNI). At th
 
 In order to run any workloads in your cluster, you need nodes. The worker section lets you specify the most important configuration options. For beginners, the machine type is probably the most relevant field, together with the machine image (operating system). 
 
-The machine type is provider-specific and configured in the cloudprofile. Check your respective cloudprofile if you're missing a machine type. Maybe it is available but not in this region.
+The machine type is provider-specific and configured in the cloud profile. Check your respective cloud profile if you're missing a machine type. Maybe it is available but not in this region.
 
 The operating system your machines will run is the next thing to choose. [GardenLinux](https://github.com/gardenlinux/gardenlinux) is the best choice for most use cases, as it is Debian based and maintained by SAP.
 
@@ -61,7 +61,7 @@ Once per day, all clusters reconcile. This means all controllers will check if t
 
 It is also possible to confine updates to the shoot spec to be applied only during this time. This can come in handy when you want to bundle changes or prevent changes to be applied outside a well-known time window.
 
-You can allow Gardener to automatically update your cluster's Kubernetes patch version and/or OS version (of the nodes). Take this decision consciously! Whenever a new Kubernetes patch version or OS version is set to "supported" in the respective cloudprofile, auto update will upgrade your cluster during the next maintenance window. If you fail to (manually) upgrade the Kubernetes or OS version before they expire, force-upgrades will take place during the maintenance window.
+You can allow Gardener to automatically update your cluster's Kubernetes patch version and/or OS version (of the nodes). Take this decision consciously! Whenever a new Kubernetes patch version or OS version is set to `supported` in the respective cloud profile, auto update will upgrade your cluster during the next maintenance window. If you fail to (manually) upgrade the Kubernetes or OS version before they expire, force-upgrades will take place during the maintenance window.
 
 ### Result
 
@@ -77,7 +77,7 @@ The result of user configuration and defaulting is a shoot resource that, once a
 
 ![](./images/access-shoot.png)
 
-Static credentials for Shoots are discontinued with Kubernetes v1.27 in Gardener. Use short lived credentials instead. You can create/request tokens directly via Gardener or delegate authentication to an identity provider.
+Static credentials for shoots are discontinued with Kubernetes v1.27 in Gardener. Use short lived credentials instead. You can create/request tokens directly via Gardener or delegate authentication to an identity provider.
 
 A short-lived admin kubeconfig can be requested by using kubectl. If this is something you do frequently, consider switching to gardentctl (v2), which helps with it.
 
@@ -87,11 +87,11 @@ An alternative is to use an identity provider and issue oidc tokens.
 
 ## What can you configure?
 
-With the basic configuration options known, it is time to discuss more possibilities. Gardener offers a variety of options to tweak the control plane's behavior - like defining an event TTL (default 1h), adding an OIDC configuration or activating some feature gate. You can alter the scheduling profile and define an audit logging policy. In addition, the control-plane can be configured to run in HA mode (applied on a node or zone level), but note that it cannot be changed.
+With the basic configuration options known, it is time to discuss more possibilities. Gardener offers a variety of options to tweak the control plane's behavior - like defining an event TTL (default 1h), adding an OIDC configuration or activating some feature gate. You can alter the scheduling profile and define an audit logging policy. In addition, the control plane can be configured to run in HA mode (applied on a node or zone level), but note that it cannot be changed.
 
-In case you have specific requirements for the cluster internal DNS, Gardener offers a plugin mechanism for custom core DNS rules or optimization with node-local DNS ([Custom DNS Configuration](https://github.com/gardener/gardener/blob/master/docs/usage/custom-dns-config.md), [NodeLocalDNS Configuration](https://github.com/gardener/gardener/blob/master/docs/usage/node-local-dns.md)).
+In case you have specific requirements for the cluster internal DNS, Gardener offers a plugin mechanism for custom core DNS rules or optimization with node-local DNS. For more information, see [Custom DNS Configuration](https://github.com/gardener/gardener/blob/master/docs/usage/custom-dns-config.md) and [NodeLocalDNS Configuration](https://github.com/gardener/gardener/blob/master/docs/usage/node-local-dns.md).
 
-Another category of configuration options is dedicated to the nodes and the infrastructure they are running within. Every provider has their own perks and some of them are exposed. Check the detailed documentation of the relevant infrastructure provider extension. 
+Another category of configuration options is dedicated to the nodes and the infrastructure they are running within. Every provider has their own perks and some of them are exposed. Check the detailed documentation of the relevant infrastructure provider extension.
 
 You can fine-tune the cluster-autoscaler or help the kubelet to cope better with your workload.
 

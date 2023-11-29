@@ -7,11 +7,11 @@ weight: 5
 
 The starting point of all reconciliation cycles is the constant observation of both the desired and actual state. A component would analyze any differences between the two states and try to converge the actual towards the desired state using appropriate actions. Typically, a component is responsible for a single resource type but it also watches others that have an implication on it.
 
-As an example, the Kubernetes controller for ReplicaSets will watch Pods belonging to it in order to ensure that the specified replica count is fulfilled. If one Pod gets deleted, the controller will create a new pod to enforce the desired over the actual state.
+As an example, the Kubernetes controller for ReplicaSets will watch pods belonging to it in order to ensure that the specified replica count is fulfilled. If one pod gets deleted, the controller will create a new pod to enforce the desired over the actual state.
 
 This is all standard behaviour, as Gardener is following the native Kubernetes approach. All elements of a shoot cluster have a representation in Kubernetes resources and controllers are watching / acting upon them.
 
-If we pick up the example of the ReplicaSet - a user typically creates a Deployment resource and the ReplicaSet is implicitly generated on the way to create the Pods. Similarly, Gardener takes the user's intent (shoot) and creates lots of domain specific resources on the way. They all reconcile and make sure their actual and desired states match.
+If we pick up the example of the ReplicaSet - a user typically creates a `deployment` resource and the ReplicaSet is implicitly generated on the way to create the pods. Similarly, Gardener takes the user's intent (shoot) and creates lots of domain specific resources on the way. They all reconcile and make sure their actual and desired states match.
 
 ## Updating the Desired State of a Shoot
 

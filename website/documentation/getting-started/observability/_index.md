@@ -24,7 +24,7 @@ Both forks are done from the last version with an Apache license.
 
 ![](./images/control-plane-components.png)
 
-Prometheus, Plutono, and Vali are all located in the Seed cluster. They run next to the ControlPlane of your cluster.
+Prometheus, Plutono, and Vali are all located in the seed cluster. They run next to the control plane of your cluster.
 
 The next sections will explore those components in detail.
 {{% alert color="info"  title="Note" %}}
@@ -33,7 +33,7 @@ Plutono, Vali, and Prometheus offered by Gardener do not provide monitoring for 
 
 ### Accessing the Plutono Dashboards
 
-Let us start by giving some visual hints on how to access Plutono. [Plutono](https://github.com/credativ/plutono#plutono) (formerly known as Grafana) is the monitoring solution shipped ready-to-use with a Gardener Shoot cluster.
+Let us start by giving some visual hints on how to access Plutono. [Plutono](https://github.com/credativ/plutono#plutono) (formerly known as Grafana) is the monitoring solution shipped ready-to-use with a Gardener shoot cluster.
 
 In order to access the Gardener provided dashboards, open the `Plutono` link provided in the Gardener dashboard.
 
@@ -55,13 +55,13 @@ This example query describes the current uptime status of the kube apiserver.
 
 #### Prometheus and Plutono
 
-Time series data from Prometheus can be made visible with Plutono. Here we see how the query above which describes the uptime of a Kubernetes Cluster is visualized with a Plutono dashboard.
+Time series data from Prometheus can be made visible with Plutono. Here we see how the query above which describes the uptime of a Kubernetes cluster is visualized with a Plutono dashboard.
 
 ![](./images/prometheus-plutono.png)
 
 ### Vali Logs via Plutono
 
-Vali is our logging solution. Here we see how Logs gathered with Vali are visualized in Plutono. Therefore, we can correlate Logs and metrics in the same tool.
+Vali is our logging solution. Here we see how logs gathered with Vali are visualized in Plutono. Therefore, we can correlate logs and metrics in the same tool.
 
 ![](./images/vali-logs.png)
 
@@ -69,7 +69,7 @@ Vali is our logging solution. Here we see how Logs gathered with Vali are visual
 
 ### Data Flow
 
-Our monitoring and logging solutions Vali and Prometheus both run next to the control plane of the Shoot Cluster.
+Our monitoring and logging solutions Vali and Prometheus both run next to the control plane of the shoot cluster.
 
 Data from both is visualized in the Plutono dashboards.
 
@@ -89,7 +89,7 @@ Valitail is a systemd service that runs on each node. It scrapes kubelet, contai
 
 **Fluentbit**
 
-Fluentbit runs as a daemonset on each Seed node. It scrapes logs of the kubernetes control plane components, like apiserver or etcd. 
+Fluentbit runs as a daemonset on each seed node. It scrapes logs of the kubernetes control plane components, like apiserver or etcd. 
 
 It also gets logs of the Gardener deployed components like machine-controller-manager or the cluster autoscaler, which is useful when finding out why nodes got created or have been replaced.
 
@@ -97,7 +97,7 @@ It also gets logs of the Gardener deployed components like machine-controller-ma
 
 Looking at Prometheus, our monitoring solution, in more detail:
 
-An instance of Prometheus runs in the Seed cluster next to the Shoots controlplane.
+An instance of Prometheus runs in the seed cluster next to the shoot's control plane.
 
 Prometheus is a monitoring solution, which includes alerting and uses a time-series database as its data store. 
 
@@ -117,7 +117,7 @@ cAdvisor is an open-source agent integrated into the kubelet binary that monitor
 
 The [Prometheus Node Exporter](https://prometheus.io/docs/guides/node-exporter/) runs as a daemonset in the kube-system namespace of your Shoot cluster. It exposes a wide variety of hardware and kernel-related metrics. Some of the metrics we scrape are, for example, the current usage of the filesystem (`node_filesystem_free_bytes`) or current CPU usage (`node_cpu_seconds_total`). Both can help you identify if nodes are running out of hardware resources, which could lead to your workload experiencing downtimes.
 
-**Controlplane component specific metrics**
+**Control plane component specific metrics**
 
 The different control plane pods (for example, etcd, API server, and kube-controller-manager) emit metrics over the `/metrics` endpoint. This includes metrics like how long webhooks take, the request count of the apiserver and storage information, like how many and what kind of objects are stored in etcd.
 
@@ -130,9 +130,9 @@ It exposes metrics calculated from the status of Kubernetes objects (for example
 To get a real-world feeling, here are a few example metrics exposed by the components:
 ![](./images/data-flow-monitoring-2.png)
 
-For logs and for metrics we only expose those for the Kubernetes Control Plane or for Gardener managed system components like pods in kube-system of the Shoot cluster.
+For logs and for metrics we only expose those for the Kubernetes control plane or for Gardener managed system components like pods in kube-system of the shoot cluster.
 
-This means that for any workload you deploy into your Shoot cluster, you need to deploy monitoring and logging yourself.
+This means that for any workload you deploy into your shoot cluster, you need to deploy monitoring and logging yourself.
 
 Logs or metrics are kept max 14 days or when a configured space limit is reached.
 

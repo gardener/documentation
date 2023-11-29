@@ -7,7 +7,7 @@ weight: 8
 
 ### Containers will NOT fix a broken architecture!
 
-![](./images/microservices.jpg)
+![](./images/microservices.png)
 
 Running a highly distributed system has advantages, but of course, those come at a cost. In order to succeed, one would need:
 - Logging
@@ -47,9 +47,9 @@ Sometimes, it is not the physical capacity but exhausted quotas within an infras
 - VPC
 - Disks
 - Routes (often forgotten, but very important for clusters without overlay network; typically defaults to around 50 routes, meaning that 50 nodes is the maximum a cluster can have)
-- Others
+- ...
 
-### nodeCIDRMaskSize
+### NodeCIDRMaskSize
 
 ![](./images/mask-size.png)
 
@@ -67,7 +67,7 @@ For more information, see [Shoot Networking](https://github.com/gardener/gardene
 
 ![](./images/cidr-ranges.png)
 
-Gardener can create Shoot cluster resources in an existing / user-created VPC. However, the user has to make sure that the CIDR ranges used by the Shoots nodes or subnets for zones do not overlap with other Shoots deployed to the same VPC. 
+Gardener can create shoot cluster resources in an existing / user-created VPC. However, the user has to make sure that the CIDR ranges used by the shoots nodes or subnets for zones do not overlap with other shoots deployed to the same VPC.
 
 In case of an overlap, there might be strange routing effects, and packets ending up at a wrong location.
 
@@ -75,13 +75,13 @@ In case of an overlap, there might be strange routing effects, and packets endin
 
 ![](./images/expired-credentials.png)
 
-Credentials expire or get revoked. When this happens to the actively used infrastructure credentials of a shoot, the cluster will stop working after a while. New nodes cannot be added, LoadBalancers cannot be created, and so on. 
+Credentials expire or get revoked. When this happens to the actively used infrastructure credentials of a shoot, the cluster will stop working after a while. New nodes cannot be added, LoadBalancers cannot be created, and so on.
 
-A user can update the credentials stored in the project namespace and reconcile the cluster to replicate the new keys to all relevant controllers. Similarly, planned rotation should wait the shoot reconciled successfully before invalidating the old credentials.
+A user can update the credentials stored in the project namespace and reconcile the cluster to replicate the new keys to all relevant controllers. Similarly, when doing a planned rotation one should wait until the shoot reconciled successfully before invalidating the old credentials.
 
 ## AutoUpdate Breaking Clusters
 
-Gardener can automatically update a shoot's Kubernetes patch version, when a new patch version is labeled as "supported". Automatically updating of the OS images works in a similar way. Both are triggered by the "supported" classification in the respective cloudprofile and can be enabled / disabled as part a shoot's spec.
+Gardener can automatically update a shoot's Kubernetes patch version, when a new patch version is labeled as "supported". Automatically updating of the OS images works in a similar way. Both are triggered by the "supported" classification in the respective cloud profile and can be enabled / disabled as part a shoot's spec.
 
 Additionally, when a minor Kubernetes / OS version expires, Gardener will force-update the shoot to the next supported version. 
 
@@ -97,18 +97,18 @@ Control the version lifecycle separately for any cluster that hosts important wo
 
 ![](./images/node-draining.gif)
 
-Typically, Nodes are drained when:
-- there is a update of the OS / Kubernetes minor version
-- operator cordons & drains a node
-- the cluster-autoscaler wants to scale down
+Typically, nodes are drained when:
+- There is a update of the OS / Kubernetes minor version
+- An Operator cordons & drains a node
+- The cluster-autoscaler wants to scale down
 
-Without a `PodDistruptionBudget`, Pods will be terminated as fast as possible. If an application has 2 out of 2 replicas running on the drained node, this will probably cause availability issues.
+Without a PodDistruptionBudget, pods will be terminated as fast as possible. If an application has 2 out of 2 replicas running on the drained node, this will probably cause availability issues.
 
 ### Node Draining with PDB
 
 ![](./images/node-draining-pdb.gif)
 
-`PodDisruptionBudgets` can help to manage a graceful node drain. However, if no disruptions are allowed there, the node drain will be blocked until it reaches a timeout. Only then will the nodes be terminated but without respecting PDB thresholds.
+PodDisruptionBudgets can help to manage a graceful node drain. However, if no disruptions are allowed there, the node drain will be blocked until it reaches a timeout. Only then will the nodes be terminated but without respecting PDB thresholds.
 
 {{% alert color="info"  title="Recommendation" %}}
 Configure PDBs and allow disruptions.
@@ -118,15 +118,13 @@ Configure PDBs and allow disruptions.
 
 ### Resource Consumption
 
-![](./images/pod-resource-limits.gif)
-
 Pods consume resources and, of course, there are only so many resources available on a single node. Setting requests will make the scheduling much better, as the scheduler has more information available. 
 
 Specifying limits can help, but can also limit an application in unintended ways. A recommendation to start with:
 - Do not set CPU limits (CPU is compressible and throttling is really hard to detect)
 - Set memory limits and monitor OOM kills / restarts of workload (typically detectable by container status exit code 137 and corresponding events). This will decrease the likelihood of OOM situations on the node itself. However, for critical workloads it might be better to have uncapped growth and rather risk a node going OOM.
 
-Next, consider if a quality of service class guarantee is needed. Again - this can help or be counterproductive. It is important to be aware of its implications.
+Next, consider if assigning the workload to quality of service class `guaranteed` is needed. Again - this can help or be counterproductive. It is important to be aware of its implications. For more information, see [Pod Quality of Service Classes](https://kubernetes.io/docs/concepts/workloads/pods/pod-qos/).
 
 Tune `shoot.spec.Kubernetes.kubeReserved` to protect the node (kubelet) in case of a workload pod consuming too much resources. It is very helpful to ensure a high level of stability.
 
@@ -138,7 +136,7 @@ If the usage profile changes over time, the VPA can help a lot to adapt the reso
 
 ![](./images/user-webhook.gif)
 
-By default, any request to the API server will go through a chain of checks. Let's take the example of creating a Pod. When the resource is submitted to the API server, it will be checked if the user is authorized to perform this action or if the Pod definition is actually valid / allowed. Additionally, there is the defaulting, like injecting the default service account if nothing else is specified.
+By default, any request to the API server will go through a chain of checks. Let's take the example of creating a pod. When the resource is submitted to the API server, it will be checked if the user is authorized to perform this action or if the pod definition is actually valid / allowed. Additionally, there is the defaulting, like injecting the default service account if nothing else is specified.
 
 This chain of admission control and mutation can be enhanced by the user.
 
@@ -163,7 +161,7 @@ What can go wrong (i.e., the webhook is not reachable and thus blocking the crea
 
 ![](./images/timeout.png)
 
-Webhooks are a very helpful feature of Kubernetes. However, they can easily be configured to break a Shoot cluster. Take the timeout, for example. High timeouts (>15s) can lead to blocking requests of control plane components. That's because most control-plane API calls are made with a client-side timeout of 30s, so if a webhook has `timeoutSeconds=30`, the overall request might still fail as there is overhead in communication with the API server and other potential webhooks.
+Webhooks are a very helpful feature of Kubernetes. However, they can easily be configured to break a shoot cluster. Take the timeout, for example. High timeouts (>15s) can lead to blocking requests of control plane components. That's because most control-plane API calls are made with a client-side timeout of 30s, so if a webhook has `timeoutSeconds=30`, the overall request might still fail as there is overhead in communication with the API server and other potential webhooks.
 
 {{% alert color="info"  title="Recommendation" %}}
 Webhooks (esp. mutating) may be called sequentially and thus adding up their individual timeouts. Even if the `faliurePolicy` is ignored, the timeout will stop the request.
@@ -173,7 +171,7 @@ Webhooks (esp. mutating) may be called sequentially and thus adding up their ind
 
 ![](./images/webhook-recommendations.png)
 
-Problematic webhooks are reported as part of a Shoot's status. In addition to timeouts, it is crucial to exclude the `kube-system` Namespace and (potentially non-namespaced) resources that are necessary for the cluster to function properly. Those should not be subject to a user-defined webhook. 
+Problematic webhooks are reported as part of a shoot's status. In addition to timeouts, it is crucial to exclude the `kube-system` namespace and (potentially non-namespaced) resources that are necessary for the cluster to function properly. Those should not be subject to a user-defined webhook. 
 
 **Example:**
 
@@ -197,7 +195,7 @@ However, sometimes, you simply use helm or kustomize to install a (third-party) 
 
 Conversion webhooks are tricky. Similarly to regular webhooks, they should have a low timeout. However, they cannot be remediated automatically and can cause strange errors. For example, if a webhook is invoked but not available, it can block the garbage collection run by the kube-controller-manager. 
 
-In turn, when deleting Deployments, pods will not be deleted automatically.
+In turn, when deleting deployments, pods will not be deleted automatically.
 
 {{% alert color="info"  title="Recommendation" %}}
 Try to avoid conversion webhooks. They are valid and can be used, but should not stay in place forever. Complete the upgrade to a new version of the CRD as soon as possible.

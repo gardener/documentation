@@ -16,7 +16,7 @@ You can retrieve it by using `kubectl get shoot -oyaml`
 
 ## Shoot Status 2
 
-The Shoot status also contains constraints. If these constraints are met, your cluster operations are impaired and the cluster is likely to fail at some point. Please watch them and act accordingly.
+The shoot status also contains constraints. If these constraints are met, your cluster operations are impaired and the cluster is likely to fail at some point. Please watch them and act accordingly.
 
 ![](./images/shoot-status-2.png)
 
