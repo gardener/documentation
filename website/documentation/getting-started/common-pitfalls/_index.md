@@ -147,20 +147,23 @@ Additionally, there is the defaulting - like the injection of the `default` serv
 
 This chain of admission control and mutation can be enhanced by the user. Read about [dynamic admission control](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/) for more details.
 
-`ValidatingWebhookConfiguration`: allow / deny based on custom rules
+`ValidatingWebhookConfiguration`: allow or deny requests based on custom rules
 
 `MutatingWebhookConfiguration`: change а resource before it is actually stored in etcd (that is, before any other controller acts upon)
 
-`ValidatingWebhookConfiguration` / `MutatingWebhookConfiguration`: 
+Both `ValidatingWebhookConfiguration` as well as `MutatingWebhookConfiguration` resources: 
 - specify for which resources and operations these checks should be executed. 
-- specify how the checks are executed (service)
-- webhook serving pod: perform a review and reply to the `admissionReview` request
+- specify how to reach the webhook server (typically a service running on the data plane of a cluster)
+- rely on a webhook server performing a review and reply to the `admissionReview` request
 
 ![](./images/user-webhook-fail.gif)
 
-What can go wrong (i.e., the webhook is not reachable and thus blocking the creation of the pod or any other operation that the webhook is responsible for)?
+What could possibly go wrong?
+Due to the separation of control plane and data plane in Gardener's architecture, webhooks have the potential to break a cluster. 
+If the webhook server is not responding in time with a valid answer, the request should timeout and the failure policy is invoked. Depending on the scope of the webhook, frequent failures may cause downtime for applications. 
+Common causes for failure are:
 
-- VPN / connection issues can happen both on the side of the seed as well as the shoot
+-  The call to the webhook is made through the VPN tunnel. VPN / connection issues can happen both on the side of the seed as well as the shoot and would render the webhook unavailable from the perspective of the control plane.
 - The traffic cannot reach the pod (network issue, pod not available)
 - The pod is processing too slow (e.g., because there are too many requests)
 
@@ -171,7 +174,7 @@ What can go wrong (i.e., the webhook is not reachable and thus blocking the crea
 Webhooks are a very helpful feature of Kubernetes. However, they can easily be configured to break a shoot cluster. Take the timeout, for example. High timeouts (>15s) can lead to blocking requests of control plane components. That's because most control-plane API calls are made with a client-side timeout of 30s, so if a webhook has `timeoutSeconds=30`, the overall request might still fail as there is overhead in communication with the API server and other potential webhooks.
 
 {{% alert color="info"  title="Recommendation" %}}
-Webhooks (esp. mutating) may be called sequentially and thus adding up their individual timeouts. Even if the `faliurePolicy` is ignored, the timeout will stop the request.
+Webhooks (esp. mutating) may be called sequentially and thus adding up their individual timeouts. Even with a  `faliurePolicy=ignore` the timeout will stop the request.
 {{% /alert %}}
 
 ### Recommendations
@@ -179,7 +182,17 @@ Webhooks (esp. mutating) may be called sequentially and thus adding up their ind
 ![](./images/webhook-recommendations.png)
 
 Problematic webhooks are reported as part of a shoot's status. In addition to timeouts, it is crucial to exclude the `kube-system` namespace and (potentially non-namespaced) resources that are necessary for the cluster to function properly. Those should not be subject to a user-defined webhook. 
-
+In particular, a webhook should not operate on:
+- the `kube-system` namespace
+- `Endpoints` or `EndpointSlices`
+- `Nodes`
+- `PodSecurityPolicies`
+- `ClusterRoles`
+- `ClusterRoleBindings`
+- `CustomResourceDefinitions`
+- `ApiServices`
+- `CertificateSigningRequests`
+- `PriorityClasses`
 **Example:**
 
 A webhook checks node objects upon creation and has a `failurePolicy: fail`. If the webhook does not answer in time (either due to latency or because there is no pod serving it), new nodes cannot join the cluster.
@@ -192,17 +205,17 @@ For more information, see [Shoot Status](https://github.com/gardener/gardener/bl
 
 ![](./images/conversion-webhook-install.png)
 
-If you have written your own CRD and made a version upgrade, you will also have consciously written & deployed the conversion webhook.
+If you have written your own `CustomResourceDefinition` (CRD)  and made a version upgrade, you will also have consciously written & deployed the conversion webhook.
 
-However, sometimes, you simply use helm or kustomize to install a (third-party) dependency that contains CRDs as well. Of course, those can contain conversion webhooks as well. As a user of a cluster, please make sure to be aware what you deploy.
+However, sometimes, you simply use helm or kustomize to install a (third-party) dependency that contains CRDs. Of course, those can contain conversion webhooks as well. As a user of a cluster, please make sure to be aware what you deploy.
 
 ### CRD with a Conversion Webhook
 
 ![](./images/conversion-webhook-crd.png)
 
-Conversion webhooks are tricky. Similarly to regular webhooks, they should have a low timeout. However, they cannot be remediated automatically and can cause strange errors. For example, if a webhook is invoked but not available, it can block the garbage collection run by the kube-controller-manager. 
+Conversion webhooks are tricky. Similarly to regular webhooks, they should have a low timeout. However, they cannot be remediated automatically and can cause errors in the control plane. For example, if a webhook is invoked but not available, it can block the garbage collection run by the kube-controller-manager. 
 
-In turn, when deleting deployments, pods will not be deleted automatically.
+In turn, when deleting something like a `deployment`, dependent resources like `pods` will not be deleted automatically. 
 
 {{% alert color="info"  title="Recommendation" %}}
 Try to avoid conversion webhooks. They are valid and can be used, but should not stay in place forever. Complete the upgrade to a new version of the CRD as soon as possible.
