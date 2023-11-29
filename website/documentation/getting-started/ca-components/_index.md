@@ -27,7 +27,7 @@ All control-plane components of a shoot cluster run in a dedicated namespace on 
 
 ![](./images/control-plane-components-2.png)
 
-A control-plane has lots of components:
+A control plane has lots of components:
 - Everything needed to run vanilla Kubernetes
 - etcd main & events (split for performance reasons)
 - Kube-.*-manager

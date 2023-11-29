@@ -17,7 +17,7 @@ In addition to that, it helps introducing a first layer of high availability. Wh
 
 In Gardener's terminology, the cluster hosting the control plane components is called a seed cluster. The cluster that end users actually use (and whose control plane is hosted in the seed) is called a shoot cluster.
 
-The worker nodes of a shoot cluster are plain, simple virtual machines in a hyperscaler (EC2 instances in AWS, GCE instances in GCP or ECS instances in Alibaba Cloud). They run an operating system, a container runtime (i.e., containerd), and the kubelet that gets configured during node bootstrap to connect to the shoot's API server. The API server in turn runs in the seed cluster and is exposed through an Ingress. This connection happens over public internet and is - of course - TLS encrypted.
+The worker nodes of a shoot cluster are plain, simple virtual machines in a hyperscaler (EC2 instances in AWS, GCE instances in GCP or ECS instances in Alibaba Cloud). They run an operating system, a container runtime (i.e., containerd), and the kubelet that gets configured during node bootstrap to connect to the shoot's API server. The API server in turn runs in the seed cluster and is exposed through an ingress. This connection happens over public internet and is - of course - TLS encrypted.
 
 In other terms: you use Kubernetes to run Kubernetes
 
