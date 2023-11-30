@@ -1,6 +1,6 @@
 ---
 title: Kubernetes Cluster Hardening Procedure for Cluster Admins
-description: "Using Cloud Access Management (CAM) for compliant user management of your Gardener Projects"
+description: "Compliant user management of your Gardener projects"
 level: advanced
 category: Security
 publishdate: 2023-10-10
