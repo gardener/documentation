@@ -5,11 +5,11 @@ weight: 3
 
 ## Keys
 
-There are plenty of keys in Gardener. The ETCD has an encryption key to store secrets encrypted at rest. Gardener generates several certificate authorities (CAs) to ensure secured communication between the various components and actors. Service account tokens are signed with a dedicated key. There is an SSH key pair to allow debugging of nodes and the observability stack has its own passwords too. 
+There are plenty of keys in Gardener. The ETCD needs one to store resources like secrets encrypted at rest. Gardener generates certificate authorities (CAs) to ensure secured communication between the various components and actors and service account tokens are signed with a dedicated key. There is also an SSH key pair to allow debugging of nodes and the observability stack has its own passwords too. 
 
 ![](./images/keys-1.png)
 
-All of these keys share a common property: they are all Gardener managed. Rotating them however, is potentially very disruptive. Hence, Gardener does not do it automatically, but offers means to users to perform these tasks easily. For a single cluster, a user may conveniently use the dashboard. Of course, it is also possible to do the same by annotating the shoot resource accordingly.
+All of these keys share a common property: they are managed by Gardener. Rotating them, however, is potentially very disruptive. Hence, Gardener does not do it automatically, but offers means to the user to perform these tasks easily. For a single cluster, a user may conveniently use the dashboard. Of course, it is also possible to do the same by annotating the shoot resource accordingly.
 
 ![](./images/keys-2.png)
 
@@ -19,9 +19,11 @@ Where possible, the rotation happens in two phases. Phase 1 introduces new keys 
 
 ![](./images/rotation-phases.png)
 
-Where possible, credentials rotation is implemented in phases. At the beginning, only the old set of credentials exists. By triggering the rotation, new credentials are created in phase 1 and both sets are valid. Now, all clients have to update and start using the new credentials. Only afterwards it is safe to trigger phase 2, which invalidates the old credentials.
+At the beginning, only the old set of credentials exists. By triggering the rotation, new credentials are created in phase 1 and both sets are valid. Now, all clients have to update and start using the new credentials. Only afterwards it is safe to trigger phase 2, which invalidates the old credentials.
 
 The shoot's status will always show the current status / phase of the rotation.
+
+For more information, see [Credentials Rotation for Shoot Clusters](https://gardener.cloud/docs/gardener/shoot_credentials_rotation/). 
 
 ## User-Provided Credentials
 

@@ -3,7 +3,7 @@ title: Shoot Lifecycle
 weight: 5
 ---
 
-## Reconciliation in Kubernetes
+## Reconciliation in Kubernetes and Gardener
 
 The starting point of all reconciliation cycles is the constant observation of both the desired and actual state. A component would analyze any differences between the two states and try to converge the actual towards the desired state using appropriate actions. Typically, a component is responsible for a single resource type but it also watches others that have an implication on it.
 
@@ -15,12 +15,14 @@ If we pick up the example of the ReplicaSet - a user typically creates a `deploy
 
 ## Updating the Desired State of a Shoot
 
-![](./images/update-shoot-state.png)
 
 Based on the shoot's specifications, Gardener will create network resources on a hyperscaler, backup resources for the ETCD, credentials, and other resources, but also representations of the worker pools. Eventually, this process will result in a fully functional Kubernetes cluster. 
 
 If a user changes the desired state, Gardener will reconcile the shoot and run through the same cycle to ensure the actual state matches the desired state.
 
+![](./images/update-shoot-state.png)
+
+For example, the (infrastructure-specific) machine type can be changed within the shoot resource. The following reconciliation will pick up the change and initiate the creation of new nodes with a different machine type and the removal of the old nodes.
 ## Maintenance Window and Daily Reconciliation
 
 ![](./images/maintenance-window.png)
@@ -35,7 +37,7 @@ Additionally, the daily reconciliation will help pick up all kind of version cha
 
 It is important to be aware of the impacts that a change can have on a cluster and the workloads within it.
 
-Updating the calico image will cause all calico pods to be re-created. Another example would be the rollout of a new etcd backup-restore image. This would cause etcd pods to be re-created, rendering a non-HA control plane unavailable until etcd is up and running again.
+An operator pushing a new Gardener version with a new calico image to a landscape will cause all calico pods to be re-created. Another example would be the rollout of a new etcd backup-restore image. This would cause etcd pods to be re-created, rendering a non-HA control plane unavailable until etcd is up and running again.
 
 When a user changes the shoot spec, it can also have significant impact on the cluster. Imagine that a user changes the machine type of a worker pool. This will cause new machines to be created and old machines to be deleted. Or in other words: all nodes will be drained, the pods will be evicted and then re-created on newly created nodes.
 
@@ -51,7 +53,8 @@ A minor version update is more impactful - it will cause all nodes to be recreat
 
 ![](./images/os-update.png)
 
-The OS version is defined for each worker pool and can be changed per worker pool. Contrary to Kubernetes versioning, no semantics apply to OS versions. You can freely switch back and forth. However, as there is no in-place update, each change will cause the entire worker pool to roll and nodes will be replaced.
+The OS version is defined for each worker pool and can be changed per worker pool. You can freely switch back and forth. However, as there is no in-place update, each change will cause the entire worker pool to roll and nodes will be replaced.
+For OS versions different update strategies can be configured. Please check the [documentation](https://gardener.cloud/docs/gardener/shoot_versions/#update-path-for-machine-image-versions) for details.
 
 ## Version Classifications
 
@@ -73,9 +76,9 @@ Version information is maintained in the relevant cloud profile resource. There 
 
 ![](./images/auto-update.png)
 
-AutoUpdate for a machine image version will update all node pools to the latest supported version. Whenever a new version is set to `supported`, the cluster will pick it up during its next maintenance window.
+AutoUpdate for a machine image version will update all node pools to the latest supported version based on the defined update strategy. Whenever a new version is set to `supported`, the cluster will pick it up during its next maintenance window.
 
-For Kubernetes versions the mechanism is the same, it is just not applied to minor updates. This means that the cluster will be kept on the latest supported patch version of a specific minor version.
+For Kubernetes versions the mechanism is the same, but only applied to patch version. This means that the cluster will be kept on the latest supported patch version of a specific minor version.
 
 In case a version used in a cluster expires, there is a force update during the next maintenance window. In a worst case scenario, 2 minor versions expire simultaneously. Then there will be two consecutive minor updates enforced.
 
@@ -85,6 +88,6 @@ For more information, see [Shoot Kubernetes and Operating System Versioning in G
 
 ![](./images/seeds-change.png)
 
-It is important to keep in mind that a seed is just another shoot cluster. As such, it has its own lifecycle (daily reconciliation, maintenance, etc.) and is also a subject to change.
+It is important to keep in mind that a seed is just another Kubernetes cluster. As such, it has its own lifecycle (daily reconciliation, maintenance, etc.) and is also a subject to change.
 
 From time to time changes need to be applied to the seed as well. Some (like updating the OS version) cause the node pool to roll. In turn, this will cause the eviction of ALL pods running on the affected node. If your etcd is evicted and you don't have a highly available control plane, it will cause downtime for your cluster. Your workloads will continue to run ,of course, but your cluster's API server will not function until the etcd is up and running again.

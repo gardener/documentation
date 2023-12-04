@@ -5,7 +5,7 @@ weight: 4
 
 ## Overview
 
-![](./images/Kubernetes-cluster.png)
+![](./images/k8s-cluster.png)
 
 A Kubernetes cluster consists of a control plane and a data plane. The data plane runs the actual containers on nodes (which translate to physical or virtual machines). For the control and data plane to work together properly, lots of components need matching configuration.
 
@@ -49,7 +49,7 @@ In order to run any workloads in your cluster, you need nodes. The worker sectio
 
 The machine type is provider-specific and configured in the cloud profile. Check your respective cloud profile if you're missing a machine type. Maybe it is available but not in this region.
 
-The operating system your machines will run is the next thing to choose. [GardenLinux](https://github.com/gardenlinux/gardenlinux) is the best choice for most use cases, as it is Debian based and maintained by SAP.
+The operating system your machines will run is the next thing to choose. Debian-based [GardenLinux](https://github.com/gardenlinux/gardenlinux) is the best choice for most use cases.
 
 Other specifications for the workers include the volume type and size. These settings affect the root disk of each node. Therefore we would always recommend to use an SSD-based type to avoid i/o issues.
 
@@ -119,6 +119,8 @@ However, not everything can be changed after the creation of the shoot. For exam
 
 Once created, most of the network aspects of a cluster become immutable. On an infrastructure level the VPC cannot be changed and on a cluster level things like the pod / service cidr ranges, together with the nodeCIDRmask, are set for the lifetime of the cluster.
 
-![](./images/immutablity.png)
 
 Some other things can be changed, but not reverted. While it is possible to add more zones to a cluster on an infrastructure level (assuming that an appropriate CIDR range is available), removing zones is not supported. Similarly, upgrading Kubernetes versions is comparable to a one-way ticket. As of now, Kubernetes does not support downgrading. Lastly, the HA setting of the control plane is immutable once specified.
+
+## Crazy Botany
+Since remembering all these options can be quite challenging, here is very helpful resource - an [example shoot](https://github.com/gardener/gardener/blob/master/example/90-shoot.yaml) with all the latest options 🎉 

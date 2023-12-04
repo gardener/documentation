@@ -28,8 +28,10 @@ For more information, see [DNS Names](https://github.com/gardener/gardener-exten
 
 ## DNS Provider
 
-For the reconcile magic to work, we need some ingredients. Primarily, this is implemented via a so-called DNSProvider. Every shoot has a default provider that is used to set up the API server's public DNS record. It can be used to request sub-domains as well. 
+For the above to work, we need some ingredients. Primarily, this is implemented via a so-called DNSProvider. Every shoot has a default provider that is used to set up the API server's public DNS record. It can be used to request sub-domains as well. 
 
 ![](./images/dns-provider.png)
 
-In addition, a shoot can reference credentials to a DNS provider. Those can be used to request custom domains.
+In addition, a shoot can reference credentials to a DNS provider. Those can be used to manage custom domains.
+
+Please have a look at the [documentation](https://gardener.cloud/docs/guides/networking/dns-extension/) for further details. 
