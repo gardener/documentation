@@ -179,9 +179,8 @@ Webhooks (esp. mutating) may be called sequentially and thus adding up their ind
 
 ### Recommendations
 
-![](./images/webhook-recommendations.png)
-
 Problematic webhooks are reported as part of a shoot's status. In addition to timeouts, it is crucial to exclude the `kube-system` namespace and (potentially non-namespaced) resources that are necessary for the cluster to function properly. Those should not be subject to a user-defined webhook. 
+
 In particular, a webhook should not operate on:
 - the `kube-system` namespace
 - `Endpoints` or `EndpointSlices`
@@ -193,6 +192,7 @@ In particular, a webhook should not operate on:
 - `ApiServices`
 - `CertificateSigningRequests`
 - `PriorityClasses`
+
 **Example:**
 
 A webhook checks node objects upon creation and has a `failurePolicy: fail`. If the webhook does not answer in time (either due to latency or because there is no pod serving it), new nodes cannot join the cluster.
@@ -202,8 +202,6 @@ For more information, see [Shoot Status](https://github.com/gardener/gardener/bl
 ## Conversion Webhooks
 
 ### Who installs a conversion webhook?
-
-![](./images/conversion-webhook-install.png)
 
 If you have written your own `CustomResourceDefinition` (CRD)  and made a version upgrade, you will also have consciously written & deployed the conversion webhook.
 

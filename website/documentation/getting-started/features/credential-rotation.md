@@ -7,11 +7,17 @@ weight: 3
 
 There are plenty of keys in Gardener. The ETCD needs one to store resources like secrets encrypted at rest. Gardener generates certificate authorities (CAs) to ensure secured communication between the various components and actors and service account tokens are signed with a dedicated key. There is also an SSH key pair to allow debugging of nodes and the observability stack has its own passwords too. 
 
-![](./images/keys-1.png)
+![](./images/keys.png)
 
-All of these keys share a common property: they are managed by Gardener. Rotating them, however, is potentially very disruptive. Hence, Gardener does not do it automatically, but offers means to the user to perform these tasks easily. For a single cluster, a user may conveniently use the dashboard. Of course, it is also possible to do the same by annotating the shoot resource accordingly.
+All of these keys share a common property: they are managed by Gardener. Rotating them, however, is potentially very disruptive. Hence, Gardener does not do it automatically, but offers means to the user to perform these tasks easily. For a single cluster, a user may conveniently use the dashboard. Of course, it is also possible to do the same by annotating the shoot resource accordingly:
 
-![](./images/keys-2.png)
+```bash
+$ kubectl -n <shoot-namespace> annotate shoot <shoot-name> gardener.cloud/operation=rotate-credentials-start
+```
+
+```bash
+$ kubectl -n <shoot-namespace> annotate shoot <shoot-name> gardener.cloud/operation=rotate-credentials-complete​
+```
 
 Where possible, the rotation happens in two phases. Phase 1 introduces new keys while the old ones are still valid. Users can safely exchange keys / CA bundles whereever they are used. Afterwards, phase 2 will invalidate the old keys / CA bundles.
 
@@ -23,7 +29,7 @@ At the beginning, only the old set of credentials exists. By triggering the rota
 
 The shoot's status will always show the current status / phase of the rotation.
 
-For more information, see [Credentials Rotation for Shoot Clusters](https://gardener.cloud/docs/gardener/shoot_credentials_rotation/). 
+For more information, see [Credentials Rotation for Shoot Clusters](https://github.com/gardener/gardener/blob/master/docs/usage/shoot_credentials_rotation.md). 
 
 ## User-Provided Credentials
 

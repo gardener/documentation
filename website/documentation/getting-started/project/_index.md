@@ -15,17 +15,15 @@ Since all Gardener resources are custom Kubernetes resources, the usual and well
 
 ## Projects on YAML Level
 
-Projects are just another Kubernetes resource which can be expressed by YAML. The resource specification can be found in the [API reference documentation](https://gardener.cloud/docs/gardener/api-reference/core/#core.gardener.cloud/v1beta1.Project).
+Projects are just another Kubernetes resource which can be expressed by YAML. The resource specification can be found in the [API reference documentation](https://github.com/gardener/gardener/blob/master/docs/api-reference/core.md/#core.gardener.cloud/v1beta1.Project).
 
-![](./images/yaml-level.png)
-
-In essence, a project's specification defines a name, a description (which is a free-text field), a purpose (again, a free-text field), an owner, and members. In Gardener, user management is done on a project level. Therefore, projects can have different members with certain roles. 
+In essence, a project's specification defines a name, a description (which is a free-text field), a purpose (again, a free-text field), an owner, and members. In Gardener, user management is done on a project level. Therefore, projects can have different members with certain roles.
 
 For example, a member with the `viewer` role can see and list all clusters but cannot create, delete or modify an existing cluster. For that, a member would need at least an `editor` role. Another important role would be the `uam` role - members with that role are allowed to manage members and technical users for a project. The `owner` of a project is allowed to do all of that, regardless of what roles might be assigned to him.
 
-As with every Kubernetes object, projects can have annotations and there is one annotation that is very important within SAP - the `billing.gardener.cloud/costObject` annotation. Since Gardener is hosting the control plane of all shoot clusters, it incurs a small fee to its users - with this annotation, it knows which cost-center needs to be billed.
-
 Projects are getting reconciled by Gardener's project-controller, a component of Gardener's controller manager. The status of the last reconcilation, along with any potential failures, will be recorded in the project's `status` field.
+
+For more information, see [Projects](https://github.com/gardener/gardener/blob/master/docs/usage/projects.md).
 
 In case you are interested, you can also view the source code for:
 - [The structure of a project API object](https://github.com/gardener/gardener/blob/master/pkg/apis/core/types_project.go) 

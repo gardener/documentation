@@ -54,7 +54,7 @@ A minor version update is more impactful - it will cause all nodes to be recreat
 ![](./images/os-update.png)
 
 The OS version is defined for each worker pool and can be changed per worker pool. You can freely switch back and forth. However, as there is no in-place update, each change will cause the entire worker pool to roll and nodes will be replaced.
-For OS versions different update strategies can be configured. Please check the [documentation](https://gardener.cloud/docs/gardener/shoot_versions/#update-path-for-machine-image-versions) for details.
+For OS versions different update strategies can be configured. Please check the [documentation](https://github.com/gardener/gardener/blob/master/docs/usage/shoot_versions.md/#update-path-for-machine-image-versions) for details.
 
 ## Version Classifications
 
