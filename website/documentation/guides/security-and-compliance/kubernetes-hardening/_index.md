@@ -13,7 +13,7 @@ The Gardener team takes security seriously, which is why we mandate the Security
 
 ## Kubernetes Clusters Security Requirements
 
-[DISA Kubernetes STIG version 1 release 10](https://cyber.trackr.live/stig/Kubernetes/1/10) contains 93 rules overall. **Only the following 18 rules, however, apply to you as a Gardener Stakeholder/Cluster Admin**. Some of them are secure-by-default, so your responsibility is to make sure that they are not changed. The requirements are grouped logically for your convenience:
+[DISA Kubernetes STIG version 1 release 10](https://cyber.trackr.live/stig/Kubernetes/1/10) contains 93 rules overall. **Only the following rules, however, apply to you**. Some of them are secure-by-default, so your responsibility is to make sure that they are not changed. For your convenience, the requirements are grouped logically and per role:
 
 ## Rules Relevant for Cluster Admins
 
