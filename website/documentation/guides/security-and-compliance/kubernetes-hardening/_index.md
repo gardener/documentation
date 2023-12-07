@@ -91,7 +91,6 @@ The Gardener team takes security seriously, which is why we mandate the Security
 |242431|Kubernetes etcd must have a key file for secure communication.|||
 |242432|Kubernetes etcd must have peer-cert-file set for secure communication.|||
 |242433|Kubernetes etcd must have a peer-key-file set for secure communication.|||
-|242434|Kubernetes Kubelet must enable kernel protection.|||
 |242435|Kubernetes must prevent non-privileged users from executing privileged functions to include disabling, circumventing, or altering implemented security safeguards/countermeasures or the installation of patches and updates.|||
 |242438|Kubernetes API Server must configure timeouts to limit attack surface.|||
 |242443|Kubernetes must contain the latest updates as authorized by IAVMs, CTOs, DTMs, and STIGs.|||
