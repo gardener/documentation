@@ -46,71 +46,71 @@ The Gardener team takes security seriously, which is why we mandate the Security
 
 ## Rules Relevant for Service Providers
 
-|ID| Description | Secure By Default | Comments |
-| -------- | ------- | ------- | ------- |
-|242376|The Kubernetes Controller Manager must use TLS 1.2, at a minimum, to protect the confidentiality of sensitive data during electronic dissemination.|||
-|242377|The Kubernetes Scheduler must use TLS 1.2, at a minimum, to protect the confidentiality of sensitive data during electronic dissemination.|||
-|242378|The Kubernetes API Server must use TLS 1.2, at a minimum, to protect the confidentiality of sensitive data during electronic dissemination.
-|242379|The Kubernetes etcd must use TLS to protect the confidentiality of sensitive data during electronic dissemination.|||
-|242380|The Kubernetes etcd must use TLS to protect the confidentiality of sensitive data during electronic dissemination.|||
-|242381|The Kubernetes Controller Manager must create unique service accounts for each work payload.|||
-|242382|The Kubernetes API Server must enable Node,RBAC as the authorization mode.|||
-|242384|The Kubernetes Scheduler must have secure binding.|||
-|242385|The Kubernetes Controller Manager must have secure binding.|||
-|242386|The Kubernetes API server must have the insecure port flag disabled.|||
-|242387|The Kubernetes Kubelet must have the "readOnlyPort" flag disabled.|||
-|242388|The Kubernetes API server must have the insecure bind address not set.|||
-|242389|The Kubernetes API server must have the secure port set.|||
-|242391|The Kubernetes Kubelet must have anonymous authentication disabled.|||
-|242392|The Kubernetes kubelet must enable explicit authorization.|||
-|242396|Kubernetes Kubectl cp command must give expected access and results.|||
-|242397|The Kubernetes kubelet staticPodPath must not enable static pods.|||
-|242404|Kubernetes Kubelet must deny hostname override.|||
-|242405|The Kubernetes manifests must be owned by root.|||
-|242406|The Kubernetes KubeletConfiguration file must be owned by root.|||
-|242407|The Kubernetes KubeletConfiguration files must have file permissions set to 644 or more restrictive.|||
-|242408|The Kubernetes manifest files must have least privileges.|||
-|242409|Kubernetes Controller Manager must disable profiling.|||
-|242410|The Kubernetes API Server must enforce ports, protocols, and services (PPS) that adhere to the Ports, Protocols, and Services Management Category Assurance List (PPSM CAL).|||
-|242411|The Kubernetes Scheduler must enforce ports, protocols, and services (PPS) that adhere to the Ports, Protocols, and Services Management Category Assurance List (PPSM CAL).|||
-|242412|The Kubernetes Controllers must enforce ports, protocols, and services (PPS) that adhere to the Ports, Protocols, and Services Management Category Assurance List (PPSM CAL).|||
-|242413|The Kubernetes etcd must enforce ports, protocols, and services (PPS) that adhere to the Ports, Protocols, and Services Management Category Assurance List (PPSM CAL).|||
-|242418|The Kubernetes API server must use approved cipher suites.|||
-|242419|Kubernetes API Server must have the SSL Certificate Authority set.|||
-|242420|Kubernetes Kubelet must have the SSL Certificate Authority set.|||
-|242421|Kubernetes Controller Manager must have the SSL Certificate Authority set.|||
-|242422|Kubernetes API Server must have a certificate for communication.|||
-|242423|Kubernetes etcd must enable client authentication to secure service.|||
-|242424|Kubernetes Kubelet must enable tlsPrivateKeyFile for client authentication to secure service.|||
-|242425|Kubernetes Kubelet must enable tlsCertFile for client authentication to secure service.|||
-|242426|Kubernetes etcd must enable client authentication to secure service.|||
-|242427|Kubernetes etcd must have a key file for secure communication.|||
-|242428|Kubernetes etcd must have a certificate for communication.|||
-|242429|Kubernetes etcd must have the SSL Certificate Authority set.|||
-|242430|Kubernetes etcd must have a certificate for communication.|||
-|242431|Kubernetes etcd must have a key file for secure communication.|||
-|242432|Kubernetes etcd must have peer-cert-file set for secure communication.|||
-|242433|Kubernetes etcd must have a peer-key-file set for secure communication.|||
-|242438|Kubernetes API Server must configure timeouts to limit attack surface.|||
-|242443|Kubernetes must contain the latest updates as authorized by IAVMs, CTOs, DTMs, and STIGs.|||
-|242444|The Kubernetes component manifests must be owned by root.|||
-|242445|The Kubernetes component etcd must be owned by etcd.|||
-|242446|The Kubernetes conf files must be owned by root.|||
-|242447|The Kubernetes Kube Proxy must have file permissions set to 644 or more restrictive.|||
-|242448|The Kubernetes Kube Proxy must be owned by root.|||
-|242449|The Kubernetes Kubelet certificate authority file must have file permissions set to 644 or more restrictive.|||
-|242450|The Kubernetes Kubelet certificate authority must be owned by root.|||
-|242451|The Kubernetes component PKI must be owned by root.|||
-|242452|The Kubernetes kubelet KubeConfig must have file permissions set to 644 or more restrictive.|||
-|242453|The Kubernetes kubelet KubeConfig file must be owned by root.|||
-|242454|The Kubernetes kubeadm.conf must be owned by root.|||
-|242455|The Kubernetes kubeadm.conf must have file permissions set to 644 or more restrictive.|||
-|242456|The Kubernetes kubelet config must have file permissions set to 644 or more restrictive.|||
-|242457|The Kubernetes kubelet config must be owned by root.|||
-|242459|The Kubernetes etcd must have file permissions set to 644 or more restrictive.|||
-|242460|The Kubernetes admin.conf must have file permissions set to 644 or more restrictive.|||
-|242466|The Kubernetes PKI CRT must have file permissions set to 644 or more restrictive.|||
-|242467|The Kubernetes PKI keys must have file permissions set to 600 or more restrictive.|||
-|245542|Kubernetes API Server must disable basic authentication to protect information in transit.|||
-|245544|Kubernetes endpoints must use approved organizational certificate and key pair to protect information in transit.|||
-|254801|Kubernetes must enable PodSecurity admission controller on static pods and Kubelets.|||
+|ID| Description |
+| -------- | ------- |
+|242376|The Kubernetes Controller Manager must use TLS 1.2, at a minimum, to protect the confidentiality of sensitive data during electronic dissemination.|
+|242377|The Kubernetes Scheduler must use TLS 1.2, at a minimum, to protect the confidentiality of sensitive data during electronic dissemination.|
+|242378|The Kubernetes API Server must use TLS 1.2, at a minimum, to protect the confidentiality of sensitive data during electronic dissemination.|
+|242379|The Kubernetes etcd must use TLS to protect the confidentiality of sensitive data during electronic dissemination.|
+|242380|The Kubernetes etcd must use TLS to protect the confidentiality of sensitive data during electronic dissemination.|
+|242381|The Kubernetes Controller Manager must create unique service accounts for each work payload.|
+|242382|The Kubernetes API Server must enable Node,RBAC as the authorization mode.|
+|242384|The Kubernetes Scheduler must have secure binding.|
+|242385|The Kubernetes Controller Manager must have secure binding.|
+|242386|The Kubernetes API server must have the insecure port flag disabled.|
+|242387|The Kubernetes Kubelet must have the "readOnlyPort" flag disabled.|
+|242388|The Kubernetes API server must have the insecure bind address not set.|
+|242389|The Kubernetes API server must have the secure port set.|
+|242391|The Kubernetes Kubelet must have anonymous authentication disabled.|
+|242392|The Kubernetes kubelet must enable explicit authorization.|
+|242396|Kubernetes Kubectl cp command must give expected access and results.|
+|242397|The Kubernetes kubelet staticPodPath must not enable static pods.|
+|242404|Kubernetes Kubelet must deny hostname override.|
+|242405|The Kubernetes manifests must be owned by root.|
+|242406|The Kubernetes KubeletConfiguration file must be owned by root.|
+|242407|The Kubernetes KubeletConfiguration files must have file permissions set to 644 or more restrictive.|
+|242408|The Kubernetes manifest files must have least privileges.|
+|242409|Kubernetes Controller Manager must disable profiling.|
+|242410|The Kubernetes API Server must enforce ports, protocols, and services (PPS) that adhere to the Ports, Protocols, and Services Management Category Assurance List (PPSM CAL).|
+|242411|The Kubernetes Scheduler must enforce ports, protocols, and services (PPS) that adhere to the Ports, Protocols, and Services Management Category Assurance List (PPSM CAL).|
+|242412|The Kubernetes Controllers must enforce ports, protocols, and services (PPS) that adhere to the Ports, Protocols, and Services Management Category Assurance List (PPSM CAL).|
+|242413|The Kubernetes etcd must enforce ports, protocols, and services (PPS) that adhere to the Ports, Protocols, and Services Management Category Assurance List (PPSM CAL).|
+|242418|The Kubernetes API server must use approved cipher suites.|
+|242419|Kubernetes API Server must have the SSL Certificate Authority set.|
+|242420|Kubernetes Kubelet must have the SSL Certificate Authority set.|
+|242421|Kubernetes Controller Manager must have the SSL Certificate Authority set.|
+|242422|Kubernetes API Server must have a certificate for communication.|
+|242423|Kubernetes etcd must enable client authentication to secure service.|
+|242424|Kubernetes Kubelet must enable tlsPrivateKeyFile for client authentication to secure service.|
+|242425|Kubernetes Kubelet must enable tlsCertFile for client authentication to secure service.|
+|242426|Kubernetes etcd must enable client authentication to secure service.|
+|242427|Kubernetes etcd must have a key file for secure communication.|
+|242428|Kubernetes etcd must have a certificate for communication.|
+|242429|Kubernetes etcd must have the SSL Certificate Authority set.|
+|242430|Kubernetes etcd must have a certificate for communication.|
+|242431|Kubernetes etcd must have a key file for secure communication.|
+|242432|Kubernetes etcd must have peer-cert-file set for secure communication.|
+|242433|Kubernetes etcd must have a peer-key-file set for secure communication.|
+|242438|Kubernetes API Server must configure timeouts to limit attack surface.|
+|242443|Kubernetes must contain the latest updates as authorized by IAVMs, CTOs, DTMs, and STIGs.|
+|242444|The Kubernetes component manifests must be owned by root.|
+|242445|The Kubernetes component etcd must be owned by etcd.|
+|242446|The Kubernetes conf files must be owned by root.|
+|242447|The Kubernetes Kube Proxy must have file permissions set to 644 or more restrictive.|
+|242448|The Kubernetes Kube Proxy must be owned by root.|
+|242449|The Kubernetes Kubelet certificate authority file must have file permissions set to 644 or more restrictive.|
+|242450|The Kubernetes Kubelet certificate authority must be owned by root.|
+|242451|The Kubernetes component PKI must be owned by root.|
+|242452|The Kubernetes kubelet KubeConfig must have file permissions set to 644 or more restrictive.|
+|242453|The Kubernetes kubelet KubeConfig file must be owned by root.|
+|242454|The Kubernetes kubeadm.conf must be owned by root.|
+|242455|The Kubernetes kubeadm.conf must have file permissions set to 644 or more restrictive.|
+|242456|The Kubernetes kubelet config must have file permissions set to 644 or more restrictive.|
+|242457|The Kubernetes kubelet config must be owned by root.|
+|242459|The Kubernetes etcd must have file permissions set to 644 or more restrictive.|
+|242460|The Kubernetes admin.conf must have file permissions set to 644 or more restrictive.|
+|242466|The Kubernetes PKI CRT must have file permissions set to 644 or more restrictive.|
+|242467|The Kubernetes PKI keys must have file permissions set to 600 or more restrictive.|
+|245542|Kubernetes API Server must disable basic authentication to protect information in transit.|
+|245544|Kubernetes endpoints must use approved organizational certificate and key pair to protect information in transit.|
+|254801|Kubernetes must enable PodSecurity admission controller on static pods and Kubelets.|
