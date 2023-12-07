@@ -92,7 +92,7 @@ An alternative is to use an identity provider and issue OIDC tokens.
 
 ## What can you configure?
 
-With the basic configuration options known, it is time to discuss more possibilities. Gardener offers a variety of options to tweak the control plane's behavior - like defining an event TTL (default 1h), adding an OIDC configuration or activating some feature gate. You can alter the scheduling profile and define an audit logging policy. In addition, the control plane can be configured to run in HA mode (applied on a node or zone level), but note that it cannot be changed.
+With the basic configuration options having been introduced, it is time to discuss more possibilities. Gardener offers a variety of options to tweak the control plane's behavior - like defining an event TTL (default 1h), adding an OIDC configuration or activating some feature gates. You could alter the scheduling profile and define an audit logging policy. In addition, the control plane can be configured to run in HA mode (applied on a node or zone level), but keep in mind that once you enable HA, you cannot go back.
 
 In case you have specific requirements for the cluster internal DNS, Gardener offers a plugin mechanism for custom core DNS rules or optimization with node-local DNS. For more information, see [Custom DNS Configuration](https://github.com/gardener/gardener/blob/master/docs/usage/custom-dns-config.md) and [NodeLocalDNS Configuration](https://github.com/gardener/gardener/blob/master/docs/usage/node-local-dns.md).
 
