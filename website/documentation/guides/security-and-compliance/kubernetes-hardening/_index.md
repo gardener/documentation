@@ -13,7 +13,7 @@ The Gardener team takes security seriously, which is why we mandate the Security
 
 ## Kubernetes Clusters Security Requirements
 
-[DISA Kubernetes STIG version 1 release 10](https://cyber.trackr.live/stig/Kubernetes/1/10) contains 93 rules overall. **Only the following rules, however, apply to you**. Some of them are secure-by-default, so your responsibility is to make sure that they are not changed. For your convenience, the requirements are grouped logically and per role:
+[DISA Kubernetes STIG version 1 release 11](https://cyber.trackr.live/stig/Kubernetes/1/11) contains 91 rules overall. **Only the following rules, however, apply to you**. Some of them are secure-by-default, so your responsibility is to make sure that they are not changed. For your convenience, the requirements are grouped logically and per role:
 
 ## Rules Relevant for Cluster Admins
 
@@ -91,7 +91,6 @@ The Gardener team takes security seriously, which is why we mandate the Security
 |242431|Kubernetes etcd must have a key file for secure communication.|||
 |242432|Kubernetes etcd must have peer-cert-file set for secure communication.|||
 |242433|Kubernetes etcd must have a peer-key-file set for secure communication.|||
-|242435|Kubernetes must prevent non-privileged users from executing privileged functions to include disabling, circumventing, or altering implemented security safeguards/countermeasures or the installation of patches and updates.|||
 |242438|Kubernetes API Server must configure timeouts to limit attack surface.|||
 |242443|Kubernetes must contain the latest updates as authorized by IAVMs, CTOs, DTMs, and STIGs.|||
 |242444|The Kubernetes component manifests must be owned by root.|||
