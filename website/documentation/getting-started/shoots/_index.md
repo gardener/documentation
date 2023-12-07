@@ -114,7 +114,7 @@ This allows you to configure much more properties of a worker pool, like the tim
 
 ## How to Change Things
 
-Since a shoot is just another Kubernetes resource, changes can be applied via kubectl. For convenience, the basic settings are configurable via the dashboard's UI. It also has a "yaml" tab where you can alter all of the shoot's specification. Once applied, the cluster will reconcile eventually and your changes become active (or cause an error).
+Since a shoot is just another Kubernetes resource, changes can be applied via kubectl. For convenience, the basic settings are configurable via the dashboard's UI. It also has a "yaml" tab where you can alter all of the shoot's specification in your browser. Once applied, the cluster will reconcile eventually and your changes become active (or cause an error).
 
 ![](./images/change-things.png)
 
@@ -124,7 +124,7 @@ While Gardener allows you to modify existing shoot clusters, it is important to 
 
 For example, it is not possible to move a shoot to a different infrastructure account. This is mainly rooted in the fact that discs and network resources are bound to your account. 
 
-Once created, most of the network aspects of a cluster become immutable. On an infrastructure level the VPC cannot be changed and on a cluster level things like the pod / service cidr ranges, together with the nodeCIDRmask, are set for the lifetime of the cluster.
+Another set of options that become immutable are most of the network aspects of a cluster. On an infrastructure level the VPC cannot be changed and on a cluster level things like the pod / service cidr ranges, together with the nodeCIDRmask, are set for the lifetime of the cluster.
 
 
 Some other things can be changed, but not reverted. While it is possible to add more zones to a cluster on an infrastructure level (assuming that an appropriate CIDR range is available), removing zones is not supported. Similarly, upgrading Kubernetes versions is comparable to a one-way ticket. As of now, Kubernetes does not support downgrading. Lastly, the HA setting of the control plane is immutable once specified.
