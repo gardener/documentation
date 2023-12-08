@@ -62,7 +62,7 @@ The autoscaler parameter defines the initial elasticity / scalability of your cl
 
 ![](./images/basic_configurations_4.png)
 
-Once per day, all clusters reconcile. This means all controllers will check if there are any updates they have to apply (i.e. new image version for ETCD). The maintenance window defines when this daily operation will be triggered. It is important to understand that there is no opt-out for reconciliation.
+Once per day, all clusters reconcile. This means all controllers will check if there are any updates they have to apply (e.g., new image version for ETCD). The maintenance window defines when this daily operation will be triggered. It is important to understand that there is no opt-out for reconciliation.
 
 It is also possible to confine updates to the shoot spec to be applied only during this time. This can come in handy when you want to bundle changes or prevent changes to be applied outside a well-known time window.
 

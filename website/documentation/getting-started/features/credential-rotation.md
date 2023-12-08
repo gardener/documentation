@@ -9,7 +9,7 @@ There are plenty of keys in Gardener. The ETCD needs one to store resources like
 
 ![](./images/keys.png)
 
-All of these keys share a common property: they are managed by Gardener. Rotating them, however, is potentially very disruptive. Hence, Gardener does not do it automatically, but offers means to the user to perform these tasks easily. For a single cluster, a user may conveniently use the dashboard. Of course, it is also possible to do the same by annotating the shoot resource accordingly:
+All of these keys share a common property: they are managed by Gardener. Rotating them, however, is potentially very disruptive. Hence, Gardener does not do it automatically, but offers you means to perform these tasks easily. For a single cluster, you may conveniently use the dashboard. Of course, it is also possible to do the same by annotating the shoot resource accordingly:
 
 ```bash
 $ kubectl -n <shoot-namespace> annotate shoot <shoot-name> gardener.cloud/operation=rotate-credentials-start
@@ -19,7 +19,7 @@ $ kubectl -n <shoot-namespace> annotate shoot <shoot-name> gardener.cloud/operat
 $ kubectl -n <shoot-namespace> annotate shoot <shoot-name> gardener.cloud/operation=rotate-credentials-complete​
 ```
 
-Where possible, the rotation happens in two phases. Phase 1 introduces new keys while the old ones are still valid. Users can safely exchange keys / CA bundles whereever they are used. Afterwards, phase 2 will invalidate the old keys / CA bundles.
+Where possible, the rotation happens in two phases. Phase 1 introduces new keys while the old ones are still valid. Users can safely exchange keys / CA bundles wherever they are used. Afterwards, phase 2 will invalidate the old keys / CA bundles.
 
 ## Rotation Phases
 
@@ -35,9 +35,9 @@ For more information, see [Credentials Rotation for Shoot Clusters](https://gith
 
 ![](./images/user-provided-keys.png)
 
-A user grants Gardener permissions to create resources by handing over cloud provider keys. These keys are stored in a Secret and referenced to a shoot via a SecretBinding. Gardener uses the keys to create the network for the cluster resources, routes, VMs, disks, and IP addresses. 
+You grant Gardener permissions to create resources by handing over cloud provider keys. These keys are stored in a Secret and referenced to a shoot via a SecretBinding. Gardener uses the keys to create the network for the cluster resources, routes, VMs, disks, and IP addresses. 
 
-When a users rotates credentials, the new keys have to be stored in the same secret and the shoot needs to reconcile successfully to ensure the replication to every controller. Afterwards, the old keys can be deleted safely from Gardener's perspective. 
+When you rotate credentials, the new keys have to be stored in the same secret and the shoot needs to reconcile successfully to ensure the replication to every controller. Afterwards, the old keys can be deleted safely from Gardener's perspective. 
 
 While the reconciliation can be triggered manually, there is no need for it (if you're not in a hurry). Each shoot reconciles once within 24h and the new keys will be picked up during the next maintenance window.
 

@@ -30,7 +30,7 @@ Reading the [Scalability of Gardener Managed Kubernetes Clusters](https://github
 ![](./images/hibernation-1.png)
 
 When scaling a cluster, there are plenty of resources that can be exhausted or reach a limit:
-- The API server will be scaled horizontally and vertically by Gardener. However, it can still consume too much resources to fit onto a single node on the seed. In this case, a user can only reduce the load on the API server. This should not happen with regular usage patterns though.
+- The API server will be scaled horizontally and vertically by Gardener. However, it can still consume too much resources to fit onto a single node on the seed. In this case, you can only reduce the load on the API server. This should not happen with regular usage patterns though.
 - ETCD disk space: 8GB is the limit. If you have too many resources or a high churn rate, a cluster can run out of ETCD capacity. In such a scenario it will stop working until defragmented, compacted, and cleaned up.
 - The number of nodes is limited by the network configuration (pod cidr range & node cidr mask). Also, there is a reasonable number of nodes (300) that most workloads should not exceed. It is possible to go beyond but doing so requires careful tuning and consideration of connected scaling dimensions (like the number of pods per node).
 
@@ -67,7 +67,7 @@ For more information, see [Shoot Networking](https://github.com/gardener/gardene
 
 ![](./images/cidr-ranges.png)
 
-Gardener can create shoot cluster resources in an existing / user-created VPC. However, the user has to make sure that the CIDR ranges used by the shoots nodes or subnets for zones do not overlap with other shoots deployed to the same VPC.
+Gardener can create shoot cluster resources in an existing / user-created VPC. However, you have to make sure that the CIDR ranges used by the shoots nodes or subnets for zones do not overlap with other shoots deployed to the same VPC.
 
 In case of an overlap, there might be strange routing effects, and packets ending up at a wrong location.
 
@@ -77,7 +77,7 @@ In case of an overlap, there might be strange routing effects, and packets endin
 
 Credentials expire or get revoked. When this happens to the actively used infrastructure credentials of a shoot, the cluster will stop working after a while. New nodes cannot be added, LoadBalancers cannot be created, and so on.
 
-A user can update the credentials stored in the project namespace and reconcile the cluster to replicate the new keys to all relevant controllers. Similarly, when doing a planned rotation one should wait until the shoot reconciled successfully before invalidating the old credentials.
+You can update the credentials stored in the project namespace and reconcile the cluster to replicate the new keys to all relevant controllers. Similarly, when doing a planned rotation one should wait until the shoot reconciled successfully before invalidating the old credentials.
 
 ## AutoUpdate Breaking Clusters
 

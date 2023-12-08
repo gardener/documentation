@@ -24,10 +24,10 @@ This section will focus on the priority based expander.
 
 Each worker pool gets a priority and the cluster autoscaler will scale up the one with the highest priority until it reaches its limit.
 
-To get more information on the current status of the autoscaler, a user can check a "status" configmap in the `kube-system` namespace with the following command:
+To get more information on the current status of the autoscaler, you can check a "status" configmap in the `kube-system` namespace with the following command:
 
 `kubectl get cm -n kube-system cluster-autoscaler-status -oyaml`
 
-To obtain information about the decision making, a user can check the logs of the cluster-autoscaler pod by using the shoot's monitoring stack.
+To obtain information about the decision making, you can check the logs of the cluster-autoscaler pod by using the shoot's monitoring stack.
 
 For more information, see the [cluster-autoscaler FAQ](https://github.com/gardener/autoscaler/blob/machine-controller-manager-provider/cluster-autoscaler/FAQ.md#what-are-expanders) and the [Priority based expander for cluster-autoscaler](https://github.com/gardener/autoscaler/blob/machine-controller-manager-provider/cluster-autoscaler/expander/priority/readme.md) topic.

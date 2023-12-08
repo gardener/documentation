@@ -13,7 +13,7 @@ Essentially, some sort of automation for DNS management is missing.
 
 ![](./images/automate-dns-management.png)
 
-From a user's perspective, it is desirable to work with already known resources and concepts. Hence, the DNS management offered by Gardener plugs seamlessly into Kubernetes resources and a user does not need to "leave" the context of the shoot cluster.
+From a user's perspective, it is desirable to work with already known resources and concepts. Hence, the DNS management offered by Gardener plugs seamlessly into Kubernetes resources and you do not need to "leave" the context of the shoot cluster.
 
 To request a DNS record creation / update, a Service or Ingress resource is annotated accordingly. The shoot-dns-service extension will (if configured) will pick up the request and create a DNSEntry resource + reconcile it to have an actual DNS record created at a configured DNS provider. Gardener supports the following providers:
 - aws-route53

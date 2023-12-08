@@ -25,13 +25,13 @@ In other terms: you use Kubernetes to run Kubernetes
 
 ![](./images/cluster-hierarchy.png)
 
-Gardener uses many Kubernetes clusters to eventually provide you - the user - with your very own shoot cluster.
+Gardener uses many Kubernetes clusters to eventually provide you with your very own shoot cluster.
 
-At the beginning of Gardener's cluster hierarchy is the garden cluster. Since Gardener is 100% Kubernetes native, a Kubernetes cluster is needed to store all Gardener related resources. The garden cluster is actually nodeless - it only consist of a control plane, an API server (actually two), an etcd, and a bunch of controllers. The garden cluster is the central brain of a Gardener landscape and the one a user connects to in order to create, modify or delete shoot clusters - either with kubectl and a dedicated kubeconfig or though the Gardener dashboard.
+At the beginning of Gardener's cluster hierarchy is the garden cluster. Since Gardener is 100% Kubernetes native, a Kubernetes cluster is needed to store all Gardener related resources. The garden cluster is actually nodeless - it only consist of a control plane, an API server (actually two), an etcd, and a bunch of controllers. The garden cluster is the central brain of a Gardener landscape and the one you connect to in order to create, modify or delete shoot clusters - either with kubectl and a dedicated kubeconfig or though the Gardener dashboard.
 
 The seed clusters are next in the hierarchy - they are the clusters which will host the "kubeceptioned" control planes of the shoot clusters. For every hyperscaler supported in a Gardener landscpae, there would be at least one seed cluster. But to reduce latencies as well as for scaling, Gardener can have several different seeds in different regions across the globe to keep the distance between control planes and actual worker nodes small.
 
-Finally, there are the shoot clusters - what Gardener is all about. Shoot clusters are the clusters which a user creates through Gardener and which the user's workload gets deployed to.
+Finally, there are the shoot clusters - what Gardener is all about. Shoot clusters are the clusters which you create through Gardener and which your workload gets deployed to.
 
 ## Gardener Components Overview
 

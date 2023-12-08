@@ -184,7 +184,7 @@ For a normal service in Kubernetes, a cluster-internal DNS record that resolves 
 
 In addition to this optimization, Gardener allows [custom DNS configuration to be added to CoreDNS](https://github.com/gardener/gardener/blob/master/docs/usage/custom-dns-config.md) via a dedicated ConfigMap.
 
-In case this customization is related to non-Kubernetes entities, a user may configure the shoot's NodeLocalDNS to forward to CoreDNS instead of upstream (`disableForwardToUpstreamDNS: true`).
+In case this customization is related to non-Kubernetes entities, you may configure the shoot's NodeLocalDNS to forward to CoreDNS instead of upstream (`disableForwardToUpstreamDNS: true`).
 
 A broken DNS system on any level will cause disruption / service degradation for applications within the cluster.
 

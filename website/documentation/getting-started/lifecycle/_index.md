@@ -15,10 +15,9 @@ If we pick up the example of the ReplicaSet - a user typically creates a `deploy
 
 ## Updating the Desired State of a Shoot
 
-
 Based on the shoot's specifications, Gardener will create network resources on a hyperscaler, backup resources for the ETCD, credentials, and other resources, but also representations of the worker pools. Eventually, this process will result in a fully functional Kubernetes cluster. 
 
-If a user changes the desired state, Gardener will reconcile the shoot and run through the same cycle to ensure the actual state matches the desired state.
+If you change the desired state, Gardener will reconcile the shoot and run through the same cycle to ensure the actual state matches the desired state.
 
 ![](./images/update-shoot-state.png)
 
@@ -27,7 +26,7 @@ For example, the (infrastructure-specific) machine type can be changed within th
 
 ![](./images/maintenance-window.png)
 
-EVERY shoot cluster reconciles once per day during the so-called "maintenance window". A user can confine the rollout of spec changes to this window.
+EVERY shoot cluster reconciles once per day during the so-called "maintenance window". You can confine the rollout of spec changes to this window.
 
 Additionally, the daily reconciliation will help pick up all kind of version changes. When a new Gardener version was rolled out to the landscape, shoot clusters will pick up any changes during their next reconciliation. For example, if a new Calico version is introduced to fix some bug, it will automatically reach all shoots.
 
@@ -39,7 +38,7 @@ It is important to be aware of the impacts that a change can have on a cluster a
 
 An operator pushing a new Gardener version with a new calico image to a landscape will cause all calico pods to be re-created. Another example would be the rollout of a new etcd backup-restore image. This would cause etcd pods to be re-created, rendering a non-HA control plane unavailable until etcd is up and running again.
 
-When a user changes the shoot spec, it can also have significant impact on the cluster. Imagine that a user changes the machine type of a worker pool. This will cause new machines to be created and old machines to be deleted. Or in other words: all nodes will be drained, the pods will be evicted and then re-created on newly created nodes.
+When you change the shoot spec, it can also have significant impact on the cluster. Imagine that you have changes the machine type of a worker pool. This will cause new machines to be created and old machines to be deleted. Or in other words: all nodes will be drained, the pods will be evicted and then re-created on newly created nodes.
 
 ## Kubernetes Version Update (Minor + Patch)
 
