@@ -31,6 +31,10 @@ The Gardener team takes security seriously, which is why we mandate the Security
 |242394|Kubernetes Worker Nodes must not have the sshd service enabled| :x: | Enabled to allow debugging of network issues, but it is possible to deactivate via the [sshAccess](https://gardener.cloud/docs/gardener/api-reference/core/#core.gardener.cloud/v1beta1.SSHAccess) setting|
 |242434|Kubernetes Kubelet must enable kernel protection|:white_check_mark:|Enabled for Kubernetes v1.26 or later unless disabled explicitly via [protectKernalDefaults](https://gardener.cloud/docs/gardener/api-reference/core/#kubeletconfig)|
 |245541|Kubernetes Kubelet must not disable timeouts|:white_check_mark:| Enabled for Kubernetes v1.26 or later unless disabled explicitly via [streamingConnectionIdleTimeout](https://gardener.cloud/docs/gardener/api-reference/core/#kubeletconfig)|
+
+### Audit Configuration
+|ID| Description | Secure By Default | Comments |
+| -------- | ------- | ------- | ------- |
 |242402|The Kubernetes API Server must have an audit log path set| :x: | It is the user's responsibility to configure an audit extension that meets the requirements of their organization. Depending on the audit extension implementation the audit logs do not always need to be written on the filesystem, i.e. when `--audit-webhook-config-file` is set and logs are sent to an audit backend.|
 |242403|Kubernetes API Server must generate audit records that identify what type of event has occurred, identify the source of the event, contain the event results, identify any users, and identify any containers associated with the event| :x: | Users should set an audit policy that meets the requirements of their organization. Please consult the [Shoot Audit Policy documentation](https://gardener.cloud/docs/gardener/shoot_auditpolicy/).|
 |242461|Kubernetes API Server audit logs must be enabled| :x: | Users should set an audit policy that meets the requirements of their organization. Please consult the [Shoot Audit Policy documentation](https://gardener.cloud/docs/gardener/shoot_auditpolicy/).|
