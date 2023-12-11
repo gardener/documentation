@@ -32,6 +32,17 @@ The Gardener team takes security seriously, which is why we mandate the Security
 |242434|Kubernetes Kubelet must enable kernel protection|:white_check_mark:|Enabled for Kubernetes v1.26 or later unless disabled explicitly via [protectKernalDefaults](https://gardener.cloud/docs/gardener/api-reference/core/#kubeletconfig)|
 |245541|Kubernetes Kubelet must not disable timeouts|:white_check_mark:| Enabled for Kubernetes v1.26 or later unless disabled explicitly via [streamingConnectionIdleTimeout](https://gardener.cloud/docs/gardener/api-reference/core/#kubeletconfig)|
 
+### Audit Configuration
+|ID| Description | Secure By Default | Comments |
+| -------- | ------- | ------- | ------- |
+|242402|The Kubernetes API Server must have an audit log path set| :x: | It is the user's responsibility to configure an audit extension that meets the requirements of their organization. Depending on the audit extension implementation the audit logs do not always need to be written on the filesystem, i.e. when `--audit-webhook-config-file` is set and logs are sent to an audit backend.|
+|242403|Kubernetes API Server must generate audit records that identify what type of event has occurred, identify the source of the event, contain the event results, identify any users, and identify any containers associated with the event| :x: | Users should set an audit policy that meets the requirements of their organization. Please consult the [Shoot Audit Policy documentation](https://gardener.cloud/docs/gardener/shoot_auditpolicy/).|
+|242461|Kubernetes API Server audit logs must be enabled| :x: | Users should set an audit policy that meets the requirements of their organization. Please consult the [Shoot Audit Policy documentation](https://gardener.cloud/docs/gardener/shoot_auditpolicy/).|
+|242462|The Kubernetes API Server must be set to audit log max size| :x: | It is the user's responsibility to configure an audit extension that meets the requirements of their organization. Depending on the audit extension implementation the audit logs do not always need to be written on the filesystem, i.e. when `--audit-webhook-config-file` is set and logs are sent to an audit backend.|
+|242463|The Kubernetes API Server must be set to audit log maximum backup| :x: | It is the user's responsibility to configure an audit extension that meets the requirements of their organization. Depending on the audit extension implementation the audit logs do not always need to be written on the filesystem, i.e. when `--audit-webhook-config-file` is set and logs are sent to an audit backend.|
+|242464|The Kubernetes API Server audit log retention must be set| :x: | It is the user's responsibility to configure an audit extension that meets the requirements of their organization. Depending on the audit extension implementation the audit logs do not always need to be written on the filesystem, i.e. when `--audit-webhook-config-file` is set and logs are sent to an audit backend.|
+|242465|The Kubernetes API Server audit log path must be set| :x: | It is the user's responsibility to configure an audit extension that meets the requirements of their organization. Depending on the audit extension implementation the audit logs do not always need to be written on the filesystem, i.e. when `--audit-webhook-config-file` is set and logs are sent to an audit backend.|
+
 ### End User Workload
 |ID| Description | Secure By Default | Comments |
 | -------- | ------- | ------- | ------- |
