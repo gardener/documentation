@@ -85,11 +85,11 @@ On the very left, we see Plutono as it displays the logs. Vali is aggregating th
 
 Valitail and Fluentbit send the logs to Vali, which in turn stores them.
 
-**Valitail**
+*Valitail*
 
 Valitail is a systemd service that runs on each node. It scrapes kubelet, containerd, kernel logs, and the logs of the pods in the kube-system namespace.
 
-**Fluentbit**
+*Fluentbit*
 
 Fluentbit runs as a daemonset on each seed node. It scrapes logs of the kubernetes control plane components, like apiserver or etcd. 
 
