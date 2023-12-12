@@ -8,9 +8,9 @@ In this topic you can see various shoot statuses and how you can use them to mon
 
 ## Shoot Status - Conditions
 
-A shoot status contains conditions about the healthiness of your cluster.
+You can retrieve the shoot status by using `kubectl get shoot -oyaml`
 
-You can retrieve it by using `kubectl get shoot -oyaml`
+It contains conditions, which give you information about the healthiness of your cluster. Those conditions are also forwarded to the Gardener dashboard and show your cluster as healthy or unhealthy.
 
 ![](./images/shoot-status-1.png)
 
