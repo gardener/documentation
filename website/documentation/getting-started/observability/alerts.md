@@ -4,9 +4,9 @@ title: Alerts
 
 ## Overview
 
-There are two types of alerts for control plane and Gardener managed system-components:
+Here we differentiate between two types of alerts for control plane and Gardener managed system-components:
 - Predefined Gardener alerts 
-- Customizable custom alerts
+- Custom alerts
 
 ### Predefined Control Plane Alerts
 

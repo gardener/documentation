@@ -27,21 +27,22 @@ Both forks are done from the last version with an Apache license.
 Prometheus, Plutono, and Vali are all located in the seed cluster. They run next to the control plane of your cluster.
 
 The next sections will explore those components in detail.
+
 {{% alert color="info"  title="Note" %}}
-Plutono, Vali, and Prometheus offered by Gardener do not provide monitoring for end-user workloads. If you need this, then you need to deploy your own monitoring stack into your Shoot cluster.
+Gardener only provides monitoring for Gardener-deployed components. If you need logging or monitoring for your workload, then you need to deploy your own monitoring stack into your Shoot cluster.
 {{% /alert %}}
 
 ### Accessing the Plutono Dashboards
 
-Let us start by giving some visual hints on how to access Plutono. [Plutono](https://github.com/credativ/plutono#plutono) (formerly known as Grafana) is the monitoring solution shipped ready-to-use with a Gardener shoot cluster.
+Let us start by giving some visual hints on how to access Plutono. [Plutono](https://github.com/credativ/plutono#plutono) allows us to query logs and metrics and visualise those in form of dashboards. Plutono is shipped ready-to-use with a Gardener shoot cluster.
 
-In order to access the Gardener provided dashboards, open the `Plutono` link provided in the Gardener dashboard.
+In order to access the Gardener provided dashboards, open the `Plutono` link provided in the Gardener dashboard and use the username and password provided next to it.
 
 The password you can use to log into them is provided below.
 
 ![](./images/access-plutono.png)
 
-Completing this, you will see similar screens.
+Completing this, you will see dashboards like the one below which offers an overview of the Kubernetes Control Plane availability.
 
 ![](./images/plutono.png)
 
@@ -71,17 +72,18 @@ Vali is our logging solution. Here we see how logs gathered with Vali are visual
 
 Our monitoring and logging solutions Vali and Prometheus both run next to the control plane of the shoot cluster.
 
-Data from both is visualized in the Plutono dashboards.
 
 #### Data Flow - Logging
 
-Plutono displays the logging data from Vali. 
-
 The following diagram allows a more detailed look at Vali and the data flow.
+
 
 ![](./images/data-flow-logging.png)
 
-In this example, two different components are scraping logs and sending them to Vali, which in turn stores the logs.
+
+On the very left, we see Plutono as it displays the logs. Vali is aggregating the logs from different sources.
+
+Valitail and Fluentbit send the logs to Vali, which in turn stores them.
 
 **Valitail**
 
@@ -91,19 +93,17 @@ Valitail is a systemd service that runs on each node. It scrapes kubelet, contai
 
 Fluentbit runs as a daemonset on each seed node. It scrapes logs of the kubernetes control plane components, like apiserver or etcd. 
 
-It also gets logs of the Gardener deployed components like machine-controller-manager or the cluster autoscaler, which is useful when finding out why nodes got created or have been replaced.
+It also scrapes logs of the Gardener deployed components which run next to the control plane of the cluster, like the machine-controller-manager or the cluster autoscaler. Debugging those components, for example, would be helpful when finding out why certain worker groups got scaled up or why nodes were replaced.
 
 #### Data Flow - Monitoring
 
-Looking at Prometheus, our monitoring solution, in more detail:
+Next to each shoot's control plane, we deploy an instance of Prometheus in the seed. 
 
-An instance of Prometheus runs in the seed cluster next to the shoot's control plane.
+Gardener uses [Prometheus](https://prometheus.io/) for storing and accessing shoot-related metrics and alerting.
 
-Prometheus is a monitoring solution, which includes alerting and uses a time-series database as its data store. 
-
-In our setup, Prometheus scrapes different pods or system processes in order to gather metrics and preserve them.
-
-This diagram shows the data flow where Prometheus scrapes different targets. After that it persists the data, which can then be visualized via queries in the Plutono dashboards.
+The diagram below shows the data flow of metrics.
+Plutono uses PromQL queries to query data from Prometheus. It then visualises those metrics in dashboards.
+Prometheus itself scrapes various targets for metrics, as seen in the diagram below by the arrows pointing to the Prometheus instance.
 
 ![](./images/data-flow-monitoring.png)
 
@@ -123,14 +123,13 @@ The different control plane pods (for example, etcd, API server, and kube-contro
 
 **Metrics about the state of Kubernetes objects**
 
-[kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) is a simple service that listens to the Kubernetes API server and generates metrics about the state of the objects. It is not focused on the health of the individual Kubernetes components, but rather on the health of the various objects inside, such as deployments, nodes, and pods.
+[kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) is a simple service that listens to the Kubernetes API server and generates metrics about the state of the objects. It is not concerned with metrics about the Kubernetes components, but rather it exposes metrics calculated from the status of Kubernetes objects (for example, resource requests or health of pods).
 
-It exposes metrics calculated from the status of Kubernetes objects (for example, resource requests of pods).
 
-To get a real-world feeling, here are a few example metrics exposed by the components:
+In the following image a few example metrics, which are exposed by the various components, are listed:
 ![](./images/data-flow-monitoring-2.png)
 
-For logs and for metrics we only expose those for the Kubernetes control plane or for Gardener managed system components like pods in kube-system of the shoot cluster.
+We only store metrics for Gardener deployed components. Those include the Kubernetes control plane, Gardener managed system components (e.g., pods) in the kube-system namespace of the shoot cluster or systemd units on the nodes. We do not gather metrics for workload deployed in the shoot cluster. This is also shown in the picture below.
 
 This means that for any workload you deploy into your shoot cluster, you need to deploy monitoring and logging yourself.
 

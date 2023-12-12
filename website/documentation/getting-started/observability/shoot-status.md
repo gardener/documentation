@@ -4,9 +4,9 @@ title: Shoot Status
 
 ## Overview
 
-In this topic you can see various shoot statuses and how you can use them to monitor your workloads.
+In this topic you can see various shoot statuses and how you can use them to monitor your shoot cluster.
 
-## Shoot Status 1
+## Shoot Status - Conditions
 
 A shoot status contains conditions about the healthiness of your cluster.
 
@@ -14,13 +14,13 @@ You can retrieve it by using `kubectl get shoot -oyaml`
 
 ![](./images/shoot-status-1.png)
 
-## Shoot Status 2
+## Shoot Status - Constraints
 
 The shoot status also contains constraints. If these constraints are met, your cluster operations are impaired and the cluster is likely to fail at some point. Please watch them and act accordingly.
 
 ![](./images/shoot-status-2.png)
 
-## Shoot Status 3
+## Shoot Status - Last Operation
 
 The `lastOperation`, `lastErrors`, and `lastMaintenance` give you information on what was last happening in your clusters. This is especially useful when you are facing an error.
 
@@ -28,8 +28,8 @@ In this example, nodes are being recreated and not all machines have reached the
 
 ![](./images/shoot-status-3.png)
 
-## Shoot Status 4
+## Shoot Status - Credentials Rotation
 
-You can also see the status of the last credentials rotation. Here you can also programatically derive when you next need to trigger the rotation of credentials.
+You can also see the status of the last credentials rotation. Here you can also programmatically derive when the last rotation was down in order to trigger the next rotation.
 
 ![](./images/shoot-status-4.png)

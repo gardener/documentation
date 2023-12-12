@@ -121,7 +121,7 @@ Gardener runs various health checks to ensure that the cluster works properly. T
 
 **Certificate Management:** allows to request certificates via the ACME protocol (e.g., issued by Let's Encrypt) from within the cluster. For detailed information, have a look at the [cert-manager project](https://github.com/gardener/cert-management#certificate-management).
 
-**Observability stack:** Gardener deploys observability components and monitors the control-plane & kube-system namespace.
+**Observability stack:** Gardener deploys observability components and gathers logs and metrics for the control-plane & kube-system namespace. Also provided out-of-the-box is a UI based on Plutono (fork of Grafana) with pre-defined dashboards to access and query the monitoring data. For more information, see [Observability ](../observability/_index.md).
 
 ## HA Control Plane
 
