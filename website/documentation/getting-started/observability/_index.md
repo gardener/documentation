@@ -5,9 +5,9 @@ weight: 6
 
 ## Overview
 
-Gardener offers out-of-the-box observability for system-components, the control plane, and the nodes of a cluster.
+Gardener offers out-of-the-box observability for the control plane, Gardener managed system-components, and the nodes of a shoot cluster.
 
-Having your workload survive on day 2 can be a challenge. The goal of this topic is to give you the tools with which to observe, analyze, and alert when the control plane or system components of your workload become unhealthy. This will let you guide your containers through the storm of operating in a production environment.
+Having your workload survive on day 2 can be a challenge. The goal of this topic is to give you the tools with which to observe, analyze, and alert when the control plane or system components of your cluster become unhealthy. This will let you guide your containers through the storm of operating in a production environment.
 
 ## Observability - Core Components
 
@@ -38,7 +38,7 @@ Let us start by giving some visual hints on how to access Plutono. [Plutono](htt
 
 In order to access the Gardener provided dashboards, open the `Plutono` link provided in the Gardener dashboard and use the username and password provided next to it.
 
-The password you can use to log into them is provided below.
+The password you can use to log in can be retrieved as shown in the image below.
 
 ![](./images/access-plutono.png)
 
@@ -62,7 +62,7 @@ Time series data from Prometheus can be made visible with Plutono. Here we see h
 
 ### Vali Logs via Plutono
 
-Vali is our logging solution. Here we see how logs gathered with Vali are visualized in Plutono. Therefore, we can correlate logs and metrics in the same tool.
+Vali is our logging solution. Here we see how logs gathered with Vali are visualized in Plutono. Therefore, we can correlate logs and metrics in the same UI.
 
 ![](./images/vali-logs.png)
 
@@ -133,6 +133,6 @@ We only store metrics for Gardener deployed components. Those include the Kubern
 
 This means that for any workload you deploy into your shoot cluster, you need to deploy monitoring and logging yourself.
 
-Logs or metrics are kept max 14 days or when a configured space limit is reached.
+Logs or metrics are kept up to 14 days or when a configured space limit is reached.
 
 ![](./images/data-flow-monitoring-3.png)

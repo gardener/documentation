@@ -24,7 +24,7 @@ The shoot status also contains constraints. If these constraints are met, your c
 
 The `lastOperation`, `lastErrors`, and `lastMaintenance` give you information on what was last happening in your clusters. This is especially useful when you are facing an error.
 
-In this example, nodes are being recreated and not all machines have reached the desired state.
+In this example, nodes are being recreated and not all machines have reached the desired state yet.
 
 <img style="width: 60%; height: auto; margin: 0, auto" src="./images/shoot-status-3.png"/>
 
