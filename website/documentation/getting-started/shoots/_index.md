@@ -84,7 +84,7 @@ The result of your provided inputs and a set of conscious default values is a sh
 
 Static credentials for shoots were discontinued in Gardener with Kubernetes v1.27. Short lived credentials need to be used instead. You can create/request tokens directly via Gardener or delegate authentication to an identity provider.
 
-A short-lived admin kubeconfig can be requested by using kubectl. If this is something you do frequently, consider switching to gardentctl (v2), which helps you with it.
+A short-lived admin kubeconfig can be requested by using kubectl. If this is something you do frequently, consider switching to [gardenlogin](https://github.com/gardener/gardenlogin), which helps you with it.
 
 ![](./images/access-shoot-2.png)
 
