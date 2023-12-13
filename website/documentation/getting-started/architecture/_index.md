@@ -17,9 +17,9 @@ In addition to that, it helps introducing a first layer of high availability. Wh
 
 In Gardener's terminology, the cluster hosting the control plane components is called a seed cluster. The cluster that end users actually use (and whose control plane is hosted in the seed) is called a shoot cluster.
 
-The worker nodes of a shoot cluster are plain, simple virtual machines in a hyperscaler (EC2 instances in AWS, GCE instances in GCP or ECS instances in Alibaba Cloud). They run an operating system, a container runtime (i.e., containerd), and the kubelet that gets configured during node bootstrap to connect to the shoot's API server. The API server in turn runs in the seed cluster and is exposed through an ingress. This connection happens over public internet and is - of course - TLS encrypted.
+The worker nodes of a shoot cluster are plain, simple virtual machines in a hyperscaler (EC2 instances in AWS, GCE instances in GCP or ECS instances in Alibaba Cloud). They run an operating system, a container runtime (e.g., containerd), and the kubelet that gets configured during node bootstrap to connect to the shoot's API server. The API server in turn runs in the seed cluster and is exposed through an ingress. This connection happens over public internet and is - of course - TLS encrypted.
 
-In other terms: you use Kubernetes to run Kubernetes
+In other terms: you use Kubernetes to run Kubernetes.
 
 ## Cluster Hierarchy in Gardener
 
@@ -27,9 +27,9 @@ In other terms: you use Kubernetes to run Kubernetes
 
 Gardener uses many Kubernetes clusters to eventually provide you with your very own shoot cluster.
 
-At the beginning of Gardener's cluster hierarchy is the garden cluster. Since Gardener is 100% Kubernetes native, a Kubernetes cluster is needed to store all Gardener related resources. The garden cluster is actually nodeless - it only consist of a control plane, an API server (actually two), an etcd, and a bunch of controllers. The garden cluster is the central brain of a Gardener landscape and the one you connect to in order to create, modify or delete shoot clusters - either with kubectl and a dedicated kubeconfig or though the Gardener dashboard.
+At the heart of Gardener's cluster hierarchy is the garden cluster. Since Gardener is 100% Kubernetes native, a Kubernetes cluster is needed to store all Gardener related resources. The garden cluster is actually nodeless - it only consist of a control plane, an API server (actually two), an etcd, and a bunch of controllers. The garden cluster is the central brain of a Gardener landscape and the one you connect to in order to create, modify or delete shoot clusters - either with kubectl and a dedicated kubeconfig or though the Gardener dashboard.
 
-The seed clusters are next in the hierarchy - they are the clusters which will host the "kubeceptioned" control planes of the shoot clusters. For every hyperscaler supported in a Gardener landscpae, there would be at least one seed cluster. But to reduce latencies as well as for scaling, Gardener can have several different seeds in different regions across the globe to keep the distance between control planes and actual worker nodes small.
+The seed clusters are next in the hierarchy - they are the clusters which will host the "kubeceptioned" control planes of the shoot clusters. For every hyperscaler supported in a Gardener landscpae, there would be at least one seed cluster. However, to reduce latencies as well as for scaling, Gardener landscapes have several different seeds in different regions across the globe to keep the distance between control planes and actual worker nodes small.
 
 Finally, there are the shoot clusters - what Gardener is all about. Shoot clusters are the clusters which you create through Gardener and which your workload gets deployed to.
 
@@ -53,7 +53,7 @@ Kubernetes' API can be extended - either by CRDs or by API aggregation.
 
 ![](./images/api-endpoint-1.png)
 
-API aggregation involves setting up a so called extension-API-server and registering it with the main Kubernetes API server. The extension API server will then serve resources of custom-defined API groups on its own. While the main Kubernetes API server is still used to handle RBAC, authorization, namespacing, quotas, limits, etc.,  all custom resources will be delegated to the extenstion-API-server. This is done through an APIService resource in the main API server - it specifies that, e.g., the API group `core.gardener.cloud` is served by a dedicated extension-API-server and all requests concerning this API group should be forwarded the specified IP address or Kubernetes service name. Extension API servers can persist their resources in their very own etcd but they do not have to - instead, they can use the main API servers etcd as well.
+API aggregation involves setting up a so called extension-API-server and registering it with the main Kubernetes API server. The extension API server will then serve resources of custom-defined API groups on its own. While the main Kubernetes API server is still used to handle RBAC, authorization, namespacing, quotas, limits, etc., all custom resources will be delegated to the extenstion-API-server. This is done through an APIService resource in the main API server - it specifies that, e.g., the API group `core.gardener.cloud` is served by a dedicated extension-API-server and all requests concerning this API group should be forwarded the specified IP address or Kubernetes service name. Extension API servers can persist their resources in their very own etcd but they do not have to - instead, they can use the main API servers etcd as well.
 
 ![](./images/api-endpoint-2.png)
 
@@ -68,8 +68,7 @@ In case you are interested, you can read more on:
 
 ![](./images/api-resources.png)
 
-Gardener's API endpoint serves many different resources.
 
-Since Gardener's API endpoint is a regular Kubernetes cluster, it would theoretically serve all resources from the Kubernetes core API, including Pods, Deployments, etc. However, Gardener implements RBAC rules and disables certain controllers that make these resources virtually inaccessible. Objects like Secrets, Namespaces, and ResourceQuotas are still available, though, as they play a vital role in Gardener.
+Since Gardener's API endpoint is a regular Kubernetes cluster, it would theoretically serve all resources from the Kubernetes core API, including Pods, Deployments, etc. However, Gardener implements RBAC rules and disables certain controllers that make these resources inaccessible. Objects like Secrets, Namespaces, and ResourceQuotas are still available, though, as they play a vital role in Gardener.
 
 In addition, through Gardener's extension API server, the API endpoint also serves Gardener's custom resources like Projects, Shoots, CloudProfiles, Seeds, SecretBindings (those are relevant for users), ControllerRegistrations, ControllerDeployments, BackupBuckets, BackupEntries (those are relevant to an operator), etc.

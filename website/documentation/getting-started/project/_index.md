@@ -15,11 +15,11 @@ Since all Gardener resources are custom Kubernetes resources, the usual and well
 
 ## Projects on YAML Level
 
-Projects are just another Kubernetes resource which can be expressed by YAML. The resource specification can be found in the [API reference documentation](https://github.com/gardener/gardener/blob/master/docs/api-reference/core.md/#core.gardener.cloud/v1beta1.Project).
+Projects are a Kubernetes resource which can be expressed by YAML. The resource specification can be found in the [API reference documentation](https://github.com/gardener/gardener/blob/master/docs/api-reference/core.md/#core.gardener.cloud/v1beta1.Project).
 
-In essence, a project's specification defines a name, a description (which is a free-text field), a purpose (again, a free-text field), an owner, and members. In Gardener, user management is done on a project level. Therefore, projects can have different members with certain roles.
+A project's specification defines a name, a description (which is a free-text field), a purpose (again, a free-text field), an owner, and members. In Gardener, user management is done on a project level. Therefore, projects can have different members with certain roles.
 
-For example, a member with the `viewer` role can see and list all clusters but cannot create, delete or modify an existing cluster. For that, a member would need at least an `editor` role. Another important role would be the `uam` role - members with that role are allowed to manage members and technical users for a project. The `owner` of a project is allowed to do all of that, regardless of what roles might be assigned to him.
+In Gardener, a user can have one of five different roles: `owner`, `admin`, `viewer`, `UAM`, and `service account manager`. A member with the `viewer` role can see and list all clusters but cannot create, delete or modify them. For that, a member would need the `admin` role. Another important role would be the `uam` role - members with that role are allowed to manage members and technical users for a project. The `owner` of a project is allowed to do all of that, regardless of what other roles might be assigned to him.
 
 Projects are getting reconciled by Gardener's project-controller, a component of Gardener's controller manager. The status of the last reconcilation, along with any potential failures, will be recorded in the project's `status` field.
 
@@ -37,7 +37,7 @@ Each Gardener project corresponds to a Kubernetes namespace and all project spec
 
 Even though projects are a dedicated Kubernetes resource, every project also corresponds to a dedicated namespace in the garden cluster. All project resources - including shoots - are placed into this namespace. 
 
-You can ask Gardener to use a specific namespace name in the project manifest but usually, this field should be left empty. The namespace then gets created automatically by Gardener's project-controller and its name will then be generated from the project's name, prefixed by "garden-".
+You can ask Gardener to use a specific namespace name in the project manifest but usually, this field should be left empty. The namespace then gets created automatically by Gardener's project-controller, with its name getting generated from the project's name, prefixed by "garden-".
 
 ResourceQuotas - if any - will be enforced on the project namespace.
 
