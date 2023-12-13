@@ -9,10 +9,6 @@ weight: 3
 
 Gardener is all about Kubernetes clusters, which we call shoots. However, Gardener also does user management, delicate permission management and offers technical accounts to integrate its services into other infrastructure. It allows you to create several quotas and it needs credentials to connect to cloud providers. All of these are arranged in multiple fully contained projects, each of which belongs to a dedicated user and / or group.
 
-{{% alert color="info"  title="Quotas" %}}
-Since all Gardener resources are custom Kubernetes resources, the usual and well established concept of `resourceQuotas` in Kubernetes can also be applied to Gardener resources. With a `resourceQuota` that sets a hard limit on (e.g., `count/shoots.core.gardener.cloud`) you can restrict the number of shoot clusters that can be created in a project.
-{{% /alert %}}
-
 ## Projects on YAML Level
 
 Projects are a Kubernetes resource which can be expressed by YAML. The resource specification can be found in the [API reference documentation](https://github.com/gardener/gardener/blob/master/docs/api-reference/core.md/#core.gardener.cloud/v1beta1.Project).
@@ -40,6 +36,10 @@ Even though projects are a dedicated Kubernetes resource, every project also cor
 You can ask Gardener to use a specific namespace name in the project manifest but usually, this field should be left empty. The namespace then gets created automatically by Gardener's project-controller, with its name getting generated from the project's name, prefixed by "garden-".
 
 ResourceQuotas - if any - will be enforced on the project namespace.
+
+{{% alert color="info"  title="Quotas" %}}
+Since all Gardener resources are custom Kubernetes resources, the usual and well established concept of `resourceQuotas` in Kubernetes can also be applied to Gardener resources. With a `resourceQuota` that sets a hard limit on (e.g., `count/shoots.core.gardener.cloud`) you can restrict the number of shoot clusters that can be created in a project.
+{{% /alert %}}
 
 ## Service Accounts
 
