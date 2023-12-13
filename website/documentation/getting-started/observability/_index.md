@@ -42,7 +42,7 @@ The password you can use to log in can be retrieved as shown in the image below.
 
 ![](./images/access-plutono.png)
 
-Completing this, you will see dashboards like the one below which offers an overview of the Kubernetes Control Plane availability.
+After logging into Plutono, you will see dashboards like the one below. The depicted dashboard, for example, offers an overview of the Kubernetes Control Plane availability.
 
 ![](./images/plutono.png)
 
