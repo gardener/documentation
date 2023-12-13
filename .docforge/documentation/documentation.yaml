@@ -82,13 +82,16 @@ structure:
         title: Architecture
         weight: 1
         persona: Developers
+- dir: getting-started
+  structure:
+  - fileTree: /website/documentation/getting-started
 - file: gardenctl-v2
   frontmatter:
     aliases:
       - /docs/gardenctl/
     title: Gardenctl V2
     description: The command line interface to control your clusters
-    weight: 4
+    weight: 5
   source: https://github.com/gardener/gardenctl-v2/blob/DEFAULT_BRANCH/README.md
 - dir: other-components
   structure:
@@ -96,7 +99,7 @@ structure:
     frontmatter:
       title: Other Components
       description: Other components included in the Gardener project
-      weight: 5
+      weight: 6
   - manifest: ./other-components.yaml
 - dir: guides
   structure:
