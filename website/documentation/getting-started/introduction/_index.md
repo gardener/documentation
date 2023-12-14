@@ -75,7 +75,6 @@ On top of that, Gardener-managed Kubernetes clusters fulfill the conformance sta
 
 Have a look at the [CNCF map](https://cncf.landscape2.io/?item=platform--certified-kubernetes--installer--gardener) for more information or dive into the [testgrid](https://testgrid.k8s.io/conformance-gardener) directly.
 
-
 Gardener itself is open-source. Under the umbrella of [github.com/gardener](https://github.com/gardener) we develop the core functionalities as well as the extensions and you are welcome to contribute (by opening issues, feature requests or submitting code). 
 
 Last time we counted, there were already 131 projects. That's actually more projects than members of the organization.
