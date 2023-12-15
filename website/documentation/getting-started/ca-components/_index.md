@@ -99,7 +99,7 @@ For more information, see [MCM](https://github.com/gardener/machine-controller-m
 
 Gardener not only deploys components into the control plane namespace of the seed but also to the shoot (e.g., the counterpart of the VPN). Together with the components in the seed, Gardener needs to have a way to reconcile them.
 
-Enter the GRM - it reconciles on ManagedResources objects, which are descriptions of Kubernetes resources which are deployed into the seed or shoot by GRM. If any of these resources are modified or deleted by accident, the usual observe-analyze-act cycle will revert these potentially malicious changes back to the values that Gardener envisioned. In fact, all the components found in a shoot's kube-system namespace are ManagedResources governed by the GRM. The actual resource definition is contained in Secrets (as they may contain "secret" data), while the ManagedResources contain a reference to the secret containing the actual resource to be deployed and reconciled.
+Enter the GRM - it reconciles on ManagedResources objects, which are descriptions of Kubernetes resources which are deployed into the seed or shoot by GRM. If any of these resources are modified or deleted by accident, the usual observe-analyze-act cycle will revert these potentially malicious changes back to the values that Gardener envisioned. In fact, all the components found in a shoot's kube-system namespace are ManagedResources governed by the GRM. The actual resource definition is contained in secrets (as they may contain "secret" data), while the ManagedResources contain a reference to the secret containing the actual resource to be deployed and reconciled.
 
 ## DNS Records - "Internal" and "External"
 
