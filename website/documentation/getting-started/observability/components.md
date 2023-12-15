@@ -1,5 +1,6 @@
 ---
 title: Components
+weight: 1
 ---
 
 ## Core Components

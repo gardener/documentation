@@ -1,7 +1,7 @@
 ---
 title: Getting Started
 persona: Users
-weight: 4
+weight: 1
 ---
 
 Welcome to the Gardener Getting Started section! Here you will be able to get accustomed to the way Gardener functions and learn how its components work together in order to seamlessly run Kubernetes clusters on various hyperscalers.
