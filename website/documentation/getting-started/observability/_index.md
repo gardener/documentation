@@ -29,7 +29,7 @@ Prometheus, Plutono, and Vali are all located in the seed cluster. They run next
 The next sections will explore those components in detail.
 
 {{% alert color="info"  title="Note" %}}
-Gardener only provides monitoring for Gardener-deployed components. If you need logging or monitoring for your workload, then you need to deploy your own monitoring stack into your Shoot cluster.
+Gardener only provides monitoring for Gardener-deployed components. If you need logging or monitoring for your workload, then you need to deploy your own monitoring stack into your shoot cluster.
 {{% /alert %}}
 
 ### Accessing the Plutono Dashboards
@@ -115,7 +115,7 @@ cAdvisor is an open-source agent integrated into the kubelet binary that monitor
 
 **Hardware and kernel-related metrics**
 
-The [Prometheus Node Exporter](https://prometheus.io/docs/guides/node-exporter/) runs as a daemonset in the kube-system namespace of your Shoot cluster. It exposes a wide variety of hardware and kernel-related metrics. Some of the metrics we scrape are, for example, the current usage of the filesystem (`node_filesystem_free_bytes`) or current CPU usage (`node_cpu_seconds_total`). Both can help you identify if nodes are running out of hardware resources, which could lead to your workload experiencing downtimes.
+The [Prometheus Node Exporter](https://prometheus.io/docs/guides/node-exporter/) runs as a daemonset in the kube-system namespace of your shoot cluster. It exposes a wide variety of hardware and kernel-related metrics. Some of the metrics we scrape are, for example, the current usage of the filesystem (`node_filesystem_free_bytes`) or current CPU usage (`node_cpu_seconds_total`). Both can help you identify if nodes are running out of hardware resources, which could lead to your workload experiencing downtimes.
 
 **Control plane component specific metrics**
 

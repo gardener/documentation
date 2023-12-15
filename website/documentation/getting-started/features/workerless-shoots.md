@@ -11,7 +11,7 @@ Sometimes, there may be use cases for Kubernetes clusters that don't require pod
 
 In a scenario where you already have multiple clusters, you can use it for orchestration (leases) or factor out components that require many CRDs.
 
-As part of the control plane, the following components are deployed in the seed cluster for workerless Shoot:
+As part of the control plane, the following components are deployed in the seed cluster for workerless shoot:
 - etcds
 - kube-apiserver
 - kube-controller-manager

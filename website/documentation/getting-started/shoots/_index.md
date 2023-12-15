@@ -14,7 +14,7 @@ Some configurations are standardized but some are also very specific to the need
 ## Concept of a "Shoot"
 
 In Gardener, Kubernetes clusters (with their control plane and their data plane) are called shoot clusters or simply shoots.
-For Gardener, a Shoot is just another Kubernetes resource. Gardener components watch it and act upon changes (e.g., creation). It comes with reasonable default settings but also allows fine-tuned configuration. And on top of it, you get a status providing health information, information about ongoing operations, and so on.
+For Gardener, a shoot is just another Kubernetes resource. Gardener components watch it and act upon changes (e.g., creation). It comes with reasonable default settings but also allows fine-tuned configuration. And on top of it, you get a status providing health information, information about ongoing operations, and so on.
 
 Luckily there is a dashboard to get started.
 
