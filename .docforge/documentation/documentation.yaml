@@ -1,11 +1,22 @@
 structure:
+- dir: getting-started
+  structure:
+  - fileTree: /website/documentation/getting-started
+- dir: guides
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: Guides
+      persona: Developers
+      weight: 2
+  - manifest: ./guides.yaml
 - dir: gardener
   structure:
   - file: _index.md
     frontmatter:
       title: Gardener
       description: The core component providing the extension API server of your Kubernetes cluster
-      weight: 1
+      weight: 3
     source: https://github.com/gardener/gardener/blob/DEFAULT_BRANCH/docs/README.md
   - dir: api-reference
     structure:
@@ -64,7 +75,7 @@ structure:
     frontmatter:
       title: List of Extensions
       description: The infrastructure, networking, OS and other extension components for Gardener
-      weight: 2
+      weight: 4
   - manifest: ./gardener-extensions/gardener-extensions.yaml
 - dir: dashboard
   structure:
@@ -72,7 +83,7 @@ structure:
     frontmatter:
       title: Dashboard
       description: The web UI for managing your projects and clusters
-      weight: 3
+      weight: 5
     source: https://github.com/gardener/dashboard/blob/DEFAULT_BRANCH/README.md
   - fileTree: https://github.com/gardener/dashboard/tree/DEFAULT_BRANCH/docs
   - dir: architecture
@@ -82,16 +93,13 @@ structure:
         title: Architecture
         weight: 1
         persona: Developers
-- dir: getting-started
-  structure:
-  - fileTree: /website/documentation/getting-started
 - file: gardenctl-v2
   frontmatter:
     aliases:
       - /docs/gardenctl/
     title: Gardenctl V2
     description: The command line interface to control your clusters
-    weight: 5
+    weight: 6
   source: https://github.com/gardener/gardenctl-v2/blob/DEFAULT_BRANCH/README.md
 - dir: other-components
   structure:
@@ -99,31 +107,17 @@ structure:
     frontmatter:
       title: Other Components
       description: Other components included in the Gardener project
-      weight: 6
-  - manifest: ./other-components.yaml
-- dir: guides
-  structure:
-  - file: _index.md
-    frontmatter:
-      title: Guides
-      persona: Developers
       weight: 7
-  - manifest: ./guides.yaml
+  - manifest: ./other-components.yaml
 - dir: faq
   structure:
-  - file: _index.md
-    frontmatter:
-      title: FAQ
-      description: Commonly asked questions about Gardener
-      persona: Developers
-      weight: 8
-  - fileTree: /website/documentation/faq
-- dir: resources
-  structure:
-  - fileTree: /website/documentation/resources
+  - manifest: ./faq.yaml
 - dir: glossary
   structure:
   - fileTree: /website/documentation/glossary
+- dir: resources
+  structure:
+  - fileTree: /website/documentation/resources
 - dir: contribute
   structure:
   - fileTree: /website/documentation/contribute

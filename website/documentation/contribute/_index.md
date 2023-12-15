@@ -4,7 +4,7 @@ description: Contributors guides for code and documentation
 sidebar: true
 menu: sln
 persona: Developers
-weight: 10
+weight: 11
 ---
 # Contributing to Gardener
 
