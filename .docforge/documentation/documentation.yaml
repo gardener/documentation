@@ -1,6 +1,4 @@
 structure:
-- dir: gardener
-  structure:
   - dir: getting-started
     structure:
     - fileTree: /website/documentation/getting-started
@@ -9,66 +7,69 @@ structure:
     - file: _index.md
       frontmatter:
         title: Guides
+        description: Walkthroughs of common activities
         persona: Developers
         weight: 2
     - manifest: ./guides.yaml
-  - file: _index.md
-    frontmatter:
-      title: Gardener
-      description: The core component providing the extension API server of your Kubernetes cluster
-      weight: 3
-    source: https://github.com/gardener/gardener/blob/DEFAULT_BRANCH/docs/README.md
-  - dir: api-reference
+  - dir: gardener
     structure:
     - file: _index.md
       frontmatter:
-        title: API Reference
-        weight: 1
-        aliases: 
-        - "/api-reference/"
-        persona: Developers
-    - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/api-reference
-  - dir: concepts
-    structure:
-    - file: _index.md
-      frontmatter:
-        title: Concepts
-        weight: 2
-        persona: Operators
-    - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/concepts
-  - dir: deployment
-    structure:
-    - file: _index.md
-      frontmatter:
-        title: Deployment
+        title: Gardener
+        description: The core component providing the extension API server of your Kubernetes cluster
         weight: 3
-        persona: Operators
-    - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/deployment
-  - dir: development
-    structure:
-    - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/development
-  - dir: extensions
-    structure:
-    - file: _index.md
-      frontmatter:
-        title: Extensions
-        weight: 4
-        persona: Developers
-    - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/extensions
-  - dir: monitoring
-    structure:
-    - file: _index.md
-      frontmatter:
-        title: Monitoring
-        weight: 5
-        persona: Operators
-    - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/monitoring
-  - dir: operations
-    structure:
-    - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/operations
-  - dir: usage
-    structure:
-    - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/usage
+      source: https://github.com/gardener/gardener/blob/DEFAULT_BRANCH/docs/README.md
+    - dir: api-reference
+      structure:
+      - file: _index.md
+        frontmatter:
+          title: API Reference
+          weight: 1
+          aliases: 
+          - "/api-reference/"
+          persona: Developers
+      - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/api-reference
+    - dir: concepts
+      structure:
+      - file: _index.md
+        frontmatter:
+          title: Concepts
+          weight: 2
+          persona: Operators
+      - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/concepts
+    - dir: deployment
+      structure:
+      - file: _index.md
+        frontmatter:
+          title: Deployment
+          weight: 3
+          persona: Operators
+      - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/deployment
+    - dir: development
+      structure:
+      - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/development
+    - dir: extensions
+      structure:
+      - file: _index.md
+        frontmatter:
+          title: Extensions
+          weight: 4
+          persona: Developers
+      - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/extensions
+    - dir: monitoring
+      structure:
+      - file: _index.md
+        frontmatter:
+          title: Monitoring
+          weight: 5
+          persona: Operators
+      - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/monitoring
+    - dir: operations
+      structure:
+      - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/operations
+    - dir: usage
+      structure:
+      - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/usage
   - dir: extensions
     structure:
     - file: _index.md
@@ -111,19 +112,13 @@ structure:
     - manifest: ./other-components.yaml
   - dir: faq
     structure:
-    - file: _index.md
-      frontmatter:
-        title: FAQ
-        description: Commonly asked questions about Gardener
-        persona: Developers
-        weight: 8
-    - fileTree: /website/documentation/faq
-  - dir: resources
-    structure:
-    - fileTree: /website/documentation/resources
+    - manifest: ./faq.yaml
   - dir: glossary
     structure:
     - fileTree: /website/documentation/glossary
+  - dir: resources
+    structure:
+    - fileTree: /website/documentation/resources
   - dir: contribute
     structure:
     - fileTree: /website/documentation/contribute
