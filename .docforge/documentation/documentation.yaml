@@ -69,61 +69,61 @@ structure:
   - dir: usage
     structure:
     - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/usage
-- dir: extensions
-  structure:
-  - file: _index.md
-    frontmatter:
-      title: List of Extensions
-      description: The infrastructure, networking, OS and other extension components for Gardener
-      weight: 4
-  - manifest: ./gardener-extensions/gardener-extensions.yaml
-- dir: dashboard
-  structure:
-  - file: _index.md
-    frontmatter:
-      title: Dashboard
-      description: The web UI for managing your projects and clusters
-      weight: 5
-    source: https://github.com/gardener/dashboard/blob/DEFAULT_BRANCH/README.md
-  - fileTree: https://github.com/gardener/dashboard/tree/DEFAULT_BRANCH/docs
-  - dir: architecture
+  - dir: extensions
     structure:
     - file: _index.md
       frontmatter:
-        title: Architecture
-        weight: 1
+        title: List of Extensions
+        description: The infrastructure, networking, OS and other extension components for Gardener
+        weight: 4
+    - manifest: ./gardener-extensions/gardener-extensions.yaml
+  - dir: dashboard
+    structure:
+    - file: _index.md
+      frontmatter:
+        title: Dashboard
+        description: The web UI for managing your projects and clusters
+        weight: 5
+      source: https://github.com/gardener/dashboard/blob/DEFAULT_BRANCH/README.md
+    - fileTree: https://github.com/gardener/dashboard/tree/DEFAULT_BRANCH/docs
+    - dir: architecture
+      structure:
+      - file: _index.md
+        frontmatter:
+          title: Architecture
+          weight: 1
+          persona: Developers
+  - file: gardenctl-v2
+    frontmatter:
+      aliases:
+        - /docs/gardenctl/
+      title: Gardenctl V2
+      description: The command line interface to control your clusters
+      weight: 6
+    source: https://github.com/gardener/gardenctl-v2/blob/DEFAULT_BRANCH/README.md
+  - dir: other-components
+    structure:
+    - file: _index.md
+      frontmatter:
+        title: Other Components
+        description: Other components included in the Gardener project
+        weight: 7
+    - manifest: ./other-components.yaml
+  - dir: faq
+    structure:
+    - file: _index.md
+      frontmatter:
+        title: FAQ
+        description: Commonly asked questions about Gardener
         persona: Developers
-- file: gardenctl-v2
-  frontmatter:
-    aliases:
-      - /docs/gardenctl/
-    title: Gardenctl V2
-    description: The command line interface to control your clusters
-    weight: 6
-  source: https://github.com/gardener/gardenctl-v2/blob/DEFAULT_BRANCH/README.md
-- dir: other-components
-  structure:
-  - file: _index.md
-    frontmatter:
-      title: Other Components
-      description: Other components included in the Gardener project
-      weight: 7
-  - manifest: ./other-components.yaml
-- dir: faq
-  structure:
-  - file: _index.md
-    frontmatter:
-      title: FAQ
-      description: Commonly asked questions about Gardener
-      persona: Developers
-      weight: 8
-  - fileTree: /website/documentation/faq
-- dir: resources
-  structure:
-  - fileTree: /website/documentation/resources
-- dir: glossary
-  structure:
-  - fileTree: /website/documentation/glossary
-- dir: contribute
-  structure:
-  - fileTree: /website/documentation/contribute
+        weight: 8
+    - fileTree: /website/documentation/faq
+  - dir: resources
+    structure:
+    - fileTree: /website/documentation/resources
+  - dir: glossary
+    structure:
+    - fileTree: /website/documentation/glossary
+  - dir: contribute
+    structure:
+    - fileTree: /website/documentation/contribute
