@@ -7,6 +7,7 @@ structure:
   - file: _index.md
     frontmatter:
       title: Guides
+      description: Walkthroughs of common activities
       persona: Developers
       weight: 2
   - manifest: ./guides.yaml

@@ -10,7 +10,4 @@ structure:
   - file: /website/community/_index.md
 - dir: docs
   structure:
-  - file: _index.md
-    frontmatter:
-      title: Docs
   - manifest: ./documentation/documentation.yaml

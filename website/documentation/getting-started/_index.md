@@ -1,5 +1,6 @@
 ---
 title: Getting Started
+description: Gardener onboarding materials
 persona: Users
 weight: 1
 ---
