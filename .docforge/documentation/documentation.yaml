@@ -1,18 +1,17 @@
 structure:
-- dir: getting-started
-  structure:
-  - fileTree: /website/documentation/getting-started
-- dir: guides
-  structure:
-  - file: _index.md
-    frontmatter:
-      title: Guides
-      description: Walkthroughs of common activities
-      persona: Developers
-      weight: 2
-  - manifest: ./guides.yaml
 - dir: gardener
   structure:
+  - dir: getting-started
+    structure:
+    - fileTree: /website/documentation/getting-started
+  - dir: guides
+    structure:
+    - file: _index.md
+      frontmatter:
+        title: Guides
+        persona: Developers
+        weight: 2
+    - manifest: ./guides.yaml
   - file: _index.md
     frontmatter:
       title: Gardener
@@ -112,13 +111,19 @@ structure:
   - manifest: ./other-components.yaml
 - dir: faq
   structure:
-  - manifest: ./faq.yaml
-- dir: glossary
-  structure:
-  - fileTree: /website/documentation/glossary
+  - file: _index.md
+    frontmatter:
+      title: FAQ
+      description: Commonly asked questions about Gardener
+      persona: Developers
+      weight: 8
+  - fileTree: /website/documentation/faq
 - dir: resources
   structure:
   - fileTree: /website/documentation/resources
+- dir: glossary
+  structure:
+  - fileTree: /website/documentation/glossary
 - dir: contribute
   structure:
   - fileTree: /website/documentation/contribute
