@@ -1,5 +1,6 @@
 ---
 title: Shoot Status
+weight: 3
 ---
 
 ## Overview

@@ -1,129 +1,124 @@
 structure:
-- dir: gardener
-  structure:
-  - file: _index.md
-    frontmatter:
-      title: Gardener
-      description: The core component providing the extension API server of your Kubernetes cluster
-      weight: 1
-    source: https://github.com/gardener/gardener/blob/DEFAULT_BRANCH/docs/README.md
-  - dir: api-reference
+  - dir: getting-started
+    structure:
+    - fileTree: /website/documentation/getting-started
+  - dir: guides
     structure:
     - file: _index.md
       frontmatter:
-        title: API Reference
-        weight: 1
-        aliases: 
-        - "/api-reference/"
+        title: Guides
+        description: Walkthroughs of common activities
         persona: Developers
-    - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/api-reference
-  - dir: concepts
-    structure:
-    - file: _index.md
-      frontmatter:
-        title: Concepts
         weight: 2
-        persona: Operators
-    - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/concepts
-  - dir: deployment
+    - manifest: ./guides.yaml
+  - dir: gardener
     structure:
     - file: _index.md
       frontmatter:
-        title: Deployment
+        title: Gardener
+        description: The core component providing the extension API server of your Kubernetes cluster
         weight: 3
-        persona: Operators
-    - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/deployment
-  - dir: development
-    structure:
-    - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/development
+      source: https://github.com/gardener/gardener/blob/DEFAULT_BRANCH/docs/README.md
+    - dir: api-reference
+      structure:
+      - file: _index.md
+        frontmatter:
+          title: API Reference
+          weight: 1
+          aliases: 
+          - "/api-reference/"
+          persona: Developers
+      - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/api-reference
+    - dir: concepts
+      structure:
+      - file: _index.md
+        frontmatter:
+          title: Concepts
+          weight: 2
+          persona: Operators
+      - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/concepts
+    - dir: deployment
+      structure:
+      - file: _index.md
+        frontmatter:
+          title: Deployment
+          weight: 3
+          persona: Operators
+      - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/deployment
+    - dir: development
+      structure:
+      - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/development
+    - dir: extensions
+      structure:
+      - file: _index.md
+        frontmatter:
+          title: Extensions
+          weight: 4
+          persona: Developers
+      - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/extensions
+    - dir: monitoring
+      structure:
+      - file: _index.md
+        frontmatter:
+          title: Monitoring
+          weight: 5
+          persona: Operators
+      - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/monitoring
+    - dir: operations
+      structure:
+      - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/operations
+    - dir: usage
+      structure:
+      - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/usage
   - dir: extensions
     structure:
     - file: _index.md
       frontmatter:
-        title: Extensions
+        title: List of Extensions
+        description: The infrastructure, networking, OS and other extension components for Gardener
         weight: 4
-        persona: Developers
-    - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/extensions
-  - dir: monitoring
+    - manifest: ./gardener-extensions/gardener-extensions.yaml
+  - dir: dashboard
     structure:
     - file: _index.md
       frontmatter:
-        title: Monitoring
+        title: Dashboard
+        description: The web UI for managing your projects and clusters
         weight: 5
-        persona: Operators
-    - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/monitoring
-  - dir: operations
-    structure:
-    - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/operations
-  - dir: usage
-    structure:
-    - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/usage
-- dir: extensions
-  structure:
-  - file: _index.md
+      source: https://github.com/gardener/dashboard/blob/DEFAULT_BRANCH/README.md
+    - fileTree: https://github.com/gardener/dashboard/tree/DEFAULT_BRANCH/docs
+    - dir: architecture
+      structure:
+      - file: _index.md
+        frontmatter:
+          title: Architecture
+          weight: 1
+          persona: Developers
+  - file: gardenctl-v2
     frontmatter:
-      title: List of Extensions
-      description: The infrastructure, networking, OS and other extension components for Gardener
-      weight: 2
-  - manifest: ./gardener-extensions/gardener-extensions.yaml
-- dir: dashboard
-  structure:
-  - file: _index.md
-    frontmatter:
-      title: Dashboard
-      description: The web UI for managing your projects and clusters
-      weight: 3
-    source: https://github.com/gardener/dashboard/blob/DEFAULT_BRANCH/README.md
-  - fileTree: https://github.com/gardener/dashboard/tree/DEFAULT_BRANCH/docs
-  - dir: architecture
+      aliases:
+        - /docs/gardenctl/
+      title: Gardenctl V2
+      description: The command line interface to control your clusters
+      weight: 6
+    source: https://github.com/gardener/gardenctl-v2/blob/DEFAULT_BRANCH/README.md
+  - dir: other-components
     structure:
     - file: _index.md
       frontmatter:
-        title: Architecture
-        weight: 1
-        persona: Developers
-- dir: getting-started
-  structure:
-  - fileTree: /website/documentation/getting-started
-- file: gardenctl-v2
-  frontmatter:
-    aliases:
-      - /docs/gardenctl/
-    title: Gardenctl V2
-    description: The command line interface to control your clusters
-    weight: 5
-  source: https://github.com/gardener/gardenctl-v2/blob/DEFAULT_BRANCH/README.md
-- dir: other-components
-  structure:
-  - file: _index.md
-    frontmatter:
-      title: Other Components
-      description: Other components included in the Gardener project
-      weight: 6
-  - manifest: ./other-components.yaml
-- dir: guides
-  structure:
-  - file: _index.md
-    frontmatter:
-      title: Guides
-      persona: Developers
-      weight: 7
-  - manifest: ./guides.yaml
-- dir: faq
-  structure:
-  - file: _index.md
-    frontmatter:
-      title: FAQ
-      description: Commonly asked questions about Gardener
-      persona: Developers
-      weight: 8
-  - fileTree: /website/documentation/faq
-- dir: resources
-  structure:
-  - fileTree: /website/documentation/resources
-- dir: glossary
-  structure:
-  - fileTree: /website/documentation/glossary
-- dir: contribute
-  structure:
-  - fileTree: /website/documentation/contribute
+        title: Other Components
+        description: Other components included in the Gardener project
+        weight: 7
+    - manifest: ./other-components.yaml
+  - dir: faq
+    structure:
+    - manifest: ./faq.yaml
+  - dir: glossary
+    structure:
+    - fileTree: /website/documentation/glossary
+  - dir: resources
+    structure:
+    - fileTree: /website/documentation/resources
+  - dir: contribute
+    structure:
+    - fileTree: /website/documentation/contribute

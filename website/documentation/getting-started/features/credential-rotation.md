@@ -35,12 +35,12 @@ For more information, see [Credentials Rotation for Shoot Clusters](https://gith
 
 ![](./images/user-provided-keys.png)
 
-You grant Gardener permissions to create resources by handing over cloud provider keys. These keys are stored in a Secret and referenced to a shoot via a SecretBinding. Gardener uses the keys to create the network for the cluster resources, routes, VMs, disks, and IP addresses. 
+You grant Gardener permissions to create resources by handing over cloud provider keys. These keys are stored in a secret and referenced to a shoot via a SecretBinding. Gardener uses the keys to create the network for the cluster resources, routes, VMs, disks, and IP addresses. 
 
 When you rotate credentials, the new keys have to be stored in the same secret and the shoot needs to reconcile successfully to ensure the replication to every controller. Afterwards, the old keys can be deleted safely from Gardener's perspective. 
 
 While the reconciliation can be triggered manually, there is no need for it (if you're not in a hurry). Each shoot reconciles once within 24h and the new keys will be picked up during the next maintenance window.
 
 {{% alert color="info"  title="Note" %}}
-It is not possible to move a Shoot to a different infrastructure account (at all!).
+It is not possible to move a shoot to a different infrastructure account (at all!).
 {{% /alert %}}

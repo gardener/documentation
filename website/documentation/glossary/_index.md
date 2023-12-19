@@ -2,7 +2,7 @@
 title: Glossary
 description: Commonly used terms in Gardener
 persona: Developers
-weight: 10
+weight: 9
 ---
 ## Purpose
 

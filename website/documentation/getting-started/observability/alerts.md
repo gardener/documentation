@@ -1,5 +1,6 @@
 ---
 title: Alerts
+weight: 2
 ---
 
 ## Overview

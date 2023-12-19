@@ -13,7 +13,7 @@ There are plenty of tools you can use to perform the challenge. For Kubernetes, 
 
 ![](./images/manage-certificates.png)
 
-You may annotate a Service or Ingress to trigger the cert-manager to request a certificate from the any configured issuer (e.g. Let's Encrypt) and perform the challenge. A Gardener operator can add a default issuer for convenience.
+You may annotate a Service or Ingress resource to trigger the cert-manager to request a certificate from the any configured issuer (e.g. Let's Encrypt) and perform the challenge. A Gardener operator can add a default issuer for convenience.
 With the DNS extension discussed previously, setting up the DNS TXT record for the ACME challenge is fairly easy. The requested certificate can be customized by the means of several other annotations known to the controller. Most notably, it is possible to specify SANs via `cert.gardener.cloud/dnsnames` to accommodate domain names that have more than 64 characters (the limit for the CN field).
 
 The user's request for a certificate manifests as a `certificate` resource. The status, issuer, and other properties can be checked there.
