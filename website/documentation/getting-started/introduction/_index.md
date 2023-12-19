@@ -55,7 +55,7 @@ Essentially, it was a "make or buy" decision that led to the founding of Gardene
 
 ### The Reason Why We Choose to "Make It"
 
-Gardener allows to run Kubernetes clusters on various hyperscalers. It offers the same set of basic configuration options independent of the choosen infrastructure. This kind of harmonization supports any mulit-vendor strategy while reducing adoption costs for the individual teams. Just imagine having to deal with multiple vendors all offering vastly differentl Kubernetes clusters.
+Gardener allows to run Kubernetes clusters on various hyperscalers. It offers the same set of basic configuration options independent of the choosen infrastructure. This kind of harmonization supports any multi-vendor strategy while reducing adoption costs for the individual teams. Just imagine having to deal with multiple vendors all offering vastly different Kubernetes clusters.
 
 Of course, there are plenty more reasons - from acquiring operational knowledge to having influence on the developed features - that made the pendulum swing towards "make it".
 
