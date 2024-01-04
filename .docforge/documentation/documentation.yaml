@@ -105,7 +105,7 @@ structure:
   - dir: other-components
     structure:
     - file: _index.md
-      frontmatter:
+      frontmatteer:
         title: Other Components
         description: Other components included in the Gardener project
         weight: 7
