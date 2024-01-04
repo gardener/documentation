@@ -1,88 +1,15 @@
 #!/usr/bin/env bash
 
-# SPDX-FileCopyrightText: 2021 SAP SE or an SAP affiliate company and Gardener contributors
+# SPDX-FileCopyrightText: 2023 SAP SE or an SAP affiliate company and Gardener contributors
 #
 # SPDX-License-Identifier: Apache-2.0
 
-# For the integration-test step the following environment variables are used:
-# GIT_OAUTH_TOKEN - used for fetch the content from Github
-# CHECKED_DIRS - the directories which will be checked for diff against repo's remote default branch. If Diff exists then the checks will be triggered.
-# otherwise the script will exist with status code 0
 set -e
 
-REPO_PATH=""
-REPO_NAME=""
-MANIFEST_PATH=""
-USE_TOKEN=false
-USE_CACHE=false
-DIFF_DIRS=""
-CONFIG_PATH=""
-
-for arg in "$@"; do
-  case $arg in
-  --repo-path)
-    REPO_PATH=${2}
-    shift
-    ;;
-  --repo-name)
-    REPO_NAME=${2}
-    shift
-    ;;
-  --manifest-path)
-    MANIFEST_PATH=${2}
-    shift
-    ;;
-  --use-token)
-    USE_TOKEN=${2}
-    shift
-    ;;
-  --use-cache)
-    USE_CACHE=${2}
-    shift
-    ;;
-  --diff-dirs)
-    DIFF_DIRS=${2}
-    shift
-    ;;
-  --config-path)
-    CONFIG_PATH=${2}
-    shift
-    ;;
-  *)
-    shift
-    ;;
-  esac
-done
-
-echo "REPO_PATH= ${REPO_PATH}"
-echo "REPO_NAME= ${REPO_NAME}"
-echo "MANIFEST_PATH= ${MANIFEST_PATH}"
-echo "USE_TOKEN= ${USE_TOKEN}"
-echo "USE_CACHE= ${USE_CACHE}"
-echo "DIFF_DIRS= ${DIFF_DIRS}"
-echo "CONFIG_PATH= ${CONFIG_PATH}"
-
-cd "${REPO_PATH}"
-
-origin_remote=$(git remote -v | grep origin || true)
-if [ -z "${origin_remote}" ]; then
-  git remote add origin "https://github.com/gardener/${REPO_NAME}.git"
-  git fetch origin
-fi
-
-diffExist=false
-for dir in $(echo "$DIFF_DIRS" | tr ";" "\n"); do
-  remote_default_branch=$(git symbolic-ref refs/remotes/origin/HEAD --short)
-  diff=$(git diff "$remote_default_branch" --name-only -- | grep "^${dir}" || true)
-  if [[ -n "${diff}" ]]; then
-    diffExist=true
-    break
-  fi
-done
-
-if [[ "${diffExist}" = false ]]; then
-  echo "There is no diff in the checked directories so the script exits successfully"
-  exit 0
+if [[ $(uname) == 'Darwin' ]]; then
+  READLINK_BIN="greadlink"
+else
+  READLINK_BIN="readlink"
 fi
 
 getGitHubToken() {
@@ -94,12 +21,13 @@ getGitHubToken() {
     if [[ -n "${technicalUser}" ]]; then
       # get auth token and strip lead/trail quotes
       authToken=$(jq -r '.authToken' <<<"$technicalUser")
-      # get username and strip lead/trail quotes
-      username=$(jq -r '.username' <<<"$technicalUser")
       echo "${authToken}"
     fi
   fi
 }
+
+REPO_PATH="$(${READLINK_BIN} -f "$(dirname "${0}")/..")"
+cd "${REPO_PATH}"
 
 # Set config file
 tmpConfigPath=$("mktemp")
@@ -108,40 +36,34 @@ function cleanup {
 }
 trap cleanup EXIT ERR INT TERM
 
-sed "s@REPO_PATH@${REPO_PATH}@g" "${CONFIG_PATH}" >"${tmpConfigPath}"
-sed -i "s/REPO_NAME/${REPO_NAME}/g" "${tmpConfigPath}"
+cat << EOF >"$tmpConfigPath"
+resourceMappings:
+  "https://github.com/gardener/documentation": "${REPO_PATH}"
+EOF
+echo "Resource Mapping:"
+cat "$tmpConfigPath"
 
 export DOCFORGE_CONFIG="${tmpConfigPath}"
 
-if [[ "${USE_CACHE}" = true ]]; then
-  # Set cache dir
-  if [[ -d "${HOME}/.docforge" ]]; then
-    docforgeCacheDir="${HOME}/.docforge"
-  else
-    docforgeCacheDir="${REPO_PATH}/../.docforge"
-  fi
-
-  if [[ ! -d "${docforgeCacheDir}" ]]; then
-    echo "creating cache dir: ${docforgeCacheDir}"
-    mkdir -p "${docforgeCacheDir}"
-  fi
-
-  export DOCFORGE_CACHE_DIR="${docforgeCacheDir}"
-  echo "cache dir is set to: ${docforgeCacheDir}"
+# Set cache dir
+if [[ -d "${HOME}/.docforge" ]]; then
+  docforgeCacheDir="${HOME}/.docforge"
+else
+  docforgeCacheDir="${REPO_PATH}/../.docforge"
 fi
 
-if [[ "${USE_TOKEN}" = true ]]; then
-  GIT_OAUTH_TOKEN=${GIT_OAUTH_TOKEN:-$(getGitHubToken github_com)}
-  gitTokenMap="github.com=${GIT_OAUTH_TOKEN}"
+if [[ ! -d "${docforgeCacheDir}" ]]; then
+  echo "creating cache dir: ${docforgeCacheDir}"
+  mkdir -p "${docforgeCacheDir}"
 fi
 
-# To support relative paths in manifest.yaml, manifest path should be valid URL that is mapped to local repo
-manifestURL="https://github.com/gardener/${REPO_NAME}/blob/check-manifest${MANIFEST_PATH#"$REPO_PATH"}"
+export DOCFORGE_CACHE_DIR="${docforgeCacheDir}"
+echo "cache dir is set to: ${docforgeCacheDir}"
 
 echo "Running docforge command..."
 docforge \
-  -f "${manifestURL}" \
+  -f "https://github.com/gardener/documentation/blob/check-manifest/.docforge/website.yaml" \
   -d tmp \
-  ${gitTokenMap:+--github-oauth-token-map $gitTokenMap} \
+  --github-oauth-token-map "github.com=${GITHUB_OAUTH_TOKEN:-$(getGitHubToken github_com)}" \
   --hugo \
   --dry-run
