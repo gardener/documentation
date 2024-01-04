@@ -11,6 +11,6 @@ structure:
 - dir: docs
   structure:
   - file: _index.md
-    frontmatter:
+    frontmatteer:
       title: Docs
   - manifest: ./documentation/documentation.yaml
