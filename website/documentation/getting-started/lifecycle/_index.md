@@ -42,7 +42,7 @@ When you change the shoot spec, it can also have significant impact on the clust
 
 ## Kubernetes Version Update (Minor + Patch)
 
-![](./images/Kubernetes-version-update.png)
+![](./images/k8s-version-update.png)
 
 Some operations are rather common and have to be performed on a regular basis. Updating the Kubernetes version is one them. Patch updates cause relatively little disruption, as only the control-plane pods will be re-created with new images and the kubelets on all nodes will restart.
 

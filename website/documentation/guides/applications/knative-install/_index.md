@@ -190,7 +190,7 @@ Get started with Knative Eventing by walking through one of the
 [Eventing Samples](https://knative.dev/docs/eventing/samples/).
 
 [Install Cert-Manager](https://knative.dev/docs/serving/installing-cert-manager/) if you want to use the
-[automatic TLS cert provisioning feature](https://knative.dev/docs/serving/using-auto-tls/).
+[automatic TLS cert provisioning feature](https://knative.dev/docs/serving/encryption/enabling-automatic-tls-certificate-provisioning/).
 
 ## Cleaning Up
 
