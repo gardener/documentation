@@ -40,15 +40,15 @@ The password you can use to log in can be retrieved as shown in the image below.
 
 ![](./images/access-plutono.png)
 
-### Accessing the dashboards
+### Accessing the Dashboards
 
-After logging in you will be greeted with a Plutono welcome screen. Click on `General/Home` at the top as depicted with the red arrow in the next picture:
+After logging in, you will be greeted with a Plutono welcome screen. Navigate to `General/Home`, as depicted with the red arrow in the next picture:
 
 ![](./images/welcome_plutono.png)
 
 Then you will be able to select the dashboards. Some interesting ones to look at are:
-- `Kubernetes Control Plane Status` if you want to check control plane availability during a certain time frame go to the this dashboard.
-- The `API Server` dashboard gives you an overview which requests are done towards your apiserver and how long they take.
+- The `Kubernetes Control Plane Status` dashboard allows you to check control plane availability during a certain time frame.
+- The `API Server` dashboard gives you an overview on which requests are done towards your apiserver and how long they take.
 - With the `Node Details` dashboard you can analyze CPU/Network pressure or memory usage for nodes.
 - The `Network Problem Detector` dashboard illustrates the results of periodic networking checks between nodes and to the APIServer.
 
@@ -71,13 +71,15 @@ Time series data from Prometheus can be made visible with Plutono. Here we see h
 
 ### Vali Logs via Plutono
 
-Vali is our logging solution. In order to access the logs provided by Vali first log into Plutono as describe [here](https://gardener.cloud/docs/getting-started/observability/components/#logging-into-Plutono).
+Vali is our logging solution. In order to access the logs provided by Vali, you need to:
 
-Then click on Explore which is depicted as the little compass symbol. See the red arrow in the next picture for where to click:
+1. Log into Plutono, as described [here](https://gardener.cloud/docs/getting-started/observability/components/#logging-into-Plutono).
+
+2. Choose `Explore`, which is depicted as the little compass symbol:
 
  ![](images/explore_loki.png)
 
-Then select `Vali` at the top left as shown here:
+3. Select `Vali` at the top left, as shown here:
 
 ![](./images/select_vali.png)
 
@@ -85,15 +87,15 @@ There you can browse logs or events of the control plane components.
 
 ![](./images/vali-logs.png)
 
-Helpful queries would be for example:
+Here are some examples of helpful queries:
 - `{container_name="cluster-autoscaler" }` to get cluster-autoscaler logs and see why certain node groups were scaled up.
 - `{container_name="kube-apiserver"} |~ "error" ` to get the logs of the kube-apiserver container and filter for errors.
-- `{unit="kubelet.service", nodename="ip-123"}` gives the kubelet logs of a specific node
-- `{unit="containerd.service", nodename="ip-123"}` retrieves the containerd logs for a specific node
+- `{unit="kubelet.service", nodename="ip-123"}` to get the kubelet logs of a specific node.
+- `{unit="containerd.service", nodename="ip-123"}` to retrieve the containerd logs for a specific node.
 
- See also the `Help >` button to see options exist to filter the results.
+ Choose `Help >` in order to see what options exist to filter the results.
 
- For more information also how to retrieve K8s events from the past see [How to access Logs](https://github.com/gardener/gardener/blob/master/docs/usage/logging.md#how-to-access-the-logs)
+ For more information on how to retrieve K8s events from the past, see [How to Access Logs](https://github.com/gardener/gardener/blob/master/docs/usage/logging.md#how-to-access-the-logs).
 
 ## Detailed View
 
