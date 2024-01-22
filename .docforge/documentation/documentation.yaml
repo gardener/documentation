@@ -26,7 +26,7 @@ structure:
           title: API Reference
           weight: 1
           aliases: 
-          - "/api-reference/"
+            - "/api-reference/"
           persona: Developers
       - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/api-reference
     - dir: concepts
@@ -122,3 +122,14 @@ structure:
   - dir: contribute
     structure:
     - fileTree: /website/documentation/contribute
+    - dir: code
+      structure:
+      - dir: security-guide
+        structure:
+          - file: _index.md
+            frontmatter:
+              title: Security Release Process
+              remote: https://github.com/gardener/documentation/blob/master/security-release-process.md
+              # aliases: 
+              #   - "/docs/contribute/code/security-guide/"
+            source: https://github.com/gardener/.github/blob/main/SECURITY.MD
