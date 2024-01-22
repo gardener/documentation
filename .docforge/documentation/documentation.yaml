@@ -129,7 +129,4 @@ structure:
           - file: _index.md
             frontmatter:
               title: Security Release Process
-              remote: https://github.com/gardener/documentation/blob/master/security-release-process.md
-              # aliases: 
-              #   - "/docs/contribute/code/security-guide/"
             source: https://github.com/gardener/.github/blob/main/SECURITY.MD
