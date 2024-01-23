@@ -26,7 +26,11 @@ The next sections will explore those components in detail.
 Gardener only provides monitoring for Gardener-deployed components. If you need logging or monitoring for your workload, then you need to deploy your own monitoring stack into your shoot cluster.
 {{% /alert %}}
 
-### Accessing the Plutono Dashboards
+{{% alert color="info"  title="Note" %}}
+Gardener only provides a monitoring stack if the cluster is not of `purpose: testing`. See [here](https://gardener.cloud/docs/gardener/shoot_purposes/) more info on shoot purpose.
+{{% /alert %}}
+
+### Logging into Plutono
 
 Let us start by giving some visual hints on how to access Plutono. [Plutono](https://github.com/credativ/plutono#plutono) allows us to query logs and metrics and visualise those in form of dashboards. Plutono is shipped ready-to-use with a Gardener shoot cluster.
 
@@ -36,13 +40,24 @@ The password you can use to log in can be retrieved as shown in the image below.
 
 ![](./images/access-plutono.png)
 
-After logging into Plutono, you will see dashboards like the one below. The depicted dashboard, for example, offers an overview of the Kubernetes Control Plane availability.
+### Accessing the Dashboards
 
+After logging in, you will be greeted with a Plutono welcome screen. Navigate to `General/Home`, as depicted with the red arrow in the next picture:
+
+![](./images/welcome_plutono.png)
+
+Then you will be able to select the dashboards. Some interesting ones to look at are:
+- The `Kubernetes Control Plane Status` dashboard allows you to check control plane availability during a certain time frame.
+- The `API Server` dashboard gives you an overview on which requests are done towards your apiserver and how long they take.
+- With the `Node Details` dashboard you can analyze CPU/Network pressure or memory usage for nodes.
+- The `Network Problem Detector` dashboard illustrates the results of periodic networking checks between nodes and to the APIServer.
+
+Here is a picture with the `Kubernetes Control Plane Status` dashboard.
 ![](./images/plutono.png)
 
 ### Prometheus
 
-[Prometheus](https://prometheus.io/) is a monitoring system and a time series database. It can be queried using PromQL, the so called Prometheus Querying Langauge. 
+[Prometheus](https://prometheus.io/) is a monitoring system and a time series database. It can be queried using PromQL, the so called Prometheus Querying Language. 
 
 ![](./images/prometheus.png)
 
@@ -56,9 +71,31 @@ Time series data from Prometheus can be made visible with Plutono. Here we see h
 
 ### Vali Logs via Plutono
 
-Vali is our logging solution. Here we see how logs gathered with Vali are visualized in Plutono. Therefore, we can correlate logs and metrics in the same UI.
+Vali is our logging solution. In order to access the logs provided by Vali, you need to:
+
+1. Log into Plutono, as described [here](https://gardener.cloud/docs/getting-started/observability/components/#logging-into-Plutono).
+
+2. Choose `Explore`, which is depicted as the little compass symbol:
+
+ ![](images/explore_loki.png)
+
+3. Select `Vali` at the top left, as shown here:
+
+![](./images/select_vali.png)
+
+There you can browse logs or events of the control plane components.
 
 ![](./images/vali-logs.png)
+
+Here are some examples of helpful queries:
+- `{container_name="cluster-autoscaler" }` to get cluster-autoscaler logs and see why certain node groups were scaled up.
+- `{container_name="kube-apiserver"} |~ "error" ` to get the logs of the kube-apiserver container and filter for errors.
+- `{unit="kubelet.service", nodename="ip-123"}` to get the kubelet logs of a specific node.
+- `{unit="containerd.service", nodename="ip-123"}` to retrieve the containerd logs for a specific node.
+
+ Choose `Help >` in order to see what options exist to filter the results.
+
+ For more information on how to retrieve K8s events from the past, see [How to Access Logs](https://github.com/gardener/gardener/blob/master/docs/usage/logging.md#how-to-access-the-logs).
 
 ## Detailed View
 
