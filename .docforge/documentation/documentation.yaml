@@ -97,7 +97,7 @@ structure:
   - file: gardenctl-v2
     frontmatter:
       aliases:
-        - /docs/gardenctl/
+      - /docs/gardenctl/
       title: Gardenctl V2
       description: The command line interface to control your clusters
       weight: 6
@@ -122,3 +122,11 @@ structure:
   - dir: contribute
     structure:
     - fileTree: /website/documentation/contribute
+    - dir: code
+      structure:
+      - dir: security-guide
+        structure:
+          - file: _index.md
+            frontmatter:
+              title: Security Release Process
+            source: https://github.com/gardener/.github/blob/main/SECURITY.MD
