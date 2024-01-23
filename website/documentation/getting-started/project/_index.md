@@ -54,6 +54,7 @@ Inside of a shoot manifest, a reference to that secret is given so that Gardener
 In the shoot manifest, we refer to a SecretBinding and the SecretBinding in turn refers to the actual secret.
 
 ## SecretBindings
+
 ![](./images/secretbindings.png)
 
 With SecretBindings, it is possible to reference the same infrastructure secret in different projects across namespaces. This has the following advantages:​
