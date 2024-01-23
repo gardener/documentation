@@ -7,7 +7,7 @@ weight: 2
 
 Kubeception - Kubernetes in Kubernetes in Kubernetes
 
-![](./images/kubeception.png)
+![](./images/kubeception.gif)
 
 In the classic setup, there is a dedicated host / VM to host the master components / control plane of a Kubernetes cluster. However, these are just normal programs that can easily be put into containers. Once in containers, Kubernetes Deployments and StatefulSets (for the etcd) can be made to watch over them. And by putting all that into a separate, dedicated Kubernetes cluster you get Kubernetes on Kubernetes, aka Kubeception (named after the famous movie Inception with Leonardo DiCaprio).
 

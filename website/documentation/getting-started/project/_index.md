@@ -41,16 +41,6 @@ ResourceQuotas - if any - will be enforced on the project namespace.
 Since all Gardener resources are custom Kubernetes resources, the usual and well established concept of `resourceQuotas` in Kubernetes can also be applied to Gardener resources. With a `resourceQuota` that sets a hard limit on (e.g., `count/shoots.core.gardener.cloud`) you can restrict the number of shoot clusters that can be created in a project.
 {{% /alert %}}
 
-## Service Accounts
-
-![](./images/service-account.png)
-
-Since Gardener is 100% Kubernetes, it can be easily used in a programmatic way - by just sending the resource manifest of a Gardener resource to its API server. To do so, a kubeconfig file and a (technical) user that the kubeconfig maps to are required.
-
-Next to project members, a project can have several service accounts - simple Kubernetes service accounts that are created in a project's namespace. Consequently, every service account will also have its own, dedicated kubeconfig and they can be granted different roles through RoleBindings.
-
-To integrate Gardener with other infrastructure or CI/CD platforms, one can create a service account, obtain its kubeconfig and then automatically send shoot manifests to the Gardener API server. With that, Kubernetes clusters can be created, modified or deleted on the fly whenever they are needed.
-
 ## Infrastructure Secrets
 
 For Gardener to create all relevant infrastructure that a shoot cluster needs inside a cloud provider, it needs to know how to authenticate to the cloud provider's API. This is done through regular secrets.
@@ -62,3 +52,20 @@ Through the Gardener dashboard, secrets can be created for each supported cloud 
 Inside of a shoot manifest, a reference to that secret is given so that Gardener knows which secret to use for a given shoot. Consequently, different shoots, even though they are in the same project, can be created on multiple different cloud provider accounts. However, instead of referring to the secret directly, Gardener introduces another layer of indirection called a SecretBinding. 
 
 In the shoot manifest, we refer to a SecretBinding and the SecretBinding in turn refers to the actual secret.
+
+## SecretBindings
+![](./images/secretbindings.png)
+
+With SecretBindings, it is possible to reference the same infrastructure secret in different projects across namespaces. This has the following advantages:​
+- Infrastructure secrets can be kept in one project (and thus namespace) with limited access. Through SecretsBindings, the secrets can be used in other projects (and thus namespaces) without being able to read their contents.​
+- Infrastructure secrets can be kept at one central place (a dedicated project) and be used by many other projects. This way, if a credential rotation is required, they only need to be changed in the secrets at that central place and not in all projects that reference them.
+
+## Service Accounts
+
+![](./images/service-account.png)
+
+Since Gardener is 100% Kubernetes, it can be easily used in a programmatic way - by just sending the resource manifest of a Gardener resource to its API server. To do so, a kubeconfig file and a (technical) user that the kubeconfig maps to are required.
+
+Next to project members, a project can have several service accounts - simple Kubernetes service accounts that are created in a project's namespace. Consequently, every service account will also have its own, dedicated kubeconfig and they can be granted different roles through RoleBindings.
+
+To integrate Gardener with other infrastructure or CI/CD platforms, one can create a service account, obtain its kubeconfig and then automatically send shoot manifests to the Gardener API server. With that, Kubernetes clusters can be created, modified or deleted on the fly whenever they are needed.

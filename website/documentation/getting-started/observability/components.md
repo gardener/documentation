@@ -108,7 +108,6 @@ Our monitoring and logging solutions Vali and Prometheus both run next to the co
 
 The following diagram allows a more detailed look at Vali and the data flow.
 
-
 ![](./images/data-flow-logging.png)
 
 
