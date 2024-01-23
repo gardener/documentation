@@ -26,7 +26,7 @@ structure:
           title: API Reference
           weight: 1
           aliases: 
-            - "/api-reference/"
+          - "/api-reference/"
           persona: Developers
       - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/api-reference
     - dir: concepts
@@ -97,7 +97,7 @@ structure:
   - file: gardenctl-v2
     frontmatter:
       aliases:
-        - /docs/gardenctl/
+      - /docs/gardenctl/
       title: Gardenctl V2
       description: The command line interface to control your clusters
       weight: 6
