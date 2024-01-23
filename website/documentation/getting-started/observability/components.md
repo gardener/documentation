@@ -27,7 +27,7 @@ Gardener only provides monitoring for Gardener-deployed components. If you need 
 {{% /alert %}}
 
 {{% alert color="info"  title="Note" %}}
-Gardener only provides a monitoring stack if the cluster is not of `purpose: testing`. See [here](https://gardener.cloud/docs/gardener/shoot_purposes/) more info on shoot purpose.
+Gardener only provides a monitoring stack if the cluster is not of `purpose: testing`. For more information, see [Shoot Cluster Purpose](https://gardener.cloud/docs/gardener/shoot_purposes/).
 {{% /alert %}}
 
 ### Logging into Plutono
@@ -36,7 +36,7 @@ Let us start by giving some visual hints on how to access Plutono. [Plutono](htt
 
 In order to access the Gardener provided dashboards, open the `Plutono` link provided in the Gardener dashboard and use the username and password provided next to it.
 
-The password you can use to log in can be retrieved as shown in the image below.
+The password you can use to log in can be retrieved as shown below:
 
 ![](./images/access-plutono.png)
 
