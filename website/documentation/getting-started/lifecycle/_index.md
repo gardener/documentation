@@ -1,6 +1,6 @@
 ---
 title: Shoot Lifecycle
-weight: 5
+weight: 6
 ---
 
 ## Reconciliation in Kubernetes and Gardener
@@ -22,6 +22,7 @@ If you change the desired state, Gardener will reconcile the shoot and run throu
 ![](./images/update-shoot-state.png)
 
 For example, the (infrastructure-specific) machine type can be changed within the shoot resource. The following reconciliation will pick up the change and initiate the creation of new nodes with a different machine type and the removal of the old nodes.
+
 ## Maintenance Window and Daily Reconciliation
 
 ![](./images/maintenance-window.png)
@@ -54,6 +55,20 @@ A minor version update is more impactful - it will cause all nodes to be recreat
 
 The OS version is defined for each worker pool and can be changed per worker pool. You can freely switch back and forth. However, as there is no in-place update, each change will cause the entire worker pool to roll and nodes will be replaced.
 For OS versions different update strategies can be configured. Please check the [documentation](https://github.com/gardener/gardener/blob/master/docs/usage/shoot_versions.md/#update-path-for-machine-image-versions) for details.
+
+## Available Versions​
+
+<img style="width: 80%; height: auto; margin: 0, auto" src="./images/available-versions.png"/>
+
+Gardener has a dedicated resource to maintain a list of available versions – the so-called `cloudProfile`.
+
+A cloudProfile provides information about supported​
+- Kubernetes versions​
+- OS versions (and where to find those images)​
+- Regions (and their zones)​
+- Machine types​
+
+Each shoot references a cloudProfile in order to obtain information about available / possible versions and configurations.
 
 ## Version Classifications
 

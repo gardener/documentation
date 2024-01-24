@@ -1,6 +1,6 @@
 ---
 title: Control Plane Components
-weight: 4
+weight: 5
 ---
 
 ## Overview
@@ -154,7 +154,7 @@ To distribute those pods across zones, well-known concepts like PodTopologySprea
 
 ## kube-system Namespace
 
-<img src="./images/kube-system-namespace.png" alt="kube-system-namespace" width="50%"/>
+<img src="./images/kube-system-namespace-1.png" alt="kube-system-namespace" width="50%"/>
 
 For a fully functional cluster, a few components need to run on the data plane side of the diagram. They all exist in the kube-system namespace. Let's have a closer look at them.
 

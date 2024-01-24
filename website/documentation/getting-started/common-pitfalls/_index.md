@@ -1,6 +1,6 @@
 ---
 title: Common Pitfalls
-weight: 8
+weight: 9
 ---
 
 ## Architecture
