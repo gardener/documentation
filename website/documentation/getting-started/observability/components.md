@@ -73,7 +73,7 @@ Time series data from Prometheus can be made visible with Plutono. Here we see h
 
 Vali is our logging solution. In order to access the logs provided by Vali, you need to:
 
-1. Log into Plutono, as described [here](https://gardener.cloud/docs/getting-started/observability/components/#logging-into-Plutono).
+1. [Log into Plutono](#logging-into-plutono).
 
 2. Choose `Explore`, which is depicted as the little compass symbol:
 
