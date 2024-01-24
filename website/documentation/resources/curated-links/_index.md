@@ -43,7 +43,7 @@ Inspired by [@sindresorhus' awesome](https://github.com/sindresorhus/awesome)
 
 ### Courses
 
-  - [Scalable Microservices with Kubernetes at Udacity](http://in.udacity.com/course/scalable-microservices-with-kubernetes--ud615)
+  - [Scalable Microservices with Kubernetes at Udacity](https://www.udacity.com/course/scalable-microservices-with-kubernetes--ud615)
   - [Introduction to Kubernetes at edX](http://www.edx.org/course/introduction-kubernetes-linuxfoundationx-lfs158x)
 
 ### Tutorials
