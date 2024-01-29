@@ -22,14 +22,14 @@ structure:
     - dir: api-reference
       structure:
       - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/api-reference
-        structure:
-        - file: _index.md
-          frontmatter:
-            title: API Reference
-            weight: 1
-            aliases: 
-            - "/api-reference/"
-            persona: Developers
+      - file: _index.md
+        frontmatter:
+          title: API Reference
+          weight: 1
+          aliases: 
+          - "/api-reference/"
+          persona: Developers
+        source: https://github.com/gardener/gardener/blob/DEFAULT_BRANCH/docs/api-reference/README.md
     - dir: concepts
       structure:
       - file: _index.md
