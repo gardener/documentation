@@ -81,7 +81,7 @@ Reducing the load on the API servers can become a challenge. To get started, you
 
 ### `Nodes`
 
-When talking about the scalability of a Kubernetes cluster, `Nodes` are probably mentioned in the first place... well, obviously not in this guide. While vanilla Kubernetes lists 5000 `Nodes` as its upper limit, pushing that dimension is not feasible. Most clusters should run with fewer than 300 `Nodes`. If you scale beyond that, be extra careful and closely monitor ETCD and `kube-apiserver`.
+When talking about the scalability of a Kubernetes cluster, `Nodes` are probably mentioned in the first place... well, obviously not in this guide. While vanilla Kubernetes lists 5000 `Nodes` as its upper limit, pushing that dimension is not feasible. Most clusters should run with fewer than 300 `Nodes`. But of course, the actual limit depends on the workloads deployed and can be lower or higher. As you scale your cluster, be extra careful and closely monitor ETCD and `kube-apiserver`.
 
 The scalability of `Nodes` is subject to a range of limiting factors. Some of them can only be defined upon cluster creation and remain immutable during a cluster lifetime. So let's discuss the most important dimensions.
 
