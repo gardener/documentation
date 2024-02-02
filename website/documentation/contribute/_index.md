@@ -16,7 +16,7 @@ Before you begin contributing to Gardener, there are a couple of things you shou
 
 ### Code of Conduct
 All members of the Gardener community must abide by the
-[CNCF Code of Conduct](https://github.com/cncf/foundation/blob/master/code-of-conduct.md).
+[Contributor Covenant](https://www.contributor-covenant.org/version/2/1/code_of_conduct/).
 Only by respecting each other can we develop a productive, collaborative community.
 Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting [gardener.opensource@sap.com](mailto:gardener.opensource@sap.com) and/or a Gardener project maintainer.
 
