@@ -7,7 +7,7 @@ documentation:
         inject_effective_version: true
       component_descriptor: ~
     steps:
-      check-manifest:
+      check-manifest-entrypoint:
         image: "eu.gcr.io/gardener-project/gardener-website-generator:latest"
         cache_paths: ['.docforge']
   jobs:
