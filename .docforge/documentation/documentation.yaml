@@ -29,7 +29,7 @@ structure:
           aliases: 
           - "/api-reference/"
           persona: Developers
-        source: https://github.com/gardener/gardener/blob/DEFAULT_BRANCH/docs/api-reference/README.md
+        source: https://github.com/gardener/gardener/blob/master/docs/api-reference/README.md
     - dir: concepts
       structure:
       - file: _index.md
