@@ -21,6 +21,9 @@ structure:
       source: https://github.com/gardener/gardener/blob/DEFAULT_BRANCH/docs/README.md
     - dir: api-reference
       structure:
+      - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/api-reference
+        excludeFiles:
+        - "README.md"
       - file: _index.md
         frontmatter:
           title: API Reference
@@ -28,7 +31,7 @@ structure:
           aliases: 
           - "/api-reference/"
           persona: Developers
-      - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/api-reference
+        source: https://github.com/gardener/gardener/blob/master/docs/api-reference/README.md
     - dir: concepts
       structure:
       - file: _index.md
