@@ -11,6 +11,7 @@ Files:
   Makefile
   scripts/*
   website/installer/*
+  .ci/*
 Copyright: 2017-2020 SAP SE or an SAP affiliate company and Gardener contributors
 License: Apache-2.0
 
