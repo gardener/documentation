@@ -7,7 +7,7 @@ weight: 1
 
 ![](./images/core-components.png)
 
-The core Observabiltiy components which Gardener offers out-of-the-box are:
+The core Observability components which Gardener offers out-of-the-box are:
 - Prometheus - for Metrics and Alerting
 - Vali - a Loki fork for Logging
 - Plutono - a Grafana fork for Dashboard visualization
@@ -57,7 +57,7 @@ Here is a picture with the `Kubernetes Control Plane Status` dashboard.
 
 ### Prometheus
 
-[Prometheus](https://prometheus.io/) is a monitoring system and a time series database. It can be queried using PromQL, the so called Prometheus Querying Language. 
+[Prometheus](https://prometheus.io/) is a monitoring system and a time series database. It can be queried using PromQL, the so called Prometheus Querying Language.
 
 ![](./images/prometheus.png)
 
@@ -121,13 +121,13 @@ Valitail is a systemd service that runs on each node. It scrapes kubelet, contai
 
 *Fluentbit*
 
-Fluentbit runs as a daemonset on each seed node. It scrapes logs of the kubernetes control plane components, like apiserver or etcd. 
+Fluentbit runs as a daemonset on each seed node. It scrapes logs of the kubernetes control plane components, like apiserver or etcd.
 
 It also scrapes logs of the Gardener deployed components which run next to the control plane of the cluster, like the machine-controller-manager or the cluster autoscaler. Debugging those components, for example, would be helpful when finding out why certain worker groups got scaled up or why nodes were replaced.
 
 #### Data Flow - Monitoring
 
-Next to each shoot's control plane, we deploy an instance of Prometheus in the seed. 
+Next to each shoot's control plane, we deploy an instance of Prometheus in the seed.
 
 Gardener uses [Prometheus](https://prometheus.io/) for storing and accessing shoot-related metrics and alerting.
 
