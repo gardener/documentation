@@ -1,4 +1,5 @@
 # Gardener Documentation
+[![REUSE status](https://api.reuse.software/badge/github.com/gardener/documentation)](https://api.reuse.software/info/github.com/gardener/documentation)
 
 ## Structure
 
