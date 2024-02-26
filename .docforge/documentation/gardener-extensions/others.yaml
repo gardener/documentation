@@ -55,3 +55,11 @@ structure:
       description: Gardener extension controller which deploys pull-through caches for container registries.
     source: https://github.com/gardener/gardener-extension-registry-cache/blob/DEFAULT_BRANCH/README.md
   - fileTree: https://github.com/gardener/gardener-extension-registry-cache/tree/main/docs
+- dir: gardener-extension-shoot-rsyslog-relp
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: Node Audit Logging
+      description: Gardener extension controller which configures the rsyslog and auditd services installed on shoot nodes.
+    source: https://github.com/gardener/gardener-extension-shoot-rsyslog-relp/blob/DEFAULT_BRANCH/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-shoot-rsyslog-relp/tree/main/docs
