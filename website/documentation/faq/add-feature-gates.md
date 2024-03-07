@@ -14,7 +14,7 @@ SectionName:
 
 The available sections are `kubelet`, `kubernetes`, `kubeAPIServer`, `kubeControllerManager`, `kubeScheduler`, and `kubeProxy`.
 
-Foir more detals, see [the example shoot.yaml file](https://github.com/gardener/gardener/blob/master/example/90-shoot.yaml).
+For more detals, see [the example shoot.yaml file](https://github.com/gardener/gardener/blob/master/example/90-shoot.yaml).
 
 ## What is the expected downtime when updating the `shoot.yaml`?
 
