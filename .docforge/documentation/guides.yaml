@@ -14,7 +14,7 @@ structure:
       scope: app-developer
       publishdate: 2023-03-17
       aliases: ["/readmore/shoot-high-availability-best-practices"]
-    source: https://github.com/gardener/gardener/blob/DEFAULT_BRANCH/docs/usage/shoot_high_availability_best_practices.md
+    source: https://github.com/gardener/gardener/blob/master/docs/usage/shoot_high_availability_best_practices.md
   - file: control-plane
     frontmatter:
       title: Control Plane
@@ -23,7 +23,7 @@ structure:
       scope: app-developer
       publishdate: 2023-03-17
       aliases: ["/readmore/shoot-high-availability-control-plane"]
-    source: https://github.com/gardener/gardener/blob/DEFAULT_BRANCH/docs/usage/shoot_high_availability.md
+    source: https://github.com/gardener/gardener/blob/master/docs/usage/shoot_high_availability.md
   - file: chaos-engineering
     frontmatter:
       title: Chaos Engineering
@@ -32,7 +32,7 @@ structure:
       scope: app-developer
       publishdate: 2023-03-17
       aliases: ["/readmore/shoot-high-availability-chaos-engineering"]
-    source: https://github.com/gardener/chaos-engineering/blob/DEFAULT_BRANCH/docs/tutorials/getting_started.md
+    source: https://github.com/gardener/chaos-engineering/blob/main/docs/tutorials/getting_started.md
 - dir: networking
   structure:
   - file: _index.md
@@ -49,7 +49,7 @@ structure:
       category: Networking
       scope: operator
       aliases: ["/managing-dns-with-gardener", "/docs/015-guides/030-networking-lb/managed-dns"]
-    source: https://github.com/gardener/gardener-extension-shoot-dns-service/blob/DEFAULT_BRANCH/docs/usage/dns_names.md
+    source: https://github.com/gardener/gardener-extension-shoot-dns-service/blob/master/docs/usage/dns_names.md
   - file: certificate-extension
     frontmatter:
       title: Manage Certificates with Gardener
@@ -60,7 +60,7 @@ structure:
       category: Networking
       scope: operator
       aliases: ["/managing-certificates-with-gardener", "/docs/015-guides/030-networking-lb/managed-certs-from-lets-encrypt"]
-    source: https://github.com/gardener/gardener-extension-shoot-cert-service/blob/DEFAULT_BRANCH/docs/usage/request_cert.md
+    source: https://github.com/gardener/gardener-extension-shoot-cert-service/blob/master/docs/usage/request_cert.md
   - file: certificate-extension-default-domain
     frontmatter:
       title: Manage Certificates with Gardener for Default Domain
@@ -71,7 +71,7 @@ structure:
       category: Networking
       scope: operator
       aliases: ["/managing-certificates-with-gardener-default-domain"]
-    source: https://github.com/gardener/gardener-extension-shoot-cert-service/blob/DEFAULT_BRANCH/docs/usage/request_default_domain_cert.md
+    source: https://github.com/gardener/gardener-extension-shoot-cert-service/blob/master/docs/usage/request_default_domain_cert.md
   - file: dual-stack-ipv4-ipv6-ingress-aws
     frontmatter:
       title: Enable IPv4/IPv6 (dual-stack) Ingress on AWS

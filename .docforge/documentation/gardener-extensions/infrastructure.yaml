@@ -5,8 +5,8 @@ structure:
     frontmatter:
       title: Provider AWS
       description: Gardener extension controller for the AWS cloud provider
-    source:  https://github.com/gardener/gardener-extension-provider-aws/blob/DEFAULT_BRANCH/README.md
-  - fileTree: https://github.com/gardener/gardener-extension-provider-aws/tree/DEFAULT_BRANCH/docs
+    source:  https://github.com/gardener/gardener-extension-provider-aws/blob/master/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-provider-aws/tree/master/docs
   - dir: tutorials
     frontmatter:
       title: Tutorials
@@ -18,8 +18,8 @@ structure:
     frontmatter:
       title: Provider GCP
       description: Gardener extension controller for the GCP cloud provider
-    source: https://github.com/gardener/gardener-extension-provider-gcp/blob/DEFAULT_BRANCH/README.md
-  - fileTree: https://github.com/gardener/gardener-extension-provider-gcp/tree/DEFAULT_BRANCH/docs
+    source: https://github.com/gardener/gardener-extension-provider-gcp/blob/master/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-provider-gcp/tree/master/docs
   - dir: tutorials
     structure:
     - file: _index.md
@@ -33,8 +33,8 @@ structure:
     frontmatter:
       title: Provider Azure
       description: Gardener extension controller for the Azure cloud provider
-    source: https://github.com/gardener/gardener-extension-provider-azure/blob/DEFAULT_BRANCH/README.md
-  - fileTree: https://github.com/gardener/gardener-extension-provider-azure/tree/DEFAULT_BRANCH/docs
+    source: https://github.com/gardener/gardener-extension-provider-azure/blob/master/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-provider-azure/tree/master/docs
   - dir: tutorials
     structure:
     - file: _index.md
@@ -48,8 +48,8 @@ structure:
     frontmatter:
       title: Provider Alicloud
       description: Gardener extension controller for the Alibaba cloud provider
-    source:  https://github.com/gardener/gardener-extension-provider-alicloud/blob/DEFAULT_BRANCH/README.md
-  - fileTree: https://github.com/gardener/gardener-extension-provider-alicloud/tree/DEFAULT_BRANCH/docs
+    source:  https://github.com/gardener/gardener-extension-provider-alicloud/blob/master/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-provider-alicloud/tree/master/docs
   - dir: tutorials
     structure:
     - file: _index.md
@@ -63,21 +63,21 @@ structure:
     frontmatter:
       title: Provider Openstack
       description: Gardener extension controller for the OpenStack cloud provider
-    source:  https://github.com/gardener/gardener-extension-provider-openstack/blob/DEFAULT_BRANCH/README.md
-  - fileTree: https://github.com/gardener/gardener-extension-provider-openstack/tree/DEFAULT_BRANCH/docs
+    source:  https://github.com/gardener/gardener-extension-provider-openstack/blob/master/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-provider-openstack/tree/master/docs
 - dir: gardener-extension-provider-vsphere
   structure:
   - file: _index.md
     frontmatter:
       title: Provider vSphere
       description: Gardener extension controller for the vSphere cloud provider
-    source:  https://github.com/gardener/gardener-extension-provider-vsphere/blob/DEFAULT_BRANCH/README.md
-  - fileTree: https://github.com/gardener/gardener-extension-provider-aws/tree/DEFAULT_BRANCH/docs
+    source:  https://github.com/gardener/gardener-extension-provider-vsphere/blob/master/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-provider-aws/tree/master/docs
 - dir: gardener-extension-provider-equinix-metal
   structure:
   - file: _index.md
     frontmatter:
       title: Provider Equinix Metal
       description: Gardener extension controller for the Equinix Metal cloud provider
-    source:  https://github.com/gardener/gardener-extension-provider-equinix-metal/blob/DEFAULT_BRANCH/README.md
-  - fileTree: https://github.com/gardener/gardener-extension-provider-equinix-metal/tree/DEFAULT_BRANCH/docs
+    source:  https://github.com/gardener/gardener-extension-provider-equinix-metal/blob/master/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-provider-equinix-metal/tree/master/docs
