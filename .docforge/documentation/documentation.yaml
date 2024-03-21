@@ -18,7 +18,7 @@ structure:
         title: Gardener
         description: The core component providing the extension API server of your Kubernetes cluster
         weight: 3
-      source: https://github.com/gardener/gardener/blob/DEFAULT_BRANCH/docs/README.md
+      source: https://github.com/gardener/gardener/blob/master/docs/README.md
     - dir: api-reference
       structure:
       - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/api-reference
@@ -39,7 +39,7 @@ structure:
           title: Concepts
           weight: 2
           persona: Operators
-      - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/concepts
+      - fileTree: https://github.com/gardener/gardener/tree/master/docs/concepts
     - dir: deployment
       structure:
       - file: _index.md
@@ -47,10 +47,10 @@ structure:
           title: Deployment
           weight: 3
           persona: Operators
-      - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/deployment
+      - fileTree: https://github.com/gardener/gardener/tree/master/docs/deployment
     - dir: development
       structure:
-      - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/development
+      - fileTree: https://github.com/gardener/gardener/tree/master/docs/development
     - dir: extensions
       structure:
       - file: _index.md
@@ -58,7 +58,7 @@ structure:
           title: Extensions
           weight: 4
           persona: Developers
-      - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/extensions
+      - fileTree: https://github.com/gardener/gardener/tree/master/docs/extensions
     - dir: monitoring
       structure:
       - file: _index.md
@@ -66,13 +66,13 @@ structure:
           title: Monitoring
           weight: 5
           persona: Operators
-      - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/monitoring
+      - fileTree: https://github.com/gardener/gardener/tree/master/docs/monitoring
     - dir: operations
       structure:
-      - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/operations
+      - fileTree: https://github.com/gardener/gardener/tree/master/docs/operations
     - dir: usage
       structure:
-      - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/usage
+      - fileTree: https://github.com/gardener/gardener/tree/master/docs/usage
   - dir: extensions
     structure:
     - file: _index.md
@@ -88,8 +88,8 @@ structure:
         title: Dashboard
         description: The web UI for managing your projects and clusters
         weight: 5
-      source: https://github.com/gardener/dashboard/blob/DEFAULT_BRANCH/README.md
-    - fileTree: https://github.com/gardener/dashboard/tree/DEFAULT_BRANCH/docs
+      source: https://github.com/gardener/dashboard/blob/master/README.md
+    - fileTree: https://github.com/gardener/dashboard/tree/master/docs
     - dir: architecture
       structure:
       - file: _index.md
@@ -104,7 +104,7 @@ structure:
       title: Gardenctl V2
       description: The command line interface to control your clusters
       weight: 6
-    source: https://github.com/gardener/gardenctl-v2/blob/DEFAULT_BRANCH/README.md
+    source: https://github.com/gardener/gardenctl-v2/blob/master/README.md
   - dir: other-components
     structure:
     - file: _index.md

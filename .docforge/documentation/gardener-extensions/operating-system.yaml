@@ -5,29 +5,29 @@ structure:
     frontmatter:
       title: Garden Linux OS
       description: Gardener extension controller for the Garden Linux operating system
-    source:  https://github.com/gardener/gardener-extension-os-gardenlinux/blob/DEFAULT_BRANCH/README.md
+    source:  https://github.com/gardener/gardener-extension-os-gardenlinux/blob/master/README.md
 - dir: gardener-extension-os-suse-chost
   structure:
   - file: _index.md
     frontmatter:
       title: SUSE CHost OS
       description: Gardener extension controller for the SUSE Container Host operating system (CHost)
-    source:  https://github.com/gardener/gardener-extension-os-suse-chost/blob/DEFAULT_BRANCH/README.md
-  - fileTree: https://github.com/gardener/gardener-extension-os-suse-chost/tree/DEFAULT_BRANCH/docs
+    source:  https://github.com/gardener/gardener-extension-os-suse-chost/blob/master/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-os-suse-chost/tree/master/docs
 - dir: gardener-extension-os-ubuntu
   structure:
   - file: _index.md
     frontmatter:
       title: Ubuntu OS
       description: Gardener extension controller for the Ubuntu operating system
-    source:  https://github.com/gardener/gardener-extension-os-ubuntu/blob/DEFAULT_BRANCH/README.md
-  - fileTree: https://github.com/gardener/gardener-extension-os-ubuntu/tree/DEFAULT_BRANCH/docs
+    source:  https://github.com/gardener/gardener-extension-os-ubuntu/blob/master/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-os-ubuntu/tree/master/docs
 - dir: gardener-extension-os-coreos
   structure:
   - file: _index.md
     frontmatter:
       title: CoreOS/FlatCar OS
       description: Gardener extension controller for the CoreOS/FlatCar Container Linux operating system
-    source:  https://github.com/gardener/gardener-extension-os-coreos/blob/DEFAULT_BRANCH/README.md
-  - fileTree: https://github.com/gardener/gardener-extension-os-coreos/tree/DEFAULT_BRANCH/docs
+    source:  https://github.com/gardener/gardener-extension-os-coreos/blob/master/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-os-coreos/tree/master/docs
 

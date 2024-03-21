@@ -15,8 +15,8 @@ Sample codeblock:
       title: Machine Controller Manager
       weight: 1
       description: Declarative way of managing machines for Kubernetes cluster
-    source: https://github.com/gardener/machine-controller-manager/blob/DEFAULT_BRANCH/README.md
-  - fileTree: https://github.com/gardener/machine-controller-manager/tree/DEFAULT_BRANCH/docs
+    source: https://github.com/gardener/machine-controller-manager/blob/master/README.md
+  - fileTree: https://github.com/gardener/machine-controller-manager/tree/master/docs
 ```
 
 This short code snippet adds a whole repository worth of content and contains examples of some of the most important elements:

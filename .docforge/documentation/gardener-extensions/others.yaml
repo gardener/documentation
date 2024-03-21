@@ -5,39 +5,39 @@ structure:
     frontmatter:
       title: DNS services
       description: Gardener extension controller for DNS services for shoot clusters
-    source:  https://github.com/gardener/gardener-extension-shoot-dns-service/blob/DEFAULT_BRANCH/README.md
-  - fileTree: https://github.com/gardener/gardener-extension-shoot-dns-service/tree/DEFAULT_BRANCH/docs
+    source:  https://github.com/gardener/gardener-extension-shoot-dns-service/blob/master/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-shoot-dns-service/tree/master/docs
 - dir: gardener-extension-shoot-cert-service
   structure:
   - file: _index.md
     frontmatter:
       title: Certificate services
       description: Gardener extension controller for certificate services for shoot clusters
-    source:  https://github.com/gardener/gardener-extension-shoot-cert-service/blob/DEFAULT_BRANCH/README.md
-  - fileTree: https://github.com/gardener/gardener-extension-shoot-cert-service/tree/DEFAULT_BRANCH/docs
+    source:  https://github.com/gardener/gardener-extension-shoot-cert-service/blob/master/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-shoot-cert-service/tree/master/docs
 - dir: gardener-extension-shoot-oidc-service
   structure:
   - file: _index.md
     frontmatter:
       title: OpenID Connect services
       description: Gardener extension controller for OpenID Connect services for shoot clusters
-    source:  https://github.com/gardener/gardener-extension-shoot-oidc-service/blob/DEFAULT_BRANCH/README.md
-  - fileTree: https://github.com/gardener/gardener-extension-shoot-oidc-service/tree/DEFAULT_BRANCH/docs
+    source:  https://github.com/gardener/gardener-extension-shoot-oidc-service/blob/master/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-shoot-oidc-service/tree/master/docs
 - dir: gardener-extension-shoot-networking-filter
   structure:
   - file: _index.md
     frontmatter:
       title: Egress filtering
       description: Gardener extension controller for egress filtering for shoot clusters
-    source:  https://github.com/gardener/gardener-extension-shoot-networking-filter/blob/DEFAULT_BRANCH/README.md
-  - fileTree: https://github.com/gardener/gardener-extension-shoot-networking-filter/tree/DEFAULT_BRANCH/docs
+    source:  https://github.com/gardener/gardener-extension-shoot-networking-filter/blob/master/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-shoot-networking-filter/tree/master/docs
 - dir: gardener-extension-shoot-networking-problemdetector
   structure:
   - file: _index.md
     frontmatter:
       title: Networking problemdetector
       description: Gardener extension for deploying network problem detector
-    source: https://github.com/gardener/gardener-extension-shoot-networking-problemdetector/blob/DEFAULT_BRANCH/README.md
+    source: https://github.com/gardener/gardener-extension-shoot-networking-problemdetector/blob/main/README.md
   - fileTree: https://github.com/gardener/gardener-extension-shoot-networking-problemdetector/tree/main/docs
 - dir: gardener-extension-shoot-lakom-service
   structure:
@@ -45,7 +45,7 @@ structure:
     frontmatter:
       title: Lakom service
       description: A k8s admission controller verifying pods are using signed images (cosign signatures) and a gardener extension to install it for shoots and seeds.
-    source: https://github.com/gardener/gardener-extension-shoot-lakom-service/blob/DEFAULT_BRANCH/README.md
+    source: https://github.com/gardener/gardener-extension-shoot-lakom-service/blob/main/README.md
   - fileTree: https://github.com/gardener/gardener-extension-shoot-lakom-service/tree/main/docs
 - dir: gardener-extension-registry-cache
   structure:
@@ -53,7 +53,7 @@ structure:
     frontmatter:
       title: Registry cache
       description: Gardener extension controller which deploys pull-through caches for container registries.
-    source: https://github.com/gardener/gardener-extension-registry-cache/blob/DEFAULT_BRANCH/README.md
+    source: https://github.com/gardener/gardener-extension-registry-cache/blob/main/README.md
   - fileTree: https://github.com/gardener/gardener-extension-registry-cache/tree/main/docs
 - dir: gardener-extension-shoot-rsyslog-relp
   structure:
