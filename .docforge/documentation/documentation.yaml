@@ -21,7 +21,7 @@ structure:
       source: https://github.com/gardener/gardener/blob/master/docs/README.md
     - dir: api-reference
       structure:
-      - fileTree: https://github.com/gardener/gardener/tree/DEFAULT_BRANCH/docs/api-reference
+      - fileTree: https://github.com/gardener/gardener/tree/master/docs/api-reference
         excludeFiles:
         - "README.md"
       - file: _index.md

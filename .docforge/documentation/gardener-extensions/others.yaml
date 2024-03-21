@@ -61,5 +61,5 @@ structure:
     frontmatter:
       title: Node Audit Logging
       description: Gardener extension controller which configures the rsyslog and auditd services installed on shoot nodes.
-    source: https://github.com/gardener/gardener-extension-shoot-rsyslog-relp/blob/DEFAULT_BRANCH/README.md
+    source: https://github.com/gardener/gardener-extension-shoot-rsyslog-relp/blob/main/README.md
   - fileTree: https://github.com/gardener/gardener-extension-shoot-rsyslog-relp/tree/main/docs
