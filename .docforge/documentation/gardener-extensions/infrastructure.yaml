@@ -65,14 +65,6 @@ structure:
       description: Gardener extension controller for the OpenStack cloud provider
     source:  https://github.com/gardener/gardener-extension-provider-openstack/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-provider-openstack/tree/master/docs
-- dir: gardener-extension-provider-vsphere
-  structure:
-  - file: _index.md
-    frontmatter:
-      title: Provider vSphere
-      description: Gardener extension controller for the vSphere cloud provider
-    source:  https://github.com/gardener/gardener-extension-provider-vsphere/blob/main/README.md
-  - fileTree: https://github.com/gardener/gardener-extension-provider-vsphere/tree/main/docs
 - dir: gardener-extension-provider-equinix-metal
   structure:
   - file: _index.md
