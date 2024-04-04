@@ -101,7 +101,7 @@ ZenHub is used for planning:
 
 ## Security Release Process
 
-See [Security Release Process](https://github.com/gardener/documentation/blob/master/security-release-process.md).
+See [Security Release Process](https://github.com/gardener/.github/blob/main/SECURITY.md).
 
 ## Community
 
