@@ -40,25 +40,26 @@ structure:
           weight: 2
           persona: Operators
       - fileTree: https://github.com/gardener/gardener/tree/master/docs/concepts
+    - dir: extensions
+      structure:
+      - file: _index.md
+        source: https://github.com/gardener/gardener/blob/master/docs/extensions/overview.md
+        frontmatter:
+          title: Extensions
+          weight: 3
+          persona: Developers
+      - fileTree: https://github.com/gardener/gardener/tree/master/docs/extensions
     - dir: deployment
       structure:
       - file: _index.md
         frontmatter:
           title: Deployment
-          weight: 3
+          weight: 4
           persona: Operators
       - fileTree: https://github.com/gardener/gardener/tree/master/docs/deployment
     - dir: development
       structure:
       - fileTree: https://github.com/gardener/gardener/tree/master/docs/development
-    - dir: extensions
-      structure:
-      - file: _index.md
-        frontmatter:
-          title: Extensions
-          weight: 4
-          persona: Developers
-      - fileTree: https://github.com/gardener/gardener/tree/master/docs/extensions
     - dir: monitoring
       structure:
       - file: _index.md
@@ -81,13 +82,21 @@ structure:
         description: The infrastructure, networking, OS and other extension components for Gardener
         weight: 4
     - manifest: ./gardener-extensions/gardener-extensions.yaml
+  - dir: other-components
+    structure:
+    - file: _index.md
+      frontmatter:
+        title: Other Components
+        description: Other components included in the Gardener project
+        weight: 5
+    - manifest: ./other-components.yaml
   - dir: dashboard
     structure:
     - file: _index.md
       frontmatter:
         title: Dashboard
         description: The web UI for managing your projects and clusters
-        weight: 5
+        weight: 6
       source: https://github.com/gardener/dashboard/blob/master/README.md
     - fileTree: https://github.com/gardener/dashboard/tree/master/docs
     - dir: architecture
@@ -103,16 +112,8 @@ structure:
       - /docs/gardenctl/
       title: Gardenctl V2
       description: The command line interface to control your clusters
-      weight: 6
+      weight: 7
     source: https://github.com/gardener/gardenctl-v2/blob/master/README.md
-  - dir: other-components
-    structure:
-    - file: _index.md
-      frontmatter:
-        title: Other Components
-        description: Other components included in the Gardener project
-        weight: 7
-    - manifest: ./other-components.yaml
   - dir: faq
     structure:
     - manifest: ./faq.yaml
