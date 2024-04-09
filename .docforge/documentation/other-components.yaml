@@ -52,3 +52,33 @@ structure:
       persona: Developers
     source: https://github.com/gardener/etcd-druid-api/blob/main/docs/api-reference/druid.md
   - fileTree: https://github.com/gardener/etcd-druid-api/tree/main/docs
+- dir: dependency-watchdog
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: Dependency Watchdog
+      weight: 1
+      description: A watchdog which actively looks out for disruption and recovery of critical services
+    source: https://github.com/gardener/dependency-watchdog/blob/master/README.md
+  - fileTree: https://github.com/gardener/dependency-watchdog/tree/master/docs
+  - dir: concepts
+    structure:
+    - file: _index.md
+      frontmatter:
+        title: Concepts
+        weight: 2
+        persona: Developers
+  - dir: deployment
+    structure:
+    - file: _index.md
+      frontmatter:
+        title: Deployment
+        weight: 3
+        persona: Operators
+  - dir: development
+    structure:
+    - file: _index.md
+      frontmatter:
+        title: Development
+        weight: 4
+        persona: Developers
