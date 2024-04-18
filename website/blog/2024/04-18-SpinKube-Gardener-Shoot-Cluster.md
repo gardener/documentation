@@ -22,7 +22,7 @@ With the rising popularity of [WebAssembly (WASM)](https://webassembly.org/) and
 
 For this showcase I am using a Gardener Shoot cluster on AWS infrastructure with nodes powered by [Garden Linux](https://github.com/gardenlinux/gardenlinux), although the steps should be applicable for other infrastructures as well, since Gardener aims to provide a homogenous Kubernetes experience.
 
-As a first step verify that you have access to your Gardener Shoot cluster.
+As a first step, verify that you have access to your Gardener Shoot cluster.
 
 ```bash
 # Verify the access to the Gardener Shoot cluster
@@ -39,7 +39,7 @@ If you are having troubles accessing the Gardener Shoot cluster, please consult 
 
 ## Deploy the Spin Operator
 
-As a first step we will install the Spin Operator Custom Resource Definitions and the Runtime Class need by  `wasmtime-spin-v2`.
+As a first step, we will install the Spin Operator Custom Resource Definitions and the Runtime Class needed by `wasmtime-spin-v2`.
 
 ```bash
 # Install Spin Operator CRDs
@@ -49,7 +49,7 @@ kubectl apply -f https://github.com/spinkube/spin-operator/releases/download/v0.
 kubectl apply -f https://github.com/spinkube/spin-operator/releases/download/v0.1.0/spin-operator.runtime-class.yaml
 ```
 
-Next we will install [cert-manager](https://github.com/cert-manager/cert-manager) which is required for provisioning TLS certificates used by the admission webhhook of the Spin Operator. If you face issues installing `cert-manager`, please consult the [cert-manager installation](https://cert-manager.io/docs/installation/helm/) documentation.
+Next, we will install [cert-manager](https://github.com/cert-manager/cert-manager), which is required for provisioning TLS certificates used by the admission webhhook of the Spin Operator. If you face issues installing `cert-manager`, please consult the [cert-manager installation](https://cert-manager.io/docs/installation/helm/) documentation.
 
 ```bash
 # Add and update the Jetstack repository
@@ -65,7 +65,7 @@ helm install \
   --set installCRDs=true
 ```
 
-In order to install the `containerd-wasm-shim` on the Kubernetes nodes we will use the [kwasm-operator](https://kwasm.sh/). There is also a successor of `kwasm-operator` - [runtime-class-manager](https://github.com/spinkube/runtime-class-manager) which aims to address some of the limitations of `kwasm-operator` and provide a production grade implementation for deploying `containerd` shims on Kubernetes nodes. Since `kwasm-operator` is easier to install for the purpose of this post we will use it instead of the `runtime-class-manager`.
+In order to install the `containerd-wasm-shim` on the Kubernetes nodes we will use the [kwasm-operator](https://kwasm.sh/). There is also a successor of `kwasm-operator` - [runtime-class-manager](https://github.com/spinkube/runtime-class-manager) which aims to address some of the limitations of `kwasm-operator` and provide a production grade implementation for deploying `containerd` shims on Kubernetes nodes. Since `kwasm-operator` is easier to install, for the purpose of this post we will use it instead of the `runtime-class-manager`.
 
 ```bash
 # Add the kwasm helm repository
@@ -124,7 +124,7 @@ Let's deploy a sample Spin application using the following command:
 kubectl apply -f https://raw.githubusercontent.com/spinkube/spin-operator/main/config/samples/simple.yaml
 ```
 
-After the CRD has been picked up by the `spin-operator` a pod will be created running the sample application. Let's explore its logs.
+After the CRD has been picked up by the `spin-operator`, a pod will be created running the sample application. Let's explore its logs.
 
 ```bash
 kubectl logs simple-spinapp-56687588d9-nbrtq
@@ -144,7 +144,7 @@ Forwarding from 127.0.0.1:8000 -> 80
 Forwarding from [::1]:8000 -> 80
 ```
 
-In another terminal we can verify that the application returns a response.
+In another terminal, we can verify that the application returns a response.
 
 ```bash
 curl http://localhost:8000/hello
@@ -183,4 +183,4 @@ kubectl delete crd spinapps.core.spinoperator.dev
 
 ## Conclusion
 
-In my opinion WASM on the server is here to stay. Communities are expressing more and more interest in integrating Kubernetes with WASM workloads. As shown Gardener clusters are perfectly capable of supporting this use case. This setup is a great way to start exploring the capabilities that WASM can bring to the server. As stated in the introduction, bear in mind that this post does not define a production environment, but is rather meant to define a playground suitable for exploring and trying out ideas.
+In my opinion, WASM on the server is here to stay. Communities are expressing more and more interest in integrating Kubernetes with WASM workloads. As shown Gardener clusters are perfectly capable of supporting this use case. This setup is a great way to start exploring the capabilities that WASM can bring to the server. As stated in the introduction, bear in mind that this post does not define a production environment, but is rather meant to define a playground suitable for exploring and trying out ideas.
