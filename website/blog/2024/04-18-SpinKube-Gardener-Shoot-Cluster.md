@@ -10,7 +10,7 @@ authors:
 aliases: ["/blog/2024/04/18/02"]
 ---
 
-With the rising popularity of [WebAssembly (WASM)](https://webassembly.org/) and [WebAssembly System Interface (WASI)](https://wasi.dev/) come different integration possibilities. WASM is now not only suitable for the browser, but can be also utilized for running workloads on the server. In this post we will explore how you can get started writing serverless applications powered by [SpinKube](https://www.spinkube.dev/) on a Gardener Shoot cluster. This post is inspired by a similar tutorial that goes through the steps of [Deploying the Spin Operator on Azure Kubernetes Service](https://www.spinkube.dev/docs/spin-operator/tutorials/deploy-on-azure-kubernetes-service/). Keep in mind that this post does not aim to define a production environment, but it is meant to show that Gardener Shoot clusters are able to run WebAssembly workloads, giving users the chance to experiment and explore this cutting-edge technology.
+With the rising popularity of [WebAssembly (WASM)](https://webassembly.org/) and [WebAssembly System Interface (WASI)](https://wasi.dev/) comes a variety of integration possibilities. WASM is now not only suitable for the browser, but can be also utilized for running workloads on the server. In this post we will explore how you can get started writing serverless applications powered by [SpinKube](https://www.spinkube.dev/) on a Gardener Shoot cluster. This post is inspired by a similar tutorial that goes through the steps of [Deploying the Spin Operator on Azure Kubernetes Service](https://www.spinkube.dev/docs/spin-operator/tutorials/deploy-on-azure-kubernetes-service/). Keep in mind that this post does not aim to define a production environment. It is meant to show that Gardener Shoot clusters are able to run WebAssembly workloads, giving users the chance to experiment and explore this cutting-edge technology.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ With the rising popularity of [WebAssembly (WASM)](https://webassembly.org/) and
 
 For this showcase I am using a Gardener Shoot cluster on AWS infrastructure with nodes powered by [Garden Linux](https://github.com/gardenlinux/gardenlinux), although the steps should be applicable for other infrastructures as well, since Gardener aims to provide a homogenous Kubernetes experience.
 
-As a first step, verify that you have access to your Gardener Shoot cluster.
+As a prerequisite for next steps, verify that you have access to your Gardener Shoot cluster.
 
 ```bash
 # Verify the access to the Gardener Shoot cluster
