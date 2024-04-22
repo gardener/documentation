@@ -49,7 +49,7 @@ kubectl apply -f https://github.com/spinkube/spin-operator/releases/download/v0.
 kubectl apply -f https://github.com/spinkube/spin-operator/releases/download/v0.1.0/spin-operator.runtime-class.yaml
 ```
 
-Next, we will install [cert-manager](https://github.com/cert-manager/cert-manager), which is required for provisioning TLS certificates used by the admission webhhook of the Spin Operator. If you face issues installing `cert-manager`, please consult the [cert-manager installation](https://cert-manager.io/docs/installation/helm/) documentation.
+Next, we will install [cert-manager](https://github.com/cert-manager/cert-manager), which is required for provisioning TLS certificates used by the admission webhook of the Spin Operator. If you face issues installing `cert-manager`, please consult the [cert-manager installation](https://cert-manager.io/docs/installation/helm/) documentation.
 
 ```bash
 # Add and update the Jetstack repository
