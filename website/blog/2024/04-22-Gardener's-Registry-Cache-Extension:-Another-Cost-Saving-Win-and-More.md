@@ -44,4 +44,4 @@ Having all of this in mind, the Registry Cache extension reduces NAT gateway cos
 
 We would also like to encourage you to try it! As a Gardener user you can also reduce your infrastructure costs and increase resilience by enabling the Registry Cache for your Shoot clusters. The Registry Cache extension is a great fit for long running Shoot clusters that have high image pull rate.
 
-For more information, refer to the Registry Cache extension documentation!
+For more information, refer to the [Registry Cache extension documentation](https://github.com/gardener/gardener-extension-registry-cache/blob/main/README.md)!
