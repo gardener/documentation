@@ -24,11 +24,11 @@ The use cases of using a pull-through cache are not only limited to cost savings
 
 Gardener's Registry Cache extension deploys and manages a pull-through cache registry in the Shoot cluster.
 
-A pull-through cache registry is a registry that caches container images in its storage The first time when an image is requested from the pull-through cache, it pulls the image from the upstream registry, returns it to the client and stores it in its local storage. On subsequent requests for the same image, the pull-through cache serves the image from its storage. In this way network traffic to the upstream registry is avoided.
+A pull-through cache registry is a registry that caches container images in its storage. The first time when an image is requested from the pull-through cache, it pulls the image from the upstream registry, returns it to the client, and stores it in its local storage. On subsequent requests for the same image, the pull-through cache serves the image from its storage, avoiding network traffic to the upstream registry.
 
 Imagine that you have a DaemonSet in your Kubernetes cluster. In a cluster without a pull-through cache, every Node must pull the same container image from the upstream registry. In a cluster with a pull-through cache, the image is pulled once from the upstream registry and served later for all Nodes.
 
-![A Shoot cluster setup with a registry cache for Docker Hub (docker.io)](images/shoot-cluster-with-registry-cache.png "A Shoot cluster setup with a registry cache for Docker Hub (docker.io)")
+![A Shoot cluster setup with a registry cache for Docker Hub (docker.io)](images/shoot-cluster-with-registry-cache.png)
 
 <p style="text-align: center; font-style: italic;">A Shoot cluster setup with a registry cache for Docker Hub (docker.io).</p>
 
@@ -36,12 +36,12 @@ Imagine that you have a DaemonSet in your Kubernetes cluster. In a cluster witho
 
 An image pull represents ingress traffic for a virtual machine (data is entering to the system from outside) and egress traffic for the upstream registry (data is leaving the system).
 
-Ingress traffic from the internet to a virtual machine is free of charge on AWS, GCP and Azure. However, the cloud providers charge NAT gateway costs for inbound and outbound data processed by the NAT gateway based on the processed data volume (per GB). The container registry offering on the cloud providers charge for egress traffic - again, based on the data volume (per GB).
+Ingress traffic from the internet to a virtual machine is free of charge on AWS, GCP, and Azure. However, the cloud providers charge NAT gateway costs for inbound and outbound data processed by the NAT gateway based on the processed data volume (per GB). The container registry offerings on the cloud providers charge for egress traffic - again, based on the data volume (per GB).
 
 Having all of this in mind, the Registry Cache extension reduces NAT gateway costs for the Shoot cluster and container registry costs.
 
 ## Try It Out!
 
-We would also like to encourage you to try it! As a Gardener user you can also reduce your infrastructure costs and increase resilience by enabling the Registry Cache for your Shoot clusters. The Registry Cache extension is a great fit for long running Shoot clusters that have high image pull rate.
+We would also like to encourage you to try it! As a Gardener user, you can also reduce your infrastructure costs and increase resilience by enabling the Registry Cache for your Shoot clusters. The Registry Cache extension is a great fit for long running Shoot clusters that have high image pull rate.
 
 For more information, refer to the [Registry Cache extension documentation](https://github.com/gardener/gardener-extension-registry-cache/blob/main/README.md)!
