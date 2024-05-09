@@ -99,13 +99,6 @@ structure:
         weight: 6
       source: https://github.com/gardener/dashboard/blob/master/README.md
     - fileTree: https://github.com/gardener/dashboard/tree/master/docs
-    - dir: architecture
-      structure:
-      - file: _index.md
-        frontmatter:
-          title: Architecture
-          weight: 1
-          persona: Developers
   - file: gardenctl-v2
     frontmatter:
       aliases:
