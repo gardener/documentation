@@ -38,7 +38,7 @@ You can ask Gardener to use a specific namespace name in the project manifest bu
 ResourceQuotas - if any - will be enforced on the project namespace.
 
 {{% alert color="info"  title="Quotas" %}}
-Since all Gardener resources are custom Kubernetes resources, the usual and well established concept of `resourceQuotas` in Kubernetes can also be applied to Gardener resources. With a `resourceQuota` that sets a hard limit on (e.g., `count/shoots.core.gardener.cloud`) you can restrict the number of shoot clusters that can be created in a project.
+Since all Gardener resources are custom Kubernetes resources, the usual and well established concept of `resourceQuotas` in Kubernetes can also be applied to Gardener resources. With a `resourceQuota` that sets a hard limit on, e.g., `count/shoots.core.gardener.cloud`, you can restrict the number of shoot clusters that can be created in a project.
 {{% /alert %}}
 
 ## Infrastructure Secrets
