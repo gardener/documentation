@@ -36,7 +36,7 @@ The Hackathon addressed a wide range of topics, from improving the maturity of t
 14. [🗄️ **Stop Vendoring Third-Party Code in OS Extensions**](https://github.com/gardener-community/hackathon/blob/main/2024-05_Schelklingen/README.md#%EF%B8%8F-stop-vendoring-third-party-code-in-os-extensions): The Hackathon aimed to avoid vendoring third-party code in the OS extensions. Two out of the four OS extensions have been adapted.
 15. [📦 **Consider Embedded Files for Local Image Builds**](https://github.com/gardener-community/hackathon/blob/main/2024-05_Schelklingen/README.md#-consider-embedded-files-for-local-image-builds): The Hackathon addressed the issue that changes to embedded files don't lead to automatic rebuilds of the Gardener images by `Skaffold` for local development. The related `hack` script was augmented to detect embedded files and make them part of the list of dependencies.
 
-Note that a significant portion of the above topics have been built on top of the achivements of [previous Hackathons](https://github.com/gardener-community/hackathon).This continuity and progression of these Hackathons, with each one building on the achievements of the last, is a testament to the power of sustained collaborative effort.
+Note that a significant portion of the above topics have been built on top of the achievements of [previous Hackathons](https://github.com/gardener-community/hackathon).This continuity and progression of these Hackathons, with each one building on the achievements of the last, is a testament to the power of sustained collaborative effort.
 
 ## Looking Ahead
 
