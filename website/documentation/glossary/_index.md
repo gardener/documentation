@@ -1,7 +1,7 @@
 ---
 title: Glossary
 description: Commonly used terms in Gardener
-persona: Developers
+persona: Users
 weight: 9
 ---
 ## Purpose
