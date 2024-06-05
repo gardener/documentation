@@ -52,6 +52,8 @@ structure:
       persona: Developers
     source: https://github.com/gardener/etcd-druid-api/blob/main/docs/api-reference/druid.md
   - fileTree: https://github.com/gardener/etcd-druid-api/tree/main/docs
+    excludeFiles:
+    - api-reference/druid.md
 - dir: dependency-watchdog
   structure:
   - file: _index.md
