@@ -51,7 +51,7 @@ structure:
       weight: 1
       persona: Developers
     source: https://github.com/gardener/etcd-druid-api/blob/main/docs/api-reference/druid.md
-  - fileTree: https://github.com/gardener/etcd-druid/tree/main/docs
+  - fileTree: https://github.com/gardener/etcd-druid/tree/master/docs
 - dir: dependency-watchdog
   structure:
   - file: _index.md
