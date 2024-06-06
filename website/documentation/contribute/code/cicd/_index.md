@@ -8,7 +8,7 @@ We however abstract from the underlying "build executor" and instead offer a
 `Pipeline Definition Contract`, through which components declare their build pipelines as
 required.
 
-![Overview](overview.png?raw=true)
+![Overview](overview.png)
 
 
 In order to run continuous delivery workloads for all components contributing to the
