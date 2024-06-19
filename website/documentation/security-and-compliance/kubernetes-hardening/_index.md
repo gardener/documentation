@@ -5,7 +5,7 @@ level: advanced
 category: Security
 publishdate: 2023-10-10
 tags: ["task"]
-aliases: ["/docs/guides/kubernetes-hardening/"]
+aliases: ["/docs/guides/kubernetes-hardening/", "/docs/guides/security-and-compliance/kubernetes-hardening/"]
 ---
 
 ## Overview
