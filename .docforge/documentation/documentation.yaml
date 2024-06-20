@@ -13,9 +13,6 @@ structure:
     - manifest: ./guides.yaml
   - dir: security-and-compliance
     structure:
-    - file: _index.md
-      frontmatter:
-        weight: 3
     - manifest: ./security-and-compliance.yaml
   - dir: gardener
     structure:

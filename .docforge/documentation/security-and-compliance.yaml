@@ -3,6 +3,7 @@ structure:
   frontmatter:
     title: Security and Compliance
     description: Make sure that your clusters are compliant and secure
+    weight: 3
     aliases: ["/docs/guides/compliance/", "/docs/guides/security-and-compliance/"]
 - fileTree: /website/documentation/security-and-compliance
 - file: https://github.com/gardener/diki/blob/main/docs/usage/partial-disa-k8s-stig-shoot.md
