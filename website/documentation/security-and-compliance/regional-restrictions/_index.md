@@ -5,6 +5,7 @@ level: advanced
 category: Security
 publishdate: 2023-11-22
 tags: ["task"]
+aliases: ["/docs/guides/security-and-compliance/regional-restrictions/"]
 ---
 
 ## Shared Responsibility Model

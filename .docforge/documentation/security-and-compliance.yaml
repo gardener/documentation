@@ -1,0 +1,12 @@
+structure:
+- file: _index.md
+  frontmatter:
+    title: Security and Compliance
+    description: Make sure that your clusters are compliant and secure
+    weight: 3
+    aliases: ["/docs/guides/compliance/", "/docs/guides/security-and-compliance/"]
+- fileTree: /website/documentation/security-and-compliance
+- file: https://github.com/gardener/diki/blob/main/docs/usage/partial-disa-k8s-stig-shoot.md
+  frontmatter:
+    title: Run DISA K8s STIGs Ruleset
+    aliases: ["/docs/guides/security-and-compliance/partial-disa-k8s-stig-shoot/"]

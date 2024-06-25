@@ -11,6 +11,9 @@ structure:
         persona: Developers
         weight: 2
     - manifest: ./guides.yaml
+  - dir: security-and-compliance
+    structure:
+    - manifest: ./security-and-compliance.yaml
   - dir: gardener
     structure:
     - file: _index.md

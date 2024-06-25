@@ -1,10 +1,5 @@
 structure:
 - fileTree: /website/documentation/guides
-- dir: security-and-compliance
-  structure:
-  - file: https://github.com/gardener/diki/blob/main/docs/usage/partial-disa-k8s-stig-shoot.md
-    frontmatter:
-      title: Run DISA K8s STIGs Ruleset
 - dir: high-availability
   structure:
   - file: _index.md
