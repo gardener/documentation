@@ -76,6 +76,27 @@ structure:
       - fileTree: https://github.com/gardener/gardener/tree/master/docs/operations
     - dir: usage
       structure:
+      - dir: operating_through_annotations
+        frontmatter:
+          aliases: ["/docs/gardener"]
+      - dir: shoot_basics
+        frontmatter:
+          aliases: ["/docs/gardener"]
+      - dir: containerd
+        frontmatter:
+          aliases: ["/docs/gardener"]
+      - dir: shoot_updates_and_upgrades
+        frontmatter:
+          aliases: ["/docs/gardener"]
+      - dir: shoot_settings
+        frontmatter:
+          aliases: ["/docs/gardener"]
+      - dir: dns
+        frontmatter:
+          aliases: ["/docs/gardener"]
+      - dir: nessesary_considerations
+        frontmatter:
+          aliases: ["/docs/gardener"]
       - fileTree: https://github.com/gardener/gardener/tree/master/docs/usage
   - dir: extensions
     structure:
