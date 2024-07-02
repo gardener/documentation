@@ -29,7 +29,7 @@ Inspired by [@sindresorhus' awesome](https://github.com/sindresorhus/awesome)
 
 *Learn Kubernetes using an interactive environment without requiring downloads or configuration*
 
-* [Interactive Tutorial](https://kubernetes.io/docs/tutorials/kubernetes-basics/cluster-interactive/)
+* [Interactive Kubernetes Tutorials](https://kubernetes.io/docs/tutorials/kubernetes-basics/)
 * [Kubernetes: From Basics to Guru](https://www.oreilly.com/playlists/330a1112-13ee-4e72-8b2a-6fd8766fddae/)
 * [Kubernetes Bootcamp](http://kubernetesbootcamp.github.io/kubernetes-bootcamp/)
 
