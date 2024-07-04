@@ -5,10 +5,6 @@ structure:
     description: Make sure that your clusters are compliant and secure
     weight: 3
     aliases: ["/docs/guides/compliance/", "/docs/guides/security-and-compliance/"]
-- file: report.md
-  multiSource:
-  - /website/documentation/security-and-compliance/hardened-shoot-report/hardened_shoots_docu_report.md
-  - /website/documentation/security-and-compliance/hardened-shoot-report/hardened_shoots_report.md
 - fileTree: /website/documentation/security-and-compliance
   excludeFiles:
   - hardened-shoot-report/hardened_shoots_docu_report.md
