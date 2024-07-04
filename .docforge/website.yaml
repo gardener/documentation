@@ -11,3 +11,18 @@ structure:
 - dir: docs
   structure:
   - manifest: ./documentation/documentation.yaml
+  - dir: security-and-compliance
+    structure:
+    - file: report.md
+      multiSource:
+      - /website/documentation/security-and-compliance/hardened-shoot-report/hardened_shoots_docu_report.md
+      - /website/documentation/security-and-compliance/hardened-shoot-report/hardened_shoots_report.md
+  - fileTree: /website/documentation
+    excludeFiles:
+    - security-and-compliance/hardened-shoot-report/hardened_shoots_docu_report.md
+    - security-and-compliance/hardened-shoot-report/hardened_shoots_report.md
+
+### /html
+- dir: html
+  structure:
+  - file: /website/documentation/compliance/hardened-shoot-report/hardened_shoots_report.md
