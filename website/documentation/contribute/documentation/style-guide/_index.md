@@ -1,7 +1,7 @@
 ---
 Title: Style Guide
 ---
-This page gives writing style guidelines for the Gardener documentation. For formatting guidelines, see the [Formatting Guide](../formatting-guide/_index.md).
+This page gives writing style guidelines for the Gardener documentation. For formatting guidelines, see the [Formatting Guide](../formatting-guide.md).
 
 These are guidelines, not rules. Use your best judgment, and feel free to propose changes to this document in a Pull Request.
 
@@ -12,7 +12,8 @@ These are guidelines, not rules. Use your best judgment, and feel free to propos
 ## Structure
 
 ### Documentation Types Overview
-The following table summarizes the types of documentation and their mapping to the SAP UA taxonomy. Every topic you create will fall into one of these categories. 
+
+The following table summarizes the types of documentation and their mapping to the SAP UA taxonomy. Every topic you create will fall into one of these categories.
 
 | Gardener Content Type | Definition | Example | Content | Comparable UA Content Type |
 |:----|:-----|:-----|:----|:----|
@@ -22,7 +23,7 @@ The following table summarizes the types of documentation and their mapping to t
 | Trail | Collection of all other content types to cover a big topic. | [Custom Networking](https://docs.oracle.com/javase/tutorial/networking/TOC.html) | None | Maps |
 | Tutorial | A combination of many tasks that allows users to complete an example task with the goal to learn the details of a given feature.| [Deploying Cassandra with a StatefulSet](https://kubernetes.io/docs/tutorials/stateful-application/cassandra/) | Overview, Prerequisites, Tasks, Result | Tutorial |
 
-See the [Contributors Guide](https://github.com/gardener/documentation/blob/master/website/documentation/contribute/_index.md) for more details on how to produce and contribute documentation.
+See the [Contributors Guide](../../_index.md) for more details on how to produce and contribute documentation.
 
 ### Topic Structure
 
@@ -70,11 +71,11 @@ By using a metadata section you can also skip adding a title header or overwrite
 
 ### Alerts
 
-If you want to add a note, tip or a warning to your topic, use the templates provides in the [Shortcodes](../shortcodes/_index.md#alert) documentation.
+If you want to add a note, tip or a warning to your topic, use the templates provides in the [Shortcodes](../shortcodes.md#alert) documentation.
 
 ### Images
 
-If you want to add an image to your topic, it is recommended to follow the guidelines outlined in the [Images](../images/_index.md) documentation.
+If you want to add an image to your topic, it is recommended to follow the guidelines outlined in the [Images](../images.md) documentation.
 
 ### General Tips
 
@@ -86,6 +87,7 @@ If you want to add an image to your topic, it is recommended to follow the guide
 ## Language and Grammar
 
 ### Language
+
 * Gardener documentation uses US English
 * Keep it simple and use words that non-native English speakers are also familiar with
 * Use the [Merriam-Webster Dictionary](https://www.merriam-webster.com/) when checking the spelling of words
@@ -104,8 +106,9 @@ If you want to add an image to your topic, it is recommended to follow the guide
 * Task and tutorial topic titles begin with a verb
 
 ## Related Links
-* [Formatting Guide](../formatting-guide/_index.md)
+
+* [Formatting Guide](../formatting-guide.md)
 * [Contributors Guide](../../_index.md)
-* [Shortcodes](../shortcodes/_index.md)
-* [Images](../images/_index.md)
+* [Shortcodes](../shortcodes.md)
+* [Images](../images.md)
 * [SAPterm](https://www.sapterm.com/)
