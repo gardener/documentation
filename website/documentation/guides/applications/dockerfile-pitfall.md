@@ -43,7 +43,7 @@ Running `apt-get update` as a single line entry will get cached by the build and
 
 ## Avoid Big Container Images
 
-Building a small container image will reduce the time needed to start or restart pods. An image based on the popular [Alpine Linux project](http://alpinelinux.org/) is much smaller than most distribution based images (~5MB).  For most popular languages and products, there is usually an official Alpine Linux image, e.g. [golang](https://hub.docker.com/_/golang/), [nodejs](https://hub.docker.com/_/node/), and [postgres](https://hub.docker.com/_/postgres/).
+Building a small container image will reduce the time needed to start or restart pods. An image based on the popular [Alpine Linux project](http://alpinelinux.org/) is much smaller than most distribution based images (~5MB).  For most popular languages and products, there is usually an official Alpine Linux image, e.g., [golang](https://hub.docker.com/_/golang/), [nodejs](https://hub.docker.com/_/node/), and [postgres](https://hub.docker.com/_/postgres/).
 
 ```bash
 $  docker images
