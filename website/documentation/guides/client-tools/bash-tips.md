@@ -13,11 +13,9 @@ aliases: [ "/readmore/bash_tips" ]
 
 Use the Kubernetes command-line tool, `kubectl`, to deploy and manage applications on Kubernetes. Using kubectl, you can inspect cluster resources, as well as create, delete, and update components.
 
-
-![port-forward](teaser.svg)
+![port-forward](images/teaser.svg)
 
 You will probably run more than a hundred kubectl commands on some days and you should speed up your terminal workflow with with some shortcuts. Of course, there are good shortcuts and bad shortcuts (lazy coding, lack of security review, etc.), but let's stick with the positives and talk about a good shortcut:  **bash aliases** in your `.profile`.
-
 
 What are those mysterious `.profile` and `.bash_profile` files you've heard about?
 
@@ -25,14 +23,11 @@ What are those mysterious `.profile` and `.bash_profile` files you've heard abou
 The contents of a .profile file are executed on every log-in of the owner of the file
 {{% /alert %}}
 
-
 What's the `.bash_profile` then? It's exactly the same, but under a different name. The unix shell you are logging into, in this case OS X, looks for `etc/profile` and loads it if it exists. Then it looks for `~/.bash_profile`, `~/.bash_login` and finally `~/.profile`, and loads the first one of these it finds.
-
 
 ## Populating the `.profile` File
 
 Here is the fantastic time saver that needs to be in your shell profile:
-
 
 ```sh
 # time save number one. shortcut for kubectl
@@ -63,7 +58,8 @@ All the `kubectl` [tab completions](https://kubernetes.io/docs/tasks/tools/insta
 
 {{% alert color="info"  title="Note" %}}
 If the approach above does not work for you add the following lines in your ~/.bashrc instead:
-```bash
+
+```sh
 # time save number one. shortcut for kubectl
 #
 alias k="kubectl"
@@ -71,4 +67,5 @@ alias k="kubectl"
 # Enable kubectl completion
 source <(k completion bash | sed s/kubectl/k/g)
 ```
+
 {{% /alert %}}
