@@ -22,6 +22,7 @@ Such a situation can be avoided if the end-user has correctly configured CRDs co
 ## Checking Problematic CRDs
 
 In order to make sure there are no version problematic CRDs, please run the script below in your shoot. It will return the name of the CRDs in case they have one of the 2 problems:
+
 - the returned version of the CR is different than what is maintained in the `status.storedVersions` field of the CRD.
 - the `status.storedVersions` field of the CRD has more than 1 version defined.
 
@@ -65,8 +66,7 @@ done
 echo "Problematic CRDs are reported above."
 ```
 
-
-# Resolve CRDs
+## Resolve CRDs
 
 Below we give the steps needed to be taken in order to fix the CRDs reported by the script above.
 
@@ -77,7 +77,6 @@ For convenience, we have provided the necessary steps below.
 {{% alert color="info" title="Note" %}}
 Please test the following steps on a non-productive landscape to make sure that the new CR version doesn’t break any of your existing workloads.
 {{% /alert %}}
-
 
 1. Please check/set the old CR version to `storage:false` and set the new CR version to `storage:true`.
 
@@ -109,15 +108,13 @@ Please test the following steps on a non-productive landscape to make sure that 
     storage: true
     ```
 
-2. Convert `custom-resources` to the newest version.
+1. Convert `custom-resources` to the newest version.
 
     ```bash
     kubectl get <custom-resource-name> -A -ojson | k apply -f -
     ```
 
-
-3. Patch the CRD to keep only the latest version under storedVersions.
+1. Patch the CRD to keep only the latest version under storedVersions.
     ```bash
     kubectl patch customresourcedefinitions <crd-name> --subresource='status' --type='merge' -p '{"status":{"storedVersions":["your-latest-cr-version"]}}'
     ```
-

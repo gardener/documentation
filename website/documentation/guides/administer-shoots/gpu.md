@@ -8,14 +8,12 @@ scope: app-developer
 ---
 
 ## Disclaimer
-Be aware, that the following sections might be opinionated. Kubernetes, and the GPU support in particular, 
-are rapidly evolving, which means that this guide is likely to be outdated sometime soon. For this reason, 
-**contributions are highly appreciated** to update this guide.
+
+Be aware, that the following sections might be opinionated. Kubernetes, and the GPU support in particular, are rapidly evolving, which means that this guide is likely to be outdated sometime soon. For this reason, **contributions are highly appreciated** to update this guide.
 
 ## Create a Cluster
-First thing first, let’s create a Kubernetes (K8s) cluster with GPU accelerated nodes. In this example we will use an AWS 
-**p2.xlarge** EC2 instance because it's the cheapest available option at the moment. Use such cheap instances 
-for learning to limit your resource costs. **This costs around 1€/hour per GPU**
+
+First thing first, let’s create a Kubernetes (K8s) cluster with GPU accelerated nodes. In this example we will use an AWS **p2.xlarge** EC2 instance because it's the cheapest available option at the moment. Use such cheap instances for learning to limit your resource costs. **This costs around 1€/hour per GPU**
 
 ![gpu-selection](./images/howto-gpu.png)
 
@@ -159,6 +157,7 @@ spec:
 ```
 
 ## Test
+
 To run an example training on a GPU node, first start a base image with Tensorflow with GPU support & Keras:
 
 ```yaml
@@ -190,15 +189,15 @@ spec:
 ```
 
 {{% alert color="info"  title="Note" %}}
-the `tolerations` section above is not required if you deploy the `ExtendedResourceToleration`
-admission controller to your cluster. You can do this in the `kubernetes` section of your Gardener 
-cluster `shoot.yaml` as follows:
-```
+the `tolerations` section above is not required if you deploy the `ExtendedResourceToleration` admission controller to your cluster. You can do this in the `kubernetes` section of your Gardener cluster `shoot.yaml` as follows:
+
+```yaml
   kubernetes:
     kubeAPIServer:
       admissionPlugins:
       - name: ExtendedResourceToleration
 ```
+
 {{% /alert %}}
 
 Now exec into the container and start an example Keras training:
@@ -210,6 +209,7 @@ python imdb_cnn.py
 ```
 
 ## Related Links
+
 * [Andreas Fritzler](https://github.com/afritzler/kubernetes-gpu) from the Gardener Core team for the R&D, who has provided this setup.
 * [Build and install NVIDIA driver on CoreOS](https://github.com/squat/modulus)
 * [Nvidia Device Plugin](https://github.com/kubernetes/kubernetes/blob/master/cluster/addons/device-plugins/nvidia-gpu/daemonset.yaml)

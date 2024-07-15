@@ -8,10 +8,11 @@ scope: app-developer
 ---
 
 ## Overview
-The example shows how to run a Postgres database on Kubernetes and how to dynamically provision and mount the storage 
-volumes needed by the database
+
+The example shows how to run a Postgres database on Kubernetes and how to dynamically provision and mount the storage volumes needed by the database
 
 ## Run Postgres Database
+
 Define the following Kubernetes resources in a yaml file:
 
 - PersistentVolumeClaim (PVC)
@@ -33,8 +34,7 @@ spec:
   storageClassName: 'default'
 ```
 
-This defines a PVC using the storage class `default`. Storage classes abstract from the underlying storage provider as well 
-as other parameters, like disk-type (e.g.; solid-state vs standard disks).
+This defines a PVC using the storage class `default`. Storage classes abstract from the underlying storage provider as well as other parameters, like disk-type (e.g., solid-state vs standard disks).
 
 The default storage class has the annotation **{"storageclass.kubernetes.io/is-default-class":"true"}**.
 
@@ -72,11 +72,9 @@ postgresdb-pvc   Bound     pvc-06c81c30-72ea-11e8-ada2-aa3b2329c8bb   9Gi       
 ```
 
 Notice that the **RECLAIM POLICY** is **Delete** (default value), which is one of the two reclaim policies, the other
-one is **Retain**. (A third policy **Recycle** has been deprecated). In the case of **Delete**, the PV is deleted automatically 
-when the PVC is removed, and the data on the PVC will also be lost.
+one is **Retain**. (A third policy **Recycle** has been deprecated). In the case of **Delete**, the PV is deleted automatically when the PVC is removed, and the data on the PVC will also be lost.
 
-On the other hand, a PV with **Retain** policy will not be deleted when the PVC is removed, and moved to **Release** status, so 
-that data can be recovered by Administrators later.
+On the other hand, a PV with **Retain** policy will not be deleted when the PVC is removed, and moved to **Release** status, so that data can be recovered by Administrators later.
 
 You can use the `kubectl patch` command to change the reclaim policy as described in [Change the Reclaim Policy of a PersistentVolume](https://kubernetes.io/docs/tasks/administer-cluster/change-pv-reclaim-policy/)
 or use `kubectl edit pv <pv-name>` to edit it online as shown below:
@@ -98,8 +96,7 @@ pvc-06c81c30-72ea-11e8-ada2-aa3b2329c8bb   9Gi        RWO            Retain     
 
 ### Deployment
 
-Once a PVC is created, you can use it in your container via `volumes.persistentVolumeClaim.claimName`. In the below 
-example, the PVC **postgresdb-pvc** is mounted as readable and writable, and in `volumeMounts` two paths in the container are mounted to subfolders in the volume.
+Once a PVC is created, you can use it in your container via `volumes.persistentVolumeClaim.claimName`. In the below example, the PVC **postgresdb-pvc** is mounted as readable and writable, and in `volumeMounts` two paths in the container are mounted to subfolders in the volume.
 
 ```yaml
 apiVersion: apps/v1
@@ -176,8 +173,7 @@ root@postgres-7f485fd768-c5jf9:/# ls /var/log/postgresql/logs/
 
 ## Deleting a PersistentVolumeClaim
 
-In case of a **Delete** policy, deleting a PVC will also delete its associated PV. If **Retain** is the reclaim policy, the 
-PV will change status from **Bound** to **Released** when the PVC is deleted.
+In case of a **Delete** policy, deleting a PVC will also delete its associated PV. If **Retain** is the reclaim policy, the PV will change status from **Bound** to **Released** when the PVC is deleted.
 
 ```bash
 # Check pvc and pv before deletion

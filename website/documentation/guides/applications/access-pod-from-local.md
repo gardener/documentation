@@ -9,6 +9,7 @@ scope: app-developer
 ---
 
 ## Question
+
 You have deployed an application with a web UI or an internal endpoint in your Kubernetes (K8s) cluster. How to access this endpoint **without an external load balancer** (e.g. Ingress)?
 
 This tutorial presents two options:
@@ -18,10 +19,12 @@ This tutorial presents two options:
 
 Please note that the options described here are mostly for quick testing or troubleshooting your application. For enabling access to your application for productive environment, please refer to the [official Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/service/).
 
-## Solution 1: Using Kubernetes port forward
+## Solution 1: Using Kubernetes Port Forward
+
 You could use the port forwarding functionality of `kubectl` to access the pods from your local host **without involving a service**.
 
 To access any pod follow these steps:
+
 1. Run `kubectl get pods`
 2. Note down the name of the pod in question as `<your-pod-name>`
 3. Run `kubectl port-forward <your-pod-name> <local-port>:<your-app-port>`
@@ -34,8 +37,7 @@ The main drawback of this approach is that the pod's name changes as soon as it 
 
 ![port-forward](./images/howto-port-forward.svg)
 
-
-## Solution 2: Using the apiserver proxy of Your Kubernetes Cluster
+## Solution 2: Using the apiserver Proxy of Your Kubernetes Cluster
 
 There are [several different proxies](https://kubernetes.io/docs/concepts/cluster-administration/proxies/) in Kubernetes. In this tutorial we will be using *apiserver proxy* to enable the access to the services in your cluster without Ingress. **Unlike the first solution, here a service is required.**
 

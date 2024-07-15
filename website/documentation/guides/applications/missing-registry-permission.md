@@ -9,15 +9,15 @@ scope: app-developer
 ---
 
 ## Problem
+
 Two of the most common causes of this problems are specifying the wrong container image or trying to use private images without providing registry credentials.
 
 {{% alert color="info"  title="Note" %}}
-There is no observable difference in pod status between a missing image and incorrect registry permissions. 
-In either case, Kubernetes will report an `ErrImagePull` status for the pods. For this reason, this article deals with 
-both scenarios.
+There is no observable difference in pod status between a missing image and incorrect registry permissions. In either case, Kubernetes will report an `ErrImagePull` status for the pods. For this reason, this article deals with both scenarios.
 {{% /alert %}}
 
 ## Example
+
 Let's see an example. We'll create a pod named *fail*, referencing a non-existent Docker image:
 
 ```sh
@@ -42,7 +42,7 @@ $ (minikube)
 
 For some additional information, we can `describe` the failing pod.
 
-```sh 
+```sh
 kubectl describe pod fail-6667d7685d-7v6w8
 ```
 
@@ -73,9 +73,10 @@ Events:
   
 **Why couldn't Kubernetes pull the image?**
 There are three primary candidates besides network connectivity issues:
- - The image tag is incorrect
- - The image doesn't exist
- - Kubernetes doesn't have permissions to pull that image
+
+- The image tag is incorrect
+- The image doesn't exist
+- Kubernetes doesn't have permissions to pull that image
 
 If you don't notice a typo in your image tag, then it's time to test using your local machine. I usually start by 
 running **docker pull on my local development machine** with the exact same image tag. In this case, I would 
@@ -93,7 +94,8 @@ If the exact image tag fails, then I will test without an explicit image tag:
 
 ```sh
 docker pull tutum/curl
-``` 
+```
+
 This command will attempt to pull the latest tag. If this succeeds, then that means the originally specified tag doesn't exist. Go to the Docker registry and check which tags are available for this image.
 
 If `docker pull tutum/curl` (without an exact tag) fails, then we have a bigger problem - that image does not exist at all in our image registry.

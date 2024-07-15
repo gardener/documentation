@@ -77,7 +77,6 @@ The size of the backup tar ball corresponds to the number of objects in etcd. Th
 As of the writing of this tutorial, Velero or any other BR tool for Shoot clusters is not provided by Gardener.
 {{% /alert %}}
 
-
 ## Getting Started
 
 At first, clone the [Velero GitHub repository](https://github.com/vmware-tanzu/velero-plugin-for-aws) and get the Velero client from the [releases](https://github.com/vmware-tanzu/velero-plugin-for-aws/releases) or build it from source via `make all` in the main directory of the cloned GitHub repository.
@@ -195,6 +194,7 @@ Now, since the backup location is different from the volume location, you need t
           - name: scratch
             emptyDir: {}
   ```
+  
   </details>
 - finally, configure the backup storage location in `examples/aws/05-backupstoragelocation.yaml` to use, in this case, a GCP bucket
 

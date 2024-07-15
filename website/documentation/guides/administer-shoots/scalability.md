@@ -38,6 +38,7 @@ Furthermore, the problem space has been discussed in a [KubeCon talk](https://ww
 Essentially, it comes down to this:
 
 >If you promise to:
+>
 > - correctly configure your cluster
 > - use extensibility features "reasonably"
 > - keep the load in the cluster within recommended limits
@@ -85,7 +86,7 @@ When talking about the scalability of a Kubernetes cluster, `Nodes` are probably
 
 The scalability of `Nodes` is subject to a range of limiting factors. Some of them can only be defined upon cluster creation and remain immutable during a cluster lifetime. So let's discuss the most important dimensions.
 
-**CIDR**: 
+**CIDR**:
 
 Upon cluster creation, you have to specify or use the default values for several network segments. There are dedicated CIDRs for services, `Pods`, and `Nodes`. Each defines a range of IP addresses available for the individual resource type. Obviously, the maximum of possible `Nodes` is capped by the CIDR for `Nodes`. 
 However, there is a second limiting factor, which is the pod CIDR combined with the `nodeCIDRMaskSize`. This mask is used to divide the pod CIDR into smaller subnets, where each blocks gets assigned to a node. With a `/16` pod network and a `/24` nodeCIDRMaskSize, a cluster can scale up to 256 `Nodes`. Please check [Shoot Networking](https://github.com/gardener/gardener/blob/master/docs/usage/shoot_networking.md) for details.
@@ -114,6 +115,7 @@ You should be aware that the `Node` configuration impacts your workload's perfor
 Switching to an I/O optimized instance type (if offered for your infrastructure) can help to resolve issue. Please keep in mind that disks used via `PersistentVolumeClaims` have I/O limits as well. Sometimes these limits are related to the size and/or can be increased for individual disks.  
 
 ### Cloud Provider (Infrastructure) Limits
+
 In addition to the already mentioned capacity restrictions, a cloud provider may impose other limitations to a Kubernetes cluster's scalability. One category is the account quota defining the number of resources allowed globally or per region. Make sure to request appropriate values that suit your needs and contain a buffer, for example for having more `Nodes` during a rolling update.
 
 Another dimension is the network throughput per VM or network interface. While you may be able to choose a network-optimized `Node` type for your workload to mitigate issues, you cannot influence the available bandwidth for control plane components. Therefore, please ensure that the traffic on the ETCD does not exceed 100MB/s. The ETCD dashboard provides data for monitoring this metric.
@@ -121,13 +123,15 @@ Another dimension is the network throughput per VM or network interface. While y
 In some environments the upstream DNS might become an issue too and make your workloads subject to rate limiting. Given the heterogeneity of cloud providers incl. private data centers, it is not possible to give any thresholds. Still, the "CoreDNS" and "NodeLocalDNS" dashboards can help to derive a workload's usage pattern. Check the [DNS autoscaling](https://github.com/gardener/gardener/blob/master/docs/usage/dns-autoscaling.md) and [NodeLocalDNS](https://github.com/gardener/gardener/blob/master/docs/usage/node-local-dns.md) documentations for available configuration options.
 
 ### Webhooks
-While webhooks provide powerful means to manage a cluster, they are equally powerful in breaking a cluster upon a malfunction or unavailability. Imagine using a policy enforcing system like [Kyverno](https://kyverno.io/docs/) or [Open Policy Agent Gatekeeper](https://open-policy-agent.github.io/gatekeeper/website/docs/). As part of the stack, both will deploy webhooks which are invoked for almost everything that happens in a cluster. Now, if this webhook gets either overloaded or is simply not available, the cluster will stop functioning properly. 
+
+While webhooks provide powerful means to manage a cluster, they are equally powerful in breaking a cluster upon a malfunction or unavailability. Imagine using a policy enforcing system like [Kyverno](https://kyverno.io/docs/) or [Open Policy Agent Gatekeeper](https://open-policy-agent.github.io/gatekeeper/website/docs/). As part of the stack, both will deploy webhooks which are invoked for almost everything that happens in a cluster. Now, if this webhook gets either overloaded or is simply not available, the cluster will stop functioning properly.
 
 Hence, you have to ensure proper sizing, quick processing time, and availability of the webhook serving `Pods` when deploying webhooks. Please consult Dynamic Admission Control ([Availability](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/#availability) and [Timeouts](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/#timeouts) sections) for details. You should also be aware of the time added to any request that has to go through a webhook, as the `kube-apiserver` sends the request for mutation / validation to another pod and waits for the response. The more resources being subject to an external webhook, the more likely this will become a bottleneck when having a high churn rate on resources. Within the Gardener monitoring stack, you can check the extra time per webhook via the "API Server (Admission Details)" dashboard, which has a panel for "Duration per Webhook".
 
 In Gardener, any webhook timeout should be less than 15 seconds. Due to the separation of Kubernetes data-plane (shoot) and control-plane (seed) in Gardener, the extra hop from `kube-apiserver` (control-plane) to webhook (data-plane) is more expensive. Please check [Shoot Status](https://github.com/gardener/gardener/blob/master/docs/usage/shoot_status.md) for more details.
 
 ### Custom Resource Definitions
+
 Using Custom Resource Definitions (CRD) to extend a cluster's API is a common Kubernetes pattern and so is writing an operator to act upon custom resources. Writing an efficient controller reduces the load on the `kube-apiserver` and allows for better scaling. As a starting point, you might want to read Gardener's [Kubernetes Clients Guide](https://github.com/gardener/gardener/blob/master/docs/development/kubernetes-clients.md).
 
 Another problematic dimension is the usage of [conversion webhooks](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definition-versioning/#webhook-conversion) when having resources stored in different versions. Not only do they add latency (see [Webhooks](#webhooks)) but can also block the kube-controllermanager's garbage collection. If a conversion webhook is unavailable, the garbage collector fails to list all resources and does not perform any cleanup. In order to avoid such a situation, it is highly recommended to use conversion webhooks only when necessary and complete the migration to a new version as soon as possible.

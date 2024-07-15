@@ -17,35 +17,33 @@ Day two operations for shoot clusters are related to:
 When referring to an update of the "operating system version" in this document, the update of the machine image of the shoot cluster's worker nodes is meant. For example, Amazon Machine Images (AMI) for AWS.
 {{% /alert %}}
 
-
 The following table summarizes what options Gardener offers to maintain these versions:
 
-|     |   Auto-Update   |  Forceful Updates  |  Manual Updates  | 
+|     |   Auto-Update   |  Forceful Updates  |  Manual Updates  |
 |:----|:----|:----|:-----|
 | Kubernetes version | Patches only | Patches and consecutive minor updates only  | yes |
 | Operating system version |  yes | yes | yes |
-
 
 ## Allowed Target Versions in the `CloudProfile`
 
 Administrators maintain the allowed target versions that you can update to in the `CloudProfile` for each IaaS-Provider. Users with access to a Gardener project can check supported target versions with:
 
-```
+```bash
 kubectl get cloudprofile [IAAS-SPECIFIC-PROFILE] -o yaml
 ```
 
 | Path |  Description  |  More Information |
 |:-----|:-----|:-----|
 |`spec.kubernetes.versions`| The supported Kubernetes version `major.minor.patch`. | [Patch releases](https://github.com/kubernetes/design-proposals-archive/blob/main/release/versioning.md#patch-releases)|
-|`spec.machineImages`| The supported operating system versions for worker nodes | 
+|`spec.machineImages`| The supported operating system versions for worker nodes |
 
-Both the Kubernetes version and the operating system version follow semantic versioning that allows Gardener to handle updates automatically. 
+Both the Kubernetes version and the operating system version follow semantic versioning that allows Gardener to handle updates automatically.
 
 For more information, see [Semantic Versioning](http://semver.org/).
 
 ### Impact of Version Classifications on Updates
 
-Gardener allows to classify versions in the `CloudProfile` as `preview`, `supported`, `deprecated`, or `expired`. During maintenance operations, `preview` versions are excluded from updates, because they’re often recently released versions that haven’t yet undergone thorough testing and may contain bugs or security issues. 
+Gardener allows to classify versions in the `CloudProfile` as `preview`, `supported`, `deprecated`, or `expired`. During maintenance operations, `preview` versions are excluded from updates, because they’re often recently released versions that haven’t yet undergone thorough testing and may contain bugs or security issues.
 
 For more information, see [Version Classifications](https://github.com/gardener/gardener/blob/master/docs/usage/shoot_versions.md#version-classifications).
 
@@ -56,7 +54,7 @@ For more information, see [Version Classifications](https://github.com/gardener/
 Gardener can manage updates for you automatically. It offers users to specify a _maintenance window_ during which updates are scheduled:
 
 * The time interval of the maintenance window can’t be less than 30 minutes or more than 6 hours.
-* If there’s no maintenance window specified during the creation of a shoot cluster, Gardener chooses a maintenance window randomly to spread the load. 
+* If there’s no maintenance window specified during the creation of a shoot cluster, Gardener chooses a maintenance window randomly to spread the load.
 
 You can either specify the maintenance window in the shoot cluster specification (`.spec.maintenance.timeWindow`) or the start time of the maintenance window using the Gardener dashboard (**CLUSTERS** > **[YOUR-CLUSTER]** > **OVERVIEW** > **Lifecycle** > **Maintenance**).
 
@@ -68,10 +66,10 @@ To trigger updates during the maintenance window automatically, Gardener offers 
   
   You can either activate auto-update on the Gardener dashboard (**CLUSTERS** > **[YOUR-CLUSTER]** > **OVERVIEW** > **Lifecycle** > **Maintenance**) or in the shoot cluster specification:
   
-  *  `.spec.maintenance.autoUpdate.kubernetesVersion: true`
-  *  `.spec.maintenance.autoUpdate.machineImageVersion: true`
+  - `.spec.maintenance.autoUpdate.kubernetesVersion: true`
+  - `.spec.maintenance.autoUpdate.machineImageVersion: true`
 
-* _Forceful updates_: <br>In the maintenance window, Gardener compares the current version given in the shoot cluster specification with the version list in the `CloudProfile`. If the version has an expiration date and if the date is before the start of the maintenance window, Gardener starts an update to the highest version available in the `CloudProfile` that isn’t classified as `preview` version. The highest version in `CloudProfile` can’t have an expiration date. For Kubernetes versions, Gardener only updates to higher patch levels or consecutive minor versions. 
+* _Forceful updates_: <br>In the maintenance window, Gardener compares the current version given in the shoot cluster specification with the version list in the `CloudProfile`. If the version has an expiration date and if the date is before the start of the maintenance window, Gardener starts an update to the highest version available in the `CloudProfile` that isn’t classified as `preview` version. The highest version in `CloudProfile` can’t have an expiration date. For Kubernetes versions, Gardener only updates to higher patch levels or consecutive minor versions.
 
 If you don’t want to wait for the next maintenance window, you can annotate the shoot cluster specification with `shoot.gardener.cloud/operation: maintain`. Gardener then checks immediately if there’s an auto-update or a forceful update needed.
 
@@ -94,7 +92,7 @@ The bigger the delta of the Kubernetes source version and the Kubernetes target 
 Gardener doesn’t support automatic updates of nonconsecutive minor versions, because Kubernetes doesn’t guarantee updateability in this case. However, multiple minor version updates are possible if not only the minor source version is expired, but also the minor target version is expired. Gardener then updates the Kubernetes version first to the expired target version, and waits for the next maintenance window to update this version to the next minor target version.
 
 {{% alert color="warning" title="Warning" %}}
-The administrator who maintains the `CloudProfile` has to ensure that the list of Kubernetes versions consists of consecutive minor versions, for example, from `1.10.x` to `1.11.y`. If the minor version increases in bigger steps, for example, from `1.10.x` to `1.12.y`, then the shoot cluster updates will fail during the maintenance window. 
+The administrator who maintains the `CloudProfile` has to ensure that the list of Kubernetes versions consists of consecutive minor versions, for example, from `1.10.x` to `1.11.y`. If the minor version increases in bigger steps, for example, from `1.10.x` to `1.12.y`, then the shoot cluster updates will fail during the maintenance window.
 {{% /alert %}}
 
 ## Manual Updates

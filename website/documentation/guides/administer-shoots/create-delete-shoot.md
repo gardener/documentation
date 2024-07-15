@@ -24,11 +24,12 @@ To connect to the newly created Shoot cluster, you must download its Kubeconfig 
 In order to delete your cluster, you have to set an annotation confirming the deletion first, and trigger the deletion after that. You can use the prepared `delete shoot` script which takes the Shoot name as first parameter. The namespace can be specified by the second parameter, but it is optional. If you don't state it, it defaults to your namespace (the username you are logged in with to your machine).
 
 ```bash
-$ ./hack/usage/delete shoot johndoe-1 johndoe
+./hack/usage/delete shoot johndoe-1 johndoe
 ```
+
 (the `hack` bash script can be found at [GitHub](https://github.com/gardener/gardener/blob/master/hack/usage/delete))
 
-# Configure a Shoot cluster alert receiver
+## Configure a Shoot Cluster Aalert Receiver
 
 The receiver of the Shoot alerts can be configured from the `.spec.monitoring.alerting.emailReceivers` section in the Shoot specification. The value of the field has to be a list of valid mail addresses.
 

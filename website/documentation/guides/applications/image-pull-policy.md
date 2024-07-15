@@ -7,17 +7,19 @@ scope: app-developer
 ---
 
 ## Introduction
+
 A container image should use a fixed tag or the SHA of the image. It should not use the tags **latest**, **head**, **canary**, or other tags that are designed to be *floating*.
 
 ## Problem
+
 If you have encountered this issue, you have probably done something along the lines of:
 
- - Deploy anything using an image tag (e.g. `cp-enablement/awesomeapp:1.0`)
- - Fix a bug in awesomeapp
- - Build a new image and push it with the **same tag** (`cp-enablement/awesomeapp:1.0`)
- - Update the deployment
- - Realize that the bug is still present
- - Repeat steps 3-5 without any improvement
+- Deploy anything using an image tag (e.g., `cp-enablement/awesomeapp:1.0`)
+- Fix a bug in awesomeapp
+- Build a new image and push it with the **same tag** (`cp-enablement/awesomeapp:1.0`)
+- Update the deployment
+- Realize that the bug is still present
+- Repeat steps 3-5 without any improvement
 
 The problem relates to how Kubernetes decides whether to do a *docker pull* when starting a container.
 Since we tagged our image as *:1.0*, the default pull policy is **IfNotPresent**. The Kubelet already has a local 
@@ -28,9 +30,7 @@ There are a couple of ways to resolve this, with the recommended one being to **
 
 ## Solution
 
-In order to fix the problem, you can use the following bash script that runs anytime the deployment is updated to create a new tag
-and push it to the registry.
-
+In order to fix the problem, you can use the following bash script that runs anytime the deployment is updated to create a new tag and push it to the registry.
 
 ```sh
 #!/usr/bin/env bash

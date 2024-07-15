@@ -26,7 +26,7 @@ Gardener won't delete any manually created (unmanaged) resources in your cloud p
 The `aws configure` command is a convenient way to setup your AWS CLI. It will prompt you for your credentials and settings which will be used in the following AWS CLI invocations:
 
 ```bash
-$ aws configure
+aws configure
 AWS Access Key ID [None]: <ACCESS_KEY_ID>
 AWS Secret Access Key [None]: <SECRET_ACCESS_KEY>
 Default region name [None]: <DEFAULT_REGION>
@@ -38,7 +38,7 @@ Default output format [None]: <DEFAULT_OUTPUT_FORMAT>
 Create the VPC by running the following command:
 
 ```bash
-$ aws ec2 create-vpc --cidr-block <cidr-block>
+aws ec2 create-vpc --cidr-block <cidr-block>
 {
   "Vpc": {
       "VpcId": "vpc-ff7bbf86",
@@ -65,7 +65,7 @@ $ aws ec2 create-vpc --cidr-block <cidr-block>
 Gardener requires the VPC to have enabled [DNS support](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html), i.e the attributes `enableDnsSupport` and `enableDnsHostnames` must be set to *true*. `enableDnsSupport` attribute is enabled by default, `enableDnsHostnames` - not. Set the `enableDnsHostnames` attribute to *true*:
 
 ```bash
-$ aws ec2 modify-vpc-attribute --vpc-id vpc-ff7bbf86 --enable-dns-hostnames
+aws ec2 modify-vpc-attribute --vpc-id vpc-ff7bbf86 --enable-dns-hostnames
 ```
 
 ## 3. Create an Internet Gateway
@@ -73,7 +73,7 @@ $ aws ec2 modify-vpc-attribute --vpc-id vpc-ff7bbf86 --enable-dns-hostnames
 Gardener also requires that an internet gateway is attached to the VPC. You can create one by using:
 
 ```bash
-$ aws ec2 create-internet-gateway
+aws ec2 create-internet-gateway
 {
     "InternetGateway": {
         "Tags": [],
@@ -86,7 +86,7 @@ $ aws ec2 create-internet-gateway
 and attach it to the VPC using:
 
 ```bash
-$ aws ec2 attach-internet-gateway --internet-gateway-id igw-c0a643a9 --vpc-id vpc-ff7bbf86
+aws ec2 attach-internet-gateway --internet-gateway-id igw-c0a643a9 --vpc-id vpc-ff7bbf86
 ```
 
 ## 4. Create the Shoot
@@ -110,13 +110,13 @@ spec:
 Apply your shoot manifest:
 
 ```bash
-$ kubectl apply -f your-shoot-aws.yaml
+kubectl apply -f your-shoot-aws.yaml
 ```
 
 Ensure that the shoot cluster is properly created:
 
 ```bash
-$ kubectl get shoot $SHOOT_NAME -n $SHOOT_NAMESPACE
+kubectl get shoot $SHOOT_NAME -n $SHOOT_NAMESPACE
 NAME           CLOUDPROFILE   VERSION   SEED   DOMAIN           OPERATION   PROGRESS   APISERVER   CONTROL   NODES   SYSTEM   AGE
 <SHOOT_NAME>   aws            1.15.0    aws    <SHOOT_DOMAIN>   Succeeded   100        True        True      True    True     20m
 ```

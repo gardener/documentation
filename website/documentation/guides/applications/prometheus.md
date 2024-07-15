@@ -7,6 +7,7 @@ scope: app-developer
 ---
 
 ## Disclaimer
+
 This post is meant to give a basic end-to-end description for deploying and using Prometheus and Grafana. Both applications offer a wide range of flexibility, which needs to be considered in case you have specific requirements. Such advanced details are not in the scope of this topic.
 
 ## Introduction
@@ -52,7 +53,8 @@ The Kubernetes clusters provided by [Gardener](https://github.com/gardener) use 
 Bind the Prometheus service account to the `garden.sapcloud.io:monitoring:prometheus` cluster role by running the command 
 `kubectl apply -f crbinding.yaml`.
 
-Content of `crbinding.yaml`   
+Content of `crbinding.yaml`
+
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
@@ -69,6 +71,7 @@ subjects:
 ```
 
 ## Deployment of Prometheus and Grafana
+
 Only minor changes are needed to deploy [Prometheus](https://github.com/kubernetes/charts/tree/master/stable/prometheus) and [Grafana](https://github.com/kubernetes/charts/tree/master/stable/grafana) based on Helm charts.  
 
 Copy the following configuration into a file called `values.yaml` and deploy Prometheus:
@@ -77,6 +80,7 @@ Copy the following configuration into a file called `values.yaml` and deploy Pro
 Typically, Prometheus and Grafana are deployed into the same namespace. There is no technical reason behind this, so feel free to choose different namespaces.
 
 Content of `values.yaml` for Prometheus:
+
 ```yaml
 rbac:
   create: false # Already created in Preparation step
@@ -238,6 +242,7 @@ Next, deploy Grafana. Since the deployment in this post is based on the Helm def
 Deploy Grafana via `helm install grafana --namespace <your-prometheus-namespace> stable/grafana -f values.yaml`. Here, the same namespace is chosen for Prometheus and for Grafana.
 
 Content of `values.yaml` for Grafana:
+
 ```yaml
 server:
   ingress:
@@ -251,6 +256,7 @@ Check the running state of the pods on the Kubernetes Dashboard or by running `k
 The text output of Helm after the deployment of Prometheus and Grafana contains very useful information, e.g., the user and password of the Grafana Admin user. The credentials are stored as secrets in the namespace `<your-prometheus-namespace>` and could be decoded via `kubectl get secret --namespace <my-grafana-namespace> grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo`.
 
 ## Basic Functional Tests
+
 To access the web UI of both applications, use port forwarding of port 9090.
 
 Setup port forwarding for port 9090:
@@ -272,9 +278,11 @@ To show the same data in Grafana setup port forwarding for port 3000 for the Gra
 Next, you need to enter the server name of your Prometheus deployment. This name is shown directly after the installation via helm.
 
 Run
+
 ```bash
 helm status <your-prometheus-name>
 ```
+
 to find this name. Below, this server name is referenced by `<your-prometheus-server-name>`.
 
 First, you need to add your Prometheus server as data source:
@@ -304,6 +312,7 @@ Now you should have a very basic Prometheus and Grafana setup for your Kubernete
 As a next step you can implement monitoring for your applications by implementing the [Prometheus client API](https://prometheus.io/docs/instrumenting/clientlibs/).
 
 ## Related Links
+
 - [Prometheus](https://prometheus.io/)
 - [Prometheus Helm Chart](https://github.com/kubernetes/charts/tree/master/stable/prometheus)
 - [Grafana](https://grafana.com)
