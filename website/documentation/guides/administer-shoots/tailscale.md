@@ -17,7 +17,7 @@ Please consult the official [tailscale documentation](https://tailscale.com/kb/1
 
 ## Target Architecture
 
-![architecture](tailscale.drawio.svg)
+![architecture](images/tailscale.drawio.svg)
 
 ### Installation
 
