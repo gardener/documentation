@@ -62,7 +62,7 @@ echo "cache dir is set to: ${docforgeCacheDir}"
 
 echo "Running docforge command..."
 docforge \
-  -f "https://github.com/gardener/documentation/blob/check-manifest/.docforge/website.yaml" \
+  -f "https://github.com/gardener/documentation/blob/master/.docforge/website.yaml" \
   -d tmp \
   --github-oauth-token-map "github.com=${GITHUB_OAUTH_TOKEN:-$(getGitHubToken github_com)}" \
   --hugo \
