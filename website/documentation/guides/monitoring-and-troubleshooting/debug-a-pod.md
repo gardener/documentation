@@ -318,7 +318,7 @@ In case you didn't change the image tag, the default image policy _IfNotPresent_
 
 As a best practice, you should not use the tag `latest` and change the image tag in case you changed anything in your image (see [Configuration Best Practices](https://kubernetes.io/docs/concepts/configuration/overview/#container-images)).
 
-For more information, see [Container Image Not Updating](../../applications/image-pull-policy/_index.md).
+For more information, see [Container Image Not Updating](../applications/image-pull-policy.md).
 
 ## Related Links
 
