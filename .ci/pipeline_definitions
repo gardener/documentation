@@ -6,10 +6,6 @@ documentation:
         preprocess: "inject-commit-hash"
         inject_effective_version: true
       component_descriptor: ~
-    steps:
-      check-manifest-entrypoint:
-        image: "eu.gcr.io/gardener-project/gardener-website-generator:latest"
-        cache_paths: ['.docforge']
   jobs:
     release:
       traits:
@@ -17,6 +13,3 @@ documentation:
           nextversion: "bump_minor"
         version:
           preprocess: 'finalize'
-    pull-request:
-      traits:
-        pull-request: ~
