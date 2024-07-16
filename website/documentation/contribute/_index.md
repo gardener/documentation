@@ -9,7 +9,7 @@ weight: 11
 # Contributing to Gardener
 
 ## Welcome
-Welcome to the Contributor section of Gardener. Here you can learn how it is possible for you to contribute your ideas and expertise to the project and have it grow even more. 
+Welcome to the Contributor section of Gardener. Here you can learn how it is possible for you to contribute your ideas and expertise to the project and have it grow even more.
 
 ## Prerequisites
 Before you begin contributing to Gardener, there are a couple of things you should become familiar with and complete first. 
@@ -45,9 +45,7 @@ Gardener uses GitHub to manage reviews of pull requests.
 
 * Relevant coding style guidelines are the [Go Code Review
   Comments](https://github.com/golang/go/wiki/CodeReviewComments)
-  and the _Formatting and style_ section of Peter Bourgon's [Go: Best
-  Practices for Production
-  Environments](http://peter.bourgon.org/go-in-production/#formatting-and-style).
+  and the _Formatting and style_ section of Peter Bourgon's [Go: Best Practices for Production Environments](http://peter.bourgon.org/go-in-production/#formatting-and-style).
 
 ### Steps to Contribute
 
@@ -65,7 +63,7 @@ We kindly ask you to follow the [Pull Request Checklist](#pull-request-checklist
 
 * Test your changes as thoroughly as possible before your commit them. Preferably, automate your testing with [unit / integration tests](https://github.com/gardener/gardener/blob/master/docs/development/testing.md). If tested manually, provide information about the test scope in the PR description (e.g., “Test passed: Upgrade K8s version from 1.14.5 to 1.15.2 on AWS, Azure, GCP, Alicloud, Openstack.”).
 
-* When creating the PR, make your [Pull Request description](./pr-description/_index.md) as detailed as possible to help out the reviewers.
+* When creating the PR, make your [Pull Request description](./documentation/pr-description.md) as detailed as possible to help out the reviewers.
 
 * Create *Work In Progress [WIP]* pull requests only if you need a clarification or an explicit review before you can continue your work item.
 
@@ -83,11 +81,11 @@ We kindly ask you to follow the [Pull Request Checklist](#pull-request-checklist
   
 ### Contributing Bigger Changes
 
-If you want to contribute bigger changes to Gardener, such as when introducing new API resources and their corresponding controllers, or implementing an approved [Gardener Enhancement Proposal](https://github.com/gardener/gardener/tree/master/docs/proposals), follow the guidelines outlined in [Contributing Bigger Changes](./code/contributing-bigger-changes/_index.md).
+If you want to contribute bigger changes to Gardener, such as when introducing new API resources and their corresponding controllers, or implementing an approved [Gardener Enhancement Proposal](https://github.com/gardener/gardener/tree/master/docs/proposals), follow the guidelines outlined in [Contributing Bigger Changes](./code/contributing-bigger-changes.md).
 
 ### Adding Already Existing Documentation
 
-If you want to add documentation that already exists on GitHub to the website, you should update the central manifest instead of duplicating the content. To find out how to do that, see [Adding Already Existing Documentation](./documentation/adding-existing-documentation/_index.md).
+If you want to add documentation that already exists on GitHub to the website, you should update the central manifest instead of duplicating the content. To find out how to do that, see [Adding Already Existing Documentation](./documentation/adding-existing-documentation.md).
 
 ## Issues and Planning
 
@@ -116,4 +114,5 @@ See [Security Release Process](https://github.com/gardener/.github/blob/main/SEC
 The mailing list is hosted through Google Groups. To receive the lists' emails, [join the group](https://support.google.com/groups/answer/1067205) as you would any other Google Group.
 
 ### Other
+
 For additional channels where you can reach us, as well as links to our bi-weekly meetings, visit the [Community page](../../community/_index.md).

@@ -34,7 +34,7 @@ Check the [Notes and Tips](#notes-and-tips) section for useful advice when makin
 You can use the following templates in order to add documentation to the website that exists in other GitHub repositories.
 
 {{% alert color="info"  title="Note" %}}
-Proper identation is incredibly important, as yaml relies on it for nesting!
+Proper indentation is incredibly important, as yaml relies on it for nesting!
 {{% /alert %}}
 
 ### Adding a Single File
@@ -121,6 +121,6 @@ If the content you want to add does not have an `_index.md` file in it, it won't
 
 ### Notes and Tips
 
-- If you want to place a file inside of an already existing directory in the main repo, you need to create a `dir` element that matches its name. If one already exists, simply add your link to its `structure` element. 
+- If you want to place a file inside of an already existing directory in the main repo, you need to create a `dir` element that matches its name. If one already exists, simply add your link to its `structure` element.
 - You can chain multiple files, folders, and manifests inside of a single `structure` element.
-- For examples of `frontmatter` elements, see the [Style Guide](../style-guide/_index.md#front-matter).
+- For examples of `frontmatter` elements, see the [Style Guide](./style-guide/_index.md#front-matter).
