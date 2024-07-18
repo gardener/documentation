@@ -48,14 +48,14 @@ kubectl describe pod fail-6667d7685d-7v6w8
 
 As you can see in the events section, your image can't be pulled:
 
-```
-Name:		fail-6667d7685d-7v6w8
-Namespace:	default
-Node:		minikube/192.168.64.10
-Start Time:	Wed, 22 Nov 2017 10:01:59 +0100
-Labels:		pod-template-hash=2223832418
-		run=fail
-Annotations:	kubernetes.io/created-by={"kind":"SerializedReference","apiVersion":"v1","reference":{"kind":"ReplicaSet","namespace":"default","name":"fail-6667d7685d","uid":"cc4ccb3f-cf63-11e7-afca-4a7a1fa05b3f","a...
+```sh
+Name:   fail-6667d7685d-7v6w8
+Namespace: default
+Node:   minikube/192.168.64.10
+Start Time: Wed, 22 Nov 2017 10:01:59 +0100
+Labels:   pod-template-hash=2223832418
+    run=fail
+Annotations: kubernetes.io/created-by={"kind":"SerializedReference","apiVersion":"v1","reference":{"kind":"ReplicaSet","namespace":"default","name":"fail-6667d7685d","uid":"cc4ccb3f-cf63-11e7-afca-4a7a1fa05b3f","a...
 .
 .
 .

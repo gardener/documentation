@@ -30,6 +30,7 @@ The following sections will help you to identify relevant dimensions and how the
 ## "Official" Kubernetes Thresholds and Scalability Considerations
 
 To get started with the topic, please check the basic guidance provided by the Kubernetes community (specifically SIG Scalability):
+
 - [How we define scalability?](https://github.com/kubernetes/community/blob/master/sig-scalability/slos/slos.md#how-we-define-scalability)
 - [Kubernetes Scalability Thresholds](https://github.com/kubernetes/community/blob/master/sig-scalability/configs-and-limits/thresholds.md)
 
@@ -76,6 +77,7 @@ In general, continuous CPU usage of up to 3 cores and 16 GB memory per `kube-api
 Further information is also recorded and made available through the monitoring stack. The dashboard "API Server Request Duration and Response Size" provides insights into the request processing time of `kube-apiserver` `Pods`. Related information like request rates, dropped requests or termination codes (e.g., `429` for too many requests) can be obtained from the dashboards "API Server" and "Kubernetes API Server Details". They provide a good indicator for how well the system is dealing with its current load.
 
 Reducing the load on the API servers can become a challenge. To get started, you may try to:
+
 - Use immutable [secrets](https://kubernetes.io/docs/concepts/configuration/secret/#secret-immutable) and [configmaps](https://kubernetes.io/docs/concepts/configuration/configmap/#configmap-immutable) where possible to save watches. This pays off, especially when you have a high number of `Nodes` or just lots of secrets in general.
 - Applications interacting with the K8s API: If you know an object by its name, use it. Using label selector queries is expensive, as the filtering happens only within the `kube-apiserver` and not `etcd`, hence all resources must first pass completely from `etcd` to `kube-apiserver`.
 - Use (single object) caches within your controllers. Check the ["Use cache for ShootStates in Gardenlet" issue](https://github.com/gardener/gardener/issues/7593) for an example.

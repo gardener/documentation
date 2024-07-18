@@ -13,7 +13,7 @@ There are a few potential reasons why nodes can be removed:
 
 - [broken node](#find-out-whether-the-node-was-unhealthy): a node becomes unhealthy and machine-controller-manager terminates it in an attempt to replace the unhealthy node with a new one
 - [scale-down](#scale-down): cluster-autoscaler sees that a node is under-utilized and therefore scales down a worker pool
-- [node rolling](#node-rolling): configuration changes to a worker pool (or cluster) require all nodes of one or all worker pools to be rolled and thus all nodes to be replaced. Some possible changes are: 
+- [node rolling](#node-rolling): configuration changes to a worker pool (or cluster) require all nodes of one or all worker pools to be rolled and thus all nodes to be replaced. Some possible changes are:
   - the K8s/OS version
   - changing machine types
 
@@ -26,7 +26,8 @@ Helpful information can be obtained by using the logging stack. See [Logging Sta
 A good first indication on what happened to a node can be obtained from the node's events. Events are scraped and ingested into the logging system, so they can be found in the explore tab of Grafana (make sure to select `loki` as datasource) with a query like `{job="event-logging"} | unpack | object="Node/<node-name>"` or find any event mentioning the node in question via a broader query like `{job="event-logging"}|="<node-name>"`.
 
 A potential result might reveal:
-```
+
+```json
 {"_entry":"Node ip-10-55-138-185.eu-central-1.compute.internal status is now: NodeNotReady","count":1,"firstTimestamp":"2023-04-05T12:02:08Z","lastTimestamp":"2023-04-05T12:02:08Z","namespace":"default","object":"Node/ip-10-55-138-185.eu-central-1.compute.internal","origin":"shoot","reason":"NodeNotReady","source":"node-controller","type":"Normal"}
 ```
 
@@ -36,8 +37,8 @@ If a node was getting unhealthy, the last conditions can be found in the logs of
 
 **Caveat**: every `node` resource is backed by a corresponding `machine` resource managed by machine-controller-manager. Usually two corresponding `node` and `machine` resources have the same name with the exception of AWS. Here you first need to find with the above query the corresponding `machine` name, typically via a log like this
 
-```
-2023-04-05 12:02:08	{"log":"Conditions of Machine \"shoot--demo--cluster-pool-z1-6dffc-jh4z4\" with providerID \"aws:///eu-central-1/i-0a6ad1ca4c2e615dc\" and backing node \"ip-10-55-138-185.eu-central-1.compute.internal\" are changing","pid":"1","severity":"INFO","source":"machine_util.go:629"}
+```json
+2023-04-05 12:02:08 {"log":"Conditions of Machine \"shoot--demo--cluster-pool-z1-6dffc-jh4z4\" with providerID \"aws:///eu-central-1/i-0a6ad1ca4c2e615dc\" and backing node \"ip-10-55-138-185.eu-central-1.compute.internal\" are changing","pid":"1","severity":"INFO","source":"machine_util.go:629"}
 ```
 
 This reveals that `node` `ip-10-55-138-185.eu-central-1.compute.internal` is backed by `machine` `shoot--demo--cluster-pool-z1-6dffc-jh4z4`. On infrastructures other than AWS you can omit this step.
@@ -45,7 +46,7 @@ This reveals that `node` `ip-10-55-138-185.eu-central-1.compute.internal` is bac
 With the machine name at hand, now search for log entries with `{pod_name=~"machine-controller-manager.*"}|="<machine-name>"`.
 In case the node had failing conditions, you'd find logs like this:
 
-```
+```json
 2023-04-05 12:02:08 {"log":"Machine shoot--demo--cluster-pool-z1-6dffc-jh4z4 is unhealthy - changing MachineState to Unknown. Node conditions: [{Type:ClusterNetworkProblem Status:False LastHeartbeatTime:2023-04-05 11:58:39 +0000 UTC LastTransitionTime:2023-03-23 11:59:29 +0000 UTC Reason:NoNetworkProblems Message:no cluster network problems} ... {Type:Ready Status:Unknown LastHeartbeatTime:2023-04-05 11:55:27 +0000 UTC LastTransitionTime:2023-04-05 12:02:07 +0000 UTC Reason:NodeStatusUnknown Message:Kubelet stopped posting node status.}]","pid":"1","severity":"WARN","source":"machine_util.go:637"}
 ```
 

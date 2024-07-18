@@ -54,7 +54,7 @@ Let's say that you want to ensure that whether it’s today or 5 years from now,
 
 A digest takes the place of the tag when pulling an image. For example, to pull the above image by digest, run the following command:
 
-```bash 
+```bash
 docker run --name mynginx1 -P -d nginx@sha256:4771d09578c7c6a65299e110b3ee1c0a2592f5ea2618d23e4ffe7a4cab1ce5de
 ```
 

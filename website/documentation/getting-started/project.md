@@ -5,7 +5,7 @@ weight: 3
 
 ## Overview
 
-![](./images/overview.png)
+![overview](./images/overview.png)
 
 Gardener is all about Kubernetes clusters, which we call shoots. However, Gardener also does user management, delicate permission management and offers technical accounts to integrate its services into other infrastructures. It allows you to create several quotas and it needs credentials to connect to cloud providers. All of these are arranged in multiple fully contained projects, each of which belongs to a dedicated user and / or group.
 
@@ -22,6 +22,7 @@ Projects are getting reconciled by Gardener's project-controller, a component of
 For more information, see [Projects](https://github.com/gardener/gardener/blob/master/docs/usage/projects.md).
 
 In case you are interested, you can also view the source code for:
+
 - [The structure of a project API object](https://github.com/gardener/gardener/blob/master/pkg/apis/core/types_project.go) 
 - [Reconciling a project](https://github.com/gardener/gardener/blob/master/pkg/controllermanager/controller/project/project/reconciler.go)
 
@@ -31,7 +32,7 @@ In case you are interested, you can also view the source code for:
 Each Gardener project corresponds to a Kubernetes namespace and all project specific resources are placed into it.
 {{% /alert %}}
 
-Even though projects are a dedicated Kubernetes resource, every project also corresponds to a dedicated namespace in the garden cluster. All project resources - including shoots - are placed into this namespace. 
+Even though projects are a dedicated Kubernetes resource, every project also corresponds to a dedicated namespace in the garden cluster. All project resources - including shoots - are placed into this namespace.
 
 You can ask Gardener to use a specific namespace name in the project manifest but usually, this field should be left empty. The namespace then gets created automatically by Gardener's project-controller, with its name getting generated from the project's name, prefixed by "garden-".
 
@@ -45,25 +46,26 @@ Since all Gardener resources are custom Kubernetes resources, the usual and well
 
 For Gardener to create all relevant infrastructure that a shoot cluster needs inside a cloud provider, it needs to know how to authenticate to the cloud provider's API. This is done through regular secrets.
 
-![](./images/secret.png)
+![secret](./images/secret.png)
 
 Through the Gardener dashboard, secrets can be created for each supported cloud provider (using the dashboard is the preferred way, as it provides interactive help on what information needs to be placed into the secret and how the corresponding user account on the cloud provider should be configured). All of that is stored in a standard, opaque Kubernetes secret.
 
-Inside of a shoot manifest, a reference to that secret is given so that Gardener knows which secret to use for a given shoot. Consequently, different shoots, even though they are in the same project, can be created on multiple different cloud provider accounts. However, instead of referring to the secret directly, Gardener introduces another layer of indirection called a SecretBinding. 
+Inside of a shoot manifest, a reference to that secret is given so that Gardener knows which secret to use for a given shoot. Consequently, different shoots, even though they are in the same project, can be created on multiple different cloud provider accounts. However, instead of referring to the secret directly, Gardener introduces another layer of indirection called a SecretBinding.
 
 In the shoot manifest, we refer to a SecretBinding and the SecretBinding in turn refers to the actual secret.
 
 ## SecretBindings
 
-![](./images/secretbindings.png)
+![secretbindings](./images/secretbindings.png)
 
 With SecretBindings, it is possible to reference the same infrastructure secret in different projects across namespaces. This has the following advantages:​
+
 - Infrastructure secrets can be kept in one project (and thus namespace) with limited access. Through SecretsBindings, the secrets can be used in other projects (and thus namespaces) without being able to read their contents.​
 - Infrastructure secrets can be kept at one central place (a dedicated project) and be used by many other projects. This way, if a credential rotation is required, they only need to be changed in the secrets at that central place and not in all projects that reference them.
 
 ## Service Accounts
 
-![](./images/service-account.png)
+![service-account](./images/service-account.png)
 
 Since Gardener is 100% Kubernetes, it can be easily used in a programmatic way - by just sending the resource manifest of a Gardener resource to its API server. To do so, a kubeconfig file and a (technical) user that the kubeconfig maps to are required.
 

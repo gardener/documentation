@@ -34,36 +34,35 @@ Create a tenant in an OIDC compatible Identity Provider. For simplicity, we use 
 
    ![Create client application](./images/Create-client-application.png)
 
-2. Provide a *Name*, choose *Native* as application type, and choose *CREATE*.
+1. Provide a *Name*, choose *Native* as application type, and choose *CREATE*.
 
    ![Choose application type](./images/Choose-application-type.png)
 
-3. In the tab *Settings*, copy the following parameters to a local text file:
+1. In the tab *Settings*, copy the following parameters to a local text file:
 
-    * *Domain*
+    - *Domain*
 
       Corresponds to the **issuer** in OIDC. It must be an `https`-secured endpoint (Auth0 requires a trailing `/` at the end). For more information, see [Issuer Identifier](https://openid.net/specs/openid-connect-core-1_0.html#Terminology).
-    * *Client ID*
-    * *Client Secret*
+    - *Client ID*
+    - *Client Secret*
 
       ![Basic information](./images/Basic-information.png)
 
-4. Configure the client to have a callback url of `http://localhost:8000`. This callback connects to your local `kubectl oidc-login` plugin:
+1. Configure the client to have a callback url of `http://localhost:8000`. This callback connects to your local `kubectl oidc-login` plugin:
 
    ![Configure callback](./images/Configure-callback.png)
 
-5. Save your changes.
+1. Save your changes.
 
-6. Verify that `https://<Auth0 Domain>/.well-known/openid-configuration` is reachable.
+1. Verify that `https://<Auth0 Domain>/.well-known/openid-configuration` is reachable.
 
-7. Choose *Users & Roles* \> *Users* \> *CREATE USERS* to create a user with a user and password:
+1. Choose *Users & Roles* \> *Users* \> *CREATE USERS* to create a user with a user and password:
 
    ![Create user](./images/Create-user.png)
 
   {{% alert color="info"  title="Note" %}}
   Users must have a *verified* email address.
   {{% /alert %}}
-
 
 ## Configure a Local `kubectl` `oidc-login`
 
@@ -86,13 +85,13 @@ Create a tenant in an OIDC compatible Identity Provider. For simplicity, we use 
     Installed plugin: oidc-login
     ```
 
-2. Prepare a `kubeconfig` for later use:
+1. Prepare a `kubeconfig` for later use:
 
     ```console
     cp ~/.kube/config ~/.kube/config-oidc
     ```
 
-3. Modify the configuration of `~/.kube/config-oidc` as follows:
+1. Modify the configuration of `~/.kube/config-oidc` as follows:
 
     ```yaml
     apiVersion: v1
@@ -178,7 +177,7 @@ As administrator, apply the cluster role binding in your shoot cluster.
     kubectl config use-context `shoot--project--mycluster`
     ```
 
-2. `kubectl` delegates the authentication to plugin `oidc-login` the first time the user uses `kubectl` to contact the API server, for example:
+1. `kubectl` delegates the authentication to plugin `oidc-login` the first time the user uses `kubectl` to contact the API server, for example:
 
     ```console
     kubectl get all
@@ -186,7 +185,7 @@ As administrator, apply the cluster role binding in your shoot cluster.
 
     The plugin opens a browser for an interactive authentication session with Auth0, and in parallel serves a local webserver for the configured callback.
 
-3. Enter your login credentials.
+1. Enter your login credentials.
 
     ![Login through identity provider](./images/Login-through-identity-provider.png)
 
@@ -200,31 +199,35 @@ As administrator, apply the cluster role binding in your shoot cluster.
 
 {{% alert color="info"  title="Note" %}}
 After a successful login, `kubectl` uses a token for authentication so that you don’t have to provide user and password for every new `kubectl` command. How long the token is valid can be configured. If you want to log in again earlier, reset plugin `oidc-login`:
+
 1. Delete directory `~/.kube/cache/oidc-login`.
 1. Delete the browser cache.
 {{% /alert %}}
 
 1. To see if your user uses the cluster role `view`, do some checks with `kubectl auth can-i`.
 
-    * The response for the following commands should be `no`:
+    - The response for the following commands should be `no`:
 
-        ```console
-        kubectl auth can-i create clusterrolebindings
-        ```
-        ```console
-        kubectl auth can-i get secrets
-        ```
-        ```console
-        kubectl auth can-i describe secrets
-        ```
+      ```sh
+      kubectl auth can-i create clusterrolebindings
+      ```
 
-    * The response for the following commands should be `yes`:
+      ```sh
+      kubectl auth can-i get secrets
+      ```
 
-        ```console
-        kubectl auth can-i list pods
-        ```
-        ```console
-        kubectl auth can-i get pods
+      ```sh
+      kubectl auth can-i describe secrets
+      ```
+
+    - The response for the following commands should be `yes`:
+
+      ```sh
+      kubectl auth can-i list pods
+      ```
+
+      ```sh
+      kubectl auth can-i get pods
         ```
 
 If the last step is successful, you’ve configured your cluster to authenticate against an identity provider using OIDC.

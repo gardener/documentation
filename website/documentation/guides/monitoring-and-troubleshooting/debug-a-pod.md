@@ -12,8 +12,7 @@ scope: app-developer
 ## Introduction
 
 Kubernetes offers powerful options to get more details about startup or runtime failures of pods as e.g. described in 
-[Application Introspection and Debugging](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application-introspection/) 
-or [Debug Pods and Replication Controllers](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-pod-replication-controller/).
+[Application Introspection and Debugging](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application-introspection/) or [Debug Pods and Replication Controllers](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-pod-replication-controller/).
 
 In order to identify pods with potential issues, you could, e.g., run `kubectl get pods --all-namespaces | grep -iv Running ` to filter out the pods which are not in the state `Running`. One of frequent error state is `CrashLoopBackOff`, which tells that a pod crashes right after the start. Kubernetes then tries to restart the pod again, but often the pod startup fails again.
 
@@ -26,9 +25,7 @@ Here is a short list of possible reasons which might lead to a pod crash:
 1. Persistent volumes can't be created/mounted
 1. The container image is not updated
 
-Basically, the commands `kubectl logs ...` and `kubectl describe ...` with different parameters are used to get more 
-detailed information. By calling e.g. `kubectl logs --help` you can get more detailed information about the command and its 
-parameters.
+Basically, the commands `kubectl logs ...` and `kubectl describe ...` with different parameters are used to get more detailed information. By calling e.g. `kubectl logs --help` you can get more detailed information about the command and its parameters.
 
 In the next sections you'll find some basic approaches to get some ideas what went wrong.
 
@@ -330,4 +327,4 @@ For more information, see [Container Image Not Updating](../applications/image-p
 - [Resource Quality of Service in Kubernetes](https://github.com/kubernetes/design-proposals-archive/blob/main/node/resource-qos.md)
 - [Interactive Tutorial Troubleshooting with Kubectl](https://kubernetes.io/docs/tutorials/kubernetes-basics/explore-intro/)
 - [Images](https://kubernetes.io/docs/concepts/containers/images/)
-- [Kubernetes Best Practises](https://kubernetes.io/docs/concepts/configuration/overview/#container-images)
+- [Kubernetes Best Practices](https://kubernetes.io/docs/concepts/configuration/overview/#container-images)

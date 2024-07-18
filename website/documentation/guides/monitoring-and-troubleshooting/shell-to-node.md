@@ -47,8 +47,7 @@ All of the described approaches involve scheduling a pod with root permissions a
 <img style="margin-left:0;width:80%;height:auto;" alt="Access Tile" src="./images/9fb6ca4ff9b7480f93debba833f48590.png"/>
 <br>
 
-Select the target Cluster (Garden, Seed / Control Plane, Shoot cluster) depending on the requirements and 
-access rights (only certain users have access to the Seed Control Plane).
+Select the target Cluster (Garden, Seed / Control Plane, Shoot cluster) depending on the requirements and access rights (only certain users have access to the Seed Control Plane).
 
 1. To open the terminal configuration, interact with the top right-hand corner of the screen.
 
@@ -64,9 +63,7 @@ access rights (only certain users have access to the Seed Control Plane).
 
 The Dashboard then schedules a pod and opens a shell session to the node.
 
-To get access to the common binaries installed on the host, prefix the command with `chroot /hostroot`. 
-Note that the path depends on where the root path is mounted in the container.
-In the default image used by the Dashboard, it is under `/hostroot`.
+To get access to the common binaries installed on the host, prefix the command with `chroot /hostroot`. Note that the path depends on where the root path is mounted in the container. In the default image used by the Dashboard, it is under `/hostroot`.
 
 <img style="margin-left:0"  alt="Dashboard terminal pod configuration" src="./images/3da659e9cc4744a2ad3e1c6a50d39c04.png"/>
 <br>
@@ -75,12 +72,9 @@ In the default image used by the Dashboard, it is under `/hostroot`.
 
 **Prerequisite**: `kubectl` is available.
 
-The [Gardener ops-toolbelt](https://github.com/gardener/ops-toolbelt) can be used as a convenient way to deploy a root pod to a node.
-The pod uses an image that is bundled with a bunch of useful [troubleshooting tools](https://github.com/gardener/ops-toolbelt/tree/master/dockerfile-configs).
-This is also the same image that is used by default when using the Gardener Dashboard terminal feature as described in the [previous section](#gardener-dashboard).
+The [Gardener ops-toolbelt](https://github.com/gardener/ops-toolbelt) can be used as a convenient way to deploy a root pod to a node. The pod uses an image that is bundled with a bunch of useful [troubleshooting tools](https://github.com/gardener/ops-toolbelt/tree/master/dockerfile-configs). This is also the same image that is used by default when using the Gardener Dashboard terminal feature as described in the [previous section](#gardener-dashboard).
 
-The easiest way to use the [Gardener ops-toolbelt](https://github.com/gardener/ops-toolbelt) is to execute the [`ops-pod` script](https://github.com/gardener/ops-toolbelt/blob/master/hacks/ops-pod) in the `hacks` folder.
-To get root shell access to a node, execute the aforementioned script by supplying the target node name as an argument:
+The easiest way to use the [Gardener ops-toolbelt](https://github.com/gardener/ops-toolbelt) is to execute the [`ops-pod` script](https://github.com/gardener/ops-toolbelt/blob/master/hacks/ops-pod) in the `hacks` folder. To get root shell access to a node, execute the aforementioned script by supplying the target node name as an argument:
 
 ```sh
 <path-to-ops-toolbelt-repo>/hacks/ops-pod <target-node>
@@ -145,8 +139,7 @@ The instance / node name can be obtained from the `Machine` `.status` field:
 kubectl get machine <machine-name> -o json | jq -r .status.node
 ```
 
-This is all the information needed to go ahead and use `gardenctl ssh` to get a shell to the node. 
-In addition, the used cloud provider, the specific identifier of the instance, and the instance region can be identified from the `Machine` CRD.
+This is all the information needed to go ahead and use `gardenctl ssh` to get a shell to the node. In addition, the used cloud provider, the specific identifier of the instance, and the instance region can be identified from the `Machine` CRD.
 
 Get the identifier of the instance via:
 
@@ -164,10 +157,7 @@ Of course, the information can also be used to get the instance with the cloud p
 
 ### gardenctl ssh
 
-Using the node name of the problematic instance, we can use the `gardenctl ssh` command to get SSH access to the cloud provider 
-instance via an automatically set up [bastion host](https://en.wikipedia.org/wiki/Bastion_host).
-`gardenctl` takes care of spinning up the `bastion` instance, setting up the SSH keys, ports and security groups and opens a root shell on the target instance.
-After the SSH session has ended, `gardenctl` deletes the created cloud provider resources.
+Using the node name of the problematic instance, we can use the `gardenctl ssh` command to get SSH access to the cloud provider instance via an automatically set up [bastion host](https://en.wikipedia.org/wiki/Bastion_host). `gardenctl` takes care of spinning up the `bastion` instance, setting up the SSH keys, ports and security groups and opens a root shell on the target instance. After the SSH session has ended, `gardenctl` deletes the created cloud provider resources.
 
 Use the following commands:
 
@@ -177,9 +167,7 @@ Use the following commands:
 gardenctl target garden <target-garden>
 ```
 
-1. Target an available Shoot by name. 
-This sets up the context, configures the `kubeconfig` file of the Shoot cluster and downloads the cloud provider credentials.
-Subsequent commands will execute in this context.
+1. Target an available Shoot by name. This sets up the context, configures the `kubeconfig` file of the Shoot cluster and downloads the cloud provider credentials. Subsequent commands will execute in this context.
 
 ```sh
 gardenctl target shoot <target-shoot>
@@ -214,18 +202,23 @@ This guide demonstrates the setup of a bastion on AWS.
 - Obtain target `instance-id` (see [Identifying the Problematic Instance](#identifying-the-problematic-instance)).
 - Obtain the VPC ID the Shoot resources are created in. This can be found in the `Infrastructure` CRD in the `Shoot` namespace in the `Seed`.
 - Make sure that port 22 on the target instance is open (default for Gardener deployed instances).
-    - Extract security group via:
-    ```sh
-    aws ec2 describe-instances --instance-ids <instance-id>
-    ```
-    - Check for rule that allows inbound connections on port 22:
-    ```sh
-    aws ec2 describe-security-groups --group-ids=<security-group-id>
-    ```
-    - If not available, create the rule with the following comamnd:
-    ```sh
-    aws ec2 authorize-security-group-ingress --group-id <security-group-id>  --protocol tcp --port 22 --cidr 0.0.0.0/0
-    ```
+  - Extract security group via:
+
+  ```sh
+  aws ec2 describe-instances --instance-ids <instance-id>
+  ```
+
+  - Check for rule that allows inbound connections on port 22:
+
+  ```sh
+  aws ec2 describe-security-groups --group-ids=<security-group-id>
+  ```
+
+  - If not available, create the rule with the following comamnd:
+
+  ```sh
+  aws ec2 authorize-security-group-ingress --group-id <security-group-id>  --protocol tcp --port 22 --cidr 0.0.0.0/0
+  ```
 
 #### Create the Bastion Security Group
 

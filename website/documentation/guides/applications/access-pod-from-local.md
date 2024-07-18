@@ -10,7 +10,7 @@ scope: app-developer
 
 ## Question
 
-You have deployed an application with a web UI or an internal endpoint in your Kubernetes (K8s) cluster. How to access this endpoint **without an external load balancer** (e.g. Ingress)?
+You have deployed an application with a web UI or an internal endpoint in your Kubernetes (K8s) cluster. How to access this endpoint **without an external load balancer** (e.g., Ingress)?
 
 This tutorial presents two options:
 

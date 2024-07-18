@@ -5,7 +5,7 @@ weight: 4
 
 ## Overview
 
-![](./images/k8s-cluster.png)
+![k8s-cluster](./images/k8s-cluster.png)
 
 A Kubernetes cluster consists of a control plane and a data plane. The data plane runs the actual containers on worker nodes (which translate to physical or virtual machines). For the control and data plane to work together properly, lots of components need matching configuration.
 
@@ -20,7 +20,7 @@ Luckily there is a dashboard to get started.
 
 ## Basic Configuration Options
 
-![](./images/basic_configurations_1.png)
+![basic-configurations-1](./images/basic-configurations-1.png)
 
 Every cluster needs a name - after all, it is a Kubernetes resource and therefore unique within a namespace.
 
@@ -28,25 +28,25 @@ The Kubernetes version will be used as a starting point. Once a newer version is
 
 The "purpose" affects some configuration (like automatic deployment of a monitoring stack or setting up certain alerting rules) and generally indicates the importance of a cluster.
 
-![](./images/basic_configurations_2.png)
+![basic-configurations-2](./images/basic-configurations-2.png)
 
 Start by selecting the infrastructure you want to use. The choice will be mapped to a cloud profile that contains provider specific information like the available (actual) OS images, zones and regions or machine types.
 
 Each data plane runs in an infrastructure account owned by the end user. By selecting the infrastructure secret containing the accounts credentials, you are granting Gardener access to the respective account to create / manage resources.
 
 {{% alert color="info"  title="Note" %}}
-Changing the account after the creation of a cluster is not possible. The credentials can be updated with a new key or even user but have to stay within the same account. 
+Changing the account after the creation of a cluster is not possible. The credentials can be updated with a new key or even user but have to stay within the same account.
 
 Currently, there is no way to move a single cluster to a different account. You would rather have to re-create a cluster and migrate workloads by different means.
 {{% /alert %}}
 
 As part of the infrastructure you chose, the region for data plane has to be chosen as well. The Gardener scheduler will try to place the control plane on a seed cluster based on a minimal distance strategy. See [Gardener Scheduler](https://github.com/gardener/gardener/blob/master/docs/concepts/scheduler.md) for more details.
 
-![](./images/basic_configurations_3.png)
+![basic-configurations-3](./images/basic-configurations-3.png)
 
 Up next, the networking provider (CNI) for the cluster has to be selected. At the point of writing, it is possible to choose between Calico and Cilium. If not specified in the shoot's manifest, default CIDR ranges for nodes, services, and pods will be used.
 
-In order to run any workloads in your cluster, you need nodes. The worker section lets you specify the most important configuration options. For beginners, the machine type is probably the most relevant field, together with the machine image (operating system). 
+In order to run any workloads in your cluster, you need nodes. The worker section lets you specify the most important configuration options. For beginners, the machine type is probably the most relevant field, together with the machine image (operating system).
 
 The machine type is provider-specific and configured in the cloud profile. Check your respective cloud profile if you're missing a machine type. Maybe it is available in general but unavailable in your selected region.
 
@@ -60,7 +60,7 @@ Some machine types (e.g., bare-metal machine types on OpenStack) require you to 
 
 The autoscaler parameter defines the initial elasticity / scalability of your cluster. The cluster-autoscaler will add more nodes up to the maximum defined here when your workload grows and remove nodes in case your workload shrinks. The minimum number of nodes should be equal to or higher than the number of zones. You can distribute the nodes of a worker pool among all zones available to your cluster. This is the first step in running HA workloads.
 
-![](./images/basic_configurations_4.png)
+![basic-configurations-4](./images/basic-configurations-4.png)
 
 Once per day, all clusters reconcile. This means all controllers will check if there are any updates they have to apply (e.g., new image version for ETCD). The maintenance window defines when this daily operation will be triggered. It is important to understand that there is no opt-out for reconciliation.
 
@@ -80,13 +80,13 @@ The result of your provided inputs and a set of conscious default values is a sh
 
 ## How to Access a Shoot
 
-![](./images/access-shoot.png)
+![access-shoot-1](./images/access-shoot-1.png)
 
 Static credentials for shoots were discontinued in Gardener with Kubernetes v1.27. Short lived credentials need to be used instead. You can create/request tokens directly via Gardener or delegate authentication to an identity provider.
 
 A short-lived admin kubeconfig can be requested by using kubectl. If this is something you do frequently, consider switching to [gardenlogin](https://github.com/gardener/gardenlogin), which helps you with it.
 
-![](./images/access-shoot-2.png)
+![access-shoot-2](./images/access-shoot-2.png)
 
 An alternative is to use an identity provider and issue OIDC tokens.
 
@@ -104,11 +104,11 @@ You can fine-tune the cluster-autoscaler or help the kubelet to cope better with
 
 There are a couple of ways to configure a worker pool. One of them is to set everything in the Gardener dashboard. However, only a subset of options is presented there.
 
-![](./images/worker-pools-1.png)
+![worker-pools-1](./images/worker-pools-1.png)
 
 A slightly more complex way is to set the configuration through the yaml file itself.
 
-![](./images/worker-pools-2.png)
+![worker-pools-2](./images/worker-pools-2.png)
 
 This allows you to configure much more properties of a worker pool, like the timeout after which an unhealthy machine is getting replaced. For more options, see the [Worker](https://github.com/gardener/gardener/blob/master/docs/api-reference/core.md#worker) API reference.
 
@@ -116,18 +116,18 @@ This allows you to configure much more properties of a worker pool, like the tim
 
 Since a shoot is just another Kubernetes resource, changes can be applied via kubectl. For convenience, the basic settings are configurable via the dashboard's UI. It also has a "yaml" tab where you can alter all of the shoot's specification in your browser. Once applied, the cluster will reconcile eventually and your changes become active (or cause an error).
 
-![](./images/change-things.png)
+![change-things](./images/change-things.png)
 
 ## Immutability in a Shoot
 
 While Gardener allows you to modify existing shoot clusters, it is important to remember that not all properties of a shoot can be changed after it is created.
 
-For example, it is not possible to move a shoot to a different infrastructure account. This is mainly rooted in the fact that discs and network resources are bound to your account. 
+For example, it is not possible to move a shoot to a different infrastructure account. This is mainly rooted in the fact that discs and network resources are bound to your account.
 
 Another set of options that become immutable are most of the network aspects of a cluster. On an infrastructure level the VPC cannot be changed and on a cluster level things like the pod / service cidr ranges, together with the nodeCIDRmask, are set for the lifetime of the cluster.
-
 
 Some other things can be changed, but not reverted. While it is possible to add more zones to a cluster on an infrastructure level (assuming that an appropriate CIDR range is available), removing zones is not supported. Similarly, upgrading Kubernetes versions is comparable to a one-way ticket. As of now, Kubernetes does not support downgrading. Lastly, the HA setting of the control plane is immutable once specified.
 
 ## Crazy Botany
-Since remembering all these options can be quite challenging, here is very helpful resource - an [example shoot](https://github.com/gardener/gardener/blob/master/example/90-shoot.yaml) with all the latest options 🎉 
+
+Since remembering all these options can be quite challenging, here is very helpful resource - an [example shoot](https://github.com/gardener/gardener/blob/master/example/90-shoot.yaml) with all the latest options 🎉

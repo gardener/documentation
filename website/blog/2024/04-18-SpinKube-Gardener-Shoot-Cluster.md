@@ -14,9 +14,9 @@ With the rising popularity of [WebAssembly (WASM)](https://webassembly.org/) and
 
 ## Prerequisites
 
- - [kubectl](https://kubernetes.io/docs/reference/kubectl/) - the Kubernetes command line tool
- - [helm](https://helm.sh/) - the package manager for Kubernetes
- - A running Gardener Shoot cluster
+- [kubectl](https://kubernetes.io/docs/reference/kubectl/) - the Kubernetes command line tool
+- [helm](https://helm.sh/) - the package manager for Kubernetes
+- A running Gardener Shoot cluster
 
 ## Gardener Shoot Cluster
 
