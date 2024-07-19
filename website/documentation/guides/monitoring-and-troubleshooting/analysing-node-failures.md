@@ -37,7 +37,7 @@ If a node was getting unhealthy, the last conditions can be found in the logs of
 
 **Caveat**: every `node` resource is backed by a corresponding `machine` resource managed by machine-controller-manager. Usually two corresponding `node` and `machine` resources have the same name with the exception of AWS. Here you first need to find with the above query the corresponding `machine` name, typically via a log like this
 
-```json
+```text
 2023-04-05 12:02:08 {"log":"Conditions of Machine \"shoot--demo--cluster-pool-z1-6dffc-jh4z4\" with providerID \"aws:///eu-central-1/i-0a6ad1ca4c2e615dc\" and backing node \"ip-10-55-138-185.eu-central-1.compute.internal\" are changing","pid":"1","severity":"INFO","source":"machine_util.go:629"}
 ```
 
@@ -46,7 +46,7 @@ This reveals that `node` `ip-10-55-138-185.eu-central-1.compute.internal` is bac
 With the machine name at hand, now search for log entries with `{pod_name=~"machine-controller-manager.*"}|="<machine-name>"`.
 In case the node had failing conditions, you'd find logs like this:
 
-```json
+```text
 2023-04-05 12:02:08 {"log":"Machine shoot--demo--cluster-pool-z1-6dffc-jh4z4 is unhealthy - changing MachineState to Unknown. Node conditions: [{Type:ClusterNetworkProblem Status:False LastHeartbeatTime:2023-04-05 11:58:39 +0000 UTC LastTransitionTime:2023-03-23 11:59:29 +0000 UTC Reason:NoNetworkProblems Message:no cluster network problems} ... {Type:Ready Status:Unknown LastHeartbeatTime:2023-04-05 11:55:27 +0000 UTC LastTransitionTime:2023-04-05 12:02:07 +0000 UTC Reason:NodeStatusUnknown Message:Kubelet stopped posting node status.}]","pid":"1","severity":"WARN","source":"machine_util.go:637"}
 ```
 
