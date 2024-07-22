@@ -64,7 +64,6 @@ Basically, Velero allows you to:
 - execute pre- and post-activities in a container of a pod when a backup is created (see [Hooks](https://velero.io/docs/main/backup-hooks/#docs))
 - extend Velero by Plugins, e.g., for Object and Block store (see [Plugins](https://velero.io/docs/main/custom-plugins/#docs))
 
-
 Velero consists of a server side component and a client tool. The server components consists of Custom Resource Definitions (CRD) and controllers to perform the activities. The client tool communicates with the K8s API server to, e.g., create objects like a Backup object.
 
 The diagram below explains the backup process. When creating a backup, Velero client makes a call to the Kubernetes API server to create a Backup object (1). The BackupController notices the new Backup object, validates the object (2) and begins the backup process (3). Based on the filter settings provided by the Velero client it collects the resources in question (3). The BackupController creates a tar ball with the Kubernetes objects and stores it in the backup location, e.g., AWS S3 (4) as well as snapshots of persistent volumes (5).

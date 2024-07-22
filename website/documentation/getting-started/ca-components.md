@@ -13,7 +13,7 @@ So let's see what the mission control (control plane) of a Kubernetes cluster lo
 
 [Kubeception - Kubernetes in Kubernetes in Kubernetes](./architecture.md#kubeception)
 
-![](./images/kubeception.png)
+![kubeception](./images/kubeception.png)
 
 In the classic setup, there is a dedicated host / VM to host the master components / control plane of a Kubernetes cluster. However, these are just normal programs that can easily be put into containers. Once in containers, we can make Kubernetes Deployments and StatefulSets (for the etcd) watch over them. And now we put all that into a separate, dedicated Kubernetes cluster - et voilà, we have Kubernetes in Kubernetes, aka Kubeception (named after the famous movie Inception with Leonardo DiCaprio).
 
@@ -21,19 +21,21 @@ In Gardener's terminology, the cluster hosting the control plane components is c
 
 ## Control Plane Components on the Seed
 
-![](./images/control-plane-components-1.png)
+![control-plane-components-1](./images/control-plane-components-1.png)
 
 All control-plane components of a shoot cluster run in a dedicated namespace on the seed.
 
-![](./images/control-plane-components-2.png)
+![control-plane-components-2](./images/control-plane-components-2.png)
 
 A control plane has lots of components:
+
 - Everything needed to run vanilla Kubernetes
 - etcd main & events (split for performance reasons)
 - Kube-.*-manager
 - CSI driver
 
 Additionally, we deploy components needed to manage the cluster:
+
 - Gardener Resource Manager (GRM)
 - Machine Controller Manager (MCM)
 - DNS Management
@@ -43,7 +45,7 @@ There is also a set of components making our life easier (logging, monitoring) o
 
 ## Core Components
 
-![](./images/core-components-1.png)
+![core-components-1](./images/core-components-1.png)
 
 Let's take a close look at the API server as well as etcd.
 
@@ -57,7 +59,7 @@ The kube API server (often called "kapi") scales both horizontally and verticall
 
 The kube API server is not directly exposed / reachable via its public hostname. Instead, Gardener runs a single LoadBalancer service backed by an istio gateway / envoy, which uses SNI to forward traffic.
 
-![](./images/core-components-2.png)
+![core-components-2](./images/core-components-2.png)
 
 The [kube-controller-manager](https://kubernetes.io/docs/concepts/overview/components/#kube-controller-manager) (aka [KCM](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-controller-manager/)) is the component that contains all the controllers for the core Kubernetes objects such as Deployments, Services, PVCs, etc.
 
@@ -71,7 +73,7 @@ Without the cluster autoscaler, nodes could not be added or removed based on cur
 
 ## Gardener-Specific Components
 
-![](./images/gardener-specific-components.png)
+![gardener-specific-components](./images/gardener-specific-components.png)
 
 **Shoot DNS service:** External DNS management for resources within the cluster.
 
@@ -83,7 +85,7 @@ Without the cluster autoscaler, nodes could not be added or removed based on cur
 
 ## Machines
 
-![](./images/machines.png)
+![machines](./images/machines.png)
 
 **Machine Controller Manager** (aka [MCM](https://github.com/gardener/machine-controller-manager)):
 
@@ -93,7 +95,7 @@ For more information, see [MCM](https://github.com/gardener/machine-controller-m
 
 ## ManagedResources
 
-![](./images/managed-resources.png)
+![managed-resources](./images/managed-resources.png)
 
 **Gardener Resource Manager** (aka [GRM](https://github.com/gardener/gardener/blob/master/docs/concepts/resource-manager.md)):
 
@@ -103,7 +105,7 @@ Enter the GRM - it reconciles on ManagedResources objects, which are description
 
 ## DNS Records - "Internal" and "External"
 
-![](./images/dns-records.png)
+![dns-records](./images/dns-records.png)
 
 The internal domain name is used by all Gardener components to talk to the API server. Even though it is called "internal", it is still publicly routable.
 
@@ -115,21 +117,22 @@ For more information, see [Contract: DNSRecord Resources](https://github.com/gar
 
 ## Features and Observability
 
-![](./images/features-observability.png)
+![features-observability](./images/features-observability.png)
 
 Gardener runs various health checks to ensure that the cluster works properly. The Network Problem Detector gives information about connectivity within the cluster and to the API server.
 
 **Certificate Management:** allows to request certificates via the ACME protocol (e.g., issued by Let's Encrypt) from within the cluster. For detailed information, have a look at the [cert-manager project](https://github.com/gardener/cert-management#certificate-management).
 
-**Observability stack:** Gardener deploys observability components and gathers logs and metrics for the control-plane & kube-system namespace. Also provided out-of-the-box is a UI based on Plutono (fork of Grafana) with pre-defined dashboards to access and query the monitoring data. For more information, see [Observability](./observability.md).
+**Observability stack:** Gardener deploys observability components and gathers logs and metrics for the control-plane & kube-system namespace. Also provided out-of-the-box is a UI based on Plutono (fork of Grafana) with pre-defined dashboards to access and query the monitoring data. For more information, see [Observability](./observability/_index.md).
 
 ## HA Control Plane
 
-![](./images/ha-control-plane.png)
+![ha-control-plane](./images/ha-control-plane.png)
 
 As the title indicates, the HA control plane feature is only about the control plane. Setting up the data plane to span multiple zones is part of the worker spec of a shoot.
 
 HA control planes can be configured as part of the shoot's spec. The available types are:
+
 - Node
 - Zone
 
@@ -139,13 +142,14 @@ For detailed guidance and more information, see the [High Availability Guides](h
 
 ## Zonal HA Control Planes
 
-![](./images/zonal-ha-control-planes.png)
+![zonal-ha-control-planes](./images/zonal-ha-control-planes.png)
 
 Zonal HA is the most likely setup for shoots with `purpose: production`.
 
 The starting point is a regular (non-HA) control plane. etcd and most controllers are singletons and the kube-apiserver might have been scaled up to several replicas.
 
 To get to an HA setup we need:
+
 - A minimum of 3 replicas of the API server
 - 3 replicas for etcd (both main and events)
 - A second instance for each controller (e.g., controller manager, csi-driver, scheduler, etc.) that can take over in case of failure (active / passive).
@@ -154,13 +158,13 @@ To distribute those pods across zones, well-known concepts like PodTopologySprea
 
 ## kube-system Namespace
 
-<img src="./images/kube-system-namespace-1.png" alt="kube-system-namespace" width="50%"/>
+<img src="./images/kube-system-namespace-1.png" alt="kube-system-namespace-1" width="50%"/>
 
 For a fully functional cluster, a few components need to run on the data plane side of the diagram. They all exist in the kube-system namespace. Let's have a closer look at them.
 
 ### Networking
 
-![](./images/kube-system-namespace-2.png)
+![kube-system-namespace-2](./images/kube-system-namespace-2.png)
 
 On each node we need a CNI (container network interface) plugin. Gardener offers Calico or Cilium as network provider for a shoot. When using Calico, a kube-proxy is deployed. Cilium does not need a kube-proxy, as it takes care of its tasks as well.
 
@@ -178,7 +182,7 @@ When calico is failing on a node, no new pods can start there as they don't get 
 
 ### DNS System
 
-![](./images/kube-system-namespace-3.png)
+![kube-system-namespace-3](./images/kube-system-namespace-3.png)
 
 For a normal service in Kubernetes, a cluster-internal DNS record that resolves to the service's ClusterIP address is being created. In Gardener (similar to most other Kubernetes offerings) CoreDNS takes care of this aspect. To reduce the load when it comes to upstream DNS queries, Gardener deploys a DNS cache to each node by default. It will also forward queries outside the cluster's search domain directly to the upstream DNS server. For more information, see [NodeLocalDNS Configuration](https://github.com/gardener/gardener/blob/master/docs/usage/node-local-dns.md) and [DNS autoscaling](https://github.com/gardener/gardener/blob/master/docs/usage/dns-autoscaling.md).
 
@@ -190,7 +194,7 @@ A broken DNS system on any level will cause disruption / service degradation for
 
 ### Health Checks and Metrics
 
-![](./images/kube-system-namespace-4.png)
+![kube-system-namespace-4](./images/kube-system-namespace-4.png)
 
 Gardener deploys probes checking the health of individual nodes. In a similar fashion, a network health check probes connectivity within the cluster (node to node, pod to pod, pod to api-server, ...).
 
@@ -198,7 +202,7 @@ They provide the data foundation for Gardener's monitoring stack together with t
 
 ### Connectivity Components
 
-![](./images/kube-system-namespace-5.png)
+![kube-system-namespace-5](./images/kube-system-namespace-5.png)
 
 From the perspective of the data plane, the shoot's API server is reachable via the cluster-internal service `kubernetes.default.svc.cluster.local`. The apiserver-proxy intercepts connections to this destination and changes it so that the traffic is forwarded to the kube-apiserver service in the seed cluster. For more information, see [kube-apiserver via apiserver-proxy](https://github.com/gardener/gardener/blob/764df0ee5ebc13b2634eba98169b409244f19bfe/docs/usage/control-plane-endpoints-and-ports.md#kube-apiserver-via-apiserver-proxy).
 
@@ -206,6 +210,6 @@ The second component here is the VPN shoot. It initiates a VPN connection to its
 
 ### csi-driver
 
-![](./images/kube-system-namespace-6.png)
+![kube-system-namespace-6](./images/kube-system-namespace-6.png)
 
 The last component to mention here is the csi-driver that is deployed as a Daemonset to all nodes. It registers with the kubelet and takes care of the mounting of volume types it is responsible for.

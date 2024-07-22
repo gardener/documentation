@@ -18,8 +18,7 @@ In this tutorial, we demonstrate how to use `InitContainers` in order to orchest
 - postgresql database
 - webapp which depends on the postgresql database and provides two endpoints: *create a short url from a given location* and *redirect from a given short URL to the corresponding target location*
 
-This app represents the minimal example where an application relies on another service or database. In this example, 
-if the application starts before the database is ready, the application will fail as shown below:
+This app represents the minimal example where an application relies on another service or database. In this example, if the application starts before the database is ready, the application will fail as shown below:
 
 ```bash
 $ kubectl logs webapp-958cf5567-h247n

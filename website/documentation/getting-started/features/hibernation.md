@@ -11,7 +11,7 @@ Some clusters need to be up all the time - typically, they would be hosting some
 
 The hibernation flow for a shoot attempts to reduce the resources consumed as much as possible. Hence everything not state-related is being decommissioned.
 
-![](./images/hibernation.gif)
+![hibernation](./images/hibernation.gif)
 
 ### Data Plane
 
@@ -21,7 +21,7 @@ Services of type `LoadBalancer` will keep their external IP addresses.
 
 ### Control Plane
 
-All components will be scaled down and no pods will remain running. ETCD data is kept safe on the disk. 
+All components will be scaled down and no pods will remain running. ETCD data is kept safe on the disk.
 
 The DNS records routing traffic for the API server are also destroyed. Trying to connect to a hibernated cluster via kubectl will result in a DNS lookup failure / no-such-host message.
 
@@ -31,6 +31,6 @@ When waking up a cluster, all control plane components will be scaled up again a
 
 The easiest way to configure hibernation schedules is via the dashboard. Of course, this is reflected in the shoot's spec and can also be maintained there. Before a cluster is hibernated, constraints in the shoot's status will be evaluated. There might be conditions (mostly revolving around mutating / validating webhooks) that would block a successful wake-up. In such a case, the constraint will block hibernation in the first place.
 
-![](./images/trigger-hibernation.png)
+![trigger-hibernation](./images/trigger-hibernation.png)
 
 To wake-up or hibernate a shoot immediately, the dashboard can be used or a patch to the shoot's spec can be applied directly.

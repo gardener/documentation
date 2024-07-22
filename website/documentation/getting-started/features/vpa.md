@@ -5,7 +5,7 @@ weight: 6
 
 ## Vertical Pod Autoscaler
 
-![](./images/vpa.gif)
+![vpa](./images/vpa.gif)
 
 When a pod's resource CPU or memory grows, it will hit a limit eventually. Either the pod has resource limits specified or the node will run short of resources. In both cases, the workload might be throttled or even terminated. When this happens, it is often desirable to increase the request or limits. To do this autonomously within certain boundaries is the goal of the Vertical Pod Autoscaler project.
 

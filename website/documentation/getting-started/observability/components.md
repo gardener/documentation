@@ -5,9 +5,10 @@ weight: 1
 
 ## Core Components
 
-![](./images/core-components.png)
+![core-components](./images/core-components.png)
 
 The core Observability components which Gardener offers out-of-the-box are:
+
 - Prometheus - for Metrics and Alerting
 - Vali - a Loki fork for Logging
 - Plutono - a Grafana fork for Dashboard visualization
@@ -16,7 +17,7 @@ Both forks are done from the last version with an Apache license.
 
 ### Control Plane Components on the Seed
 
-![](./images/control-plane-components.png)
+![control-plane-components](./images/control-plane-components.png)
 
 Prometheus, Plutono, and Vali are all located in the seed cluster. They run next to the control plane of your cluster.
 
@@ -38,28 +39,30 @@ In order to access the Gardener provided dashboards, open the `Plutono` link pro
 
 The password you can use to log in can be retrieved as shown below:
 
-![](./images/access-plutono.png)
+![access-plutono](./images/access-plutono.png)
 
 ### Accessing the Dashboards
 
 After logging in, you will be greeted with a Plutono welcome screen. Navigate to `General/Home`, as depicted with the red arrow in the next picture:
 
-![](./images/welcome_plutono.png)
+![welcome-plutono](./images/welcome-plutono.png)
 
 Then you will be able to select the dashboards. Some interesting ones to look at are:
+
 - The `Kubernetes Control Plane Status` dashboard allows you to check control plane availability during a certain time frame.
 - The `API Server` dashboard gives you an overview on which requests are done towards your apiserver and how long they take.
 - With the `Node Details` dashboard you can analyze CPU/Network pressure or memory usage for nodes.
 - The `Network Problem Detector` dashboard illustrates the results of periodic networking checks between nodes and to the APIServer.
 
 Here is a picture with the `Kubernetes Control Plane Status` dashboard.
-![](./images/plutono.png)
+
+![plutono](./images/plutono.png)
 
 ### Prometheus
 
 [Prometheus](https://prometheus.io/) is a monitoring system and a time series database. It can be queried using PromQL, the so called Prometheus Querying Language.
 
-![](./images/prometheus.png)
+![prometheus](./images/prometheus.png)
 
 This example query describes the current uptime status of the kube apiserver.
 
@@ -67,7 +70,7 @@ This example query describes the current uptime status of the kube apiserver.
 
 Time series data from Prometheus can be made visible with Plutono. Here we see how the query above which describes the uptime of a Kubernetes cluster is visualized with a Plutono dashboard.
 
-![](./images/prometheus-plutono.png)
+![prometheus-plutono](./images/prometheus-plutono.png)
 
 ### Vali Logs via Plutono
 
@@ -75,21 +78,22 @@ Vali is our logging solution. In order to access the logs provided by Vali, you 
 
 1. [Log into Plutono](#logging-into-plutono).
 
-2. Choose `Explore`, which is depicted as the little compass symbol:
+1. Choose `Explore`, which is depicted as the little compass symbol:
 
- ![](images/explore_loki.png)
+ ![explore-loki](images/explore-loki.png)
 
-3. Select `Vali` at the top left, as shown here:
+1. Select `Vali` at the top left, as shown here:
 
-![](./images/select_vali.png)
+![select-vali](./images/select-vali.png)
 
 There you can browse logs or events of the control plane components.
 
-![](./images/vali-logs.png)
+![vali-logs](./images/vali-logs.png)
 
 Here are some examples of helpful queries:
+
 - `{container_name="cluster-autoscaler" }` to get cluster-autoscaler logs and see why certain node groups were scaled up.
-- `{container_name="kube-apiserver"} |~ "error" ` to get the logs of the kube-apiserver container and filter for errors.
+- `{container_name="kube-apiserver"} |~ "error"` to get the logs of the kube-apiserver container and filter for errors.
 - `{unit="kubelet.service", nodename="ip-123"}` to get the kubelet logs of a specific node.
 - `{unit="containerd.service", nodename="ip-123"}` to retrieve the containerd logs for a specific node.
 
@@ -103,13 +107,11 @@ Here are some examples of helpful queries:
 
 Our monitoring and logging solutions Vali and Prometheus both run next to the control plane of the shoot cluster.
 
-
 #### Data Flow - Logging
 
 The following diagram allows a more detailed look at Vali and the data flow.
 
-![](./images/data-flow-logging.png)
-
+![data-flow-logging](./images/data-flow-logging.png)
 
 On the very left, we see Plutono as it displays the logs. Vali is aggregating the logs from different sources.
 
@@ -135,7 +137,7 @@ The diagram below shows the data flow of metrics.
 Plutono uses PromQL queries to query data from Prometheus. It then visualises those metrics in dashboards.
 Prometheus itself scrapes various targets for metrics, as seen in the diagram below by the arrows pointing to the Prometheus instance.
 
-![](./images/data-flow-monitoring.png)
+![data-flow-monitoring-1](./images/data-flow-monitoring-1.png)
 
 Let us have a look what metrics we scrape for debugging purposes:
 
@@ -155,9 +157,8 @@ The different control plane pods (for example, etcd, API server, and kube-contro
 
 [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) is a simple service that listens to the Kubernetes API server and generates metrics about the state of the objects. It is not concerned with metrics about the Kubernetes components, but rather it exposes metrics calculated from the status of Kubernetes objects (for example, resource requests or health of pods).
 
-
 In the following image a few example metrics, which are exposed by the various components, are listed:
-![](./images/data-flow-monitoring-2.png)
+![data-flow-monitoring-2](./images/data-flow-monitoring-2.png)
 
 We only store metrics for Gardener deployed components. Those include the Kubernetes control plane, Gardener managed system components (e.g., pods) in the kube-system namespace of the shoot cluster or systemd units on the nodes. We do not gather metrics for workload deployed in the shoot cluster. This is also shown in the picture below.
 
@@ -165,4 +166,4 @@ This means that for any workload you deploy into your shoot cluster, you need to
 
 Logs or metrics are kept up to 14 days or when a configured space limit is reached.
 
-![](./images/data-flow-monitoring-3.png)
+![data-flow-monitoring-3](./images/data-flow-monitoring-3.png)

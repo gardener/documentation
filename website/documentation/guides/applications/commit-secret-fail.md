@@ -20,13 +20,10 @@ If someone has already checked out the repository, then of course they have the 
 ## Purging a File from Your Repository's History
 
 {{% alert color="warning"  title="Warning" %}}
-If you run `git filter-branch` after stashing changes, you won't be able to retrieve your changes with other 
-stash commands. Before running `git filter-branch`, we recommend unstashing any changes you've made. To unstash the 
-last set of changes you've stashed, run `git stash show -p | git apply -R`. For more information, see [Git Tools - Stashing and Cleaning](https://git-scm.com/book/en/v2/Git-Tools-Stashing-and-Cleaning).
+If you run `git filter-branch` after stashing changes, you won't be able to retrieve your changes with other stash commands. Before running `git filter-branch`, we recommend unstashing any changes you've made. To unstash the last set of changes you've stashed, run `git stash show -p | git apply -R`. For more information, see [Git Tools - Stashing and Cleaning](https://git-scm.com/book/en/v2/Git-Tools-Stashing-and-Cleaning).
 {{% /alert %}}
 
-To illustrate how `git filter-branch` works, we'll show you how to remove your file with sensitive data from the 
-history of your repository and add it to .gitignore to ensure that it is not accidentally re-committed.
+To illustrate how `git filter-branch` works, we'll show you how to remove your file with sensitive data from the history of your repository and add it to .gitignore to ensure that it is not accidentally re-committed.
 
 **1. Navigate into the repository's working directory:**
 
@@ -38,9 +35,9 @@ cd YOUR-REPOSITORY
 
 These arguments will:
 
-* Force Git to process, but not check out, the entire history of every branch and tag
-* Remove the specified file, as well as any empty commits generated as a result
-* Overwrite your existing tags
+- Force Git to process, but not check out, the entire history of every branch and tag
+- Remove the specified file, as well as any empty commits generated as a result
+- Overwrite your existing tags
 
 ```bash
 git filter-branch --force --index-filter \
@@ -75,4 +72,3 @@ Tell your collaborators to **rebase, not merge**, any branches they created off 
 ## Related Links
 
 - [Removing Sensitive Data from a Repository](https://help.github.com/articles/removing-sensitive-data-from-a-repository/)
-- 

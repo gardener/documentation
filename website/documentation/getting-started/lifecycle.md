@@ -15,17 +15,17 @@ If we pick up the example of the ReplicaSet - a user typically creates a `deploy
 
 ## Updating the Desired State of a Shoot
 
-Based on the shoot's specifications, Gardener will create network resources on a hyperscaler, backup resources for the ETCD, credentials, and other resources, but also representations of the worker pools. Eventually, this process will result in a fully functional Kubernetes cluster. 
+Based on the shoot's specifications, Gardener will create network resources on a hyperscaler, backup resources for the ETCD, credentials, and other resources, but also representations of the worker pools. Eventually, this process will result in a fully functional Kubernetes cluster.
 
 If you change the desired state, Gardener will reconcile the shoot and run through the same cycle to ensure the actual state matches the desired state.
 
-![](./images/update-shoot-state.png)
+![update-shoot-state](./images/update-shoot-state.png)
 
 For example, the (infrastructure-specific) machine type can be changed within the shoot resource. The following reconciliation will pick up the change and initiate the creation of new nodes with a different machine type and the removal of the old nodes.
 
 ## Maintenance Window and Daily Reconciliation
 
-![](./images/maintenance-window.png)
+![maintenance-window](./images/maintenance-window.png)
 
 EVERY shoot cluster reconciles once per day during the so-called "maintenance window". You can confine the rollout of spec changes to this window.
 
@@ -33,7 +33,7 @@ Additionally, the daily reconciliation will help pick up all kind of version cha
 
 ## Impact of a Change
 
-![](./images/change-impact.png)
+![change-impact](./images/change-impact.png)
 
 It is important to be aware of the impacts that a change can have on a cluster and the workloads within it.
 
@@ -43,7 +43,7 @@ When you change the shoot spec, it can also have significant impact on the clust
 
 ## Kubernetes Version Update (Minor + Patch)
 
-![](./images/k8s-version-update.png)
+![k8s-version-update](./images/k8s-version-update.png)
 
 Some operations are rather common and have to be performed on a regular basis. Updating the Kubernetes version is one them. Patch updates cause relatively little disruption, as only the control-plane pods will be re-created with new images and the kubelets on all nodes will restart.
 
@@ -51,18 +51,19 @@ A minor version update is more impactful - it will cause all nodes to be recreat
 
 ## OS Version Update
 
-![](./images/os-update.png)
+![os-update](./images/os-update.png)
 
 The OS version is defined for each worker pool and can be changed per worker pool. You can freely switch back and forth. However, as there is no in-place update, each change will cause the entire worker pool to roll and nodes will be replaced.
 For OS versions different update strategies can be configured. Please check the [documentation](https://github.com/gardener/gardener/blob/master/docs/usage/shoot_versions.md/#update-path-for-machine-image-versions) for details.
 
 ## Available Versions​
 
-<img style="width: 80%; height: auto; margin: 0, auto" src="./images/available-versions.png"/>
+<img style="width: 80%; height: auto; margin: 0, auto" alt="available-versions" src="./images/available-versions.png"/>
 
 Gardener has a dedicated resource to maintain a list of available versions – the so-called `cloudProfile`.
 
-A cloudProfile provides information about supported​
+A cloudProfile provides information about supported​:
+
 - Kubernetes versions​
 - OS versions (and where to find those images)​
 - Regions (and their zones)​
@@ -72,7 +73,7 @@ Each shoot references a cloudProfile in order to obtain information about availa
 
 ## Version Classifications
 
-![](./images/version-classifications.png)
+![version-classifications](./images/version-classifications.png)
 
 Gardener has the following classifications for Kubernetes and OS image versions:
 
@@ -88,7 +89,7 @@ Version information is maintained in the relevant cloud profile resource. There 
 
 ## AutoUpdate / Forced Updates
 
-![](./images/auto-update.png)
+![auto-update](./images/auto-update.png)
 
 AutoUpdate for a machine image version will update all node pools to the latest supported version based on the defined update strategy. Whenever a new version is set to `supported`, the cluster will pick it up during its next maintenance window.
 
@@ -100,7 +101,7 @@ For more information, see [Shoot Kubernetes and Operating System Versioning in G
 
 ## Applying Changes to a Seed
 
-![](./images/seeds-change.png)
+![seeds-change](./images/seeds-change.png)
 
 It is important to keep in mind that a seed is just another Kubernetes cluster. As such, it has its own lifecycle (daily reconciliation, maintenance, etc.) and is also a subject to change.
 

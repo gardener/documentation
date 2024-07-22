@@ -12,7 +12,7 @@ One thing that always bothered me was that I couldn't get logs of several pods a
 
 This is something you really need a lot, at least if you run several instances of a pod behind a `deployment`. This is even more so if you don't have a Kibana or a similar setup.
 
-<img src="./images/howto-kubetail.png" width="100%">
+<img src="./images/howto-kubetail.png" alt="howto-kubetail" width="100%">
 
 ## Solution
 

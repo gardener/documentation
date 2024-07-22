@@ -36,7 +36,7 @@ Several talks were promoting Rust as an ideal [programming language for cloud-na
 
 ## Internal Developer Platforms
 
-The event showcased the importance of Internal Developer Platforms (IDPs), both commercial and open-source, in facilitating the development process across all types of organizations – from Allianz to Mercedes. [Backstage](https://backstage.io/) leads the pack by a large margin, with all relevant sessions being full or at capacity. Much effort goes into the modularization of Backstage, which was also a notable highlight at the conference. 
+The event showcased the importance of Internal Developer Platforms (IDPs), both commercial and open-source, in facilitating the development process across all types of organizations – from Allianz to Mercedes. [Backstage](https://backstage.io/) leads the pack by a large margin, with all relevant sessions being full or at capacity. Much effort goes into the modularization of Backstage, which was also a notable highlight at the conference.
 
 ## Sustainability
 

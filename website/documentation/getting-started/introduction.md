@@ -43,11 +43,12 @@ Containers (famously brought to the mainstream as "Docker") and Kubernetes are t
 
 ## Solution Space 2 - Gardener
 
-![](./images/operating-apps.png)
+![operating-apps](./images/operating-apps.png)
 
 So, Kubernetes solves a lot of problems. But how do you get a Kubernetes cluster?
 
 Either:
+
 - Buy a cluster as a service from an external vendor
 - Run a Gardener instance and host yourself a cluster with its help
 
@@ -61,7 +62,7 @@ Of course, there are plenty more reasons - from acquiring operational knowledge 
 
 ## What exactly is Gardener?
 
-![](./images/universal-kubernetes.png)
+![universal-kubernetes](./images/universal-kubernetes.png)
 
 Gardener is a system to manage Kubernetes clusters. It is driven by the same "desired state" pattern as Kubernetes itself. In fact, it is using Kubernetes to run Kubernetes.
 
@@ -75,7 +76,7 @@ On top of that, Gardener-managed Kubernetes clusters fulfill the conformance sta
 
 Have a look at the [CNCF map](https://cncf.landscape2.io/?item=platform--certified-kubernetes--installer--gardener) for more information or dive into the [testgrid](https://testgrid.k8s.io/conformance-gardener) directly.
 
-Gardener itself is open-source. Under the umbrella of [github.com/gardener](https://github.com/gardener) we develop the core functionalities as well as the extensions and you are welcome to contribute (by opening issues, feature requests or submitting code). 
+Gardener itself is open-source. Under the umbrella of [github.com/gardener](https://github.com/gardener) we develop the core functionalities as well as the extensions and you are welcome to contribute (by opening issues, feature requests or submitting code).
 
 Last time we counted, there were already 131 projects. That's actually more projects than members of the organization.
 

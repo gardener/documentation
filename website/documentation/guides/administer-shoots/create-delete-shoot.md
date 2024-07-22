@@ -10,7 +10,7 @@ scope: operator
 As you have already prepared an [example Shoot manifest](https://github.com/gardener/gardener/blob/master/example/90-shoot.yaml) in the steps described in the development documentation, please open another Terminal pane/window with the `KUBECONFIG` environment variable pointing to the Garden development cluster and send the manifest to the Kubernetes API server:
 
 ```bash
-$ kubectl apply -f your-shoot-aws.yaml
+kubectl apply -f your-shoot-aws.yaml
 ```
 
 You should see that Gardener has immediately picked up your manifest and has started to deploy the Shoot cluster.

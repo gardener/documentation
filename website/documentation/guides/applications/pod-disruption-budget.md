@@ -44,10 +44,12 @@ Misconfiguration of the PDB could block the cluster upgrade or node deletion pro
 
 - Only 1 replica is running: there is no `replicaCount` setup  or `replicaCount` for the Kubernetes controllers is set to 1
 - PDB configuration
-  ```
+
+  ```yaml
     spec:
       minAvailable: 1
-   ```
+  ```
+
 - To fix this PDB misconfiguration, you need to change the value of `replicaCount` for the Kubernetes controllers to a number greater than 1
 
 ### Case 2: HPA configuration violates PDB
@@ -56,19 +58,22 @@ In Kubernetes, a HorizontalPodAutoscaler automatically updates a workload resour
 
 - There is no `replicaCount` setup or `replicaCount` for the Kubernetes controllers is set to 1
 - PDB configuration
-  ```
+
+  ```yaml
     spec:
       minAvailable: 1
   ```
+
 - HPA configuration
-  ```
+
+  ```yaml
     spec:
       minReplicas: 1
   ```
+
 - To fix this PDB misconfiguration, you need to change the value of HPA `minReplicas` to be greater than 1
 
 ## Related Links
 
 - [Specifying a Disruption Budget for Your Application](https://kubernetes.io/docs/tasks/run-application/configure-pdb/)
 - [Horizontal Pod Autoscaling](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
-- 

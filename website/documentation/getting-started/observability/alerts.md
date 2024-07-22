@@ -6,14 +6,15 @@ weight: 2
 ## Overview
 
 In this overview, we want to present two ways to receive alerts for control plane and Gardener managed system-components:
-- Predefined Gardener alerts 
+
+- Predefined Gardener alerts
 - Custom alerts
 
 ### Predefined Control Plane Alerts
 
 In the shoot spec it is possible to configure `emailReceivers`. On this email address you will automatically receive email notifications for 16 predefined alerts of your control plane.
 
-![](./images/predefined-alert.png)
+![predefined-alert](./images/predefined-alert.png)
 
 For more information, see [Alerting](https://github.com/gardener/gardener/blob/master/docs/monitoring/alerting.md).
 
@@ -25,4 +26,4 @@ Then you can use federation, which is a Prometheus feature, to forward the metri
 
 The credentials and endpoint for the Gardener managed Prometheus are exposed over the Gardener dashboard or programmatically in the garden project as a secret (`<shoot-name>.monitoring`).
 
-![](./images/custom-alerts.png)
+![custom-alerts](./images/custom-alerts.png)

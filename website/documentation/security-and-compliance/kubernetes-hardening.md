@@ -9,6 +9,7 @@ aliases: ["/docs/guides/kubernetes-hardening/", "/docs/guides/security-and-compl
 ---
 
 ## Overview
+
 The Gardener team takes security seriously, which is why we mandate the Security Technical Implementation Guide (STIG) for Kubernetes as published by the Defense Information Systems Agency (DISA) [here](https://public.cyber.mil/stigs/downloads/). We offer Gardener adopters the opportunity to show compliance with DISA Kubernetes STIG via the compliance checker tool [diki](https://github.com/gardener/diki). The latest release in machine readable format can be found in the [STIGs Document Library](https://public.cyber.mil/stigs/downloads/?_dl_facet_stigs=container-platform) by searching for Kubernetes.
 
 ## Kubernetes Clusters Security Requirements
@@ -33,6 +34,7 @@ The Gardener team takes security seriously, which is why we mandate the Security
 |245541|Kubernetes Kubelet must not disable timeouts|:white_check_mark:| Enabled for Kubernetes v1.26 or later unless disabled explicitly via [streamingConnectionIdleTimeout](https://gardener.cloud/docs/gardener/api-reference/core/#kubeletconfig)|
 
 ### Audit Configuration
+
 |ID| Description | Secure By Default | Comments |
 | -------- | ------- | ------- | ------- |
 |242402|The Kubernetes API Server must have an audit log path set| :x: | It is the user's responsibility to configure an audit extension that meets the requirements of their organization. Depending on the audit extension implementation the audit logs do not always need to be written on the filesystem, i.e. when `--audit-webhook-config-file` is set and logs are sent to an audit backend.|
@@ -44,6 +46,7 @@ The Gardener team takes security seriously, which is why we mandate the Security
 |242465|The Kubernetes API Server audit log path must be set| :x: | It is the user's responsibility to configure an audit extension that meets the requirements of their organization. Depending on the audit extension implementation the audit logs do not always need to be written on the filesystem, i.e. when `--audit-webhook-config-file` is set and logs are sent to an audit backend.|
 
 ### End User Workload
+
 |ID| Description | Secure By Default | Comments |
 | -------- | ------- | ------- | ------- |
 |242395|Kubernetes dashboard must not be enabled|:white_check_mark:| Not installed unless you install it via [kubernetesDashboard](https://gardener.cloud/docs/gardener/api-reference/core/#addon).|
