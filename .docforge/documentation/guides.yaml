@@ -83,3 +83,12 @@ structure:
       scope: operator
       aliases: ["/enable-dual-stack-ingress-on-aws"]
     source: https://github.com/gardener/gardener-extension-provider-aws/blob/master/docs/usage/dual-stack-ingress.md
+- dir: applications
+  structure:
+  - file: shoot-pod-autoscaling-best-practices
+    frontmatter:
+      title: Shoot Pod Autoscaling Best Practices
+      level: advanced
+      category: Applications
+      publishdate: 2024-24-07
+    source: https://github.com/gardener/gardener/blob/master/docs/usage/shoot_pod_autoscaling_best_practices.md
