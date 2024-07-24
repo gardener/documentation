@@ -83,6 +83,9 @@ structure:
     - dir: usage
       structure:
       - fileTree: https://github.com/gardener/gardener/tree/master/docs/usage
+        excludeFiles:
+        - shoot_high_availability_best_practices.md
+        - shoot_pod_autoscaling_best_practices.md
   - dir: extensions
     structure:
     - file: _index.md
