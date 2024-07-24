@@ -13,4 +13,5 @@ structure:
 - file: https://github.com/gardener/diki/blob/main/docs/usage/partial-disa-k8s-stig-shoot.md
   frontmatter:
     title: Run DISA K8s STIGs Ruleset
+    weight: 20
     aliases: ["/docs/guides/security-and-compliance/partial-disa-k8s-stig-shoot/"]

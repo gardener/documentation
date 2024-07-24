@@ -1,6 +1,7 @@
 ---
 title: Regional Restrictions
 description: "How Gardener supports regional restrictions"
+weight: 40
 level: advanced
 category: Security
 publishdate: 2023-11-22
