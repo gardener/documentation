@@ -1,6 +1,7 @@
 ---
 title: Kubernetes Cluster Hardening Procedure
 description: "Compliant user management of your Gardener projects"
+weight: 10
 level: advanced
 category: Security
 publishdate: 2023-10-10

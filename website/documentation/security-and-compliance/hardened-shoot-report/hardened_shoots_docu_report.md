@@ -1,6 +1,7 @@
 ---
 title: Gardener Compliance Report
-description: The latest compliance report generated against security hardened shoot clusters.
+description: "The latest compliance report generated against security hardened shoot clusters"
+weight: 30
 category: Compliance
 ---
 
