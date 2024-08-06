@@ -14,6 +14,8 @@ structure:
   - dir: security-and-compliance
     structure:
     - manifest: ./security-and-compliance.yaml
+    - file: _index.md
+      source: /website/documentation/security-and-compliance/_index.md
     - file: report.md
       multiSource:
       - /website/documentation/security-and-compliance/hardened-shoot-report/hardened_shoots_docu_report.md
