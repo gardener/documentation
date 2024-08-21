@@ -27,8 +27,6 @@ The Gardener team takes security seriously, which is why we mandate the Security
 |245543|Kubernetes API Server must disable token authentication to protect information in transit|:white_check_mark:|Disabled unless you enable it via [enableStaticTokenKubeconfig](https://gardener.cloud/docs/gardener/api-reference/core/#kubernetes)|
 |242400|Kubernetes API server must have Alpha APIs disabled| :white_check_mark:| Disabled unless you enable it via [featureGates](https://gardener.cloud/docs/gardener/api-reference/core/#kubernetesconfig)|
 |242436|Kubernetes API server must have the ValidatingAdmissionWebhook enabled|:white_check_mark:|Enabled unless you disable it explicitly via [admissionPlugins](https://gardener.cloud/docs/gardener/api-reference/core/#kubeapiserverconfig)|
-|242398|Kubernetes DynamicAuditing must not be enabled|:white_check_mark:|Disabled unless you enable it via [featureGates](https://gardener.cloud/docs/gardener/api-reference/core/#kubernetesconfig)|
-|242399|Kubernetes DynamicKubeletConfig must not be enabled|:white_check_mark:|Disabled unless you enable it via [featureGates](https://gardener.cloud/docs/gardener/api-reference/core/#kubernetesconfig)|
 |242393|Kubernetes Worker Nodes must not have sshd service running| :x: | Active to allow debugging of network issues, but it is possible to deactivate via the [sshAccess](https://gardener.cloud/docs/gardener/api-reference/core/#core.gardener.cloud/v1beta1.SSHAccess) setting|
 |242394|Kubernetes Worker Nodes must not have the sshd service enabled| :x: | Enabled to allow debugging of network issues, but it is possible to deactivate via the [sshAccess](https://gardener.cloud/docs/gardener/api-reference/core/#core.gardener.cloud/v1beta1.SSHAccess) setting|
 |242434|Kubernetes Kubelet must enable kernel protection|:white_check_mark:|Enabled for Kubernetes v1.26 or later unless disabled explicitly via [protectKernalDefaults](https://gardener.cloud/docs/gardener/api-reference/core/#kubeletconfig)|
@@ -80,6 +78,8 @@ The Gardener team takes security seriously, which is why we mandate the Security
 |242392|The Kubernetes kubelet must enable explicit authorization.|
 |242396|Kubernetes Kubectl cp command must give expected access and results.|
 |242397|The Kubernetes kubelet staticPodPath must not enable static pods.|
+|242398|Kubernetes DynamicAuditing must not be enabled.|
+|242399|Kubernetes DynamicKubeletConfig must not be enabled.|
 |242404|Kubernetes Kubelet must deny hostname override.|
 |242405|The Kubernetes manifests must be owned by root.|
 |242406|The Kubernetes KubeletConfiguration file must be owned by root.|
