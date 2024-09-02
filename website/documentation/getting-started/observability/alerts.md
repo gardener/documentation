@@ -12,9 +12,15 @@ In this overview, we want to present two ways to receive alerts for control plan
 
 ### Predefined Control Plane Alerts
 
-In the shoot spec it is possible to configure `emailReceivers`. On this email address you will automatically receive email notifications for 16 predefined alerts of your control plane.
+In the shoot spec it is possible to configure `emailReceivers`. On this email address you will automatically receive email notifications for predefined alerts of your control plane. Such alerts are deployed in the shoot Prometheus and have visibility `owner` or `all`. For more alert details, shoot owners can use this visibility to find these alerts in their shoot Prometheus UI.
 
-![predefined-alert](./images/predefined-alert.png)
+```yaml
+spec:
+  monitoring:
+    alerting:
+      emailReceivers:
+      - john.doe@example.com
+```
 
 For more information, see [Alerting](https://github.com/gardener/gardener/blob/master/docs/monitoring/alerting.md).
 
