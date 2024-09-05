@@ -1,6 +1,6 @@
 ---
 title: Gardener Compliance Report
-description: "The latest compliance report generated against security hardened shoot clusters"
+description: The latest compliance report generated against security hardened shoot clusters
 weight: 30
 category: Compliance
 ---
@@ -326,6 +326,8 @@ providers:
   - id: disa-kubernetes-stig
     name: DISA Kubernetes Security Technical Implementation Guide
     version: v1r11
+    args:
+      maxRetries: 5
     ruleOptions:
     - ruleID: "242402"
       skip:
