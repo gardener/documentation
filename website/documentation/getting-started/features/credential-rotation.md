@@ -19,13 +19,13 @@ kubectl -n <shoot-namespace> annotate shoot <shoot-name> gardener.cloud/operatio
 kubectl -n <shoot-namespace> annotate shoot <shoot-name> gardener.cloud/operation=rotate-credentials-complete​
 ```
 
-Where possible, the rotation happens in two phases. Phase 1 introduces new keys while the old ones are still valid. Users can safely exchange keys / CA bundles wherever they are used. Afterwards, phase 2 will invalidate the old keys / CA bundles.
+Where possible, the rotation happens in two phases - Preparing and Completing. The Preparing phase introduces new keys while the old ones are still valid. Users can safely exchange keys / CA bundles wherever they are used. Afterwards, the Completing phase will invalidate the old keys / CA bundles.
 
 ## Rotation Phases
 
 ![rotation-phases](./images/rotation-phases.png)
 
-At the beginning, only the old set of credentials exists. By triggering the rotation, new credentials are created in phase 1 and both sets are valid. Now, all clients have to update and start using the new credentials. Only afterwards it is safe to trigger phase 2, which invalidates the old credentials.
+At the beginning, only the old set of credentials exists. By triggering the rotation, new credentials are created in the Preparing phase and both sets are valid. Now, all clients have to update and start using the new credentials. Only afterwards it is safe to trigger the Completing phase, which invalidates the old credentials.
 
 The shoot's status will always show the current status / phase of the rotation.
 
