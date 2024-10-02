@@ -45,7 +45,7 @@ Sustainability was a key theme, with discussions on the role of cloud-native tec
 ## Customer Stories
 
 In contrast to the Chicago KubeCon in 2023, the one in Paris outlined multiple case studies, best practices, and reference scenarios. Many enterprises and their IT teams were well represented at KubeCon - regarding sessions, sponsorships, and participation. These companies strive to excel forward, reaping the efficiency and flexibility benefits cloud-native architectures provide.
-We came across multiple companies using [Gardener](https://gardener.cloud/) as their Kubernetes management underlay – including FUGA Cloud, StackIT, and metal-stack Cloud. We eagerly anticipate more companies embracing Gardener at future events. The consistent feedback from these companies has been overwhelmingly positive—they absolutely love using Gardener and our shared excitement grows as the community thrives!
+We came across multiple companies using [Gardener](https://gardener.cloud/) as their Kubernetes management underlay – including FUGA Cloud, STACKIT, and metal-stack Cloud. We eagerly anticipate more companies embracing Gardener at future events. The consistent feedback from these companies has been overwhelmingly positive—they absolutely love using Gardener and our shared excitement grows as the community thrives!
 
 ## Notable Talks
 
