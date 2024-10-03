@@ -80,4 +80,4 @@ Gardener itself is open-source. Under the umbrella of [github.com/gardener](http
 
 Last time we counted, there were already 131 projects. That's actually more projects than members of the organization.
 
-As of today, Gardener is mainly developed by SAP employees and SAP is an "adopter" as well, among StackIT, Telekom, Finanz Informatik Technologie Services GmbH and others. For a full list of adopters, see the [Adopters page](https://github.com/gardener/documentation/blob/master/website/adopter/_index.md).
+As of today, Gardener is mainly developed by SAP employees and SAP is an "adopter" as well, among STACKIT, Telekom, Finanz Informatik Technologie Services GmbH and others. For a full list of adopters, see the [Adopters page](https://github.com/gardener/documentation/blob/master/website/adopter/_index.md).
