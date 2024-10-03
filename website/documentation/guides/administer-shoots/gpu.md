@@ -212,4 +212,3 @@ python imdb_cnn.py
 
 * [Andreas Fritzler](https://github.com/afritzler/kubernetes-gpu) from the Gardener Core team for the R&D, who has provided this setup.
 * [Build and install NVIDIA driver on CoreOS](https://github.com/squat/modulus)
-* [Nvidia Device Plugin](https://github.com/kubernetes/kubernetes/blob/master/cluster/addons/device-plugins/nvidia-gpu/daemonset.yaml)
