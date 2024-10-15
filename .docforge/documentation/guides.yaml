@@ -23,7 +23,7 @@ structure:
       scope: app-developer
       publishdate: 2023-03-17
       aliases: ["/readmore/shoot-high-availability-control-plane"]
-    source: https://github.com/gardener/gardener/blob/master/docs/usage/shoot_high_availability.md
+    source: https://github.com/gardener/gardener/blob/master/docs/usage/high-availability/shoot_high_availability.md
   - file: chaos-engineering
     frontmatter:
       title: Chaos Engineering

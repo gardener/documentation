@@ -84,6 +84,33 @@ structure:
       - fileTree: https://github.com/gardener/gardener/tree/master/docs/operations
     - dir: usage
       structure:
+      - dir: advanced
+        frontmatter:
+          aliases: ["/docs/gardener"]
+      - dir: autoscaling
+        frontmatter:
+          aliases: ["/docs/gardener"]
+      - dir: high-availability
+        frontmatter:
+          aliases: ["/docs/gardener"]
+      - dir: networking
+        frontmatter:
+          aliases: ["/docs/gardener"]
+      - dir: observability
+        frontmatter:
+          aliases: ["/docs/gardener"]
+      - dir: project
+        frontmatter:
+          aliases: ["/docs/gardener"]
+      - dir: security
+        frontmatter:
+          aliases: ["/docs/gardener"]
+      - dir: shoot
+        frontmatter:
+          aliases: ["/docs/gardener"]
+      - dir: shoot-operations
+        frontmatter:
+          aliases: ["/docs/gardener"]
       - fileTree: https://github.com/gardener/gardener/tree/master/docs/usage
         excludeFiles:
         - shoot_high_availability_best_practices.md
