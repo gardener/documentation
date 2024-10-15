@@ -82,7 +82,7 @@ structure:
       - dir: autoscaling
         frontmatter:
           aliases: ["/docs/gardener"]
-      - dir: high-avaliability
+      - dir: high-availability
         frontmatter:
           aliases: ["/docs/gardener"]
       - dir: networking
@@ -97,7 +97,7 @@ structure:
       - dir: security
         frontmatter:
           aliases: ["/docs/gardener"]
-      - dir: shoot-basics
+      - dir: shoot
         frontmatter:
           aliases: ["/docs/gardener"]
       - dir: shoot-operations
