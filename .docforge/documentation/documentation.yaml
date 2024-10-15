@@ -87,34 +87,76 @@ structure:
       - dir: advanced
         frontmatter:
           aliases: ["/docs/gardener"]
+        structure:
+        - file: _index.md
+          frontmatter:
+            title: Advanced
+            weight: 1
       - dir: autoscaling
         frontmatter:
           aliases: ["/docs/gardener"]
+        structure:
+        - file: _index.md
+          frontmatter:
+            title: Autoscaling
+            weight: 2
       - dir: high-availability
         frontmatter:
           aliases: ["/docs/gardener"]
+        structure:
+        - file: _index.md
+          frontmatter:
+            title: High Availability
+            weight: 3
       - dir: networking
         frontmatter:
           aliases: ["/docs/gardener"]
+        structure:
+        - file: _index.md
+          frontmatter:
+            title: Networking
+            weight: 4
       - dir: observability
         frontmatter:
           aliases: ["/docs/gardener"]
+        structure:
+        - file: _index.md
+          frontmatter:
+            title: Observability
+            weight: 5
       - dir: project
         frontmatter:
           aliases: ["/docs/gardener"]
+        structure:
+        - file: _index.md
+          frontmatter:
+            title: Project
+            weight: 6
       - dir: security
         frontmatter:
           aliases: ["/docs/gardener"]
+        structure:
+        - file: _index.md
+          frontmatter:
+            title: Security
+            weight: 7
       - dir: shoot
         frontmatter:
           aliases: ["/docs/gardener"]
+        structure:
+        - file: _index.md
+          frontmatter:
+            title: Shoot
+            weight: 8
       - dir: shoot-operations
         frontmatter:
           aliases: ["/docs/gardener"]
+        structure:
+        - file: _index.md
+          frontmatter:
+            title: Shoot Operations
+            weight: 9
       - fileTree: https://github.com/gardener/gardener/tree/master/docs/usage
-        excludeFiles:
-        - shoot_high_availability_best_practices.md
-        - shoot_pod_autoscaling_best_practices.md
   - dir: extensions
     structure:
     - file: _index.md
