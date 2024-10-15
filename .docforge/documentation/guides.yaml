@@ -14,7 +14,7 @@ structure:
       scope: app-developer
       publishdate: 2023-03-17
       aliases: ["/readmore/shoot-high-availability-best-practices"]
-    source: https://github.com/gardener/gardener/blob/master/docs/usage/shoot_high_availability_best_practices.md
+    source: https://github.com/gardener/gardener/blob/master/docs/usage/high-availability/shoot_high_availability_best_practices.md
   - file: control-plane
     frontmatter:
       title: Control Plane
@@ -91,4 +91,4 @@ structure:
       level: advanced
       category: Applications
       publishdate: 2024-24-07
-    source: https://github.com/gardener/gardener/blob/master/docs/usage/shoot_pod_autoscaling_best_practices.md
+    source: https://github.com/gardener/gardener/blob/master/docs/usage/autoscaling/shoot_pod_autoscaling_best_practices.md
