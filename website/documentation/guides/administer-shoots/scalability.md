@@ -108,7 +108,7 @@ To mitigate such a situation, you may configure a worker pool with a different `
 
 **Rolling of `Node` pools**:
 
-The overall number of `Nodes` is affecting the duration of a cluster's maintenance. When upgrading a `Node` pool to a new OS image or Kubernetes version, all machines will be drained and deleted, and replaced with new ones. The more `Nodes` a cluster has, the longer this process will take, given that workloads are typically protected by `PodDisruptionBudgets`. Check [Shoot Updates and Upgrades](https://github.com/gardener/gardener/blob/master/docs/usage/shoot_updates.md) for details. Be sure to take this into consideration when planning maintenance.
+The overall number of `Nodes` is affecting the duration of a cluster's maintenance. When upgrading a `Node` pool to a new OS image or Kubernetes version, all machines will be drained and deleted, and replaced with new ones. The more `Nodes` a cluster has, the longer this process will take, given that workloads are typically protected by `PodDisruptionBudgets`. Check [Shoot Updates and Upgrades](https://github.com/gardener/gardener/blob/master/docs/usage/shoot-operations/shoot_updates.md) for details. Be sure to take this into consideration when planning maintenance.
 
 **Root disk**:
 
