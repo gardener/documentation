@@ -62,7 +62,7 @@ As part of the Kubernetes network setup, the `/16` network is divided into small
 
 Now, as you create more nodes, you have a total of 256 subnets that can be assigned to nodes, thus limiting the total number of nodes of this cluster to 256.
 
-For more information, see [Shoot Networking](https://github.com/gardener/gardener/blob/master/docs/usage/shoot_networking.md).
+For more information, see [Shoot Networking](https://github.com/gardener/gardener/blob/master/docs/usage/networking/shoot_networking.md).
 
 ## Overlapping VPCs
 
@@ -205,7 +205,7 @@ In particular, a webhook should not operate on:
 
 A webhook checks node objects upon creation and has a `failurePolicy: fail`. If the webhook does not answer in time (either due to latency or because there is no pod serving it), new nodes cannot join the cluster.
 
-For more information, see [Shoot Status](https://github.com/gardener/gardener/blob/master/docs/usage/shoot_status.md#constraints).
+For more information, see [Shoot Status](https://github.com/gardener/gardener/blob/master/docs/usage/shoot/shoot_status.md#constraints).
 
 ## Conversion Webhooks
 
