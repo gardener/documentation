@@ -32,9 +32,6 @@ structure:
       source: https://github.com/gardener/gardener/blob/master/docs/README.md
     - dir: api-reference
       structure:
-      - fileTree: https://github.com/gardener/gardener/tree/master/docs/api-reference
-        excludeFiles:
-        - "README.md"
       - file: _index.md
         frontmatter:
           title: API Reference
@@ -43,6 +40,9 @@ structure:
           - "/api-reference/"
           persona: Developers
         source: https://github.com/gardener/gardener/blob/master/docs/api-reference/README.md
+      - fileTree: https://github.com/gardener/gardener/tree/master/docs/api-reference
+        excludeFiles:
+        - "README.md"
     - dir: concepts
       structure:
       - file: _index.md
@@ -78,7 +78,10 @@ structure:
           title: Monitoring
           weight: 5
           persona: Operators
+        source: https://github.com/gardener/gardener/tree/master/docs/monitoring/README.md
       - fileTree: https://github.com/gardener/gardener/tree/master/docs/monitoring
+        excludeFiles:
+        - "README.md"
     - dir: operations
       structure:
       - fileTree: https://github.com/gardener/gardener/tree/master/docs/operations
@@ -182,6 +185,8 @@ structure:
         weight: 6
       source: https://github.com/gardener/dashboard/blob/master/README.md
     - fileTree: https://github.com/gardener/dashboard/tree/master/docs
+      excludeFiles:
+      - "README.md"
   - file: gardenctl-v2
     frontmatter:
       aliases:

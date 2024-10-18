@@ -9,7 +9,7 @@ structure:
     source:  https://github.com/gardener/machine-controller-manager/blob/master/README.md
   - fileTree: https://github.com/gardener/machine-controller-manager/tree/master/docs
     excludeFiles:
-    - FAQ.md
+    - "FAQ.md"
   - dir: documents
     structure:
     - file: _index.md
@@ -52,6 +52,8 @@ structure:
       persona: Developers
     source: https://github.com/gardener/etcd-druid-api/blob/main/docs/api-reference/druid.md
   - fileTree: https://github.com/gardener/etcd-druid/tree/master/docs
+    excludeFiles:
+    - "README.md"
 - dir: dependency-watchdog
   structure:
   - file: _index.md
@@ -61,6 +63,8 @@ structure:
       description: A watchdog which actively looks out for disruption and recovery of critical services
     source: https://github.com/gardener/dependency-watchdog/blob/master/README.md
   - fileTree: https://github.com/gardener/dependency-watchdog/tree/master/docs
+    excludeFiles:
+    - "README.md"
   - dir: concepts
     structure:
     - file: _index.md
