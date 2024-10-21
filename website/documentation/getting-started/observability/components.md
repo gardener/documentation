@@ -99,7 +99,7 @@ Here are some examples of helpful queries:
 
  Choose `Help >` in order to see what options exist to filter the results.
 
- For more information on how to retrieve K8s events from the past, see [How to Access Logs](https://github.com/gardener/gardener/blob/master/docs/usage/logging.md#how-to-access-the-logs).
+ For more information on how to retrieve K8s events from the past, see [How to Access Logs](https://github.com/gardener/gardener/blob/master/docs/usage/observability/logging.md#how-to-access-the-logs).
 
 ## Detailed View
 

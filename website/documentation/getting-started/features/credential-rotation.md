@@ -29,7 +29,7 @@ At the beginning, only the old set of credentials exists. By triggering the rota
 
 The shoot's status will always show the current status / phase of the rotation.
 
-For more information, see [Credentials Rotation for Shoot Clusters](https://github.com/gardener/gardener/blob/master/docs/usage/shoot_credentials_rotation.md).
+For more information, see [Credentials Rotation for Shoot Clusters](https://github.com/gardener/gardener/blob/master/docs/usage/shoot-operations/shoot_credentials_rotation.md).
 
 ## User-Provided Credentials
 

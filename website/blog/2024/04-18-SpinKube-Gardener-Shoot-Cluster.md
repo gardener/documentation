@@ -152,7 +152,7 @@ curl http://localhost:8000/hello
 Hello world from Spin!%
 ```
 
-This sets the ground for further experimentation and testing. What the `SpinApp` CRD provides as capabilities and API can be explored through the [SpinApp CRD reference](https://www.spinkube.dev/docs/spin-operator/reference/spin-app/).
+This sets the ground for further experimentation and testing. What the `SpinApp` CRD provides as capabilities and API can be explored through the [SpinApp CRD reference](https://www.spinkube.dev/docs/reference/spin-app/).
 
 ## Cleanup
 
