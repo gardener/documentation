@@ -78,7 +78,7 @@ structure:
           title: Monitoring
           weight: 5
           persona: Operators
-        source: https://github.com/gardener/gardener/tree/master/docs/monitoring/README.md
+        source: https://github.com/gardener/gardener/blob/master/docs/monitoring/README.md
       - fileTree: https://github.com/gardener/gardener/tree/master/docs/monitoring
         excludeFiles:
         - "README.md"
