@@ -59,6 +59,11 @@ structure:
           title: Extensions
           weight: 3
           persona: Developers
+      - dir: resources
+        structure:
+        - file: _index.md
+          frontmatter:
+            title: Resources
       - fileTree: https://github.com/gardener/gardener/tree/master/docs/extensions
     - dir: deployment
       structure:
