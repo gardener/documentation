@@ -1,0 +1,42 @@
+---
+title: PromCon EU 2024 Highlights
+linkTitle: PromCon EU 2024 Highlights
+newsSubtitle: November 01, 2024
+publishdate: 2024-11-01
+authors:
+- name: Christoph Kleineweber
+  email: c.kleineweber@sap.com
+  avatar: https://avatars.githubusercontent.com/u/318416
+- name: Jeremy Rickards
+  email: jeremy.rickards@sap.com
+  avatar: https://avatars.githubusercontent.com/u/9338170
+aliases: ["/blog/2024/11/01/01"]
+---
+
+Many innovative observability and application performance management (APM) products and services were released over the last few years. They often adopt or enhance concepts that Prometheus invented more than a decade ago. However, Prometheus, as an open-source project, has never lost its importance in this fast-moving industry and is the core of Gardener's monitoring stack.
+
+On September 11th and 12th, Prometheus developers and users met for PromCon EU 2024 in Berlin. The single-track conference provided a good mix of talks about the latest Prometheus development and governance by many core contributors, as well as users who shared their experiences with monitoring in a cloud-native environment. The overarching topic of the event was the upcoming Prometheus 3.0 release. Many of the presented innovations will also be interesting for the future of Gardener's observability stack. We will take a closer look at the changes in the Prometheus and Perses projects in the remainder of this article.
+
+## Prometheus 3.0 - OpenTelemetry Everywhere
+
+A first beta version for Prometheus 3.0 was released during the first day of the conference. The main focus of the new major release is compatibility with OpenTelemetry and full support for metric ingestion using the OpenTelemetry protocol (OTLP). While OpenTelemetry and Prometheus metrics have many things in common, a lot of incompatibilities still need to be sorted out.
+
+One of the differences can be found in the naming conventions for metric and label or attribute names. Instead of simply replacing dots with underscores, the Prometheus developers decided to introduce full UTF-8 support to achieve the best possible compatibility. This plan brought up interesting syntactical challenges for PromQL queries as well as a demand for conversion when interacting with systems that still have the restrictions of previous Prometheus releases.
+
+The development of native histograms in Prometheus has been ongoing for a while. The more efficient way to represent histograms also contributes to OpenTelemetry compatibility.
+
+While Prometheus traditionally uses labels to enrich a time series with metadata, OpenTelemetry describes the concepts of metric attributes and resource attributes. While the new release contains a new `Info` PromQL function to ease the enrichment with resource attributes, the development of a new metadata store has been initiated to improve the experience even more in the long term.
+
+A new UI makes the creation of ad-hoc queries easier and provides better feedback about the structure of a query and possible mistakes to the user.
+
+The Prometheus project has reached a high level of maturity after more than 12 years of development by an active community of contributors. To ensure that the community can continue growing, a new governance model was proposed, including clearly defined roles and a new steering committee.
+
+## Perses - The New Kid in The Sandbox
+
+When visualizing observability data, Grafana has been the only available solution for a long time. The Perses project aims to establish an alternative dashboard solution under CNCF governance. Perses recently joined the CNCF as a sandbox project and has reached maturity, so first stakeholders plan to go live with Perses in the near future.
+
+While still in development, Perses already provides visually appealing panels, supports dashboards-as-code workflows, and has data-source plugins for metrics and distributed traces.
+
+## Conclusion
+
+PromCon EU 2024 brought together open-source developers, commercial vendors, and users of observability tools. The event provided excellent learning opportunities during many high-quality talks and the chance to network with peers from the community while enjoying a BBQ after the first conference day. The large and healthy Prometheus community shows that open-source observability tools can coexist with commercial solutions.
