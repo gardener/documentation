@@ -33,9 +33,9 @@ The Prometheus project has reached a high level of maturity after more than 12 y
 
 ## Perses - The New Kid in The Sandbox
 
-When visualizing observability data, Grafana has been the only available solution for a long time. The Perses project aims to establish an alternative dashboard solution under CNCF governance. Perses recently joined the CNCF as a sandbox project and has reached maturity, so first stakeholders plan to go live with Perses in the near future.
-
-While still in development, Perses already provides visually appealing panels, supports dashboards-as-code workflows, and has data-source plugins for metrics and distributed traces.
+Perses was of particular interest to us working on monitoring at Gardener. As you may know, Gardener is currently using Plutono, a fork of Grafana's most recent Apache-licensed version. This was introduced in [g/g#7318](https://github.com/gardener/gardener/pull/7318) over a year ago and intended as a stop-gap solution. Since then, we have been interested in finding a more sustainable solution, as we're cut off from the enhancements to Grafana. If you've ever made a change to a dashboard in Gardener, you'll know that there are some pain points in working with Plutono.
+Therefore, we were looking forward especially to a talk on a project known as Perses. An open-source dashboard solution that recently joined the CNCF as a sandbox project. Driven by development from Amadeus, Chronosphere, and Red Hat Openshift, Perses already offers a variety of dashboard panels, supports dashboards-as-code workflows, and has data-source plugins for metrics and distributed traces. It also brings tooling to convert Grafana dashboards to Perses, which also works for Plutono!
+Adjacent to the Perses project itself is a Perses operator which enables deployment of Perses on Kubernetes using Custom Resource Definitions (CRDs). This is not a new concept - we also use the Prometheus operator in Gardener and would like to use it also for Perses. One of the areas in which Perses is still lacking is the ability to use it to visualize logs, a key feature of Plutono. With work on the plugin architecture continuing, we hope to be able to work on this feature in the not-too-distant future. We are excited to see how Perses will develop and are looking forward to contributing to the project.
 
 ## Conclusion
 
