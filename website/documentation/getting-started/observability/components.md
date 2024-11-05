@@ -33,11 +33,9 @@ Gardener only provides a monitoring stack if the cluster is not of `purpose: tes
 
 ### Logging into Plutono
 
-Let us start by giving some visual hints on how to access Plutono. [Plutono](https://github.com/credativ/plutono#plutono) allows us to query logs and metrics and visualise those in form of dashboards. Plutono is shipped ready-to-use with a Gardener shoot cluster.
+Let us start by giving some visual hints on how to access Plutono. [Plutono](https://github.com/credativ/plutono#plutono) allows us to query logs and metrics and visualize those in form of dashboards. Plutono is shipped ready-to-use with a Gardener shoot cluster.
 
-In order to access the Gardener provided dashboards, open the `Plutono` link provided in the Gardener dashboard and use the username and password provided next to it.
-
-The password you can use to log in can be retrieved as shown below:
+In order to access the Gardener provided dashboards, open the `Plutono` link provided in the Gardener dashboard. You will be automatically logged in through OIDC based authentication:
 
 ![access-plutono](./images/access-plutono.png)
 
