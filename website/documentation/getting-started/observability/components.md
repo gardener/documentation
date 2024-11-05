@@ -39,6 +39,8 @@ In order to access the Gardener provided dashboards, open the `Plutono` link pro
 
 ![access-plutono](./images/access-plutono.png)
 
+Programmatic access is still possible via the non-OIDC ingress using the credentials from the `<clustername>.monitoring` secret. It contains the HTTP basic auth credentials in base64-encoded form, as well as the Plutono ingress URL. The Prometheus URL can be derived from the Plutono URL by replacing the `gu` prefix with `p`.
+
 ### Accessing the Dashboards
 
 After logging in, you will be greeted with a Plutono welcome screen. Navigate to `General/Home`, as depicted with the red arrow in the next picture:
