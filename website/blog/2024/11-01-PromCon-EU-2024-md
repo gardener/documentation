@@ -13,9 +13,12 @@ authors:
 aliases: ["/blog/2024/11/01/01"]
 ---
 
+
 Many innovative observability and application performance management (APM) products and services were released over the last few years. They often adopt or enhance concepts that Prometheus invented more than a decade ago. However, Prometheus, as an open-source project, has never lost its importance in this fast-moving industry and is the core of Gardener's monitoring stack.
 
 On September 11th and 12th, Prometheus developers and users met for PromCon EU 2024 in Berlin. The single-track conference provided a good mix of talks about the latest Prometheus development and governance by many core contributors, as well as users who shared their experiences with monitoring in a cloud-native environment. The overarching topic of the event was the upcoming Prometheus 3.0 release. Many of the presented innovations will also be interesting for the future of Gardener's observability stack. We will take a closer look at the changes in the Prometheus and Perses projects in the remainder of this article.
+
+![alt text](images/promcon2024.jpeg)
 
 ## Prometheus 3.0 - OpenTelemetry Everywhere
 
