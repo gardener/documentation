@@ -9,6 +9,7 @@ weight: 60
 
 Here are the guidelines you should follow when contributing larger changes to Gardener:
 
+* We strongly recommend to write a Gardener Enhancement Proposal ([GEP](https://github.com/gardener/gardener/tree/master/docs/proposals)) to get a common understanding what you want to achieve. This makes it easier for reviewers to understand the big picture.
 * Avoid proposing a big change in one single PR. Instead, split your work into multiple stages which are independently mergeable and create one PR for each stage. For example, if introducing a new API resource and its controller, these stages could be:
   * API resource types, including defaults and generated code.
   * API resource validation.
