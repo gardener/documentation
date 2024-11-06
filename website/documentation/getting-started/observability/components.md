@@ -39,7 +39,7 @@ In order to access the Gardener provided dashboards, open the `Plutono` link pro
 
 ![access-plutono](./images/access-plutono.png)
 
-Access is still possible via the non-OIDC ingress using the credentials from the `<clustername>.monitoring` secret. It contains the HTTP basic auth credentials in base64-encoded form, as well as the Plutono ingress URL. The Prometheus URL can be derived from the Plutono URL by replacing the `gu` prefix with `p`.
+Access is still possible via the non-OIDC ingress using the credentials from the `<clustername>.monitoring` secret. It contains the HTTP basic auth credentials in base64-encoded form, as well as the Plutono ingress URL. The Plutono URL is present as an annotation on the `.monitoring` secret. It can be fetched with `kubectl get secret <clustername>.monitoring -o jsonpath="{.metadata.annotations.url}"`. The Prometheus URL can be derived from the Plutono URL by replacing the `gu` prefix with `p`.
 
 {{% alert color="warning" title="Warning" %}}
 While still available, basic authentication is deprecated. You are advised to use OIDC based authentication.
