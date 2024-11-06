@@ -42,7 +42,7 @@ In order to access the Gardener provided dashboards, open the `Plutono` link pro
 Access is still possible via the non-OIDC ingress using the credentials from the `<clustername>.monitoring` secret. It contains the HTTP basic auth credentials in base64-encoded form, as well as the Plutono ingress URL. The Prometheus URL can be derived from the Plutono URL by replacing the `gu` prefix with `p`.
 
 {{% alert color="warning" title="Warning" %}}
-While still available, basic authentication via username and password has been deprecated. you are advised to use OIDC based authentication.
+While still available, basic authentication is deprecated. You are advised to use OIDC based authentication.
 {{% /alert %}}
 
 ### Accessing the Dashboards
