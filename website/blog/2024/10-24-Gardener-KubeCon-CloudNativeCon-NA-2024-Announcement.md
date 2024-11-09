@@ -10,8 +10,6 @@ authors:
 aliases: ["/blog/2024/10/24/01"]
 ---
 
-# Gardener at KubeCon + CloudNativeCon North America 2024
-
 [KubeCon + CloudNativeCon NA](https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/) is just around the corner, taking place this year amidst the stunning backdrop of the Rocky Mountains in Salt Lake City, Utah.
 
 This year, we're thrilled to announce that the [Gardener open-source project](https://gardener.cloud/) will have its own booth at the event.
