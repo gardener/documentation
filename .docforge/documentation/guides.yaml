@@ -45,7 +45,7 @@ structure:
       description: "Setup Gardener-managed DNS records in cluster."
       level: beginner
       last_reviewed: 07.19.2022
-      publishdate: 2022-19-07
+      publishdate: 2022-07-19
       category: Networking
       scope: operator
       aliases: ["/managing-dns-with-gardener", "/docs/015-guides/030-networking-lb/managed-dns"]
@@ -56,7 +56,7 @@ structure:
       description: "Use the Gardener cert-management to get fully managed, publicly trusted TLS certificates"
       level: beginner
       last_reviewed: 07.29.2022
-      publishdate: 2022-29-07
+      publishdate: 2022-07-29
       category: Networking
       scope: operator
       aliases: ["/managing-certificates-with-gardener", "/docs/015-guides/030-networking-lb/managed-certs-from-lets-encrypt"]
@@ -67,7 +67,7 @@ structure:
       description: "Use the Gardener cert-management to get fully managed, publicly trusted TLS certificates"
       level: beginner
       last_reviewed: 07.29.2022
-      publishdate: 2022-29-07
+      publishdate: 2022-07-29
       category: Networking
       scope: operator
       aliases: ["/managing-certificates-with-gardener-default-domain"]
@@ -78,7 +78,7 @@ structure:
       description: "Use IPv4/IPv6 (dual-stack) Ingress in an IPv4 single-stack cluster on AWS"
       level: beginner
       last_reviewed: 11.16.2023
-      publishdate: 2023-16-11
+      publishdate: 2023-11-16
       category: Networking
       scope: operator
       aliases: ["/enable-dual-stack-ingress-on-aws"]
@@ -90,5 +90,5 @@ structure:
       title: Shoot Pod Autoscaling Best Practices
       level: advanced
       category: Applications
-      publishdate: 2024-24-07
+      publishdate: 2024-07-24
     source: https://github.com/gardener/gardener/blob/master/docs/usage/autoscaling/shoot_pod_autoscaling_best_practices.md
