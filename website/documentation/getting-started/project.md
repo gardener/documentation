@@ -19,7 +19,7 @@ In Gardener, a user can have one of five different roles: `owner`, `admin`, `vie
 
 Projects are getting reconciled by Gardener's project-controller, a component of Gardener's controller manager. The status of the last reconcilation, along with any potential failures, will be recorded in the project's `status` field.
 
-For more information, see [Projects](https://github.com/gardener/gardener/blob/master/docs/usage/projects.md).
+For more information, see [Projects](https://github.com/gardener/gardener/blob/master/docs/usage/project/projects.md).
 
 In case you are interested, you can also view the source code for:
 

@@ -104,7 +104,7 @@ Manual updates are required if you would like to do a minor update of the Kubern
 Manual updates are either executed immediately (default) or can be confined to the maintenance time window.  
 Choosing the latter option causes changes to the cluster (for example, node pool rolling-updates) and the subsequent reconciliation to only predictably happen during a defined time window (available since [Gardener version 1.4](https://github.com/gardener/gardener/releases/tag/v1.4.0)).
 
-For more information, see [Confine Specification Changes/Update Roll Out](https://github.com/gardener/gardener/blob/master/docs/usage/shoot_maintenance.md#confine-specification-changesupdates-roll-out).
+For more information, see [Confine Specification Changes/Update Roll Out](https://github.com/gardener/gardener/blob/master/docs/usage/shoot/shoot_maintenance.md#confine-specification-changesupdates-roll-out).
 
 {{% alert color="warning" title="Warning" %}}
 Before applying such an update on minor or major releases, operators should check for all the breaking changes introduced in the target Kubernetes release changelog.
