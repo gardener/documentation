@@ -6,15 +6,19 @@ menu: sln
 persona: Developers
 weight: 11
 ---
+
 # Contributing to Gardener
 
 ## Welcome
+
 Welcome to the Contributor section of Gardener. Here you can learn how it is possible for you to contribute your ideas and expertise to the project and have it grow even more.
 
 ## Prerequisites
-Before you begin contributing to Gardener, there are a couple of things you should become familiar with and complete first. 
+
+Before you begin contributing to Gardener, there are a couple of things you should become familiar with and complete first.
 
 ### Code of Conduct
+
 All members of the Gardener community must abide by the
 [Contributor Covenant](https://www.contributor-covenant.org/version/2/1/code_of_conduct/).
 Only by respecting each other can we develop a productive, collaborative community.
@@ -25,6 +29,7 @@ Instances of abusive, harassing, or otherwise unacceptable behavior may be repor
 Due to legal reasons, contributors will be asked to accept a Developer Certificate of Origin (DCO) before they submit the first pull request to this projects, this happens in an automated fashion during the submission process. We use [the standard DCO text of the Linux Foundation](https://developercertificate.org/).
 
 ### License
+
 Your contributions to Gardener must be licensed properly:
 
 * Code contributions must be licensed under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0)
@@ -90,12 +95,6 @@ If you want to add documentation that already exists on GitHub to the website, y
 ## Issues and Planning
 
 We use GitHub issues to track bugs and enhancement requests. Please provide as much context as possible when you open an issue. The information you provide must be comprehensive enough to reproduce that issue for the assignee. Therefore, contributors may use but aren't restricted to the issue template provided by the Gardener maintainers.
-
-ZenHub is used for planning:
-
-* Install the [ZenHub Chrome plugin](https://chrome.google.com/webstore/detail/zenhub-for-github/ogcgkffhplmphkaahpmffcafajaocjbd)
-* Login to [ZenHub](https://www.zenhub.com/)
-* Open the [Gardener ZenHub workspace](https://app.zenhub.com/workspace/o/gardener/gardener)
 
 ## Security Release Process
 
