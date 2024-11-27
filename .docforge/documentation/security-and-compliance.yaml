@@ -5,7 +5,7 @@ structure:
   - hardened-shoot-report/hardened_shoots_docu_report.md
   - hardened-shoot-report/hardened_shoots_report.md
   - kubernetes-hardening.md
-- file: https://github.com/gardener/diki/blob/main/docs/usage/partial-disa-k8s-stig-shoot.md
+- file: https://github.com/gardener/diki/blob/main/docs/usage/disa-k8s-stig-shoot.md
   frontmatter:
     title: Run DISA K8s STIGs Ruleset
     weight: 20
