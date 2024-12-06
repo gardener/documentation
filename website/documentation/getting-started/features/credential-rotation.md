@@ -9,17 +9,33 @@ There are plenty of keys in Gardener. The ETCD needs one to store resources like
 
 ![keys](./images/keys.png)
 
-All of these keys share a common property: they are managed by Gardener. Rotating them, however, is potentially very disruptive. Hence, Gardener does not do it automatically, but offers you means to perform these tasks easily. For a single cluster, you may conveniently use the dashboard. Of course, it is also possible to do the same by annotating the shoot resource accordingly:
+All of these keys share a common property: they are managed by Gardener.
+Rotating them, however, is potentially very disruptive.
+Hence, Gardener does not do it automatically, but offers you means to perform these tasks easily.
+For a single cluster, you may conveniently use the dashboard.
+
+![Prepare the rotation of all credentials from the Gardener dashboard](./images/prepare-rotation-of-all-credentials.png)
+
+Where possible, the rotation happens in two phases - Preparing and Completing.
+
+### Prepare Rotation of All Credentials
+
+The Preparing phase introduces new keys while the old ones are still valid.
+Users can safely exchange keys / CA bundles wherever they are used.
+It is possible to start the preparation by annotating the shoot resource accordingly:
 
 ```bash
 kubectl -n <shoot-namespace> annotate shoot <shoot-name> gardener.cloud/operation=rotate-credentials-start
 ```
 
-```bash
-kubectl -n <shoot-namespace> annotate shoot <shoot-name> gardener.cloud/operation=rotate-credentials-complete​
-```
+### Complete Rotation of All Credentials
 
-Where possible, the rotation happens in two phases - Preparing and Completing. The Preparing phase introduces new keys while the old ones are still valid. Users can safely exchange keys / CA bundles wherever they are used. Afterwards, the Completing phase will invalidate the old keys / CA bundles.
+Afterward, the Completing phase will invalidate the old keys / CA bundles.
+Annotate the shoot resource accordingly:
+
+```bash
+kubectl -n <shoot-namespace> annotate shoot <shoot-name> gardener.cloud/operation=rotate-credentials-complete
+```
 
 ## Rotation Phases
 
