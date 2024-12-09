@@ -10,3 +10,7 @@ structure:
     title: Run DISA K8s STIGs Ruleset
     weight: 20
     aliases: ["/docs/guides/security-and-compliance/partial-disa-k8s-stig-shoot/"]
+- file: /website/documentation/getting-started/features/credential-rotation.md
+  frontmatter:
+    title: Credential Rotation
+    weight: 25
