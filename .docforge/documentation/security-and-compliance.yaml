@@ -13,4 +13,4 @@ structure:
 - file: /website/documentation/getting-started/features/credential-rotation.md
   frontmatter:
     title: Credential Rotation
-    weight: 25
+    weight: 37

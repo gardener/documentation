@@ -43,6 +43,7 @@ structure:
     frontmatter:
       title: Managing DNS with Gardener
       description: "Setup Gardener-managed DNS records in cluster."
+      weight: 50
       level: beginner
       last_reviewed: 07.19.2022
       publishdate: 2022-07-19
@@ -54,6 +55,7 @@ structure:
     frontmatter:
       title: Manage Certificates with Gardener
       description: "Use the Gardener cert-management to get fully managed, publicly trusted TLS certificates"
+      weight: 30
       level: beginner
       last_reviewed: 07.29.2022
       publishdate: 2022-07-29
@@ -65,6 +67,7 @@ structure:
     frontmatter:
       title: Manage Certificates with Gardener for Default Domain
       description: "Use the Gardener cert-management to get fully managed, publicly trusted TLS certificates"
+      weight: 40
       level: beginner
       last_reviewed: 07.29.2022
       publishdate: 2022-07-29
@@ -76,6 +79,7 @@ structure:
     frontmatter:
       title: Enable IPv4/IPv6 (dual-stack) Ingress on AWS
       description: "Use IPv4/IPv6 (dual-stack) Ingress in an IPv4 single-stack cluster on AWS"
+      weight: 10
       level: beginner
       last_reviewed: 11.16.2023
       publishdate: 2023-11-16
@@ -83,6 +87,16 @@ structure:
       scope: operator
       aliases: ["/enable-dual-stack-ingress-on-aws"]
     source: https://github.com/gardener/gardener-extension-provider-aws/blob/master/docs/usage/dual-stack-ingress.md
+  - file: ipv6.md
+    frontmatter:
+      title: Support for IPv6 on AWS
+      weight: 20
+      level: beginner
+      last_reviewed: 11.12.2024
+      publishdate: 2024-12-11
+      category: Networking
+      scope: operator
+    source: https://github.com/gardener/gardener-extension-provider-aws/blob/master/docs/usage/ipv6.md
 - dir: applications
   structure:
   - file: shoot-pod-autoscaling-best-practices.md
