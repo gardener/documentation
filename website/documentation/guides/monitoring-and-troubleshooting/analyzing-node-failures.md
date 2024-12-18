@@ -18,7 +18,7 @@ There are a few potential reasons why nodes can be removed:
   - the K8s/OS version
   - changing machine types
 
-Helpful information can be obtained by using the logging stack. See [Logging Stack](https://github.com/gardener/gardener/blob/master/docs/usage/logging.md) for how to utilize the logging information in Gardener.
+Helpful information can be obtained by using the logging stack. See [Logging Stack](https://github.com/gardener/gardener/blob/master/docs/usage/observability/logging.md) for how to utilize the logging information in Gardener.
 
 ## Find Out Whether the Node Was `unhealthy`
 

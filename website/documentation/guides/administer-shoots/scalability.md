@@ -90,8 +90,8 @@ The scalability of `Nodes` is subject to a range of limiting factors. Some of th
 
 **CIDR**:
 
-Upon cluster creation, you have to specify or use the default values for several network segments. There are dedicated CIDRs for services, `Pods`, and `Nodes`. Each defines a range of IP addresses available for the individual resource type. Obviously, the maximum of possible `Nodes` is capped by the CIDR for `Nodes`. 
-However, there is a second limiting factor, which is the pod CIDR combined with the `nodeCIDRMaskSize`. This mask is used to divide the pod CIDR into smaller subnets, where each blocks gets assigned to a node. With a `/16` pod network and a `/24` nodeCIDRMaskSize, a cluster can scale up to 256 `Nodes`. Please check [Shoot Networking](https://github.com/gardener/gardener/blob/master/docs/usage/shoot_networking.md) for details.
+Upon cluster creation, you have to specify or use the default values for several network segments. There are dedicated CIDRs for services, `Pods`, and `Nodes`. Each defines a range of IP addresses available for the individual resource type. Obviously, the maximum of possible `Nodes` is capped by the CIDR for `Nodes`.
+However, there is a second limiting factor, which is the pod CIDR combined with the `nodeCIDRMaskSize`. This mask is used to divide the pod CIDR into smaller subnets, where each blocks gets assigned to a node. With a `/16` pod network and a `/24` nodeCIDRMaskSize, a cluster can scale up to 256 `Nodes`. Please check [Shoot Networking](https://github.com/gardener/gardener/blob/master/docs/usage/networking/shoot_networking.md) for details.
 
 Even though a `/24` nodeCIDRMaskSize translates to a theoretical 256 pod IP addresses per `Node`, the `maxPods` setting should be less than 1/2 of this value. This gives the system some breathing room for churn and minimizes the risk for strange effects like mis-routed packages caused by immediate re-use of IPs.
 
@@ -130,7 +130,7 @@ While webhooks provide powerful means to manage a cluster, they are equally powe
 
 Hence, you have to ensure proper sizing, quick processing time, and availability of the webhook serving `Pods` when deploying webhooks. Please consult Dynamic Admission Control ([Availability](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/#availability) and [Timeouts](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/#timeouts) sections) for details. You should also be aware of the time added to any request that has to go through a webhook, as the `kube-apiserver` sends the request for mutation / validation to another pod and waits for the response. The more resources being subject to an external webhook, the more likely this will become a bottleneck when having a high churn rate on resources. Within the Gardener monitoring stack, you can check the extra time per webhook via the "API Server (Admission Details)" dashboard, which has a panel for "Duration per Webhook".
 
-In Gardener, any webhook timeout should be less than 15 seconds. Due to the separation of Kubernetes data-plane (shoot) and control-plane (seed) in Gardener, the extra hop from `kube-apiserver` (control-plane) to webhook (data-plane) is more expensive. Please check [Shoot Status](https://github.com/gardener/gardener/blob/master/docs/usage/shoot_status.md) for more details.
+In Gardener, any webhook timeout should be less than 15 seconds. Due to the separation of Kubernetes data-plane (shoot) and control-plane (seed) in Gardener, the extra hop from `kube-apiserver` (control-plane) to webhook (data-plane) is more expensive. Please check [Shoot Status](https://github.com/gardener/gardener/blob/master/docs/usage/shoot/shoot_status.md) for more details.
 
 ### Custom Resource Definitions
 

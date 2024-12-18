@@ -45,7 +45,7 @@ For more information, see [Semantic Versioning](http://semver.org/).
 
 Gardener allows to classify versions in the `CloudProfile` as `preview`, `supported`, `deprecated`, or `expired`. During maintenance operations, `preview` versions are excluded from updates, because they’re often recently released versions that haven’t yet undergone thorough testing and may contain bugs or security issues.
 
-For more information, see [Version Classifications](https://github.com/gardener/gardener/blob/master/docs/usage/shoot_versions.md#version-classifications).
+For more information, see [Version Classifications](https://github.com/gardener/gardener/blob/master/docs/usage/shoot-operations/shoot_versions.md#version-classifications).
 
 ## Let Gardener Manage Your Updates
 

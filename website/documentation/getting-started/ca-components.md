@@ -113,7 +113,7 @@ But most importantly, it is pre-defined and not configurable by the end user.
 
 Therefore, the "external" domain name exists. It is either a user owned domain or can be pre-defined for a Gardener landscape. It is used by any end user accessing the cluster's API server.
 
-For more information, see [Contract: DNSRecord Resources](https://github.com/gardener/gardener/blob/master/docs/extensions/dnsrecord.md).
+For more information, see [Contract: DNSRecord Resources](https://github.com/gardener/gardener/blob/master/docs/extensions/resources/dnsrecord.md).
 
 ## Features and Observability
 
@@ -184,9 +184,9 @@ When calico is failing on a node, no new pods can start there as they don't get 
 
 ![kube-system-namespace-3](./images/kube-system-namespace-3.png)
 
-For a normal service in Kubernetes, a cluster-internal DNS record that resolves to the service's ClusterIP address is being created. In Gardener (similar to most other Kubernetes offerings) CoreDNS takes care of this aspect. To reduce the load when it comes to upstream DNS queries, Gardener deploys a DNS cache to each node by default. It will also forward queries outside the cluster's search domain directly to the upstream DNS server. For more information, see [NodeLocalDNS Configuration](https://github.com/gardener/gardener/blob/master/docs/usage/node-local-dns.md) and [DNS autoscaling](https://github.com/gardener/gardener/blob/master/docs/usage/dns-autoscaling.md).
+For a normal service in Kubernetes, a cluster-internal DNS record that resolves to the service's ClusterIP address is being created. In Gardener (similar to most other Kubernetes offerings) CoreDNS takes care of this aspect. To reduce the load when it comes to upstream DNS queries, Gardener deploys a DNS cache to each node by default. It will also forward queries outside the cluster's search domain directly to the upstream DNS server. For more information, see [NodeLocalDNS Configuration](https://github.com/gardener/gardener/blob/master/docs/usage/networking/node-local-dns.md) and [DNS autoscaling](https://github.com/gardener/gardener/blob/master/docs/usage/autoscaling/dns-autoscaling.md).
 
-In addition to this optimization, Gardener allows [custom DNS configuration to be added to CoreDNS](https://github.com/gardener/gardener/blob/master/docs/usage/custom-dns-config.md) via a dedicated ConfigMap.
+In addition to this optimization, Gardener allows [custom DNS configuration to be added to CoreDNS](https://github.com/gardener/gardener/blob/master/docs/usage/networking/custom-dns-config.md) via a dedicated ConfigMap.
 
 In case this customization is related to non-Kubernetes entities, you may configure the shoot's NodeLocalDNS to forward to CoreDNS instead of upstream (`disableForwardToUpstreamDNS: true`).
 

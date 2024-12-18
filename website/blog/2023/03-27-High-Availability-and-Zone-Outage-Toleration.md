@@ -355,7 +355,7 @@ spec:
 
 #### On `spec.controlPlane.highAvailability.failureTolerance.type`
 
-If set, determines the degree of failure tolerance for your control plane. `zone` is preferred, but only available if your control plane resides in a region with 3+ zones. See [above](#control-plane) and the [docs](https://github.com/gardener/gardener/blob/master/docs/usage/shoot_high_availability.md).
+If set, determines the degree of failure tolerance for your control plane. `zone` is preferred, but only available if your control plane resides in a region with 3+ zones. See [above](#control-plane) and the [docs](https://github.com/gardener/gardener/blob/master/docs/usage/high-availability/shoot_high_availability.md).
 
 #### On `spec.kubernetes.kubeAPIServer.defaultUnreachableTolerationSeconds` and `defaultNotReadyTolerationSeconds`
 
@@ -394,7 +394,7 @@ This configures horizontal pod autoscaling in Gardener-managed clusters. See [ab
 
 #### On `spec.kubernetes.verticalPodAutoscaler...`
 
-This configures vertical pod autoscaling in Gardener-managed clusters. See [above](#resources-vertical-scaling) and the [docs](https://github.com/kubernetes/autoscaler/blob/master/vertical-pod-autoscaler/FAQ.md) for the detailed fields.
+This configures vertical pod autoscaling in Gardener-managed clusters. See [above](#resources-vertical-scaling) and the [docs](https://github.com/kubernetes/autoscaler/blob/master/vertical-pod-autoscaler/docs/faq.md) for the detailed fields.
 
 #### On `spec.kubernetes.clusterAutoscaler...`
 
