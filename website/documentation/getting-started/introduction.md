@@ -33,7 +33,7 @@ However, plain containers do not help with resilience or scaling. Therefore, we 
 
 ### Orchestration
 
-"Classical" orchestration that just follows the "notes" and moves from `state A` to `state B` doesn't solve all of our problems. We need something else.
+"Classical" orchestration that just follows the "notes" and moves from `state A` to `state B` doesn't solve all of our problems as there are a lot of events from the environment that we should react to. Especially if they can lead to a broken system. We need something else.
 
 Kubernetes operates on the principle of "desired state". With it, you write a construction plan, then have controllers cycle through "observe -> analyze -> act" and transition the actual to the desired state. Those reconciliations ensure that whatever breaks there is a path back to a healthy state.
 
