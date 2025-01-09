@@ -1,0 +1,14 @@
+structure:
+- dir: content
+  structure:
+  - manifest: ./website.yaml
+- dir: assets
+  structure:
+  - fileTree: https://github.com/gardener/website-generator/tree/master/hugo/assets
+- dir: layouts
+  structure:
+  - fileTree: https://github.com/gardener/website-generator/tree/master/hugo/layouts
+- dir: static
+  structure:
+  - fileTree: https://github.com/gardener/website-generator/tree/master/hugo/static
+- file: https://github.com/gardener/website-generator/blob/master/hugo/config.toml
