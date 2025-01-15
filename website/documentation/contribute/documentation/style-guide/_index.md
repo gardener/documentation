@@ -22,7 +22,7 @@ These are guidelines, not rules. Use your best judgment, and feel free to propos
 
 ### Documentation Types Overview
 
-The following table summarizes the types of documentation and their mapping to the SAP UA taxonomy. Every topic you create will fall into one of these categories.
+The following table summarizes the types of documentation and their mapping to the UA taxonomy. Every topic you create will fall into one of these categories.
 
 | Gardener Content Type | Definition | Example | Content | Comparable UA Content Type |
 |:----|:-----|:-----|:----|:----|
@@ -120,4 +120,3 @@ If you want to add an image to your topic, it is recommended to follow the guide
 - [Contributors Guide](../../_index.md)
 - [Shortcodes](../shortcodes.md)
 - [Images](../images.md)
-- [SAPterm](https://www.sapterm.com/)
