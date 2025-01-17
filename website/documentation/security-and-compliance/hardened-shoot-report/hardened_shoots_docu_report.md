@@ -27,7 +27,8 @@ apiVersion: core.gardener.cloud/v1beta1
 metadata:
   name: aws
 spec:
-  cloudProfileName: aws
+  cloudProfile:
+    name: aws
   kubernetes:
     kubeAPIServer:
       admissionPlugins:
@@ -103,7 +104,8 @@ apiVersion: core.gardener.cloud/v1beta1
 metadata:
   name: azure
 spec:
-  cloudProfileName: az
+  cloudProfile:
+    name: az
   kubernetes:
     kubeAPIServer:
       admissionPlugins:
@@ -176,7 +178,8 @@ apiVersion: core.gardener.cloud/v1beta1
 metadata:
   name: gcp
 spec:
-  cloudProfileName: gcp
+  cloudProfile:
+    name: gcp
   kubernetes:
     kubeAPIServer:
       admissionPlugins:
@@ -247,7 +250,8 @@ apiVersion: core.gardener.cloud/v1beta1
 metadata:
   name: openstack
 spec:
-  cloudProfileName: converged-cloud-cp
+  cloudProfile:
+    name: converged-cloud-cp
   kubernetes:
     kubeAPIServer:
       admissionPlugins:
