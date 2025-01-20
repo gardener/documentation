@@ -29,7 +29,7 @@ In order to delete your cluster, you have to set an annotation confirming the de
 
 (the `hack` bash script can be found at [GitHub](https://github.com/gardener/gardener/blob/master/hack/usage/delete))
 
-## Configure a Shoot Cluster Aalert Receiver
+## Configure a Shoot Cluster Alert Receiver
 
 The receiver of the Shoot alerts can be configured from the `.spec.monitoring.alerting.emailReceivers` section in the Shoot specification. The value of the field has to be a list of valid mail addresses.
 
