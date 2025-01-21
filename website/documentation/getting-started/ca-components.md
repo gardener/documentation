@@ -172,7 +172,7 @@ The CNI plugin ensures pod-to-pod communication within the cluster. As part of i
 
 On the other hand, kube-proxy implements the actual service routing (cilium can do this as well and no kube-proxy is needed). Whenever packets go to a service's IP address, they are re-routed based on IPtables rules maintained by kube-proxy to reach the actual pods backing the service. kube-proxy operates on endpoint-slices and manages IPtables on EVERY node. In addition, kube-proxy provides a health check endpoint for services with `externalTrafficPolicy=local`, where traffic only gets to nodes that run a pod matching the selector of the service.
 
-The egress filter implements basic filtering of outgoing traffic in order to satisfy policy compliance requirements.
+The [egress filter](https://github.com/gardener/gardener-extension-shoot-networking-filter/blob/master/README.md) implements basic filtering of outgoing traffic in order to satisfy standard policy compliance requirements.
 
 And what happens if the pods crashloop, are missing or otherwise broken?
 
