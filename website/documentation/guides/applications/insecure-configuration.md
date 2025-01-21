@@ -29,7 +29,7 @@ Here is a summary of the findings:
 
 - Exploration of the control plane network with malicious HTTP-redirects
   - Root cause: See detailed description below.
-  - Risk: Provoked error message contains full HTTP payload from anexisting endpoint which can be exploited. The contents of the payload depends on your setup, but can potentially be user data, configuration data, and credentials.
+  - Risk: Provoked error message contains full HTTP payload from an existing endpoint which can be exploited. The contents of the payload depends on your setup, but can potentially be user data, configuration data, and credentials.
     - Recommendation:
       - Use the latest version of Gardener
       - Ensure the seed cluster's container network supports network policies. Clusters that have been created with [Kubify](https://github.com/gardener/kubify) are not protected as Flannel is used there which doesn't support network policies.

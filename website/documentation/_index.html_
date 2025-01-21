@@ -183,7 +183,7 @@ title: "Gardener"
 					<h1>Project members</h1>
 			</div>
 			<div class="description">
-					SAP is working on Gardener since mid 2017 and is focused on building up a project that can easily be evolved and extended. 
+					Gardener has been in development since mid 2017, with focus on being a project that can easily be evolved and extended. 
 					Consequently, we are looking for further partners and contributors to the project now. As outlined above, we completely rely on Kubernetes primitives, add-ons, and specifications and adapt its innovative cloud native approach. 
 					We are looking forward to aligning with and contributing to the Kubernetes community, especially with the upcoming cluster and machine specifications from SIG Cluster Lifecycle.
 			</div>

@@ -35,16 +35,16 @@ Example:
 ```html
 <picture>
     <!-- default, laptop-width-L max 1200px -->
-    <source srcset="https://github.tools.sap/kubernetes/documentation/tree/master/website/documentation/015-tutorials/my-guide/images/overview-XL.png"
+    <source srcset="image-link"
             media="(min-width: 1000px)">
     <!-- default, laptop-width max 1000px -->
-    <source srcset="https://github.tools.sap/kubernetes/documentation/tree/master/website/documentation/015-tutorials/my-guide/images/overview-L.png"
+    <source srcset="image-link"
             media="(min-width: 1400px)">
     <!-- default, tablets-width max 750px -->
-    <source srcset="https://github.tools.sap/kubernetes/documentation/tree/master/website/documentation/015-tutorials/my-guide/images/overview-M.png"
+    <source srcset="image-link"
             media="(min-width: 750px)">
     <!-- default, phones-width max 450px -->
-    <img src="https://github.tools.sap/kubernetes/documentation/tree/master/website/documentation/015-tutorials/my-guide/images/overview.png" />
+    <img src="image-link" />
 </picture>
 ```
 
