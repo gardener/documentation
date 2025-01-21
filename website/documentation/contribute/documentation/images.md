@@ -44,7 +44,7 @@ Example:
     <source srcset="<image-link>"
             media="(min-width: 750px)">
     <!-- default, phones-width max 450px -->
-    <img src="image-link>" />
+    <img src="image-link" />
 </picture>
 ```
 
