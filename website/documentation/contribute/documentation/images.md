@@ -35,13 +35,13 @@ Example:
 ```html
 <picture>
     <!-- default, laptop-width-L max 1200px -->
-    <source srcset="image-link>"
+    <source srcset="image-link"
             media="(min-width: 1000px)">
     <!-- default, laptop-width max 1000px -->
-    <source srcset="image-link>"
+    <source srcset="image-link"
             media="(min-width: 1400px)">
     <!-- default, tablets-width max 750px -->
-    <source srcset="<image-link>"
+    <source srcset="image-link"
             media="(min-width: 750px)">
     <!-- default, phones-width max 450px -->
     <img src="image-link" />
