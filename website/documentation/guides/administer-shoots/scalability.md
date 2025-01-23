@@ -122,7 +122,7 @@ In addition to the already mentioned capacity restrictions, a cloud provider may
 
 Another dimension is the network throughput per VM or network interface. While you may be able to choose a network-optimized `Node` type for your workload to mitigate issues, you cannot influence the available bandwidth for control plane components. Therefore, please ensure that the traffic on the ETCD does not exceed 100MB/s. The ETCD dashboard provides data for monitoring this metric.
 
-In some environments the upstream DNS might become an issue too and make your workloads subject to rate limiting. Given the heterogeneity of cloud providers incl. private data centers, it is not possible to give any thresholds. Still, the "CoreDNS" and "NodeLocalDNS" dashboards can help to derive a workload's usage pattern. Check the [DNS autoscaling](https://github.com/gardener/gardener/blob/master/docs/usage/dns-autoscaling.md) and [NodeLocalDNS](https://github.com/gardener/gardener/blob/master/docs/usage/node-local-dns.md) documentations for available configuration options.
+In some environments the upstream DNS might become an issue too and make your workloads subject to rate limiting. Given the heterogeneity of cloud providers incl. private data centers, it is not possible to give any thresholds. Still, the "CoreDNS" and "NodeLocalDNS" dashboards can help to derive a workload's usage pattern. Check the [DNS autoscaling](https://github.com/gardener/gardener/blob/master/docs/usage/autoscaling/dns-autoscaling.md) and [NodeLocalDNS](https://github.com/gardener/gardener/blob/master/docs/usage/networking/node-local-dns.md) documentations for available configuration options.
 
 ### Webhooks
 
