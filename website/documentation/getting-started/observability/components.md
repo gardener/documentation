@@ -33,13 +33,13 @@ Gardener only provides a monitoring stack if the cluster is not of `purpose: tes
 
 ### Logging into Plutono
 
-Let us start by giving some visual hints on how to access Plutono. [Plutono](https://github.com/credativ/plutono#plutono) allows us to query logs and metrics and visualise those in form of dashboards. Plutono is shipped ready-to-use with a Gardener shoot cluster.
+Let us start by giving some visual hints on how to access Plutono. [Plutono](https://github.com/credativ/plutono#plutono) allows us to query logs and metrics and visualize those in form of dashboards. Plutono is shipped ready-to-use with a Gardener shoot cluster.
 
-In order to access the Gardener provided dashboards, open the `Plutono` link provided in the Gardener dashboard and use the username and password provided next to it.
-
-The password you can use to log in can be retrieved as shown below:
+In order to access the Gardener provided dashboards, open the `Plutono` link provided in the Gardener dashboard. You will be automatically logged in through OIDC based authentication:
 
 ![access-plutono](./images/access-plutono.png)
+
+Access is still possible via the non-OIDC ingress using the credentials from the `<clustername>.monitoring` secret. It contains the HTTP basic auth credentials in base64-encoded form, as well as the Plutono ingress URL. The Plutono URL is present as an annotation on the `.monitoring` secret. It can be fetched with `kubectl get secret <clustername>.monitoring -o jsonpath="{.metadata.annotations.url}"`. The Prometheus URL can be derived from the Plutono URL by replacing the `gu` prefix with `p`.
 
 ### Accessing the Dashboards
 
