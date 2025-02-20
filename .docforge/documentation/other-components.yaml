@@ -8,41 +8,11 @@ structure:
       description: Declarative way of managing machines for Kubernetes cluster
     source:  https://github.com/gardener/machine-controller-manager/blob/master/README.md
   - fileTree: https://github.com/gardener/machine-controller-manager/tree/master/docs
-    excludeFiles:
-    - "FAQ.md"
-  - dir: documents
-    structure:
-    - file: _index.md
-      frontmatter:
-        title: Documents
-        weight: 2
-        persona: Developers
-  - dir: proposals
-    structure:
-    - file: _index.md
-      frontmatter:
-        title: Proposals
-        weight: 3
-        persona: Developers
-  - dir: todo
-    structure:
-    - file: _index.md
-      frontmatter:
-        title: ToDo
-        weight: 4
-        persona: Developers
-  - file: faq.md
-    frontmatter:
-      title: FAQ
-      description: Frequently Asked Questions
-      weight: 5
-      persona: Operators
-    source:  https://github.com/gardener/machine-controller-manager/blob/master/docs/FAQ.md
 - dir: etcd-druid
   structure:
   - file: _index.md
     frontmatter:
-      title: Etcd Druid
+      title: etcd-druid
       description: A druid for etcd management in Gardener
     source: https://github.com/gardener/etcd-druid/blob/master/README.md
   - file: api-reference.md
@@ -65,24 +35,3 @@ structure:
   - fileTree: https://github.com/gardener/dependency-watchdog/tree/master/docs
     excludeFiles:
     - "README.md"
-  - dir: concepts
-    structure:
-    - file: _index.md
-      frontmatter:
-        title: Concepts
-        weight: 2
-        persona: Developers
-  - dir: deployment
-    structure:
-    - file: _index.md
-      frontmatter:
-        title: Deployment
-        weight: 3
-        persona: Operators
-  - dir: development
-    structure:
-    - file: _index.md
-      frontmatter:
-        title: Development
-        weight: 4
-        persona: Developers
