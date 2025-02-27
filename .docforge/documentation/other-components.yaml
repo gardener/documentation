@@ -79,10 +79,3 @@ structure:
         title: Deployment
         weight: 3
         persona: Operators
-  - dir: development
-    structure:
-    - file: _index.md
-      frontmatter:
-        title: Development
-        weight: 4
-        persona: Developers
