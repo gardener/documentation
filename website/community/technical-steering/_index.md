@@ -8,7 +8,7 @@ weight: 20
 ### What is Gardener's Technical Steering?
 Technical Steering provides architectural and technical direction for major product increments. Technical documents can be submitted to the Technical Steering Committee for discussion. This document should outline the proposed solution, with a particular focus on APIs and interfaces, while also covering other relevant aspects, but no full implementation is expected (or desired) at this stage.
 
-So, Gardener's Technical Steering discusses topics at a later stage, when a design document has been crafted. It focuses on the 'How' question, meaning the go/no-go decision has already been made. In contrast, [Gardener's Product Steering](../product-steering) discusses topics at an early stage, before substantial efforts begin. It focuses on the 'Whether'/'Why' question.
+So, Gardener's Technical Steering discusses topics at a later stage, when a design document has been crafted. It focuses on the 'How' question, meaning the go/no-go decision has already been made. In contrast, [Gardener's Product Steering](https://gardener.cloud/community/product-steering) discusses topics at an early stage, before substantial efforts begin. It focuses on the 'Whether'/'Why' question.
 
 The committee will schedule a Technical Steering meeting where the proposer presents the document. Committee members and interested contributors will challenge and discuss the idea. This meeting will be recorded.
 
