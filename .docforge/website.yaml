@@ -7,7 +7,7 @@ structure:
   - fileTree: /website/blog
 - dir: community
   structure:
-  - file: /website/community/_index.md
+  - fileTree: /website/community
 - dir: docs
   structure:
   - manifest: ./documentation/documentation.yaml
