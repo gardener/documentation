@@ -41,7 +41,7 @@ structure:
     frontmatter:
       title: Gardener Discovery Server
       weight: 1
-      description: A server which provides public metadata about different Gardener resources
+      description: A server which provides public metadata for Gardener resources
     source: https://github.com/gardener/gardener-discovery-server/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-discovery-server/tree/master/docs
     excludeFiles:
