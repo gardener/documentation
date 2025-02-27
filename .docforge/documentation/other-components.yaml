@@ -35,3 +35,14 @@ structure:
   - fileTree: https://github.com/gardener/dependency-watchdog/tree/master/docs
     excludeFiles:
     - "README.md"
+- dir: gardener-discovery-server
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: Gardener Discovery Server
+      weight: 1
+      description: A server which provides public metadata about different Gardener resources
+    source: https://github.com/gardener/gardener-discovery-server/blob/master/README.md
+  - fileTree: https://github.com/gardener/gardener-discovery-server/tree/master/docs
+    excludeFiles:
+    - "README.md"
