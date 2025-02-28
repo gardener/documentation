@@ -26,7 +26,7 @@ The committee is elected by the project's active committers and contributors and
 
 ### How Does It Work?
 #### 1. Document Submission
-- A proposer drafts a **technical design document** (e.g. an enhancement proposal, etc.) outlining the proposed solution, with a particular focus on APIs and interfaces and shares a link to it with any member of the Technical Steering Committee (see contact data above).
+- A proposer drafts a **technical design document** (e.g. an enhancement proposal, etc.) outlining the proposed solution, with a particular focus on APIs and interfaces and shares a link to it (ideally through a pull request) with any member of the Technical Steering Committee (see contact data above).
 - The document will be linked on this community page, and a **meeting date** will be scheduled **1-4 weeks out** (at least one week for review and preparation but no more than four weeks to ensure timely decisions).
 - This information will be also posted to our [`#gardener` Slack channel](https://gardener-cloud.slack.com/archives/C045DSWJZB9).
 
@@ -39,7 +39,7 @@ The committee is elected by the project's active committers and contributors and
 - The meeting will be **scheduled for 1h**. Presenting the document shall take no more than **30 minutes**.
 - Attendees are expected to have **read the document in advance and come prepared**.
 - Attendees **provide feedback, ask questions, and challenge the document**.
-- The session is **recorded** for transparency.
+- The session is **recorded and shared** with the community for transparency.
 
 #### 4. Decision Process
 - A **go/no-go decision** is made **during the meeting**, along with recommended improvements if needed.
