@@ -329,7 +329,7 @@ providers:
   rulesets:
   - id: disa-kubernetes-stig
     name: DISA Kubernetes Security Technical Implementation Guide
-    version: v1r11
+    version: v2r1
     args:
       maxRetries: 5
     ruleOptions:
