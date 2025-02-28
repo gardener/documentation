@@ -42,7 +42,18 @@ structure:
       title: Gardener Discovery Server
       weight: 1
       description: A server which provides public metadata for Gardener resources
-    source: https://github.com/gardener/gardener-discovery-server/blob/master/README.md
-  - fileTree: https://github.com/gardener/gardener-discovery-server/tree/master/docs
+    source: https://github.com/gardener/gardener-discovery-server/blob/main/README.md
+  - fileTree: https://github.com/gardener/gardener-discovery-server/tree/main/docs
+    excludeFiles:
+    - "README.md"
+- dir: network-problem-detector
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: Network Problem Detector
+      weight: 1
+      description: A tool which diagnoses network issues in Kubernetes clusters by performing various connectivity checks
+    source: https://github.com/gardener/network-problem-detector/blob/main/README.md
+  - fileTree: https://github.com/gardener/network-problem-detector/tree/main/docs
     excludeFiles:
     - "README.md"
