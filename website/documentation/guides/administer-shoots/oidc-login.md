@@ -10,7 +10,7 @@ publishdate: 2020-12-01
 
 ## Prerequisites
 
-Please read the following background material on [Authenticating](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#openid-connect-tokens).
+Please read the following background material on [OIDC tokens](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#openid-connect-tokens) and [Structured Authentication](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#using-authentication-configuration).
 
 ## Overview
 
@@ -22,9 +22,11 @@ Kubernetes on its own doesn’t provide any user management. In other words, use
 1. [Authorize an authenticated user](#authorize-an-authenticated-user) using role-based access control (RBAC).
 1. [Verify the result](#verify-the-result)
 
-{{% alert color="info"  title="Note" %}}
-Gardener allows administrators to modify aspects of the control plane setup. It gives administrators full control of how the control plane is parameterized. While this offers much flexibility, administrators need to ensure that they don’t configure a control plane that goes beyond the service level agreements of the responsible operators team.  
-{{% /alert %}}
+> [!NOTE]
+> Gardener allows administrators to modify aspects of the control plane setup.
+> It gives administrators full control of how the control plane is parameterized.
+> While this offers much flexibility, administrators need to ensure that they don’t configure a control plane that goes beyond the service level agreements of the responsible operators team.  
+
 
 ## Configure an Identity Provider
 
@@ -126,6 +128,29 @@ To test our OIDC-based authentication, the context `shoot--project--mycluster` o
 
 ## Configure the Shoot Cluster
 
+Create `AuthenticationConfiguration` configmap in the project's namespace. For more options check out [Gardener Structured Authentication](https://gardener.cloud/docs/gardener/shoot/shoot_access/#structured-authentication) and [Kubernetes Structured Authentication](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#using-authentication-configuration) documentation.
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: authentication-config
+  namespace: garden-project
+data:
+  config.yaml: |
+    apiVersion: apiserver.config.k8s.io/v1beta1
+    kind: AuthenticationConfiguration
+    jwt:
+    - issuer:
+        url: https://<Issuer>/
+        audiences:
+        - <Client ID>
+      claimMappings:
+        username:
+          claim: 'email'
+        prefix: 'unique-issuer-identifier:'
+```
+
 Modify the shoot cluster YAML as follows, using the client ID and the domain (as issuer) from the settings of the client application you created in Auth0:
 
 ```yaml
@@ -138,10 +163,8 @@ metadata:
 spec:
   kubernetes:
     kubeAPIServer:
-      oidcConfig:
-        clientID: <Client ID>
-        issuerURL: "https://<Issuer>/"
-        usernameClaim: email
+      structuredAuthentication:
+        configMapName: authentication-config
 ```
 
 This change of the `Shoot` manifest triggers a reconciliation. Once the reconciliation is finished, your OIDC configuration is applied. It **doesn't** invalidate other certificate-based authentication methods. Wait for Gardener to reconcile the change. It can take up to 5 minutes.
@@ -149,6 +172,9 @@ This change of the `Shoot` manifest triggers a reconciliation. Once the reconcil
 ## Authorize an Authenticated User
 
 In Auth0, you created a user with a verified email address, `test@test.com` in our example. For simplicity, we authorize a single user identified by this email address with the cluster role `view`:
+
+> [!IMPORTANT]
+> Do not forget to add the unique prefix to the name of the user.
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -162,7 +188,7 @@ roleRef:
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
-  name: test@test.com
+  name: unique-issuer-identifier:test@test.com
 ```
 
 As administrator, apply the cluster role binding in your shoot cluster.
