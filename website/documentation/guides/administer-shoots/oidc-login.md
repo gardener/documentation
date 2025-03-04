@@ -128,7 +128,8 @@ To test our OIDC-based authentication, the context `shoot--project--mycluster` o
 
 ## Configure the Shoot Cluster
 
-Create `AuthenticationConfiguration` configmap in the project's namespace. For more options check out [Gardener Structured Authentication](https://gardener.cloud/docs/gardener/shoot/shoot_access/#structured-authentication) and [Kubernetes Structured Authentication](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#using-authentication-configuration) documentation.
+Create a `AuthenticationConfiguration` configmap in the project's namespace.
+For more options, check out [Gardener Structured Authentication](https://gardener.cloud/docs/gardener/shoot/shoot_access/#structured-authentication) and [Kubernetes Structured Authentication](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#using-authentication-configuration) documentation.
 
 ```yaml
 apiVersion: v1
