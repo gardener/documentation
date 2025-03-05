@@ -33,7 +33,7 @@ Below, you’ll find the agendas of past meetings along with links to their reco
 
 ### 2025/03/05 - Kubernetes v1.32 Special Edition
 
-[📽️ Recording]()
+[📽️ Recording](https://youtu.be/e_AgrDuL8KQ)
 
 #### Demo Agenda 📋
 
