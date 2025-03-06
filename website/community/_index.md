@@ -3,6 +3,8 @@ title: Community
 url: /community
 ---
 
+{{< community-bio >}}
+
 # Gardener Review Meetings
 
 ## What Are the Gardener Review Meetings?
