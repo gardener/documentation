@@ -62,10 +62,9 @@ Create a tenant in an OIDC compatible Identity Provider. For simplicity, we use 
 
    ![Create user](./images/Create-user.png)
 
-  {{% alert color="info"  title="Note" %}}
-  Users must have a *verified* email address.
-  {{% /alert %}}
-
+  > [!NOTE]
+  > Users must have a *verified* email address.
+  
 ## Configure a Local `kubectl` `oidc-login`
 
 1. Install the `kubectl` plugin [oidc-login](https://github.com/int128/kubelogin). We highly recommend the [krew](https://github.com/kubernetes-sigs/krew) installation tool, which also makes other plugins easily available.
@@ -224,12 +223,11 @@ As administrator, apply the cluster role binding in your shoot cluster.
     service/kubernetes   ClusterIP   100.64.0.1   <none>        443/TCP   86m
     ```
 
-{{% alert color="info"  title="Note" %}}
-After a successful login, `kubectl` uses a token for authentication so that you don’t have to provide user and password for every new `kubectl` command. How long the token is valid can be configured. If you want to log in again earlier, reset plugin `oidc-login`:
-
-1. Delete directory `~/.kube/cache/oidc-login`.
-1. Delete the browser cache.
-{{% /alert %}}
+> [!NOTE]
+> After a successful login, `kubectl` uses a token for authentication so that you don’t have to provide user and password for every new `kubectl` command. How long the token is valid can be configured. If you want to log in again earlier, reset plugin `oidc-login`:
+>
+> 1. Delete directory `~/.kube/cache/oidc-login`.
+> 1. Delete the browser cache.
 
 1. To see if your user uses the cluster role `view`, do some checks with `kubectl auth can-i`.
 

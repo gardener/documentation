@@ -3,6 +3,7 @@ title: Organization
 ---
 
 The Gardener project implements the *documentation-as-code* paradigm. Essentially this means that:
+
 - Documentation resides close to the code it describes - in the corresponding GitHub repositories. Only documentation with regards to cross-cutting concerns that cannot be affiliated to a specific component repository is hosted in the general [gardener/documentation](https://github.com/gardener/documentation) repository.
 - We use tools to develop, validate and integrate documentation *sources*
 - The change management process is largely automated with automatic validation, integration and deployment using [docforge](https://github.com/gardener/docforge) and [docs-toolbelt](https://github.com/gardener/docs-toolbelt).
@@ -16,7 +17,7 @@ Documentation that can be affiliated to component is hosted and maintained in th
 
 A good way to organize your documentation is to place it in a 'docs' folder and create separate subfolders per role activity. For example:
 
-```
+```txt
 repositoryX
 |_ docs
    |_ usage
@@ -35,17 +36,15 @@ Do not use folders just because they are in the template. Stick to the predefine
 - Gardener Developer: `development`
 - Gardener Extension Developer: `extensions`
 
-
 ## Publishing on gardener.cloud
 
 The Gardener website is one of the multiple optional publishing channels where the source material might end up as documentation. We use docforge and automated integration and publish process to enable transparent change
-management. 
+management.
 
 To have documentation published on the website it is necessary to use the docforge manifests available at [gardener/documentation/.docforge](https://github.com/gardener/documentation/tree/master/.docforge) and register a reference to your documentation.
 
-{{% alert color="info" title="Note" %}} 
-This is work in progress and we are transitioning to a more transparent way of integrating component documentation. This guide will be updated as we progress.
-{{% /alert %}}
- 
+> [!NOTE]
+> This is work in progress and we are transitioning to a more transparent way of integrating component documentation. This guide will be updated as we progress.
+
 These manifests describe a particular publishing goal, i.e. using Hugo to publish on the website, and you will find out that they contain Hugo-specific front-matter properties.
 Consult with the documentation maintainers for details. Use the gardener channel in [slack](https://kubernetes.slack.com/messages/gardener) or [open a PR](https://github.com/gardener/documentation/pulls).

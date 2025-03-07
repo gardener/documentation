@@ -9,9 +9,8 @@ Please do not forget to rebase your branch **regularly**.
 
 If you have finished your work, please create a pull request **based on `master`**. It will be reviewed and merged if no further changes are requested from you.
 
-{{% alert color="warning" title="Warning" %}}
-Please ensure that your modifications pass the lint checks, formatting checks, static code checks, and unit tests by executing.
-{{% /alert %}}
+> [!WARNING]
+> Please ensure that your modifications pass the lint checks, formatting checks, static code checks, and unit tests by executing.
 
 ```bash
 make verify

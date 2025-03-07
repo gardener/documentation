@@ -19,9 +19,8 @@ You will probably run more than a hundred kubectl commands on some days and you 
 
 What are those mysterious `.profile` and `.bash_profile` files you've heard about?
 
-{{% alert color="info"  title="Note" %}}
-The contents of a .profile file are executed on every log-in of the owner of the file
-{{% /alert %}}
+> [!NOTE]
+> The contents of a .profile file are executed on every log-in of the owner of the file
 
 What's the `.bash_profile` then? It's exactly the same, but under a different name. The unix shell you are logging into, in this case OS X, looks for `etc/profile` and loads it if it exists. Then it looks for `~/.bash_profile`, `~/.bash_login` and finally `~/.profile`, and loads the first one of these it finds.
 
@@ -56,8 +55,8 @@ alias kurl="docker run --rm byrnedo/alpine-curl"
 
 All the `kubectl` [tab completions](https://kubernetes.io/docs/tasks/tools/install-kubectl/#enabling-shell-autocompletion) still work fine with these aliases, so you’re not losing that speed.
 
-{{% alert color="info"  title="Note" %}}
-If the approach above does not work for you add the following lines in your ~/.bashrc instead:
+> [!NOTE]
+> If the approach above does not work for you, add the following lines in your ~/.bashrc instead:
 
 ```sh
 # time save number one. shortcut for kubectl
@@ -68,4 +67,3 @@ alias k="kubectl"
 source <(k completion bash | sed s/kubectl/k/g)
 ```
 
-{{% /alert %}}
