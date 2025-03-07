@@ -56,6 +56,6 @@ A topic qualifies for Product Steering if it:
 
 ## Planned Topics
 
-- **Scaling Recommender (`cluster-autoscaler` Replacement)** ([paper](https://github.tools.sap/kubernetes/gardener-scaling-recommender/blob/main/docs/motivation.md), 2025-03-17 10:00 CET)
+- **Scaling Recommender (`cluster-autoscaler` Replacement)** ([paper](https://github.com/gardener/scaling-recommender/blob/main/docs/motivation.md), 2025-03-17 10:00 CET)
 - **Cluster API Provider for Gardener** (no paper, no date yet)
 - **Control Plane Live Migration** ([paper](https://github.com/gardener/gardener/issues/10686), no date yet)
