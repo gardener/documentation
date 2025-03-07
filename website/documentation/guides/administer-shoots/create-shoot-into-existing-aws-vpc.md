@@ -15,11 +15,10 @@ The tutorial describes how to create a shoot cluster into an existing AWS VPC. T
 If `.spec.provider.infrastructureConfig.networks.vpc.cidr` is specified, Gardener will create a new VPC with the given CIDR block and respectively will delete it on shoot deletion.  
 If `.spec.provider.infrastructureConfig.networks.vpc.id` is specified, Gardener will use the existing VPC and respectively won't delete it on shoot deletion.
 
-{{% alert color="info"  title="Note" %}}
-It's not recommended to create a shoot cluster into a VPC that is managed by Gardener (that is created for another shoot cluster). In this case the deletion of the initial shoot cluster will fail to delete the VPC because there will be resources attached to it.
+> [!NOTE]
+> It's not recommended to create a shoot cluster into a VPC that is managed by Gardener (that is created for another shoot cluster). In this case the deletion of the initial shoot cluster will fail to delete the VPC because there will be resources attached to it.
 
 Gardener won't delete any manually created (unmanaged) resources in your cloud provider account.
-{{% /alert %}}
 
 ## 1. Configure the AWS CLI
 

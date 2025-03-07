@@ -33,9 +33,8 @@ Check the [Notes and Tips](#notes-and-tips) section for useful advice when makin
 
 You can use the following templates in order to add documentation to the website that exists in other GitHub repositories.
 
-{{% alert color="info"  title="Note" %}}
-Proper indentation is incredibly important, as yaml relies on it for nesting!
-{{% /alert %}}
+> [!NOTE]
+> Proper indentation is incredibly important, as yaml relies on it for nesting!
 
 ### Adding a Single File
 
@@ -71,8 +70,8 @@ You can add a single topic to the website by providing a link to it in the manif
 
 You can also add multiple topics to the website at once, either through linking a whole folder or a manifest than contains the documentation structure.
 
-{{% alert color="info"  title="Note" %}}
-If the content you want to add does not have an `_index.md` file in it, it won't show up as a single section on the website. You can fix this by adding the following after the `structure:` element:
+> [!NOTE]
+> If the content you want to add does not have an `_index.md` file in it, it won't show up as a single section on the website. You can fix this by adding the following after the `structure:` element:
 
 ```yaml
 - file: _index.md
@@ -81,7 +80,6 @@ If the content you want to add does not have an `_index.md` file in it, it won't
     description: <topic-description>
     weight: <weight>
 ```
-{{% /alert %}}
 
 #### Linking a Folder
 

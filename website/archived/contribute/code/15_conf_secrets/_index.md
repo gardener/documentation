@@ -10,8 +10,13 @@ As a consequence, there are several configuration options for the various custom
 
 This document describes the
 
-1. [configuration and usage of Gardener as operator/administrator](#configuration-and-usage-of-gardener-as-operatoradministrator)
-2. [configuration and usage of Gardener as end-user/stakeholder/customer](#configuration-and-usage-of-gardener-as-end-userstakeholdercustomer)
+- [Gardener Configuration and Usage](#gardener-configuration-and-usage)
+  - [Configuration and Usage of Gardener as Operator/Administrator](#configuration-and-usage-of-gardener-as-operatoradministrator)
+    - [Configuration file for Gardener controller manager](#configuration-file-for-gardener-controller-manager)
+    - [Configuration file for Gardener scheduler](#configuration-file-for-gardener-scheduler)
+    - [Configuration file for Gardenlet](#configuration-file-for-gardenlet)
+    - [System configuration](#system-configuration)
+    - [Configuration and Usage of Gardener as End-User/Stakeholder/Customer](#configuration-and-usage-of-gardener-as-end-userstakeholdercustomer)
 
 ## Configuration and Usage of Gardener as Operator/Administrator
 
@@ -59,10 +64,9 @@ When the `gardenlet` starts it scans the `garden` namespace of the garden cluste
   * Not every end-user/stakeholder/customer has its own domain, however, Gardener needs to create a DNS record for every shoot cluster.
   * As landscape operator you might want to define a default domain owned and controlled by you that is used for all shoot clusters that don't specify their own domain.
 
-{{% alert color="warning" title="Warning" %}} 
-Please note that the mentioned domain secrets are only needed if you have at least one seed cluster that is not tainted with `seed.gardener.cloud/disable-dns`.
+> [!WARNING]
+> Please note that the mentioned domain secrets are only needed if you have at least one seed cluster that is not tainted with `seed.gardener.cloud/disable-dns`.
 Seeds with this taint don't create any DNS records for shoots scheduled on it, hence, if you only have such seeds, you don't need to create the domain secrets.
-{{% /alert %}}
 
 * **Alerting secrets** (optional), contain the alerting configuration and credentials for the [AlertManager](https://prometheus.io/docs/alerting/alertmanager/) to send email alerts. It is also possible to configure the monitoring stack to send alerts to an AlertManager not deployed by Gardener to handle alerting. Please see [this](https://raw.githubusercontent.com/gardener/gardener/master/docs/usage/../../example/10-secret-alerting.yaml) for an example.
   * If email alerting is configured:

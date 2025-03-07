@@ -23,13 +23,11 @@ Prometheus, Plutono, and Vali are all located in the seed cluster. They run next
 
 The next sections will explore those components in detail.
 
-{{% alert color="info"  title="Note" %}}
-Gardener only provides monitoring for Gardener-deployed components. If you need logging or monitoring for your workload, then you need to deploy your own monitoring stack into your shoot cluster.
-{{% /alert %}}
+> [!NOTE]
+> Gardener only provides monitoring for Gardener-deployed components. If you need logging or monitoring for your workload, then you need to deploy your own monitoring stack into your shoot cluster.
 
-{{% alert color="info"  title="Note" %}}
-Gardener only provides a monitoring stack if the cluster is not of `purpose: testing`. For more information, see [Shoot Cluster Purpose](https://gardener.cloud/docs/gardener/shoot_purposes/).
-{{% /alert %}}
+> [!NOTE]
+> Gardener only provides a monitoring stack if the cluster is not of `purpose: testing`. For more information, see [Shoot Cluster Purpose](https://gardener.cloud/docs/gardener/shoot_purposes/).
 
 ### Logging into Plutono
 
