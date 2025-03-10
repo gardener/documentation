@@ -13,15 +13,13 @@ the history. To entirely remove unwanted files from a repository's history you c
 
 The git `filter-branch` command rewrites your repository's history, which changes the SHAs for existing commits that you alter and any dependent commits. Changed commit SHAs may affect open pull requests in your repository. **Merging or closing all open pull requests before removing files from your repository is recommended.**
 
-{{% alert color="warning"  title="Warning" %}}
-If someone has already checked out the repository, then of course they have the secret on their computer. So ALWAYS revoke the OAuthToken/Password or whatever it was immediately.
-{{% /alert %}}
+> [!WARNING]
+> If someone has already checked out the repository, then of course they have the secret on their computer. So ALWAYS revoke the OAuthToken/Password or whatever it was immediately.
 
 ## Purging a File from Your Repository's History
 
-{{% alert color="warning"  title="Warning" %}}
-If you run `git filter-branch` after stashing changes, you won't be able to retrieve your changes with other stash commands. Before running `git filter-branch`, we recommend unstashing any changes you've made. To unstash the last set of changes you've stashed, run `git stash show -p | git apply -R`. For more information, see [Git Tools - Stashing and Cleaning](https://git-scm.com/book/en/v2/Git-Tools-Stashing-and-Cleaning).
-{{% /alert %}}
+> [!WARNING]
+> If you run `git filter-branch` after stashing changes, you won't be able to retrieve your changes with other stash commands. Before running `git filter-branch`, we recommend unstashing any changes you've made. To unstash the last set of changes you've stashed, run `git stash show -p | git apply -R`. For more information, see [Git Tools - Stashing and Cleaning](https://git-scm.com/book/en/v2/Git-Tools-Stashing-and-Cleaning).
 
 To illustrate how `git filter-branch` works, we'll show you how to remove your file with sensitive data from the history of your repository and add it to .gitignore to ensure that it is not accidentally re-committed.
 
@@ -65,9 +63,8 @@ git push origin --force --all
 git push origin --force --tags
 ```
 
-{{% alert color="warning"  title="Warning" %}}
-Tell your collaborators to **rebase, not merge**, any branches they created off of your old (tainted) repository history. One merge commit could reintroduce some or all of the tainted history that you just went to the trouble of purging.
-{{% /alert %}}
+> [!WARNING]
+> Tell your collaborators to **rebase, not merge**, any branches they created off of your old (tainted) repository history. One merge commit could reintroduce some or all of the tainted history that you just went to the trouble of purging.
 
 ## Related Links
 

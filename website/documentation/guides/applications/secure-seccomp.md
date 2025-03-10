@@ -46,9 +46,8 @@ data:
     }
 ```
 
-{{% alert color="info"  title="Note" %}}
-The policy above is a very simple one and not suitable for complex applications. The [default docker profile](https://github.com/moby/moby/blob/v17.05.0-ce/profiles/seccomp/default.json) can be used a reference. Feel free to modify it to your needs.
-{{% /alert %}}
+> [!NOTE]
+> The policy above is a very simple one and not suitable for complex applications. The [default docker profile](https://github.com/moby/moby/blob/v17.05.0-ce/profiles/seccomp/default.json) can be used a reference. Feel free to modify it to your needs.
 
 Apply the `ConfigMap` in your cluster:
 

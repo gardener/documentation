@@ -67,6 +67,5 @@ Afterward, the old keys can be deleted safely from Gardener's perspective.
 While the reconciliation can be triggered manually, there is no need for it (if you're not in a hurry).
 Each shoot reconciles once within 24h and the new keys will be picked up during the next maintenance window.
 
-{{% alert color="info"  title="Note" %}}
-It is not possible to move a shoot to a different infrastructure account (at all!).
-{{% /alert %}}
+> [!NOTE]
+> It is not possible to move a shoot to a different infrastructure account (at all!).

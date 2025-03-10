@@ -2,6 +2,7 @@
 title: Deploy into a Cluster
 remote: https://github.com/gardener/gardener/blob/master/docs/deployment/kubernetes.md
 ---
+
 # Deploying the Gardener into a Kubernetes cluster
 
 Similar to Kubernetes, Gardener consists out of control plane components (Gardener API server, Gardener controller manager, Gardener scheduler), and an agent component (Gardenlet).
@@ -44,48 +45,42 @@ Prepare your values in a separate `gardenlet-values.yaml` file:
 
 1. Create a bootstrap token secret in the `kube-system` namespace of the garden cluster (see [this](https://kubernetes.io/docs/reference/access-authn-authz/bootstrap-tokens/) and [this](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet-tls-bootstrapping/#bootstrap-tokens)).
 1. Create a bootstrap kubeconfig containing this token:
-
-```yaml
-apiVersion: v1
-kind: Config
-current-context: gardenlet-bootstrap@default
-clusters:
-- cluster:
-    certificate-authority-data: <ca-of-garden-cluster>
-    server: https://<endpoint-of-garden-cluster>
-  name: default
-contexts:
-- context:
-    cluster: default
-    user: gardenlet-bootstrap
-  name: gardenlet-bootstrap@default
-users:
-- name: gardenlet-bootstrap
-  user:
-    token: <bootstrap-token>
-```
-
-3. Provide this bootstrap kubeconfig together with a desired name and namespace to the Gardenlet Helm chart values [here](https://raw.githubusercontent.com/gardener/gardener/master/docs/deployment/../../charts/gardener/gardenlet/values.yaml#L31-L35):
-
-```yaml
-gardenClientConnection:
-  bootstrapKubeconfig:
-    name: gardenlet-kubeconfig-bootstrap
-    namespace: garden
-    kubeconfig: |
-      <bootstrap-kubeconfig>
-```
-
-4. Define a name and namespace where the Gardenlet shall store the real kubeconfig it creates during the bootstrap process [here](https://raw.githubusercontent.com/gardener/gardener/master/docs/deployment/../../charts/gardener/gardenlet/values.yaml#L31-L35):
-
-```yaml
-gardenClientConnection:
-  kubeconfigSecret:
-    name: gardenlet-kubeconfig
-    namespace: garden
-```
-
-5. Define either `seedSelector` or `seedConfig` (see [this document](https://raw.githubusercontent.com/gardener/gardener/master/docs/deployment/../concepts/gardenlet.md#seed-config-vs-seed-selector)).
+    ```yaml
+    apiVersion: v1
+    kind: Config
+    current-context: gardenlet-bootstrap@default
+    clusters:
+    - cluster:
+        certificate-authority-data: <ca-of-garden-cluster>
+        server: https://<endpoint-of-garden-cluster>
+      name: default
+    contexts:
+    - context:
+        cluster: default
+        user: gardenlet-bootstrap
+      name: gardenlet-bootstrap@default
+    users:
+    - name: gardenlet-bootstrap
+      user:
+        token: <bootstrap-token>
+    ```
+1. Provide this bootstrap kubeconfig together with a desired name and namespace to the Gardenlet Helm chart values [here](https://raw.githubusercontent.com/gardener/gardener/master/docs/deployment/../../charts/gardener/gardenlet/values.yaml#L31-L35):
+    ```yaml
+    gardenClientConnection:
+      bootstrapKubeconfig:
+        name: gardenlet-kubeconfig-bootstrap
+        namespace: garden
+        kubeconfig: |
+          <bootstrap-kubeconfig>
+    ```
+1. Define a name and namespace where the Gardenlet shall store the real kubeconfig it creates during the bootstrap process [here](https://raw.githubusercontent.com/gardener/gardener/master/docs/deployment/../../charts/gardener/gardenlet/values.yaml#L31-L35):
+    ```yaml
+    gardenClientConnection:
+      kubeconfigSecret:
+        name: gardenlet-kubeconfig
+        namespace: garden
+    ```
+1. Define either `seedSelector` or `seedConfig` (see [this document](https://raw.githubusercontent.com/gardener/gardener/master/docs/deployment/../concepts/gardenlet.md#seed-config-vs-seed-selector)).
 
 Now you are ready to deploy the Helm chart:
 
@@ -97,8 +92,6 @@ helm install charts/gardener/gardenlet \
   --wait
 ```
 
-{{% warning color="warning" title="Warning" %}}
-A current prerequisite of Kubernetes clusters that are used as seeds is to have a pre-deployed `nginx-ingress-controller` to make the Gardener work properly.
-Moreover, there should exist a DNS record `*.ingress.<SEED-CLUSTER-DOMAIN>` where `<SEED-CLUSTER-DOMAIN>` is the value of the `.dns.ingressDomain` field of [a Seed cluster resource](https://raw.githubusercontent.com/gardener/gardener/master/docs/deployment/../../example/50-seed.yaml) (or the [respective Gardenlet configuration](https://raw.githubusercontent.com/gardener/gardener/master/docs/deployment/../../example/20-componentconfig-gardenlet.yaml#L84-L85)).
-{{% /alert %}}
-
+> [!WARNING]
+> A current prerequisite of Kubernetes clusters that are used as seeds is to have a pre-deployed `nginx-ingress-controller` to make the Gardener work properly.
+>Moreover, there should exist a DNS record `*.ingress.<SEED-CLUSTER-DOMAIN>` where `<SEED-CLUSTER-DOMAIN>` is the value of the `.dns.ingressDomain` field of [a Seed cluster resource](https://raw.githubusercontent.com/gardener/gardener/master/docs/deployment/../../example/50-seed.yaml) (or the [respective Gardenlet configuration](https://raw.githubusercontent.com/gardener/gardener/master/docs/deployment/../../example/20-componentconfig-gardenlet.yaml#L84-L85)).

@@ -188,8 +188,8 @@ spec:
         operator: "Exists"
 ```
 
-{{% alert color="info"  title="Note" %}}
-the `tolerations` section above is not required if you deploy the `ExtendedResourceToleration` admission controller to your cluster. You can do this in the `kubernetes` section of your Gardener cluster `shoot.yaml` as follows:
+> [!NOTE]
+> The `tolerations` section above is not required if you deploy the `ExtendedResourceToleration` admission controller to your cluster. You can do this in the `kubernetes` section of your Gardener cluster `shoot.yaml` as follows:
 
 ```yaml
   kubernetes:
@@ -198,7 +198,6 @@ the `tolerations` section above is not required if you deploy the `ExtendedResou
       - name: ExtendedResourceToleration
 ```
 
-{{% /alert %}}
 
 Now exec into the container and start an example Keras training:
 

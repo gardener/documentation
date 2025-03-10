@@ -147,9 +147,8 @@ cd gardener
 
 ### Start the Gardener
 
-{{% alert color="warning" title="Warning" %}}
-Before you start developing, please ensure to comply with the following requirements:
-{{% /alert %}}
+> [!WARNING]
+> Before you start developing, please ensure to comply with the following requirements:
 
 1. You have understood the [principles of Kubernetes](https://kubernetes.io/docs/concepts/), and its [components](https://kubernetes.io/docs/concepts/overview/components/), what their purpose is and how they interact with each other.
 2. You have understood the [architecture of Gardener](https://github.com/gardener/gardener/blob/master/docs/concepts/architecture.md), and what the various clusters are used for.
@@ -300,10 +299,9 @@ time="2019-11-06T15:24:18+02:00" level=info msg="Seed controller initialized."
 [...]
 ```
 
-{{% alert color="warning" title="Warning" %}}
-BThe Gardenlet will handle all your seeds for this development scenario, although, for productive usage it is recommended to run it once per seed, see [this document](https://raw.githubusercontent.com/gardener/gardener/master/docs/development/../concepts/gardenlet.md) for more information.
-See the [Appendix](#appendix) on how to configure the Seed clusters for the local development scenario. 
-{{% /alert %}}
+> [!WARNING]
+> The Gardenlet will handle all your seeds for this development scenario, although, for productive usage it is recommended to run it once per seed, see [this document](https://raw.githubusercontent.com/gardener/gardener/master/docs/development/../concepts/gardenlet.md) for more information.
+See the [Appendix](#appendix) on how to configure the Seed clusters for the local development scenario.
 
 Please checkout the [Gardener Extensions Manager](https://github.com/gardener/gem) to install extension controllers - make sure that you install all of the required ones for your local development.
 Also, please refer to [this document](https://raw.githubusercontent.com/gardener/gardener/master/docs/development/../extensions/controllerregistration.md) for further information about how extensions are registered in case you want to use other versions than the latest releases.
@@ -317,9 +315,8 @@ No resources found.
 
 to operate against your local running Gardener API Server.
 
-{{% alert color="info" title="Note" %}}
-It may take several seconds until the `minikube` cluster recognizes that the Gardener API server has been started and is available. `No resources found` is the expected result of our initial development setup.
-{{% /alert %}}
+> [!NOTE]
+> It may take several seconds until the `minikube` cluster recognizes that the Gardener API server has been started and is available. `No resources found` is the expected result of our initial development setup.
 
 #### Limitations of local development setup
 

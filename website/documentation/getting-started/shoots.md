@@ -34,11 +34,10 @@ Start by selecting the infrastructure you want to use. The choice will be mapped
 
 Each data plane runs in an infrastructure account owned by the end user. By selecting the infrastructure secret containing the accounts credentials, you are granting Gardener access to the respective account to create / manage resources.
 
-{{% alert color="info"  title="Note" %}}
-Changing the account after the creation of a cluster is not possible. The credentials can be updated with a new key or even user but have to stay within the same account.
-
-Currently, there is no way to move a single cluster to a different account. You would rather have to re-create a cluster and migrate workloads by different means.
-{{% /alert %}}
+> [!NOTE]
+> Changing the account after the creation of a cluster is not possible. The credentials can be updated with a new key or even user but have to stay within the same account.
+>
+>Currently, there is no way to move a single cluster to a different account. You would rather have to re-create a cluster and migrate workloads by different means.
 
 As part of the infrastructure you chose, the region for data plane has to be chosen as well. The Gardener scheduler will try to place the control plane on a seed cluster based on a minimal distance strategy. See [Gardener Scheduler](https://github.com/gardener/gardener/blob/master/docs/concepts/scheduler.md) for more details.
 
@@ -54,9 +53,8 @@ The operating system your machines will run is the next thing to choose. Debian-
 
 Other specifications for the workers include the volume type and size. These settings affect the root disk of each node. Therefore we would always recommend to use an SSD-based type to avoid i/o issues.
 
-{{% alert color="info"  title="Caveat" %}}
-Some machine types (e.g., bare-metal machine types on OpenStack) require you to omit the volume type and volume size settings.
-{{% /alert %}}
+> [!NOTE] Caveat
+> Some machine types (e.g., bare-metal machine types on OpenStack) require you to omit the volume type and volume size settings.
 
 The autoscaler parameter defines the initial elasticity / scalability of your cluster. The cluster-autoscaler will add more nodes up to the maximum defined here when your workload grows and remove nodes in case your workload shrinks. The minimum number of nodes should be equal to or higher than the number of zones. You can distribute the nodes of a worker pool among all zones available to your cluster. This is the first step in running HA workloads.
 
