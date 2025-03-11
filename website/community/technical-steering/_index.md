@@ -57,4 +57,4 @@ A topic qualifies for Technical Steering if it:
 ## Planned Topics
 
 - **Persistent Volume Autoscaler** ([paper](https://github.com/gardener/gardener/pull/10690), [implementation](https://github.com/gardener/pvc-autoscaler), no date yet)
-- **Observability 2.0** ([paper](https://github.com/gardener/gardener/issues/10985), no date yet)
+- **Observability 2.0** ([paper](https://github.com/gardener/logging/blob/master/docs/observability-2.0/Observability%202.0.md), no date yet)
