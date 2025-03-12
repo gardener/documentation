@@ -27,7 +27,7 @@ The committee is elected by the project's active contributing sponsors and consi
 ### How Does It Work?
 #### 1. Proposal Submission
 - A proposer drafts a **2-5 page product proposal** detailing the idea and shares a link to it (ideally through a pull request) with any member of the Product Steering Committee (see contact data above).
-- The proposal will be linked on this community page, and a **meeting date** will be scheduled **1-4 weeks out** (at least one week for review and preparation but no more than four weeks to ensure timely decisions).
+- The proposal will be linked on this community page, and a **meeting date** will be scheduled by the steering committee **1-4 weeks out** (at least one week for review and preparation but no more than four weeks to ensure timely decisions).
 - This information will be also posted to our [`#gardener` Slack channel](https://gardener-cloud.slack.com/archives/C045DSWJZB9).
 
 #### 2. Participation
