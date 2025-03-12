@@ -33,7 +33,7 @@ Below, you’ll find the agendas of past meetings along with links to their reco
 
 ### 2025/03/12 - [v1.114](https://github.com/gardener/gardener/releases/tag/v1.114.0) Release
 
-[📽️ Recording]()
+[📽️ Recording](https://youtu.be/ZSjT8daa39s)
 
 #### Demo Agenda 📋
 
