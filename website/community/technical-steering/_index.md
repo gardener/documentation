@@ -27,7 +27,7 @@ The committee is elected by the project's active committers and contributors and
 ### How Does It Work?
 #### 1. Document Submission
 - A proposer drafts a **technical design document** (e.g. an enhancement proposal, etc.) outlining the proposed solution, with a particular focus on APIs and interfaces and shares a link to it (ideally through a pull request) with any member of the Technical Steering Committee (see contact data above).
-- The document will be linked on this community page, and a **meeting date** will be scheduled **1-4 weeks out** (at least one week for review and preparation but no more than four weeks to ensure timely decisions).
+- The document will be linked on this community page, and a **meeting date** will be scheduled by the steering committee **1-4 weeks out** (at least one week for review and preparation but no more than four weeks to ensure timely decisions).
 - This information will be also posted to our [`#gardener` Slack channel](https://gardener-cloud.slack.com/archives/C045DSWJZB9).
 
 #### 2. Participation
@@ -56,5 +56,5 @@ A topic qualifies for Technical Steering if it:
 
 ## Planned Topics
 
+- **Observability 2.0** ([paper](https://github.com/gardener/logging/blob/master/docs/observability-2.0/Observability%202.0.md), 2025-03-20 15:00-16:00 CET)
 - **Persistent Volume Autoscaler** ([paper](https://github.com/gardener/gardener/pull/10690), [implementation](https://github.com/gardener/pvc-autoscaler), no date yet)
-- **Observability 2.0** ([paper](https://github.com/gardener/logging/blob/master/docs/observability-2.0/Observability%202.0.md), no date yet)
