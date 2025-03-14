@@ -13,9 +13,8 @@ aliases: [ "/readmore/br" ]
 
 ## TL;DR
 
-{{% alert color="info"  title="Note" %}}
-Details of the description might change in the near future since Heptio was taken over by VMWare which might result in different GitHub repositories or other changes. Please don't hesitate to inform us in case you encounter any issues.
-{{% /alert %}}
+> [!NOTE]
+> Details of the description might change in the near future since Heptio was taken over by VMWare which might result in different GitHub repositories or other changes. Please don't hesitate to inform us in case you encounter any issues.
 
 In general, Backup and Restore (BR) covers activities enabling an organization to bring a system back in a consistent state, e.g., after a disaster or to setup a new system. These activities vary in a very broad way depending on the applications and its persistency.
 
@@ -72,9 +71,8 @@ The size of the backup tar ball corresponds to the number of objects in etcd. Th
 
 ![Backup process](./images/backup-process.png)
 
-{{% alert color="info"  title="Note" %}}
-As of the writing of this tutorial, Velero or any other BR tool for Shoot clusters is not provided by Gardener.
-{{% /alert %}}
+> [!NOTE]
+> As of the writing of this tutorial, Velero or any other BR tool for Shoot clusters is not provided by Gardener.
 
 ## Getting Started
 
@@ -89,15 +87,13 @@ To use an AWS S3 bucket as storage for the backup files and the persistent volum
 
 For details about this setup, check the [Set Permissions for Velero](https://github.com/vmware-tanzu/velero-plugin-for-aws#set-permissions-for-velero) documentation. Moreover, it is possible to use other [supported storage providers](https://velero.io/docs/main/supported-providers/).
 
-{{% alert color="info"  title="Note" %}}
-Per default, Velero is installed in the namespace `velero`. To change the namespace, check the [documentation](https://velero.io/docs/main/namespace/#customize-the-namespace-during-install).
-{{% /alert %}}
+> [!NOTE]
+> Per default, Velero is installed in the namespace `velero`. To change the namespace, check the [documentation](https://velero.io/docs/main/namespace/#customize-the-namespace-during-install).
 
 Velero offers a wide range of filter possibilities for Kubernetes resources, e.g filter by namespaces, labels or resource types. The filter settings can be combined and used as *include* or *exclude*, which gives a great flexibility for selecting resources.
 
-{{% alert color="info"  title="Note" %}}
-Carefully set labels and/or use namespaces for your deployments to make the selection of the resources to be backed up easier. The best practice would be to check in advance which resources are selected with the defined filter.
-{{% /alert %}}
+> [!NOTE]
+> Carefully set labels and/or use namespaces for your deployments to make the selection of the resources to be backed up easier. The best practice would be to check in advance which resources are selected with the defined filter.
 
 ## Exemplary Use Cases
 
@@ -123,9 +119,7 @@ Now, since the backup location is different from the volume location, you need t
     --from-file cloud=credentials-ark --from-file backup-target=backup-ark`
 - configure in the deployment manifest `examples/aws/10-deployment.yaml` the entries in `volumeMounts`, `env` and `volumes` accordingly, e.g., for a cluster running on AWS and the backup target bucket on GCP a configuration could look similar to:
   <details>
-  {{% alert color="info"  title="Note" %}}
   Some links might get broken in the near future since Heptio was taken over by VMWare which might result in different GitHub repositories or other changes. Please don't hesitate to inform us in case you encounter any issues.
-  {{% /alert %}}
 
   <summary>Example Velero deployment</summary>
 

@@ -90,9 +90,8 @@ Additionally, when a minor Kubernetes / OS version expires, Gardener will force-
 
 Turning on AutoUpdate for a shoot may be convenient but comes at the risk of potentially unwanted changes. While it is possible to switch to another OS version, updates to the Kubernetes version are a one way operation and cannot be reverted.
 
-{{% alert color="info"  title="Recommendation" %}}
-Control the version lifecycle separately for any cluster that hosts important workload.
-{{% /alert %}}
+> [!NOTE] Recommendation
+> Control the version lifecycle separately for any cluster that hosts important workload.
 
 ## Node Draining
 
@@ -114,9 +113,8 @@ Without a PodDistruptionBudget, pods will be terminated as fast as possible. If 
 
 PodDisruptionBudgets can help to manage a graceful node drain. However, if no disruptions are allowed there, the node drain will be blocked until it reaches a timeout. Only then will the nodes be terminated but without respecting PDB thresholds.
 
-{{% alert color="info"  title="Recommendation" %}}
-Configure PDBs and allow disruptions.
-{{% /alert %}}
+> [!NOTE] Recommendation
+> Configure PDBs and allow disruptions.
 
 ## Pod Resource Requests and Limits
 
@@ -180,9 +178,8 @@ Common causes for failure are:
 
 Webhooks are a very helpful feature of Kubernetes. However, they can easily be configured to break a shoot cluster. Take the timeout, for example. High timeouts (>15s) can lead to blocking requests of control plane components. That's because most control-plane API calls are made with a client-side timeout of 30s, so if a webhook has `timeoutSeconds=30`, the overall request might still fail as there is overhead in communication with the API server and other potential webhooks.
 
-{{% alert color="info"  title="Recommendation" %}}
-Webhooks (esp. mutating) may be called sequentially and thus adding up their individual timeouts. Even with a  `faliurePolicy=ignore` the timeout will stop the request.
-{{% /alert %}}
+> [!NOTE] Recommendation
+> Webhooks (esp. mutating) may be called sequentially and thus adding up their individual timeouts. Even with a  `faliurePolicy=ignore` the timeout will stop the request.
 
 ### Recommendations
 
@@ -223,8 +220,7 @@ Conversion webhooks are tricky. Similarly to regular webhooks, they should have 
 
 In turn, when deleting something like a `deployment`, dependent resources like `pods` will not be deleted automatically.
 
-{{% alert color="info"  title="Recommendation" %}}
-Try to avoid conversion webhooks. They are valid and can be used, but should not stay in place forever. Complete the upgrade to a new version of the CRD as soon as possible.
-{{% /alert %}}
+> [!NOTE] Recommendation
+> Try to avoid conversion webhooks. They are valid and can be used, but should not stay in place forever. Complete the upgrade to a new version of the CRD as soon as possible.
 
 For more information, see the [Webhook Conversion](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definition-versioning/#webhook-conversion), [Upgrade Existing Objects to a New Stored Version](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definition-versioning/#upgrade-existing-objects-to-a-new-stored-version), and [Version Priority](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definition-versioning/#version-priority) topics in the Kubernetes documentation.

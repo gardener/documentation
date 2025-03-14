@@ -44,9 +44,8 @@ leads to an awkward construction.
 | The `gardener-control-manager` has control loops... | The gardener-control-manager has control loops...|
 | The `gardenlet` starts up with a bootstrap `kubeconfig` having a bootstrap token that allows to create `CertificateSigningRequest` (CSR) resources. | The gardenlet starts up with a bootstrap kubeconfig having a bootstrap token that allows to create CertificateSigningRequest (CSR) resources. |
 
-{{% alert color="info"  title="Note" %}}
-Due to the way the website is built from content taken from different repositories, when editing or updating already existing documentation, you should follow the style used in the topic. When contributing new documentation, follow the guidelines outlined in this guide.
-{{% /alert %}}
+> [!NOTE]
+> Due to the way the website is built from content taken from different repositories, when editing or updating already existing documentation, you should follow the style used in the topic. When contributing new documentation, follow the guidelines outlined in this guide.
 
 ### New Terms and Emphasis
 
