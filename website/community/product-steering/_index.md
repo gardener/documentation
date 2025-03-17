@@ -8,7 +8,7 @@ weight: 10
 ### What is Gardener's Product Steering?
 Product Steering provides strategic direction for major product increments. Product ideas can be submitted to the Product Steering Committee as proposals. The proposer must provide a brief document outlining the idea. Ideally, if applicable, a prototype should be included to demonstrate feasibility, but no full implementation or design document is expected (or desired) at this stage.
 
-So, Gardener's Product Steering discusses topics at an early stage, before substantial efforts begin. It focuses on the 'Whether'/'Why' question. In contrast, [Gardener's Technical Steering](https://gardener.cloud/community/technical-steering) discusses topics at a later stage, when a design document has been crafted. It focuses on the 'How' question, meaning the go/no-go decision has already been made in the Product Steering.
+So, Gardener's Product Steering discusses topics at an early stage, before substantial efforts begin. It focuses on the 'Whether'/'Why' question. In contrast, [Gardener's Technical Steering](https://gardener.cloud/community/technical-steering) discusses topics at a later stage, when a design document has been crafted. It focuses on the 'How' question, meaning the go/no-go decision has already been made in the Product Steering. A topic which passed the Product Steering is a natural fit for a Technical Steering once the design process reaches a sufficient technical depth.
 
 The committee will schedule a Product Steering meeting, where the proposer presents the proposal. Committee members, interested contributors, and affected sponsors will challenge and discuss the idea. This meeting will be recorded.
 
@@ -35,7 +35,7 @@ The committee is elected by the project's active contributing sponsors and consi
 - Others are encouraged to **watch the recording** instead of attending live.
 
 #### 3. Meeting Process
-- The proposer presents the product proposal.
+- The proposer presents the product proposal including a clear decision ask (if necessary).
 - The meeting will be **scheduled for 1h**. Presenting the proposal shall take no more than **30 minutes**.
 - Attendees are expected to have **read the proposal in advance and come prepared**.
 - Attendees **provide feedback, ask questions, and challenge the proposal**.
