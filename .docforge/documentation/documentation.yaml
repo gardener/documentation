@@ -70,6 +70,8 @@ structure:
           frontmatter:
             title: Resources
       - fileTree: https://github.com/gardener/gardener/tree/master/docs/extensions
+        excludeFiles:
+        - "overview.md"
     - dir: deployment
       structure:
       - file: _index.md
@@ -177,6 +179,7 @@ structure:
         title: List of Extensions
         description: The infrastructure, networking, OS and other extension components for Gardener
         weight: 4
+      source: https://github.com/gardener/gardener/blob/master/extensions/README.md
     - manifest: ./gardener-extensions/gardener-extensions.yaml
   - dir: other-components
     structure:
