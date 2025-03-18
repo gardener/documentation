@@ -1,5 +1,5 @@
 ---
-title: Important links
+title: Important Links
 ---
 
 {{< community-bio >}}
