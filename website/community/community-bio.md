@@ -1,5 +1,5 @@
 ---
-title: Important Links
+title: Gardener Bio
 ---
 
 {{< community-bio >}}
