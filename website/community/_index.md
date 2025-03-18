@@ -3,15 +3,15 @@ title: Community
 url: /community
 ---
 
-# Gardener Review Meetings
+## Gardener Review Meetings
 
-## What Are the Gardener Review Meetings?
+### What Are the Gardener Review Meetings?
 
 The Gardener Review Meeting is a recurring meeting where we review the latest developments in the Gardener ecosystem. We discuss recent releases, highlight key changes, and showcase live demos of new features and improvements.
 
 This meeting is open to everyone interested in Gardener, from contributors and maintainers to users and community members. We focus on updates relevant to the open-source community while avoiding company-specific details.
 
-## How to Participate
+### How to Participate
 
 - **Join the Meeting:** Meetings are usually held bi-weekly, typically in the week after a new Gardener version is released. If there are many topics, additional meetings may be scheduled.
 - **Present a Topic:** If you would like to showcase a feature, bug fix, or any other relevant topic, reach out to us! Each topic should ideally include a short live demo and last 5-10 minutes.
@@ -19,7 +19,7 @@ This meeting is open to everyone interested in Gardener, from contributors and m
 
 📅 **Meeting Invitations:** If you are not already on the invite list and would like to join, message us in our [#gardener](https://kubernetes.slack.com/messages/gardener) Slack channel in the Kubernetes workspace, or get in touch with [@rfranzke (Rafael Franzke)](mailto:rafael.franzke@sap.com).
 
-## Recordings & Public Access
+### Recordings & Public Access
 
 > [!NOTE]
 > From 2025 onwards, all meetings are recorded and uploaded publicly to the [Gardener YouTube channel](https://www.youtube.com/@GardenerProject).
