@@ -35,7 +35,7 @@ The committee is elected by the project's active contributing sponsors and consi
 - Others are encouraged to **watch the recording** instead of attending live.
 
 #### 3. Meeting Process
-- The proposer presents the product proposal including a clear decision ask (if necessary), e.g. 'Should feature A be implemented?' or 'Should standard B be implemented in favor of standard C?'.
+- The proposer presents the product proposal including a clear decision ask (if necessary), e.g., 'Should feature A be implemented?' or 'Should standard B be implemented in favor of standard C?'.
 - The meeting will be **scheduled for 1h**. Presenting the proposal shall take no more than **30 minutes**.
 - Attendees are expected to have **read the proposal in advance and come prepared**.
 - Attendees **provide feedback, ask questions, and challenge the proposal**.
