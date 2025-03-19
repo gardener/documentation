@@ -26,7 +26,7 @@ This meeting is open to everyone interested in Gardener, from contributors and m
 >
 > If you do not consent to being recorded, please do not enable your microphone or camera, or do not join the meetings.
 
-You can find the recordings and summaries of all previous public community meetings in the [Community Meetings Archive](./community-meetings/_index.md).
+You can find the recordings and summaries of all previous public community meetings in the [Gardener Review Meetings](./review-meetings/_index.md).
 
 ## Gardener Bio
 

@@ -1,6 +1,12 @@
-## Review Meetings in 2024
+---
+title: Gardener Review Meetings 2024
+---
 
-Below, you’ll find the agendas of past meetings along with links to their recordings.
+## Overview
+
+In case you couldn't participate and are interested in catching up, you can find the contents of the review meetings we have had in 2024 here.
+
+## Reviews
 
 ### 2024/12/18 - [v1.109](https://github.com/gardener/gardener/releases/tag/v1.109.0) and [v1.110](https://github.com/gardener/gardener/releases/tag/v1.110.0) Releases
 
