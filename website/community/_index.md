@@ -23,7 +23,6 @@ This meeting is open to everyone interested in Gardener, from contributors and m
 
 > [!NOTE]
 > From 2025 onwards, all meetings are recorded and uploaded publicly to the [Gardener YouTube channel](https://www.youtube.com/@GardenerProject).
-{{% /alert %}}
 >
 > If you do not consent to being recorded, please do not enable your microphone or camera, or do not join the meetings.
 
