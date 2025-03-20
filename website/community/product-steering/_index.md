@@ -74,4 +74,4 @@ A topic qualifies for Product Steering if it:
     - The proposal was made to present the scaling recommender in SIG Auto-Scaling to get feedback on whether the proposal makes sense, independent of whether anyone but us wants to implement it.
 
     </details>
-  - Go-/No-Go meeting not yet scheduled
+  - Go/No-Go meeting not yet scheduled
