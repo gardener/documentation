@@ -14,6 +14,5 @@ to a particular one.
 
 For the same reason, avoid inline scripts and styles in your content. If you absolutely need to use them and they are not working as expected, please create a documentation issue and describe your case.
 
-{{% alert color="info" title="Tip" %}}
-Markdown is great for its simplicity but may be also constraining for the same reason. Before looking at HTML to make up for that, first check the [shortcodes](https://github.com/gardener/documentation/blob/master/website/documentation/contribute/documentation/shortcodes.md) for alternatives.
-{{% /alert %}}
+> [!NOTE]
+> Markdown is great for its simplicity but may be also constraining for the same reason. Before looking at HTML to make up for that, first check the [shortcodes](https://github.com/gardener/documentation/blob/master/website/documentation/contribute/documentation/shortcodes.md) for alternatives.

@@ -28,9 +28,8 @@ In case you are interested, you can also view the source code for:
 
 ## Gardener Projects and Kubernetes Namespaces
 
-{{% alert color="info"  title="Note" %}}
-Each Gardener project corresponds to a Kubernetes namespace and all project specific resources are placed into it.
-{{% /alert %}}
+> [!NOTE]
+> Each Gardener project corresponds to a Kubernetes namespace and all project specific resources are placed into it.
 
 Even though projects are a dedicated Kubernetes resource, every project also corresponds to a dedicated namespace in the garden cluster. All project resources - including shoots - are placed into this namespace.
 
@@ -38,9 +37,8 @@ You can ask Gardener to use a specific namespace name in the project manifest bu
 
 ResourceQuotas - if any - will be enforced on the project namespace.
 
-{{% alert color="info"  title="Quotas" %}}
-Since all Gardener resources are custom Kubernetes resources, the usual and well established concept of `resourceQuotas` in Kubernetes can also be applied to Gardener resources. With a `resourceQuota` that sets a hard limit on, e.g., `count/shoots.core.gardener.cloud`, you can restrict the number of shoot clusters that can be created in a project.
-{{% /alert %}}
+> [!NOTE] Quotas
+> Since all Gardener resources are custom Kubernetes resources, the usual and well established concept of `resourceQuotas` in Kubernetes can also be applied to Gardener resources. With a `resourceQuota` that sets a hard limit on, e.g., `count/shoots.core.gardener.cloud`, you can restrict the number of shoot clusters that can be created in a project.
 
 ## Infrastructure Secrets
 

@@ -54,7 +54,6 @@ Use the following format to compose a URL for accessing your service through an 
 
 For more details on the format, please refer to the [official Kubernetes documentation](https://kubernetes.io/docs/tasks/access-application-cluster/access-cluster/#discovering-builtin-services).
 
-{{% alert color="info"  title="Note" %}}
-There are applications which do not support relative URLs yet, e.g. [Prometheus](https://github.com/prometheus/prometheus/issues/1583) (as of November, 2022).
+> [!NOTE]
+> There are applications which do not support relative URLs yet, e.g. [Prometheus](https://github.com/prometheus/prometheus/issues/1583) (as of November, 2022).
 This typically leads to missing JavaScript objects, which could be investigated with your browser's development tools. If such an issue occurs, please use the `port-forward` approach [described above](#solution-1-using-kubernetes-port-forward).
-{{% /alert %}}

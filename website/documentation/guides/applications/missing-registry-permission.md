@@ -12,9 +12,8 @@ scope: app-developer
 
 Two of the most common causes of this problems are specifying the wrong container image or trying to use private images without providing registry credentials.
 
-{{% alert color="info"  title="Note" %}}
-There is no observable difference in pod status between a missing image and incorrect registry permissions. In either case, Kubernetes will report an `ErrImagePull` status for the pods. For this reason, this article deals with both scenarios.
-{{% /alert %}}
+> [!NOTE]
+> There is no observable difference in pod status between a missing image and incorrect registry permissions. In either case, Kubernetes will report an `ErrImagePull` status for the pods. For this reason, this article deals with both scenarios.
 
 ## Example
 
