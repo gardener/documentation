@@ -66,7 +66,7 @@ A topic qualifies for Product Steering if it:
 
 - **Scaling Recommender (`cluster-autoscaler` Replacement)** ([paper](https://github.com/gardener/scaling-recommender/blob/main/docs/motivation.md), 2025-03-17 10:00 CET, [recording](https://youtu.be/u4-fWwKITuM))
   - <details closed><summary>Meeting Minutes</summary>
-    
+
     - Madhav (and Tarun on CA inefficiencies) presented the recommender proposal.
     - Questions were raised about what issues could realistically be changed upstream (if the committers would approve) and what cannot be changed (fundamental issues).
     - One fundamental issue is that CA looks only at one node group at a time and therefore only considers filtering, never scoring (there is nothing to score since only nodes in one node group are analyzed). Consequently, all follow-up issues cannot be addressed either, like zone imbalance or sub-optimal recommendations.
@@ -75,4 +75,4 @@ A topic qualifies for Product Steering if it:
     - The proposal was made to present the scaling recommender in SIG Auto-Scaling to get feedback on whether the proposal makes sense, independent of whether anyone but us wants to implement it.
 
     </details>
-  - Go/No-Go meeting not yet scheduled
+  - Go/No-Go meeting scheduled for March 27th
