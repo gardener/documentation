@@ -58,5 +58,18 @@ A topic qualifies for Technical Steering if it:
 
 ## Planned Topics
 
-- **Observability 2.0** ([paper](https://github.com/gardener/logging/blob/master/docs/observability-2.0/Observability%202.0.md), 2025-03-20 15:00-16:00 CET)
 - **Persistent Volume Autoscaler** ([paper](https://github.com/gardener/gardener/pull/10690), [implementation](https://github.com/gardener/pvc-autoscaler), no date yet)
+
+<hr/>
+
+## Decisions
+
+- **Observability 2.0** ([paper](https://github.com/gardener/logging/blob/master/docs/observability-2.0/Observability%202.0.md), 2025-03-20 15:00-16:00 CET, [recording](https://youtu.be/rH9EDAsxrbg))
+  - <details closed><summary>Meeting Minutes</summary>
+
+    - Nikolai presented the plans for Observability 2.0.
+    - There was general consensus that this is a huge improvement.
+    - It was proposed to file individual GEPs for the details. Nikolai sees at least three coming up, maybe more (recording 1:01:41)
+
+    </details>
+  - The decision was taken to implement Observability 2.0.
