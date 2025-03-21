@@ -35,10 +35,11 @@ The committee is elected by the project's active contributing sponsors and consi
 - Others are encouraged to **watch the recording** instead of attending live.
 
 #### 3. Meeting Process
-- The proposer presents the product proposal including a clear decision ask (if necessary), e.g., 'Should feature A be implemented?' or 'Should standard B be implemented in favor of standard C?'.
-- The meeting will be **scheduled for 1h**. Presenting the proposal shall take no more than **30 minutes**.
 - Attendees are expected to have **read the proposal in advance and come prepared**.
-- Attendees **provide feedback, ask questions, and challenge the proposal**.
+- The meeting will be **scheduled for 1h** and is split into **10-20-30** minute blocks:
+  - The proposer has up to **10 minutes** time to reiterate the **key aspects of and motivation for the product proposal, including the ask for decision**, e.g., "I need a decision whether we shall develop product feature X. Here is why I think this is important for Gardener: ...".
+  - Attendees then have up to **20 minutes** time to **ask clarifying questions**.
+  - The last **30 minutes** are reserved to **provide feedback, possibly challenge the document, and generally for an active discussion**.
 - The session is **recorded and shared** with the community for transparency.
 
 #### 4. Decision Process
