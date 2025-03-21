@@ -38,7 +38,7 @@ The committee is elected by the project's active committers and contributors and
 - Attendees are expected to have **read the document in advance and come prepared**.
 - The meeting will be **scheduled for 1h** and is split into **10-20-20-10** minute blocks:
   - The proposer has up to **10 minutes** time to reiterate the **key aspects of and motivation for the technical document, including the ask for decision**, e.g., "I need a decision how to implement product feature X. Here is why I think this is the right approach for Gardener: ...".
-  - Now attendees have up to **20 minutes** time to **ask clarifying questions**.
+  - Attendees then have up to **20 minutes** time to **ask clarifying questions**.
   - The next **20 minutes** are reserved to **provide feedback, possibly challenge the document, and generally for an active discussion**.
   - The last **10 minutes** are reserved to **take a decision**.
 - The session is **recorded and shared** with the community for transparency.
