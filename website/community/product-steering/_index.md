@@ -75,4 +75,9 @@ A topic qualifies for Product Steering if it:
     - The proposal was made to present the scaling recommender in SIG Auto-Scaling to get feedback on whether the proposal makes sense, independent of whether anyone but us wants to implement it.
 
     </details>
-  - Go/No-Go meeting scheduled for March 27th
+  - Investment was approved, considering the many issues listed in the motivational document.
+  - Going for the recommender instead of patching or rather only mitigating a few of the issues is considerable effort though, but appears to be the better choice, if certain guardrails are put in place like having reasonable milestones to check investment vs. progress, e.g.:
+    - MVP 5-6 months from now proving the core claims can/have been achieved, e.g. by passing clearly defined test cases/KPIs, e.g. scheduling 10K pending pods within X seconds onto 50 3-zone worker pools (exact test cases/KPIs TBD) using the planned API server/ETCD mock.
+    - Starting the roll-out of a first ready version (>80% feature parity) 1y from now.
+    - Latest by end of 2026, the new recommender is the default option in Gardener and has reached production at full scale.
+  - Most participants would still prefer presenting the topic early to SIG Autoscaling to get early feedback, but everybody accepts the team decision to do that only after an MVP is ready/working.
