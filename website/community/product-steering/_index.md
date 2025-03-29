@@ -77,7 +77,7 @@ A topic qualifies for Product Steering if it:
     </details>
   - Investment was approved, considering the many issues listed in the motivational document.
   - While going for the recommender instead of patching or rather only mitigating a few of the issues is considerable effort, it appears to be the better choice, so long as certain guardrails like having reasonable milestones to check investment vs. progress are put in place, e.g.:
-    - MVP 5-6 months from now proving the core claims can/have been achieved, e.g. by passing clearly defined test cases/KPIs, e.g. scheduling 10K pending pods within X seconds onto 50 3-zone worker pools (exact test cases/KPIs TBD) using the planned API server/ETCD mock.
+    - MVP 5-6 months from now proving the core claims can/have been achieved, e.g., by passing clearly defined test cases/KPIs. The exact test cases/KPIs are a work in progress, but an example could be scheduling 10K pending pods within X seconds onto 50 3-zone worker pools using the planned API server/ETCD mock.
     - Starting the roll-out of a first ready version (>80% feature parity) 1y from now.
     - Latest by end of 2026, the new recommender is the default option in Gardener and has reached production at full scale.
   - Most participants would still prefer presenting the topic early to SIG Autoscaling to get early feedback, but everybody accepts the team decision to do that only after an MVP is ready/working.
