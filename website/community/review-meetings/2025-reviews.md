@@ -11,6 +11,28 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2025/04/09 - [v1.116](https://github.com/gardener/gardener/releases/tag/v1.116.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@vitanovs](https://github.com/vitanovs) | `10m` | 🎮 New `ShootState` Finalizer Controller | [#11491](https://github.com/gardener/gardener/pull/11491) |
+| [@unmarshall](https://github.com/unmarshall), [@Shreyas-s14](https://github.com/Shreyas-s14) | `10m` | 🤖 `etcd-druid` CEL Validations + API Module | [#11545](https://github.com/gardener/gardener/pull/11545) |
+| [@rfranzke](https://github.com/rfranzke) | `5m` | 👮 Bug Fixes In `NetworkPolicy` Controller | [#11780](https://github.com/gardener/gardener/pull/11780) |
+| [@timuthy](https://github.com/timuthy) | `10m` | 🧩 Extensions For `Seed` Reconciliations | [#11764](https://github.com/gardener/gardener/pull/11764) |
+| [@ScheererJ](https://github.com/ScheererJ) | `10m` | 🐓 GEP-28 Update: Autonomous Shoot Clusters | [#2906 (issue)](https://github.com/gardener/gardener/issues/2906) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- 🪓 [OPERATOR] Please note, if you configure `spec.extensions` in your `Garden` resource: `gardener-operator` adds a `garden-` prefix to all extension resources configured via the `Garden`. Existing extension resources (not prefixed) will be deleted automatically at the end of the reconciliation. [...]. [#11764](https://github.com/gardener/gardener/pull/11764)
+- 🪓 [DEVELOPER] The extension `class` field in the generic extension controller was removed. Please use the new field `classes` instead. [#11764](https://github.com/gardener/gardener/pull/11764)
+- ✨ [OPERATOR] The feature gate `NewVPN` has been graduated to GA. It was already enabled by default and can now no longer be turned off. The feature gate will be removed in a future release. [#11714](https://github.com/gardener/gardener/pull/11714)
+
+<hr />
+
 ### 2025/03/26 - [v1.115](https://github.com/gardener/gardener/releases/tag/v1.115.0) Release
 
 [📽️ Recording](https://youtu.be/YptPT04uPz0)
