@@ -47,4 +47,4 @@ To have documentation published on the website it is necessary to use the docfor
 > This is work in progress and we are transitioning to a more transparent way of integrating component documentation. This guide will be updated as we progress.
 
 These manifests describe a particular publishing goal, i.e. using Hugo to publish on the website, and you will find out that they contain Hugo-specific front-matter properties.
-Consult with the documentation maintainers for details. Use the gardener channel in [slack](https://kubernetes.slack.com/messages/gardener) or [open a PR](https://github.com/gardener/documentation/pulls).
+Consult with the documentation maintainers for details. Use the [#general](https://gardener-cloud.slack.com/archives/CAPMD6DCG) channel in Slack or [open a PR](https://github.com/gardener/documentation/pulls).
