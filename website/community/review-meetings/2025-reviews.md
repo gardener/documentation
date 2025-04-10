@@ -5,7 +5,7 @@ weight: -2025
 
 ## Overview
 
-In case you couldn't participate and are interested in catching up, you can find the contents of the review meetings we have had in 2024 here.
+In case you couldn't participate and are interested in catching up, you can find the contents of the review meetings we have had in 2025 here.
 
 Check back regularly for updates and upcoming topics!
 

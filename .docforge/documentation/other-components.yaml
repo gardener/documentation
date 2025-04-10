@@ -4,7 +4,6 @@ structure:
   - file: _index.md
     frontmatter:
       title: Machine Controller Manager
-      weight: 1
       description: Declarative way of managing machines for Kubernetes cluster
     source:  https://github.com/gardener/machine-controller-manager/blob/master/README.md
   - fileTree: https://github.com/gardener/machine-controller-manager/tree/master/docs
@@ -18,7 +17,6 @@ structure:
   - file: api-reference.md
     frontmatter:
       title: API Reference
-      weight: 1
       persona: Developers
     source: https://github.com/gardener/etcd-druid-api/blob/main/docs/api-reference/druid.md
   - fileTree: https://github.com/gardener/etcd-druid/tree/master/docs
@@ -29,7 +27,6 @@ structure:
   - file: _index.md
     frontmatter:
       title: Dependency Watchdog
-      weight: 1
       description: A watchdog which actively looks out for disruption and recovery of critical services
     source: https://github.com/gardener/dependency-watchdog/blob/master/README.md
   - fileTree: https://github.com/gardener/dependency-watchdog/tree/master/docs
@@ -40,7 +37,6 @@ structure:
   - file: _index.md
     frontmatter:
       title: Gardener Discovery Server
-      weight: 1
       description: A server which provides public metadata for Gardener resources
     source: https://github.com/gardener/gardener-discovery-server/blob/main/README.md
   - fileTree: https://github.com/gardener/gardener-discovery-server/tree/main/docs
@@ -51,7 +47,6 @@ structure:
   - file: _index.md
     frontmatter:
       title: Network Problem Detector
-      weight: 1
       description: A tool which diagnoses network issues in Kubernetes clusters by performing various connectivity checks
     source: https://github.com/gardener/network-problem-detector/blob/main/README.md
   - fileTree: https://github.com/gardener/network-problem-detector/tree/main/docs

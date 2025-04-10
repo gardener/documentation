@@ -3,7 +3,7 @@ title: Resources
 description: Interesting and useful content on Kubernetes
 aliases: ["/docs/resources/resources"]
 persona: Developers
-weight: 10
+weight: 100
 ---
 
 ## Overview

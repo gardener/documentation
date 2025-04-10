@@ -3,7 +3,7 @@ structure:
   structure:
   - file: _index.md
     frontmatter:
-      title: DNS services
+      title: DNS Services
       description: Gardener extension controller for DNS services for shoot clusters
     source:  https://github.com/gardener/gardener-extension-shoot-dns-service/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-shoot-dns-service/tree/master/docs
@@ -11,7 +11,7 @@ structure:
   structure:
   - file: _index.md
     frontmatter:
-      title: Certificate services
+      title: Certificate Services
       description: Gardener extension controller for certificate services for shoot clusters
     source:  https://github.com/gardener/gardener-extension-shoot-cert-service/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-shoot-cert-service/tree/master/docs
@@ -19,7 +19,7 @@ structure:
   structure:
   - file: _index.md
     frontmatter:
-      title: OpenID Connect services
+      title: OpenID Connect Services
       description: Gardener extension controller for OpenID Connect services for shoot clusters
     source:  https://github.com/gardener/gardener-extension-shoot-oidc-service/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-shoot-oidc-service/tree/master/docs
@@ -27,7 +27,7 @@ structure:
   structure:
   - file: _index.md
     frontmatter:
-      title: Egress filtering
+      title: Egress Filtering
       description: Gardener extension controller for egress filtering for shoot clusters
     source:  https://github.com/gardener/gardener-extension-shoot-networking-filter/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-shoot-networking-filter/tree/master/docs
@@ -35,7 +35,7 @@ structure:
   structure:
   - file: _index.md
     frontmatter:
-      title: Networking problemdetector
+      title: Networking Problem Detector
       description: Gardener extension for deploying network problem detector
     source: https://github.com/gardener/gardener-extension-shoot-networking-problemdetector/blob/main/README.md
   - fileTree: https://github.com/gardener/gardener-extension-shoot-networking-problemdetector/tree/main/docs
@@ -43,7 +43,7 @@ structure:
   structure:
   - file: _index.md
     frontmatter:
-      title: Lakom service
+      title: Lakom Service
       description: A k8s admission controller verifying pods are using signed images (cosign signatures) and a gardener extension to install it for shoots and seeds.
     source: https://github.com/gardener/gardener-extension-shoot-lakom-service/blob/main/README.md
   - fileTree: https://github.com/gardener/gardener-extension-shoot-lakom-service/tree/main/docs
@@ -51,7 +51,7 @@ structure:
   structure:
   - file: _index.md
     frontmatter:
-      title: Registry cache
+      title: Registry Cache
       description: Gardener extension controller which deploys pull-through caches for container registries.
     source: https://github.com/gardener/gardener-extension-registry-cache/blob/main/README.md
   - fileTree: https://github.com/gardener/gardener-extension-registry-cache/tree/main/docs
