@@ -18,7 +18,7 @@ A decision on how to proceed with the document, including any recommended improv
 Technical Steering ensures that major technical changes align with Gardener's architectural principles and long-term sustainability. It prevents fragmentation and promotes consistency in the project's evolution. The process helps ensure that major technical investments deliver value to both Gardener's users and maintainers.
 
 ### Who is on The Technical Steering Committee?
-The committee is elected by the project's active committers and contributors and consists of a small number of members (at least three). Currently, the committee members are:
+The committee is elected by the project's active code owners and contributors and consists of a small number of members (at least three). Currently, the committee members are:
 - [Johannes Scheerer](https://github.com/scheererj) ([Email](mailto:johannes.scheerer@sap.com) and [Slack](https://gardener-cloud.slack.com/archives/D08EXK51QJJ))
 - [Rafael Franzke](https://github.com/rfranzke) ([Email](mailto:rafael.franzke@sap.com) and [Slack](https://gardener-cloud.slack.com/archives/DAQ7R4D6D))
 - [Tim Ebert](https://github.com/timebertt) ([Email](mailto:tim.ebert@stackit.cloud) and [Slack](https://gardener-cloud.slack.com/archives/D0478U21E4U))
