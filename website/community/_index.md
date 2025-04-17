@@ -17,7 +17,7 @@ This meeting is open to everyone interested in Gardener, from contributors and m
 - **Present a Topic:** If you would like to showcase a feature, bug fix, or any other relevant topic, reach out to us! Each topic should ideally include a short live demo and last 5-10 minutes.
 - **Setup for Demos:** Use a [local](https://gardener.cloud/docs/gardener/deployment/getting_started_locally/#developing-gardener) or [remote](https://gardener.cloud/docs/gardener/deployment/getting_started_locally/#remote-local-setup) setup for your demonstrations if applicable.
 
-📅 **Meeting Invitations:** If you are not already on the invite list and would like to join, message us in our [#gardener](https://kubernetes.slack.com/messages/gardener) Slack channel in the Kubernetes workspace, or get in touch with [@rfranzke (Rafael Franzke)](mailto:rafael.franzke@sap.com).
+📅 **Meeting Invitations:** If you are not already on the invite list and would like to join, message us in the [#general](https://gardener-cloud.slack.com/archives/CAPMD6DCG) Slack channel, or get in touch with [@rfranzke (Rafael Franzke)](mailto:rafael.franzke@sap.com).
 
 ### Recordings & Public Access
 
