@@ -27,8 +27,7 @@ apiVersion: core.gardener.cloud/v1beta1
 metadata:
   name: aws
 spec:
-  cloudProfile:
-    name: aws
+  cloudProfileName: aws
   kubernetes:
     kubeAPIServer:
       admissionPlugins:
@@ -45,7 +44,7 @@ spec:
         auditPolicy:
           configMapRef:
             name: audit-policy
-    version: "1.28"
+    version: "1.31"
     enableStaticTokenKubeconfig: false
   networking:
     type: calico
@@ -104,8 +103,7 @@ apiVersion: core.gardener.cloud/v1beta1
 metadata:
   name: azure
 spec:
-  cloudProfile:
-    name: az
+  cloudProfileName: az
   kubernetes:
     kubeAPIServer:
       admissionPlugins:
@@ -122,7 +120,7 @@ spec:
         auditPolicy:
           configMapRef:
             name: audit-policy
-    version: "1.28"
+    version: "1.31"
     enableStaticTokenKubeconfig: false
   networking:
     type: calico
@@ -178,8 +176,7 @@ apiVersion: core.gardener.cloud/v1beta1
 metadata:
   name: gcp
 spec:
-  cloudProfile:
-    name: gcp
+  cloudProfileName: gcp
   kubernetes:
     kubeAPIServer:
       admissionPlugins:
@@ -196,7 +193,7 @@ spec:
         auditPolicy:
           configMapRef:
             name: audit-policy
-    version: "1.28"
+    version: "1.31"
     enableStaticTokenKubeconfig: false
   networking:
     type: calico
@@ -250,8 +247,7 @@ apiVersion: core.gardener.cloud/v1beta1
 metadata:
   name: openstack
 spec:
-  cloudProfile:
-    name: converged-cloud-cp
+  cloudProfileName: converged-cloud-cp
   kubernetes:
     kubeAPIServer:
       admissionPlugins:
@@ -268,7 +264,7 @@ spec:
         auditPolicy:
           configMapRef:
             name: audit-policy
-    version: "1.28"
+    version: "1.31"
     enableStaticTokenKubeconfig: false
   networking:
     type: calico
@@ -332,15 +328,15 @@ providers:
     version: v2r1
     args:
       maxRetries: 5
-    ruleOptions:
+    ruleOptions: 
     - ruleID: "242402"
       skip:
         enabled: true
-        justification: "Gardener can integrate with different audit logging solutions"
+        justification: Gardener can integrate with different audit logging solutions
     - ruleID: "242403"
       skip:
         enabled: true
-        justification: "Gardener can integrate with different audit logging solutions"
+        justification: Gardener can integrate with different audit logging solutions
     - ruleID: "242414"
       args:
         acceptedPods:
@@ -369,15 +365,15 @@ providers:
     - ruleID: "242462"
       skip:
         enabled: true
-        justification: "Gardener can integrate with different audit logging solutions"
+        justification: Gardener can integrate with different audit logging solutions
     - ruleID: "242463"
       skip:
         enabled: true
-        justification: "Gardener can integrate with different audit logging solutions"
+        justification: Gardener can integrate with different audit logging solutions
     - ruleID: "242464"
       skip:
         enabled: true
-        justification: "Gardener can integrate with different audit logging solutions"
+        justification: Gardener can integrate with different audit logging solutions
     - ruleID: "245543"
       args:
         acceptedTokens:
@@ -385,7 +381,7 @@ providers:
           uid: "health-check"
     - ruleID: "254800"
       args:
-        minPodSecurityLevel: "baseline"
+        minPodSecurityStandardsProfile: "baseline"
 output:
   minStatus: Passed
 </code></pre>
