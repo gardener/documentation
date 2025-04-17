@@ -1,4 +1,7 @@
 structure:
+  - file: _index.md
+    frontmatter:
+      title: Docs
   - dir: getting-started
     structure:
     - fileTree: /website/documentation/getting-started
