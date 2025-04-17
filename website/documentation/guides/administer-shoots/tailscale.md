@@ -8,7 +8,7 @@ The most common way to secure a Kubernetes cluster which was created with Garden
 
 However, those solutions are not without their drawbacks. Managing the ACL extension becomes fairly difficult with the growing number of participants, especially in a dynamic environment and work from home scenarios, and using ExposureClass requires you to first have a corporate network suitable for this purpose.
 
-But there is a solution which bridges the gap between these two approaches by the use of a mesh VPN based on [WireGuard](https://www.wireguard.com/)
+But there is a solution which bridges the gap between these two approaches by the use of a mesh VPN based on [WireGuard](https://www.wireguard.com/).
 
 ## Tailscale
 

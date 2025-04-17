@@ -2,7 +2,7 @@
 title: Getting Started
 description: Gardener onboarding materials
 persona: Users
-weight: 1
+weight: 10
 ---
 
 Welcome to the Gardener Getting Started section! Here you will be able to get accustomed to the way Gardener functions and learn how its components work together in order to seamlessly run Kubernetes clusters on various hyperscalers.

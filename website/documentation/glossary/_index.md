@@ -2,7 +2,7 @@
 title: Glossary
 description: Commonly used terms in Gardener
 persona: Users
-weight: 9
+weight: 90
 ---
 ## Purpose
 
