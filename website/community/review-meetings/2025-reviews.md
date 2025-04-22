@@ -11,6 +11,28 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2025/04/23 - [v1.117](https://github.com/gardener/gardener/releases/tag/v1.117.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@axel7born](https://github.com/axel7born) | `10m` | 👯 Single-Stack IPv4 -> Dual-Stack IPv{4,6} Migration | [#11692](https://github.com/gardener/gardener/pull/11692) |
+| [@oliver-goetz](https://github.com/oliver-goetz) | `5m` | 🐭 SPDY Support For L7 Load-Balancing | [#11807](https://github.com/gardener/gardener/pull/11807) |
+| [@oliver-goetz](https://github.com/oliver-goetz) | `10m` | 🧑‍⚕️ `Extension` Care Controller | [#11769](https://github.com/gardener/gardener/pull/11769) |
+| [@hendrikKahl](https://github.com/hendrikKahl) | `5m` | 🚀 `machine-controller-manager` Processing Throughput | [#11879](https://github.com/gardener/gardener/pull/11879) |
+| [@domdom82](https://github.com/domdom82) | `10m` | 🧦 CIDR Overlap w/ `Seed` For Non-HA `Shoot`s | [#11582](https://github.com/gardener/gardener/pull/11582) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- 🪓 [USER] The VPA version is updated to 1.3.0. Upstream VPA 1.3.0 does no longer serve API version `autoscaling.k8s.io/v1beta2`. Gardener's VPA installation will continue to serve API version `autoscaling.k8s.io/v1beta2` until Gardener v1.119. [...] [#11774](https://github.com/gardener/gardener/pull/11774)
+- ✨ [OPERATOR] `NamespacedCloudProfile.spec.limits.maxNodesTotal` can now also be used to override the limit defined in the parent `CloudProfile` with an increased value. Increasing requires additional permissions granted by the custom verb `raise-spec-limits`. [#11796](https://github.com/gardener/gardener/pull/11796)
+- ✨ [OPERATOR] `gardener-operator` automatically adds the `networking.resources.gardener.cloud/to-virtual-garden-kube-apiserver-tcp-443: allowed` label to the gardenlet deployment in case it is deployed to the garden runtime cluster. Thus, it is not required anymore to configure this label in the `Gardenlet` resource. [#11855](https://github.com/gardener/gardener/pull/11855)
+
+<hr />
+
 ### 2025/04/09 - [v1.116](https://github.com/gardener/gardener/releases/tag/v1.116.0) Release
 
 [📽️ Recording](https://youtu.be/lzPqY44rYmI)
