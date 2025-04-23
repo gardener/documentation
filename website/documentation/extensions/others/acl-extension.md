@@ -13,6 +13,6 @@ This extension supports multiple ingress namespaces, enhancing its flexibility f
 The extension's functionality and limitations are intricately managed to handle different access types effectively, ensuring robust security for Kubernetes API servers.
 
 > [!NOTE]
-> The ACL extension is not part of Gardener and is maintained by a different company.
+> The ACL extension is not part of Gardener and is maintained by STACKIT in their own GitHub organization.
 
 You can find more information in the [Gardener ACL Extension](https://github.com/stackitcloud/gardener-extension-acl) repository.
