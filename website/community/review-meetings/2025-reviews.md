@@ -13,7 +13,7 @@ Check back regularly for updates and upcoming topics!
 
 ### 2025/04/23 - [v1.117](https://github.com/gardener/gardener/releases/tag/v1.117.0) Release
 
-[📽️ Recording]()
+[📽️ Recording](https://youtu.be/XB63kan-AtM)
 
 #### Demo Agenda 📋
 
@@ -23,7 +23,6 @@ Check back regularly for updates and upcoming topics!
 | [@oliver-goetz](https://github.com/oliver-goetz) | `5m` | 🐭 SPDY Support For L7 Load-Balancing | [#11807](https://github.com/gardener/gardener/pull/11807) |
 | [@oliver-goetz](https://github.com/oliver-goetz) | `10m` | 🧑‍⚕️ `Extension` Care Controller | [#11769](https://github.com/gardener/gardener/pull/11769) |
 | [@hendrikKahl](https://github.com/hendrikKahl) | `5m` | 🚀 `machine-controller-manager` Processing Throughput | [#11879](https://github.com/gardener/gardener/pull/11879) |
-| [@domdom82](https://github.com/domdom82) | `10m` | 🧦 CIDR Overlap w/ `Seed` For Non-HA `Shoot`s | [#11582](https://github.com/gardener/gardener/pull/11582) |
 
 #### No Demo, But Still Worth Celebrating 🎉
 
