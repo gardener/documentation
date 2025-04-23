@@ -12,7 +12,7 @@ structure:
         title: Guides
         description: Walkthroughs of common activities
         persona: Developers
-        weight: 2
+        weight: 20
     - manifest: ./guides.yaml
   - dir: security-and-compliance
     structure:
@@ -36,14 +36,14 @@ structure:
       frontmatter:
         title: Gardener
         description: The core component providing the extension API server of your Kubernetes cluster
-        weight: 3
+        weight: 30
       source: https://github.com/gardener/gardener/blob/master/docs/README.md
     - dir: api-reference
       structure:
       - file: _index.md
         frontmatter:
           title: API Reference
-          weight: 1
+          weight: 10
           aliases: 
           - "/api-reference/"
           persona: Developers
@@ -56,7 +56,7 @@ structure:
       - file: _index.md
         frontmatter:
           title: Concepts
-          weight: 2
+          weight: 20
           persona: Operators
       - fileTree: https://github.com/gardener/gardener/tree/master/docs/concepts
     - dir: extensions
@@ -65,7 +65,7 @@ structure:
         source: https://github.com/gardener/gardener/blob/master/docs/extensions/overview.md
         frontmatter:
           title: Extensions
-          weight: 3
+          weight: 30
           persona: Developers
       - dir: resources
         structure:
@@ -80,7 +80,7 @@ structure:
       - file: _index.md
         frontmatter:
           title: Deployment
-          weight: 4
+          weight: 40
           persona: Operators
       - fileTree: https://github.com/gardener/gardener/tree/master/docs/deployment
     - dir: development
@@ -91,7 +91,7 @@ structure:
       - file: _index.md
         frontmatter:
           title: Monitoring
-          weight: 5
+          weight: 50
           persona: Operators
         source: https://github.com/gardener/gardener/blob/master/docs/monitoring/README.md
       - fileTree: https://github.com/gardener/gardener/tree/master/docs/monitoring
@@ -109,7 +109,7 @@ structure:
         - file: _index.md
           frontmatter:
             title: Advanced
-            weight: 1
+            weight: 10
       - dir: autoscaling
         frontmatter:
           aliases: ["/docs/gardener"]
@@ -117,7 +117,7 @@ structure:
         - file: _index.md
           frontmatter:
             title: Autoscaling
-            weight: 2
+            weight: 20
       - dir: high-availability
         frontmatter:
           aliases: ["/docs/gardener"]
@@ -125,7 +125,7 @@ structure:
         - file: _index.md
           frontmatter:
             title: High Availability
-            weight: 3
+            weight: 30
       - dir: networking
         frontmatter:
           aliases: ["/docs/gardener"]
@@ -133,7 +133,7 @@ structure:
         - file: _index.md
           frontmatter:
             title: Networking
-            weight: 4
+            weight: 40
       - dir: observability
         frontmatter:
           aliases: ["/docs/gardener"]
@@ -141,7 +141,7 @@ structure:
         - file: _index.md
           frontmatter:
             title: Observability
-            weight: 5
+            weight: 50
       - dir: project
         frontmatter:
           aliases: ["/docs/gardener"]
@@ -149,7 +149,7 @@ structure:
         - file: _index.md
           frontmatter:
             title: Project
-            weight: 6
+            weight: 60
       - dir: security
         frontmatter:
           aliases: ["/docs/gardener"]
@@ -157,7 +157,7 @@ structure:
         - file: _index.md
           frontmatter:
             title: Security
-            weight: 7
+            weight: 70
       - dir: shoot
         frontmatter:
           aliases: ["/docs/gardener"]
@@ -165,7 +165,7 @@ structure:
         - file: _index.md
           frontmatter:
             title: Shoot
-            weight: 8
+            weight: 80
       - dir: shoot-operations
         frontmatter:
           aliases: ["/docs/gardener"]
@@ -173,7 +173,7 @@ structure:
         - file: _index.md
           frontmatter:
             title: Shoot Operations
-            weight: 9
+            weight: 90
       - fileTree: https://github.com/gardener/gardener/tree/master/docs/usage
   - dir: extensions
     structure:
@@ -181,7 +181,7 @@ structure:
       frontmatter:
         title: List of Extensions
         description: The infrastructure, networking, OS and other extension components for Gardener
-        weight: 4
+        weight: 40
       source: https://github.com/gardener/gardener/blob/master/extensions/README.md
     - manifest: ./gardener-extensions/gardener-extensions.yaml
   - dir: other-components
@@ -190,7 +190,7 @@ structure:
       frontmatter:
         title: Other Components
         description: Other components included in the Gardener project
-        weight: 5
+        weight: 50
     - manifest: ./other-components.yaml
   - dir: dashboard
     structure:
@@ -198,7 +198,7 @@ structure:
       frontmatter:
         title: Dashboard
         description: The web UI for managing your projects and clusters
-        weight: 6
+        weight: 60
       source: https://github.com/gardener/dashboard/blob/master/README.md
     - fileTree: https://github.com/gardener/dashboard/tree/master/docs
       excludeFiles:
@@ -209,7 +209,7 @@ structure:
       - /docs/gardenctl/
       title: Gardenctl V2
       description: The command line interface to control your clusters
-      weight: 7
+      weight: 70
     source: https://github.com/gardener/gardenctl-v2/blob/master/README.md
   - dir: faq
     structure:
