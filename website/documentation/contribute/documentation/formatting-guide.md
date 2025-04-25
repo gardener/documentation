@@ -128,6 +128,7 @@ Another thing to keep in mind is that markdown links do not work in certain [sho
 ### Separate Commands from Output
 
 <code>
+
 Verify that the pod is running on your chosen node:
 
     kubectl get pods --output=wide
