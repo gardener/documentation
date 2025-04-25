@@ -23,7 +23,6 @@ These are guidelines, not rules. Use your best judgment, and feel free to propos
 | [Links and References](#links-and-references) | [link]() | `Visit the [Gardener website](https://gardener.cloud/)` |
 | [Headers](#headers) | various | `# API Server` |
 
-
 ### API Objects and Technical Components
 
 When you refer to an API object, use the same uppercase and lowercase letters
@@ -124,10 +123,10 @@ Another thing to keep in mind is that markdown links do not work in certain [sho
 |:---|:---|
 | `kubectl get pods`  | `$ kubectl get pods` |
 
-
 ### Separate Commands from Output
 
 <code>
+
 Verify that the pod is running on your chosen node:
 
     kubectl get pods --output=wide
@@ -146,9 +145,8 @@ represents, for example:
 <code>
 
 Display information about a pod:
-```
-kubectl describe pod <pod-name>
-```
+
+    kubectl describe pod <pod-name>
 
 `<pod-name>` is the name of one of your pods.
 
@@ -159,5 +157,6 @@ kubectl describe pod <pod-name>
 Make code examples and configuration examples that include version information consistent with the accompanying text. Identify the Kubernetes version in the **Prerequisites** section.
 
 ## Related Links
+
 * [Style Guide](./style-guide/_index.md)
 * [Contributors Guide](../_index.md)
