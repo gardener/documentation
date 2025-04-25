@@ -199,11 +199,11 @@ While mixing diverse workloads seems efficient at first glance, dedicated node p
 
 Early on, we used a guide for operators to estimate a reasonable machine size for a seed cluster based on the number of hosted control planes, e.g.:
 
-| Starting<br/>Worker Pool (CPUxMem+Vols) | Very Low Seed Utilization<br/>0 <= &vert;control planes&vert; < 15 | Low Seed Utilization<br/>5 <= &vert;control planes&vert; < 30 | Medium Seed Utilization<br/>10 <= &vert;control planes&vert; < 70 | High Seed Utilization<br/>30 <= &vert;control planes&vert; < 180 | Very High Seed Utilization<br/>120 <= &vert;control planes&vert; < &infin; |
+| Optimal<br/>Worker Pool (CPUxMem+Vols) | Very Low Seed Utilization<br/>0 <= &vert;control planes&vert; < 15 | Low Seed Utilization<br/>5 <= &vert;control planes&vert; < 30 | Medium Seed Utilization<br/>10 <= &vert;control planes&vert; < 70 | High Seed Utilization<br/>30 <= &vert;control planes&vert; < 180 | Very High Seed Utilization<br/>120 <= &vert;control planes&vert; < &infin; |
 |----------|---|---|---|---|---|
-| AWS      | 🌱&nbsp;`m5.large`(2x8+26)      | 🍀&nbsp;`r7i.large`(2x16+32)     | 🌿&nbsp;`r7i.xlarge`(4x32+32)     | 🌲&nbsp;`r7i.2xlarge`(8x64+32)      | 🌲&nbsp;`r7i.2xlarge`(8x64+32)       |
-| Azure    | 🌱&nbsp;`Standard_D2s_v5`(2x8+4)| 🍀&nbsp;`Standard_D4s_v5`(4x16+8)| 🌿&nbsp;`Standard_D8s_v5`(8x32+16)| 🌲&nbsp;`Standard_D16s_v5`(16x64+32)| 🌲&nbsp;`Standard_D16s_v5`(16x64+32) |
-| GCP      | 🌱&nbsp;`n1-standard-2`(2x8+127)| 🍀&nbsp;`n1-standard-4`(4x15+127)| 🌿&nbsp;`n1-standard-8`(8x30+127) | 🌲&nbsp;`n1-standard-16`(16x60+127) | 🌲&nbsp;`n1-standard-16`(16x60+127)  |
+| AWS      | `m5.large`(2x8+26)       | `r7i.large`(2x16+32)      | `r7i.xlarge`(4x32+32)      | `r7i.2xlarge`(8x64+32)       | `r7i.2xlarge`(8x64+32)       |
+| Azure    | `Standard_D2s_v5`(2x8+4) | `Standard_D4s_v5`(4x16+8) | `Standard_D8s_v5`(8x32+16) | `Standard_D16s_v5`(16x64+32) | `Standard_D16s_v5`(16x64+32) |
+| GCP      | `n1-standard-2`(2x8+127) | `n1-standard-4`(4x15+127) | `n1-standard-8`(8x30+127)  | `n1-standard-16`(16x60+127)  | `n1-standard-16`(16x60+127)  |
 
 This guide also recommended specific instance families. Choosing the right family requires calculating the workload's aggregate CPU:memory ratio (total requested CPU : total requested memory across similar workloads). For example, 1000 cores and 6000 GB memory yields a 1:6 ratio.
 
