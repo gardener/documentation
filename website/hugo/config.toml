@@ -1,0 +1,163 @@
+baseURL = "https://gardener.cloud/"
+title = "Gardener"
+theme = "docsy"
+metaDataFormat = "yaml"
+languageCode = "en-US"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir= false
+contentDir="content"
+enableGitInfo = false
+enableEmoji = true
+disableKinds = ["taxonomy"]
+
+[taxonomies]
+  tag = 'tags'
+
+# Google Analytics Track ID
+# googleAnalytics = "UA-165447164-1"
+disableHugoGeneratorInject = true
+
+# When enabled, a file named hugo_stats.json will be written to your project root with some aggregated data about the build, e.g. list of HTML entities published to be used to do CSS pruning.
+[build]
+  writeStats = true
+
+[menu]
+  [[menu.main]]
+      name = "Demo"
+      weight = 10
+      url = "https://demo.gardener.cloud"
+  [[menu.main]]
+      name = "Adopters"
+      weight = 20
+      url = "/adopter"
+  [[menu.main]]
+      name = "Documentation"
+      weight = 30
+      url = "/docs"
+  [[menu.main]]
+      name = "Blogs"
+      weight = 40
+      url = "/blog"
+  [[menu.main]]
+      name = "Community"
+      weight = 50
+      url = "/community"
+  [[menu.main]]
+      name = "Join us on"
+      weight = 60
+      url = "https://join.slack.com/t/gardener-cloud/shared_invite/zt-33c9daems-3oOorhnqOSnldZPWqGmIBw"
+
+
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.parser]
+      autoHeadingID = true
+      autoHeadingIDType = 'github'
+      [markup.goldmark.parser.attribute]
+        block = true
+        title = true
+        unsafe = true
+  [markup.highlight]
+    guessSyntax = false
+    codeFences = true
+    noClasses = true
+    style = "vs"
+    tabWidth = 4
+
+[params]
+enable_personas = true
+enable_news = false
+github_repo = "https://github.com/gardener/website-generator"
+# Enables "create project issue" github_project_repo = "https://github.com/gardener/website-generator"
+defaultURL = "https://github.com/gardener/documentation/tree/master/website/"
+editURL = "https://github.com/gardener/documentation/edit/master/website/"
+issueURL = "https://github.com/gardener/documentation/issues"
+copyright = "Copyright 2019-2025 Gardener project authors."
+termsOfUseURL = "https://www.sap.com/about/legal/terms-of-use.html"
+privacyStatementURL = "https://www.sap.com/about/legal/privacy.html"
+legalDisclosureURL = "https://www.sap.com/about/legal/impressum.html"
+description = "Project Gardener Website - A Managed Kubernetes Service Done Right"
+images = ["/images/lp/gardener-logo.svg"]
+disableAssetsBusting = true
+
+# Enable local search
+offlineSearch = true
+offlineSearchSummaryLength = 70
+offlineSearchMaxResults = 10
+
+[params.pageTopBar]
+  display = true
+  displayContributors = true
+  displayLastUpdate = true
+  displayEdit = true
+  displayOriginURL = false
+
+
+# Docsy: User interface configuration
+[params.ui]
+# Docsy: Enable to show the side bar menu in its compact state.
+  sidebar_menu_compact = true
+# Docsy: Disable the search box in the side bar.
+  sidebar_search_disable = true
+# Docsy: Set to true to disable breadcrumb navigation.
+  breadcrumb_disable = false
+# Docsy: Set to false if you don't want to display a logo (/assets/icons/logo.svg) in the top nav bar
+  navbar_logo = true
+# Docsy: With the compact menu (.ui.sidebar_menu_compact = true), only the current page’s ancestors, siblings and direct descendants are shown. You can use the optional parameter .ui.ul_show to set a desired menu depth to always be visible. For example, with .ui.ul_show = 1 the first menu level is always displayed.
+  ul_show = 1
+  sidebar_menu_foldable = true
+
+# Adds a H2 section titled "Feedback" to the bottom of each doc. The responses are sent to Google Analytics as events.
+# This feature depends on [services.googleAnalytics] and will be disabled if "services.googleAnalytics.id" is not set.
+# If you want this feature, but occasionally need to remove the "Feedback" section from a single page,
+# add "hide_feedback: true" to the page's front matter.
+[params.ui.feedback]
+enable = true
+
+# Adds a reading time to the top of each doc.
+# If you want this feature, but occasionally need to remove the Reading time from a single page,
+# add "hide_readingtime: true" to the page's front matter
+[params.ui.readingtime]
+enable = true
+
+[params.links]
+# End user relevant links. These will show up on left side of footer and in the community page if you have one.
+# Note: We are not using the original footer and community page, but we have self defined partials under hugo/layouts/["community/list.html"||"partials/footer.html"]
+# [[params.links.user]]
+# 	name ="GitHub Discussions"
+# 	url = "https://github.com/google/docsy/discussions"
+# 	icon = "fab fa-github"
+#         desc = "Discussion and help from your fellow users"
+# [[params.links.user]]
+# 	name = "User mailing list"
+# 	url = "https://groups.google.com/forum/#!forum/docsy-users"
+# 	icon = "fa fa-envelope"
+#         desc = "Sign up for Docsy announcements"
+# [[params.links.user]]
+# 	name ="Twitter"
+# 	url = "https://twitter.com/docsydocs"
+# 	icon = "fab fa-twitter"
+#         desc = "Follow us on Twitter to get the latest news!"
+# [[params.links.user]]
+# 	name = "Stack Overflow"
+# 	url = "https://stackoverflow.com/questions/tagged/docsy"
+# 	icon = "fab fa-stack-overflow"
+#         desc = "Practical questions and curated answers"
+
+[params.print]
+disable_toc = true
+
+[outputs]
+home = [ "HTML" ]
+page = [ "HTML" ]
+section = [ "HTML", "RSS", "print"]
+
+[params.mermaid]
+enable = true
+theme = "forest"
+
+[params.mermaid.themeVariables]
+mainBkg = "#d9f2e6"

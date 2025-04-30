@@ -1,0 +1,11 @@
+{{ $catMap := .categoryMap }}
+{{ with index $catMap .permalink }}
+<span style="display: none;">Relevant for:
+    <span class="entry-roles">
+        {{ range $index, $el := . }}
+            {{ if $index }},{{ end }}
+            <i>{{ . }}</i>
+        {{ end }}
+      </span>
+  </span>
+  {{end}}

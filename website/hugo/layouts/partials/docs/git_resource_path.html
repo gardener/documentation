@@ -1,0 +1,8 @@
+{{ with .File }}
+  {{ with .Path }}
+    {{ $url := print "/data/" . ".json"}}
+    {{ if (fileExists $url) -}}
+      {{ (resources.Get $url | transform.Unmarshal).path -}}
+    {{ end }}
+  {{ end }}
+{{ end }}
