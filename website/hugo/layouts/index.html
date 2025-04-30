@@ -6,7 +6,6 @@
   {{ partial "meta.html" . }}
   {{ partialCached "head.html" . }}
   <title>{{ with .Title }}{{ . }}{{ else }}{{ with .Site.title }}{{ . }}{{ end }}{{ end }}</title>
-  {{ partial "google-tags-manager.html" . }}
 
   {{- $assetBusting := not .Site.Params.disableAssetsBusting -}}
 
@@ -30,18 +29,12 @@
               {{- with .Site.GetPage "section" "documentation/020_getting-started" -}}
               <a class="btn action-btn" href='{{ .URL }}'><span>Get Started</span></a>
               {{- end -}}
-              <!--a class="action-btn movie" href="#kmsembed-1_7gd2gw78" data-lity><i class="fa fa-film"></i><span>Watch The Video</span></a-->
             </div>
           </div>
           <div class="hero-img">
             <img src='{{"images/lp/gardener-logo.svg" | relURL }}'>
           </div>
         </div>
-        {{ if and (isset .Site.Params "enable_news") .Site.Params.enable_news }} 
-        <div class="news">    
-          {{ partial "news.html" . }}
-        </div>
-        {{ end }}
       </div>
     </div>
 
@@ -332,7 +325,6 @@
     {{ partial "footer.html" . }}
   </div>
 
-  {{ partial "google-tags-manager-frame.html" . }}
   {{ partialCached "scripts.html" . }}
 
 </body>

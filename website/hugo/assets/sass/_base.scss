@@ -434,40 +434,18 @@ li.td-sidebar-nav__section.without-child > label > a {
   }
 }
 
-.main-content-container {
-  display: flex !important;
-}
-
-aside {
-  flex: 1 1 20% !important;
-  overflow-y: hidden;
-}
-
-main {
-  min-width: 50% !important;
-}
-
-aside.td-sidebar-toc {
-  min-width: 16% !important;
-}
-
-.td-sidebar-nav, .td-sidebar {
-  max-height: 100% !important;
-  margin-top: 5px !important;
-  padding-top: 0rem;
-}
-
-.navbar-brand {
-  margin-right: 50px !important;
-}
-
 .fa-copy::before {
-  font-family: "FontAwesome";
+  font-family: "Font Awesome 6 Free" !important;
   content: "\f0c5"; 
 }
 
 .fa-copy {
   position: fixed !important;
+}
+
+.fa-bars::before {
+  font-family: "Font Awesome 6 Free" !important;
+  content: "\f0c9"; 
 }
 
 .bio {
@@ -479,10 +457,6 @@ aside.td-sidebar-toc {
     overflow: hidden; 
     display: inline-block;
     padding-bottom: 2px;
-  }
-  .social {
-    display: flex;
-    justify-content: center;
   }
   h3 {
     padding-top: 20px;
@@ -510,12 +484,14 @@ aside.td-sidebar-toc {
     margin-right: 20px;
   }
 }
+
 .nav-link:hover {
   text-decoration: none
 }
 .ml-md-auto {
   margin-left: auto !important;
 }
+
 .td-search {
   &:not(:focus-within) {
     color: #fff !important;
@@ -530,52 +506,32 @@ aside.td-sidebar-toc {
       border-radius: 20px;
 
       &::placeholder {
-        color: #fff;
+        color: #fff !important;
       }
+    }
+  }
+  input {
+    &:active,
+    &:focus {
+      color: black !important;
+      background-color: #fff !important;
     }
   }
 }
 
-@media (max-width: 768px) {
-  aside {
-    display: none;
-  }
-  body {
-    width: 100vw;
-  }
-  header {
-    width: 100vw;
-  }
-  .td-navbar-nav-scroll, .navbar-nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-left: 0px !important; 
-  }
-  .nav-item {
-    flex: 1;
-    text-align: center;
-    font-size: 0.70rem;
-  }
-  p > img {
-    width: 300px !important;
-  }
-  td {
-    max-width: 90vw;
-  }
-}
-
 // Slack Button
-.slack-button {
-  display: flex;
+a.slack-button {
+  display: flex !important;
   align-items: center;
   justify-content: center;
   border-radius: 25px;
   text-decoration: none;
   color: $white;
-  background-color: $primary;
+  background-image: var(--bs-gradient);
+
   padding: 0.5rem 1rem;
   font-weight: $font-weight-bold;
+  height: 35px;
 
   span {
     margin-right: 0.5rem;
@@ -589,5 +545,35 @@ aside.td-sidebar-toc {
   &:hover {
     background-color: darken($primary, 10%);
     text-decoration: none;
+  }
+}
+
+.td-content {
+  .d-print-none {
+    display: none;
+  }
+}
+
+.td-page-meta__view, .td-page-meta__child, .td-page-meta__project-issue, .td-page-meta__issue {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .td-navbar-nav-scroll {
+    height: 2.8rem !important;
+  }
+  .navbar-nav {
+    padding-bottom: 0px !important;
+    overflow-x: scroll !important;
+  }
+}
+
+.navbar-brand__name {
+  font-weight: 400 !important;
+}
+
+code {
+  pre {
+    margin-bottom: 1rem !important;
   }
 }
