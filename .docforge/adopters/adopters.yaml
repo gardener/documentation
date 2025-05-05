@@ -1,0 +1,23 @@
+structure:
+- file: /website/adopter/_index.md
+- dir: images
+  structure:
+  - file: /website/adopter/images/beezlab.png
+  - file: /website/adopter/images/bnerd.png
+  - file: /website/adopter/images/sap.png
+  - file: /website/adopter/images/plusserver.png
+  - file: /website/adopter/images/ovhcloud_master_logo_fullcolor_cmyk.png
+  - file: /website/adopter/images/metalstack.cloud.png
+  - file: /website/adopter/images/tsystems.png
+  - file: /website/adopter/images/pits-globale-datenrettungsdienste.svg
+  - file: /website/adopter/images/fits.png
+  - file: /website/adopter/images/teaser.svg
+  - file: /website/adopter/images/exigo.png
+  - file: /website/adopter/images/codesphere.png
+  - file: /website/adopter/images/scaleup.png
+  - file: /website/adopter/images/pingcap.jpeg
+  - file: /website/adopter/images/23technologies.png
+  - file: /website/adopter/images/cyso-cloud-logo-transparent.png
+  - file: /website/adopter/images/b1-systems.png
+  - file: /website/adopter/images/cleura-log-black.png
+  - file: /website/adopter/images/stackit.png

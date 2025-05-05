@@ -29,6 +29,8 @@ structure:
       title: Dependency Watchdog
       description: A watchdog which actively looks out for disruption and recovery of critical services
     source: https://github.com/gardener/dependency-watchdog/blob/master/README.md
+  - file: gardener-dwd.png
+    source: https://github.com/gardener/dependency-watchdog/blob/master/logo/gardener-dwd.png
   - fileTree: https://github.com/gardener/dependency-watchdog/tree/master/docs
     excludeFiles:
     - "README.md"

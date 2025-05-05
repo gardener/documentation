@@ -1,4 +1,6 @@
 structure:
+- file: gardener-extensions-large.png
+  source: https://github.com/gardener/gardener/blob/master/logo/gardener-extensions-large.png
 - fileTree: /website/documentation/extensions
 - dir: infrastructure-extensions
   structure:
