@@ -11,6 +11,27 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2025/05/07 - [v1.118](https://github.com/gardener/gardener/releases/tag/v1.118.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@domdom82](https://github.com/domdom82) | `10m` | 🧦 CIDR Overlap w/ `Seed` For Non-HA `Shoot`s | [#11582](https://github.com/gardener/gardener/pull/11582) |
+| [@vlerenc](https://github.com/vlerenc) | `10m` | 💰 Leaner Clusters, Lower Bills | [blog post](https://gardener.cloud/blog/2025/04-17-leaner-clusters-lower-bills/) |
+| [@grolu](https://github.com/grolu) | `10m` | 🕹 Recent Gardener Dashboard Features | [1.80.0 (release)](https://github.com/gardener/dashboard/releases/tag/1.80.0) |
+| [@shafeeqes](https://github.com/shafeeqes), [@ary1992](https://github.com/ary1992) | `15m` | 🦋 In-Place Node Updates | [#11191](https://github.com/gardener/gardener/pull/11191), [#11393](https://github.com/gardener/gardener/pull/11393), [#11631](https://github.com/gardener/gardener/pull/11631), [#11713](https://github.com/gardener/gardener/pull/11713), [#11718](https://github.com/gardener/gardener/pull/11718), [#11843](https://github.com/gardener/gardener/pull/11843), [#11844](https://github.com/gardener/gardener/pull/11844), [#11953](https://github.com/gardener/gardener/pull/11953) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- 🐛 [OPERATOR] Gardener core components are automatically restarted (due to a failing liveness probe) in case their Kubernetes API server watch caches do not sync for `3m`. [#11966](https://github.com/gardener/gardener/pull/11966)
+- ✨ [USER] The CA bundle of the kubelet is now available via a `ConfigMap` the project's namespace, called `<shoot-name>.ca-kubelet`. [#11916](https://github.com/gardener/gardener/pull/11916)
+- ✨ [OPERATOR] The `Seed` API feature new field `spec.backup.credentialsRef`, it is of type `corev1.ObjectReference` and is allowed to refer to a `Secret`. [#11583](https://github.com/gardener/gardener/pull/11583)
+
+<hr />
+
 ### 2025/04/23 - [v1.117](https://github.com/gardener/gardener/releases/tag/v1.117.0) Release
 
 [📽️ Recording](https://youtu.be/XB63kan-AtM)
