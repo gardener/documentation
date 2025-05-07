@@ -59,10 +59,8 @@ structure:
           weight: 20
           persona: Operators
       - fileTree: https://github.com/gardener/gardener/tree/master/docs/concepts
-      - file: gardenadm-large.png
-        source: https://github.com/gardener/gardener/blob/master/logo/gardenadm-large.png
-      - file: 28-overview.png
-        source: https://github.com/gardener/gardener/blob/master/docs/proposals/assets/28-overview.png
+      - file: https://github.com/gardener/gardener/blob/master/logo/gardenadm-large.png
+      - file: https://github.com/gardener/gardener/blob/master/docs/proposals/assets/28-overview.png
     - dir: extensions
       structure:
       - file: _index.md
@@ -204,8 +202,7 @@ structure:
         description: The web UI for managing your projects and clusters
         weight: 60
       source: https://github.com/gardener/dashboard/blob/master/README.md
-    - file: logo_gardener_dashboard.png
-      source: https://github.com/gardener/dashboard/blob/master/logo/logo_gardener_dashboard.png
+    - file: https://github.com/gardener/dashboard/blob/master/logo/logo_gardener_dashboard.png
     - fileTree: https://github.com/gardener/dashboard/tree/master/docs
       excludeFiles:
       - "README.md"
@@ -217,8 +214,7 @@ structure:
       description: The command line interface to control your clusters
       weight: 70
     source: https://github.com/gardener/gardenctl-v2/blob/master/README.md
-  - file: logo_gardener_cli_large.png
-    source: https://github.com/gardener/gardenctl-v2/blob/master/logo/logo_gardener_cli_large.png
+  - file: https://github.com/gardener/gardenctl-v2/blob/master/logo/logo_gardener_cli_large.png
   - dir: faq
     structure:
     - manifest: ./faq.yaml
