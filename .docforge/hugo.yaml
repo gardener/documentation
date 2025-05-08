@@ -4,11 +4,11 @@ structure:
   - manifest: ./website.yaml
 - dir: assets
   structure:
-  - fileTree: https://github.com/gardener/website-generator/tree/master/hugo/assets
+  - fileTree: ../website/hugo/assets
 - dir: layouts
   structure:
-  - fileTree: https://github.com/gardener/website-generator/tree/master/hugo/layouts
+  - fileTree: ../website/hugo/layouts
 - dir: static
   structure:
-  - fileTree: https://github.com/gardener/website-generator/tree/master/hugo/static
-- file: https://github.com/gardener/website-generator/blob/master/hugo/config.toml
+  - fileTree: ../website/hugo/static
+- file: ../website/hugo/config.toml
