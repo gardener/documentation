@@ -1,4 +1,5 @@
 structure:
+- file: https://github.com/gardener/gardener/blob/master/logo/gardener-extensions-large.png
 - fileTree: /website/documentation/extensions
 - dir: infrastructure-extensions
   structure:

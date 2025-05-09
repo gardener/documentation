@@ -1,7 +1,7 @@
 structure:
 - dir: adopter
   structure:
-  - file: /website/adopter/_index.md
+  - manifest: ./adopters/adopters.yaml
 - dir: blog
   structure:
   - fileTree: /website/blog
