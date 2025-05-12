@@ -1,23 +1,18 @@
 <footer class="footer row d-print-none">
   <div class="container-fluid footer-wrapper">
     <ul class="nav">
-      {{- with .Site.GetPage "section" "documentation/020_getting-started" -}}
-      <li><a href='{{ .Permalink }}'>{{.Title}}</a></li>
-      {{- end -}}
-      {{- with .Site.GetPage "section" "blog" -}}
-      <li><a href='{{ .Permalink }}'>{{.Title}}</a></li>
-      {{- end -}}
-      {{- with .Site.GetPage "section" "news" -}}
-      <li><a href='{{ .Permalink }}'>{{.Title}}</a></li>
-      {{- end -}}
-      {{- with .Site.GetPage "section" "community" -}}
-      <li><a href='{{ .Permalink }}'>{{.Title}}</a></li>
-      {{- end -}}
+      <li><a href='https://demo.gardener.cloud'>Demo</a></li>
       {{- with .Site.GetPage "section" "adopter" -}}
       <li><a href='{{ .Permalink }}'>{{.Title}}</a></li>
       {{- end -}}
       {{- with .Site.GetPage "section" "docs" -}}
       <li><a href='{{ (or .Params.remoteUrl .Params.redirectUrl .Permalink) | relURL }}'>Documentation</a></li>
+      {{- end -}}
+      {{- with .Site.GetPage "section" "blog" -}}
+      <li><a href='{{ .Permalink }}'>{{.Title}}</a></li>
+      {{- end -}}
+      {{- with .Site.GetPage "section" "community" -}}
+      <li><a href='{{ .Permalink }}'>{{.Title}}</a></li>
       {{- end -}}
     </ul>
     <img src='{{"images/lp/gardener-logo.svg" | relURL}}' alt="Logo Gardener" class="logo" />
