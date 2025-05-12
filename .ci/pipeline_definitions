@@ -1,15 +1,44 @@
-documentation:
-  template: "default"
+gardener-website-generator:
   base_definition:
-    traits:
-      version:
-        preprocess: "inject-commit-hash"
-        inject_effective_version: true
-      component_descriptor: ~
+    repos:
+    - name: 'gardener_website'
+      path: 'gardener/website'
+      branch: 'master'
   jobs:
     release:
       traits:
+        version:
+          preprocess: "finalize"
         release:
           nextversion: "bump_minor"
-        version:
-          preprocess: 'finalize'
+        component_descriptor:
+          ocm_repository: "europe-docker.pkg.dev/gardener-project/releases"
+        publish:
+          oci-builder: docker-buildx
+          platforms:
+          - linux/amd64
+          - linux/arm64
+          dockerimages:
+            website-generator:
+              tag_as_latest: True
+              image: "europe-docker.pkg.dev/gardener-project/releases/gardener-website-generator"
+    head-update:
+      steps:
+        build:
+          image: 'europe-docker.pkg.dev/gardener-project/releases/gardener-website-generator:latest'
+          publish_to: ['gardener_website']
+          cache_paths: ['.docforge']
+          notifications_cfg: 'website_maintainers'
+      traits:
+        cronjob:
+          interval: '24h'
+        notifications:
+          website_maintainers:
+            on_error:
+              recipients:
+              - email_addresses:
+                - v.kostov@sap.com
+                - dimitar.kostadinov@sap.com
+                - jordan.jordanov@sap.com
+                - nikolay.boshnakov@sap.com
+                - rada.dimitrova@sap.com
