@@ -33,6 +33,7 @@ docforge
 pushd hugo 
 rm -rf "$website"
 hugo --minify --destination "$website"
+echo gardener.cloud >"${website}/CNAME"
 # Bypass Jekyll processing 
 echo '' > "${website}/.nojekyll"
 popd
@@ -42,4 +43,4 @@ popd
 echo "Committing website changes"
 pushd "$websiteRepoPath"
 git add . -A
-git commit -m 'Automatic build triggered by last commit [skip ci]' || true
+git commit -m 'Automatic build triggered by last commit' || true
