@@ -1,4 +1,4 @@
-gardener-website-generator:
+gardener-documentation:
   base_definition:
     repos:
     - name: 'gardener_website'
