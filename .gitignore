@@ -4,3 +4,4 @@ node_modules
 hugo/resources/_gen
 hugo/.forestry
 .DS_Store
+*.yaml
