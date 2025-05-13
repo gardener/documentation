@@ -26,7 +26,9 @@ class GardenerPublic(unittest.TestCase):
     def test_anchors(self):
         driver = self.driver
         driver.get("https://gardener.cloud/docs/guides/client-tools/bash-tips/")
-        anchors = driver.find_elements(By.CLASS_NAME,"td-heading-self-link")
+        anchors = WebDriverWait(driver, 5).until(
+        EC.presence_of_all_elements_located((By.CLASS_NAME,"td-heading-self-link"))
+        )
         self.assertGreaterEqual(len(anchors),2)
         anchor_hrefs = [elem.get_attribute("href") for elem in anchors]
         expected_anchor_hrefs = ["https://gardener.cloud/docs/guides/client-tools/bash-tips/#speed-up-your-terminal-workflow",
