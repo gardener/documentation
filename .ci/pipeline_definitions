@@ -29,8 +29,7 @@ gardener-documentation:
           publish_to: ['gardener_website']
           cache_paths: ['.docforge']
           notifications_cfg: 'website_maintainers'
-        selenium-test:
-          execute: 'selenium-test.py'
+        e2e-test:
           depends:
           - build
       traits:
