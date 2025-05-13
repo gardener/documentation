@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -eu
+
+repoPath="$(readlink -f "$(dirname "${0}")/..")"
+pushd "$repoPath"
+
+python3 -m pip install selenium
+python3 "test/selenium-test.py"
+
+popd
