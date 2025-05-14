@@ -1,5 +1,7 @@
 gardener-documentation:
   base_definition:
+    repo:
+      trigger: true
     repos:
     - name: 'gardener_website'
       path: 'gardener/website'
