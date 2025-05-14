@@ -67,3 +67,8 @@ If you want to run the web server reflecting local changes done to some cloned r
 ## Dependency updates
 
 Change `europe-docker.pkg.dev/gardener-project/releases/docforge:<DOCFORGE_VERSION>`, `HUGO_VERSION` and `DOCSY_VERSION` to the desired version and rebuild the image.
+
+## Testing
+
+First make sure you have `python3` installed. Then if you don't have selenium installed, run `python3 -m pip install selenium`.
+Then run the local build of the website and in another terminal session run `make test`. This will run python Selenium tests against the local website build to ensure there aren't major regressions introduced by your changes.

@@ -20,7 +20,7 @@ class GardenerPublic(unittest.TestCase):
 
     def test_edit_this_page(self):
         driver = self.driver
-        driver.get("https://gardener.cloud/docs/getting-started/introduction/")
+        driver.get("http://localhost:1313/docs/getting-started/introduction/")
         self.assertIn("Gardener", driver.title)
         link_element = driver.find_element(By.LINK_TEXT,"Edit this page")
         link_url = link_element.get_attribute("href")
@@ -29,21 +29,21 @@ class GardenerPublic(unittest.TestCase):
 
     def test_anchors(self):
         driver = self.driver
-        driver.get("https://gardener.cloud/docs/guides/client-tools/bash-tips/")
+        driver.get("http://localhost:1313/docs/guides/client-tools/bash-tips/")
         anchors = WebDriverWait(driver, 5).until(
         EC.presence_of_all_elements_located((By.CLASS_NAME,"td-heading-self-link"))
         )
         self.assertGreaterEqual(len(anchors),2)
         anchor_hrefs = [elem.get_attribute("href") for elem in anchors]
-        expected_anchor_hrefs = ["https://gardener.cloud/docs/guides/client-tools/bash-tips/#speed-up-your-terminal-workflow",
-                                 "https://gardener.cloud/docs/guides/client-tools/bash-tips/#populating-the-profile-file"]
+        expected_anchor_hrefs = ["http://localhost:1313/docs/guides/client-tools/bash-tips/#speed-up-your-terminal-workflow",
+                                 "http://localhost:1313/docs/guides/client-tools/bash-tips/#populating-the-profile-file"]
         self.assertEqual(anchor_hrefs, expected_anchor_hrefs, f"Anchors are incorrect: {anchor_hrefs}")
 
     def test_page_toc(self):
         driver = self.driver
-        driver.get("https://gardener.cloud/docs/guides/networking/certificate-extension/")
+        driver.get("http://localhost:1313/docs/guides/networking/certificate-extension/")
         anchor_hrefs = [elem.get_attribute("href") for elem in driver.find_elements(By.CLASS_NAME,"td-heading-self-link")]
-        anchor_hrefs.remove("https://gardener.cloud/docs/guides/networking/certificate-extension/#manage-certificates-with-gardener-for-public-domain")
+        anchor_hrefs.remove("http://localhost:1313/docs/guides/networking/certificate-extension/#manage-certificates-with-gardener-for-public-domain")
         toc = driver.find_element(By.ID,"TableOfContents")
         toc_hrefs = [elem.get_attribute("href") for elem in toc.find_elements(By.CSS_SELECTOR, "a")]
         self.assertEqual(anchor_hrefs,toc_hrefs, f"Page Content to the side doesn't match the sections on the page")
@@ -72,7 +72,7 @@ class GardenerPublic(unittest.TestCase):
 
     def get_personas_gardener_section(self, index):
         driver = self.driver
-        driver.get("https://gardener.cloud/")
+        driver.get("http://localhost:1313/")
         dropdown = driver.find_element(By.CSS_SELECTOR, "a.dropdown-toggle")
         actions = ActionChains(driver)
         actions.move_to_element(dropdown).perform()
