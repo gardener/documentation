@@ -29,3 +29,7 @@ stop:
 .PHONY: check-manifest
 check-manifest:
 	@.ci/check-manifest-entrypoint
+
+.PHONY: test
+test:
+	@python3 test/selenium-test.py
