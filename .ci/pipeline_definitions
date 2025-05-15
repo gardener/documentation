@@ -6,6 +6,7 @@ gardener-documentation:
     - name: 'gardener_website'
       path: 'gardener/website'
       branch: 'master'
+      trigger: false
   jobs:
     release:
       traits:
