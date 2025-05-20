@@ -11,6 +11,26 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2025/05/21 - [v1.119](https://github.com/gardener/gardener/releases/tag/v1.119.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@timuthy](https://github.com/timuthy) | `10m` | 🛡️ CVE-2025-47282, CVE-2025-47283, CVE-2025-47284 | [#12136 (issue)](https://github.com/gardener/gardener/pull/12136), [#12137 (issue)](https://github.com/gardener/gardener/pull/12137), [external-dns-management#462 (issue)](https://github.com/gardener/external-dns-management/pull/462) |
+| [@shafeeqes](https://github.com/shafeeqes) | `5m` | 💪🏻 Forceful Redeployment Of `gardenlet`s | [#11972](https://github.com/gardener/gardener/pull/11972) |
+| [@rfranzke](https://github.com/rfranzke) | `10m` | `gardenadm token` + `gardenadm join`| [#11934](https://github.com/gardener/gardener/pull/11934), [#11942](https://github.com/gardener/gardener/pull/11942) |
+| [@ScheererJ](https://github.com/ScheererJ) | `5m` | `kube-proxy`'s Readiness Probe | [#12015](https://github.com/gardener/gardener/pull/12015) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- ✨ [OPERATOR] The support for the already deprecated `shoot.gardener.cloud/managed-seed-api-server` annotation is now removed. Instead, consider enabling high availability for the `ManagedSeed`'s `Shoot` control plane. [#11838](https://github.com/gardener/gardener/pull/11838)
+- ✨ [OPERATOR] Spreading Istio `ingress-gateway` pods across hosts is enforced only for zonal Istio deployments now. [#12007](https://github.com/gardener/gardener/pull/12007)
+
+<hr />
+
 ### 2025/05/07 - [v1.118](https://github.com/gardener/gardener/releases/tag/v1.118.0) Release
 
 [📽️ Recording](https://youtu.be/ZwurVm1IJ7o)
