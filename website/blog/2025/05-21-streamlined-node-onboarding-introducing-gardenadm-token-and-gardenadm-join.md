@@ -57,6 +57,6 @@ These new `gardenadm` commands significantly simplify the expansion of autonomou
 
 ### Further Information
 
-*   **`gardenadm token` Pull Request:** [GEP-28] `gardenadm token` commands (#11934)
-*   **`gardenadm join` Pull Request:** [GEP-28] `gardenadm join`: Support joining worker nodes (#11942)
+*   **`gardenadm token` Pull Request:** [GEP-28](https://github.com/gardener/gardener/blob/master/docs/proposals/28-autonomous-shoot-clusters.md) `gardenadm token` ([#11934](https://github.com/gardener/gardener/pull/11934))
+*   **`gardenadm join` Pull Request:** [GEP-28](https://github.com/gardener/gardener/blob/master/docs/proposals/28-autonomous-shoot-clusters.md) `gardenadm join` ([#11942](https://github.com/gardener/gardener/pull/11942))
 *   **Recording of the demo:** Watch the demo starting at [12m48s](https://youtu.be/ssvXpPliOY0?t=768)
