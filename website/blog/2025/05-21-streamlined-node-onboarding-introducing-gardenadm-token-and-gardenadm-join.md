@@ -1,4 +1,3 @@
-
 ---
 title: "Streamlined Node Onboarding: Introducing `gardenadm token` and `gardenadm join`"
 linkTitle: "Streamlined Node Onboarding: Introducing `gardenadm token` and `gardenadm join`"

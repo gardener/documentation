@@ -1,4 +1,3 @@
-
 ---
 title: "Enhanced Network Flexibility: Gardener Now Supports CIDR Overlap for Non-HA Shoots"
 linkTitle: "Enhanced Network Flexibility: Gardener Now Supports CIDR Overlap for Non-HA Shoots"
