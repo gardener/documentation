@@ -7,7 +7,7 @@ links = [
 EOF
 
 find . -type f \
-    | grep -v "__resources" \
+    | grep -E "\.md$" \
     | sed -E 's|\.md$|/",|; s|_index/||; s|^\.|"https://gardener.cloud|; ' >> ../static/js/404.js
 
 cat >> ../static/js/404.js <<EOF
