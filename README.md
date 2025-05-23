@@ -66,7 +66,14 @@ If you want to run the web server reflecting local changes done to some cloned r
 
 ## Dependency updates
 
-Change `europe-docker.pkg.dev/gardener-project/releases/docforge:<DOCFORGE_VERSION>`, `HUGO_VERSION` and `DOCSY_VERSION` to the desired version and rebuild the image.
+- check latest `docsy` version from https://github.com/google/docsy
+- check latest `hugo` version from https://github.com/gohugoio/hugo
+- check latest `docforge` version from  https://github.com/gardener/docforge
+- change `europe-docker.pkg.dev/gardener-project/releases/docforge:<DOCFORGE_VERSION>`, `HUGO_VERSION` and `DOCSY_VERSION` to the desired versions in the `Dockerfile`, open and merge the PR
+- rebuild the image 
+  - locally following `Building the image locally` 
+  - cicd release job
+- retrigger website cicd pipelines as image update does not trigger the cicd job
 
 ## Testing
 
