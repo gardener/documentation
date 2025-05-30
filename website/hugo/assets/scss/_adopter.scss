@@ -23,7 +23,7 @@
       display:  flex;
       img {
         margin: 0 auto;
-        width: 60rem;
+        width: 100% !important;
       }
       
    }
@@ -48,6 +48,7 @@
 
             @media (max-width: 768px) {
                 display: block;
+                max-width: 80vw !important;
             }
               
 

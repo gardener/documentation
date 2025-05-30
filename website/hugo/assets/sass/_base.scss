@@ -566,6 +566,9 @@ a.slack-button {
     padding-bottom: 0px !important;
     overflow-x: scroll !important;
   }
+  .navbar-brand__logo > svg {
+    width: 30px !important;
+  }
 }
 
 .navbar-brand__name {
