@@ -15,8 +15,7 @@ function showIndexCommunityPage(){
 
 function createIndex(level){
     var bullets = document.querySelectorAll(`.ul-${level} > li > label > a`)
-    console.log(bullets)
-        if (bullets) {
+    if (bullets) {
             var sectionIndex = document.createElement('div');
             sectionIndex.className = 'section-index';
 
