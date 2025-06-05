@@ -1,5 +1,9 @@
 ---
 title: Formatting Guide
+description: "This page outlines formatting guidelines for writing Gardener documentation, including best practices for inline elements, code snippets, headers, links, and versioning, to ensure consistency and clarity across all documentation topics."
+categories: [documentation guidelines, formatting]
+tags: [formatting, documentation, style, markdown, code snippets, headers, links]
+page_synonyms: [formatting rules, documentation formatting, gardener formatting guide]
 ---
 
 This page gives writing formatting guidelines for the Gardener documentation. For style guidelines, see the [Style Guide](./style-guide/_index.md).

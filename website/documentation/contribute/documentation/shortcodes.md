@@ -1,5 +1,9 @@
 ---
 title: Shortcodes
+description: "This page introduces the use of Hugo shortcodes in Gardener documentation, listing available built-in and custom shortcodes, and providing examples for extending Markdown functionality, such as alerts and mermaid diagrams."
+categories: [documentation guidelines, content enhancement]
+tags: [shortcodes, hugo, markdown, content enhancement, mermaid, alerts]
+page_synonyms: [shortcode reference, using shortcodes, gardener shortcode guide]
 ---
 
 Shortcodes are the Hugo way to extend the limitations of Markdown before resorting to HTML. There are a number of built-in shortcodes available from Hugo. This list is extended with Gardener website shortcodes designed specifically for its content.

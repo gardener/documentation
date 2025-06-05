@@ -1,12 +1,15 @@
 ---
 title: Backup and Restore of Kubernetes Objects
-description: Details about backup and recovery of Kubernetes objects based on the open source tool [Velero](https://velero.io/).
+description: Comprehensive guide to backup and restore Kubernetes objects using Velero, including setup, configuration, and best practices for disaster recovery
 level: intermediate
 index: 500
 category: Operation
 scope: app-developer
 publishdate: 2020-01-01
 aliases: [ "/readmore/br" ]
+tags: [backup, restore, velero, disaster recovery, kubernetes objects, persistent volumes, aws s3, data protection]
+page_synonyms: [backup and recovery, velero backup, kubernetes backup, disaster recovery, data backup, object backup]
+categories: [operations, data management, disaster recovery, backup solutions]
 ---
 
 ![Don't worry ... have a backup](images/teaser.png)

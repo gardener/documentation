@@ -1,6 +1,10 @@
 ---
 title: Gardener Projects
 weight: 3
+description: Understanding Gardener projects including user management, permissions, infrastructure secrets, SecretBindings, and service accounts
+tags: [projects, user-management, permissions, secrets, secretbindings, service-accounts, namespaces, quotas]
+page_synonyms: [gardener projects, project management, user roles, infrastructure secrets, project namespaces]
+categories: [getting-started, projects, user-management]
 ---
 
 ## Overview
