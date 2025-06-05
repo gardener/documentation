@@ -1,11 +1,14 @@
 ---
 title:  Scalability of Gardener Managed Kubernetes Clusters
-description: "Know the boundary conditions when scaling your workloads"
+description: Comprehensive guide to understanding scalability limits and best practices for Gardener-managed Kubernetes clusters across multiple dimensions
 level: advanced
 index: 40
 category: Operations
 scope: Users
 publishdate: 2023-05-23
+tags: [scalability, performance, etcd, kube-apiserver, nodes, pods, cluster limits, monitoring, capacity planning]
+page_synonyms: [cluster scalability, kubernetes limits, performance tuning, capacity planning, cluster sizing, scale limits]
+categories: [scalability, performance, capacity planning, cluster management]
 ---
 
 Have you ever wondered how much more your Kubernetes cluster can scale before it breaks down?

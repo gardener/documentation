@@ -1,6 +1,10 @@
 ---
 title: Credential Rotation
 weight: 3
+description: Learn how to rotate credentials in Gardener including ETCD keys, certificate authorities, service account tokens, and user-provided cloud provider credentials.
+tags: [credential rotation, security, certificates, keys, etcd, ca rotation, service accounts, ssh keys]
+page_synonyms: [key rotation, certificate rotation, security rotation, credential management, key management]
+categories: [security, maintenance, operations]
 ---
 
 ## Keys

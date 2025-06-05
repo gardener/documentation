@@ -1,9 +1,12 @@
 ---
 title: Get a Shell to a Gardener Shoot Worker Node
-description: "Describes the methods for getting shell access to worker nodes"
+description: "Comprehensive guide for operators to gain shell access to Gardener Shoot worker nodes for troubleshooting, covering multiple methods including Gardener Dashboard, ops-toolbelt, custom pods, and SSH access via bastion hosts for nodes that failed to join the cluster."
 level: advanced
 category: Debugging
 scope: operator
+tags: [shell access, worker nodes, troubleshooting, ssh, bastion, gardenctl, ops-toolbelt, privileged pods, node debugging]
+page_synonyms: [node shell access, worker node ssh, gardener node access, kubernetes node shell, node troubleshooting, bastion host]
+categories: [debugging, troubleshooting, monitoring, infrastructure, nodes]
 ---
 
 ## Overview

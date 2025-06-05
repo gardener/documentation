@@ -1,12 +1,15 @@
 ---
 title: Fun with kubectl Aliases
-description: "Some bash tips that save you some time"
+description: "Useful bash aliases and shortcuts to speed up your kubectl workflow and terminal productivity"
 level: beginner
 index: 40
 category: kubectl
 scope: app-developer
 publishdate: 2019-01-01
 aliases: [ "/readmore/bash_tips" ]
+tags: [kubectl, bash, aliases, shortcuts, terminal, productivity, shell, profile, completion]
+page_synonyms: [kubectl shortcuts, bash aliases, terminal productivity, shell configuration, kubectl tips]
+categories: [client-tools, productivity, shell]
 ---
 
 ## Speed up Your Terminal Workflow

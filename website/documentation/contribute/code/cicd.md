@@ -1,5 +1,9 @@
 ---
 title: CI/CD
+description: "Overview of Gardener's CI/CD infrastructure using Concourse as the execution environment, featuring a Pipeline Definition Contract for component build pipeline declarations, container-native workloads, and automated continuous delivery services for the Gardener project ecosystem."
+tags: [ci-cd, concourse, pipeline, continuous-delivery, container, automation, build, gardener, self-service, standardization]
+page_synonyms: [continuous-integration, continuous-deployment, build-pipeline, devops, pipeline-definition]
+categories: [development, infrastructure, automation, devops]
 ---
 
 ## CI/CD

@@ -1,3 +1,14 @@
+---
+title: Access the Kubernetes apiserver from your tailnet
+description: Guide to securing Kubernetes cluster access using Tailscale mesh VPN as an alternative to ACL extensions and ExposureClass
+level: advanced
+category: Security
+scope: operator
+tags: [tailscale, vpn, mesh vpn, wireguard, kubernetes apiserver, security, network access, acl, exposureclass]
+page_synonyms: [tailscale vpn, mesh vpn access, wireguard vpn, secure cluster access, vpn networking, tailnet access]
+categories: [security, networking, vpn, access control]
+---
+
 # Access the Kubernetes apiserver from your tailnet
 
 ## Overview

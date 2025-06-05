@@ -1,5 +1,9 @@
 ---
 title: Adding Already Existing Documentation
+description: "This page details how to add existing documentation from external GitHub repositories to the Gardener website by editing manifest files, providing templates and examples for linking files, folders, and manifests, and offering tips for proper structure and integration."
+categories: [documentation contribution, content integration]
+tags: [documentation, manifest, github, integration, content structure, docforge]
+page_synonyms: [add external docs, integrate existing documentation, documentation manifest guide]
 ---
 
 ## Overview

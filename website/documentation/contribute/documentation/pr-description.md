@@ -1,5 +1,9 @@
 ---
 title: Pull Request Description
+description: "This page provides a template and best practices for writing effective pull request descriptions and release notes in the Gardener project, helping contributors communicate changes clearly to reviewers and maintainers."
+categories: [contribution guidelines, pull requests]
+tags: [pull request, pr description, release notes, template, contribution]
+page_synonyms: [pr template, writing pull requests, gardener pr guide]
 ---
 
 <!-- contains only public information -->

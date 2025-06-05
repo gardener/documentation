@@ -1,6 +1,10 @@
 ---
 Title: Concept Topic Structure
 Description: Describes the contents of a concept topic
+description: "This page presents a template for structuring concept topics in Gardener documentation, outlining recommended sections such as overview, main content headings, subheadings, and related links to ensure clarity and consistency."
+categories: [documentation guidelines, templates]
+tags: [style guide, template, concept topic, documentation structure]
+page_synonyms: [concept template, topic structure, gardener concept guide]
 ---
 
 # Concept Title

@@ -1,6 +1,10 @@
 ---
 title: Alerts
 weight: 2
+description: Learn how to configure email alerts for control plane components and set up custom alerting using Prometheus federation in Gardener.
+tags: [alerts, monitoring, prometheus, email notifications, alerting, federation, custom alerts]
+page_synonyms: [alerting, notifications, monitoring alerts, prometheus alerts, email alerts, custom monitoring]
+categories: [observability, monitoring, alerting]
 ---
 
 ## Overview

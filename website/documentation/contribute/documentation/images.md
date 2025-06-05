@@ -2,6 +2,10 @@
 title: Working with Images
 aliases: ["/docs/guides/contributors/content/images"]
 weight: 15
+description: "This page provides best practices for using images in Gardener documentation, covering image production, optimization, responsive design, recommended tools, and guidelines for including images and diagrams in markdown content."
+categories: [documentation guidelines, media usage]
+tags: [images, media, svg, png, optimization, responsive images, diagrams]
+page_synonyms: [image guidelines, using images in docs, gardener image best practices]
 ---
 
 Using images on the website has to contribute to the aesthetics and comprehensibility of the materials, with uncompromised experience when loading and browsing pages. That concerns crisp clear images, their consistent layout and color scheme, dimensions and aspect ratios, flicker-free and fast loading or the feeling of it, even on unreliable mobile networks and devices.

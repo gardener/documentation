@@ -1,10 +1,13 @@
 ---
 title: Analyzing Node Removal and Failures
-description: "Utilize Gardener's Monitoring and Logging to analyze removal and failures of nodes"
+description: "Use Gardener's monitoring and logging stack to investigate node removals, failures, and identify root causes in Kubernetes clusters"
 level: intermediate
 category: Debugging
 aliases: ["/docs/guides/monitoring-and-troubleshooting/analysing-node-failures/"]
 scope: operator
+tags: [node-failure, troubleshooting, monitoring, logging, machine-controller-manager, cluster-autoscaler, grafana, loki]
+page_synonyms: [node troubleshooting, node analysis, cluster debugging, node removal investigation, machine failure]
+categories: [troubleshooting, monitoring, node-management]
 ---
 
 ## Overview

@@ -1,12 +1,15 @@
 ---
 title: How to Debug a Pod
-description: "Your pod doesn't run as expected. Are there any log files? Where? How could I debug a pod?"
+description: "Comprehensive guide to debugging Kubernetes pods that don't run as expected, covering common failure scenarios, troubleshooting commands, and practical examples for identifying and resolving pod startup and runtime issues."
 level: intermediate
 reviewer: Tieyan Fu
 status: Reviewed
 last_reviewed: 19.06.2018
 category: Debugging
 scope: app-developer
+tags: [debugging, pods, kubernetes, troubleshooting, kubectl, logs, crashloopbackoff, containers, resources, images]
+page_synonyms: [pod debugging, kubernetes troubleshooting, container debugging, pod failures, kubectl debug, pod logs, container crashes]
+categories: [debugging, troubleshooting, monitoring, kubernetes, containers]
 ---
 
 ## Introduction

@@ -1,6 +1,10 @@
 ---
 title: Introduction to Gardener
 weight: 1
+description: Introduction to Gardener - a system for managing Kubernetes clusters at scale using the desired state pattern and universal Kubernetes approach
+tags: [introduction, gardener, kubernetes, containers, orchestration, cluster-management, cncf, open-source]
+page_synonyms: [gardener introduction, what is gardener, kubernetes management, cluster management, universal kubernetes]
+categories: [getting-started, introduction, overview]
 ---
 
 ## Problem Space

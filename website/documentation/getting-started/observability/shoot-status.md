@@ -1,6 +1,10 @@
 ---
 title: Shoot Status
 weight: 3
+description: Learn how to monitor shoot cluster health using status conditions, constraints, last operations, and credential rotation status information.
+tags: [shoot status, cluster health, conditions, constraints, last operation, credential rotation, monitoring]
+page_synonyms: [cluster status, shoot health, cluster monitoring, status conditions, cluster state, health monitoring]
+categories: [observability, monitoring, cluster management]
 ---
 
 ## Overview

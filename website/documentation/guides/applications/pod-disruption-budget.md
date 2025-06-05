@@ -1,11 +1,15 @@
 ---
 title: Specifying a Disruption Budget for Kubernetes Controllers
+description: "Learn how to configure PodDisruptionBudgets to protect applications from voluntary disruptions during cluster operations"
 level: beginner
 index: 10
 category: Getting Started
 scope: app-developer
 featured: true
 publishdate: 2022-06-21
+tags: [poddisruptionbudget, pdb, disruption, availability, deployment, replicaset, statefulset, hpa]
+page_synonyms: [pod disruption budget, availability protection, voluntary disruption, cluster upgrade protection]
+categories: [availability, deployment, cluster-management]
 ---
 
 ## Introduction of Disruptions

@@ -1,5 +1,9 @@
 ---
 title: Organization
+description: "This page describes the organizational principles of Gardener documentation, emphasizing the documentation-as-code approach, repository structure, content organization by user roles, and the publishing process using docforge manifests."
+categories: [documentation guidelines, content organization]
+tags: [organization, documentation-as-code, repository structure, docforge, publishing]
+page_synonyms: [documentation structure, organizing docs, gardener documentation organization]
 ---
 
 The Gardener project implements the *documentation-as-code* paradigm. Essentially this means that:

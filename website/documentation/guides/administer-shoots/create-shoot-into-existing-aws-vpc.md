@@ -1,8 +1,12 @@
 ---
 title: Create a Shoot Cluster Into an Existing AWS VPC
+description: Tutorial on creating Gardener shoot clusters in existing AWS VPCs, including VPC setup, DNS configuration, and internet gateway requirements
 level: intermediate
 category: Operation
 scope: app-developer
+tags: [aws vpc, existing vpc, shoot cluster, aws infrastructure, internet gateway, dns configuration, vpc setup]
+page_synonyms: [existing vpc deployment, aws vpc integration, vpc reuse, custom vpc, pre-existing vpc]
+categories: [aws, networking, infrastructure, cluster deployment]
 ---
 
 ## Overview

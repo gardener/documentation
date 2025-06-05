@@ -1,9 +1,12 @@
 ---
 title: Remove Committed Secrets in Github 💀
-description: "Never ever commit a kubeconfig.yaml into github"
+description: Learn how to remove sensitive data like kubeconfig.yaml or SSH keys from Git repository history using git filter-branch and prevent accidental secret commits.
 level: intermediate
 category: Fails
 scope: app-developer
+tags: [git, secrets, security, filter-branch, kubeconfig, ssh-keys, github, repository-cleanup]
+page_synonyms: [remove secrets, git history cleanup, sensitive data removal, secret leak fix, git filter]
+categories: [security, git, fails]
 ---
 
 ## Overview
