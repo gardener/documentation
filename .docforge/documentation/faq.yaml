@@ -1,8 +1,0 @@
-structure:
-- file: _index.md
-  frontmatter:
-    title: FAQ
-    description: Commonly asked questions about Gardener
-    persona: Developers
-    weight: 80
-- fileTree: /website/documentation/faq
