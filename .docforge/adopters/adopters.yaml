@@ -1,5 +1,0 @@
-structure:
-- file: /website/adopter/_index.md
-- dir: images
-  structure:
-  - fileTree: /website/adopter/images
