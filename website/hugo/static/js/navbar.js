@@ -1,8 +1,8 @@
 
-function modfyJoinUsNavLink() {
+function modifyJoinUsNavLink() {
     const navlinks = document.querySelectorAll('.nav-link');
-    if (navlinks.length == 6) {
-        const joinus = navlinks[5];
+    if (navlinks.length > 0) {
+        const joinus = navlinks[navlinks.length - 1];
         joinus.classList.add('btn');
         joinus.classList.add('slack-button');
         const slacksvg = document.createElement('img');
@@ -12,4 +12,4 @@ function modfyJoinUsNavLink() {
     }
 }
 
-modfyJoinUsNavLink();
+modifyJoinUsNavLink();
