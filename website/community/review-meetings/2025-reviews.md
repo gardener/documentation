@@ -13,7 +13,7 @@ Check back regularly for updates and upcoming topics!
 
 ### 2025/06/11 - [Hack The Garden](https://github.com/gardener-community/hackathon/blob/main/2025-06_Schelklingen/README.md) Wrap Up
 
-[📽️ Recording]()
+[📽️ Recording](https://youtu.be/TCLXovw43HA)
 
 #### Demo Agenda 📋
 
@@ -26,7 +26,7 @@ Check back regularly for updates and upcoming topics!
 | [@tobschli](https://github.com/tobschli) | `5m` | 📝 Signing Of `ManagedResource` Secrets |  [Summary](https://github.com/gardener-community/hackathon/blob/main/2025-06_Schelklingen/README.md#-signing-of-managedresource-secrets) |
 | [@Gerrit91](https://github.com/Gerrit91) | `5m` | 🧰 Migrate `ControlPlane` Reconciliation Of Provider Extensions To `ManagedResource`s | [Summary](https://github.com/gardener-community/hackathon/blob/main/2025-06_Schelklingen/README.md#-migrate-control-plane-reconciliation-of-provider-extensions-to-managedresources) |
 | [@benedikt-haug](https://github.com/benedikt-haug) | `5m` | ✨ Dashboard Usability Improvements | [Summary](https://github.com/gardener-community/hackathon/blob/main/2025-06_Schelklingen/README.md#-dashboard-usability-improvements) |
-| [@mirzakopic](https://github.com/mirzakopic) | `5m` | 📜 Documentation Revamp | [Summary](https://github.com/gardener-community/hackathon/blob/main/2025-06_Schelklingen/README.md#-documentation-revamp) |
+| [@klocke-io](https://github.com/klocke-io) | `5m` | 📜 Documentation Revamp | [Summary](https://github.com/gardener-community/hackathon/blob/main/2025-06_Schelklingen/README.md#-documentation-revamp) |
 | [@Gerrit91](https://github.com/Gerrit91) | `5m` | ℹ️ Expose EgressCIDRs In `shoot-info` `ConfigMap` | [Summary](https://github.com/gardener-community/hackathon/blob/main/2025-06_Schelklingen/README.md#%E2%84%B9%EF%B8%8F-expose-egresscidrs-in-shoot-info-configmap-%EF%B8%8F) |
 | [@kon-angelo](https://github.com/kon-angelo) | `5m` | 📈 Overcome Maximum Of 450 `Node`s On Azure | [Summary](https://github.com/gardener-community/hackathon/blob/main/2025-06_Schelklingen/README.md#-overcome-maximum-of-450-nodes-on-azure) |
 | [@Nuckal777](https://github.com/Nuckal777) | `5m` | 🦜 Multiple Parallel Versions In A Gardener Landscape (Canary Deployments) | [Summary](https://github.com/gardener-community/hackathon/blob/main/2025-06_Schelklingen/README.md#-multiple-parallel-versions-in-a-gardener-landscape-fka-canary-deployments) |
