@@ -1,5 +1,9 @@
 ---
 title: Markdown
+description: "This page explains the use of Markdown and HTML in Gardener documentation, advising on when to use each, the limitations of Markdown, and recommending alternatives like shortcodes for enhanced content formatting."
+categories: [documentation guidelines, content formatting]
+tags: [markdown, html, shortcodes, formatting, content authoring]
+page_synonyms: [markdown usage, html in docs, gardener markup guide]
 ---
 
 Hugo uses [Markdown](https://www.markdownguide.org/) for its simple content format. However, there are a lot of things that Markdown 

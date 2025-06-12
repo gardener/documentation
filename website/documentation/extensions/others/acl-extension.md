@@ -1,5 +1,9 @@
 ---
 title: Access Control List Extension
+description: Overview of the Gardener Access Control List (ACL) extension for controlling access to shoot clusters using allow-list mechanisms
+tags: [extensions, acl, access-control, security, networking, istio, stackit]
+page_synonyms: [acl extension, access control extension, allow-list extension, network access control]
+categories: [extensions, security, networking]
 ---
 
 # Gardener Access Control List Extension
