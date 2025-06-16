@@ -24,9 +24,9 @@ spec:
 
 For more information, see [Alerting](https://github.com/gardener/gardener/blob/master/docs/monitoring/alerting.md).
 
-### Custom Alerts - Federation
+### Custom Alerts – Federation
 
-If you need more customization for alerts for control plane metrics, you have the option to deploy your own Prometheus into your shoot control plane.
+If you need more customization for alerts for control plane metrics, you have the option to deploy your own Prometheus into your shoot cluster.
 
 Then you can use federation, which is a Prometheus feature, to forward the metrics from the Gardener managed Prometheus to your custom deployed Prometheus. Since as a shoot owner you do not have access to the control plane pods, this is the only way to get those metrics.
 
