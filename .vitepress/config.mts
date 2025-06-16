@@ -1,10 +1,10 @@
 import { defineConfig } from 'vitepress'
-import { defineAdditionalConfig, type DefaultTheme } from 'vitepress'
-
+import { fileURLToPath, URL } from 'node:url'
+import { type DefaultTheme } from 'vitepress'
 export default defineConfig({
   srcDir: "docs",
   lastUpdated: true,
-  ignoreDeadLinks: true, //ToDo fix dead links 
+  ignoreDeadLinks: true, //ToDo fix dead links
   title: "Gardener",
       head: [
       [
@@ -40,14 +40,17 @@ export default defineConfig({
 
     themeConfig: {
       logo: { src: '/gardener-logo-large.svg', width: 24, height: 24 },
+
       nav: nav(),
       editLink: {
         pattern: 'https://github.com/gardener/documentation/tree/master/website/:path',
         text: 'Edit this page on GitHub'
       },
+  
       socialLinks: [
         { icon: 'github', link: 'https://github.com/gardener' },
-        { icon: 'slack', link: 'https://join.slack.com/t/gardener-cloud/shared_invite/zt-33c9daems-3oOorhnqOSnldZPWqGmIBw' }
+        { icon: 'slack', link: 'https://join.slack.com/t/gardener-cloud/shared_invite/zt-33c9daems-3oOorhnqOSnldZPWqGmIBw' },
+        {icon: 'youtube', link: 'https://www.youtube.com/@GardenerProject'}
       ],
       sidebar: {
         '/documentation/': [
@@ -377,6 +380,25 @@ export default defineConfig({
         provider: 'local'
       }
     },
+    vite: {
+    resolve: {
+      alias: [
+        {
+          find: /^.*\/VPFeature\.vue$/,
+          replacement: fileURLToPath(
+            new URL('./theme/components/VPFeature.vue', import.meta.url)
+          )
+        },
+        {
+          find: /^.*\/VPTeamMembersItem\.vue$/,
+          replacement: fileURLToPath(
+            new URL('./theme/components/VPTeamMembersItem.vue', import.meta.url)
+          )
+        }
+
+      ]
+    }
+  }
 })
 
 function nav(): DefaultTheme.NavItem[] {
@@ -392,17 +414,8 @@ function nav(): DefaultTheme.NavItem[] {
       activeMatch: '/reference/'
     },
     {
-      text: 'Community',
-      items: [
-        {
-          text: 'Slack',
-          link: 'https://gardener-cloud.slack.com/join/shared_invite/zt-33c9daems-3oOorhnqOSnldZPWqGmIBw'
-        },
-        {
-          text: 'Contributing',
-          link: 'https://gardener.cloud/docs/contribute/'
-        }
-      ]
+      text: 'Contribute',
+      link: 'https://gardener.cloud/docs/contribute/'
     }
   ]
 }

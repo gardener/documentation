@@ -50,7 +50,6 @@ features:
 import { VPTeamMembers } from 'vitepress/theme'
 
 const members = [
-  { avatar: '/lp/platforms/alibaba-cloud.svg', name: 'Alibaba Cloud', },
   { avatar: '/lp/platforms/aws.svg', name: 'Amazon Web Services', },
   { avatar: '/lp/platforms/microsoft-azure.svg', name: 'Microsoft Azure', },
   { avatar: '/lp/platforms/google-cloud-platform.svg', name: 'Google Cloud Platform', },
