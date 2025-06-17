@@ -40,13 +40,11 @@ export default defineConfig({
 
     themeConfig: {
       logo: { src: '/gardener-logo-large.svg', width: 24, height: 24 },
-
       nav: nav(),
       editLink: {
         pattern: 'https://github.com/gardener/documentation/tree/master/website/:path',
         text: 'Edit this page on GitHub'
       },
-  
       socialLinks: [
         { icon: 'github', link: 'https://github.com/gardener' },
         { icon: 'slack', link: 'https://join.slack.com/t/gardener-cloud/shared_invite/zt-33c9daems-3oOorhnqOSnldZPWqGmIBw' },
@@ -375,7 +373,6 @@ export default defineConfig({
           { text: 'Contribute', link: '/documentation/contribute/' }
         ]
       },
-
       search: {
         provider: 'local'
       }

@@ -1,7 +1,7 @@
 {
-  "name": "vitepress-docs",
+  "name": "documentation",
   "version": "1.0.0",
-  "description": "Documentation site powered by VitePress for Gardener.",
+  "description": "Documentation and landing page site powered by VitePress for Gardener.",
   "homepage": "https://gardener.cloud/",
   "repository": {
     "type": "git",
@@ -15,16 +15,13 @@
     "npm": ">=10.9.0"
   },
   "type": "module",
-  "devDependencies": {
-    "vitepress": "^1.6.3"
-  },
   "scripts": {
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
     "docs:preview": "vitepress preview"
   },
   "dependencies": {
-    "vue": "^3.5.16"
-  },
-  "packageManager": "npm@10.9.0"
+    "vue": "^3.5.16",
+    "vitepress": "^1.6.3"
+  }
 }
