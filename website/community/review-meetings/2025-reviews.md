@@ -11,6 +11,26 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2025/06/18 - [v1.120](https://github.com/gardener/gardener/releases/tag/v1.120.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@DockToFuture](https://github.com/DockToFuture) | `10m` | 👯 Single-Stack IPv4 -> Dual-Stack IPv{4,6} Migration For GCP | [extension-provider-gcp#1010](https://github.com/gardener/gardener-extension-provider-gcp/pull/1010) |
+| [@nickytd](https://github.com/nickytd) | `5m` | 🛰️ GEP-34: OpenTelemetry Operator And Collectors | [#11861](https://github.com/gardener/gardener/pull/11861) |
+| [@oliver-goetz](https://github.com/oliver-goetz) | `10m` | ⚖️ Cluster-Internal L7 Load-Balancing Endpoints For `kube-apiserver`s | [Summary](https://github.com/gardener-community/hackathon/blob/main/2025-06_Schelklingen/README.md#%EF%B8%8F-cluster-internal-l7-load-balancing-endpoints-for-kube-apiservers) |
+| [@timuthy](https://github.com/timuthy) | `10m` | 🛸 Compatibility Fields In `Extension` API | [#11982](https://github.com/gardener/gardener/pull/11982) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- ✨ [OPERATOR] The `Garden` resource has been enhanced with a new field, `spec.VirtualCluster.ETCD.Main.Backup.Region`, which enables the configuration of the backup bucket region. Previously, the region was derived from the provider (`spec.runtimeCluster.provider.region`). This behavior remains as a fallback if the backup region is not explicitly specified. [#12186](https://github.com/gardener/gardener/pull/12186)
+- ✨ [DEVELOPER] The `.spec.purpose` field in the `ControlPlane` resource is now deprecated and will be removed in Gardener `v1.123`. In the times before SNI was introduced and unconditionally enabled it was previously used to manage control plane exposure. [#12161](https://github.com/gardener/gardener/pull/12161)
+
+<hr />
+
 ### 2025/06/11 - [Hack The Garden](https://github.com/gardener-community/hackathon/blob/main/2025-06_Schelklingen/README.md) Wrap Up
 
 [📽️ Recording](https://youtu.be/TCLXovw43HA)
