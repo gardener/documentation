@@ -1,10 +1,13 @@
 ---
 title: GPU Enabled Cluster
-description: Setting up a GPU Enabled Cluster for Deep Learning
+description: Complete guide to setting up GPU-enabled Kubernetes clusters for deep learning workloads, including NVIDIA driver installation and device plugin configuration
 layout: single-page
 level: intermediate
 category: Setup
 scope: app-developer
+tags: [gpu, nvidia, deep learning, machine learning, tensorflow, keras, device plugin, daemonset, gpu acceleration]
+page_synonyms: [gpu cluster, nvidia cluster, machine learning cluster, deep learning setup, gpu acceleration, cuda cluster]
+categories: [gpu computing, machine learning, deep learning, hardware acceleration]
 ---
 
 ## Disclaimer

@@ -1,8 +1,12 @@
 ---
 title:  Organizing Access Using kubeconfig Files
+description: "Create custom kubeconfig files for each user with proper RBAC permissions to enhance security and avoid credential sharing"
 level: intermediate
 category: Security
 scope: app-developer
+tags: [kubeconfig, rbac, serviceaccount, security, credentials, authentication, authorization, cluster-access]
+page_synonyms: [kubernetes access, user credentials, service account, cluster authentication, rbac configuration]
+categories: [security, authentication, access-control]
 ---
 
 ## Overview

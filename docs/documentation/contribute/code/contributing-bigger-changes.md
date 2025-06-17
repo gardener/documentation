@@ -3,6 +3,10 @@ title: Contributing Bigger Changes
 sidebar: true
 menu: sln
 weight: 60
+description: "This page provides guidelines for contributing significant changes to the Gardener project, including the use of Gardener Enhancement Proposals (GEPs), breaking large changes into smaller pull requests, and collaborating effectively with reviewers to streamline the review process."
+categories: [contribution guidelines, development process]
+tags: [gardener, contribution, gep, pull request, review process, code contribution]
+page_synonyms: [large contributions, submitting big changes, gardener code contribution process]
 ---
 
 ## Contributing Bigger Changes

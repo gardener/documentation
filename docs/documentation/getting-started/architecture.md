@@ -1,6 +1,10 @@
 ---
 title: Architecture
 weight: 2
+description: Comprehensive overview of Gardener's architecture including Kubeception, cluster hierarchy, API endpoints, and core components
+tags: [architecture, kubeception, kubernetes, api-server, etcd, cluster-hierarchy, garden-cluster, seed-cluster]
+page_synonyms: [gardener architecture, kubeception, kubernetes on kubernetes, cluster hierarchy, api aggregation]
+categories: [getting-started, architecture, concepts]
 ---
 
 ## Kubeception

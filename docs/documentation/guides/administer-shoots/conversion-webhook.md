@@ -1,8 +1,12 @@
 ---
 title: Fix Problematic Conversion Webhooks
+description: Guide to identify and resolve problematic Custom Resource Definition conversion webhooks that can break VPN connections and garbage collection
 level: advanced
 category: Operation
 scope: users
+tags: [conversion webhook, crd, custom resource definition, vpn, garbage collection, kubernetes api, etcd migration]
+page_synonyms: [webhook conversion, crd conversion, custom resource conversion, api versioning, resource migration]
+categories: [troubleshooting, kubernetes api, custom resources, operations]
 ---
 
 ## Reasoning

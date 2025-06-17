@@ -1,9 +1,12 @@
 ---
 title: tail -f /var/log/my-application.log
-description: "Aggregate log files from different pods"
+description: "Learn how to aggregate and monitor log files from multiple Kubernetes pods simultaneously using kubetail, a bash script that enables tail-like functionality across multiple pod instances for effective log monitoring and debugging."
 level: intermediate
 category: Debugging
 scope: app-developer
+tags: [logs, monitoring, kubetail, pods, aggregation, tail, kubectl, debugging, log files, bash script]
+page_synonyms: [log aggregation, pod logs, kubetail, log monitoring, multiple pod logs, kubernetes logging, log tailing]
+categories: [debugging, monitoring, logging, troubleshooting, tools]
 ---
 
 ## Problem

@@ -1,9 +1,12 @@
 ---
 title: Namespace Isolation
-description: "Deny all traffic from other namespaces"
+description: "Configure Kubernetes NetworkPolicies to deny all traffic from other namespaces while allowing traffic within the same namespace"
 level: advanced
 category: Networking
 scope: app-developer
+tags: [networkpolicy, namespace, isolation, security, traffic, ingress, multi-tenant, calico]
+page_synonyms: [network policy, namespace security, traffic isolation, network segmentation, pod isolation]
+categories: [networking, security, isolation]
 ---
 
 ## Overview

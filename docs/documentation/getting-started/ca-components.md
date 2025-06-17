@@ -1,6 +1,10 @@
 ---
 title: Control Plane Components
 weight: 5
+description: Detailed explanation of Kubernetes control plane components in Gardener including etcd, API server, controllers, and Gardener-specific components
+tags: [control-plane, etcd, api-server, kubernetes, components, mcm, grm, vpn, dns, networking]
+page_synonyms: [control plane, master components, kubernetes components, gardener components, seed components]
+categories: [getting-started, architecture, components]
 ---
 
 ## Overview

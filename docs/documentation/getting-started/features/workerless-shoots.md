@@ -1,6 +1,10 @@
 ---
 title: Workerless Shoots
 weight: 2
+description: Understand how to create workerless shoots in Gardener for control plane-only Kubernetes clusters without worker nodes for orchestration use cases.
+tags: [workerless shoots, control plane, kubernetes api, orchestration, etcd, kube-apiserver, no nodes]
+page_synonyms: [control plane only, nodeless clusters, api only clusters, workerless clusters, control plane service]
+categories: [cluster types, orchestration, control plane]
 ---
 
 ## Controlplane as a Service

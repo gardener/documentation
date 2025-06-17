@@ -1,9 +1,12 @@
 ---
 title: Shoot Cluster Maintenance
-description: "Understanding and configuring Gardener's Day-2 operations for Shoot clusters."
+description: Comprehensive guide to Gardener's Day-2 operations including Kubernetes version updates, OS updates, maintenance windows, and auto-update configuration
 level: advanced
 category: Operation
 scope: operator
+tags: [maintenance, kubernetes updates, os updates, auto-update, maintenance window, version management, cloudprofile, patch updates]
+page_synonyms: [cluster maintenance, day-2 operations, version updates, automatic updates, maintenance scheduling, cluster upgrades]
+categories: [maintenance, operations, version management, cluster lifecycle]
 ---
 
 ## Overview

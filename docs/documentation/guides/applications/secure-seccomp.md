@@ -1,8 +1,12 @@
 ---
 title: Custom Seccomp Profile
+description: "Configure custom Seccomp profiles in Kubernetes to restrict system calls and enhance container security"
 level: advanced
 category: Security
 scope: operator
+tags: [seccomp, security, system-calls, linux, kernel, daemonset, configmap, pod-security, container-security]
+page_synonyms: [secure computing mode, system call filtering, container hardening, security profiles]
+categories: [security, containers, hardening]
 ---
 
 ## Overview

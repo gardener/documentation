@@ -1,6 +1,10 @@
 ---
 title: Vertical Pod Autoscaler
 weight: 6
+description: Learn how to enable and use the Vertical Pod Autoscaler in Gardener to automatically adjust pod resource requests and limits based on usage patterns.
+tags: [vpa, vertical pod autoscaler, resource management, cpu scaling, memory scaling, pod resources]
+page_synonyms: [vertical scaling, pod autoscaling, resource autoscaling, vpa controller, resource optimization]
+categories: [scaling, resource management, automation]
 ---
 
 ## Vertical Pod Autoscaler

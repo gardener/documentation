@@ -1,9 +1,12 @@
 ---
 title: Integrity and Immutability
-description: "Ensure that you always get the right image"
+description: Learn about Docker content trust, image integrity, and immutability using SHA256 digests to ensure deterministic deployments and protect against malicious image tampering.
 level: intermediate
 category: Docker Registry
 scope: app-developer
+tags: [docker, content-trust, sha256, digest, immutability, integrity, security, deterministic-ops, image-verification]
+page_synonyms: [image integrity, docker trust, sha256 digest, image verification, deterministic deployment, content verification]
+categories: [security, docker-registry, best-practices]
 ---
 
 ## Introduction

@@ -1,8 +1,12 @@
 ---
 title: Create / Delete a Shoot Cluster
+description: Step-by-step guide to create and delete Gardener shoot clusters, including kubeconfig management and alert configuration
 level: advanced
 category: Operation
 scope: operator
+tags: [shoot cluster, create cluster, delete cluster, kubeconfig, alerting, prometheus, cluster lifecycle]
+page_synonyms: [cluster creation, cluster deletion, shoot management, cluster provisioning, cluster teardown]
+categories: [cluster management, operations, lifecycle management]
 ---
 
 ## Create a Shoot Cluster
