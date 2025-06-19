@@ -1,6 +1,10 @@
 ---
 title: Cluster Autoscaler
 weight: 7
+description: Understand how Gardener's cluster autoscaler automatically adds and removes nodes based on pod scheduling needs and resource utilization thresholds.
+tags: [cluster autoscaler, scaling, nodes, worker pools, priority scaling, machine controller manager]
+page_synonyms: [node scaling, automatic scaling, cluster scaling, worker scaling, pod scheduling]
+categories: [scaling, automation, resource management]
 ---
 
 ## Obtaining Aditional Nodes

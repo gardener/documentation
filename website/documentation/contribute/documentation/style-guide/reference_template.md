@@ -1,6 +1,9 @@
 ---
-Title: Reference Topic Structure
-Description: Describes the contents of a reference topic
+title: Reference Topic Structure
+description: Template and structure guide for creating reference documentation topics in Gardener documentation
+tags: [documentation, template, reference, style-guide, writing]
+page_synonyms: [reference template, documentation template, reference structure, reference format]
+categories: [documentation, style-guide, templates]
 ---
 
 # Topic Title

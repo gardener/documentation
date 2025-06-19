@@ -1,6 +1,10 @@
 ---
 title: Dependencies
 remote: https://github.com/gardener/gardener/blob/master/docs/development/testing_and_dependencies.md
+description: "This page explains how to manage and update dependencies in the Gardener project, covering testing practices, the use of Go modules, integration with tools like Ginkgo and Gomega, and best practices for maintaining and updating the vendor directory."
+categories: [development process, dependency management, testing]
+tags: [dependencies, go modules, testing, ginkgo, gomega, vendor, makefile]
+page_synonyms: [managing dependencies, updating dependencies, gardener dependency guide]
 ---
 ## Testing
 

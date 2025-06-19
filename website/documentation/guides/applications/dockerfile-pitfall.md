@@ -1,11 +1,14 @@
 ---
 title: Dockerfile Pitfalls
-description: "Common Dockerfile pitfalls"
+description: Common Dockerfile pitfalls including using latest tags, improper apt-get usage, and creating large container images with solutions for better practices.
 level: beginner
 reviewer: Tieyan Fu
 last_reviewed: 22.06.2018
 category: Fails
 scope: app-developer
+tags: [dockerfile, pitfalls, latest-tag, apt-get, alpine, multi-stage-builds, container-size, sha256]
+page_synonyms: [dockerfile mistakes, docker best practices, container optimization, image size reduction, dockerfile antipatterns]
+categories: [fails, docker, best-practices]
 ---
 
 

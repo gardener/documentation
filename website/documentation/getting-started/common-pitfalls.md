@@ -1,6 +1,10 @@
 ---
 title: Common Pitfalls
 weight: 9
+description: Common mistakes and pitfalls to avoid when using Gardener and Kubernetes, including architecture, scalability, networking, and webhook issues
+tags: [pitfalls, troubleshooting, best-practices, scalability, webhooks, networking, security, maintenance]
+page_synonyms: [common mistakes, troubleshooting, best practices, avoid pitfalls, kubernetes pitfalls]
+categories: [getting-started, troubleshooting, best-practices]
 ---
 
 ## Architecture

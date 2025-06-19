@@ -1,9 +1,12 @@
 ---
 title: Out-Dated HTML and JS Files Delivered
-description: "Why is my application always outdated?"
+description: "Troubleshoot outdated web application files caused by NGINX ingress caching and learn how to configure proper cache control"
 level: intermediate
 category: Services
 scope: app-developer
+tags: [cache, nginx, ingress, http-headers, cache-control, web-application, static-files, cache-buster]
+page_synonyms: [nginx caching, ingress cache, http cache control, outdated files, static content caching]
+categories: [web-applications, caching, ingress]
 ---
 
 ## Problem
