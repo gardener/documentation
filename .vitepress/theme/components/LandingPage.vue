@@ -41,12 +41,8 @@
             <li>Ordering engine</li>
             <li>Processes on hyperscaler</li>
             <li>Uses control plane pattern</li>
-          </ul>
-
-          <h3>Extend to your needs</h3>
-          <ul>
-            <li>Adjust/config any layer</li>
-            <li>Open for contributions on any layer</li>
+            <li>Kubernetes control plane management</li>
+            <li>Complete cluster lifecycle</li>
           </ul>
         </div>
         <div class="architecture-visual">
@@ -55,16 +51,26 @@
       </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features-section section-container">
-      <h2 class="section-title">Key Features</h2>
-      <div class="feature-grid">
-        <div v-for="(feature, index) in features" :key="index" class="feature-item">
-          <div class="feature-icon">
-            <img :src="feature.icon" :alt="feature.title">
-          </div>
-          <h3>{{ feature.title }}</h3>
-          <p>{{ feature.description }}</p>
+    <!-- Extend to your needs Section -->
+    <section class="extend-section section-container">
+      <h2 class="section-title">Extend to your needs</h2>
+      <div class="extend-content">
+        <div class="extend-text">
+          <h3>Customize to your requirements</h3>
+          <ul>
+            <li>Adjust and configure any layer</li>
+            <li>Open for contributions on any layer</li>
+            <li>Extensible plugin architecture</li>
+          </ul>
+          <h3>Build on solid foundations</h3>
+          <ul>
+            <li>Enterprise grade infrastructure</li>
+            <li>Comprehensive API support</li>
+            <li>Rich ecosystem of tools</li>
+          </ul>
+        </div>
+        <div class="extend-visual">
+          <img src="/design/image 2.png" alt="Extend to your needs" class="extend-img">
         </div>
       </div>
     </section>
@@ -242,7 +248,7 @@ const testimonials = [
   text-align: center;
   margin-bottom: 3rem;
   font-weight: 600;
-  color: var(--vp-c-brand-1);
+  color: #18794E;
 }
 
 /* Hero Section */
@@ -270,7 +276,7 @@ const testimonials = [
   font-size: 3.5rem;
   line-height: 1.2;
   margin-bottom: 1.5rem;
-  color: var(--vp-c-brand-1);
+  color: #18794E;
   font-weight: 700;
 }
 
@@ -305,26 +311,26 @@ const testimonials = [
 }
 
 .cta-button.primary {
-  background-color: var(--vp-c-brand-1);
+  background-color: #18794E;
   color: white;
-  border: 2px solid var(--vp-c-brand-1);
+  border: 2px solid #18794E;
 }
 
 .cta-button.primary:hover {
-  background-color: var(--vp-c-brand-2);
-  border-color: var(--vp-c-brand-2);
+  background-color: #25A567;
+  border-color: #25A567;
   transform: translateY(-3px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .cta-button.secondary, .cta-button.demo {
   background-color: transparent;
-  border: 2px solid var(--vp-c-brand-1);
-  color: var(--vp-c-brand-1);
+  border: 2px solid #18794E;
+  color: #18794E;
 }
 
 .cta-button.secondary:hover, .cta-button.demo:hover {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(24, 121, 78, 0.1);
   transform: translateY(-3px);
 }
 
@@ -392,7 +398,7 @@ const testimonials = [
 .image-showcase-item h3 {
   margin: 2rem 0 1rem;
   padding: 0 1.5rem;
-  color: var(--vp-c-brand-1);
+  color: #18794E;
   font-size: 1.5rem;
   font-weight: 600;
 }
@@ -426,7 +432,7 @@ const testimonials = [
 .architecture-text h3 {
   margin-top: 2rem;
   margin-bottom: 1.25rem;
-  color: var(--vp-c-brand-1);
+  color: #18794E;
   font-size: 1.75rem;
   font-weight: 600;
 }
@@ -451,7 +457,7 @@ const testimonials = [
   content: "→";
   position: absolute;
   left: 0;
-  color: var(--vp-c-brand-1);
+  color: #18794E;
   font-weight: bold;
 }
 
@@ -467,6 +473,70 @@ const testimonials = [
 }
 
 .architecture-visual:hover .architecture-diagram-img {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.16);
+}
+
+/* Extend to your needs Section */
+.extend-section {
+  padding: 4rem 3rem;
+  border-radius: 16px;
+}
+
+.extend-content {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.extend-text {
+  flex: 1;
+}
+
+.extend-text h3 {
+  margin-top: 2rem;
+  margin-bottom: 1.25rem;
+  color: #18794E;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+.extend-text h3:first-child {
+  margin-top: 0;
+}
+
+.extend-text ul {
+  list-style-type: none;
+  padding-left: 1.25rem;
+}
+
+.extend-text li {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.extend-text li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #18794E;
+  font-weight: bold;
+}
+
+.extend-visual {
+  flex: 1.2;
+}
+
+.extend-img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.extend-visual:hover .extend-img {
   transform: translateY(-5px) scale(1.02);
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.16);
 }
@@ -518,7 +588,7 @@ const testimonials = [
 .feature-item h3 {
   font-size: 1.5rem;
   margin-bottom: 1.25rem;
-  color: var(--vp-c-brand-1);
+  color: #18794E;
   font-weight: 600;
 }
 
@@ -543,7 +613,7 @@ const testimonials = [
   background-color: white;
   padding: 3rem;
   border-radius: 12px;
-  border-left: 5px solid var(--vp-c-brand-1);
+  border-left: 5px solid #18794E;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -571,7 +641,7 @@ const testimonials = [
 }
 
 .read-more-link {
-  color: var(--vp-c-brand-1);
+  color: #18794E;
   text-decoration: none;
   font-weight: 600;
   font-size: 1.125rem;
@@ -582,7 +652,7 @@ const testimonials = [
 }
 
 .read-more-link:hover {
-  background-color: var(--vp-c-brand-dimm);
+  background-color: rgba(24, 121, 78, 0.1);
   transform: translateY(-3px);
 }
 
@@ -687,13 +757,15 @@ const testimonials = [
     max-width: 480px;
   }
 
-  .architecture-content {
+  .architecture-content,
+  .extend-content {
     flex-direction: column-reverse;
     text-align: center;
     gap: 3rem;
   }
 
-  .architecture-text ul {
+  .architecture-text ul,
+  .extend-text ul {
     display: inline-block;
     text-align: left;
   }
@@ -718,6 +790,7 @@ const testimonials = [
 
   .hero-section,
   .architecture-section,
+  .extend-section,
   .features-section,
   .testimonials-section,
   .platforms-section {
