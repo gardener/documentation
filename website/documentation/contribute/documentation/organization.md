@@ -22,7 +22,7 @@ repositoryX
 |_ docs
    |_ usage
    |  |_ images
-   |  |_ 01.png
+   |     |_ 01.png
    |  |_ hibernation.md
    |_ operations
    |_ deployment
@@ -38,13 +38,13 @@ Do not use folders just because they are in the template. Stick to the predefine
 
 ## Publishing on gardener.cloud
 
-The Gardener website is one of the multiple optional publishing channels where the source material might end up as documentation. We use docforge and automated integration and publish process to enable transparent change
-management.
+The Gardener website is one of the multiple optional publishing channels where the source material might end up as documentation. We use docforge and automated integration and publish process to enable transparent change management.
 
-To have documentation published on the website it is necessary to use the docforge manifests available at [gardener/documentation/.docforge](https://github.com/gardener/documentation/tree/master/.docforge) and register a reference to your documentation.
+To have documentation published on the website, it is necessary to use the docforge manifests available at [gardener/documentation/.docforge](https://github.com/gardener/documentation/tree/master/.docforge) and register a reference to your documentation. For more information, see [Adding Existing Documentation](./adding-existing-documentation.md).
 
 > [!NOTE]
 > This is work in progress and we are transitioning to a more transparent way of integrating component documentation. This guide will be updated as we progress.
 
-These manifests describe a particular publishing goal, i.e. using Hugo to publish on the website, and you will find out that they contain Hugo-specific front-matter properties.
+These manifests describe a particular publishing goal, i.e., using Hugo to publish on the website, and you will find out that they contain Hugo-specific front-matter properties.
+
 Consult with the documentation maintainers for details. Use the [#general](https://gardener-cloud.slack.com/archives/CAPMD6DCG) channel in Slack or [open a PR](https://github.com/gardener/documentation/pulls).
