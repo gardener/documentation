@@ -18,33 +18,9 @@ hero:
   image:
     src: /gardener-logo-large.svg
     alt: Gardener
-
-features:
-  - icon: 
-      src: highlights/cloud-agnostic.svg
-    title: Homogeneous
-    details: Identical Day-1 & 2 operations on any supported infrastructure
-  - icon:
-      src: highlights/gardener.svg
-    title: Open Source Grown
-    details: Powered by the open source Gardener project, developed in the public, pioneered by SAP
-  - icon:
-      src: highlights/extensible.svg
-    title: Ultra Scalable
-    details: Fleet management of thousands of clusters with low TCO by design
-  - icon:
-      src: highlights/certified.svg
-    title: Certified and Compliant
-    details: Enterprise-grade security certifications, CNCF 100% Kubernetes compliant
-  - icon:
-      src: highlights/ubiqutious.svg
-    title: Ubiquitous
-    details: The same experience in Amazon, Azure, Google, Alicloud
-  - icon:
-      src: highlights/autonomous.svg
-    title: Autonomous
-    details: Self-healing, auto-scaling, and if you choose, auto-updating operating system and Kubernetes
 ---
+
+<LandingPage />
 
 <script setup>
 import { VPTeamMembers } from 'vitepress/theme'
@@ -60,9 +36,4 @@ const members = [
   { avatar: '/lp/platforms/iron_core.svg', name: 'Iron Core', },
 ]
 </script>
-
-## Everywhere You Want It
-**The compute resources you need, wherever you want them**
-
-<VPTeamMembers size="small" :members />
 

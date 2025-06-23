@@ -1,11 +1,18 @@
 <script setup>
+import { useData } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 
 const { Layout } = DefaultTheme
+const { frontmatter } = useData()
 </script>
 
 <template>
   <Layout>
+    <!-- Add a special class to the body when on the home page -->
+    <div :class="{ 'is-home-page': frontmatter.layout === 'home' }">
+      <slot />
+    </div>
+
     <template #layout-bottom>
       <footer class="footer">
         <div class="container">
