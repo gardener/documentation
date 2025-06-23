@@ -1,32 +1,32 @@
 <template>
   <div class="figma-landing-content">
     <!-- Hero Section -->
-    <section class="hero-section flex-between section-container flex-col-mobile">
+    <section class="hero-section section-container">
       <div class="hero-content">
         <h1 class="hero-title">{{ heroContent.title }}</h1>
         <p class="hero-tagline">{{ heroContent.tagline }}</p>
-        <p>{{ heroContent.description }}</p>
-        <div class="cta-buttons flex gap-4">
+        <p class="hero-description">{{ heroContent.description }}</p>
+        <div class="cta-buttons">
           <a :href="heroContent.primaryCTA.link" class="cta-button primary">{{ heroContent.primaryCTA.text }}</a>
           <a :href="heroContent.secondaryCTA.link" class="cta-button secondary">{{ heroContent.secondaryCTA.text }}</a>
           <a href="https://demo.gardener.cloud/login?redirectPath=/terminal" class="cta-button demo">Try Demo</a>
         </div>
       </div>
       <div class="hero-image">
-        <img src="/gardener-logo-large.svg" alt="Gardener Logo">
+        <img src="/design/header_frontpage.png" alt="Gardener Hero Image">
       </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features-section section-container">
-      <h2 class="section-title">Key Features</h2>
-      <div class="card-grid">
-        <div v-for="(feature, index) in features" :key="index" class="feature-item flex-col-center">
-          <div class="feature-icon">
-            <img :src="feature.icon" :alt="feature.title">
+    <!-- Image Showcase Section -->
+    <section class="image-showcase-section section-container">
+      <h2 class="section-title">{{ showcase.title }}</h2>
+      <div class="image-showcase-grid">
+        <div v-for="(item, index) in showcase.items" :key="index" class="image-showcase-item">
+          <div class="image-container">
+            <img :src="item.image" :alt="item.title">
           </div>
-          <h3>{{ feature.title }}</h3>
-          <p>{{ feature.description }}</p>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
         </div>
       </div>
     </section>
@@ -34,7 +34,7 @@
     <!-- Architecture Section -->
     <section class="architecture-section section-container">
       <h2 class="section-title">Gardener Architecture</h2>
-      <div class="two-col architecture-content flex-col-mobile">
+      <div class="architecture-content">
         <div class="architecture-text">
           <h3>Grow platform for your organization</h3>
           <ul>
@@ -50,12 +50,21 @@
           </ul>
         </div>
         <div class="architecture-visual">
-          <!-- Simplified representation of the architecture diagram -->
-          <div class="architecture-diagram flex-col justify-between">
-            <div class="diagram-management">ManagementClusters</div>
-            <div class="diagram-managed">ManagedClusters</div>
-            <div class="diagram-connections"></div>
+          <img src="/design/Group 5.png" alt="Gardener Architecture Diagram" class="architecture-diagram-img">
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section section-container">
+      <h2 class="section-title">Key Features</h2>
+      <div class="feature-grid">
+        <div v-for="(feature, index) in features" :key="index" class="feature-item">
+          <div class="feature-icon">
+            <img :src="feature.icon" :alt="feature.title">
           </div>
+          <h3>{{ feature.title }}</h3>
+          <p>{{ feature.description }}</p>
         </div>
       </div>
     </section>
@@ -63,7 +72,7 @@
     <!-- Testimonials Section -->
     <section class="testimonials-section section-container">
       <h2 class="section-title">What Our Users Say</h2>
-      <div class="two-col testimonials-grid">
+      <div class="testimonials-grid">
         <div class="testimonial-item">
           <p class="testimonial-text">{{ testimonials[0].text }}</p>
           <div class="testimonial-author">
@@ -77,26 +86,20 @@
           </div>
         </div>
       </div>
-      <div class="testimonial-more flex-center">
-        <a href="/documentation/resources/">Read more...</a>
+      <div class="testimonial-more">
+        <a href="/documentation/resources/" class="read-more-link">Read more...</a>
       </div>
     </section>
 
     <!-- Platforms Section -->
     <section class="platforms-section section-container">
       <h2 class="section-title">Available on All Major Platforms</h2>
-      <div class="flex flex-wrap gap-8 justify-center platforms-grid">
-        <div class="platform-item">
-          <span>AWS</span>
-        </div>
-        <div class="platform-item">
-          <span>Azure</span>
-        </div>
-        <div class="platform-item">
-          <span>Google Cloud</span>
-        </div>
-        <div class="platform-item">
-          <span>+ any Hyperscaler</span>
+      <div class="platforms-grid">
+        <div v-for="(provider, index) in providers" :key="index" class="platform-item">
+          <div class="platform-icon">
+            <img :src="provider.icon" :alt="provider.name">
+          </div>
+          <span>{{ provider.name }}</span>
         </div>
       </div>
       <div class="platforms-more">
@@ -111,7 +114,7 @@
 const heroContent = {
   title: "Gardener",
   tagline: "Your in-house Managed Kubernetes offering",
-  description: "Empower your teams with in-house Managed Kubernetes clusters",
+  description: "Empower your teams with in-house Managed Kubernetes clusters with a vendor-neutral, consistent experience across all infrastructure providers",
   primaryCTA: {
     text: "Get Started",
     link: "/documentation/getting-started"
@@ -121,6 +124,56 @@ const heroContent = {
     link: "/documentation/getting-started/introduction"
   }
 }
+
+// Showcase section data
+const showcase = {
+  title: "Why Gardener?",
+  items: [
+    {
+      title: "Cloud Native",
+      description: "One approach to orchestrate entire stack, no matter where it runs",
+      image: "/design/301055_Cloud_R (1) 1.png"
+    },
+    {
+      title: "Open Source & Extensible",
+      description: "Powered by the open source Gardener project, developed in the public",
+      image: "/design/305142_PuzzlePieces_R 1.png"
+    },
+    {
+      title: "Enterprise Grade",
+      description: "Privacy by design, governance under your control",
+      image: "/design/300919_Agreement_R (1) 1.png"
+    }
+  ]
+}
+
+// Cloud provider data
+const providers = [
+  {
+    name: "AWS",
+    icon: "/lp/platforms/aws.svg"
+  },
+  {
+    name: "Azure",
+    icon: "/lp/platforms/microsoft-azure.svg"
+  },
+  {
+    name: "Google Cloud",
+    icon: "/lp/platforms/google-cloud-platform.svg"
+  },
+  {
+    name: "OpenStack",
+    icon: "/lp/platforms/openstack.svg"
+  },
+  {
+    name: "Metal Stack",
+    icon: "/lp/platforms/metalstack.svg"
+  },
+  {
+    name: "Equinix Metal",
+    icon: "/lp/platforms/equinix-metal.svg"
+  }
+]
 
 const features = [
   {
@@ -134,9 +187,9 @@ const features = [
     description: "Powered by the open source Gardener project, developed in the public"
   },
   {
-    title: "Vendor-agnostic Look'n'Feel",
+    title: "Vendor-agnostic",
     icon: "/highlights/autonomous.svg",
-    description: "Regardless if in the cloud, on-premises or in isolated environment"
+    description: "Consistent experience in the cloud, on-premises or in isolated environments"
   },
   {
     title: "Privacy by Design",
@@ -175,13 +228,21 @@ const testimonials = [
   color: var(--vp-c-text-1);
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
 /* Section styling */
+.section-container {
+  margin: 5rem 0;
+  position: relative;
+}
+
 .section-title {
   font-size: 2.5rem;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  font-weight: 600;
+  color: var(--vp-c-brand-1);
 }
 
 /* Hero Section */
@@ -190,107 +251,172 @@ const testimonials = [
   align-items: center;
   justify-content: space-between;
   padding: 4rem 2rem;
-  background: linear-gradient(to right, var(--vp-c-brand-1), var(--vp-c-brand-2));
-  color: white;
-  border-radius: 12px;
-  margin: 2rem 0;
+  background: transparent;
+  color: var(--vp-c-text-1);
+  border-radius: 16px;
+  margin-top: 2rem;
+  overflow: hidden;
+  position: relative;
+  box-shadow: none;
+  border: 1px solid var(--vp-c-divider);
 }
 
 .hero-content {
   max-width: 600px;
+  z-index: 1;
 }
 
 .hero-title {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  color: white;
+  font-size: 3.5rem;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: var(--vp-c-brand-1);
+  font-weight: 700;
 }
 
 .hero-tagline {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   margin-bottom: 1.5rem;
+  font-weight: 500;
+  color: var(--vp-c-text-1);
+}
+
+.hero-description {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: var(--vp-c-text-2);
 }
 
 .cta-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 2rem;
+  gap: 1.25rem;
 }
 
 .cta-button {
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
-  font-weight: 500;
+  padding: 0.9rem 1.75rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.02em;
 }
 
 .cta-button.primary {
-  background-color: white;
-  color: var(--vp-c-brand-1);
+  background-color: var(--vp-c-brand-1);
+  color: white;
+  border: 2px solid var(--vp-c-brand-1);
+}
+
+.cta-button.primary:hover {
+  background-color: var(--vp-c-brand-2);
+  border-color: var(--vp-c-brand-2);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .cta-button.secondary, .cta-button.demo {
   background-color: transparent;
-  border: 1px solid white;
-  color: white;
+  border: 2px solid var(--vp-c-brand-1);
+  color: var(--vp-c-brand-1);
+}
+
+.cta-button.secondary:hover, .cta-button.demo:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  transform: translateY(-3px);
 }
 
 .hero-image {
-  max-width: 400px;
+  max-width: 550px;
+  flex-shrink: 0;
+  z-index: 1;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.2));
 }
 
 .hero-image img {
   width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
-/* Features section */
-.features-section {
-  padding: 4rem 2rem;
+/* Image Showcase Section */
+.image-showcase-section {
+  padding: 2rem 1rem;
+}
+
+.image-showcase-grid {
+  display: flex;
+  gap: 2.5rem;
+  justify-content: center;
+}
+
+.image-showcase-item {
+  flex: 1;
+  max-width: 380px;
   text-align: center;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+.image-showcase-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.1);
 }
 
-.feature-item {
+.image-container {
+  height: 240px;
+  overflow: hidden;
   background-color: var(--vp-c-bg-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 2rem;
-  border-radius: 8px;
-  transition: transform 0.3s ease;
-  height: 100%;
 }
 
-.feature-item:hover {
-  transform: translateY(-5px);
+.image-container img {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.feature-icon {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 1.5rem;
+.image-showcase-item:hover .image-container img {
+  transform: scale(1.05);
 }
 
-.feature-item h3 {
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
+.image-showcase-item h3 {
+  margin: 2rem 0 1rem;
+  padding: 0 1.5rem;
+  color: var(--vp-c-brand-1);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.image-showcase-item p {
+  margin: 0 0 2rem;
+  padding: 0 1.5rem;
+  color: var(--vp-c-text-2);
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
 /* Architecture Section */
 .architecture-section {
-  padding: 4rem 2rem;
+  padding: 4rem 3rem;
   background-color: var(--vp-c-bg-soft);
-  border-radius: 12px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 .architecture-content {
   display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: 4rem;
 }
 
 .architecture-text {
@@ -299,120 +425,322 @@ const testimonials = [
 
 .architecture-text h3 {
   margin-top: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   color: var(--vp-c-brand-1);
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+.architecture-text h3:first-child {
+  margin-top: 0;
 }
 
 .architecture-text ul {
   list-style-type: none;
-  padding-left: 1rem;
+  padding-left: 1.25rem;
 }
 
 .architecture-text li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.architecture-text li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--vp-c-brand-1);
+  font-weight: bold;
 }
 
 .architecture-visual {
-  flex: 1;
+  flex: 1.2;
 }
 
-.architecture-diagram {
-  background-color: rgba(var(--vp-c-brand-1), 0.1);
-  border-radius: 8px;
-  padding: 2rem;
-  position: relative;
-  height: 300px;
+.architecture-diagram-img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.architecture-visual:hover .architecture-diagram-img {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.16);
+}
+
+/* Features section */
+.features-section {
+  padding: 5rem 2rem;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 2.5rem;
+}
+
+.feature-item {
+  background-color: white;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
-.diagram-management, .diagram-managed {
-  background-color: var(--vp-c-brand-1);
-  color: white;
-  padding: 1rem;
-  border-radius: 4px;
-  text-align: center;
+.feature-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.feature-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.25rem;
+  color: var(--vp-c-brand-1);
+  font-weight: 600;
+}
+
+.feature-item p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--vp-c-text-2);
 }
 
 /* Testimonials Section */
 .testimonials-section {
-  padding: 4rem 2rem;
+  padding: 5rem 2rem;
 }
 
 .testimonials-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 3rem;
 }
 
 .testimonial-item {
-  background-color: var(--vp-c-bg-soft);
-  padding: 2rem;
-  border-radius: 8px;
-  border-left: 4px solid var(--vp-c-brand-1);
+  background-color: white;
+  padding: 3rem;
+  border-radius: 12px;
+  border-left: 5px solid var(--vp-c-brand-1);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.testimonial-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
 }
 
 .testimonial-text {
   font-style: italic;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--vp-c-text-2);
+}
+
+.testimonial-author {
+  font-size: 1.1rem;
 }
 
 .testimonial-more {
-  margin-top: 2rem;
+  margin-top: 3rem;
   text-align: center;
 }
 
-.testimonial-more a {
+.read-more-link {
   color: var(--vp-c-brand-1);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 1.125rem;
+  padding: 0.75rem 2rem;
+  border-radius: 6px;
+  background-color: var(--vp-c-bg-soft);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.read-more-link:hover {
+  background-color: var(--vp-c-brand-dimm);
+  transform: translateY(-3px);
 }
 
 /* Platforms Section */
 .platforms-section {
-  padding: 4rem 2rem;
-  text-align: center;
+  padding: 5rem 2rem;
+  background-color: var(--vp-c-bg-soft);
+  border-radius: 16px;
+  margin-bottom: 4rem;
 }
 
 .platforms-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
-  margin-bottom: 2rem;
+  gap: 3rem;
+  margin-bottom: 3rem;
 }
 
 .platform-item {
-  background-color: var(--vp-c-bg-soft);
-  padding: 1.5rem;
-  border-radius: 8px;
-  min-width: 150px;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  min-width: 180px;
   text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.platform-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+}
+
+.platform-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+}
+
+.platform-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.platform-item span {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--vp-c-text-1);
 }
 
 .platforms-more {
   font-style: italic;
   opacity: 0.7;
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--vp-c-text-2);
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
-  .hero-section, .architecture-content {
+@media (max-width: 1200px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .hero-tagline {
+    font-size: 1.5rem;
+  }
+
+  .hero-image {
+    max-width: 450px;
+  }
+
+  .section-title {
+    font-size: 2.25rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .hero-section {
     flex-direction: column;
-    text-align: center;
+    padding: 3rem 1.5rem;
   }
 
   .hero-content {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
   }
 
   .cta-buttons {
     justify-content: center;
   }
 
-  .architecture-text {
+  .image-showcase-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-showcase-item {
+    width: 100%;
+    max-width: 480px;
+  }
+
+  .architecture-content {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  .architecture-text ul {
+    display: inline-block;
     text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .hero-section,
+  .architecture-section,
+  .features-section,
+  .testimonials-section,
+  .platforms-section {
+    padding: 3rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 2.25rem;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .testimonial-item {
+    padding: 2rem 1.5rem;
   }
 }
 </style>

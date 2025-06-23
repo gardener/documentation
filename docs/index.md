@@ -1,23 +1,5 @@
 ---
 layout: home
-
-hero:
-  name: Gardener
-  text: A Managed Kubernetes Service Done Right
-  tagline: Deliver fully-managed clusters at scale everywhere with your own Gardener installation
-  actions:
-    - theme: brand
-      text: Demo?
-      link: https://demo.gardener.cloud/login?redirectPath=/terminal
-    - theme: alt
-      text: Documentation
-      link: /documentation/getting-started
-    - theme: alt
-      text: API Reference
-      link: /guide/what-is-vitepress
-  image:
-    src: /gardener-logo-large.svg
-    alt: Gardener
 ---
 
 <LandingPage />
