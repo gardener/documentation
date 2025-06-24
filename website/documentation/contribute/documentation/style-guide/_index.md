@@ -7,6 +7,7 @@ These are guidelines, not rules. Use your best judgment, and feel free to propos
 
 - [Structure](#structure)
   - [Documentation Types Overview](#documentation-types-overview)
+  - [Structure and File Names](#structure-and-file-names)
   - [Topic Structure](#topic-structure)
   - [Front Matter](#front-matter)
   - [Alerts](#alerts)
@@ -34,6 +35,16 @@ The following table summarizes the types of documentation and their mapping to t
 
 See the [Contributors Guide](../../_index.md) for more details on how to produce and contribute documentation.
 
+### Structure and File Names
+
+When creating a new documentation topic or folder, it is important to adhere to a consistent and clear naming convention. This ensures that topics are easily identifiable and helps maintain a well-structured documentation repository. The title of your newly created content should be in dash-case (also known as kebab-case). This means each word in the file or folder name should be separated by a hyphen (-), and all letters should be in lowercase.
+
+By default, this will also be the title of your topic in the website.
+
+For example, a `new-topic-title.md` filename will generate the topic's title as "New Topic Title". You can customize the title by adding [front matter](#front-matter) to the top of your Markdown file.
+
+If you would like to have a newly added folder appear in the website navigation, you need to add an `_index.md` file to it. As folders are hidden by default, this file will hold its title, description, weight, and other possible properties. For more information, see the [Front Matter](#front-matter) section.
+
 ### Topic Structure
 
 When creating a topic, you will need to follow a certain structure. A topic generally comprises of, in order:
@@ -59,12 +70,15 @@ Sample codeblock:
 title: Getting Started
 description: Guides to get you accustomed with Gardener
 weight: 10
+aliases: ["/docs/old-getting-started-url"]
 ---
+
+<topic-content>
 ```
 
 There are a number of [predefined](https://gohugo.io/content-management/front-matter#predefined) front matter properties, but not all of them are considered by the layouts developed for the website. The most essential ones to consider are:
 
-- `title` the content title that will be used as page title and in navigation structures.
+- `title` the content title that will be used as page title and in navigation structures. If not set, the title of the topic will be file name in uppercase (e.g., `new-topic-title.md` will be rendered as "New Topic Title").
 - `description` describes the content. For some content types such as documentation guides, it may be rendered in the UI.
 - `weight` a positive integer number that controls the ordering of the content in navigation structures. The lower it is, the higher the topic will be on the page. Topics with no set weight are sorted in alphabetical order, with any weighted topics appearing above them.
 - `url` if specified, it will override the default url constructed from the file path to the content. Make sure the url you specify is consistent and meaningful. Prefer short paths. Do not provide redundant URLs!
@@ -73,6 +87,8 @@ There are a number of [predefined](https://gohugo.io/content-management/front-ma
   ```yaml
   persona: Users / Operators / Developers
   ```
+
+- `aliases` is an array of strings that contain the old paths to the topic. Useful in case you need to rename or change the location of a topic, but want to keep any existing bookmarks.
 
 While this section will be automatically generated if your topic has a title header, adding more detailed information helps other users, developers, and technical writers better sort, classify and understand the topic.
 

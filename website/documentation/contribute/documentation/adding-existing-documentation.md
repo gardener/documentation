@@ -7,6 +7,7 @@ title: Adding Already Existing Documentation
 In order to add GitHub documentation to the website that is hosted outside of the main repository, you need to make changes to the central manifest. You can usually find it in the `<organization-name>/<repo-name>/.docforge/` folder, for example [`gardener/documentation/.docforge`](https://github.com/gardener/documentation/tree/master/.docforge).
 
 Sample codeblock:
+
 ```yaml
 - dir: machine-controller-manager
   structure:
@@ -20,6 +21,7 @@ Sample codeblock:
 ```
 
 This short code snippet adds a whole repository worth of content and contains examples of some of the most important elements:
+
 - `- dir: <dir-name>` - the name of the directory in the navigation path
 - `structure:` - required after using `dir`; shows that the following lines contain a file structure
 - `- file: _index.md` - the content will be a single file; also creates an index file
