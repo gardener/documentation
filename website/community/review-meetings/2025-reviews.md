@@ -11,6 +11,28 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2025/06/25 - [v1.121](https://github.com/gardener/gardener/releases/tag/v1.121.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@RadaBDimitrova](https://github.com/RadaBDimitrova) | `5m` | 🩺 Improved Health Check For Rolling Updates | [#11869](https://github.com/gardener/gardener/pull/11869) |
+| [@ashwani2k](https://github.com/ashwani2k) | `5m` | 📣 `dependency-watchdog` Reports Scale Down | [#12272](https://github.com/gardener/gardener/pull/12272) |
+| [@timebertt](https://github.com/timebertt) | `10m` | 🍼 GEP-28: `gardenadm bootstrap` Progress | [#2906 (issue)](https://github.com/gardener/gardener/issues/2906) |
+| [@timuthy](https://github.com/timuthy) | `5m` | 🦾 New Capabilities For Extension `Shoot` Webhooks | [#12273](https://github.com/gardener/gardener/pull/12273) |
+| [@dimityrmirchev](https://github.com/dimityrmirchev), [@vpnachev](https://github.com/vpnachev) | `5m` | 🙅 New `DoNotCopyBackupCredentials` Feature Gate | [#12168](https://github.com/gardener/gardener/pull/12168) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- 🪓 [OPERATOR] `gardenlet` no longer deploys `ControlPlane` resources with `.spec.purpose=exposure `for `Shoot`s using unmanaged DNS provider. `gardenlet` will now cleanup any `ControlPlane` exposure resource as part of the reconciliation and deletion flows for such Shoots. [#12162](https://github.com/gardener/gardener/pull/12162)
+- 🐛 [USER] A bug causing the `kube-apiserver` to crash when anonymous authentication is configured via `StructuredAuthentication` was fixed. [#12198](https://github.com/gardener/gardener/pull/12198)
+- ✨ [DEVELOPER] Introduced new version classifications `unavailable` and `expired`. They are not meant to be set manually but should act as computed classification states. [#12298](https://github.com/gardener/gardener/pull/12298)
+
+<hr />
+
 ### 2025/06/18 - [v1.120](https://github.com/gardener/gardener/releases/tag/v1.120.0) Release
 
 [📽️ Recording](https://youtu.be/HguO_KY86ac)
