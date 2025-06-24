@@ -23,7 +23,7 @@ Check back regularly for updates and upcoming topics!
 | [@ashwani2k](https://github.com/ashwani2k) | `5m` | 📣 `dependency-watchdog` Reports Scale Down | [#12272](https://github.com/gardener/gardener/pull/12272) |
 | [@timebertt](https://github.com/timebertt) | `10m` | 🍼 GEP-28: `gardenadm bootstrap` Progress | [#2906 (issue)](https://github.com/gardener/gardener/issues/2906) |
 | [@timuthy](https://github.com/timuthy) | `5m` | 🦾 New Capabilities For Extension `Shoot` Webhooks | [#12273](https://github.com/gardener/gardener/pull/12273) |
-| [@dimityrmirchev](https://github.com/dimityrmirchev), [@vpnachev](https://github.com/vpnachev) | `5m` | 🙅 New `DoNotCopyBackupCredentials` Feature Gate | [#12168](https://github.com/gardener/gardener/pull/12168) |
+| [@vpnachev](https://github.com/vpnachev) | `5m` | 🙅 New `DoNotCopyBackupCredentials` Feature Gate | [#12168](https://github.com/gardener/gardener/pull/12168) |
 
 #### No Demo, But Still Worth Celebrating 🎉
 
