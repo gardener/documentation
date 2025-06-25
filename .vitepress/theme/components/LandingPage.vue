@@ -264,7 +264,6 @@ const testimonials = [
   overflow: hidden;
   position: relative;
   box-shadow: none;
-  border: 1px solid var(--vp-c-divider);
 }
 
 .hero-content {
