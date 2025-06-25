@@ -136,19 +136,19 @@ const showcase = {
   title: "Why Gardener?",
   items: [
     {
-      title: "Cloud Native",
-      description: "One approach to orchestrate entire stack, no matter where it runs",
-      image: "/design/301055_Cloud_R (1) 1.png"
+      title: "Vendor-agnostic Look'n'Feel",
+      description: "Consistent management experience across all infrastructure providers with unified API and tooling",
+      image: "/design/300919_Agreement_R (1) 1.png"
     },
     {
-      title: "Open Source & Extensible",
-      description: "Powered by the open source Gardener project, developed in the public",
+      title: "Open Source",
+      description: "Full transparency, community-driven development, and freedom from vendor lock-in with Apache 2.0 license",
       image: "/design/305142_PuzzlePieces_R 1.png"
     },
     {
-      title: "Enterprise Grade",
-      description: "Privacy by design, governance under your control",
-      image: "/design/300919_Agreement_R (1) 1.png"
+      title: "Cloud Native",
+      description: "Built on Kubernetes principles with declarative configuration, auto-scaling, and self-healing capabilities",
+      image: "/design/301055_Cloud_R (1) 1.png"
     }
   ]
 }
@@ -468,12 +468,6 @@ const testimonials = [
   width: 100%;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.architecture-visual:hover .architecture-diagram-img {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.16);
 }
 
 /* Extend to your needs Section */
