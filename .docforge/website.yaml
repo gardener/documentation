@@ -8,6 +8,8 @@ structure:
 - dir: community
   structure:
   - fileTree: /website/community
+    excludeFiles:
+    - steering/assets
 - dir: docs
   structure:
   - manifest: ./documentation/documentation.yaml
