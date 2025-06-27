@@ -1,11 +1,14 @@
 ---
 title: Kubernetes Antipatterns
-description: "Common antipatterns for Kubernetes and Docker"
+description: Common antipatterns for Kubernetes and Docker including running as root, storing data in containers, using latest tags, and other security and operational pitfalls to avoid.
 level: beginner
 reviewer: Tieyan Fu
 last_reviewed: 12.06.2018
 category: Getting Started
 scope: app-developer
+tags: [antipatterns, best-practices, security, docker, containers, root-user, latest-tag, passwords]
+page_synonyms: [bad practices, common mistakes, kubernetes pitfalls, docker antipatterns, security issues]
+categories: [best-practices, security, getting-started]
 ---
 
 ![antipattern](./images/howto-antipattern.png)

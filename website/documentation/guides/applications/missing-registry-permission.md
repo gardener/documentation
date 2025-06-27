@@ -1,11 +1,14 @@
 ---
 title: Container Image Not Pulled
-description: "Wrong Container Image or Invalid Registry Permissions"
+description: "Troubleshoot container image pull failures caused by wrong image names or invalid registry permissions in Kubernetes"
 level: beginner
 reviewer: Tieyan Fu
 last_reviewed: 22.06.2018
 category: Fails
 scope: app-developer
+tags: [container, image, pull, registry, permissions, docker, kubernetes, troubleshooting, errimagepull]
+page_synonyms: [image pull error, container registry, docker pull, image not found, registry credentials]
+categories: [troubleshooting, containers, registry]
 ---
 
 ## Problem

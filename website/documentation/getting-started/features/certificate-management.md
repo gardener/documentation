@@ -1,6 +1,10 @@
 ---
 title: Certificate Management
 weight: 5
+description: Learn how to manage TLS certificates in Gardener using cert-manager and ACME challenges for secure service consumption with trusted CA-signed certificates.
+tags: [certificates, tls, cert-manager, acme, let's encrypt, security, ssl]
+page_synonyms: [cert management, certificate automation, tls management, ssl certificates, acme certificates]
+categories: [security, networking, automation]
 ---
 
 ## Certificate Management

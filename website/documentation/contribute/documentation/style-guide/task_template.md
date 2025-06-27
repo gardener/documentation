@@ -1,6 +1,9 @@
 ---
-Title: Task Topic Structure
-Description: Describes the contents of a task topic
+title: Task Topic Structure
+description: Template and structure guide for creating task-oriented documentation topics in Gardener documentation
+tags: [documentation, template, task, style-guide, writing, procedures]
+page_synonyms: [task template, procedure template, how-to template, task structure]
+categories: [documentation, style-guide, templates]
 ---
 
 # Task Title

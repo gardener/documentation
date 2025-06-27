@@ -1,9 +1,12 @@
 ---
 title: Using Prometheus and Grafana to Monitor K8s
-description: "How to deploy and configure Prometheus and Grafana to collect and monitor kubelet container metrics"
+description: "Complete guide to deploying and configuring Prometheus and Grafana for monitoring Kubernetes clusters with kubelet container metrics"
 level: advanced
 category: Monitoring
 scope: app-developer
+tags: [prometheus, grafana, monitoring, metrics, helm, kubernetes, observability, alerting, dashboards, time-series]
+page_synonyms: [cluster monitoring, metrics collection, prometheus setup, grafana deployment, kubernetes observability]
+categories: [monitoring, observability, metrics]
 ---
 
 ## Disclaimer
