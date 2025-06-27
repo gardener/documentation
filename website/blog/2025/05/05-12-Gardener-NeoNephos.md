@@ -10,7 +10,7 @@ authors:
 aliases: ["/blog/2025/05/12/01"]
 ---
 
-The Kubernetes ecosystem is dynamic, offering a wealth of tools to manage the complexities of modern cloud-native applications. For enterprises seeking to provision and manage Kubernetes clusters efficiently, securely, and at scale, a robust and comprehensive solution is paramount. Gardener, born from years of managing tens of thousands of clusters efficiently across diverse platforms and in demanding environments, stands out as a fully open-source choice for delivering fully managed Kubernetes Clusters as a Service. It already empowers organizations like SAP, STACKIT, T-Systems, and others (see [adopters](https://gardener.cloud/adopter)) and has become a core technology for [NeoNephos](https://neonephos.org/projects), a project aimed at advancing digital autonomy in Europe (see [KubeCon London 2025 Keynote](https://www.youtube.com/watch?v=85MDID9Ju04&t=621s) and [press announcement](https://neonephos.org/2025/03/31/the-linux-foundation-announces-the-launch-of-neonephos-to-advance-digital-autonomy-in-europe)).
+The Kubernetes ecosystem is dynamic, offering a wealth of tools to manage the complexities of modern cloud-native applications. For enterprises seeking to provision and manage Kubernetes clusters efficiently, securely, and at scale, a robust and comprehensive solution is paramount. Gardener, born from years of managing tens of thousands of clusters efficiently across diverse platforms and in demanding environments, stands out as a fully open-source choice for delivering fully managed Kubernetes Clusters as a Service. It already empowers organizations like SAP, STACKIT, T-Systems, and others (see [adopters](https://gardener.cloud/adopter)) and has become a core technology for [NeoNephos](https://neonephos.org/projects), a project aimed at advancing digital autonomy in Europe (see [KubeCon London 2025 Keynote](https://www.youtube.com/watch?v=85MDID9Ju04&t=621s) and [press announcement](https://neonephos.org/press/2025/the-linux-foundation-announces-the-launch-of-neonephos-to-advance-digital-autonomy-in-europe/)).
 
 ### The Gardener Approach: An Architecture Forged by Experience
 
@@ -40,7 +40,7 @@ Gardener provides a comprehensive "fully managed Kubernetes Clusters as a Servic
 
 4.  **Comprehensive Autoscaling:**
     *   **Cluster Autoscaler:** Gardener manages the Cluster Autoscaler for worker nodes, enabling dynamic scaling based on pod scheduling demands.
-    *   **Horizontal and Vertical Pod Autoscaler (VPA):** It manages HPA/VPA for workloads and applies it to control plane components, optimizing resource utilization (see [blog](https://gardener.cloud/blog/2025/04-17-leaner-clusters-lower-bills)).
+    *   **Horizontal and Vertical Pod Autoscaler (VPA):** It manages HPA/VPA for workloads and applies it to control plane components, optimizing resource utilization (see [blog](https://github.com/gardener/documentation/blob/master/website/blog/2025/04/04-17-Leaner-Clusters-Lower-Bills.md)).
 
 5.  **Operational Excellence & Maintenance:**
     *   **Automated Kubernetes Upgrades:** Gardener handles automated Kubernetes version upgrades for both control plane and worker nodes, with configurable maintenance windows.
