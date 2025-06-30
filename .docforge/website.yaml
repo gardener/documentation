@@ -18,3 +18,8 @@ structure:
 - dir: html
   structure:
   - file: /website/documentation/security-and-compliance/hardened-shoot-report/hardened_shoots_report.md
+
+- dir: public
+  structure:
+    - fileTree: ../website/public
+- file: ../website/index.md
