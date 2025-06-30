@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   id="Layer_1"
+   x="0px"
+   y="0px"
+   viewBox="0 0 122.8 122.8"
+   xml:space="preserve"
+   sodipodi:docname="slack-icon.svg"
+   width="122.8"
+   height="122.8"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+   id="defs9" /><sodipodi:namedview
+   id="namedview9"
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1.0"
+   inkscape:showpageshadow="2"
+   inkscape:pageopacity="0.0"
+   inkscape:pagecheckerboard="0"
+   inkscape:deskcolor="#d1d1d1"
+   inkscape:zoom="2.862963"
+   inkscape:cx="61.300129"
+   inkscape:cy="61.300129"
+   inkscape:window-width="1920"
+   inkscape:window-height="991"
+   inkscape:window-x="-9"
+   inkscape:window-y="-9"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Layer_1" />
+ <style
+   type="text/css"
+   id="style1">
+  .st0{fill:#E01E5A;}
+	.st1{fill:#36C5F0;}
+	.st2{fill:#2EB67D;}
+	.st3{fill:#ECB22E;}
+ </style>
+ <g
+   id="g9"
+   transform="translate(-73.6,-73.6)">
+  <g
+   id="g2">
+   <path
+   class="st0"
+   d="m 99.4,151.2 c 0,7.1 -5.8,12.9 -12.9,12.9 -7.1,0 -12.9,-5.8 -12.9,-12.9 0,-7.1 5.8,-12.9 12.9,-12.9 h 12.9 z"
+   id="path1">
+   </path>
+   <path
+   class="st0"
+   d="m 105.9,151.2 c 0,-7.1 5.8,-12.9 12.9,-12.9 7.1,0 12.9,5.8 12.9,12.9 v 32.3 c 0,7.1 -5.8,12.9 -12.9,12.9 -7.1,0 -12.9,-5.8 -12.9,-12.9 z"
+   id="path2">
+   </path>
+  </g>
+  <g
+   id="g4">
+   <path
+   class="st1"
+   d="m 118.8,99.4 c -7.1,0 -12.9,-5.8 -12.9,-12.9 0,-7.1 5.8,-12.9 12.9,-12.9 7.1,0 12.9,5.8 12.9,12.9 v 12.9 z"
+   id="path3">
+   </path>
+   <path
+   class="st1"
+   d="m 118.8,105.9 c 7.1,0 12.9,5.8 12.9,12.9 0,7.1 -5.8,12.9 -12.9,12.9 H 86.5 c -7.1,0 -12.9,-5.8 -12.9,-12.9 0,-7.1 5.8,-12.9 12.9,-12.9 z"
+   id="path4">
+   </path>
+  </g>
+  <g
+   id="g6">
+   <path
+   class="st2"
+   d="m 170.6,118.8 c 0,-7.1 5.8,-12.9 12.9,-12.9 7.1,0 12.9,5.8 12.9,12.9 0,7.1 -5.8,12.9 -12.9,12.9 h -12.9 z"
+   id="path5">
+   </path>
+   <path
+   class="st2"
+   d="m 164.1,118.8 c 0,7.1 -5.8,12.9 -12.9,12.9 -7.1,0 -12.9,-5.8 -12.9,-12.9 V 86.5 c 0,-7.1 5.8,-12.9 12.9,-12.9 7.1,0 12.9,5.8 12.9,12.9 z"
+   id="path6">
+   </path>
+  </g>
+  <g
+   id="g8">
+   <path
+   class="st3"
+   d="m 151.2,170.6 c 7.1,0 12.9,5.8 12.9,12.9 0,7.1 -5.8,12.9 -12.9,12.9 -7.1,0 -12.9,-5.8 -12.9,-12.9 v -12.9 z"
+   id="path7">
+   </path>
+   <path
+   class="st3"
+   d="m 151.2,164.1 c -7.1,0 -12.9,-5.8 -12.9,-12.9 0,-7.1 5.8,-12.9 12.9,-12.9 h 32.3 c 7.1,0 12.9,5.8 12.9,12.9 0,7.1 -5.8,12.9 -12.9,12.9 z"
+   id="path8">
+   </path>
+  </g>
+ </g>
+</svg>
