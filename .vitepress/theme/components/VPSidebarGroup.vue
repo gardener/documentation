@@ -40,7 +40,7 @@ const props = defineProps<{
 const disableTransition = ref(true)
 
 // Sidebar data for different user types
-type UserType = 'developer' | 'user' | 'operator' | 'all';
+type UserType = 'developer' | 'user' | 'operator';
 type SidebarDataType = {
   [key in UserType]?: DefaultTheme.SidebarItem[]
 };
@@ -58,14 +58,6 @@ const displayedItems = computed(() => {
   if (userType.value && (userType.value === 'developer' || userType.value === 'user' || userType.value === 'operator')) {
     return sidebarData[userType.value as UserType]['/docs/'].items || props.items
   }
-  
-  // "all" type or any other value - explicitly use default sidebar
-  if (userType.value === 'all') {
-    console.log('Using default sidebar (all content)')
-  } else {
-    console.log('Using default sidebar from config')
-  }
-
 
   return props.items
 })
@@ -95,9 +87,7 @@ const handleStorageChange = (event: StorageEvent) => {
 
 // Custom event handler for updates within the same tab
 const handleMenuItemClicked = (event: CustomEvent) => {
-  if (event.detail && event.detail.value) {
-    userType.value = event.detail.value
-  }
+  userType.value = event.detail.value
 }
 
 let timer: ReturnType<typeof setTimeout> | null = null
@@ -137,26 +127,14 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="sidebar-container">
-    <!-- User Type Indicator when custom sidebar is used -->
-    <div v-if="userType && (userType === 'developer' || userType === 'user' || userType === 'operator')" class="user-type-indicator">
-      <span>Persona: {{ userType }}</span>
-      <button class="clear-button" @click="clearUserType" title="Reset to default view">
-        ×
-      </button>
-    </div>
-    <!-- All content indicator -->
-    <div v-else-if="userType === 'all'" class="user-type-indicator all-indicator">
-      <span>All content</span>
-      <button class="clear-button" @click="clearUserType" title="Reset view">
-        ×
-      </button>
-    </div>
-    <!-- Default sidebar indicator (can be removed in production) -->
-    <div v-else-if="userType" class="user-type-indicator default-indicator">
-      <span>{{ userType }} (using default sidebar)</span>
-      <button class="clear-button" @click="clearUserType" title="Reset view">
-        ×
-      </button>
+    <div v-if="!!userType" class="group">
+      <!-- User Type Indicator when custom sidebar is used -->
+      <div v-if="userType && (userType === 'developer' || userType === 'user' || userType === 'operator')" class="user-type-indicator">
+        <span>Persona: {{ userType }}</span>
+        <button type="button" class="clear-button" @click="clearUserType" title="Reset to default view">
+          &times;
+        </button>
+      </div>
     </div>
     <div
       v-for="item in displayedItems"
@@ -182,8 +160,6 @@ onBeforeUnmount(() => {
 .user-type-indicator {
   font-size: 0.9em;
   color: var(--vp-c-text-2);
-  padding: 0 12px 8px;
-  border-bottom: 1px dashed var(--vp-c-divider);
   margin-bottom: 8px;
   text-transform: capitalize;
   font-weight: 500;
@@ -197,29 +173,17 @@ onBeforeUnmount(() => {
   border: none;
   color: var(--vp-c-text-3);
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1;
-  padding: 2px 6px;
   border-radius: 4px;
+  width: 32px;
+  height: 32px;
+  margin-right: -7px;
 }
 
 .clear-button:hover {
   color: var(--vp-c-text-1);
   background-color: var(--vp-c-gray-soft);
-}
-
-.default-indicator {
-  color: var(--vp-c-text-3);
-  font-style: italic;
-  border-bottom-style: dotted;
-}
-
-.all-indicator {
-  color: var(--vp-c-text-1);
-  font-weight: 600;
-  border-bottom-style: solid;
-  background-color: rgba(var(--vp-c-brand-rgb), 0.1);
-  border-radius: 4px;
 }
 
 @media (min-width: 960px) {
