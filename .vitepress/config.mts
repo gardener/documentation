@@ -1,26 +1,10 @@
 import { defineConfig } from 'vitepress'
 import { fileURLToPath, URL } from 'node:url'
 import {generateSidebar} from 'vitepress-sidebar'
-import blogSidebar from './theme/utils/blog-sidebar.ts'
+import blogSidebar from './theme/blog-sidebar.ts'
+import {generateEnhancedDocsSidebar} from "./theme/docs-sidebar.ts";
+import {communitySidebar} from "./theme/community-sidebar.ts";
 
-const communitySidebarConfig = {
-  documentRootPath: '/hugo/content',
-  scanStartPath: 'community',
-  resolvePath: '/community/',
-  useTitleFromFrontmatter: true,
-  useFolderTitleFromIndexFile: true,
-  collapsed: true,
-  capitalizeFirst: true,
-
-}
-const docsSidebarConfig = {
-  documentRootPath: '/hugo/content',
-  scanStartPath: 'docs',
-  resolvePath: '/docs/',
-  useTitleFromFrontmatter: true,
-  collapsed: true,
-  capitalizeFirst: true,
-}
 
 
 export default defineConfig({
@@ -87,9 +71,9 @@ export default defineConfig({
     sidebar: {
       '/blog/': blogSidebar()['/blog/'],
       //@ts-ignore
-      '/community/': generateSidebar([communitySidebarConfig])['/community/'],
+      '/community/': communitySidebar()['/community/'],
       //@ts-ignore
-      '/docs/': generateSidebar([docsSidebarConfig])['/docs/'],
+      '/docs/': generateEnhancedDocsSidebar()['/docs/'],
     },
     editLink: {
       pattern: ({filePath, frontmatter }) => {
