@@ -1,7 +1,7 @@
 import { generateSidebar } from 'vitepress-sidebar';
 import _ from 'lodash-es';
 import { load } from 'js-yaml';
-import {removeIndexEntries} from "./docs-sidebar.js";
+import {removeIndexEntries} from "./utils/sidebar.ts";
 
 export const blogSidebarConfig = {
     documentRootPath: '/hugo/content',
