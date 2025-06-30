@@ -14,17 +14,17 @@ async function main() {
             await renameImagesToLowercase(BASE_PATH);
         }
 
+        // Added to prevent errors when reading the title form website/blog/2025/_index.md files where the title could be a number
+        if (process.argv.includes('--fix-titles') || process.argv.includes('-t')) {
+            await fixFrontmatterTitles(BASE_PATH);
+        }
+
         if (process.argv.includes('--add-h1-title') || process.argv.includes('-m')) {
             await addH1ToMarkdownFiles(BASE_PATH);
         }
 
         if (process.argv.includes('--youtube') || process.argv.includes('-y')) {
             await replaceYouTubeShortcodes(BASE_PATH);
-        }
-
-        // Added to prevent errors when reading the title form website/blog/2025/_index.md files where the title could be a number
-        if (process.argv.includes('--fix-titles') || process.argv.includes('-t')) {
-            await fixFrontmatterTitles(BASE_PATH);
         }
 
         if (!process.argv.includes('--rename-images') &&
@@ -113,9 +113,9 @@ async function addH1ToMarkdownFiles(basePath){
             const frontmatter = content.substring(0, frontmatterEndIndex + 3);
             let contentAfterFrontmatter = content.substring(frontmatterEndIndex + 3).trimStart();
 
-            // Extract title from frontmatter
-            const titleMatch = frontmatter.match(/title:\s*["']?(.*?)["']?\s*(\n|$)/);
-            const title = titleMatch ? titleMatch[1] : null;
+            // Extract title from frontmatter - be more specific to avoid matching other fields
+            const titleMatch = frontmatter.match(/^title:\s*["']?(.*?)["']?\s*$/m);
+            const title = titleMatch ? titleMatch[1].trim() : null;
 
             if (!title) {
                 return {
@@ -125,8 +125,8 @@ async function addH1ToMarkdownFiles(basePath){
                 };
             }
 
-            // Check if content already starts with an h1 heading
-            if (contentAfterFrontmatter.match(/^#\s+.+/m)) {
+            // Check if content already starts with an h1 heading (after any whitespace)
+            if (contentAfterFrontmatter.match(/^\s*#\s+.+/)) {
                 return {
                     file: filePath,
                     modified: false,
@@ -135,10 +135,12 @@ async function addH1ToMarkdownFiles(basePath){
             }
 
             // Check if there's an H2 heading that matches the frontmatter title
-            const h2Match = contentAfterFrontmatter.match(/^##\s+(.+)(?:\r?\n|$)/m);
-            if (h2Match && h2Match[1].trim() === title.trim()) {
-                // Replace the H2 with H1
-                const newContent = `${frontmatter}\n\n# ${title}\n\n${contentAfterFrontmatter.replace(/^##\s+(.+)(\r?\n|$)/m, '')}`;
+            // Look for H2 at the beginning of content (after any whitespace/newlines)
+            const h2Match = contentAfterFrontmatter.match(/^(\s*)(##\s+)(.+?)(\r?\n|$)/);
+            if (h2Match && h2Match[3].trim() === title.trim()) {
+                // Replace the H2 with H1, preserving the content structure
+                const afterH2Title = contentAfterFrontmatter.substring(h2Match.index + h2Match[0].length);
+                const newContent = `${frontmatter}\n\n# ${title}\n${afterH2Title}`;
                 await fs.writeFile(filePath, newContent, 'utf-8');
                 return {
                     file: filePath,
