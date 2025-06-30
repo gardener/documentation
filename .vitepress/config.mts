@@ -23,7 +23,7 @@ const docsSidebarConfig = {
 
 
 export default defineConfig({
-  srcDir: '.hugo/content',
+  srcDir: 'hugo/content',
   cleanUrls: true,
   //ToDo fix syntax issues for markdown files on build time
   srcExclude: [
