@@ -1,36 +1,46 @@
 import { promises as fs } from "fs";
 import path from "path";
 
+// Base path configuration - can be overridden by command line argument
+const BASE_PATH = './hugo/content/';
+const IGNORE_DIRS = ['node_modules', '.git', 'dist', 'build'];
 
 await main();
 
 // Main function
 async function main() {
     try {
-        if (process.argv.includes('--rename') || process.argv.includes('-r')) {
-            await renameImagesToLowercase();
+        if (process.argv.includes('--rename-images') || process.argv.includes('-r')) {
+            await renameImagesToLowercase(BASE_PATH);
         }
 
         if (process.argv.includes('--modify-md') || process.argv.includes('-m')) {
-            await addH1ToMarkdownFiles();
+            await addH1ToMarkdownFiles(BASE_PATH);
+        }
+
+        if (process.argv.includes('--youtube') || process.argv.includes('-y')) {
+            await replaceYouTubeShortcodes(BASE_PATH);
         }
 
         if (!process.argv.includes('--rename') &&
             !process.argv.includes('-r') &&
             !process.argv.includes('--modify-md') &&
-            !process.argv.includes('-m')) {
+            !process.argv.includes('-m') &&
+            !process.argv.includes('--youtube') &&
+            !process.argv.includes('-y')) {
             // If no specific action is specified, show usage
             console.log('Available commands:');
-            console.log('--rename, -r      : Rename image files to lowercase');
+            console.log('--rename-images, -r      : Rename image files to lowercase');
             console.log('--modify-md, -m   : Add H1 headings to markdown files');
-            console.log('\nExample: node post-processing.js ./content --rename --modify-md');
+            console.log('--youtube, -y     : Replace YouTube shortcodes with VitePress components');
+            console.log(`\nExample: node post-processing.js ./content --rename --modify-md --youtube`);
         }
     } catch (err) {
         console.error('Error:', err);
     }
 }
 
-async function addH1ToMarkdownFiles(){
+async function addH1ToMarkdownFiles(basePath){
     async function findMarkdownFiles(directory) {
         let foundFiles = [];
 
@@ -45,7 +55,7 @@ async function addH1ToMarkdownFiles(){
 
                     if (stats.isDirectory()) {
                         // Skip ignored directories
-                        if (ignoreDirs.includes(file)) {
+                        if (IGNORE_DIRS.includes(file)) {
                             continue;
                         }
                         // Recursively search subdirectories
@@ -149,11 +159,8 @@ async function addH1ToMarkdownFiles(){
         }
     }
 
-    const ignoreDirs = ['node_modules', '.git', 'dist', 'build'];
-    const startDir = process.argv[2] || '.';
-
-    console.log(`Searching for markdown files in: ${startDir}`);
-    const markdownFiles = await findMarkdownFiles(startDir);
+    console.log(`Searching for markdown files in: ${basePath}`);
+    const markdownFiles = await findMarkdownFiles(basePath);
     console.log(`\nFound ${markdownFiles.length} markdown files`);
 
     if (markdownFiles.length > 0) {
@@ -176,13 +183,13 @@ async function addH1ToMarkdownFiles(){
             console.log(`\nSummary: Added H1 headings to ${modifiedCount} of ${markdownFiles.length} files.`);
         } else {
             console.log('\nTo add H1 headings to markdown files, run the script with the --modify-md or -m flag:');
-            console.log(`node post-processing.js ${startDir} --modify-md`);
+            console.log(`node post-processing.js ${basePath} --modify-md`);
         }
     }
 }
 
 
-async function renameImagesToLowercase(){
+async function renameImagesToLowercase(basePath){
     async function findFiles(directory) {
         let foundFiles = [];
 
@@ -199,7 +206,7 @@ async function renameImagesToLowercase(){
 
                     if (stats.isDirectory()) {
                         // Skip ignored directories
-                        if (ignoreDirs.includes(file)) {
+                        if (IGNORE_DIRS.includes(file)) {
                             continue;
                         }
                         // Recursively search subdirectories
@@ -261,12 +268,9 @@ async function renameImagesToLowercase(){
         }
     }
 
-    const ignoreDirs = ['node_modules', '.git', 'dist', 'build'];
+    console.log(`Searching for image files with uppercase letters in: ${basePath}`);
 
-    const startDir = process.argv[2] || '.';
-    console.log(`Searching for image files with uppercase letters in: ${startDir}`);
-
-    const matchingFiles = await findFiles(startDir);
+    const matchingFiles = await findFiles(basePath);
 
     console.log('\nMatching files:');
     matchingFiles.forEach(file => console.log(`- ${file}`));
@@ -289,7 +293,119 @@ async function renameImagesToLowercase(){
             console.log(`\nRename summary: ${successCount} of ${matchingFiles.length} files renamed successfully.`);
         } else {
             console.log('\nTo rename these files to lowercase, run the script with the --rename or -r flag:');
-            console.log(`node post-processing.js ${startDir} --rename`);
+            console.log(`node post-processing.js ${basePath} --rename`);
         }
+    }
+}
+
+async function replaceYouTubeShortcodes(basePath) {
+    async function findMarkdownFiles(directory) {
+        let foundFiles = [];
+
+        try {
+            const files = await fs.readdir(directory);
+
+            for (const file of files) {
+                const fullPath = path.join(directory, file);
+
+                try {
+                    const stats = await fs.stat(fullPath);
+
+                    if (stats.isDirectory()) {
+                        // Skip ignored directories
+                        if (IGNORE_DIRS.includes(file)) {
+                            continue;
+                        }
+                        // Recursively search subdirectories
+                        const nestedFiles = await findMarkdownFiles(fullPath);
+                        foundFiles = foundFiles.concat(nestedFiles);
+                    } else if (stats.isFile() && file.endsWith('.md')) {
+                        foundFiles.push(fullPath);
+                    }
+                } catch (err) {
+                    console.error(`Error accessing ${fullPath}: ${err.message}`);
+                }
+            }
+        } catch (err) {
+            console.error(`Error reading directory ${directory}: ${err.message}`);
+        }
+
+        return foundFiles;
+    }
+
+    async function processMarkdownFile(filePath) {
+        try {
+            const content = await fs.readFile(filePath, 'utf-8');
+            
+            // Regular expression to match YouTube shortcodes
+            const youtubeRegex = /\{\{<\s*youtube\s+id="([^"]+)"(?:\s+title="[^"]*")?\s*>\}\}/g;
+            
+            let matches = [];
+            let match;
+            
+            // Find all matches
+            while ((match = youtubeRegex.exec(content)) !== null) {
+                matches.push({
+                    fullMatch: match[0],
+                    videoId: match[1]
+                });
+            }
+            
+            if (matches.length === 0) {
+                return {
+                    file: filePath,
+                    modified: false,
+                    reason: 'No YouTube shortcodes found'
+                };
+            }
+            
+            // Replace all YouTube shortcodes
+            let newContent = content;
+            matches.forEach(match => {
+                const replacement = `<YouTubeVideo videoId="${match.videoId}" />`;
+                newContent = newContent.replace(match.fullMatch, replacement);
+            });
+            
+            await fs.writeFile(filePath, newContent, 'utf-8');
+            
+            return {
+                file: filePath,
+                modified: true,
+                replacements: matches.length,
+                videoIds: matches.map(m => m.videoId)
+            };
+        } catch (err) {
+            console.error(`Error processing ${filePath}: ${err.message}`);
+            return {
+                file: filePath,
+                modified: false,
+                reason: err.message
+            };
+        }
+    }
+
+    console.log(`Searching for YouTube shortcodes in: ${basePath}`);
+    const markdownFiles = await findMarkdownFiles(basePath);
+    console.log(`\nFound ${markdownFiles.length} markdown files`);
+
+    if (markdownFiles.length > 0) {
+        console.log('\nProcessing markdown files for YouTube shortcodes...');
+        const results = [];
+
+        for (const file of markdownFiles) {
+            const result = await processMarkdownFile(file);
+            results.push(result);
+
+            if (result.modified) {
+                console.log(`- Replaced ${result.replacements} YouTube shortcode(s) in: ${path.basename(file)}`);
+                result.videoIds.forEach(videoId => {
+                    console.log(`  → Video ID: ${videoId}`);
+                });
+            }
+        }
+
+        const modifiedCount = results.filter(r => r.modified).length;
+        const totalReplacements = results.reduce((sum, r) => sum + (r.replacements || 0), 0);
+        console.log(`\nSummary: Replaced YouTube shortcodes in ${modifiedCount} files with ${totalReplacements} total replacements.`);
     }
 }
