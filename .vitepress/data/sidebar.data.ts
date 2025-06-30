@@ -1,5 +1,5 @@
 
-import { personaSidebar } from '../theme/utils/docs-sidebar.ts'
+import { personaSidebar } from '../theme/docs-sidebar.ts'
 
 //https://vitepress.dev/guide/data-loading#build-time-data-loading
 export default{

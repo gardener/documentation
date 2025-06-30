@@ -1,72 +1,29 @@
-import { generateSidebar } from 'vitepress-sidebar';
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import {writeJsonDebug} from "./debug-json.js";
 import { load } from 'js-yaml';
 
-// Type definition for sidebar items based on the example structure
-interface SidebarLeaf {
+// Type definitions for sidebar items
+export interface SidebarLeaf {
   text: string;
   link: string;
   collapsed?: boolean;
 }
 
-interface SidebarBranch {
+export interface SidebarBranch {
   text: string;
   items: (SidebarLeaf | SidebarBranch)[];
   collapsed?: boolean;
 }
 
-type SidebarItem = SidebarLeaf | SidebarBranch;
+export type SidebarItem = SidebarLeaf | SidebarBranch;
 
-interface SidebarSection {
+export interface SidebarSection {
   base?: string;
   items: SidebarItem[];
 }
 
-type Sidebar = Record<string, SidebarSection | SidebarItem[]>;
+export type Sidebar = Record<string, SidebarSection | SidebarItem[]>;
 
-const docsSidbarConfig =  {
-  documentRootPath: '/hugo/content',
-  scanStartPath: 'docs',
-  resolvePath: '/docs/',
-  collapsed: true,
-  useTitleFromFileHeading: true,
-  useTitleFromFrontmatter: true,
-  capitalizeFirst: true,
-}
-
-function generateDocsSidebar(): any {
-    return generateSidebar([docsSidbarConfig]);
-}
-
-/**
- * Wrapper function that generates and enhances the docs sidebar
- * @returns The enhanced sidebar with updated directory titles
- */
-export function generateEnhancedDocsSidebar(): any {
-  // Generate the base sidebar
-  const sidebar = generateDocsSidebar();
-  
-  // Recursively enhance directory titles from frontmatter
-  const enhancedSidebar = enhanceDirectoryTitles(sidebar);
-
-  // Sort entries by weight from frontmatter
-  const sortedSidebar = sortByWeight(enhancedSidebar);
-
-  // Filter out all _index.md entries (called last)
-  const filteredSidebar = removeIndexEntries(sortedSidebar);
-
-  writeJsonDebug(
-    'enhancedSidebar.json',
-    filteredSidebar
-  );
-
-  return filteredSidebar;
-}
-
-
-//TODO extract this to a separate file
 /**
  * Recursively removes all _index.md entries from the sidebar
  */
@@ -111,7 +68,7 @@ export function removeIndexEntries(sidebar: any): any {
 /**
  * Recursively sorts sidebar entries by weight from frontmatter
  */
-function sortByWeight(sidebar: any): any {
+export function sortByWeight(sidebar: any): any {
   if (Array.isArray(sidebar)) {
     // Sort the array by weight and recursively process items
     return sidebar
@@ -154,7 +111,7 @@ function sortByWeight(sidebar: any): any {
 /**
  * Gets the weight for a sidebar item from its frontmatter
  */
-function getWeightForItem(item: any): number {
+export function getWeightForItem(item: any): number {
   if (!item || typeof item !== 'object') {
     return Number.MAX_SAFE_INTEGER; // Put invalid items at the end
   }
@@ -188,21 +145,21 @@ function getWeightForItem(item: any): number {
 /**
  * Reads the weight from a file's frontmatter
  */
-function getWeightFromFile(link: string, base?: string): number | null {
+export function getWeightFromFile(link: string, base?: string): number | null {
   try {
     // Construct the file path
     let filePath: string;
     
     if (link === '_index') {
       // For root _index files
-      filePath = join(process.cwd(), 'content', base ? base.replace(/^\/|\/$/g, '') : '', '_index.md');
+      filePath = join(process.cwd(), 'hugo', 'content', base ? base.replace(/^\/|\/$/g, '') : '', '_index.md');
     } else if (link.endsWith('/_index')) {
       // For nested _index files
       const relativePath = link.replace('/_index', '');
-      filePath = join(process.cwd(), 'content', 'docs', relativePath, '_index.md');
+      filePath = join(process.cwd(), 'hugo', 'content', 'docs', relativePath, '_index.md');
     } else {
       // For regular files
-      filePath = join(process.cwd(), 'content', 'docs', `${link}.md`);
+      filePath = join(process.cwd(), 'hugo', 'content', 'docs', `${link}.md`);
     }
     
     // Check if file exists
@@ -235,7 +192,7 @@ function getWeightFromFile(link: string, base?: string): number | null {
 /**
  * Recursively enhances directory titles by reading from _index.md frontmatter
  */
-function enhanceDirectoryTitles(sidebar: any): any {
+export function enhanceDirectoryTitles(sidebar: any): any {
   if (Array.isArray(sidebar)) {
     return sidebar.map(item => enhanceDirectoryTitles(item));
   }
@@ -284,18 +241,18 @@ function enhanceDirectoryTitles(sidebar: any): any {
 /**
  * Reads the title from an _index.md file's frontmatter
  */
-function getTitleFromIndexFile(link: string, base?: string): string | null {
+export function getTitleFromIndexFile(link: string, base?: string): string | null {
   try {
     // Construct the file path
     let filePath: string;
     
     if (link === '_index') {
       // For root _index files
-      filePath = join(process.cwd(), 'content', base ? base.replace(/^\/|\/$/g, '') : '', '_index.md');
+      filePath = join(process.cwd(), 'hugo', 'content', base ? base.replace(/^\/|\/$/g, '') : '', '_index.md');
     } else if (link.endsWith('/_index')) {
       // For nested _index files
       const relativePath = link.replace('/_index', '');
-      filePath = join(process.cwd(), 'content', 'docs', relativePath, '_index.md');
+      filePath = join(process.cwd(), 'hugo', 'content', 'docs', relativePath, '_index.md');
     } else {
       return null;
     }
@@ -326,59 +283,10 @@ function getTitleFromIndexFile(link: string, base?: string): string | null {
   }
 }
 
-export function personaSidebar(persona: 'Users' | 'Developers' | 'Operators') {
-  // Use the enhanced sidebar instead of the basic one
-  const generatedSidebar = generateEnhancedDocsSidebar();
-  
-  // Get all items from all sections of the sidebar
-  const allItems: SidebarItem[] = Object.values(generatedSidebar)
-    .flatMap(section => extractItems(section));
-  
-  // Create the leaf map
-  const leafMap = createLeafMap(allItems);
-  
-  // Write both the generated sidebar and the leaf map to files
-  writeJsonDebug(
-    'generatedSidebar.json',
-    generatedSidebar
-  );
-
-  writeJsonDebug(
-    `${persona}leafMap.json`,
-    Object.fromEntries(leafMap)
-  );
-
-
-  // Apply filtering for persona and write to file
-  const personaLeafMap = filterLeafMapByPersona(leafMap, persona);
-    writeJsonDebug(
-    `/${persona}LeafMap.json`,
-    Object.fromEntries(personaLeafMap)
-  );
-
-  // Create sidebar by filtering the generated sidebar
-  const { filtered: sidebar, deleted: deletedItems } = filterSidebarByLeafMap(
-    generatedSidebar,
-    personaLeafMap
-  );
-
-  // Write the filtered sidebar and debug info to files
-    writeJsonDebug(
-    `/${persona}Sidebar.json`,
-    sidebar
-  );
-
-    writeJsonDebug(
-    'deletedItems.json',
-    deletedItems
-  );
-
-
-  return sidebar
-}
-
-// Function to create a map of all leaf nodes
-function createLeafMap(items: SidebarItem[]): Map<string, SidebarLeaf> {
+/**
+ * Function to create a map of all leaf nodes
+ */
+export function createLeafMap(items: SidebarItem[]): Map<string, SidebarLeaf> {
   const leafMap = new Map<string, SidebarLeaf>();
   
   function processItem(item: SidebarItem) {
@@ -396,8 +304,10 @@ function createLeafMap(items: SidebarItem[]): Map<string, SidebarLeaf> {
   return leafMap;
 }
 
-// Function to recursively extract all items from a section
-function extractItems(section: any): SidebarItem[] {
+/**
+ * Function to recursively extract all items from a section
+ */
+export function extractItems(section: any): SidebarItem[] {
   if (Array.isArray(section)) {
     return section as SidebarItem[];
   }
@@ -407,8 +317,10 @@ function extractItems(section: any): SidebarItem[] {
   return [];
 }
 
-// Function to filter leaf map based on persona permissions
-function filterLeafMapByPersona(leafMap: Map<string, SidebarLeaf>, persona: string): Map<string, SidebarLeaf> {
+/**
+ * Function to filter leaf map based on persona permissions
+ */
+export function filterLeafMapByPersona(leafMap: Map<string, SidebarLeaf>, persona: string): Map<string, SidebarLeaf> {
   // Create a copy of the original map
   const filteredMap = new Map(leafMap);
   
@@ -438,8 +350,10 @@ function filterLeafMapByPersona(leafMap: Map<string, SidebarLeaf>, persona: stri
   return filteredMap;
 }
 
-// Function to filter sidebar based on allowed leaf nodes
-function filterSidebarByLeafMap(
+/**
+ * Function to filter sidebar based on allowed leaf nodes
+ */
+export function filterSidebarByLeafMap(
   sidebar: Record<string, any>,
   allowedLeafMap: Map<string, SidebarLeaf>
 ): { filtered: Record<string, any>, deleted: SidebarLeaf[] } {
