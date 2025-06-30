@@ -9,26 +9,14 @@ const props = defineProps<{
 const determineUserType = (text: string): string => {
   // Convert to lowercase for case-insensitive matching
   const lowerText = text.toLowerCase()
-  
-  // Check for explicit "all" indicator
-  if (lowerText.includes('all')) {
-    return 'all'
-  }
-  
-  if (lowerText.includes('developer') || lowerText.includes('api') || lowerText.includes('code')) {
+
+  if (lowerText.includes('developer')) {
     return 'developer'
-  } else if (lowerText.includes('user') || lowerText.includes('guide')) {
+  } else if (lowerText.includes('user')) {
     return 'user'
-  } else if (lowerText.includes('operator') || lowerText.includes('admin') || lowerText.includes('system')) {
+  } else if (lowerText.includes('operator')) {
     return 'operator'
   }
-  
-  // For demo purposes, cycle through available types for any other text
-  // You can remove this in production and return empty string
-  if (lowerText.length % 4 === 0) return 'developer'
-  if (lowerText.length % 4 === 1) return 'user'
-  if (lowerText.length % 4 === 2) return 'operator'
-  if (lowerText.length % 4 === 3) return 'all'
   
   return ''
 }
@@ -40,22 +28,14 @@ const handleClick = () => {
       const itemText = props.item.text
       // Map the clicked text to a specific user type
       const userType = determineUserType(itemText)
-      
-      if (userType) {
-        // Store the mapped user type in localStorage
-        localStorage.setItem('lastClickedMenuItem', userType)
-        
-        // Dispatch a custom event that can be listened to within the same tab
-        window.dispatchEvent(new CustomEvent('menuItemClicked', { 
-          detail: { value: userType }
-        }))
-      } else {
-        // If no mapping, just store the original text
-        localStorage.setItem('lastClickedMenuItem', itemText)
-        window.dispatchEvent(new CustomEvent('menuItemClicked', { 
-          detail: { value: itemText }
-        }))
-      }
+
+      // Store the mapped user type in localStorage
+      localStorage.setItem('lastClickedMenuItem', userType)
+
+      // Dispatch a custom event that can be listened to within the same tab
+      window.dispatchEvent(new CustomEvent('menuItemClicked', {
+        detail: { value: userType }
+      }))
     } catch (error) {
       console.error('Failed to store menu item text in localStorage:', error)
     }
