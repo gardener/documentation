@@ -317,8 +317,15 @@ export function extractItems(section: any): SidebarItem[] {
   return [];
 }
 
+
+function removeTrailingSlash (str: string) {
+  return str.endsWith('/') ? str.slice(0, -1) : str;
+}
+
 /**
  * Function to filter leaf map based on persona permissions
+ * Only removes entries that are explicitly restricted for the persona.
+ * Entries not mentioned in the persona mapping are kept (available to all personas).
  */
 export function filterLeafMapByPersona(leafMap: Map<string, SidebarLeaf>, persona: string): Map<string, SidebarLeaf> {
   // Create a copy of the original map
@@ -331,18 +338,22 @@ export function filterLeafMapByPersona(leafMap: Map<string, SidebarLeaf>, person
 
   // Process each entry in the persona mapping
   for (const [path, allowedPersonas] of Object.entries(personaMapping)) {
-    // Skip entries that already allow this persona
-    if (allowedPersonas.includes(persona)) {
-      continue;
-    }
+    // Only remove entries that are explicitly restricted (don't include this persona)
+    if (!allowedPersonas.includes(persona)) {
+      // Remove /docs/ prefix from the path
+      let strippedPath = path.replace('/docs/', '');
+      strippedPath = removeTrailingSlash(strippedPath);
 
-    // Remove /docs/ prefix from the path
-    const strippedPath = path.replace('/docs/', '');
-
-    // Find and remove all matching entries from filteredMap
-    for (const [leafKey] of filteredMap) {
-      if (leafKey.includes(strippedPath)) {
-        filteredMap.delete(leafKey);
+      // Find and remove all matching entries from filteredMap
+      for (const [leafKey] of filteredMap) {
+        if (leafKey.includes(strippedPath+ '/')) {
+          //delete dirs
+          filteredMap.delete(leafKey);
+        }
+        if (leafKey === strippedPath) {
+            //delete files
+          filteredMap.delete(leafKey);
+        }
       }
     }
   }
