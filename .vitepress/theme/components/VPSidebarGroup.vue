@@ -192,4 +192,9 @@ onBeforeUnmount(() => {
     width: calc(var(--vp-sidebar-width) - 64px);
   }
 }
+
+/* Unused in this file, but used in the generated sidebar. */
+.VPSidebarItem.level-0 {
+  padding-bottom: 10px;
+}
 </style>
