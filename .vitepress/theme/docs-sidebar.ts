@@ -20,7 +20,9 @@ const docsSidbarConfig =  {
   resolvePath: '/docs/',
   collapsed: true,
   useTitleFromFileHeading: true,
-  useTitleFromFrontmatter: true
+  useTitleFromFrontmatter: true,
+  useFolderLinkFromIndexFile: true,
+  includeFolderLinksInFolder: true,
 }
 
 function generateDocsSidebar(): any {
