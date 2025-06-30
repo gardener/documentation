@@ -7,18 +7,19 @@ const communitySidebarConfig = {
   documentRootPath: '/hugo/content',
   scanStartPath: 'community',
   resolvePath: '/community/',
+  useTitleFromFrontmatter: true,
+  useFolderTitleFromIndexFile: true,
   collapsed: true,
-  //capitalizeFirst: true,
-  //useTitleFromFrontmatter: true,
-  //useFolderTitleFromIndexFile: true,
+  capitalizeFirst: true,
+
 }
 const docsSidebarConfig = {
   documentRootPath: '/hugo/content',
   scanStartPath: 'docs',
   resolvePath: '/docs/',
-  //collapsed: true,
-  //capitalizeFirst: true,
-  //useTitleFromFrontmatter: true,
+  useTitleFromFrontmatter: true,
+  collapsed: true,
+  capitalizeFirst: true,
 }
 
 
@@ -29,7 +30,7 @@ export default defineConfig({
   srcExclude: [
     '**/archived/**',
     // Custom template tag is used, check for alternative
-    '**/community-bio.md',
+    '**/community-bio.md', //Ignore for now
     // Generated api reference which uses <> so indicate consumer input, CAPS could be used instead or escape via code block ``,
     '**/api-reference/extensions.md',
     '**/api-reference/operator.md',
@@ -43,8 +44,6 @@ export default defineConfig({
     // Custom template tag is used instead of normal markdown alert or github alert 
     // https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts
     '**/tutorials/tutorial-custom-domain-with-istio.md',
-    //inconsistent name of logo,content/docs/dashboard/images/Show-account-details.png starts with capital  letter
-    '**/dashboard/project-operations.md',
   ],
   lastUpdated: true,
   ignoreDeadLinks: true, //ToDo enable after migration
@@ -84,33 +83,7 @@ export default defineConfig({
 
   themeConfig: {
     logo: {src: '/gardener-logo.svg', width: 24, height: 24},
-    nav: [
-      {
-        text: 'Demo',
-        link: 'https://demo.gardener.cloud/',
-      },
-      {
-        text: 'Adopters',
-        link: '/adopter/_index.md',
-      },
-      {
-        text: 'Documentation',
-        items: [
-          {text: 'User', link: '/docs/_index.md',},
-          {text: 'Operator', link: '/docs/_index.md',},
-          {text: 'Developer', link: '/docs/_index.md',},
-          {text: 'All', link: '/docs/_index.md',},
-        ]
-      },
-      {
-        text: 'Blogs',
-        link: '/blog',
-      },
-      {
-        text: 'Community',
-        link: '/community/_index.md',
-      },
-    ],
+    nav: nav(),
     sidebar: {
       '/blog/': blogSidebar['/blog/'],
       //@ts-ignore
@@ -273,3 +246,34 @@ export default defineConfig({
 //    useTitleFromFrontmatter: true,
 //  },
 //]))
+
+
+function nav () {
+  return [
+    {
+      text: 'Demo',
+      link: 'https://demo.gardener.cloud/',
+    },
+    {
+      text: 'Adopters',
+      link: '/adopter/_index.md',
+    },
+    {
+      text: 'Documentation',
+      items: [
+        {text: 'User', link: '/docs/_index.md',},
+        {text: 'Operator', link: '/docs/_index.md',},
+        {text: 'Developer', link: '/docs/_index.md',},
+        {text: 'All', link: '/docs/_index.md',},
+      ]
+    },
+    {
+      text: 'Blogs',
+      link: '/blog',
+    },
+    {
+      text: 'Community',
+      link: '/community/_index.md',
+    },
+  ]
+}

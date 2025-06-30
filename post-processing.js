@@ -1,8 +1,8 @@
 import { promises as fs } from "fs";
 import path from "path";
 
-// Base path configuration - can be overridden by command line argument
-const BASE_PATH = './hugo/content/';
+// Fixed base path configuration
+const BASE_PATH = 'hugo/content';
 const IGNORE_DIRS = ['node_modules', '.git', 'dist', 'build'];
 
 await main();
@@ -14,7 +14,7 @@ async function main() {
             await renameImagesToLowercase(BASE_PATH);
         }
 
-        if (process.argv.includes('--modify-md') || process.argv.includes('-m')) {
+        if (process.argv.includes('--add-h1-title') || process.argv.includes('-m')) {
             await addH1ToMarkdownFiles(BASE_PATH);
         }
 
@@ -22,16 +22,16 @@ async function main() {
             await replaceYouTubeShortcodes(BASE_PATH);
         }
 
-        if (!process.argv.includes('--rename') &&
+        if (!process.argv.includes('--rename-images') &&
             !process.argv.includes('-r') &&
-            !process.argv.includes('--modify-md') &&
+            !process.argv.includes('--add-h1-title') &&
             !process.argv.includes('-m') &&
             !process.argv.includes('--youtube') &&
             !process.argv.includes('-y')) {
             // If no specific action is specified, show usage
             console.log('Available commands:');
             console.log('--rename-images, -r      : Rename image files to lowercase');
-            console.log('--modify-md, -m   : Add H1 headings to markdown files');
+            console.log('--add-h1-title, -m   : Add H1 headings to markdown files');
             console.log('--youtube, -y     : Replace YouTube shortcodes with VitePress components');
             console.log(`\nExample: node post-processing.js ./content --rename --modify-md --youtube`);
         }
@@ -164,27 +164,20 @@ async function addH1ToMarkdownFiles(basePath){
     console.log(`\nFound ${markdownFiles.length} markdown files`);
 
     if (markdownFiles.length > 0) {
-        const shouldModify = process.argv.includes('--modify-md') || process.argv.includes('-m');
+        console.log('\nProcessing markdown files...');
+        const results = [];
 
-        if (shouldModify) {
-            console.log('\nProcessing markdown files...');
-            const results = [];
+        for (const file of markdownFiles) {
+            const result = await processMarkdownFile(file);
+            results.push(result);
 
-            for (const file of markdownFiles) {
-                const result = await processMarkdownFile(file);
-                results.push(result);
-
-                if (result.modified) {
-                    console.log(`- Added H1 heading to: ${path.basename(file)} (Title: "${result.addedTitle}")`);
-                }
+            if (result.modified) {
+                console.log(`- ${result.action}: ${path.basename(file)} (Title: "${result.addedTitle}")`);
             }
-
-            const modifiedCount = results.filter(r => r.modified).length;
-            console.log(`\nSummary: Added H1 headings to ${modifiedCount} of ${markdownFiles.length} files.`);
-        } else {
-            console.log('\nTo add H1 headings to markdown files, run the script with the --modify-md or -m flag:');
-            console.log(`node post-processing.js ${basePath} --modify-md`);
         }
+
+        const modifiedCount = results.filter(r => r.modified).length;
+        console.log(`\nSummary: Added H1 headings to ${modifiedCount} of ${markdownFiles.length} files.`);
     }
 }
 
@@ -278,7 +271,7 @@ async function renameImagesToLowercase(basePath){
 
     // Ask for confirmation before renaming
     if (matchingFiles.length > 0) {
-        const shouldRename = process.argv.includes('--rename') || process.argv.includes('-r');
+        const shouldRename = process.argv.includes('--rename-images') || process.argv.includes('-r');
 
         if (shouldRename) {
             console.log('\nRenaming files to lowercase...');

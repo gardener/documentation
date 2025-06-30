@@ -6,9 +6,9 @@ export const blogSidebarConfig = {
     documentRootPath: '/hugo/content',
     scanStartPath: 'blog',
     resolvePath: '/blog/',
-    //collapsed: true,
-    //useTitleFromFrontmatter: true,
-    //capitalizeFirst: true,
+    collapsed: true,
+  //useTitleFromFrontmatter: true,
+  capitalizeFirst: true,
 }
 
 const sortSidebar = (sidebar: any): any => {

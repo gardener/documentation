@@ -28,7 +28,7 @@
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
     "docs:preview": "vitepress preview",
-    "post-processing": "node post-processing.js content --rename-images --modify-md --youtube",
+    "post-processing": "node post-processing.js --rename-images --add-h1-title --youtube",
     "test": "vitest run",
     "test:watch": "vitest"
   }

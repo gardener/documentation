@@ -3,7 +3,7 @@
 
 # Allow only specific directories and files
 !.vitepress/
-!content/
+!hugo/content/
 !package.json
 !package-lock.json
 !post-processing.js
