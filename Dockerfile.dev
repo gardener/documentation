@@ -10,6 +10,7 @@ COPY . .
 RUN npm ci
 
 RUN npm run post-processing
+RUN npm run post-processing-part-2
 
 # Expose dev server port
 EXPOSE 5173
