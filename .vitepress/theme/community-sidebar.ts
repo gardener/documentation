@@ -12,7 +12,9 @@ const communitySidebarConfig = {
   resolvePath: '/community/',
   collapsed: true,
   useTitleFromFileHeading: true,
-  useTitleFromFrontmatter: true
+  useTitleFromFrontmatter: true,
+  useFolderLinkFromIndexFile: true,
+  includeFolderLinksInFolder: true,
 }
 
 function generateBaseCommunity(): any {
