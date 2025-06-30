@@ -65,10 +65,12 @@ export function generateEnhancedDocsSidebar(): any {
   return filteredSidebar;
 }
 
+
+//TODO extract this to a separate file
 /**
  * Recursively removes all _index.md entries from the sidebar
  */
-function removeIndexEntries(sidebar: any): any {
+export function removeIndexEntries(sidebar: any): any {
   if (Array.isArray(sidebar)) {
     return sidebar
       .map(item => removeIndexEntries(item))

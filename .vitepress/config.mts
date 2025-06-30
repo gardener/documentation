@@ -85,7 +85,7 @@ export default defineConfig({
     logo: {src: '/gardener-logo.svg', width: 24, height: 24},
     nav: nav(),
     sidebar: {
-      '/blog/': blogSidebar['/blog/'],
+      '/blog/': blogSidebar()['/blog/'],
       //@ts-ignore
       '/community/': generateSidebar([communitySidebarConfig])['/community/'],
       //@ts-ignore

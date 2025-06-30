@@ -1,14 +1,15 @@
 import { generateSidebar } from 'vitepress-sidebar';
 import _ from 'lodash-es';
 import { load } from 'js-yaml';
+import {removeIndexEntries} from "./docs-sidebar.js";
 
 export const blogSidebarConfig = {
     documentRootPath: '/hugo/content',
     scanStartPath: 'blog',
     resolvePath: '/blog/',
     collapsed: true,
-  //useTitleFromFrontmatter: true,
-  capitalizeFirst: true,
+    useTitleFromFrontmatter: true,
+    capitalizeFirst: true,
 }
 
 const sortSidebar = (sidebar: any): any => {
@@ -47,6 +48,15 @@ const sortSidebar = (sidebar: any): any => {
   return sidebar;
 };
 
-const blogSidebar = sortSidebar(generateSidebar([blogSidebarConfig]));
+
+function blogSidebar () {
+  const sortedSidebar = sortSidebar(generateSidebar([blogSidebarConfig]));
+
+  // Filter out all _index.md entries (called last)
+  const filteredSidebar = removeIndexEntries(sortedSidebar);
+
+  return filteredSidebar;
+}
+
 
 export default blogSidebar;
