@@ -51,14 +51,41 @@ const sidebarData: SidebarDataType = {
   operator: sidebars.operatorsSidebar
 }
 
+//TODo dirty fix for persona filtered sidebar, on community sidebar this works out of the box,
+// Function to recursively process sidebar items and ensure links start with '/docs'
+const processItems = (items: DefaultTheme.SidebarItem[]): DefaultTheme.SidebarItem[] => {
+  return items.map(item => {
+    const processedItem = { ...item }
+    
+    // Check and fix the link field
+    if (processedItem.link && !processedItem.link.startsWith('/docs')) {
+      processedItem.link = '/docs' + (processedItem.link.startsWith('/') ? processedItem.link : '/' + processedItem.link)
+    }
+    
+    // Recursively process nested items
+    if (processedItem.items) {
+      processedItem.items = processItems(processedItem.items)
+    }
+    
+    return processedItem
+  })
+}
+
 // User type from localStorage (defaults to original items if not set)
 const userType = ref<string>('')
 const displayedItems = computed(() => {
   // Check for recognized userType that should override default sidebar
   if (userType.value && (userType.value === 'developer' || userType.value === 'user' || userType.value === 'operator')) {
-    return sidebarData[userType.value as UserType]['/docs/'].items || props.items
-  }
+    const sidebarForUserType = sidebarData[userType.value as UserType]
+    const docsSection = sidebarForUserType?.['/docs/']
+    const personaItems = docsSection?.items
 
+    if (personaItems) {
+      // Process the persona items to ensure all links start with '/docs'
+      const processedPersonaItems = processItems(personaItems)
+      return processedPersonaItems
+    }
+  }
   return props.items
 })
 
