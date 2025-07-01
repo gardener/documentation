@@ -9,9 +9,7 @@ export function writeJsonDebug(fileName: string, data: object): void {
   const dir = dirname(filePath);
   
   // Create directory if it doesn't exist (recursive: true creates all needed directories)
-  fs.mkdir(dir, { recursive: true }, (err) => {
-    if (err) throw err;
-  });
+  fs.mkdirSync(dir, { recursive: true });
   
   // Then write the file
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
