@@ -3,7 +3,7 @@ import { fileURLToPath, URL } from 'node:url'
 import {generateSidebar} from 'vitepress-sidebar'
 import blogSidebar from './theme/blog-sidebar.ts'
 import {generateEnhancedDocsSidebar} from "./theme/docs-sidebar.ts";
-import {communitySidebar} from "./theme/community-sidebar.ts";
+import {communitySidebar, staticCommunitySidebar} from "./theme/community-sidebar.ts";
 import path from 'path'
 
 
@@ -31,7 +31,6 @@ export default defineConfig({
     //'**/tutorials/tutorial-custom-domain-with-istio.md',
     '**/security-and-compliance/report.md',
       '**/html/**'
-
   ],
   lastUpdated: true,
   ignoreDeadLinks: true, //ToDo enable after migration
@@ -75,7 +74,7 @@ export default defineConfig({
     sidebar: {
       '/blog/': blogSidebar()['/blog/'],
       //@ts-ignore
-      '/community/': communitySidebar()['/community/'],
+      '/community/': staticCommunitySidebar()['/community/'],
       //@ts-ignore
       '/docs/': generateEnhancedDocsSidebar()['/docs/'],
     },
@@ -253,10 +252,10 @@ function nav () {
     {
       text: 'Documentation',
       items: [
-        {text: 'User', link: '/docs/_index.md',},
-        {text: 'Operator', link: '/docs/_index.md',},
-        {text: 'Developer', link: '/docs/_index.md',},
-        {text: 'All', link: '/docs/_index.md',},
+        {text: 'User', link: '/docs/index.md',},
+        {text: 'Operator', link: '/docs/index.md',},
+        {text: 'Developer', link: '/docs/index.md',},
+        {text: 'All', link: '/docs/index.md',},
       ]
     },
     {
