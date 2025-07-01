@@ -52,9 +52,7 @@ jobs:
         run: npm ci # or pnpm install / yarn install / bun install
       - name: Postprocessing Content
         run: |
-          npm run post-processing-part-1
-          npm run post-processing-part-2
-          npm run post-processing-index
+          npm run post-processing-all
 
       - name: Build with VitePress
         run: npm run docs:build # or pnpm docs:build / yarn docs:build / bun run docs:build
