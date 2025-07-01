@@ -24,7 +24,7 @@ export default defineConfig({
     '**/etcd-druid/api-reference.md',
     '**/machine-controller-manager/documents/apis.md',
     // Missing end tag <> used in normal text not in code block
-    '**/network-problem-detector/_index.md',
+    '**/other-components/network-problem-detector/**',
     // Custom template tag is used instead of normal markdown alert or github alert 
     // https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts
     //'**/tutorials/tutorial-custom-domain-with-istio.md',
