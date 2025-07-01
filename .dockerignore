@@ -6,8 +6,7 @@
 !hugo/content/
 !package.json
 !package-lock.json
-!post-processing.js
-!post-processing-part-2.js
+!post-processing/**
 !tsconfig.json
 
 # Still ignore any node_modules in the allowed directories

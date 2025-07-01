@@ -9,7 +9,7 @@ COPY . .
 
 RUN npm ci
 
-RUN npm run post-processing
+RUN npm run post-processing-part-1
 RUN npm run post-processing-part-2
 RUN npm run post-processing-index
 
