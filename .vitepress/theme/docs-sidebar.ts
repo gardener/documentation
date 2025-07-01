@@ -22,6 +22,7 @@ const docsSidbarConfig =  {
   useTitleFromFileHeading: true,
   useTitleFromFrontmatter: true,
   useFolderLinkFromIndexFile: true,
+  includeRootIndexFile: true,
   includeFolderLinksInFolder: true,
 }
 
