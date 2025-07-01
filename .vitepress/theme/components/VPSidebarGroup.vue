@@ -28,7 +28,7 @@ Copied and adapted from -> https://github.com/vuejs/vitepress/blob/2342269486e82
 import type { DefaultTheme } from 'vitepress/theme'
 import { onBeforeUnmount, onMounted, ref, computed, watchEffect } from 'vue'
 import VPSidebarItem from 'vitepress/dist/client/theme-default/components/VPSidebarItem.vue'
-import { data as sidebars } from '../../data/sidebar.data'
+import { data as sidebars } from '@data/sidebar.data'
 
 
 // Define the props for the component
