@@ -62,7 +62,7 @@ docforge: docforge-download ## Check environment and run docforge
 	@echo "Environment check passed:"
 	@echo "DOCFORGE_CONFIG: $$DOCFORGE_CONFIG"
 	@echo "GITHUB_OAUTH_TOKEN: $${GITHUB_OAUTH_TOKEN:0:5}..."
-	@if [ -d "content" ]; then \
+	@if [ -d "hugo/content" ]; then \
 		read -p "Content directory already exists. Do you want to run docforge again to update it? (y/n): " confirm; \
 		if [ "$$confirm" = "y" ] || [ "$$confirm" = "Y" ]; then \
 			echo "Running docforge..."; \
