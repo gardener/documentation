@@ -70,8 +70,8 @@ async function addH1ToMarkdownFiles(basePath){
                         const nestedFiles = await findMarkdownFiles(fullPath);
                         foundFiles = foundFiles.concat(nestedFiles);
                     } else if (stats.isFile() && file.endsWith('.md')) {
-                        // Skip index.md and _index.md files
-                        if (file === 'index.md' || file === '_index.md') {
+                        // Skip index.md and _index.md files, except _index.md files in community directory
+                        if (file === 'index.md' || (file === '_index.md' && !fullPath.includes('/community/'))) {
                             continue;
                         }
                         foundFiles.push(fullPath);
