@@ -4,6 +4,7 @@ import {generateSidebar} from 'vitepress-sidebar'
 import blogSidebar from './theme/blog-sidebar.ts'
 import {generateEnhancedDocsSidebar} from "./theme/docs-sidebar.ts";
 import {communitySidebar} from "./theme/community-sidebar.ts";
+import path from 'path'
 
 
 
@@ -160,6 +161,10 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: [
+        {
+          find: '@data',
+          replacement: path.resolve(__dirname, './data')
+        },
         {
           find: /^.*\/VPFeature\.vue$/,
           replacement: fileURLToPath(
