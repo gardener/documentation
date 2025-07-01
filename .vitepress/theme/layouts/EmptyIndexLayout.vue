@@ -8,7 +8,7 @@
           
           <ul v-if="currentDirItems.length > 0">
             <li v-for="item in currentDirItems" :key="item.link">
-              <a :href="item.link">{{ item.text }}</a>
+              <a :href="item.link.replace(/\/index\.md$/, '/')">{{ item.text }}</a>
             </li>
           </ul>
           
