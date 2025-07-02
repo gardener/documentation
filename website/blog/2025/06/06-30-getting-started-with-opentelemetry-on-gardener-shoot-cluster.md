@@ -163,6 +163,9 @@ We are going to deploy two OpenTelemetry collectors: `k8s-events` and `shoot-met
 - [k8s_events receiver](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/k8seventsreceiver) to collect Kubernetes events from the cluster.
 - [k8s_cluster receiver](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/k8sclusterreceiver) to collect Kubernetes cluster metrics.
 
+Here is an example of Kubernetes events persited in the `victoria-logs` backend. It filters logs which represents events from `kube-system` namesapce related to a rollout restart of the target statefulset. Then it formats the UI to show the event reason and object name.
+![otel-victoria-logs](./images/otel-victoria-logs.png)
+
 The collector features few important configurations related to reliability and performance.
 The collected metrics points are are sent in batches to the Prometheus backend using the corresponding OTLP exporter and the memory consumption of the collector is also limited. In general it is always a good practice to set a memory limiter and batch processing in the collector pipeline.
 
