@@ -1,0 +1,147 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: prometheus-server
+  namespace: prometheus
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: prometheus
+  labels:
+    app: prometheus
+spec:
+  ports:
+    - port: 9090
+      name: web
+    - port: 8443
+      name: mtls
+      protocol: TCP
+  clusterIP: None
+  selector:
+    app: prometheus
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: prometheus
+  name: prometheus
+  namespace: prometheus
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prometheus
+  serviceName: prometheus
+  template:
+    metadata:
+      labels:
+        app: prometheus
+    spec:
+      serviceAccountName: prometheus-server
+      automountServiceAccountToken: true
+      containers:
+        - name: mtls-proxy
+          image: quay.io/brancz/kube-rbac-proxy:v0.19.1
+          args:
+            - --secure-listen-address=0.0.0.0:8443
+            - --tls-cert-file=/certs/tls.crt
+            - --tls-private-key-file=/certs/tls.key
+            - --client-ca-file=/certs/ca.crt
+            - --upstream=http://localhost:9090/
+            - --config-file=/etc/mtls-ra.yml
+            - --logtostderr=true
+            - --v=5
+          ports:
+            - name: mtls
+              containerPort: 8443
+              protocol: TCP
+          volumeMounts:
+            - name: certs
+              mountPath: /certs
+              readOnly: true
+            - name: mtls-ra
+              mountPath: /etc/mtls-ra.yml
+              subPath: mtls-ra.yml
+        - name: prometheus
+          image: prom/prometheus:v3.4.1
+          imagePullPolicy: IfNotPresent
+          args:
+            - --web.enable-lifecycle
+            - --web.route-prefix=/
+            - --web.enable-otlp-receiver
+            - --storage.tsdb.retention.time=7d
+            - --config.file=/etc/prometheus.yml
+            - --log.level=info
+          ports:
+            - containerPort: 9090
+              name: web
+              protocol: TCP
+          securityContext:
+            allowPrivilegeEscalation: false
+            runAsUser: 0
+            capabilities:
+              drop:
+                - ALL
+          startupProbe:
+            httpGet:
+              path: /-/ready
+              port: web
+            failureThreshold: 60
+            periodSeconds: 15
+            successThreshold: 1
+            timeoutSeconds: 3
+          livenessProbe:
+            failureThreshold: 6
+            httpGet:
+              path: /-/healthy
+              port: web
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 3
+          readinessProbe:
+            failureThreshold: 3
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 3
+            httpGet:
+              path: /-/ready
+              port: web
+          resources:
+            limits:
+              cpu: "1"
+              memory: 1000Mi
+            requests:
+              cpu: 100m
+              memory: 256Mi
+          volumeMounts:
+            - mountPath: /prometheus
+              name: prometheus-db
+              subPath: prometheus-db
+            - mountPath: /etc/prometheus.yml
+              name: prometheus-config
+              subPath: prometheus.yml
+      volumes:
+        - name: certs
+          secret:
+            secretName: prometheus-tls
+        - name: mtls-ra
+          configMap:
+            name: mtls-ra
+        - name: prometheus-config
+          secret:
+            secretName: prometheus-config
+
+  volumeClaimTemplates:
+    - apiVersion: v1
+      kind: PersistentVolumeClaim
+      metadata:
+        name: prometheus-db
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 5Gi
+        volumeMode: Filesystem

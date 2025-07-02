@@ -1,0 +1,72 @@
+serviceAccount:
+  # -- Create service account.
+  create: true
+server:
+  enabled: true
+  image:
+    tag: "v1.24.0-victorialogs"
+  extraArgs:
+    retentionPeriod: 100y
+    retention.maxDiskSpaceUsageBytes: 10GiB
+
+  persistentVolume:
+    enabled: true
+    size: 10Gi
+
+  resources:
+    requests:
+      cpu: 10m
+      memory: 64Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+  # -- Extra Volumes for the pod
+  extraVolumes:
+    - name: certs
+      secret:
+        secretName: victorialogs-tls
+    - name: mtls-ra
+      secret:
+        secretName: mtls-ra
+
+  # -- Extra containers to run in a pod with Victoria Logs container
+  extraContainers:
+    - name: mtls-proxy
+      image: quay.io/brancz/kube-rbac-proxy:v0.19.1
+      args:
+        - --secure-listen-address=0.0.0.0:8443
+        - --tls-cert-file=/certs/tls.crt
+        - --tls-private-key-file=/certs/tls.key
+        - --client-ca-file=/certs/ca.crt
+        - --upstream=http://localhost:9428/
+        - --config-file=/etc/mtls-ra.yml
+        - --logtostderr=true
+        - --v=5
+      ports:
+        - name: https
+          containerPort: 8443
+          protocol: TCP
+      volumeMounts:
+        - name: certs
+          mountPath: /certs
+          readOnly: true
+        - name: mtls-ra
+          mountPath: /etc/mtls-ra.yml
+          subPath: mtls-ra.yml
+
+  service:
+    extraPorts:
+      - name: https
+        port: 8443
+        targetPort: 8443
+        protocol: TCP
+
+  serviceMonitor:
+    enabled: false
+  ingress:
+    enabled: false
+
+dashboards:
+  enabled: false
+  labels:
+    grafana_dashboard: "1"
