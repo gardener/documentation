@@ -25,9 +25,7 @@ structure:
         weight: 20
         aliases: ["/docs/guides/security-and-compliance/partial-disa-k8s-stig-shoot/"]
     - file: report.md
-      multiSource:
-      - /website/documentation/security-and-compliance/hardened-shoot-report/hardened_shoots_docu_report.md
-      - /website/documentation/security-and-compliance/hardened-shoot-report/hardened_shoots_report.md   
+      source: /website/documentation/security-and-compliance/hardened-shoot-report/hardened_shoots_docu_report.md
     - file: kubernetes-hardening.md
       source: /website/documentation/security-and-compliance/kubernetes-hardening.md
   - dir: gardener
