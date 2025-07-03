@@ -1,6 +1,10 @@
 ---
 title: External DNS Management
 weight: 4
+description: Discover how Gardener automates external DNS management for Kubernetes services and ingresses using multiple cloud DNS providers.
+tags: [dns, external dns, dns management, dns providers, route53, azure dns, google clouddns, cloudflare]
+page_synonyms: [dns automation, domain management, dns records, dns providers, external dns service]
+categories: [networking, automation, dns]
 ---
 
 ## External DNS Management

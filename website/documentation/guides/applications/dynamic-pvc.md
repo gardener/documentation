@@ -1,10 +1,13 @@
 ---
 title: Dynamic Volume Provisioning
-description: "Running a Postgres database on Kubernetes"
+description: Learn how to run a Postgres database on Kubernetes with dynamic volume provisioning using PersistentVolumeClaims and storage classes for persistent data storage.
 layout: single-page
 level: beginner
 category: Getting Started
 scope: app-developer
+tags: [pvc, persistent-volumes, storage-class, postgres, dynamic-provisioning, reclaim-policy, volume-mounting]
+page_synonyms: [persistent volume claims, storage provisioning, database storage, volume management, pv pvc, kubernetes storage]
+categories: [getting-started, storage, databases]
 ---
 
 ## Overview

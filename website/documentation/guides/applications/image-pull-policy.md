@@ -1,9 +1,12 @@
 ---
 title: Container Image Not Updating
-description: "Updating images in your cluster during development"
+description: Learn how to fix container image update issues during development by using unique tags and understanding Kubernetes image pull policies to avoid cached image problems.
 level: intermediate
 category: Fails
 scope: app-developer
+tags: [image-pull-policy, docker-tags, ifnotpresent, versioning, deployment-updates, image-caching, unique-tags]
+page_synonyms: [image not updating, pull policy, docker cache, image versioning, deployment refresh, container updates]
+categories: [fails, deployment, docker]
 ---
 
 ## Introduction
