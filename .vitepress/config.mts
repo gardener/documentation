@@ -29,7 +29,7 @@ export default defineConfig({
     // Custom template tag is used instead of normal markdown alert or github alert 
     // https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts
     //'**/tutorials/tutorial-custom-domain-with-istio.md',
-    '**/security-and-compliance/report.md',
+    //'**/security-and-compliance/report.md',
       '**/html/**'
   ],
   lastUpdated: true,
