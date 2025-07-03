@@ -5,3 +5,8 @@ hugo/resources/_gen
 hugo/.forestry
 .DS_Store
 *.yaml
+
+# Allow getting-started-with-opentelemetry-on-gardener-shoot-cluster yaml resources
+!website/blog/2025/06/manifests/otel-collectors/*.yaml
+!website/blog/2025/06/manifests/otel-prometheus/*.yaml
+!website/blog/2025/06/manifests/otel-victorialogs/*.yaml

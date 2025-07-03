@@ -1,0 +1,38 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: observabilityapps
+  namespace: prometheus
+rules:
+  - apiGroups: ["authorization.kubernetes.io"]
+    resources:
+      - observabilityapps/prometheus
+    verbs: ["get", "create"] # GET, POST
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: observabilityapps
+  namespace: prometheus
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: observabilityapps
+subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: client
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: prometheus
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: subject-access-review
+subjects:
+  - kind: ServiceAccount
+    name: prometheus-server
+    namespace: prometheus

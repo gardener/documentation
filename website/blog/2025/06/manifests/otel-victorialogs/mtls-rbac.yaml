@@ -1,0 +1,39 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: observabilityapps
+  namespace: victoria-logs
+rules:
+  - apiGroups: ["authorization.kubernetes.io"]
+    resources:
+      - observabilityapps/victoria-logs
+    verbs: ["get", "create", "update", "patch", "delete"] # GET, POST, PUT, PATCH, DELETE
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: observabilityapps
+  namespace: victoria-logs
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: observabilityapps
+subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: client
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: victoria-logs
+  namespace: victoria-logs
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: subject-access-review
+subjects:
+  - kind: ServiceAccount
+    name: victorialogs-victoria-logs-single-server
+    namespace: victoria-logs
