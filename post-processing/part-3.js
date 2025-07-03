@@ -14,13 +14,21 @@ async function main() {
         if (process.argv.includes('--add-empty-metadata') || process.argv.includes('-e')) {
             await addEmptyMetadata(BASE_PATH);
         }
+        
+        if (process.argv.includes('--update-report-link') || process.argv.includes('-r')) {
+            await updateReportLink(path.join(BASE_PATH, 'docs/security-and-compliance/report.md'));
+        }
 
         if (!process.argv.includes('--add-empty-metadata') &&
-            !process.argv.includes('-e')) {
+            !process.argv.includes('-e') &&
+            !process.argv.includes('--update-report-link') &&
+            !process.argv.includes('-r')) {
             // If no specific action is specified, show usage
             console.log('Available commands:');
             console.log('--add-empty-metadata, -e : Add isEmpty: true to frontmatter of empty index.md files');
+            console.log('--update-report-link, -r : Update the report link in security-and-compliance/report.md');
             console.log(`\nExample: node post-processing/part-3.js --add-empty-metadata`);
+            console.log(`Example: node post-processing/part-3.js --update-report-link`);
         }
     } catch (err) {
         console.error('Error:', err);
@@ -170,5 +178,46 @@ async function addEmptyMetadata(basePath) {
             console.log('\nEmpty metadata processing completed!');
             console.log('Files with empty content now have isEmpty: true in their frontmatter.');
         }
+    }
+}
+
+/**
+ * Updates the report link in the security-and-compliance/report.md file
+ * Replaces the download link with a direct view link
+ */
+async function updateReportLink(filePath) {
+    try {
+        console.log(`\nUpdating report link in: ${filePath}`);
+        
+        // Check if file exists
+        try {
+            await fs.access(filePath);
+        } catch (error) {
+            console.error(`Error: File not found: ${filePath}`);
+            return;
+        }
+        
+        // Read file content
+        let content = await fs.readFile(filePath, 'utf-8');
+        
+        // Define the strings to replace
+        const oldString = `The report can be reviewed directly or downloaded by <a href="/docs/security-and-compliance/report/" download="">clicking here</a>.`;
+        const newString = `The report can be directly viewed by <a href='./hardened_shoots_report.html' target=_blank>clicking here</a>.`;
+        
+        // Check if the old string exists in the content
+        if (!content.includes(oldString)) {
+            console.log(`Warning: Could not find the text to replace in ${filePath}`);
+            return;
+        }
+        
+        // Replace the string
+        const updatedContent = content.replace(oldString, newString);
+        
+        // Write the updated content back to file
+        await fs.writeFile(filePath, updatedContent, 'utf-8');
+        
+        console.log(`Successfully updated report link in: ${path.basename(filePath)}`);
+    } catch (err) {
+        console.error(`Error updating report link: ${err.message}`);
     }
 }
