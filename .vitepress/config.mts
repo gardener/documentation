@@ -17,13 +17,13 @@ export default defineConfig({
     // Custom template tag is used, check for alternative
     '**/community-bio.md', //Ignore for now
     // Generated api reference which uses <> so indicate consumer input, CAPS could be used instead or escape via code block ``,
-    '**/api-reference/extensions.md',
-    '**/api-reference/operator.md',
-    '**/api-reference/seedmanagement.md',
-    '**/api-reference/core-v1.md',
-    '**/api-reference/core.md',
-    '**/etcd-druid/api-reference.md',
-    '**/machine-controller-manager/documents/apis.md',
+    //'**/api-reference/extensions.md',
+    //'**/api-reference/operator.md',
+    //'**/api-reference/seedmanagement.md',
+    //'**/api-reference/core-v1.md',
+    //'**/api-reference/core.md',
+    //'**/etcd-druid/api-reference.md',
+    //'**/machine-controller-manager/documents/apis.md',
     // Missing end tag <> used in normal text not in code block
     '**/other-components/network-problem-detector/**',
     // Custom template tag is used instead of normal markdown alert or github alert 
