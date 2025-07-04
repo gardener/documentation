@@ -165,6 +165,10 @@ export default defineConfig({
           replacement: path.resolve(__dirname, './data')
         },
         {
+          find: '@components',
+          replacement: path.resolve(__dirname, './theme/components')
+        },
+        {
           find: /^.*\/VPFeature\.vue$/,
           replacement: fileURLToPath(
               new URL('./theme/components/VPFeature.vue', import.meta.url)
@@ -260,7 +264,7 @@ function nav () {
     },
     {
       text: 'Blogs',
-      link: '/blog',
+      link: '/blog/overview.md',
     },
     {
       text: 'Community',
