@@ -238,7 +238,8 @@ async function processApiHtml(basePath) {
     const API_REFERENCE_DIRS = [
         'docs/other-components/etcd-druid/api-reference',
         'docs/gardener/api-reference',
-        'docs/other-components/machine-controller-manager/documents'
+        'docs/other-components/machine-controller-manager/documents',
+        'docs/other-components/etcd-druid/'
     ];
 
     async function findMarkdownFiles(directory) {
