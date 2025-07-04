@@ -20,12 +20,17 @@
 </template>
 
 <script setup>
-import { useData } from 'vitepress'
+import { useData, useRouter } from 'vitepress'
 import { ref, computed, onMounted, nextTick, watch } from 'vue'
 import DefaultTheme from 'vitepress/theme'
 import { data as sidebars } from '@data/sidebar.data'
 import _ from 'lodash-es'
 
+const router = useRouter()
+router.onBeforePageLoad = (to, from) => {
+  console.log('onBeforePageLoad called with:', to, from)
+  updateContent(getConsistentLink(to.path))
+}
 
 //todo extract together with .vitepress/theme/components/VPSidebarGroup.vue
 const sidebarData = {
@@ -61,20 +66,24 @@ const checkIfEmpty = () => {
 
 // Function to find sidebar items based on the current path and persona
 const findSidebarItemsByPath = (relativePath, sidebarItems) => {
-
+  console.log('findSidebarItemsByPath called with:', relativePath, sidebarItems)
   // Pop to remove the file entry from the path
   const dirSteps = relativePath.split('/')
   // Remove docs prefix from iteration
   dirSteps.shift()
 
   let selectedSidebarItems = sidebarItems
-  let previousSteps = ''
+  let previousSteps = 'docs/'
   
   for (const dirStep of dirSteps) {
 
     for (const item of selectedSidebarItems) {
-      const itemLink = item?.link?.replace(previousSteps, '')
-
+      let itemLink = item?.link?.replace(previousSteps, '')
+      
+      if (itemLink.startsWith('/')) {
+        itemLink = itemLink.slice(1);
+      }
+      
       if (itemLink?.startsWith(dirStep + '/')) {
         previousSteps += dirStep + '/'
 
@@ -91,13 +100,15 @@ const findSidebarItemsByPath = (relativePath, sidebarItems) => {
     }
   }
   
+  console.log('Selected sidebar items:', selectedSidebarItems)
   return selectedSidebarItems
 }
 
 // Extract the logic to update content based on current page and persona
-const updateContent = (route = page.value.relativePath) => {
+const updateContent = async (route = page.value.relativePath) => {
   lastClickedMenuItem.value = localStorage.getItem('lastClickedMenuItem')
   const isEmpty = checkIfEmpty()
+  console.log('route: ', route)
   const prefixDir = route.split('/').shift()
   console.log(page.value.relativePath)
   const prefix = `/${prefixDir}/`
@@ -111,6 +122,7 @@ const updateContent = (route = page.value.relativePath) => {
   if (isEmpty) {
       const personaSidebar = sidebarData[lastClickedMenuItem.value][prefix]
       currentDirItems.value = findSidebarItemsByPath(route, personaSidebar.items)
+      console.log('should have been updated !!!')
       return
     }
   }
@@ -148,10 +160,11 @@ onMounted(() => {
   checkIfEmpty()
   
   // Listen for persona menu clicks
-  window.addEventListener('menuItemClicked', updateContent)
-  window.addEventListener('navMenuItemClicked', updateContent)
-  window.addEventListener('taxonomyItemClicked', (event) => {
-    updateContent(event.detail.value)
+  window.addEventListener('menuItemClicked', () => updateContent())
+  window.addEventListener('navMenuItemClicked',() => updateContent())
+  window.addEventListener('taxonomyItemClicked', async (event) => {
+    currentDirItems.value = []
+    await updateContent(event.detail.value)
   })
 
   // Initialize lastClickedMenuItem from localStorage
