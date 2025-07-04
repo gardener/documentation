@@ -201,8 +201,8 @@ async function updateReportLink(filePath) {
         let content = await fs.readFile(filePath, 'utf-8');
         
         // Define the strings to replace
-        const oldString = `The report can be reviewed directly or downloaded by <a href="/docs/security-and-compliance/report/" download="">clicking here</a>.`;
-        const newString = `The report can be directly viewed by <a href='./hardened_shoots_report.html' target=_blank>clicking here</a>.`;
+        const oldString = `The report can be reviewed directly or downloaded by <a href="/html/hardened_shoots_report/" download="">clicking here</a>.`;
+        const newString = `The report can be directly viewed by clicking <a href='/hardend_shoots_report.html' target="_self">here</a> or downloaded by clicking <a href="/hardened_shoots_report.html" download="hardened_shoots_report">here</a>`;
         
         // Check if the old string exists in the content
         if (!content.includes(oldString)) {
