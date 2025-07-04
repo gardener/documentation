@@ -7,8 +7,8 @@
           <h1>{{ frontmatter.title || 'Directory Contents' }}</h1>
           
           <ul v-if="currentDirItems.length > 0">
-            <li v-for="item in currentDirItems" :key="item.link">
-              <a :href="item.link.replace(/\/index\.md$/, '/')">{{ item.text }}</a>
+            <li v-for="item in currentDirItems" :key="getConsistentLink(item.link)">
+              <a @click="taxonomyItemClicked(getConsistentLink(item.link))" :href="getConsistentLink(item.link)">{{ item.text }}</a>
             </li>
           </ul>
           
@@ -64,26 +64,30 @@ const findSidebarItemsByPath = (relativePath, sidebarItems) => {
 
   // Pop to remove the file entry from the path
   const dirSteps = relativePath.split('/')
-  // Remove docs prefix
+  // Remove docs prefix from iteration
   dirSteps.shift()
-  console.log('Directory steps:', dirSteps)
 
   let selectedSidebarItems = sidebarItems
   let previousSteps = ''
   
   for (const dirStep of dirSteps) {
-    console.log('Current sidebar items:', selectedSidebarItems)
-    
+
     for (const item of selectedSidebarItems) {
       const itemLink = item?.link?.replace(previousSteps, '')
 
       if (itemLink?.startsWith(dirStep + '/')) {
         previousSteps += dirStep + '/'
-        console.log('Previous steps:', previousSteps)
-        
+
         selectedSidebarItems = item.items || []
         break // Exit the inner loop once we find the matching item
       }
+    }
+  }
+
+  for (const item of selectedSidebarItems) {
+    // Check and fix the link field
+    if (item?.link && !item?.link.startsWith('/docs')) {
+      item.link = '/docs' + (item.link.startsWith('/') ? item.link : '/' + item.link)
     }
   }
   
@@ -91,43 +95,35 @@ const findSidebarItemsByPath = (relativePath, sidebarItems) => {
 }
 
 // Extract the logic to update content based on current page and persona
-const updateContent = () => {
+const updateContent = (route = page.value.relativePath) => {
   lastClickedMenuItem.value = localStorage.getItem('lastClickedMenuItem')
   const isEmpty = checkIfEmpty()
-  console.log('isEmpty:', isEmpty)
-  const prefixDir = page.value.relativePath.split('/').shift()
+  const prefixDir = route.split('/').shift()
+  console.log(page.value.relativePath)
   const prefix = `/${prefixDir}/`
-  console.log('Prefix: ', prefix)
-  console.log('Page changed: ', page.value.relativePath)
   if(lastClickedMenuItem.value){
-    if(page.value.relativePath === 'docs/_index.md') {
+    if(route === 'docs/_index.md') {
       // Special case for root docs page
-        console.log('Detected root docs page:', sidebarData)
       isEmptyIndexPage.value = true
       currentDirItems.value = sidebarData[lastClickedMenuItem.value]?.[prefix]?.items
       return
     }
   if (isEmpty) {
-    console.log('Page is considered empty: ', page.value.relativePath)
-      console.log('Persona: ', lastClickedMenuItem.value)
       const personaSidebar = sidebarData[lastClickedMenuItem.value][prefix]
-      currentDirItems.value = findSidebarItemsByPath(page.value.relativePath, personaSidebar.items)
+      currentDirItems.value = findSidebarItemsByPath(route, personaSidebar.items)
       return
     }
   }
 //Handle non persona pages
   if (isEmpty) {
-    if(page.value.relativePath === 'docs/_index.md') {
+    if(route === 'docs/_index.md') {
       // Special case for root docs page
-      console.log('Detected root docs page:', sidebarData)
       isEmptyIndexPage.value = true
       currentDirItems.value = sidebarData[prefix]?.items
       return
     }
     const sidebar = theme.value.sidebar
-    console.log('Non-persona-Sidebar:', sidebar)
-    console.log(sidebar[`${prefix}`]?.items)
-    currentDirItems.value = findSidebarItemsByPath(page.value.relativePath, sidebar[`${prefix}`]?.items)
+    currentDirItems.value = findSidebarItemsByPath(route, sidebar[`${prefix}`]?.items)
     return
   }
   currentDirItems.value = []
@@ -135,7 +131,7 @@ const updateContent = () => {
 
 // Watch for page changes (SPA navigation)
 watch(
-  () => page.value.relativePath,
+  () => page.value.relativePath, //Works only on new tab
   updateContent,
   { immediate: true }
 )
@@ -154,9 +150,31 @@ onMounted(() => {
   // Listen for persona menu clicks
   window.addEventListener('menuItemClicked', updateContent)
   window.addEventListener('navMenuItemClicked', updateContent)
-  
+  window.addEventListener('taxonomyItemClicked', (event) => {
+    updateContent(event.detail.value)
+  })
+
   // Initialize lastClickedMenuItem from localStorage
   //const storedValue = localStorage.getItem('lastClickedMenuItem')
   //lastClickedMenuItem.value = storedValue ? JSON.parse(storedValue) : null
 })
+
+const taxonomyItemClicked = (link) => {
+  console.log('TaxonomyItemClicked')
+  window.dispatchEvent(new CustomEvent('taxonomyItemClicked', {
+    detail: { value: link }
+  }))
+}
+
+const getConsistentLink = (link) => {
+
+  const consistentLink = link?.replace(/\/index\.md$/, '/')
+
+  // Ensure the link is consistent with the current persona
+  if (consistentLink && !consistentLink.startsWith('/docs')) {
+    return '/docs' + (consistentLink.startsWith('/') ? consistentLink : '/' + consistentLink)
+  }
+  return consistentLink
+}
+
 </script>
