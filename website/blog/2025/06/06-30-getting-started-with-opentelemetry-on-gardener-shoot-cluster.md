@@ -108,7 +108,7 @@ Setting up the backends is a straightforward process. We will use plain resource
 Here is the complete list of manifests for deploying a single prometheus instance with the `OTLP` ingestion endpoint and a `kube-rbac-proxy` sidecar for mTLS authentication and authorization:
 
 - [Prometheus Certificate](./manifests/otel-prometheus/certificate.yaml)
-  That is the serving certificate of the `kube-rbac-proxy` sidecar. The OpenTelemetry collector needs to trust the signing CA hence we use the same `Issuer` we created earlier.
+  That is the serving certificate of the `kube-rbac-proxy` sidecar. The OpenTelemetry collector needs to trust the signing CA, hence we use the same `Issuer` we created earlier.
 - [Prometheus](./manifests/otel-prometheus/prometheus.yaml)
   The prometheus needs to be configured to allow `OTLP` ingestion endpoint: [`--web.enable-OTLP-receiver`](https://prometheus.io/docs/guides/opentelemetry/#enable-the-OTLP-receiver). That allows the OpenTelemetry collector to push metrics to the Prometheus instance (via the `kube-rbac-proxy` sidecar).
 - [Prometheus Configuration](./manifests/otel-prometheus/prometheus-config.yml)
