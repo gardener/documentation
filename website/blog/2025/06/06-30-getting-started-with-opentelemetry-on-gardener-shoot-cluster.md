@@ -212,7 +212,7 @@ service:
 
 The majority of the samples use an prometheus receiver to scrape the collector metrics endpoint, however that is not a clean solution because it puts the metrics via the pipeline thus consuming resources and potentially causing performance issues. Instead we use the `periodic` reader to push the metrics directly to the Prometheus backend.
 
-Since the `k8s-events` collector obtains telemetry data from kube-apiserver it requires corresponding set of permissions defined at [k8s-events rbac](./manifests/otel-collectors/k8s-events-rbac.yaml) manifests.
+Since the `k8s-events` collector obtains telemetry data from the kube-apiserver, it requires a corresponding set of permissions defined at [k8s-events rbac](./manifests/otel-collectors/k8s-events-rbac.yaml) manifests.
 
 #### [shoot-metrics](./manifests/otel-collectors/shoot-metrics-otel.yaml) collector
 
