@@ -138,7 +138,7 @@ Here is the complete list of manifests for deploying a single prometheus instanc
 
 ### Setting Up victoria-logs (Logs Backend)
 
-In our example we will use [victoria-logs](https://docs.victoriametrics.com/victorialogs/) as the logs backend. Victoria-logs is a high-performance, cost-effective, and scalable log management solution. It is designed to work seamlessly with Kubernetes and provides powerful querying capabilities. It is important to note that any `OTLP` compatible backend can be used as a logs backend, allowing flexibility in choosing the best tool for the concrete needs.
+In our example, we will use [victoria-logs](https://docs.victoriametrics.com/victorialogs/) as the logs backend. victoria-logs is a high-performance, cost-effective, and scalable log management solution. It is designed to work seamlessly with Kubernetes and provides powerful querying capabilities. It is important to note that any `OTLP` compatible backend can be used as a logs backend, allowing flexibility in choosing the best tool for the concrete needs.
 
 Here is the complete manifests for deploying a single `victoria-logs` instance with the `OTLP` ingestion endpoint enabled and `kube-rbac-proxy` sidecar for mTLS authentication and authorization, using the upstream helm chart:
 
