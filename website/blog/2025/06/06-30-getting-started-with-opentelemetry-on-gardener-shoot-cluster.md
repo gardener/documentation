@@ -158,7 +158,7 @@ We are going to deploy two OpenTelemetry collectors: `k8s-events` and `shoot-met
 
 #### [k8s-events](./manifests/otel-collectors/k8s-events-otel.yaml) collector
 
-  In this example we use 2 receivers:
+In this example, we use 2 receivers:
 
 - [k8s_events receiver](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/k8seventsreceiver) to collect Kubernetes events from the cluster.
 - [k8s_cluster receiver](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/k8sclusterreceiver) to collect Kubernetes cluster metrics.
