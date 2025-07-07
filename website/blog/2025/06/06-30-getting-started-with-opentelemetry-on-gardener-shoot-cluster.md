@@ -136,7 +136,7 @@ Here is the complete list of manifests for deploying a single prometheus instanc
 - [mTLS Proxy resource-attributes](./manifests/otel-prometheus/mtls-ra.yml)
   `kube-rbac-proxy` creates Kubernetes `SubjectAccessReview` to determine if the request is allowed to pass. The `SubjectAccessReview` is created with the `resourceAttributes` set to the upstream service, in this case the Prometheus service.
 
-### Setting up victoria-logs (logs backend)
+### Setting Up victoria-logs (Logs Backend)
 
 In our example we will use [victoria-logs](https://docs.victoriametrics.com/victorialogs/) as the logs backend. Victoria-logs is a high-performance, cost-effective, and scalable log management solution. It is designed to work seamlessly with Kubernetes and provides powerful querying capabilities. It is important to note that any `OTLP` compatible backend can be used as a logs backend, allowing flexibility in choosing the best tool for the concrete needs.
 
