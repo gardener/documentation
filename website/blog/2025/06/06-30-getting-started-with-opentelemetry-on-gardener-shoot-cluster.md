@@ -220,7 +220,7 @@ In this example, we have a single receiver:
 
 - [prometheus receiver](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/prometheusreceiver) scraping metrics from Gardener managed exporters present in the shoot cluster, including the `kubelet` system service metrics. This receiver accepts standard Prometheus scrape configurations using `kubernetes_sd_configs` to discover the targets dynamically. The `kubernetes_sd_configs` allows the receiver to discover Kubernetes resources such as pods, nodes, and services, and scrape their metrics endpoints.
 
-Here the example illustrates the `prometheus` receiver scraping metrics from the `kubelet` service, adding node kubernetes labels as labels to the scraped metrics and filtering the metrics to keep only the relevant ones. Since the kubelet metrics endpoint is secured it needs the corresponing bearer token to be provided in the scrape configuration. The bearer token is automatically mounted in the pod by Kubernetes, allowing the OpenTelemetry collector to authenticate with the kubelet service.
+Here, the example illustrates the `prometheus` receiver scraping metrics from the `kubelet` service, adding node kubernetes labels as labels to the scraped metrics and filtering the metrics to keep only the relevant ones. Since the kubelet metrics endpoint is secured, it needs the corresponding bearer token to be provided in the scrape configuration. The bearer token is automatically mounted in the pod by Kubernetes, allowing the OpenTelemetry collector to authenticate with the kubelet service.
 
 ```yaml
 - job_name: shoot-kube-kubelet
