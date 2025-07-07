@@ -284,7 +284,7 @@ transform/metrics:
 Here is a visualization of `container_network_transmit_bytes_total` metric collected from the `cadvisor` endpoint of the `kubelet` service, showing the network traffic in bytes transmitted by the `vpn-shoot` containers.
 ![otel-prometheus](./images/otel-prometheus.png)
 
-Similarly to `k8s-events` collector, the `shoot-metrics` collector also emits its own telemetry data, including metrics and logs. The collector is configured to push its own metrics to the Prometheus backend using the `periodic` reader, avoiding the need for a separate Prometheus scrape configuration. It requires corresponding set of permissions defined at [shoot-metrics rbac](./manifests/OpenTelemetry collectors/shoot-metrics-rbac.yaml) manifest.
+Similarly to the `k8s-events` collector, the `shoot-metrics` collector also emits its own telemetry data, including metrics and logs. The collector is configured to push its own metrics to the Prometheus backend using the `periodic` reader, avoiding the need for a separate Prometheus scrape configuration. It requires a corresponding set of permissions defined at [shoot-metrics rbac](./manifests/OpenTelemetry collectors/shoot-metrics-rbac.yaml) manifest.
 
 ## Summary
 
