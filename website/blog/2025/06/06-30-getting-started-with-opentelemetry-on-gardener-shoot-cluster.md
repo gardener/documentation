@@ -24,7 +24,7 @@ To follow along with this guide, you will need:
 - `kubectl` configured to access the cluster.
 - `shoot-cert-service` enabled on the shoot cluster, to manage TLS certificates for the OpenTelemetry Collectors and backends.
 
-## A component overview of the sample OpenTelemetry stack
+## Component Overview of the Sample OpenTelemetry Stack
 
 ![OpenTelemetry Stack](./images/otel-gardener-shoot.png)
 
