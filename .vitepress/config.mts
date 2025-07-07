@@ -1,9 +1,8 @@
 import { defineConfig } from 'vitepress'
 import { fileURLToPath, URL } from 'node:url'
-import {generateSidebar} from 'vitepress-sidebar'
 import blogSidebar from './theme/blog-sidebar.ts'
 import {generateEnhancedDocsSidebar} from "./theme/docs-sidebar.ts";
-import {communitySidebar, staticCommunitySidebar} from "./theme/community-sidebar.ts";
+import { staticCommunitySidebar} from "./theme/community-sidebar.ts";
 import path from 'path'
 
 
