@@ -89,7 +89,7 @@ spec:
 
 Later, we can create `Certificate` resources to securely connect the OpenTelemetry collectors to the backends.
 
-## Setting up the OpenTelemetry Operator
+## Setting Up the OpenTelemetry Operator
 
 To deploy the OpenTelemetry Operator on your Gardener Shoot Cluster, we can use the [project helm chart](https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-operator) with a minimum configuration. The important part is to set the `collector` image to the latest `contrib` distribution image which determines the set of receivers, processors and exporters plugins that will be available in the OpenTelemetry collector instance. There are several [pre-built distributions](https://github.com/open-telemetry/opentelemetry-collector-releases) available such as: `otelcol`, `otelcol-contrib`, `otelcol-k8s`, `otelcol-otlp` and `otelcol-ebpf-profiler`. For the purpose of this guide, we will use the `otelcol-contrib` distribution which includes a wide range of plugins for various backends and data sources.
 
