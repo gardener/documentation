@@ -145,7 +145,7 @@ Here is the complete manifests for deploying a single `victoria-logs` instance w
 - [Victoria-Logs Certificate](./manifests/otel-VictoriaLogs/certificate.yaml)
   That is the serving certificate of the `kube-rbac-proxy` sidecar. The OpenTelemetry collector needs to trust the signing CA hence we use the same `Issuer` we created earlier.
 - [Victoria-Logs chart values](./manifests/otel-victorialogs/values.yaml)
-  The certificate secret shall be mounted in the VictoriaLogs pod as a volume as it is referenced by the `kube-rbac-proxy` sidecar.
+  The certificate secret shall be mounted in the VictoriaLogs pod as a volume, as it is referenced by the `kube-rbac-proxy` sidecar.
 - [Victoria-Logs mTLS Proxy rbac](./manifests/otel-victorialogs/mtls-rbac.yaml)
   There is no fundamental difference compared to how we configured the Prometheus mTLS proxy. The `Role` allows requests to the VictoriaLogs backend to pass the kube-rbac-proxy.
 - [Victoria-Logs mTLS Proxy resource-attributes](./manifests/otel-victorialogs/mtls-ra.yml)
