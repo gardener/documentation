@@ -103,7 +103,7 @@ manager:
 
 Setting up the backends is a straightforward process. We will use plain resource manifests for illustration purposes, outlining the important parts allowing OpenTelemetry collectors to connect securely to the backends using mTLS. An important part is enabling the respective `OTLP` ingestion endpoints on the backends, which will be used by the OpenTelemetry collectors to send telemetry data. In a production environment, the lifecycle of the backends will be probably managed by the respective component's operators
 
-### Setting up Prometheus (metrics backend)
+### Setting Up Prometheus (Metrics Backend)
 
 Here is the complete list of manifests for deploying a single prometheus instance with the `OTLP` ingestion endpoint and a `kube-rbac-proxy` sidecar for mTLS authentication and authorization:
 
