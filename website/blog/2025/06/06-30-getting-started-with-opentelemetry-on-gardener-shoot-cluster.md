@@ -167,7 +167,7 @@ Here is an example of Kubernetes events persited in the `victoria-logs` backend.
 ![otel-victoria-logs](./images/otel-victoria-logs.png)
 
 The collector features few important configurations related to reliability and performance.
-The collected metrics points are are sent in batches to the Prometheus backend using the corresponding OTLP exporter and the memory consumption of the collector is also limited. In general it is always a good practice to set a memory limiter and batch processing in the collector pipeline.
+The collected metrics points are are sent in batches to the Prometheus backend using the corresponding OTLP exporter and the memory consumption of the collector is also limited. In general, it is always a good practice to set a memory limiter and batch processing in the collector pipeline.
 
 ```yaml
 processors:
