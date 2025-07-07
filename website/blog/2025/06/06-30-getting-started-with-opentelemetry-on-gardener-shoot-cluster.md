@@ -124,7 +124,7 @@ Here is the complete list of manifests for deploying a single prometheus instanc
     verbs: ["get", "create"] # GET, POST
   ```
 
-  In this example we allow `GET` and `POST` requests to reach the prometheus upstream service, if the request is authenticated with a valid mTLS certificate and the identified user is allowed to access the Prometheus service by the corresponding `RoleBinding`. `PATCH` and `DELETE` requests are not allowed. The mapping between the http request methods and the Kubernetes RBAC verbs is seen at [kube-rbac-proxy/proxy.go](https://github.com/brancz/kube-rbac-proxy/blob/8d0b850862fc4dac71a0e2cbd8a3c8a1c5fdc61a/pkg/proxy/proxy.go#L47).
+  In this example, we allow `GET` and `POST` requests to reach the prometheus upstream service, if the request is authenticated with a valid mTLS certificate and the identified user is allowed to access the Prometheus service by the corresponding `RoleBinding`. `PATCH` and `DELETE` requests are not allowed. The mapping between the http request methods and the Kubernetes RBAC verbs is seen at [kube-rbac-proxy/proxy.go](https://github.com/brancz/kube-rbac-proxy/blob/8d0b850862fc4dac71a0e2cbd8a3c8a1c5fdc61a/pkg/proxy/proxy.go#L47).
 
   ```yaml
   subjects:
