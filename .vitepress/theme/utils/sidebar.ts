@@ -17,12 +17,6 @@ export interface SidebarBranch {
 
 export type SidebarItem = SidebarLeaf | SidebarBranch;
 
-export interface SidebarSection {
-  base?: string;
-  items: SidebarItem[];
-}
-
-export type Sidebar = Record<string, SidebarSection | SidebarItem[]>;
 
 /**
  * Recursively removes all _index.md entries from the sidebar

@@ -1,10 +1,7 @@
 import { generateSidebar } from 'vitepress-sidebar';
-import { readFileSync } from 'node:fs';
 import { writeJsonDebug } from "./utils/debug-json.ts";
 import {
   type SidebarItem,
-  type SidebarLeaf,
-  type SidebarBranch,
   removeIndexEntries,
   sortByWeight,
   enhanceDirectoryTitles,
