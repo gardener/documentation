@@ -180,7 +180,7 @@ processors:
     send_batch_size: 1000
 ```
 
-Allowing collector to emit its own telemetry data is configured in the service section of the collector configuration.
+Allowing the collector to emit its own telemetry data is configured in the service section of the collector configuration.
 
 ```yaml
 service:
