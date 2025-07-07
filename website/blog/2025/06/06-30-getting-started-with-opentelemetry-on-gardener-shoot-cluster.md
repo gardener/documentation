@@ -34,7 +34,7 @@ Here we use a self managed mTLS architecture with an illustration purpose. In a 
 
 ![otel-mtls](./images/otel-mTLS-kube-rbac-proxy.png)
 
-The `kube-rbac-proxy` extracts the identity of the client (OpenTelemetry collector) from the CommonName (CN) field of the TLS certificate and use it to perform authorization checks against the Kubernetes API server. This enables fine-grained access control policies based on client identity, ensuring that only authorized clients can connect to the backends.
+The `kube-rbac-proxy` extracts the identity of the client (OpenTelemetry collector) from the CommonName (CN) field of the TLS certificate and uses it to perform authorization checks against the Kubernetes API server. This enables fine-grained access control policies based on client identity, ensuring that only authorized clients can connect to the backends.
 
 First, configure setting up the certificate `Issuer` in the Gardener shoot cluster allowing later to issue and manage TLS certificates for the OpenTelemetry collectors and the backends. To allow a custom issuer the shoot cluster shall be configured with the `shoot-cert-service` extension.
 
