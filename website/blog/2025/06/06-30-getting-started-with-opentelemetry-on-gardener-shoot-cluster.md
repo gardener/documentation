@@ -216,7 +216,7 @@ Since the `k8s-events` collector obtains telemetry data from the kube-apiserver,
 
 #### [shoot-metrics](./manifests/otel-collectors/shoot-metrics-otel.yaml) collector
 
-In this example we have a single receiver:
+In this example, we have a single receiver:
 
 - [prometheus receiver](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/prometheusreceiver) scraping metrics from Gardener managed exporters present in the shoot cluster, including the `kubelet` system service metrics. This receiver accepts standard Prometheus scrape configurations using `kubernetes_sd_configs` to discover the targets dynamically. The `kubernetes_sd_configs` allows the receiver to discover Kubernetes resources such as pods, nodes, and services, and scrape their metrics endpoints.
 
