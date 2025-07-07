@@ -57,7 +57,7 @@ spec:
 ```
 
 Once the shoot is reconciled, the `Issuer.cert.gardener.cloud` resources will be available.
-We can use `openssl` to create a selfsigned CA certificate that will be used to sign the TLS certificates for the OpenTelemetry Collector and backends.
+We can use `openssl` to create a self-signed CA certificate that will be used to sign the TLS certificates for the OpenTelemetry Collector and backends.
 
 ```bash
 openssl genrsa -out ./ca.key 4096
