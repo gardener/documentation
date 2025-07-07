@@ -30,7 +30,7 @@ To follow along with this guide, you will need:
 
 ## Setting Up a Gardener Shoot for mTLS Certificate Management
 
-Here we use a self managed mTLS architecture with an illustration purpose. In a production environment, you would typically use a managed certificate authority (CA) or a service mesh to handle mTLS certificates and encryption. However there might be cases where you want to have flexibility in authentication and authorization mechanisms. For example, by leveraging Kubernetes RBAC to determine whether a service is authorized to connect to a backend or not. In our illustration we will use a `kube-rbac-proxy` as a sidecar to the backends, to enforce the mTLS authentication and authorization. The `kube-rbac-proxy` is a reverse proxy that uses Kubernetes RBAC to control access to services, allowing us to define fine-grained access control policies.
+Here we use a self managed mTLS architecture with an illustration purpose. In a production environment, you would typically use a managed certificate authority (CA) or a service mesh to handle mTLS certificates and encryption. However, there might be cases where you want to have flexibility in authentication and authorization mechanisms, for example, by leveraging Kubernetes RBAC to determine whether a service is authorized to connect to a backend or not. In our illustration, we will use a `kube-rbac-proxy` as a sidecar to the backends, to enforce the mTLS authentication and authorization. The `kube-rbac-proxy` is a reverse proxy that uses Kubernetes RBAC to control access to services, allowing us to define fine-grained access control policies.
 
 ![otel-mtls](./images/otel-mTLS-kube-rbac-proxy.png)
 
