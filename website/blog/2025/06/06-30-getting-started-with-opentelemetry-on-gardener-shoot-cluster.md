@@ -1,5 +1,5 @@
 ---
-title: "Getting started with OpenTelemetry on a Gardener shoot cluster"
+title: "Getting Started with OpenTelemetry on a Gardener Shoot Cluster"
 linkTitle: "Getting started with OpenTelemetry on a Gardener shoot cluster"
 newsSubtitle: June 30, 2025
 publishdate: 2025-06-30
