@@ -152,7 +152,7 @@ Here is the complete manifests for deploying a single `victoria-logs` instance w
 
 By now we shall have a working Prometheus and victoria-logs backends, both secured with mTLS and ready to accept telemetry data from the OpenTelemetry collector.
 
-### Setting up the OpenTelemetry collectors
+### Setting Up the OpenTelemetry Collectors
 
 We are going to deploy two OpenTelemetry collectors: `k8s-events` and `shoot-metrics`. Both collectors will emit their own telemetry data in addition to the data collected from the respective receivers.
 
