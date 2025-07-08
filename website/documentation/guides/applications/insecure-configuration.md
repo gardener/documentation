@@ -1,9 +1,12 @@
 ---
 title: Auditing Kubernetes for Secure Setup
-description: "A few insecure configurations in Kubernetes"
+description: Learn about security vulnerabilities in Kubernetes configurations including API server privilege escalation, HTTP redirect exploits, and Grafana metadata access issues with remediation strategies.
 level: advanced
 category: Security
 scope: operator
+tags: [security, audit, api-server, privilege-escalation, http-redirects, grafana, metadata-service, network-policies, penetration-testing]
+page_synonyms: [kubernetes security, security audit, privilege escalation, api server security, network security, security vulnerabilities]
+categories: [security, auditing, advanced]
 ---
 
 ![teaser](./images/teaser.svg)
