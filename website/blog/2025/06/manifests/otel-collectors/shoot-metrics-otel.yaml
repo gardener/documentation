@@ -1,0 +1,479 @@
+apiVersion: opentelemetry.io/v1beta1
+kind: OpenTelemetryCollector
+metadata:
+  name: shoot-metrics
+  namespace: kube-system
+spec:
+  managementState: "managed"
+  mode: statefulset
+  serviceAccount: shoot-metrics
+  resources:
+    requests:
+      memory: 32Mi
+      cpu: 5m
+    limits:
+      memory: 200Mi
+      cpu: 200m
+  env:
+    - name: PROMETHEUS_URL
+      value: "https://prometheus.prometheus.svc:8443"
+  volumes:
+    - name: certs
+      secret:
+        secretName: otel-collector-tls
+  volumeMounts:
+    - name: certs
+      mountPath: /etc/cert
+      readOnly: true
+  observability:
+    metrics:
+      disablePrometheusAnnotations: true
+  config:
+    receivers:
+      prometheus:
+        config:
+          scrape_configs:
+            # shoot monitoring scrape configs
+            - job_name: "shoot-apiserver-proxy"
+              honor_labels: false
+              kubernetes_sd_configs:
+                - role: endpoints
+                  namespaces:
+                    names:
+                      - kube-system
+              relabel_configs:
+                - target_label: job
+                  replacement: apiserver-proxy
+                  action: replace
+                - target_label: type
+                  replacement: shoot
+                  action: replace
+                - source_labels:
+                    - __meta_kubernetes_service_name
+                    - __meta_kubernetes_endpoint_port_name
+                  regex: apiserver-proxy;metrics
+                  action: keep
+                - regex: __meta_kubernetes_service_label_(.+)
+                  action: labelmap
+                  replacement: "k8s_service_label_$${1}"
+              metric_relabel_configs:
+                - source_labels:
+                    - __name__
+                  regex: ^(envoy_cluster_bind_errors|envoy_cluster_lb_healthy_panic|envoy_cluster_update_attempt|envoy_cluster_update_failure|envoy_cluster_upstream_cx_connect_ms_bucket|envoy_cluster_upstream_cx_length_ms_bucket|envoy_cluster_upstream_cx_none_healthy|envoy_cluster_upstream_cx_rx_bytes_total|envoy_cluster_upstream_cx_tx_bytes_total|envoy_listener_downstream_cx_destroy|envoy_listener_downstream_cx_length_ms_bucket|envoy_listener_downstream_cx_overflow|envoy_listener_downstream_cx_total|envoy_tcp_downstream_cx_no_route|envoy_tcp_downstream_cx_rx_bytes_total|envoy_tcp_downstream_cx_total|envoy_tcp_downstream_cx_tx_bytes_total)$
+                  action: keep
+                - source_labels:
+                    - envoy_cluster_name
+                  regex: ^uds_admin$
+                  action: drop
+                - source_labels:
+                    - envoy_listener_address
+                  regex: ^^0.0.0.0_16910$
+                  action: drop
+
+            - job_name: shoot-coredns
+              kubernetes_sd_configs:
+                - role: endpoints
+                  follow_redirects: true
+                  namespaces:
+                    names:
+                      - kube-system
+              relabel_configs:
+                - source_labels:
+                    - job
+                  target_label: __tmp_prometheus_job_name
+                - target_label: job
+                  replacement: coredns
+                  action: replace
+                - target_label: type
+                  replacement: shoot
+                  action: replace
+                - source_labels:
+                    - __meta_kubernetes_service_name
+                    - __meta_kubernetes_endpoint_port_name
+                  regex: kube-dns;metrics
+                  action: keep
+                - regex: __meta_kubernetes_service_label_(.+)
+                  action: labelmap
+                  replacement: "k8s_service_label_$${1}"
+                - source_labels:
+                    - __meta_kubernetes_pod_node_name
+                  target_label: k8s_node_name
+                  action: replace
+              metric_relabel_configs:
+                - source_labels:
+                    - __name__
+                  regex: ^(coredns_build_info|coredns_cache_entries|coredns_cache_hits_total|coredns_cache_misses_total|coredns_dns_request_duration_seconds_count|coredns_dns_request_duration_seconds_bucket|coredns_dns_requests_total|coredns_dns_responses_total|coredns_proxy_request_duration_seconds_count|coredns_kubernetes_dns_programming_duration_seconds_bucket|coredns_kubernetes_dns_programming_duration_seconds_count|coredns_kubernetes_dns_programming_duration_seconds_sum|process_max_fds|process_open_fds)$
+                  action: keep
+
+            - job_name: "shoot-kube-proxy"
+              honor_labels: false
+              kubernetes_sd_configs:
+                - role: endpoints
+                  namespaces:
+                    names:
+                      - kube-system
+              relabel_configs:
+                - source_labels:
+                    - job
+                  target_label: __tmp_prometheus_job_name
+                - target_label: job
+                  replacement: kube-proxy
+                  action: replace
+                - target_label: type
+                  replacement: shoot
+                  action: replace
+                - source_labels:
+                    - __meta_kubernetes_service_name
+                    - __meta_kubernetes_endpoint_port_name
+                  regex: kube-proxy;metrics
+                  action: keep
+                - regex: __meta_kubernetes_service_label_(.+)
+                  action: labelmap
+                  replacement: "k8s_service_label_$${1}"
+                - source_labels:
+                    - __meta_kubernetes_pod_node_name
+                  target_label: k8s_node_name
+                  action: replace
+              metric_relabel_configs:
+                - source_labels:
+                    - __name__
+                  regex: ^(kubeproxy_network_programming_duration_seconds_bucket|kubeproxy_network_programming_duration_seconds_count|kubeproxy_network_programming_duration_seconds_sum|kubeproxy_sync_proxy_rules_duration_seconds_bucket|kubeproxy_sync_proxy_rules_duration_seconds_count|kubeproxy_sync_proxy_rules_duration_seconds_sum)$
+                  action: keep
+
+            - job_name: "shoot-network-problem-detector-agents"
+              honor_labels: false
+              kubernetes_sd_configs:
+                - role: endpoints
+                  namespaces:
+                    names:
+                      - kube-system
+              relabel_configs:
+                - source_labels:
+                    - job
+                  target_label: __tmp_prometheus_job_name
+                - target_label: job
+                  replacement: network-problem-detector-agents
+                  action: replace
+                - source_labels:
+                    - __meta_kubernetes_service_name
+                    - __meta_kubernetes_endpoint_port_name
+                  regex: network-problem-detector-(pod|host);metrics
+                  action: keep
+                - regex: __meta_kubernetes_pod_label_(.+)
+                  action: labelmap
+                  replacement: "k8s_pod_label_$${1}"
+                - source_labels:
+                    - __meta_kubernetes_service_name
+                  target_label: service.name
+                  regex: network-problem-detector-(pod|host)
+                  replacement: $${1}
+                  action: replace
+                - source_labels:
+                    - __meta_kubernetes_pod_node_name
+                  target_label: k8s_node_name
+                  action: replace
+              metric_relabel_configs:
+                - source_labels:
+                    - __name__
+                  regex: nwpd_.+
+                  action: keep
+
+            - job_name: "shoot-node-exporter"
+              honor_labels: false
+              kubernetes_sd_configs:
+                - role: endpoints
+                  namespaces:
+                    names:
+                      - kube-system
+              relabel_configs:
+                - source_labels:
+                    - job
+                  target_label: __tmp_prometheus_job_name
+                - target_label: job
+                  replacement: node-exporter
+                  action: replace
+                - target_label: type
+                  replacement: shoot
+                  action: replace
+                - source_labels:
+                    - __meta_kubernetes_service_name
+                    - __meta_kubernetes_endpoint_port_name
+                  regex: node-exporter;metrics
+                  action: keep
+                - regex: __meta_kubernetes_service_label_(.+)
+                  action: labelmap
+                  replacement: "k8s_service_label_$${1}"
+                - source_labels:
+                    - __meta_kubernetes_pod_node_name
+                  target_label: k8s_node_name
+                  action: replace
+              metric_relabel_configs:
+                - source_labels:
+                    - __name__
+                  regex: ^(node_boot_time_seconds|node_cpu_seconds_total|node_disk_read_bytes_total|node_disk_written_bytes_total|node_disk_io_time_weighted_seconds_total|node_disk_io_time_seconds_total|node_disk_write_time_seconds_total|node_disk_writes_completed_total|node_disk_read_time_seconds_total|node_disk_reads_completed_total|node_filesystem_avail_bytes|node_filesystem_files|node_filesystem_files_free|node_filesystem_free_bytes|node_filesystem_readonly|node_filesystem_size_bytes|node_load1|node_load15|node_load5|node_memory_.+|node_nf_conntrack_.+|node_scrape_collector_duration_seconds|node_scrape_collector_success|process_max_fds|process_open_fds)$
+                  action: keep
+
+            - job_name: "shoot-node-local-dns"
+              honor_labels: false
+              kubernetes_sd_configs:
+                - role: pod
+                  namespaces:
+                    names:
+                      - kube-system
+              relabel_configs:
+                - source_labels:
+                    - job
+                  target_label: __tmp_prometheus_job_name
+                - target_label: job
+                  replacement: node-local-dns
+                  action: replace
+                - target_label: type
+                  replacement: shoot
+                  action: replace
+                - source_labels:
+                    - __meta_kubernetes_pod_name
+                  regex: node-local.*
+                  action: keep
+                - source_labels:
+                    - __meta_kubernetes_pod_container_name
+                    - __meta_kubernetes_pod_container_port_name
+                  regex: node-cache;metrics
+                  action: keep
+                - regex: __meta_kubernetes_service_label_(.+)
+                  action: labelmap
+                  replacement: "k8s_service_label_$${1}"
+                - source_labels:
+                    - __meta_kubernetes_pod_node_name
+                  target_label: k8s_node_name
+                  action: replace
+              metric_relabel_configs:
+                - source_labels:
+                    - __name__
+                  regex: ^(coredns_build_info|coredns_cache_entries|coredns_cache_hits_total|coredns_cache_misses_total|coredns_dns_request_duration_seconds_count|coredns_dns_request_duration_seconds_bucket|coredns_dns_requests_total|coredns_dns_responses_total|coredns_forward_requests_total|coredns_forward_responses_total|coredns_kubernetes_dns_programming_duration_seconds_bucket|coredns_kubernetes_dns_programming_duration_seconds_count|coredns_kubernetes_dns_programming_duration_seconds_sum|process_max_fds|process_open_fds)$
+                  action: keep
+
+            - job_name: "shoot-node-local-dns-errors"
+              honor_labels: false
+              kubernetes_sd_configs:
+                - role: pod
+                  namespaces:
+                    names:
+                      - kube-system
+              relabel_configs:
+                - source_labels:
+                    - job
+                  target_label: __tmp_prometheus_job_name
+                - target_label: job
+                  replacement: node-local-dns-errors
+                  action: replace
+                - target_label: type
+                  replacement: shoot
+                  action: replace
+                - source_labels:
+                    - __meta_kubernetes_pod_name
+                  regex: node-local.*
+                  action: keep
+                - source_labels:
+                    - __meta_kubernetes_pod_container_name
+                    - __meta_kubernetes_pod_container_port_name
+                  regex: node-cache;errormetrics
+                  action: keep
+                - regex: __meta_kubernetes_service_label_(.+)
+                  action: labelmap
+                  replacement: "k8s_service_label_$${1}"
+                - source_labels:
+                    - __meta_kubernetes_pod_node_name
+                  target_label: k8s_node_name
+                  action: replace
+              metric_relabel_configs:
+                - source_labels:
+                    - __name__
+                  regex: ^(coredns_nodecache_setup_errors_total)$
+                  action: keep
+
+            # node kubelet and cadvisor scrape configs
+            - job_name: shoot-kube-kubelet
+              honor_labels: false
+              scheme: https
+              tls_config:
+                insecure_skip_verify: true
+              metrics_path: /metrics
+              bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+              kubernetes_sd_configs:
+                - role: node
+              relabel_configs:
+                - source_labels:
+                    - job
+                  target_label: __tmp_prometheus_job_name
+                - target_label: job
+                  replacement: kube-kubelet
+                  action: replace
+                - target_label: type
+                  replacement: shoot
+                  action: replace
+                - source_labels:
+                    - __meta_kubernetes_node_address_InternalIP
+                  target_label: instance
+                  action: replace
+                - regex: __meta_kubernetes_node_label_(.+)
+                  action: labelmap
+                  replacement: "k8s_node_label_$${1}"
+              metric_relabel_configs:
+                - source_labels:
+                    - __name__
+                  regex: ^(kubelet_running_pods|process_max_fds|process_open_fds|kubelet_volume_stats_available_bytes|kubelet_volume_stats_capacity_bytes|kubelet_volume_stats_used_bytes|kubelet_image_pull_duration_seconds_bucket|kubelet_image_pull_duration_seconds_sum|kubelet_image_pull_duration_seconds_count)$
+                  action: keep
+                - source_labels:
+                    - namespace
+                  regex: (^$|^kube-system$)
+                  action: keep
+
+            - job_name: shoot-cadvisor
+              honor_labels: false
+              scheme: https
+              tls_config:
+                insecure_skip_verify: true
+              metrics_path: /metrics/cadvisor
+              bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+              kubernetes_sd_configs:
+                - role: node
+              relabel_configs:
+                - source_labels: [__meta_kubernetes_node_name]
+                  target_label: instance
+                - source_labels: [__address__]
+                  regex: (.+):10250
+                  action: keep
+                - source_labels:
+                    - job
+                  target_label: __tmp_prometheus_job_name
+                - target_label: job
+                  replacement: cadvisor
+                  action: replace
+                - target_label: type
+                  replacement: shoot
+                  action: replace
+              metric_relabel_configs:
+                # this is the value of cni.projectcalico.org/containerID
+                - source_labels:
+                    - name
+                  target_label: k8s_container_id
+                  action: replace
+                - regex: ^name$
+                  action: labeldrop
+                - source_labels:
+                    - id
+                  target_label: systemd_service_name
+                  regex: ^/system\.slice/(.+)\.service$
+                  action: replace
+                - source_labels:
+                    - id
+                  target_label: container
+                  regex: ^/system\.slice/(.+)\.service$
+                  replacement: $1
+                  action: replace
+                - source_labels:
+                    - __name__
+                  regex: ^(container_cpu_cfs_periods_total|container_cpu_cfs_throttled_seconds_total|container_cpu_cfs_throttled_periods_total|container_cpu_usage_seconds_total|container_fs_inodes_total|container_fs_limit_bytes|container_fs_usage_bytes|container_last_seen|container_memory_working_set_bytes|container_network_receive_bytes_total|container_network_transmit_bytes_total)$
+                  action: keep
+                - source_labels:
+                    - k8s_namespace_name
+                  regex: (^$|^kube-system$)
+                  action: keep
+                - source_labels:
+                    - k8s_container_name
+                    - __name__
+                  regex: POD;(container_cpu_cfs_periods_total|container_cpu_cfs_throttled_seconds_total|container_cpu_cfs_throttled_periods_total|container_cpu_usage_seconds_total|container_fs_inodes_total|container_fs_limit_bytes|container_fs_usage_bytes|container_last_seen|container_memory_working_set_bytes)
+                  action: drop
+                - source_labels:
+                    - __name__
+                    - k8s_container_name
+                    - interface
+                    - id
+                  regex: container_network.+;;(eth0;/.+|(en.+|tunl0|eth0);/)|.+;.+;.*;.*
+                  action: keep
+                - source_labels:
+                    - __name__
+                    - k8s_container_name
+                    - interface
+                  regex: container_network.+;POD;(.{5,}|tun0|en.+)
+                  action: drop
+                - source_labels:
+                    - __name__
+                    - id
+                  target_label: host_network
+                  regex: container_network.+;/
+                  replacement: "true"
+                  action: replace
+                - regex: ^id$
+                  action: labeldrop
+    exporters:
+      otlphttp/metrics:
+        metrics_endpoint: "${env:PROMETHEUS_URL}/api/v1/otlp/v1/metrics"
+        tls:
+          insecure: false # Ensure server certificate is validated against the CA
+          ca_file: /etc/cert/ca.crt
+          cert_file: /etc/cert/tls.crt
+          key_file: /etc/cert/tls.key
+      debug:
+        verbosity: basic
+
+    processors:
+      memory_limiter:
+        check_interval: 1s
+        limit_percentage: 80
+        spike_limit_percentage: 20
+
+      batch:
+        timeout: 5s
+        send_batch_size: 1000
+
+      resource:
+        attributes:
+          - key: collector.name
+            value: shoot-metrics
+            action: upsert
+
+      # Convert Prometheus metrics names to OTel metrics names
+      transform/metrics:
+        error_mode: ignore
+        metric_statements:
+          - context: datapoint
+            statements:
+              - set(attributes["k8s.container.name"], attributes["container"]) where attributes["container"] != nil
+              - delete_key(attributes, "container") where attributes["container"] != nil
+              - set(attributes["k8s.pod.name"], attributes["pod"]) where attributes["pod"] != nil
+              - delete_key(attributes, "pod") where attributes["pod"] != nil
+              - set(attributes["k8s.namespace.name"], attributes["namespace"]) where attributes["namespace"] != nil
+              - delete_key(attributes, "namespace") where attributes["namespace"] != nil
+
+    service:
+      pipelines:
+        metrics:
+          receivers: [prometheus]
+          processors: [memory_limiter, transform/metrics, resource, batch]
+          exporters: [otlphttp/metrics]
+
+      # Configure the collector own telemetry
+      telemetry:
+        # Emit collector logs to stdout
+        logs:
+          level: info
+          encoding: console
+          output_paths: [stdout]
+          error_output_paths: [stderr]
+        # Push collector internal metrics to Prometheus
+        metrics:
+          level: detailed
+          readers:
+            - # push metrics to Prometheus backend
+              periodic:
+                interval: 30000
+                timeout: 10000
+                exporter:
+                  otlp:
+                    protocol: http/protobuf
+                    endpoint: "${env:PROMETHEUS_URL}/api/v1/otlp/v1/metrics"
+                    insecure: false # Ensure server certificate is validated against the CA
+                    certificate: /etc/cert/ca.crt
+                    client_certificate: /etc/cert/tls.crt
+                    client_key: /etc/cert/tls.key
