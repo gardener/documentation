@@ -32,7 +32,7 @@ To follow along with this guide, you will need:
 
 Here we use a self managed mTLS architecture with an illustration purpose. In a production environment, you would typically use a managed certificate authority (CA) or a service mesh to handle mTLS certificates and encryption. However, there might be cases where you want to have flexibility in authentication and authorization mechanisms, for example, by leveraging Kubernetes RBAC to determine whether a service is authorized to connect to a backend or not. In our illustration, we will use a `kube-rbac-proxy` as a sidecar to the backends, to enforce the mTLS authentication and authorization. The `kube-rbac-proxy` is a reverse proxy that uses Kubernetes RBAC to control access to services, allowing us to define fine-grained access control policies.
 
-![otel-mtls](./images/otel-mtls-kube-rbac-proxy-1.png)
+![otel-mtls](./images/otel-mtls-kube-rbac-proxy.png)
 
 The `kube-rbac-proxy` extracts the identity of the client (OpenTelemetry collector) from the CommonName (CN) field of the TLS certificate and uses it to perform authorization checks against the Kubernetes API server. This enables fine-grained access control policies based on client identity, ensuring that only authorized clients can connect to the backends.
 
