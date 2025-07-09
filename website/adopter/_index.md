@@ -1,6 +1,7 @@
 ---
 title: Adopters
 url: /adopter
+outline: false
 ---
 
 # See who is using Gardener
