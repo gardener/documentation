@@ -132,7 +132,7 @@ onMounted(() => {
   
   // Get initial value from localStorage
   try {
-    userType.value = localStorage.getItem('lastClickedMenuItem') || ''
+    userType.value = localStorage.getItem('lastClickedMenuItem') || 'all'
   } catch (e) {
     console.error('Failed to read from localStorage:', e)
   }

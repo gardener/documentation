@@ -107,7 +107,7 @@ const findSidebarItemsByPath = (relativePath, sidebarItems) => {
 
 // Extract the logic to update content based on current page and persona
 const updateContent = async (route = page.value.relativePath) => {
-  lastClickedMenuItem.value = localStorage.getItem('lastClickedMenuItem')
+  lastClickedMenuItem.value = localStorage.getItem('lastClickedMenuItem') || 'all'
   const isEmpty = checkIfEmpty()
   console.log('route: ', route)
   const prefixDir = route.split('/').shift()
