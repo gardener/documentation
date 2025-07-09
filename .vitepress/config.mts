@@ -10,7 +10,6 @@ import path from 'path'
 export default defineConfig({
   srcDir: 'hugo/content',
   cleanUrls: true,
-  //ToDo fix syntax issues for markdown files on build time
   srcExclude: [
     '**/archived/**',
     // Custom template tag is used, check for alternative
@@ -35,65 +34,42 @@ export default defineConfig({
   ignoreDeadLinks: true, //ToDo enable after migration
   title: "Gardener",
   description: "A Managed Kubernetes Service Done Right",
-  head: [
-    [
-      'link',
-      {rel: 'icon', type: 'image/svg+xml', href: '/documentation/gardener-logo.svg'}
-    ],
-    [
-      'link',
-      {rel: 'icon', type: 'image/png', href: '/gardener-logo.svg'}
-    ],
-    ['meta', {name: 'theme-color', content: '#009f76'}],
-    ['meta', {property: 'og:type', content: 'website'}],
-    ['meta', {property: 'og:site_name', content: 'Gardener'}],
-    [
-      'meta',
-      {
-        property: 'og:image',
-        content: 'https://raw.githubusercontent.com/klocke-io/documentation/refs/heads/master/website/public/og-gardener.png'
-      }
-    ],
-    ['meta', {property: 'og:url', content: 'https://gardener.cloud/'}],
-    //todo add analytics
-    //[
-    //  'script',
-    //  {
-    //    src: 'https://cdn.usefathom.com/script.js',
-    //    'data-site': 'AZBRSFGG',
-    //    'data-spa': 'auto',
-    //    defer: ''
-    //  }
-    //]
-  ],
-
-  themeConfig: {
-    logo: {src: '/gardener-logo.svg', width: 24, height: 24},
-    nav: nav(),
-    sidebar: {
-      '/blog/': blogSidebar()['/blog/'],
-      //@ts-ignore
-      '/community/': staticCommunitySidebar()['/community/'],
-      //@ts-ignore
-      '/docs/': generateEnhancedDocsSidebar()['/docs/'],
+  head: getHeadConfig() as any,
+  themeConfig: getThemeConfig() as any,
+  vite: getViteConfig(),
+}
+)
+function getNavConfig () {
+  return [
+    {
+      text: 'Demo',
+      link: 'https://demo.gardener.cloud/',
     },
-    editLink: {
-      pattern: ({filePath, frontmatter }) => {
-        const fileName = `${frontmatter?.path_base_for_github_subdir?.to ?? filePath.split("/").pop()}`
-        const githubLink = `${frontmatter['github_repo']}/tree/master/${frontmatter['github_subdir']}/${fileName}`
-        return githubLink
-      },
-      text: 'Edit this page on GitHub'
+    {
+      text: 'Adopters',
+      link: '/adopter/_index.md',
     },
-    socialLinks: [
-      {icon: 'github', link: 'https://github.com/gardener'},
-      {
-        icon: 'slack',
-        link: 'https://join.slack.com/t/gardener-cloud/shared_invite/zt-33c9daems-3oOorhnqOSnldZPWqGmIBw'
-      },
-      {icon: 'youtube', link: 'https://www.youtube.com/@GardenerProject'}
-    ],
-    search: {
+    {
+      text: 'Documentation',
+      items: [
+        {text: 'User', link: '/docs/index.md',},
+        {text: 'Operator', link: '/docs/index.md',},
+        {text: 'Developer', link: '/docs/index.md',},
+        {text: 'All', link: '/docs/index.md',},
+      ]
+    },
+    {
+      text: 'Blogs',
+      link: '/blog/overview.md',
+    },
+    {
+      text: 'Community',
+      link: '/community/_index.md',
+    },
+  ]
+}
+function getSearchConfig() {
+  return {
       provider: 'local',
       detailedView: true,
       options: {
@@ -154,9 +130,57 @@ export default defineConfig({
           }
         }
       }
+    }
+}
+
+function getThemeConfig() {
+  return {
+    logo: {src: '/gardener-logo.svg', width: 24, height: 24},
+    nav: getNavConfig(),
+    sidebar: {
+      '/blog/': blogSidebar()['/blog/'],
+      //@ts-ignore
+      '/community/': staticCommunitySidebar()['/community/'],
+      //@ts-ignore
+      '/docs/':  { //generateEnhancedDocsSidebar()['/docs/'],
+        "base": "/docs/",
+        "text": "Docs",
+        "items": [
+        {
+          "text": "Gardener",
+          "link": "gardener/index.md",
+          "items": [
+            {
+              "text": "Concepts",
+              "link": "gardener/concepts/index.md",
+            }
+          ]
+        }
+        ],
+       },        
+    editLink: {
+      pattern: ({filePath, frontmatter }) => {
+        const fileName = `${frontmatter?.path_base_for_github_subdir?.to ?? filePath.split("/").pop()}`
+        const githubLink = `${frontmatter['github_repo']}/tree/master/${frontmatter['github_subdir']}/${fileName}`
+        return githubLink
+      },
+      text: 'Edit this page on GitHub'
     },
-  },
-  vite: {
+    socialLinks: [
+      {icon: 'github', link: 'https://github.com/gardener'},
+      {
+        icon: 'slack',
+        link: 'https://join.slack.com/t/gardener-cloud/shared_invite/zt-33c9daems-3oOorhnqOSnldZPWqGmIBw'
+      },
+      {icon: 'youtube', link: 'https://www.youtube.com/@GardenerProject'}
+    ],
+    search: getSearchConfig(),
+    }
+  }
+}
+
+function getViteConfig() {
+  return {
     resolve: {
       alias: [
         {
@@ -205,69 +229,39 @@ export default defineConfig({
         },
       ]
     }
-  },
+  }
 }
-)
 
-////https://vitepress-sidebar.cdget.com
-//export default defineConfig(withSidebar(vitePressOptions, [
-//  {
-//    documentRootPath: '/content',
-//    scanStartPath: 'blog',
-//    resolvePath: '/blog/',
-//    collapsed: false,
-//    capitalizeFirst: true,
-//    sortMenusByFrontmatterDate: true,
-//    sortMenusOrderByDescending: true,
-//    collapsed: true
-//    // useTitleFromFrontmatter: true,
-//  },
-//  {
-//    documentRootPath: '/content',
-//    scanStartPath: 'community',
-//    resolvePath: '/community/',
-//    collapsed: false,
-//    capitalizeFirst: true,
-//    useTitleFromFrontmatter: true,
-//    useFolderTitleFromIndexFile: true,
-//  },
-//  {
-//    documentRootPath: '/content',
-//    scanStartPath: 'docs',
-//    resolvePath: '/docs/',
-//    collapsed: true,
-//    capitalizeFirst: true,
-//    useTitleFromFrontmatter: true,
-//  },
-//]))
-
-
-function nav () {
+function getHeadConfig(){
   return [
-    {
-      text: 'Demo',
-      link: 'https://demo.gardener.cloud/',
-    },
-    {
-      text: 'Adopters',
-      link: '/adopter/_index.md',
-    },
-    {
-      text: 'Documentation',
-      items: [
-        {text: 'User', link: '/docs/index.md',},
-        {text: 'Operator', link: '/docs/index.md',},
-        {text: 'Developer', link: '/docs/index.md',},
-        {text: 'All', link: '/docs/index.md',},
-      ]
-    },
-    {
-      text: 'Blogs',
-      link: '/blog/overview.md',
-    },
-    {
-      text: 'Community',
-      link: '/community/_index.md',
-    },
+    [
+      'link',
+      {rel: 'icon', type: 'image/svg+xml', href: '/documentation/gardener-logo.svg'}
+    ],
+    [
+      'link',
+      {rel: 'icon', type: 'image/png', href: '/gardener-logo.svg'}
+    ],
+    ['meta', {name: 'theme-color', content: '#009f76'}],
+    ['meta', {property: 'og:type', content: 'website'}],
+    ['meta', {property: 'og:site_name', content: 'Gardener'}],
+    [
+      'meta',
+      {
+        property: 'og:image',
+        content: 'https://raw.githubusercontent.com/klocke-io/documentation/refs/heads/master/website/public/og-gardener.png'
+      }
+    ],
+    ['meta', {property: 'og:url', content: 'https://gardener.cloud/'}],
+    //todo add analytics
+    //[
+    //  'script',
+    //  {
+    //    src: 'https://cdn.usefathom.com/script.js',
+    //    'data-site': 'AZBRSFGG',
+    //    'data-spa': 'auto',
+    //    defer: ''
+    //  }
+    //]
   ]
 }

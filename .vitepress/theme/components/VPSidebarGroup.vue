@@ -40,7 +40,7 @@ const props = defineProps<{
 const disableTransition = ref(true)
 
 // Sidebar data for different user types
-type UserType = 'developer' | 'user' | 'operator';
+type UserType = 'developer' | 'user' | 'operator' | 'all';
 type SidebarDataType = {
   [key in UserType]?: DefaultTheme.SidebarItem[]
 };
@@ -48,7 +48,8 @@ type SidebarDataType = {
 const sidebarData: SidebarDataType = {
   developer: sidebars.developersSidebar,
   user: sidebars.usersSidebar,
-  operator: sidebars.operatorsSidebar
+  operator: sidebars.operatorsSidebar,
+  all: sidebars.all
 }
 
 //TODo dirty fix for persona filtered sidebar, on community sidebar this works out of the box,
@@ -75,10 +76,13 @@ const processItems = (items: DefaultTheme.SidebarItem[]): DefaultTheme.SidebarIt
 const userType = ref<string>('')
 const displayedItems = computed(() => {
   // Check for recognized userType that should override default sidebar
-  if (userType.value && (userType.value === 'developer' || userType.value === 'user' || userType.value === 'operator')) {
+  if (userType.value && (userType.value === 'developer' || userType.value === 'user' || userType.value === 'operator' || userType.value === 'all')) {
     const sidebarForUserType = sidebarData[userType.value as UserType]
-    const docsSection = sidebarForUserType?.['/docs/']
+    const docsSection = sidebarForUserType
+    console.log('userType.value:', userType.value)
+    console.log('docsSection: ',docsSection)
     const personaItems = docsSection?.items
+    console.log('personaItems', personaItems)
 
     if (personaItems) {
       // Process the persona items to ensure all links start with '/docs'
@@ -154,9 +158,9 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="sidebar-container">
-    <div v-if="!!userType" class="group">
+    <div v-if="userType && (userType === 'developer' || userType === 'user' || userType === 'operator')" class="group">
       <!-- User Type Indicator when custom sidebar is used -->
-      <div v-if="userType && (userType === 'developer' || userType === 'user' || userType === 'operator')" class="user-type-indicator">
+      <div class="user-type-indicator">
         <span>Persona: {{ userType }}</span>
         <button type="button" class="clear-button" @click="clearUserType" title="Reset to default view">
           &times;

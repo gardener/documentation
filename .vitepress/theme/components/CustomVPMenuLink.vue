@@ -16,6 +16,8 @@ const determineUserType = (text: string): string => {
     return 'user'
   } else if (lowerText.includes('operator')) {
     return 'operator'
+  } else if (lowerText.includes('all')) {
+    return 'all'
   }
   
   return ''

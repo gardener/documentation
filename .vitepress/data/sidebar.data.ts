@@ -1,13 +1,14 @@
 
-import { personaSidebar } from '../theme/docs-sidebar.ts'
+import { personaSidebar, generateEnhancedDocsSidebar } from '../theme/docs-sidebar.ts'
 
 //https://vitepress.dev/guide/data-loading#build-time-data-loading
 export default{
     load() {
         return {
-            usersSidebar: personaSidebar('Users'),
-            developersSidebar: personaSidebar('Developers'),
-            operatorsSidebar: personaSidebar('Operators')
+            usersSidebar: personaSidebar('Users')['/docs/'],
+            developersSidebar: personaSidebar('Developers')['/docs/'],
+            operatorsSidebar: personaSidebar('Operators')['/docs/'],
+            all : generateEnhancedDocsSidebar()['/docs/']
         }
     }
 }
