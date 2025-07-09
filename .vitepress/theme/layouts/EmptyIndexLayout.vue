@@ -36,7 +36,8 @@ router.onBeforePageLoad = (to, from) => {
 const sidebarData = {
   developer: sidebars.developersSidebar,
   user: sidebars.usersSidebar,
-  operator: sidebars.operatorsSidebar
+  operator: sidebars.operatorsSidebar,
+  all: sidebars.all
 }
 
 const { Layout } = DefaultTheme
@@ -116,27 +117,15 @@ const updateContent = async (route = page.value.relativePath) => {
     if(route === 'docs/_index.md') {
       // Special case for root docs page
       isEmptyIndexPage.value = true
-      currentDirItems.value = sidebarData[lastClickedMenuItem.value]?.[prefix]?.items
+      currentDirItems.value = sidebarData[lastClickedMenuItem.value]?.items
       return
     }
   if (isEmpty) {
-      const personaSidebar = sidebarData[lastClickedMenuItem.value][prefix]
+      const personaSidebar = sidebarData[lastClickedMenuItem.value]
       currentDirItems.value = findSidebarItemsByPath(route, personaSidebar.items)
       console.log('should have been updated !!!')
       return
     }
-  }
-//Handle non persona pages
-  if (isEmpty) {
-    if(route === 'docs/_index.md') {
-      // Special case for root docs page
-      isEmptyIndexPage.value = true
-      currentDirItems.value = sidebarData[prefix]?.items
-      return
-    }
-    const sidebar = theme.value.sidebar
-    currentDirItems.value = findSidebarItemsByPath(route, sidebar[`${prefix}`]?.items)
-    return
   }
   currentDirItems.value = []
 }
