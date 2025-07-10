@@ -44,23 +44,47 @@ features:
 ---
 
 <script setup>
-import { VPTeamMembers } from 'vitepress/theme' 
-
-import {withBase} from "vitepress"; 
+import ThemedTeamMembers from '@components/ThemedTeamMembers.vue'
 
 const members = [
-  { avatar: `${withBase('/lp/platforms/aws.svg')}`, name: 'Amazon Web Services', },
-  { avatar: `${withBase('/lp/platforms/microsoft-azure.svg')}`, name: 'Microsoft Azure', },
-  { avatar: `${withBase('/lp/platforms/google-cloud-platform.svg')}`, name: 'Google Cloud Platform', },
-  { avatar: `${withBase('/lp/platforms/metalstack.svg')}`, name: 'Metal-Stack', },
-  { avatar: `${withBase('/lp/platforms/openstack.svg')}`, name: 'OpenStack', },
-  { avatar: `${withBase('/lp/platforms/equinix-metal.svg')}`, name: 'Equinix Metal', },
-  { avatar: `${withBase('/lp/platforms/sap.svg')}`, name: 'SAP Data Center', },
-  { avatar: `${withBase('/lp/platforms/iron_core.svg')}`, name: 'Iron Core', },
+  { 
+    name: 'Alicloud',
+    logo: '/lp/platforms/alibaba-cloud.svg'
+  },
+  { 
+    name: 'Amazon Web Services',
+    logo: '/lp/platforms/aws-color.svg'
+    darkLogo: '/lp/platforms/aws-color.svg'
+  },
+  { 
+    name: 'Microsoft Azure',
+    logo: '/lp/platforms/microsoft-azure.svg'
+  },
+  { 
+    name: 'Google Cloud Platform',
+    logo: '/lp/platforms/google-cloud-platform.svg',
+    darkLogo: '/lp/platforms/google-cloud-platform-bw.svg'
+  },
+  { 
+    name: 'Metal-Stack',
+    logo: '/lp/platforms/metalstack.svg'
+  },
+  { 
+    name: 'OpenStack',
+    logo: '/lp/platforms/openstack.svg'
+  },
+  { 
+    name: 'SAP Data Center',
+    logo: '/lp/platforms/sap.svg'
+  },
+  { 
+    name: 'Iron Core',
+    logo: '/lp/platforms/iron_core.svg'
+  },
 ]
 </script>
 
 ## Everywhere You Want It
 **The compute resources you need, wherever you want them**
 
-<VPTeamMembers size="small" :members />
+<ThemedTeamMembers size="small" :members />
