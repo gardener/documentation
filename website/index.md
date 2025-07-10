@@ -53,7 +53,7 @@ const members = [
   },
   { 
     name: 'Amazon Web Services',
-    logo: '/lp/platforms/aws-color.svg'
+    logo: '/lp/platforms/aws-color.svg',
     darkLogo: '/lp/platforms/aws-color.svg'
   },
   { 
