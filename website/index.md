@@ -53,8 +53,8 @@ const members = [
   },
   { 
     name: 'Amazon Web Services',
-    logo: '/lp/platforms/aws-color.svg',
-    darkLogo: '/lp/platforms/aws-color.svg'
+    logo: '/lp/platforms/aws.svg',
+    darkLogo: '/lp/platforms/aws-dark.svg'
   },
   { 
     name: 'Microsoft Azure',
@@ -63,7 +63,6 @@ const members = [
   { 
     name: 'Google Cloud Platform',
     logo: '/lp/platforms/google-cloud-platform.svg',
-    darkLogo: '/lp/platforms/google-cloud-platform-bw.svg'
   },
   { 
     name: 'Metal-Stack',
