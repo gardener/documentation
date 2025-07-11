@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 import { fileURLToPath, URL } from 'node:url'
 import blogSidebar from './theme/blog-sidebar.ts'
 import {generateEnhancedDocsSidebar} from "./theme/docs-sidebar.ts";
-import { staticCommunitySidebar} from "./theme/community-sidebar.ts";
+import {communitySidebar, staticCommunitySidebar} from "./theme/community-sidebar.ts";
 import path from 'path'
 
 
@@ -14,21 +14,7 @@ export default defineConfig({
     '**/archived/**',
     // Custom template tag is used, check for alternative
     '**/community-bio.md', //Ignore for now
-    // Generated api reference which uses <> so indicate consumer input, CAPS could be used instead or escape via code block ``,
-    //'**/api-reference/extensions.md',
-    //'**/api-reference/operator.md',
-    //'**/api-reference/seedmanagement.md',
-    //'**/api-reference/core-v1.md',
-    //'**/api-reference/core.md',
-    //'**/etcd-druid/api-reference.md',
-    //'**/machine-controller-manager/documents/apis.md',
-    // Missing end tag <> used in normal text not in code block
-    '**/other-components/network-problem-detector/**',
-    // Custom template tag is used instead of normal markdown alert or github alert 
-    // https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts
-    //'**/tutorials/tutorial-custom-domain-with-istio.md',
-    //'**/security-and-compliance/report.md',
-      '**/html/**'
+    '**/html/**'
   ],
   lastUpdated: true,
   ignoreDeadLinks: true, //ToDo enable after migration
