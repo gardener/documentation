@@ -431,3 +431,46 @@ export function filterSidebarByLeafMap(
   
   return { filtered: filteredSidebar, deleted: deletedItems };
 }
+
+/**
+ * Recursively removes all items fields from the sidebar object that are empty arrays
+ */
+export function removeEmptyItems(sidebar: any): any {
+  if (Array.isArray(sidebar)) {
+    return sidebar
+      .map(item => removeEmptyItems(item))
+      .filter(item => item !== null && item !== undefined);
+  }
+
+  if (sidebar && typeof sidebar === 'object') {
+    // Create a copy of the object
+    const cleaned = { ...sidebar };
+    
+    // If this object has items, process them
+    if (cleaned.items && Array.isArray(cleaned.items)) {
+      if (cleaned.items.length === 0) {
+        // Remove empty items array
+        delete cleaned.items;
+      } else {
+        // Recursively process items
+        cleaned.items = removeEmptyItems(cleaned.items);
+        
+        // If after processing, items becomes empty, remove it
+        if (cleaned.items.length === 0) {
+          delete cleaned.items;
+        }
+      }
+    }
+    
+    // Process other properties recursively
+    for (const [key, value] of Object.entries(cleaned)) {
+      if (key !== 'items' && typeof value === 'object' && value !== null) {
+        cleaned[key] = removeEmptyItems(value);
+      }
+    }
+    
+    return cleaned;
+  }
+
+  return sidebar;
+}
