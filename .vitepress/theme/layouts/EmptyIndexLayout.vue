@@ -1,11 +1,9 @@
 <template>
   <Layout>
-    <template #doc-before>
+    <template #doc-after>
       <div v-if="isEmptyIndexPage" class="vp-doc">
         <!-- Directory taxonomy display -->
         <div class="directory-index">
-          <h1>{{ frontmatter.title || 'Directory Contents' }}</h1>
-          
           <ul v-if="currentDirItems.length > 0">
             <li v-for="item in currentDirItems" :key="getConsistentLink(item.link)">
               <a @click="taxonomyItemClicked(getConsistentLink(item.link))" :href="getConsistentLink(item.link)">{{ item.text }}</a>

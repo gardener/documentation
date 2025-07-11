@@ -31,6 +31,10 @@ async function main() {
             await fixNetworkProblemDetectorDoc();
         }
 
+        if (process.argv.includes('--add-nav-props') || process.argv.includes('-n')) {
+            await addNavigationPropsToFrontmatter('./hugo/content/docs');
+        }
+
         if (!process.argv.includes('--rename-images') &&
             !process.argv.includes('-r') &&
             !process.argv.includes('--add-h1-title') &&
@@ -38,13 +42,16 @@ async function main() {
             !process.argv.includes('--youtube') &&
             !process.argv.includes('-y') &&
             !process.argv.includes('--fix-titles') &&
-            !process.argv.includes('-t')) {
+            !process.argv.includes('-t') &&
+            !process.argv.includes('--add-nav-props') &&
+            !process.argv.includes('-n')) {
             // If no specific action is specified, show usage
             console.log('Available commands:');
             console.log('--rename-images, -r      : Rename image files to lowercase');
             console.log('--add-h1-title, -m       : Add H1 headings to markdown files');
             console.log('--youtube, -y            : Replace YouTube shortcodes with VitePress components');
             console.log('--fix-titles, -t         : Wrap frontmatter titles in quotes');
+            console.log('--add-nav-props, -n      : Add prev: false and next: false to frontmatter');
             console.log(`\nExample: node post-processing.js --add-h1-title --youtube --fix-titles`);
         }
     } catch (err) {
@@ -74,10 +81,6 @@ async function addH1ToMarkdownFiles(basePath){
                         const nestedFiles = await findMarkdownFiles(fullPath);
                         foundFiles = foundFiles.concat(nestedFiles);
                     } else if (stats.isFile() && file.endsWith('.md')) {
-                        // Skip index.md and _index.md files, except _index.md files in community directory
-                        if (file === 'index.md' || (file === '_index.md' && !fullPath.includes('/community/'))) {
-                            continue;
-                        }
                         foundFiles.push(fullPath);
                     }
                 } catch (err) {
@@ -589,5 +592,136 @@ async function fixNetworkProblemDetectorDoc() {
             modified: false,
             reason: err.message
         };
+    }
+}
+
+async function addNavigationPropsToFrontmatter(basePath) {
+    async function findMarkdownFiles(directory) {
+        let foundFiles = [];
+
+        try {
+            const files = await fs.readdir(directory);
+
+            for (const file of files) {
+                const fullPath = path.join(directory, file);
+
+                try {
+                    const stats = await fs.stat(fullPath);
+
+                    if (stats.isDirectory()) {
+                        // Skip ignored directories
+                        if (IGNORE_DIRS.includes(file)) {
+                            continue;
+                        }
+                        // Recursively search subdirectories
+                        const nestedFiles = await findMarkdownFiles(fullPath);
+                        foundFiles = foundFiles.concat(nestedFiles);
+                    } else if (stats.isFile() && file.endsWith('.md')) {
+                        foundFiles.push(fullPath);
+                    }
+                } catch (err) {
+                    console.error(`Error accessing ${fullPath}: ${err.message}`);
+                }
+            }
+        } catch (err) {
+            console.error(`Error reading directory ${directory}: ${err.message}`);
+        }
+
+        return foundFiles;
+    }
+
+    async function processMarkdownFile(filePath) {
+        try {
+            const content = await fs.readFile(filePath, 'utf-8');
+
+            // Check if file has frontmatter
+            if (!content.startsWith('---')) {
+                return {
+                    file: filePath,
+                    modified: false,
+                    reason: 'No frontmatter found'
+                };
+            }
+
+            // Find the end of frontmatter
+            const frontmatterEndIndex = content.indexOf('---', 3);
+            if (frontmatterEndIndex === -1) {
+                return {
+                    file: filePath,
+                    modified: false,
+                    reason: 'Invalid frontmatter format'
+                };
+            }
+
+            const frontmatter = content.substring(0, frontmatterEndIndex);
+            const frontmatterEnd = content.substring(frontmatterEndIndex, frontmatterEndIndex + 3);
+            const contentAfterFrontmatter = content.substring(frontmatterEndIndex + 3);
+
+            // Check if prev and next properties already exist
+            const hasPrev = frontmatter.includes('prev:');
+            const hasNext = frontmatter.includes('next:');
+
+            if (hasPrev && hasNext) {
+                return {
+                    file: filePath,
+                    modified: false,
+                    reason: 'Navigation properties already exist'
+                };
+            }
+
+            // Add the navigation properties to the frontmatter
+            let newFrontmatter = frontmatter;
+            
+            if (!hasPrev) {
+                newFrontmatter += '\nprev: false';
+            }
+            
+            if (!hasNext) {
+                newFrontmatter += '\nnext: false';
+            }
+
+            // Reconstruct the content with updated frontmatter
+            const newContent = newFrontmatter + '\n' + frontmatterEnd + contentAfterFrontmatter;
+
+            await fs.writeFile(filePath, newContent, 'utf-8');
+
+            return {
+                file: filePath,
+                modified: true,
+                addedPrev: !hasPrev,
+                addedNext: !hasNext
+            };
+        } catch (err) {
+            console.error(`Error processing ${filePath}: ${err.message}`);
+            return {
+                file: filePath,
+                modified: false,
+                reason: err.message
+            };
+        }
+    }
+
+    console.log(`Searching for markdown files in: ${basePath}`);
+    const markdownFiles = await findMarkdownFiles(basePath);
+    console.log(`\nFound ${markdownFiles.length} markdown files`);
+
+    if (markdownFiles.length > 0) {
+        console.log('\nProcessing markdown files to add navigation properties...');
+        const results = [];
+
+        for (const file of markdownFiles) {
+            const result = await processMarkdownFile(file);
+            results.push(result);
+
+            if (result.modified) {
+                const addedProps = [];
+                if (result.addedPrev) addedProps.push('prev: false');
+                if (result.addedNext) addedProps.push('next: false');
+                console.log(`- Added ${addedProps.join(', ')} to: ${path.basename(file)}`);
+            }
+        }
+
+        const modifiedCount = results.filter(r => r.modified).length;
+        console.log(`\nSummary: Added navigation properties to ${modifiedCount} of ${markdownFiles.length} files.`);
     }
 }
