@@ -4,8 +4,6 @@ import blogSidebar from './theme/blog-sidebar.ts'
 import {communitySidebar} from "./theme/community-sidebar.ts";
 import path from 'path'
 
-
-
 export default defineConfig({
   srcDir: 'hugo/content',
   cleanUrls: true,
@@ -22,6 +20,13 @@ export default defineConfig({
   head: getHeadConfig() as any,
   themeConfig: getThemeConfig() as any,
   vite: getViteConfig(),
+  markdown: {
+    languages: ['go'],
+    languageAlias: {
+      golang: 'go',
+      code: 'shell',
+    },
+  }
 }
 )
 function getNavConfig () {
