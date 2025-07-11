@@ -1,10 +1,10 @@
 <template>
   <Layout>
-    <template #doc-after>
+    <template #doc-footer-before>
       <div class="blog-meta" v-if="frontmatter.authors || frontmatter.publishdate">
         <div class="blog-authors" v-if="frontmatter.authors && frontmatter.authors.length > 0">
-          <span class="meta-label">By:</span>
           <span class="authors-list">
+            <span class="meta-label">By:</span>
             <template v-for="(author, index) in frontmatter.authors" :key="index">
               <span class="author">
                 <img 
