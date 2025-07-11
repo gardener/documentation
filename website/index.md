@@ -48,7 +48,7 @@ import ThemedTeamMembers from '@components/ThemedTeamMembers.vue'
 
 const members = [
   { 
-    name: 'Alicloud',
+    name: 'Alibaba Cloud',
     logo: '/lp/platforms/alibaba-cloud.svg'
   },
   { 
