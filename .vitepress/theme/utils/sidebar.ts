@@ -62,14 +62,14 @@ export function removeIndexEntries(sidebar: any): any {
 /**
  * Recursively sorts sidebar entries by weight from frontmatter
  */
-export function sortByWeight(sidebar: any): any {
+export function sortByWeight(sidebar: any, base): any {
   if (Array.isArray(sidebar)) {
     // Sort the array by weight and recursively process items
     return sidebar
-      .map(item => sortByWeight(item))
+      .map(item => sortByWeight(item, base))
       .sort((a, b) => {
-        const weightA = getWeightForItem(a);
-        const weightB = getWeightForItem(b);
+        const weightA = getWeightForItem(a, base);
+        const weightB = getWeightForItem(b, base);
         return weightA - weightB;
       });
   }
@@ -84,28 +84,33 @@ export function sortByWeight(sidebar: any): any {
   // If this object has items, sort them
   if (sorted.items && Array.isArray(sorted.items)) {
     sorted.items = sorted.items
-      .map((item: any) => sortByWeight(item))
-      .sort((a: any, b: any) => {
-        const weightA = getWeightForItem(a);
-        const weightB = getWeightForItem(b);
-        return weightA - weightB;
-      });
+      .map((item: any) => sortByWeight(item, base))
+      .sort(compareItemsByWeight);
   }
   
   // Process other properties recursively
   for (const [key, value] of Object.entries(sorted)) {
     if (key !== 'items' && typeof value === 'object') {
-      sorted[key] = sortByWeight(value);
+      sorted[key] = sortByWeight(value, base);
     }
+  }
+
+
+  function compareItemsByWeight(a: any, b: any): number
+  {
+    const weightA = getWeightForItem(a, base);
+    const weightB = getWeightForItem(b, base);
+    return weightA - weightB;
   }
   
   return sorted;
 }
 
+
 /**
  * Gets the weight for a sidebar item from its frontmatter
  */
-export function getWeightForItem(item: any): number {
+export function getWeightForItem(item: any, base): number {
   if (!item || typeof item !== 'object') {
     return Number.MAX_SAFE_INTEGER; // Put invalid items at the end
   }
@@ -117,7 +122,7 @@ export function getWeightForItem(item: any): number {
     );
     
     if (indexItem) {
-      const weight = getWeightFromFile(indexItem.link, item.base);
+      const weight = getWeightFromFile(indexItem.link, base);
       if (weight !== null) {
         return weight;
       }
@@ -126,7 +131,7 @@ export function getWeightForItem(item: any): number {
   
   // If it's a leaf item with a link, get weight from that file
   if (item.link && typeof item.link === 'string') {
-    const weight = getWeightFromFile(item.link, item.base);
+    const weight = getWeightFromFile(item.link, base);
     if (weight !== null) {
       return weight;
     }
@@ -146,14 +151,14 @@ export function getWeightFromFile(link: string, base?: string): number | null {
     
     if (link === '_index') {
       // For root _index files
-      filePath = join(process.cwd(), 'hugo', 'content', base ? base.replace(/^\/|\/$/g, '') : '', '_index.md');
+      filePath = join(process.cwd(), 'hugo', 'content', base, '_index.md');
     } else if (link.endsWith('/_index')) {
       // For nested _index files
       const relativePath = link.replace('/_index', '');
-      filePath = join(process.cwd(), 'hugo', 'content', 'docs', relativePath, '_index.md');
+      filePath = join(process.cwd(), 'hugo', 'content', base, relativePath, '_index.md');
     } else {
       // For regular files
-      filePath = join(process.cwd(), 'hugo', 'content', 'docs', `${link}.md`);
+      filePath = join(process.cwd(), 'hugo', 'content', base, `${link}.md`);
     }
     
     // Check if file exists
@@ -186,9 +191,9 @@ export function getWeightFromFile(link: string, base?: string): number | null {
 /**
  * Recursively enhances directory titles by reading from _index.md frontmatter
  */
-export function enhanceDirectoryTitles(sidebar: any): any {
+export function enhanceDirectoryTitles(sidebar: any, base): any {
   if (Array.isArray(sidebar)) {
-    return sidebar.map(item => enhanceDirectoryTitles(item));
+    return sidebar.map(item => enhanceDirectoryTitles(item, base));
   }
   
   if (typeof sidebar !== 'object' || sidebar === null) {
@@ -207,25 +212,25 @@ export function enhanceDirectoryTitles(sidebar: any): any {
     
     if (indexItem) {
       // Try to read the frontmatter and update the title
-      const title = getTitleFromIndexFile(indexItem.link, enhanced.base);
+      const title = getTitleFromIndexFile(indexItem.link, base);
       if (title) {
         enhanced.text = title;
       }
     }
     
     // Recursively process all items
-    enhanced.items = enhanced.items.map((item: any) => enhanceDirectoryTitles(item));
+    enhanced.items = enhanced.items.map((item: any) => enhanceDirectoryTitles(item, base));
   }
   
   // If it's a top-level section with items, process those too
   if (enhanced.base && enhanced.items) {
-    enhanced.items = enhanced.items.map((item: any) => enhanceDirectoryTitles(item));
+    enhanced.items = enhanced.items.map((item: any) => enhanceDirectoryTitles(item, base));
   }
   
   // Process other properties recursively
   for (const [key, value] of Object.entries(enhanced)) {
     if (key !== 'items' && typeof value === 'object') {
-      enhanced[key] = enhanceDirectoryTitles(value);
+      enhanced[key] = enhanceDirectoryTitles(value, base);
     }
   }
   
@@ -242,11 +247,11 @@ export function getTitleFromIndexFile(link: string, base?: string): string | nul
     
     if (link === '_index') {
       // For root _index files
-      filePath = join(process.cwd(), 'hugo', 'content', base ? base.replace(/^\/|\/$/g, '') : '', '_index.md');
+      filePath = join(process.cwd(), 'hugo', 'content', base, '_index.md');
     } else if (link.endsWith('/_index')) {
       // For nested _index files
       const relativePath = link.replace('/_index', '');
-      filePath = join(process.cwd(), 'hugo', 'content', 'docs', relativePath, '_index.md');
+      filePath = join(process.cwd(), 'hugo', 'content', base, relativePath, '_index.md');
     } else {
       return null;
     }

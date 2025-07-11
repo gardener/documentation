@@ -1,45 +1,52 @@
-export function staticCommunitySidebar(): any {
-  return {
-    "/community/": {
-      "base": "/community/",
-      "items": [
-        {
-          "text": "Review Meetings",
-          "link": "review-meetings/index.md",
-          "items": [
-            {
-              "text": "Gardener Review Meetings 2025",
-              "link": "review-meetings/2025-reviews"
-            },
-            {
-              "text": "Gardener Review Meetings 2024",
-              "link": "review-meetings/2024-reviews"
-            },
-            {
-              "text": "Gardener Review Meetings 2023",
-              "link": "review-meetings/2023-reviews"
-            },
-            {
-              "text": "Gardener Review Meetings 2022",
-              "link": "review-meetings/2022-reviews"
-            },
-            {
-              "text": "Gardener Community Meetings 2022",
-              "link": "review-meetings/2022-community"
-            }
-          ],
-          "collapsed": true
-        },
-        {
-          "text": "Product Steering",
-          "link": "product-steering/index.md"
-        },
-        {
-          "text": "Technical Steering",
-          "link": "technical-steering/index.md"
-        }
-      ],
-      "text": "Community"
-    }
-  }
+import { generateSidebar } from 'vitepress-sidebar';
+import { writeJsonDebug } from "./utils/debug-json.ts";
+import {
+  type SidebarItem,
+  removeIndexEntries,
+  sortByWeight,
+  enhanceDirectoryTitles,
+  createLeafMap,
+  extractItems,
+  filterLeafMapByPersona,
+  filterSidebarByLeafMap,
+  removeEmptyItems
+} from './utils/sidebar.ts';
+
+const communitySidbarConfig =  {
+  documentRootPath: '/hugo/content',
+  scanStartPath: 'community',
+  resolvePath: '/community/',
+  collapsed: true,
+  useTitleFromFileHeading: true,
+  useTitleFromFrontmatter: true,
+  useFolderLinkFromIndexFile: true,
+  includeFolderLinksInFolder: true,
+}
+
+export function communitySidebar(): any {
+    // Generate the base sidebar
+    const sidebar = generateSidebar([communitySidbarConfig]);
+
+    // Recursively enhance directory titles from frontmatter
+    const enhancedSidebar = enhanceDirectoryTitles(sidebar, 'community');
+
+    // Sort entries by weight from frontmatter
+    const sortedSidebar = sortByWeight(enhancedSidebar, 'community');
+
+    // Filter out all _index.md entries (called last)
+    const filteredSidebar = removeIndexEntries(sortedSidebar)
+
+    writeJsonDebug(
+        'filteredCommunitySidebar.json',
+        filteredSidebar
+    );
+
+    const cleandSidebar = removeEmptyItems(filteredSidebar)
+
+    writeJsonDebug(
+        'cleandCommunitySidebar.json',
+        cleandSidebar
+    );
+
+    return cleandSidebar;
 }
