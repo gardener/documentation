@@ -28,7 +28,7 @@
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
     "docs:preview": "vitepress preview",
-    "post-processing-part-1": "node post-processing/part-1.js --rename-images --add-h1-title --youtube --fix-titles",
+    "post-processing-part-1": "node post-processing/part-1.js --rename-images --add-h1-title --youtube --fix-titles --fix-network-doc",
     "post-processing-part-2": "node post-processing/part-2.js --migrate-alerts --clean-layouts --flatten-single-dirs --add-navigation-frontmatter",
     "post-processing-index": "chmod +x post-processing/index.sh && ./post-processing/index.sh ./hugo/content",
     "post-processing-part-3": "node post-processing/part-3.js --add-empty-metadata --update-report-link --process-api-html",

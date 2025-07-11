@@ -27,6 +27,10 @@ async function main() {
             await replaceYouTubeShortcodes(BASE_PATH);
         }
 
+        if (process.argv.includes('--fix-network-doc')) {
+            await fixNetworkProblemDetectorDoc();
+        }
+
         if (!process.argv.includes('--rename-images') &&
             !process.argv.includes('-r') &&
             !process.argv.includes('--add-h1-title') &&
@@ -547,5 +551,43 @@ async function fixFrontmatterTitles(basePath) {
 
         const modifiedCount = results.filter(r => r.modified).length;
         console.log(`\nSummary: Fixed titles in ${modifiedCount} of ${markdownFiles.length} files.`);
+    }
+}
+
+async function fixNetworkProblemDetectorDoc() {
+    const filePath = 'hugo/content/docs/other-components/network-problem-detector/_index.md';
+    
+    try {
+        let content = await fs.readFile(filePath, 'utf-8');
+
+        const lineToDelete = `| The job IDs of the default configuration on the host (=node) network are using the naming convention \`<jobtype-shortcut>-n[2<destination>][-(int | ext | ipv6)]\`. |`;
+        const lineToAdd = `The job IDs of the default configuration on the host (=node) network are using the naming convention \`<jobtype-shortcut>-n[2<destination>][-(int | ext | ipv6)]\`.`;
+
+        if (content.includes(lineToDelete)) {
+            // Replace the line with a newline followed by the new line
+            content = content.replace(lineToDelete, `\n${lineToAdd}`);
+            await fs.writeFile(filePath, content, 'utf-8');
+            console.log(`Successfully updated ${filePath}`);
+            console.log(`- Deleted table row and added new line`);
+            return {
+                file: filePath,
+                modified: true,
+                action: 'Replaced table row with plain text line'
+            };
+        } else {
+            console.log(`Line to delete not found in ${filePath}. No changes made.`);
+            return {
+                file: filePath,
+                modified: false,
+                reason: 'Target line not found'
+            };
+        }
+    } catch (err) {
+        console.error(`Error processing ${filePath}: ${err.message}`);
+        return {
+            file: filePath,
+            modified: false,
+            reason: err.message
+        };
     }
 }
