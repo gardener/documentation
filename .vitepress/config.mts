@@ -47,7 +47,8 @@ function getNavConfig () {
     },
     {
       text: 'Adopters',
-      link: '/adopter/_index.md',
+      link: '/adopter',
+      activeMatch: 'adopter',
     },
     {
       text: 'Documentation',
@@ -60,11 +61,13 @@ function getNavConfig () {
     },
     {
       text: 'Blogs',
-      link: '/blog/overview.md',
+      link: '/blog/overview',
+      activeMatch: 'blog',
     },
     {
       text: 'Community',
-      link: '/community/_index.md',
+      link: '/community',
+      activeMatch: 'community',
     },
   ]
 }
