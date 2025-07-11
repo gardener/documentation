@@ -5,11 +5,11 @@ outline: false
 aside: false
 ---
 
+# Blogs
+
 <script setup>
 import BlogIndex from '@components/BlogIndex.vue'
 </script>
-
-# Blogs
 
 ## Overview
 
