@@ -8,7 +8,8 @@ import {
   createLeafMap,
   extractItems,
   filterLeafMapByPersona,
-  filterSidebarByLeafMap
+  filterSidebarByLeafMap,
+  removeEmptyItems
 } from './utils/sidebar.ts';
 
 const docsSidbarConfig =  {
@@ -19,7 +20,6 @@ const docsSidbarConfig =  {
   useTitleFromFileHeading: true,
   useTitleFromFrontmatter: true,
   useFolderLinkFromIndexFile: true,
-  includeRootIndexFile: true,
   includeFolderLinksInFolder: true,
 }
 
@@ -42,14 +42,21 @@ export function generateEnhancedDocsSidebar(): any {
   const sortedSidebar = sortByWeight(enhancedSidebar);
 
   // Filter out all _index.md entries (called last)
-  const filteredSidebar = removeIndexEntries(sortedSidebar);
+  const filteredSidebar = removeIndexEntries(sortedSidebar)
 
   writeJsonDebug(
-    'enhancedSidebar.json',
+    'filteredSidebar.json',
     filteredSidebar
   );
 
-  return filteredSidebar;
+  const cleandSidebar = removeEmptyItems(filteredSidebar)
+
+  writeJsonDebug(
+    'cleandSidebar.json',
+    cleandSidebar
+  );
+
+  return cleandSidebar;
 }
 
 export function personaSidebar(persona: 'Users' | 'Developers' | 'Operators') {
