@@ -1,5 +1,5 @@
 ---
-title: Blogs
+title: "Blogs"
 editLink: false
 outline: false
 aside: false
