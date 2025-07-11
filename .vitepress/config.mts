@@ -51,13 +51,18 @@ function getNavConfig () {
       activeMatch: 'adopter',
     },
     {
-      text: 'Documentation',
-      items: [
-        {text: 'User', link: '/docs/index.md',},
-        {text: 'Operator', link: '/docs/index.md',},
-        {text: 'Developer', link: '/docs/index.md',},
-        {text: 'All', link: '/docs/index.md',},
-      ]
+      component: 'VPNavbarMenuGroupWrapper',
+      props: {
+        text: 'Documentation',
+        link: '/docs/',
+        activeMatch: 'docs',
+        items: [
+          {text: 'User', link: '/docs/index.md',},
+          {text: 'Operator', link: '/docs/index.md',},
+          {text: 'Developer', link: '/docs/index.md',},
+          {text: 'All', link: '/docs/index.md',},
+        ],
+      },
     },
     {
       text: 'Blogs',
