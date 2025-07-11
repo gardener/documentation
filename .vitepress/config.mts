@@ -1,8 +1,7 @@
 import { defineConfig } from 'vitepress'
 import { fileURLToPath, URL } from 'node:url'
 import blogSidebar from './theme/blog-sidebar.ts'
-import {generateEnhancedDocsSidebar} from "./theme/docs-sidebar.ts";
-import {communitySidebar, staticCommunitySidebar} from "./theme/community-sidebar.ts";
+import {communitySidebar} from "./theme/community-sidebar.ts";
 import path from 'path'
 
 
@@ -134,7 +133,7 @@ function getThemeConfig() {
     sidebar: {
       '/blog/': blogSidebar()['/blog/'],
       //@ts-ignore
-      '/community/': staticCommunitySidebar()['/community/'],
+      '/community/': communitySidebar()['/community/'],
       //@ts-ignore
       '/docs/': { //generateEnhancedDocsSidebar()['/docs/'],
         "base": "/docs/",

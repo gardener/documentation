@@ -36,10 +36,10 @@ export function generateEnhancedDocsSidebar(): any {
   const sidebar = generateDocsSidebar();
   
   // Recursively enhance directory titles from frontmatter
-  const enhancedSidebar = enhanceDirectoryTitles(sidebar);
+  const enhancedSidebar = enhanceDirectoryTitles(sidebar, 'docs');
 
   // Sort entries by weight from frontmatter
-  const sortedSidebar = sortByWeight(enhancedSidebar);
+  const sortedSidebar = sortByWeight(enhancedSidebar, 'docs');
 
   // Filter out all _index.md entries (called last)
   const filteredSidebar = removeIndexEntries(sortedSidebar)
