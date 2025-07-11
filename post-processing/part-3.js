@@ -138,7 +138,7 @@ async function addEmptyMetadata(basePath) {
 
     /**
      * Check if markdown body content is empty
-     * Returns true if body only contains whitespace, newlines, or comments
+     * Returns true if body only contains whitespace, newlines, comments, or h1 markdown tags
      */
     function isBodyEmpty(body) {
         if (!body || typeof body !== 'string') {
@@ -148,8 +148,11 @@ async function addEmptyMetadata(basePath) {
         // Remove HTML comments <!-- ... -->
         const withoutHtmlComments = body.replace(/<!--[\s\S]*?-->/g, '');
         
+        // Remove h1 markdown tags (# Title)
+        const withoutH1Tags = withoutHtmlComments.replace(/^#\s+.*$/gm, '');
+        
         // Check if remaining content is only whitespace and newlines
-        const trimmed = withoutHtmlComments.trim();
+        const trimmed = withoutH1Tags.trim();
         
         return trimmed === '';
     }
