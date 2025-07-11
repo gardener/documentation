@@ -51,7 +51,7 @@ function getNavConfig () {
     },
     {
       text: 'Blogs',
-      link: '/blog/overview',
+      link: '/blog',
       activeMatch: 'blog',
     },
     {
