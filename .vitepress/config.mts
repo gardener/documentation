@@ -142,40 +142,41 @@ function getThemeConfig() {
       //@ts-ignore
       '/community/': staticCommunitySidebar()['/community/'],
       //@ts-ignore
-      '/docs/':  { //generateEnhancedDocsSidebar()['/docs/'],
+      '/docs/': { //generateEnhancedDocsSidebar()['/docs/'],
         "base": "/docs/",
         "text": "Docs",
         "items": [
-        {
-          "text": "Gardener",
-          "link": "gardener/index.md",
-          "items": [
-            {
-              "text": "Concepts",
-              "link": "gardener/concepts/index.md",
-            }
-          ]
-        }
+          {
+            "text": "Gardener",
+            "link": "gardener/index.md",
+            "items": [
+              {
+                "text": "Concepts",
+                "link": "gardener/concepts/index.md",
+              }
+            ]
+          }
         ],
-       },        
-    editLink: {
-      pattern: ({filePath, frontmatter }) => {
-        const fileName = `${frontmatter?.path_base_for_github_subdir?.to ?? filePath.split("/").pop()}`
-        const githubLink = `${frontmatter['github_repo']}/tree/master/${frontmatter['github_subdir']}/${fileName}`
-        return githubLink
       },
-      text: 'Edit this page on GitHub'
+      editLink: {
+        pattern: ({filePath, frontmatter}) => {
+          const fileName = `${frontmatter?.path_base_for_github_subdir?.to ?? filePath.split("/").pop()}`
+          const githubLink = `${frontmatter['github_repo']}/tree/master/${frontmatter['github_subdir']}/${fileName}`
+          return githubLink
+        },
+        text: 'Edit this page on GitHub'
+      },
+      socialLinks: [
+        {icon: 'github', link: 'https://github.com/gardener'},
+        {
+          icon: 'slack',
+          link: 'https://join.slack.com/t/gardener-cloud/shared_invite/zt-33c9daems-3oOorhnqOSnldZPWqGmIBw'
+        },
+        {icon: 'youtube', link: 'https://www.youtube.com/@GardenerProject'}
+      ],
+
     },
-    socialLinks: [
-      {icon: 'github', link: 'https://github.com/gardener'},
-      {
-        icon: 'slack',
-        link: 'https://join.slack.com/t/gardener-cloud/shared_invite/zt-33c9daems-3oOorhnqOSnldZPWqGmIBw'
-      },
-      {icon: 'youtube', link: 'https://www.youtube.com/@GardenerProject'}
-    ],
     search: getSearchConfig(),
-    }
   }
 }
 
