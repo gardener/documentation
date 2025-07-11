@@ -25,6 +25,7 @@ SOFTWARE.
 Copied and adapted from -> https://github.com/vuejs/vitepress/blob/2342269486e82b9b3f692976892f77b0792268ee/src/client/theme-default/components/VPSidebarGroup.vue
 */
 
+import { useData, useRoute } from 'vitepress'
 import type { DefaultTheme } from 'vitepress/theme'
 import { onBeforeUnmount, onMounted, ref, computed, watchEffect } from 'vue'
 import VPSidebarItem from 'vitepress/dist/client/theme-default/components/VPSidebarItem.vue'
@@ -76,18 +77,21 @@ const processItems = (items: DefaultTheme.SidebarItem[]): DefaultTheme.SidebarIt
 const userType = ref<string>('')
 const displayedItems = computed(() => {
   // Check for recognized userType that should override default sidebar
-  if (userType.value && (userType.value === 'developer' || userType.value === 'user' || userType.value === 'operator' || userType.value === 'all')) {
-    const sidebarForUserType = sidebarData[userType.value as UserType]
-    const docsSection = sidebarForUserType
-    console.log('userType.value:', userType.value)
-    console.log('docsSection: ',docsSection)
-    const personaItems = docsSection?.items
-    console.log('personaItems', personaItems)
+  const {path} = useRoute()
+  if (path.includes('/docs/')){
+    if (userType.value && (userType.value === 'developer' || userType.value === 'user' || userType.value === 'operator' || userType.value === 'all')) {
+      const sidebarForUserType = sidebarData[userType.value as UserType]
+      const docsSection = sidebarForUserType
+      console.log('userType.value:', userType.value)
+      console.log('docsSection: ',docsSection)
+      const personaItems = docsSection?.items
+      console.log('personaItems', personaItems)
 
-    if (personaItems) {
-      // Process the persona items to ensure all links start with '/docs'
-      const processedPersonaItems = processItems(personaItems)
-      return processedPersonaItems
+      if (personaItems) {
+        // Process the persona items to ensure all links start with '/docs'
+        const processedPersonaItems = processItems(personaItems)
+        return processedPersonaItems
+      }
     }
   }
   return props.items
