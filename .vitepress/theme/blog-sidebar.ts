@@ -9,6 +9,7 @@ export const blogSidebarConfig = {
     collapsed: true,
     useTitleFromFrontmatter: true,
     capitalizeFirst: true,
+    useFolderTitleFromIndexFile: true,
 }
 
 const sortSidebar = (sidebar: any): any => {
