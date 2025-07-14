@@ -4,7 +4,7 @@ on:
   # Runs on pushes targeting the `main` branch. Change this to `master` if you're
   # using the `master` branch as the default branch.
   push:
-    branches: [master, docs-2.0]
+    branches: [docs-2.0-fix]
   pull_request:
     types: [ assigned, opened, synchronize, reopened ]
   # Allows you to run this workflow manually from the Actions tab
