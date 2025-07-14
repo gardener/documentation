@@ -91,6 +91,7 @@ async function addEmptyMetadata(basePath) {
             if (isEmpty && parsed.data.isEmpty !== true) {
                 // Add isEmpty: true to frontmatter
                 parsed.data.isEmpty = true;
+                parsed.data.editLink = false;
                 
                 // Reconstruct the file with updated frontmatter
                 const updatedContent = matter.stringify(parsed.content, parsed.data);
