@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import VPNavbarMenuGroup from 'vitepress/dist/client/theme-default/components/VPNavbarMenuGroup.vue'
+import VPNavbarMenuGroup from 'vitepress/dist/client/theme-default/components/VPNavBarMenuGroup.vue'
 import VPLink from 'vitepress/dist/client/theme-default/components/VPLink.vue'
 
 const { text, link, activeMatch, items } = defineProps<{
