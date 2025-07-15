@@ -11,6 +11,31 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2025/07/16 - [v1.123](https://github.com/gardener/gardener/releases/tag/v1.123.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@LucaBernstein](https://github.com/LucaBernstein) | `5m` | 🪄 Defaulting Machine Image Version From Prefix | [#12374](https://github.com/gardener/gardener/pull/12374) |
+| [@oliver-goetz](https://github.com/oliver-goetz) | `10m` | 😌 Simplified `gardenlet` Deployment Configuration | [#11996](https://github.com/gardener/gardener/pull/11996) |
+| [@timebertt](https://github.com/timebertt) | `10m` | 🏃‍➡️ `Bastion` Controller In `provider-local` | [#12366](https://github.com/gardener/gardener/pull/12366) |
+| [@ishan16696](https://github.com/ishan16696) | `15m` | 🙅🏼‍♂️ Immutable Backup Buckets | [#12366](https://github.com/gardener/gardener/pull/12366) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- 🪓 [USER] The deprecated `url` annotation in `<shoot-name>.monitoring` secrets in the project namespace has been removed. Please use the `plutono-url` annotation instead. [#12396](https://github.com/gardener/gardener/pull/12396)
+- ✨ [OPERATOR] The `NodeAgentAuthorizer` feature gate has been graduated to GA and is locked to true. [#12405](https://github.com/gardener/gardener/pull/12405)
+- ✨ [DEVELOPER] `BackupBucket`/`BackupEntry` controllers now support `WorkloadIdentity` type of credentials, provider extensions may need to adjust the respective controllers or to explicitly disallow `BackupBucket`s of their type to configure `WorkloadIdentity`. [#12321](https://github.com/gardener/gardener/pull/12321)
+
+<hr />
+
+_The occurrence for the [v1.122](https://github.com/gardener/gardener/releases/tag/v1.122.0) release was skipped because of too few topics._
+
+<hr />
+
 ### 2025/06/25 - [v1.121](https://github.com/gardener/gardener/releases/tag/v1.121.0) Release
 
 [📽️ Recording](https://youtu.be/kcXSyloteSs)
