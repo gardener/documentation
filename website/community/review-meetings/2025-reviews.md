@@ -13,7 +13,7 @@ Check back regularly for updates and upcoming topics!
 
 ### 2025/07/16 - [v1.123](https://github.com/gardener/gardener/releases/tag/v1.123.0) Release
 
-[📽️ Recording]()
+[📽️ Recording](https://youtu.be/NiXCYnrURvU)
 
 #### Demo Agenda 📋
 
@@ -22,7 +22,7 @@ Check back regularly for updates and upcoming topics!
 | [@LucaBernstein](https://github.com/LucaBernstein) | `5m` | 🪄 Defaulting Machine Image Version From Prefix | [#12374](https://github.com/gardener/gardener/pull/12374) |
 | [@oliver-goetz](https://github.com/oliver-goetz) | `10m` | 😌 Simplified `gardenlet` Deployment Configuration | [#11996](https://github.com/gardener/gardener/pull/11996) |
 | [@timebertt](https://github.com/timebertt) | `10m` | 🏃‍➡️ `Bastion` Controller In `provider-local` | [#12366](https://github.com/gardener/gardener/pull/12366) |
-| [@ishan16696](https://github.com/ishan16696) | `15m` | 🙅🏼‍♂️ Immutable Backup Buckets | [#12366](https://github.com/gardener/gardener/pull/12366) |
+| [@ishan16696](https://github.com/ishan16696) | `15m` | 🙅🏼‍♂️ Immutable Backup Buckets | [#12175](https://github.com/gardener/gardener/pull/12175) |
 
 #### No Demo, But Still Worth Celebrating 🎉
 
