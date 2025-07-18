@@ -1,0 +1,22 @@
+# Ignore everything
+*
+
+# Allow only specific directories and files
+!.vitepress/
+!hugo/content/
+!package.json
+!package-lock.json
+!post-processing/**
+!tsconfig.json
+
+# Still ignore any node_modules in the allowed directories
+**/.DS_Store
+**/*.log
+.vitepress/.temp
+.vitepress/.cache
+.vitepress/dist
+
+
+# Ensure .env files are not included
+.env
+.env.*

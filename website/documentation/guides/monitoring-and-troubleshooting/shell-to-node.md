@@ -84,7 +84,7 @@ The easiest way to use the [Gardener ops-toolbelt](https://github.com/gardener/o
 
 Alternatively, a pod can be [assigned](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/) to a target node and a shell can be opened via [standard Kubernetes means](https://kubernetes.io/docs/tasks/debug-application-cluster/get-shell-running-container/). To enable root access to the node, the pod specification requires proper `securityContext` and `volume` properties.
 
-For instance, you can use the following pod manifest, after changing <target-node-name> with the name of the node you want this pod attached to:
+For instance, you can use the following pod manifest, after changing `<target-node-name>` with the name of the node you want this pod attached to:
 
 ```yaml
 apiVersion: v1
