@@ -1,6 +1,9 @@
 ---
 layout: home
 
+title: Gardener
+titleTemplate: false
+
 hero:
   name: Gardener
   text: A Managed Kubernetes Service Done Right
