@@ -1,6 +1,10 @@
 ---
 title: Hibernation
 weight: 1
+description: Learn how to use Gardener's hibernation feature to shut down cluster components and reduce costs for development and testing environments.
+tags: [hibernation, cost optimization, cluster shutdown, development clusters, testing clusters, resource management]
+page_synonyms: [cluster hibernation, cluster shutdown, sleep mode, cost saving, cluster pause]
+categories: [cost optimization, resource management, operations]
 ---
 
 ## Hibernation

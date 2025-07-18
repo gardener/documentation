@@ -1,12 +1,15 @@
 ---
 title: Kubeconfig Context as bash Prompt
-description: "Expose the active kubeconfig into bash"
+description: "Display the active Kubernetes context in your bash prompt to avoid mistakes when working with multiple clusters"
 level: beginner
 reviewer: Tieyan Fu
 status: Reviewed
 last_reviewed: 29.05.2018
 category: kubectl
 scope: app-developer
+tags: [kubeconfig, bash, prompt, context, kubectl, shell, powershell, cluster-management]
+page_synonyms: [kubernetes context, bash prompt, shell configuration, cluster context display]
+categories: [client-tools, shell, configuration]
 ---
 
 ## Overview

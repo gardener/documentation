@@ -1,9 +1,12 @@
 ---
 title: Orchestration of Container Startup
-description: "How to orchestrate a startup sequence of multiple containers"
+description: Learn how to orchestrate container startup sequences using Kubernetes InitContainers to ensure dependencies are ready before main application containers start.
 level: beginner
 category: Getting Started
 scope: app-developer
+tags: [initcontainers, startup-sequence, dependencies, orchestration, postgresql, webapp, container-lifecycle]
+page_synonyms: [container ordering, startup dependencies, init containers, pod initialization, service dependencies]
+categories: [getting-started, containers, orchestration]
 ---
 
 ## Disclaimer

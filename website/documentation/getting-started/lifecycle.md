@@ -1,6 +1,10 @@
 ---
 title: Shoot Lifecycle
 weight: 6
+description: Understanding shoot cluster lifecycle including reconciliation, maintenance windows, version updates, and the impact of changes on cluster operations
+tags: [lifecycle, reconciliation, maintenance, updates, kubernetes-versions, os-versions, shoot-clusters]
+page_synonyms: [cluster lifecycle, shoot reconciliation, maintenance window, cluster updates, version management]
+categories: [getting-started, lifecycle, operations]
 ---
 
 ## Reconciliation in Kubernetes and Gardener
