@@ -10,7 +10,7 @@ hero:
   tagline: Deliver fully-managed clusters at scale everywhere with your own Gardener installation
   actions:
     - theme: brand
-      text: Demo?
+      text: Demo
       link: https://demo.gardener.cloud/login?redirectPath=/terminal
     - theme: alt
       text: Adopters
