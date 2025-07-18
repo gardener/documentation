@@ -75,9 +75,9 @@ const processItems = (items: DefaultTheme.SidebarItem[]): DefaultTheme.SidebarIt
 
 // User type from localStorage (defaults to original items if not set)
 const userType = ref<string>('')
+const {path} = useRoute()
 const displayedItems = computed(() => {
   // Check for recognized userType that should override default sidebar
-  const {path} = useRoute()
   if (path.includes('/docs/')){
     if (userType.value && (userType.value === 'developer' || userType.value === 'user' || userType.value === 'operator' || userType.value === 'all')) {
       const sidebarForUserType = sidebarData[userType.value as UserType]
