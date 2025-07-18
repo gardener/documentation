@@ -67,14 +67,7 @@ img[src='/search.png'] {
   --vp-c-brand-soft: var(--vp-c-green-soft);
 }
 
-/* Social Links Consistent Hover Effects */
-.VPSocialLinks .VPSocialLink {
-  opacity: 1 !important; /* Override any default opacity changes */
-  filter: brightness(0.8); /* Apply consistent dimming to all icons */
-  transition: filter 0.2s ease;
-}
-
-/* Consistent hover effect for all social icons */
-.VPSocialLinks .VPSocialLink:hover {
-  filter: brightness(1.1); /* Brighten on hover */
+/* GitHub social link styling */
+.VPSocialLink[href*="github"] {
+  color: var(--vp-c-text-1);
 }
