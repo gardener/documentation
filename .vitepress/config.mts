@@ -268,7 +268,7 @@ function getHeadConfig(){
       'meta',
       {
         property: 'og:image',
-        content: 'https://raw.githubusercontent.com/gardener/documentation/refs/heads/docs-2.0-fix/website/public/og-gardener.png'
+        content: 'https://raw.githubusercontent.com/gardener/documentation/refs/heads/master/website/public/og-gardener.png'
       }
     ],
     ['meta', {property: 'og:url', content: 'https://gardener.cloud/'}],
