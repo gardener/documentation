@@ -17,6 +17,7 @@ Gardener has introduced support for immutable backup buckets, a critical feature
 Immutable backup buckets ensure that once a backup snapshot is written, it cannot be altered or deleted for a predefined retention period. Gardener configures this by applying immutability policies (often called "Object Lock" or "WORM" - Write Once, Read Many) to the backup buckets managed by provider extensions.
 
 When enabled, the provider extension will:
+
 - **Create** new backup buckets with the specified immutability policy.
 - **Reconcile** existing buckets to enforce the desired policy.
 - **Prevent** any changes that would weaken the policy, such as shortening the retention period or disabling the lock.
@@ -50,6 +51,7 @@ spec:
       apiVersion: aws.provider.extensions.gardener.cloud/v1alpha1
       kind: BackupBucketConfig
       immutability:
+        retentionType: bucket
         retentionPeriod: 96h
         mode: compliance # or governance
 ```
@@ -67,6 +69,7 @@ spec:
       apiVersion: gcp.provider.extensions.gardener.cloud/v1alpha1
       kind: BackupBucketConfig
       immutability:
+        retentionType: bucket
         retentionPeriod: 96h
         locked: true
 ```
@@ -84,6 +87,7 @@ spec:
       apiVersion: azure.provider.extensions.gardener.cloud/v1alpha1
       kind: BackupBucketConfig
       immutability:
+        retentionType: bucket
         retentionPeriod: 96h
         locked: true
 ```
