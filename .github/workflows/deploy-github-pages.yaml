@@ -62,13 +62,31 @@ jobs:
           path: .vitepress/dist
         if: github.event_name != 'pull_request' # Skip upload on PRs
 
+  # Test job
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Run Vitest
+        run: npm test
+
   # Deployment job
   deploy:
     if: github.event_name != 'pull_request' # Skip deployment on PRs
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
+    needs: [build, test]
     runs-on: ubuntu-latest
     name: Deploy
     steps:

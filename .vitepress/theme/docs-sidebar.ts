@@ -9,7 +9,8 @@ import {
   extractItems,
   filterLeafMapByPersona,
   filterSidebarByLeafMap,
-  removeEmptyItems
+  removeEmptyItems,
+  promoteSingleChildLeafs
 } from './utils/sidebar.ts';
 
 const docsSidbarConfig =  {
@@ -41,8 +42,15 @@ export function generateEnhancedDocsSidebar(): any {
   // Sort entries by weight from frontmatter
   const sortedSidebar = sortByWeight(enhancedSidebar, 'docs');
 
+  // NEW: Promote single child leafs to eliminate unnecessary nesting
+  const { transformed: promotedSidebar, promotedLeafs } = promoteSingleChildLeafs(sortedSidebar);
+  
+  // Log the promoted leafs for debugging
+  writeJsonDebug('promotedLeafs.json', promotedLeafs);
+  writeJsonDebug('promotedSidebar.json', promotedSidebar);
+
   // Filter out all _index.md entries (called last)
-  const filteredSidebar = removeIndexEntries(sortedSidebar)
+  const filteredSidebar = removeIndexEntries(promotedSidebar);
 
   writeJsonDebug(
     'filteredSidebar.json',

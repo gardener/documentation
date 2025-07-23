@@ -1,9 +1,11 @@
 import { promises as fs } from "fs";
 import path from "path";
+import matter from 'gray-matter';
+
 
 // Base path configuration - can be overridden by command line argument
 const BASE_PATH = './hugo/content/';
-const IGNORE_DIRS = ['node_modules', '.git', 'dist', 'build'];
+const IGNORE_DIRS = ['node_modules', '.git', 'dist', 'build', 'images', 'assets', 'content', 'logo'];
 
 await main();
 
@@ -31,6 +33,10 @@ async function main() {
             await fixNetworkProblemDetectorDoc();
         }
 
+        if (process.argv.includes('--add-missing-index') || process.argv.includes('-i')) {
+            await addMissingIndexFiles(BASE_PATH);
+        }
+
         if (!process.argv.includes('--rename-images') &&
             !process.argv.includes('-r') &&
             !process.argv.includes('--add-h1-title') &&
@@ -38,7 +44,9 @@ async function main() {
             !process.argv.includes('--youtube') &&
             !process.argv.includes('-y') &&
             !process.argv.includes('--fix-titles') &&
-            !process.argv.includes('-t')) {
+            !process.argv.includes('-t') &&
+            !process.argv.includes('--add-missing-index') &&
+            !process.argv.includes('-i')) {
             // If no specific action is specified, show usage
             console.log('Available commands:');
             console.log('--rename-images, -r      : Rename image files to lowercase');
@@ -589,5 +597,133 @@ async function fixNetworkProblemDetectorDoc() {
             modified: false,
             reason: err.message
         };
+    }
+}
+
+/**
+ * Post-processing function to add empty index.md files to directories
+ * that have more than one file and don't already have an index.md or _index.md file
+ */
+async function addMissingIndexFiles(basePath) {
+    async function traverseDirectories(directory) {
+        let results = [];
+
+        try {
+            const files = await fs.readdir(directory);
+
+            // Check if this directory needs an index file
+            const directoryResult = await checkDirectoryForIndex(directory, files);
+            if (directoryResult) {
+                results.push(directoryResult);
+            }
+
+            // Recursively process subdirectories
+            for (const file of files) {
+                const fullPath = path.join(directory, file);
+
+                try {
+                    const stats = await fs.stat(fullPath);
+
+                    if (stats.isDirectory()) {
+                        // Skip ignored directories
+                        if (!IGNORE_DIRS.includes(file)) {
+                            const subdirResults = await traverseDirectories(fullPath);
+                            results = results.concat(subdirResults);
+                        }
+                    }
+                } catch (err) {
+                    console.error(`Error accessing ${fullPath}: ${err.message}`);
+                }
+            }
+        } catch (err) {
+            console.error(`Error reading directory ${directory}: ${err.message}`);
+        }
+
+        return results;
+    }
+
+    async function checkDirectoryForIndex(directory, files) {
+        // Check if directory has more than one file/subdirectory
+        if (files.length <= 1) {
+            return null;
+        }
+
+        // Check if index.md or _index.md already exists
+        const hasIndex = files.includes('index.md');
+        const hasUnderscoreIndex = files.includes('_index.md');
+
+        if (hasIndex || hasUnderscoreIndex) {
+            return null;
+        }
+
+        // Create index.md file
+        try {
+            const dirName = path.basename(directory);
+            const title = generateTitleFromDirName(dirName);
+            
+            const frontmatter = {
+                title: title,
+                auto_generated: true,
+                generated_by: "post-processing/part-3.js addMissingIndexFiles function"
+            };
+
+            const content = matter.stringify('', frontmatter);
+            const indexPath = path.join(directory, '_index.md');
+            
+            await fs.writeFile(indexPath, content, 'utf-8');
+
+            return {
+                directory: directory,
+                created: true,
+                title: title,
+                fileCount: files.length
+            };
+        } catch (err) {
+            console.error(`Error creating index.md in ${directory}: ${err.message}`);
+            return {
+                directory: directory,
+                created: false,
+                error: err.message,
+                fileCount: files.length
+            };
+        }
+    }
+
+    /**
+     * Generate a title from directory name
+     * Capitalizes first letter and replaces hyphens with spaces
+     */
+    function generateTitleFromDirName(dirName) {
+        return dirName.replace(/-/g, ' ').charAt(0).toUpperCase() + dirName.replace(/-/g, ' ').slice(1);
+    }
+
+    const docsPath = path.join(basePath, 'docs');
+    console.log(`Searching for directories needing index.md files in: ${docsPath}`);
+    const results = await traverseDirectories(docsPath);
+    
+    const createdCount = results.filter(r => r.created).length;
+    const errorCount = results.filter(r => !r.created).length;
+
+    console.log(`\nSummary: Processed directories and created ${createdCount} index.md files.`);
+    
+    if (createdCount > 0) {
+        console.log(`\n✅ Created index.md files (${createdCount}):`);
+        results.filter(r => r.created).forEach(r => {
+            console.log(`   - ${path.relative(basePath, r.directory)} (${r.fileCount} files) - Title: "${r.title}"`);
+        });
+    }
+
+    if (errorCount > 0) {
+        console.log(`\n❌ Failed to create index.md files (${errorCount}):`);
+        results.filter(r => !r.created).forEach(r => {
+            console.log(`   - ${path.relative(basePath, r.directory)}: ${r.error}`);
+        });
+    }
+
+    if (createdCount > 0) {
+        console.log('\nMissing index files processing completed!');
+        console.log('Empty index.md files have been added to directories with multiple files.');
+    } else {
+        console.log('\nNo directories found that need index.md files.');
     }
 }
