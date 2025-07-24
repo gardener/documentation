@@ -205,6 +205,8 @@ async function addH1ToMarkdownFiles(basePath){
 
 
 async function renameImagesToLowercase(basePath){
+    const IGNORE_IMAGE_DIRS = ['node_modules', '.git', 'dist', 'build'];
+
     async function findFiles(directory) {
         let foundFiles = [];
 
@@ -221,7 +223,7 @@ async function renameImagesToLowercase(basePath){
 
                     if (stats.isDirectory()) {
                         // Skip ignored directories
-                        if (IGNORE_DIRS.includes(file)) {
+                        if (IGNORE_IMAGE_DIRS.includes(file)) {
                             continue;
                         }
                         // Recursively search subdirectories
