@@ -70,13 +70,26 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 24
-          cache: npm
+          cache: npm # or pnpm / yarn
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Docforge
+        run: |
+          wget https://github.com/gardener/docforge/releases/download/v0.55.0/docforge-linux-amd64
+          mv docforge-linux-amd64 docforge
+          chmod +x docforge
+          DOCFORGE_CONFIG=.docforge/config.yaml GITHUB_OAUTH_TOKEN=${{ secrets.GITHUB_TOKEN }} ./docforge
       - name: Install dependencies
-        run: npm ci
+        run: npm ci # or pnpm install / yarn install / bun install
+      - name: Postprocessing Content
+        run: |
+          npm run post-processing-all
+
       - name: Run Vitest
         run: npm test
 
