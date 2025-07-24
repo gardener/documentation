@@ -1,10 +1,8 @@
 name: Deploy VitePress site to Pages
 
 on:
-  # Runs on pushes targeting the `main` branch. Change this to `master` if you're
-  # using the `master` branch as the default branch.
+
   push:
-    branches: [master]
   pull_request:
     types: [ assigned, opened, synchronize, reopened ]
   # Allows you to run this workflow manually from the Actions tab
@@ -16,8 +14,6 @@ permissions:
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: pages
   cancel-in-progress: false
@@ -30,11 +26,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Not needed if lastUpdated is not enabled
-      # - uses: pnpm/action-setup@v3 # Uncomment this block if you're using pnpm
-      #   with:
-      #     version: 9 # Not needed if you've set "packageManager" in package.json
-      # - uses: oven-sh/setup-bun@v1 # Uncomment this if you're using Bun
+          fetch-depth: 0
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -95,7 +87,7 @@ jobs:
 
   # Deployment job
   deploy:
-    if: github.event_name != 'pull_request' # Skip deployment on PRs
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master' # Only deploy from master branch, skip PRs
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
