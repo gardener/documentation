@@ -1,3 +1,7 @@
+---
+editLink: false
+---
+
 # Impressum
 
 **SAP Deutschland SE & Co. KG**  

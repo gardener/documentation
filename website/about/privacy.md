@@ -1,3 +1,7 @@
+---
+editLink: false
+---
+
 # Privacy Policy
 
 **Last updated: 25. July 2025**

@@ -1,3 +1,7 @@
+---
+editLink: false
+---
+
 # Terms of Use
 
 _Effective: 26. July 2022_
