@@ -17,6 +17,7 @@ Gardener has introduced support for immutable backup buckets, a critical feature
 Immutable backup buckets ensure that once a backup snapshot is written, it cannot be altered or deleted for a predefined retention period. Gardener configures this by applying immutability policies (often called "Object Lock" or "WORM" - Write Once, Read Many) to the backup buckets managed by provider extensions.
 
 When enabled, the provider extension will:
+
 - **Create** new backup buckets with the specified immutability policy.
 - **Reconcile** existing buckets to enforce the desired policy.
 - **Prevent** any changes that would weaken the policy, such as shortening the retention period or disabling the lock.
@@ -25,7 +26,7 @@ It is crucial to understand that once an immutability policy is locked on a buck
 
 ### How It Works
 
-The feature is configured on the `Seed` resource. When you enable immutability, only newly created backup objects will inherit the lock settings. Over time, as old, unlocked backups are rotated out, all snapshots in the bucket will be protected by the immutability policy.
+The feature is configured on the `Seed` resource. When you enable immutability, the backup objects will inherit the bucket lock settings, and all the backups/snapshots in the bucket will be protected by the immutability policy.
 
 To safeguard against misconfiguration, a Gardener admission webhook enforces the immutability rules. Once a policy is locked, the webhook prevents it from being disabled or the retention period from being shortened.
 
@@ -50,6 +51,7 @@ spec:
       apiVersion: aws.provider.extensions.gardener.cloud/v1alpha1
       kind: BackupBucketConfig
       immutability:
+        retentionType: bucket
         retentionPeriod: 96h
         mode: compliance # or governance
 ```
@@ -67,6 +69,7 @@ spec:
       apiVersion: gcp.provider.extensions.gardener.cloud/v1alpha1
       kind: BackupBucketConfig
       immutability:
+        retentionType: bucket
         retentionPeriod: 96h
         locked: true
 ```
@@ -84,6 +87,7 @@ spec:
       apiVersion: azure.provider.extensions.gardener.cloud/v1alpha1
       kind: BackupBucketConfig
       immutability:
+        retentionType: bucket
         retentionPeriod: 96h
         locked: true
 ```
