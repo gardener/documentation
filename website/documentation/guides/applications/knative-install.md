@@ -1,10 +1,13 @@
 ---
 title: Install Knative in Gardener Clusters
-description: A walkthrough the steps for installing Knative in Gardener shoot clusters.
+description: Complete walkthrough for installing Knative serverless platform in Gardener shoot clusters including Istio setup, cluster configuration, and domain management.
 level: intermediate
 index: 10
 category: Setup
 scope: app-developer
+tags: [knative, gardener, istio, serverless, installation, cluster-setup, kubectl, serving, eventing]
+page_synonyms: [knative setup, serverless installation, gardener knative, istio knative, cluster installation, knative serving]
+categories: [setup, serverless, installation]
 ---
 
 ## Overview

@@ -1,6 +1,10 @@
 ---
 title: Gardener Shoots
 weight: 4
+description: Complete guide to Gardener shoot clusters including configuration options, worker pools, networking, access methods, and cluster management
+tags: [shoots, clusters, configuration, worker-pools, networking, access, kubernetes-versions, infrastructure]
+page_synonyms: [shoot clusters, kubernetes clusters, cluster configuration, gardener clusters, shoot management]
+categories: [getting-started, shoots, cluster-management]
 ---
 
 ## Overview
