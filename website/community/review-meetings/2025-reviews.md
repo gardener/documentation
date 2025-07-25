@@ -11,6 +11,27 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2025/07/30 - [v1.124](https://github.com/gardener/gardener/releases/tag/v1.124.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@timuthy](https://github.com/timuthy) | `10m` | 🖼️ Image Rewriter Extension | [extension-image-rewriter (repo)](https://github.com/gardener/gardener-extension-image-rewriter) |
+| [@oliver-goetz](https://github.com/oliver-goetz) | `5m` | ✈️ L7 Load-Balancing Metrics Dashboards | [#12509](https://github.com/gardener/gardener/pull/12509) |
+| [@domdom82](https://github.com/domdom82) | `10m` | 🧦 CIDR Overlap w/ `Seed` For HA `Shoot`s | [#12204](https://github.com/gardener/gardener/pull/12204) |
+| [@vitanovs](https://github.com/vitanovs) | `10m` | 🚪 Vertical Pod Autoscaler Feature Gates | [#12339](https://github.com/gardener/gardener/pull/12339) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- 🪓 [USER] Starting with Kubernetes v1.34, setting the field `.spec.cloudProfileName` is be forbidden. The field will be dropped from existing `Shoot`s once. Users are advised to drop this field and specify the cloud profile using the `.spec.cloudProfile.name` field instead. [#11816](https://github.com/gardener/gardener/pull/11816)
+- 🐛 [OPERATOR] A bug has been fixed which caused `Pod`s from namespaces other than `kube-system` and labeled with `node.gardener.cloud/critical-component=true` to be considered by gardener-resource-manager. [#12557](https://github.com/gardener/gardener/pull/12557)
+- 🐛 [OPERATOR] A bug has been fixed which prevented the seed-specific Plutono dashboards from being provided by `gardenlet` in case its seed cluster was the garden runtime cluster at the same time. [#12476](https://github.com/gardener/gardener/pull/12476)
+
+<hr />
+
 ### 2025/07/16 - [v1.123](https://github.com/gardener/gardener/releases/tag/v1.123.0) Release
 
 [📽️ Recording](https://youtu.be/NiXCYnrURvU)
