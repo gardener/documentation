@@ -272,6 +272,17 @@ function getHeadConfig(){
       }
     ],
     ['meta', {property: 'og:url', content: 'https://gardener.cloud/'}],
+    [
+      'script',
+      {defer: '', "data-domain": 'gardener.cloud', src: 'http://plausiable-poc.demo.shoot.dev.k8s-hana.ondemand.com/js/script.file-downloads.outbound-links.js' }
+    ],
+    [
+      'script',
+      {},
+      `
+      window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }
+      `
+    ]
     //todo add analytics
     //[
     //  'script',
