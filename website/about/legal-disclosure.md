@@ -1,5 +1,6 @@
 ---
 editLink: false
+aside: false
 ---
 
 # Impressum
