@@ -35,18 +35,17 @@ _**This summary provides key points from our Privacy Notice, but you can find ou
 
 ## Table of Contents
 
-1. [What information do we collect?](#what-information-do-we-collect)
-2. [How do we process your information?](#how-do-we-process-your-information)
-3. [What legal bases do we rely on to process your personal information?](#what-legal-bases-do-we-rely-on-to-process-your-personal-information)
-4. [When and with whom do we share your personal information?](#when-and-with-whom-do-we-share-your-personal-information)
-5. [How long do we keep your information?](#how-long-do-we-keep-your-information)
-6. [Do we collect information from minors?](#do-we-collect-information-from-minors)
-7. [What are your privacy rights?](#what-are-your-privacy-rights)
-8. [Controls for Do-Not-Track features](#controls-for-do-not-track-features)
-9. [Do we make updates to this notice?](#do-we-make-updates-to-this-notice)
-10. [How can you contact us about this notice?](#how-can-you-contact-us-about-this-notice)
-11. [How can you review, update, or delete the data we collect from you?](#how-can-you-review-update-or-delete-the-data-we-collect-from-you)
-
+* [What information do we collect?](#what-information-do-we-collect)
+* [How do we process your information?](#how-do-we-process-your-information)
+* [What legal bases do we rely on to process your personal information?](#what-legal-bases-do-we-rely-on-to-process-your-personal-information)
+* [When and with whom do we share your personal information?](#when-and-with-whom-do-we-share-your-personal-information)
+* [How long do we keep your information?](#how-long-do-we-keep-your-information)
+* [Do we collect information from minors?](#do-we-collect-information-from-minors)
+* [What are your privacy rights?](#what-are-your-privacy-rights)
+* [Controls for Do-Not-Track features](#controls-for-do-not-track-features)
+* [Do we make updates to this notice?](#do-we-make-updates-to-this-notice)
+* [How can you contact us about this notice?](#how-can-you-contact-us-about-this-notice)
+* [How can you review, update, or delete the data we collect from you?](#how-can-you-review-update-or-delete-the-data-we-collect-from-you)
 
 ### What information do we collect?
 
