@@ -13,6 +13,9 @@ structure:
 - dir: docs
   structure:
   - manifest: ./documentation/documentation.yaml
+- dir: about
+  structure:
+  - fileTree: /website/about
 
 ### /html
 - dir: html

@@ -61,11 +61,11 @@ const { hasSidebar } = useSidebar()
 
       </div>
       <div class="footer-legal-links">
-        <a href="https://www.sap.com/about/legal/terms-of-use.html">Terms of Use</a>
+        <a href="/about/terms-of-use">Terms of Use</a>
         <span class="footer-legal-sep">|</span>
-        <a href="https://www.sap.com/about/legal/privacy.html">Privacy Statement</a>
+        <a href="/about/privacy">Privacy Statement</a>
         <span class="footer-legal-sep">|</span>
-        <a href="https://www.sap.com/about/legal/impressum.html">Legal Disclosure</a>
+        <a href="/about/legal-disclosure">Legal Disclosure</a>
       </div>
 
     </div>
