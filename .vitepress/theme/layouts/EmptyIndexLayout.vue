@@ -16,6 +16,9 @@
         </div>
       </div>
     </template>
+    <template #not-found>
+      <script>document.addEventListener('DOMContentLoaded', function () { plausible('404', { props: { path: document.location.pathname } }); });</script>
+    </template>
   </Layout>
 </template>
 
