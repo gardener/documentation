@@ -8,7 +8,15 @@ export default defineConfig({
   srcDir: 'hugo/content',
   cleanUrls: true,
   rewrites(id) {
-    return id.endsWith('/') ? id.slice(0, -1) : id
+    if (id.endsWith('/index.md') || id.endsWith('/_index.md')) {
+      return id;
+    }
+
+    if (id.endsWith('.md')) {
+      return id.slice(0, -3) + '/index.md';
+    }
+
+    return id;
   },
   srcExclude: [
     '**/archived/**',
