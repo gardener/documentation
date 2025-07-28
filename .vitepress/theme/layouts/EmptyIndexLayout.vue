@@ -16,9 +16,6 @@
         </div>
       </div>
     </template>
-    <template #not-found>
-      <script>document.addEventListener('DOMContentLoaded', function () { plausible('404', { props: { path: document.location.pathname } }); });</script>
-    </template>
   </Layout>
 </template>
 
@@ -45,7 +42,6 @@ const sidebarData = {
 
 const { Layout } = DefaultTheme
 const { page, frontmatter, site, theme } = useData()
-
 
 const isEmptyIndexPage = ref(false)
 const lastClickedMenuItem = ref(null)
