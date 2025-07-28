@@ -7,6 +7,9 @@ import path from 'path'
 export default defineConfig({
   srcDir: 'hugo/content',
   cleanUrls: true,
+  rewrites(id) {
+    return id.endsWith('/') ? id.slice(0, -1) : id
+  },
   srcExclude: [
     '**/archived/**',
     // Custom template tag is used, check for alternative
