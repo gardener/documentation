@@ -28,9 +28,10 @@ Copied and adapted from: https://github.com/vuejs/vitepress/blob/main/src/client
 
 <script setup lang="ts">
 import { useSidebar } from 'vitepress/theme';
-import {withBase} from "vitepress";
+import { withBase, useData } from "vitepress";
 
 const { hasSidebar } = useSidebar()
+const { isDark } = useData()
 </script>
 
 <template>
@@ -38,7 +39,10 @@ const { hasSidebar } = useSidebar()
     <div class="container">
       <div class="funding-notice">
         <div class="funding-image">
-          <img :src="withBase('/eu-support.png')" alt="EU and German government funding logos">
+          <div class="funding-image-container">
+            <div class="funding-image-bg"></div>
+            <img :src="withBase('/eu-support.png')" alt="EU and German government funding logos" class="funding-image-src">
+          </div>
         </div>
         <div class="funding-text">
           <p>
@@ -53,13 +57,32 @@ const { hasSidebar } = useSidebar()
                 Copyright © Linux Foundation Europe.
               </strong>
             </p>
-            Gardener is a project of Linux Foundation Europe.
+            Gardener is a project of NeoNephos Foundation.
             For applicable policies including privacy policy, terms of use and trademark usage guidelines, please see <a href="https://linuxfoundation.eu">https://linuxfoundation.eu</a>.
             Linux is a registered trademark of Linus Torvalds.
           </div>
         </div>
 
       </div>
+      
+      <!-- Neonephos Logo Section -->
+      <div class="neonephos-logos">
+        <a href="https://neonephos.org/" target="_blank" rel="noopener noreferrer" class="neonephos-link">
+          <img 
+            v-if="!isDark" 
+            :src="withBase('/neonephos_logo.svg')" 
+            alt="Neonephos Logo" 
+            class="neonephos-logo"
+          >
+          <img 
+            v-else 
+            :src="withBase('/neonephos_logo_dark.svg')" 
+            alt="Neonephos Logo" 
+            class="neonephos-logo"
+          >
+        </a>
+      </div>
+
       <div class="footer-legal-links">
         <a href="/about/terms-of-use">Terms of Use</a>
         <span class="footer-legal-sep">|</span>
@@ -230,10 +253,27 @@ const { hasSidebar } = useSidebar()
   color: var(--vp-c-divider);
 }
 
+/* Neonephos Logo Section */
+.neonephos-logos {
+  margin: 24px 0;
+  text-align: center;
+}
+
+.neonephos-logo {
+  max-height: 60px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .footer-columns {
     justify-content: flex-start;
+  }
+  
+  .neonephos-logo {
+    max-height: 50px;
   }
 }
 </style>
