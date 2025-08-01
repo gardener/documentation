@@ -23,7 +23,7 @@ SOFTWARE.
 -->
 
 <!--
-Copied and adapted from: https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/components/VPFooter.vue
+Copied and adapted from: https://github.com/vuejs/vitepress/blob/828000099843c982f4ce9456aa6eb8cfb649f55f/src/client/theme-default/components/VPFooter.vue
 -->
 
 <script setup lang="ts">
