@@ -1,11 +1,14 @@
 ---
 title:  Authenticating with an Identity Provider
-description: "Use OpenID Connect to authenticate users to access shoot clusters"
+description: Complete guide to configuring OpenID Connect (OIDC) authentication for Gardener shoot clusters using identity providers like Auth0
 level: advanced
 index: 40
 category: Security
 scope: operator
 publishdate: 2020-12-01
+tags: [oidc, openid connect, authentication, identity provider, auth0, kubectl, rbac, security, user management]
+page_synonyms: [oidc authentication, openid connect, identity provider integration, user authentication, sso, single sign-on]
+categories: [security, authentication, identity management, access control]
 ---
 
 ## Prerequisites

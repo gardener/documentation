@@ -1,6 +1,10 @@
 ---
 title: Components
 weight: 1
+description: Explore Gardener's observability stack including Prometheus for metrics, Vali for logging, and Plutono for dashboards with detailed data flow explanations.
+tags: [observability, prometheus, vali, plutono, monitoring, logging, dashboards, metrics, grafana, loki]
+page_synonyms: [monitoring components, observability stack, prometheus monitoring, vali logging, plutono dashboards, monitoring stack]
+categories: [observability, monitoring, logging]
 ---
 
 ## Core Components
