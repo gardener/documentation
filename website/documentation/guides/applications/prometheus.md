@@ -267,7 +267,7 @@ kubectl port-forward -n <your-prometheus-namespace> <your-prometheus-server-pod>
 
 Open `http://localhost:9090` in your web browser. Select Graph from the top tab and enter the following expressing to show the overall CPU usage for a server (see [Prometheus Query Examples](https://github.com/infinityworks/prometheus-example-queries/blob/master/README.md)):
 
-```promql
+```code
 100 * (1 - avg by(instance)(irate(node_cpu{mode='idle'}[5m])))
 ```
 

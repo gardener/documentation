@@ -211,6 +211,9 @@ function getThemeConfig() {
 
 function getViteConfig() {
   return {
+    build:{
+      chunkSizeWarningLimit: 5000,
+    },
     resolve: {
       alias: [
         {
@@ -288,15 +291,5 @@ function getHeadConfig(){
       window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }
       `
     ]
-    //todo add analytics
-    //[
-    //  'script',
-    //  {
-    //    src: 'https://cdn.usefathom.com/script.js',
-    //    'data-site': 'AZBRSFGG',
-    //    'data-spa': 'auto',
-    //    defer: ''
-    //  }
-    //]
   ]
 }

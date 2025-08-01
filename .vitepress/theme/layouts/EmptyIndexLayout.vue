@@ -27,7 +27,6 @@ import { useData, useRouter } from 'vitepress'
 import { ref, computed, onMounted, nextTick, watch } from 'vue'
 import DefaultTheme from 'vitepress/theme'
 import { data as sidebars } from '@data/sidebar.data'
-import _ from 'lodash-es'
 import VPFooter from '../components/VPFooter.vue'
 
 const router = useRouter()
