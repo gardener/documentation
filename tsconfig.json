@@ -5,7 +5,8 @@
     "strict": true,
     "jsx": "preserve",
     "allowImportingTsExtensions": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "types": ["vite/client"]
   },
   "include": ["./.vitepress/**/*"]
 }

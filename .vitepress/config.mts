@@ -240,12 +240,6 @@ function getViteConfig() {
           )
         },
         {
-          find: /^.*\/VPFooter\.vue$/,
-          replacement: fileURLToPath(
-              new URL('./theme/components/VPFooter.vue', import.meta.url)
-          )
-        },
-        {
           find: /^.*\/VPSidebarGroup\.vue$/,
           replacement: fileURLToPath(
               new URL('./theme/components/VPSidebarGroup.vue', import.meta.url)

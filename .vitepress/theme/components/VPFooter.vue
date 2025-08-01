@@ -29,9 +29,14 @@ Copied and adapted from: https://github.com/vuejs/vitepress/blob/828000099843c98
 <script setup lang="ts">
 import { useSidebar } from 'vitepress/theme';
 import { withBase, useData } from "vitepress";
+import euSupportImg from '../assets/eu-support.png'
+import neonephosLogo from '../assets/neonephos_logo.svg'
+import neonephosLogoDark from '../assets/neonephos_logo_dark.svg'
 
 const { hasSidebar } = useSidebar()
-const { isDark } = useData()
+const { isDark, title } = useData()
+const projectName = title || '<YOUR PROJECT NAME>'
+
 </script>
 
 <template>
@@ -41,7 +46,7 @@ const { isDark } = useData()
         <div class="funding-image">
           <div class="funding-image-container">
             <div class="funding-image-bg"></div>
-            <img :src="withBase('/eu-support.png')" alt="EU and German government funding logos" class="funding-image-src">
+            <img :src="euSupportImg" alt="EU and German government funding logos" class="funding-image-src">
           </div>
         </div>
         <div class="funding-text">
@@ -57,7 +62,7 @@ const { isDark } = useData()
                 Copyright © Linux Foundation Europe.
               </strong>
             </p>
-            Gardener is a project of NeoNephos Foundation.
+            {{ projectName }} is a project of NeoNephos Foundation.
             For applicable policies including privacy policy, terms of use and trademark usage guidelines, please see <a href="https://linuxfoundation.eu">https://linuxfoundation.eu</a>.
             Linux is a registered trademark of Linus Torvalds.
           </div>
@@ -70,13 +75,13 @@ const { isDark } = useData()
         <a href="https://neonephos.org/" target="_blank" rel="noopener noreferrer" class="neonephos-link">
           <img 
             v-if="!isDark" 
-            :src="withBase('/neonephos_logo.svg')" 
+            :src="neonephosLogo" 
             alt="Neonephos Logo" 
             class="neonephos-logo"
           >
           <img 
             v-else 
-            :src="withBase('/neonephos_logo_dark.svg')" 
+            :src="neonephosLogoDark" 
             alt="Neonephos Logo" 
             class="neonephos-logo"
           >
@@ -264,6 +269,10 @@ const { isDark } = useData()
   height: auto;
   display: block;
   margin: 0 auto;
+}
+
+.neonephos-link {
+  display: inline-block;
 }
 
 /* Responsive adjustments */

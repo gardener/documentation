@@ -16,6 +16,9 @@
         </div>
       </div>
     </template>
+    <template #layout-bottom>
+      <VPFooter/>
+    </template>
   </Layout>
 </template>
 
@@ -25,6 +28,7 @@ import { ref, computed, onMounted, nextTick, watch } from 'vue'
 import DefaultTheme from 'vitepress/theme'
 import { data as sidebars } from '@data/sidebar.data'
 import _ from 'lodash-es'
+import VPFooter from '../components/VPFooter.vue'
 
 const router = useRouter()
 router.onBeforePageLoad = (to, from) => {
