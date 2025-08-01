@@ -80,7 +80,7 @@ export default createContentLoader('blog/**/*.md', {
             title: frontmatter.title || frontmatter.linkTitle || 'Untitled',
             url,
             excerpt,
-            date: formatDate(dateValue)
+            date: formatDate(dateValue, frontmatter.title)
           };
         })
         .sort((a, b) => b.date.time - a.date.time)
@@ -88,10 +88,12 @@ export default createContentLoader('blog/**/*.md', {
 })
 
 
-function formatDate(raw: string | Date): Post['date'] {
+function formatDate(raw: string | Date, title: string): Post['date'] {
   if (!raw) {
     // Fallback for posts without dates
-    console.warn('Post missing date, using current date as fallback');
+    if(title !== 'Overview'){
+      console.warn(`Post: ${title} missing date, using current date as fallback`);
+    }
     const now = new Date();
     return {
       time: +now,

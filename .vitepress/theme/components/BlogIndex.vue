@@ -36,7 +36,7 @@ function getDateTime(time: number) {
 <template>
   <ul class="blog-list">
     <li class="blog-entry" v-for="post of posts">
-      <article>
+      <article v-if="post.title !== 'Overview'">
         <time :datetime="getDateTime(post.date.time)">{{
           post.date.string
         }}</time>

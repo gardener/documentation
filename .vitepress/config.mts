@@ -50,6 +50,8 @@ export default defineConfig({
     languageAlias: {
       golang: 'go',
       code: 'shell',
+      term: 'shell',
+      b: 'shell',
     },
   }
 }
