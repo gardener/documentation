@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "NodeNext",
+    "module": "esnext",
     "allowJs": true,
     "strict": true,
     "jsx": "preserve",
@@ -8,5 +8,8 @@
     "allowSyntheticDefaultImports": true,
     "types": ["vite/client"]
   },
-  "include": ["./.vitepress/**/*"]
+  "include": ["./.vitepress/**/*"],
+  "vueCompilerOptions": {
+    "vitePressExtensions": [".md"],
+  },
 }

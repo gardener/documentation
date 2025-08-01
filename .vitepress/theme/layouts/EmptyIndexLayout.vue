@@ -110,7 +110,8 @@ const findSidebarItemsByPath = (relativePath, sidebarItems) => {
 
 // Extract the logic to update content based on current page and persona
 const updateContent = async (route = page.value.relativePath) => {
-  lastClickedMenuItem.value = localStorage.getItem('lastClickedMenuItem') || 'all'
+  if(typeof window === 'undefined') return
+  lastClickedMenuItem.value = window.localStorage.getItem('lastClickedMenuItem') || 'all'
   const isEmpty = checkIfEmpty()
   console.log('route: ', route)
   const prefixDir = route.split('/').shift()
@@ -152,6 +153,7 @@ onMounted(() => {
   checkIfEmpty()
   
   // Listen for persona menu clicks
+  if(typeof window === 'undefined') return
   window.addEventListener('menuItemClicked', () => updateContent())
   window.addEventListener('navMenuItemClicked',() => updateContent())
   window.addEventListener('taxonomyItemClicked', async (event) => {
@@ -166,6 +168,7 @@ onMounted(() => {
 
 const taxonomyItemClicked = (link) => {
   console.log('TaxonomyItemClicked')
+  if(typeof window === 'undefined') return
   window.dispatchEvent(new CustomEvent('taxonomyItemClicked', {
     detail: { value: link }
   }))

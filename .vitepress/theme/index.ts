@@ -33,7 +33,7 @@ export default {
             // Prevent duplicate tracking for the same path
             if (currentPath !== lastTrackedPath) {
               lastTrackedPath = currentPath;
-              if (typeof window.plausible === 'function') {
+              if (typeof window?.plausible === 'function') {
                 window.plausible('404', { props: { path: currentPath } });
                 console.log('executed 404 for:', currentPath);
               }

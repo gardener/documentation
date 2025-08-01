@@ -32,6 +32,7 @@ const handleClick = () => {
       const userType = determineUserType(itemText)
 
       // Store the mapped user type in localStorage
+      if(typeof window === 'undefined') return  
       localStorage.setItem('lastClickedMenuItem', userType)
 
       // Dispatch a custom event that can be listened to within the same tab

@@ -100,6 +100,7 @@ const displayedItems = computed(() => {
 // Function to clear the user type and reset to default view
 const clearUserType = () => {
   userType.value = ''
+  if(typeof window === 'undefined') return
   localStorage.removeItem('lastClickedMenuItem')
   
   // Dispatch event to notify other components
@@ -136,14 +137,15 @@ onMounted(() => {
   
   // Get initial value from localStorage
   try {
+    if(typeof window === 'undefined') return  
     userType.value = localStorage.getItem('lastClickedMenuItem') || 'all'
   } catch (e) {
     console.error('Failed to read from localStorage:', e)
   }
   
   // Listen for storage changes from other tabs
+  if(typeof window === 'undefined') return
   window.addEventListener('storage', handleStorageChange)
-  
   // Listen for custom events within the same tab
   window.addEventListener('menuItemClicked', handleMenuItemClicked as EventListener)
 })
@@ -155,6 +157,7 @@ onBeforeUnmount(() => {
   }
   
   // Remove all event listeners
+  if(typeof window === 'undefined') return
   window.removeEventListener('storage', handleStorageChange)
   window.removeEventListener('menuItemClicked', handleMenuItemClicked as EventListener)
 })

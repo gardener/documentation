@@ -41,6 +41,7 @@ const { page } = useData()
 const handleNavClick = () => {
   try {
     // Check if the lastClickedMenuItem exists in localStorage
+    if(typeof window === 'undefined') return  
     if (localStorage.getItem('lastClickedMenuItem')) {
       // Remove the lastClickedMenuItem from localStorage
       localStorage.removeItem('lastClickedMenuItem')
