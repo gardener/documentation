@@ -265,11 +265,11 @@ function getHeadConfig(){
   return [
     [
       'link',
-      {rel: 'icon', type: 'image/svg+xml', href: '/documentation/gardener-logo.svg'}
+      {rel: 'icon', type: 'image/svg+xml', href: '/gardener-logo.svg'}
     ],
     [
       'link',
-      {rel: 'icon', type: 'image/png', href: '/gardener-logo.svg'}
+      {rel: 'icon', type: 'image/png', href: '/gardener-logo.png'}
     ],
     ['meta', {name: 'theme-color', content: '#009f76'}],
     ['meta', {property: 'og:type', content: 'website'}],
