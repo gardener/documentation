@@ -1,0 +1,16 @@
+version = 1
+SPDX-PackageName = "Gardener documentation"
+SPDX-PackageSupplier = "The Gardener project <gardener@googlegroups.com>"
+SPDX-PackageDownloadLocation = "https://github.com/gardener/documentation"
+
+[[annotations]]
+path = "**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2017-2020 SAP SE or an SAP affiliate company and Gardener contributors"
+SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+path = ["Makefile", "scripts/**", "website/installer/**", ".ci/**"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2017-2020 SAP SE or an SAP affiliate company and Gardener contributors"
+SPDX-License-Identifier = "Apache-2.0"
