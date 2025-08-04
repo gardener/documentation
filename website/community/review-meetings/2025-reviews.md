@@ -11,6 +11,24 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2025/08/06 - Kubernetes v1.33 Special Edition
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+_Presenters:_ [@Kostov6](https://github.com/Kostov6), [@plkokanov](https://github.com/plkokanov), [@RadaBDimitrova](https://github.com/RadaBDimitrova)
+
+| Duration | Topic                                                        | Reference(s)                                                     |
+| -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| `15m` | 🎓 Graduation Ceremony<br><small>_Graduated Features_</small> | [KEP-753](https://kep.k8s.io/753), [KEP-3850](https://kep.k8s.io/3850), [KEP-3998](https://kep.k8s.io/3998), [KEP-4193](https://kep.k8s.io/4193), [KEP-2590](https://kep.k8s.io/2590), [KEP-1880](https://kep.k8s.io/1880), [KEP-3866](https://kep.k8s.io/3866), [KEP-4444](https://kep.k8s.io/4444) & [KEP-2433](https://kep.k8s.io/2433), [KEP-2625](https://kep.k8s.io/2625), [KEP-3633](https://kep.k8s.io/3633), [KEP-3094](https://kep.k8s.io/3094), [KEP-1495](https://kep.k8s.io/1495), [KEP-2644](https://kep.k8s.io/2644), [KEP-3857](https://kep.k8s.io/3857) |
+| `15m` | 🌸 Beta Bloom<br><small>_Alpha -> Beta Promotions_</small> | [KEP-5100](https://kep.k8s.io/5100), [KEP-4381](https://kep.k8s.io/4381), [KEP-4817](https://kep.k8s.io/4817),  [KEP-5142](https://kep.k8s.io/5142), [KEP-4832](https://kep.k8s.io/4832), [KEP-3257](https://kep.k8s.io/3257), [KEP-3619](https://kep.k8s.io/3619), [KEP-4639](https://kep.k8s.io/4639), [KEP-127](https://kep.k8s.io/127), [KEP-4265](https://kep.k8s.io/4265), [KEP-2902](https://kep.k8s.io/2902), [KEP-3960](https://kep.k8s.io/3960) & [KEP-4818](https://kep.k8s.io/4818), [KEP-5073](https://kep.k8s.io/5073) |
+| `10m` | 🗞️ Fresh Off The Press<br><small>_New Alpha Features_</small> | [KEP-4951](https://kep.k8s.io/4951), [KEP-4603](https://kep.k8s.io/4603), [KEP-4960](https://kep.k8s.io/4960), [KEP-5055](https://kep.k8s.io/5055) & [KEP-4816](https://kep.k8s.io/4816) & [KEP-5018](https://kep.k8s.io/5018) & [KEP-4815](https://kep.k8s.io/4815), [KEP-2535](https://kep.k8s.io/2535), [KEP-4742](https://kep.k8s.io/4742), [KEP-5067](https://kep.k8s.io/5067), [KEP-5109](https://kep.k8s.io/5109), [KEP-4205](https://kep.k8s.io/4205), [KEP-4412](https://kep.k8s.io/4412), [KEP-4049](https://kep.k8s.io/4049) |
+| `5m` | 🧼 Security, Deprecations & Removals | [CVE-2025-4563](http://issues.k8s.io/132151), [KEP-4004](https://kep.k8s.io/4004). [KEP-4974](https://kep.k8s.io/4974), [KEP-5040](https://kep.k8s.io/5040), [KEP-3503](https://kep.k8s.io/3503) |
+| `5m` | 🪴 What's Changing In Gardener | [#11033](https://github.com/gardener/gardener/issues/11933), [#12343](https://github.com/gardener/gardener/pull/12343), [#12115](https://github.com/gardener/gardener/pull/12115) & [#12413](https://github.com/gardener/gardener/pull/12413), [#11502](https://github.com/gardener/gardener/pull/11502) |
+
+<hr />
+
 ### 2025/07/30 - [v1.124](https://github.com/gardener/gardener/releases/tag/v1.124.0) Release
 
 [📽️ Recording](https://youtu.be/xYiWsIQ8n1o)
