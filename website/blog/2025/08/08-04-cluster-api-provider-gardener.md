@@ -95,7 +95,7 @@ If Cluster API is used to build a Kubernetes-as-a-Service offering for end users
 #### Gardener API + CAPGa: Managed by Service Teams
 
 GAPI and CAPI (with CAPGa) ultimately expose different API styles for the same Kubernetes-as-a-Service domain, while both are semantically congruent in using the Kubernetes Resource Model (KRM).
-With modern developments built on top of generic Kubernetes control planes, such as [KCP](https://www.kcp.io/) with [Platform Mesh](https://pages.github.tools.sap/ApeiroRA/apeirora-docu/next/best-practices/platform-mesh), platform teams can offer both APIs to end users in a secure manner (fully as-a-Service).
+With modern developments built on top of generic Kubernetes control planes, such as [KCP](https://www.kcp.io/) with [Platform Mesh](https://documentation.apeirora.eu/best-practices/platform-mesh), platform teams can offer both APIs to end users in a secure manner (fully as-a-Service).
 Like Gardener, the Kubernetes runtime with CAPGa and Cluster API can be hosted and operated by platform or service teams.
 Only their KRM-based APIs are exposed to the end user.
 As an end user:
