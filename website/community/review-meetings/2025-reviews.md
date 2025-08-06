@@ -13,7 +13,7 @@ Check back regularly for updates and upcoming topics!
 
 ### 2025/08/06 - Kubernetes v1.33 Special Edition
 
-[📽️ Recording]()
+[📽️ Recording](https://youtu.be/nmqmiZDaaAc)
 
 #### Demo Agenda 📋
 
