@@ -1,0 +1,84 @@
+on:
+
+  push:
+  pull_request:
+    types: [ assigned, opened, synchronize, reopened ]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  # Build job
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm # or pnpm / yarn
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Docforge
+        run: |
+          wget https://github.com/gardener/docforge/releases/download/v0.55.0/docforge-linux-amd64
+          mv docforge-linux-amd64 docforge
+          chmod +x docforge
+          DOCFORGE_CONFIG=.docforge/config.yaml GITHUB_OAUTH_TOKEN=${{ secrets.GITHUB_TOKEN }} ./docforge
+      - name: Install dependencies
+        run: npm ci # or pnpm install / yarn install / bun install
+      - name: Postprocessing Content
+        run: |
+          npm run post-processing-all
+
+      - name: Build with VitePress
+        run: npm run docs:build # or pnpm docs:build / yarn docs:build / bun run docs:build
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .vitepress/dist
+        if: github.event_name != 'pull_request' # Skip upload on PRs
+
+  # Test job
+  test:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm # or pnpm / yarn
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Docforge
+        run: |
+          wget https://github.com/gardener/docforge/releases/download/v0.55.0/docforge-linux-amd64
+          mv docforge-linux-amd64 docforge
+          chmod +x docforge
+          DOCFORGE_CONFIG=.docforge/config.yaml GITHUB_OAUTH_TOKEN=${{ secrets.GITHUB_TOKEN }} ./docforge
+      - name: Install dependencies
+        run: npm ci # or pnpm install / yarn install / bun install
+      - name: Postprocessing Content
+        run: |
+          npm run post-processing-all
+
+      - name: Run Vitest
+        run: npm test
