@@ -309,6 +309,8 @@ spec:
 </code></pre>
 </details>
 
+For every created Security Hardened Shoot, additional NetworkPolicies are configured for the default, kube-public and kube-node-lease namespaces, in order to comply with [Rule 2000 of the Security Hardened Kubernetes ruleset](https://github.com/gardener/diki/blob/main/docs/rulesets/security-hardened-k8s/ruleset.md#2000---ingress-and-egress-traffic-must-be-restricted-by-default). This configuration is done since Gardener does not take care of the NetworkPolicies in the aforementioned namespaces.
+
 ## Diki Configuration
 
 The following [diki](https://github.com/gardener/diki) configuration was used in order to test each of the shoot clusters described above. Mind that the rules regarding audit logging are skipped because organizations have different requirements and Gardener can integrate with different audit logging solutions.
@@ -325,18 +327,18 @@ providers:
   rulesets:
   - id: disa-kubernetes-stig
     name: DISA Kubernetes Security Technical Implementation Guide
-    version: v2r1
+    version: v2r3
     args:
       maxRetries: 5
     ruleOptions: 
     - ruleID: "242402"
       skip:
         enabled: true
-        justification: Gardener can integrate with different audit logging solutions
+        justification: Gardener can integrate with different audit logging solutions.
     - ruleID: "242403"
       skip:
         enabled: true
-        justification: Gardener can integrate with different audit logging solutions
+        justification: Gardener can integrate with different audit logging solutions.
     - ruleID: "242414"
       args:
         acceptedPods:
@@ -344,7 +346,7 @@ providers:
             k8s-app: node-local-dns
           namespaceMatchLabels:
             kubernetes.io/metadata.name: kube-system
-          justification: "node local dns requires port 53 in order to operate properly"
+          justification: "Node local dns requires port 53 in order to operate properly."
           ports:
           - 53
     - ruleID: "242445"
@@ -365,15 +367,15 @@ providers:
     - ruleID: "242462"
       skip:
         enabled: true
-        justification: Gardener can integrate with different audit logging solutions
+        justification: Gardener can integrate with different audit logging solutions.
     - ruleID: "242463"
       skip:
         enabled: true
-        justification: Gardener can integrate with different audit logging solutions
+        justification: Gardener can integrate with different audit logging solutions.
     - ruleID: "242464"
       skip:
         enabled: true
-        justification: Gardener can integrate with different audit logging solutions
+        justification: Gardener can integrate with different audit logging solutions.
     - ruleID: "245543"
       args:
         acceptedTokens:
@@ -382,6 +384,299 @@ providers:
     - ruleID: "254800"
       args:
         minPodSecurityStandardsProfile: "baseline"
+- id: garden
+  name: "Garden"
+  metadata: ...
+  args: ...
+  rulesets:
+  - id: security-hardened-shoot-cluster
+    name: Security Hardened Shoot Cluster
+    version: v0.2.1
+    args: ...
+    ruleOptions: 
+    - ruleID: "1000"
+      args:
+        extensions:
+        - type: shoot-lakom-service
+    - ruleID: "2007"
+      args:
+        minPodSecurityStandardsProfile: baseline
+- id: managedk8s
+  name: "Managed Kubernetes"
+  metadata: ...
+  args: ...
+  rulesets:
+  - id: security-hardened-k8s
+    name: Security Hardened Kubernetes Cluster
+    version: v0.1.0
+    ruleOptions: 
+    - ruleID: "2001"
+      args:
+        acceptedPods:
+        - matchLabels:
+            k8s-app: calico-node
+            resources.gardener.cloud/managed-by: gardener
+          namespaceMatchLabels:
+            kubernetes.io/metadata.name: kube-system
+          justification: "Gardener managed resources are accepted to allow privilege escalation."
+        - matchLabels:
+            app: csi
+            resources.gardener.cloud/managed-by: gardener
+          namespaceMatchLabels:
+            kubernetes.io/metadata.name: kube-system
+          justification: "Gardener managed resources are accepted to allow privilege escalation."
+        - matchLabels:
+            gardener.cloud/role: network-problem-detector
+            resources.gardener.cloud/managed-by: gardener
+          namespaceMatchLabels:
+            kubernetes.io/metadata.name: kube-system
+          justification: "Gardener managed resources are accepted to allow privilege escalation."
+        - matchLabels:
+            app: node-problem-detector
+            resources.gardener.cloud/managed-by: gardener
+          namespaceMatchLabels:
+            kubernetes.io/metadata.name: kube-system
+          justification: "Gardener managed resources are accepted to allow privilege escalation."
+        - matchLabels:
+            role: proxy
+            resources.gardener.cloud/managed-by: gardener
+          namespaceMatchLabels:
+            kubernetes.io/metadata.name: kube-system
+          justification: "Gardener managed resources are accepted to allow privilege escalation."
+        - matchLabels:
+            app: vpn-shoot
+            resources.gardener.cloud/managed-by: gardener
+          namespaceMatchLabels:
+            kubernetes.io/metadata.name: kube-system
+          justification: "Gardener managed resources are accepted to allow privilege escalation."
+    - ruleID: "2003"
+      args:
+        acceptedPods:
+        - matchLabels:
+            k8s-app: calico-node
+            resources.gardener.cloud/managed-by: gardener
+          namespaceMatchLabels:
+            kubernetes.io/metadata.name: kube-system
+          justification: "Gardener managed resources are accepted to use a wider range of volume types."
+          volumeNames:
+          - lib-modules
+          - var-run-calico
+          - var-lib-calico
+          - xtables-lock
+          - cni-bin-dir
+          - cni-net-dir
+          - cni-log-dir
+          - policysync
+        - matchLabels:
+            app: csi
+            resources.gardener.cloud/managed-by: gardener
+          namespaceMatchLabels:
+            kubernetes.io/metadata.name: kube-system
+          justification: "Gardener managed resources are accepted to use a wider range of volume types."
+          volumeNames:
+          - registration-dir
+          - plugin-dir
+          - kubelet-dir
+          - pods-mount-dir
+          - host-dev
+          - device-dir
+          - sys-devices-dir
+          - scsi-host-dir
+        - matchLabels:
+            k8s-app: egress-filter-applier
+            resources.gardener.cloud/managed-by: gardener
+          namespaceMatchLabels:
+            kubernetes.io/metadata.name: kube-system
+          justification: "Gardener managed resources are accepted to use a wider range of volume types."
+          volumeNames:
+          - xtables-lock
+        - matchLabels:
+            role: proxy
+            resources.gardener.cloud/managed-by: gardener
+          namespaceMatchLabels:
+            kubernetes.io/metadata.name: kube-system
+          justification: "Gardener managed resources are accepted to use a wider range of volume types."
+          volumeNames:
+          - ssl-certs-hosts
+          - kernel-modules
+          - kube-proxy-dir
+          - kube-proxy-mode
+          - xtables-lock
+        - matchLabels:
+            gardener.cloud/role: network-problem-detector
+            resources.gardener.cloud/managed-by: gardener
+          namespaceMatchLabels:
+            kubernetes.io/metadata.name: kube-system
+          justification: "Gardener managed resources are accepted to use a wider range of volume types."
+          volumeNames:
+          - log
+          - output
+        - matchLabels:
+            component: node-exporter
+            gardener.cloud/role: monitoring
+            resources.gardener.cloud/managed-by: gardener
+          namespaceMatchLabels:
+            kubernetes.io/metadata.name: kube-system
+          justification: "Gardener managed resources are accepted to use a wider range of volume types."
+          volumeNames:
+          - host
+          - textfile
+        - matchLabels:
+            k8s-app: node-local-dns
+            resources.gardener.cloud/managed-by: gardener
+          namespaceMatchLabels:
+            kubernetes.io/metadata.name: kube-system
+          justification: "Gardener managed resources are accepted to use a wider range of volume types."
+          volumeNames:
+          - xtables-lock
+        - matchLabels:
+            app: node-problem-detector
+            resources.gardener.cloud/managed-by: gardener
+          namespaceMatchLabels:
+            kubernetes.io/metadata.name: kube-system
+          justification: "Gardener managed resources are accepted to use a wider range of volume types."
+          volumeNames:
+          - log
+          - localtime
+          - kmsg
+        - matchLabels:
+            app: vpn-shoot
+            resources.gardener.cloud/managed-by: gardener
+          namespaceMatchLabels:
+            kubernetes.io/metadata.name: kube-system
+          justification: "Gardener managed resources are accepted to use a wider range of volume types."
+          volumeNames:
+          - dev-net-tun
+    - ruleID: "2005"
+      args:
+        allowedImages:
+        - prefix: "europe-docker.pkg.dev/sap-se-gcp-k8s-c-delivery/"
+        - prefix: "europe-docker.pkg.dev/gardener-project/"
+        - prefix: "quay.io/prometheus/" # required by node-exporter and blackbox-exporter
+        - prefix: "registry.k8s.io/coredns/" # required by coredns
+        - prefix: "registry.k8s.io/dns/" # required by node-local-dns
+        - prefix: "registry.k8s.io/metrics-server/" # required by metric-server
+        - prefix: "registry.k8s.io/sig-storage/" # required by csi-driver-node
+        - prefix: "registry.k8s.io/cloud-provider-gcp/" # required by csi-driver-node
+        - prefix: "registry.k8s.io/node-problem-detector/" # required by node-problem-detector
+    - ruleID: "2006"
+      args:
+        acceptedClusterRoles:
+        - matchLabels:
+            kubernetes.io/bootstrapping: rbac-defaults
+          justification: "Default RBAC Roles."
+        - matchLabels:
+            gardener.cloud/role: vpa
+            resources.gardener.cloud/managed-by: gardener
+          justification: "VPA RBAC Roles require */scale permissions to vertically scale resources."
+    - ruleID: "2007"
+      args:
+        acceptedClusterRoles:
+        - matchLabels:
+            kubernetes.io/bootstrapping: rbac-defaults
+          justification: "Default RBAC Roles."
+        - matchLabels:
+            gardener.cloud/role: vpa
+            resources.gardener.cloud/managed-by: gardener
+          justification: "VPA RBAC Roles require */scale permissions to vertically scale resources."
+    - ruleID: "2008"
+      args:
+        acceptedPods:
+        - matchLabels:
+            k8s-app: calico-node
+            resources.gardener.cloud/managed-by: gardener
+          namespaceMatchLabels:
+            kubernetes.io/metadata.name: kube-system
+          justification: "Gardener managed resources are accepted to use hostPath volumes."
+          volumeNames:
+          - lib-modules
+          - var-run-calico
+          - var-lib-calico
+          - xtables-lock
+          - cni-bin-dir
+          - cni-net-dir
+          - cni-log-dir
+          - policysync
+        - matchLabels:
+            app: csi
+            resources.gardener.cloud/managed-by: gardener
+          namespaceMatchLabels:
+            kubernetes.io/metadata.name: kube-system
+          justification: "Gardener managed resources are accepted to use hostPath volumes."
+          volumeNames:
+          - registration-dir
+          - plugin-dir
+          - kubelet-dir
+          - pods-mount-dir
+          - host-dev
+          - device-dir
+          - sys-devices-dir
+          - scsi-host-dir
+        - matchLabels:
+            k8s-app: egress-filter-applier
+            resources.gardener.cloud/managed-by: gardener
+          namespaceMatchLabels:
+            kubernetes.io/metadata.name: kube-system
+          justification: "Gardener managed resources are accepted to use hostPath volumes."
+          volumeNames:
+          - xtables-lock
+        - matchLabels:
+            role: proxy
+            resources.gardener.cloud/managed-by: gardener
+          namespaceMatchLabels:
+            kubernetes.io/metadata.name: kube-system
+          justification: "Gardener managed resources are accepted to use hostPath volumes."
+          volumeNames:
+          - ssl-certs-hosts
+          - kernel-modules
+          - kube-proxy-dir
+          - kube-proxy-mode
+          - xtables-lock
+        - matchLabels:
+            gardener.cloud/role: network-problem-detector
+            resources.gardener.cloud/managed-by: gardener
+          namespaceMatchLabels:
+            kubernetes.io/metadata.name: kube-system
+          justification: "Gardener managed resources are accepted to use hostPath volumes."
+          volumeNames:
+          - log
+          - output
+        - matchLabels:
+            component: node-exporter
+            gardener.cloud/role: monitoring
+            resources.gardener.cloud/managed-by: gardener
+          namespaceMatchLabels:
+            kubernetes.io/metadata.name: kube-system
+          justification: "Gardener managed resources are accepted to use hostPath volumes."
+          volumeNames:
+          - host
+          - textfile
+        - matchLabels:
+            k8s-app: node-local-dns
+            resources.gardener.cloud/managed-by: gardener
+          namespaceMatchLabels:
+            kubernetes.io/metadata.name: kube-system
+          justification: "Gardener managed resources are accepted to use hostPath volumes."
+          volumeNames:
+          - xtables-lock
+        - matchLabels:
+            app: node-problem-detector
+            resources.gardener.cloud/managed-by: gardener
+          namespaceMatchLabels:
+            kubernetes.io/metadata.name: kube-system
+          justification: "Gardener managed resources are accepted to use hostPath volumes."
+          volumeNames:
+          - log
+          - localtime
+          - kmsg
+        - matchLabels:
+            app: vpn-shoot
+            resources.gardener.cloud/managed-by: gardener
+          namespaceMatchLabels:
+            kubernetes.io/metadata.name: kube-system
+          justification: "Gardener managed resources are accepted to use hostPath volumes."
+          volumeNames:
+          - dev-net-tun
 output:
   minStatus: Passed
 </code></pre>
