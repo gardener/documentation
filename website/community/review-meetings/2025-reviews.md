@@ -11,6 +11,28 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2025/08/13 - [v1.125](https://github.com/gardener/gardener/releases/tag/v1.125.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@rfranzke](https://github.com/rfranzke) | `10m` | 🤖 GEP-28: ETCD Management Via `etcd-druid` | [#12391](https://github.com/gardener/gardener/pull/12391) |
+| [@timuthy](https://github.com/timuthy) | `5m` | 🚫 No More RBAC Collisions In Kubeconfigs | [#12597](https://github.com/gardener/gardener/pull/12597) |
+| [@ialidzhikov](https://github.com/ialidzhikov) | `10m` | 🙅🏼‍♂️ Global Max Allowed Values For VPA | [#12481](https://github.com/gardener/gardener/pull/12481) |
+| [@AleksandarSavchev](https://github.com/AleksandarSavchev) | `5m` | 🧱 Robust Config Handling In `gardener-node-agent` | [#12589](https://github.com/gardener/gardener/pull/12589) |
+| [@tobschli](https://github.com/tobschli) | `10m` | 🐢 Cluster API Provider For Gardener | [cluster-api-provider-gardener (repo)](https://github.com/gardener/cluster-api-provider-gardener), [blog post](https://gardener.cloud/blog/2025/08/08-04-cluster-api-provider-gardener/) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- 🐛 [OPERATOR] `Seed` registration was fixed for `ManagedSeed`s with seed templates configuring `spec.resources`. [#12652](https://github.com/gardener/gardener/pull/12652)
+- 🐛 [OPERATOR] A bug in `gardener-node-agent` that prevented the location for the sandbox image to be configurable to a custom value on worker nodes with containerd `v2.x` was fixed. [#12665](https://github.com/gardener/gardener/pull/12665)
+- ✨ [DEVELOPER] The Concourse CICD pipeline has been migrated to GitHub Actions. [#12592](https://github.com/gardener/gardener/pull/12592)
+
+<hr />
+
 ### 2025/08/06 - Kubernetes v1.33 Special Edition
 
 [📽️ Recording](https://youtu.be/nmqmiZDaaAc)
