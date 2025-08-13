@@ -20,7 +20,7 @@ Check back regularly for updates and upcoming topics!
 | Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
 | ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
 | [@rfranzke](https://github.com/rfranzke) | `10m` | 🤖 GEP-28: ETCD Management Via `etcd-druid` | [#12391](https://github.com/gardener/gardener/pull/12391) |
-| [@timuthy](https://github.com/timuthy) | `5m` | 🚫 No More RBAC Collisions In Kubeconfigs | [#12597](https://github.com/gardener/gardener/pull/12597) |
+| [@marc1404](https://github.com/marc1404) | `5m` | 🚫 No More RBAC Collisions In Kubeconfigs | [#12597](https://github.com/gardener/gardener/pull/12597) |
 | [@ialidzhikov](https://github.com/ialidzhikov) | `10m` | 🙅🏼‍♂️ Global Max Allowed Values For VPA | [#12481](https://github.com/gardener/gardener/pull/12481) |
 | [@AleksandarSavchev](https://github.com/AleksandarSavchev) | `5m` | 🧱 Robust Config Handling In `gardener-node-agent` | [#12589](https://github.com/gardener/gardener/pull/12589) |
 | [@tobschli](https://github.com/tobschli) | `10m` | 🐢 Cluster API Provider For Gardener | [cluster-api-provider-gardener (repo)](https://github.com/gardener/cluster-api-provider-gardener), [blog post](https://gardener.cloud/blog/2025/08/08-04-cluster-api-provider-gardener/) |
