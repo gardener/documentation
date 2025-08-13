@@ -13,7 +13,7 @@ Check back regularly for updates and upcoming topics!
 
 ### 2025/08/13 - [v1.125](https://github.com/gardener/gardener/releases/tag/v1.125.0) Release
 
-[📽️ Recording]()
+[📽️ Recording](https://youtu.be/v9utQl_WJR0)
 
 #### Demo Agenda 📋
 
