@@ -107,7 +107,7 @@ As an end user:
 This model significantly reduces the operational burden for the user and promotes standardization and governance, while still offering the flexibility of Cluster API resources and workflows.
 
 > [!TIP]  
-> Further information, especially on the concept of the platform mesh, maintaining a digital twin, and multi-planes, can be found in the [Apeiro documentation](https://documentation.apeirora.eu/best-practices/control-planes/crt).
+> Further information, especially on the concept of the platform mesh, maintaining a digital twin, and multi-planes, can be found in the [Apeiro documentation](https://documentation.apeirora.eu/docs/best-practices/control-planes/crt).
 
 ### Why did we build CAPGa?
 
