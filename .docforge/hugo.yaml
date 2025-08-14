@@ -11,4 +11,8 @@ structure:
 - dir: static
   structure:
   - fileTree: ../website/hugo/static
+  - dir: js
+    structure:
+    - file: filtering.js
+      processor: persona
 - file: ../website/hugo/config.toml
