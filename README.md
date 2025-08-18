@@ -4,24 +4,28 @@
 
 Ready to jump in? Follow these steps to get the Gardener documentation running locally:
 
-1. **Prerequisites**
-   - Docker installed and running
-   - GitHub token (for API rate limits)
+### Prerequisites
 
-2. **Set up environment variables**
-   ```bash
-   export DOCFORGE_CONFIG=.docforge/config.yaml
-   export GITHUB_OAUTH_TOKEN=your_github_token 
-   ```
+* [Docker](https://www.docker.com/) installed and running.
+* A [GitHub](https://github.com/settings/personal-access-tokens) personal access token for API rate limits.
+  * See the section [Getting the correct GitHub token](#getting-the-correct-github-token) below for details.
+  * Alternatively, install the [gh CLI](https://cli.github.com/) and run `gh auth login --hostname github.com` once.
 
-To get the correct Github token -> [Getting the correct GitHub token](#getting-the-correct-github-token)
+### Steps
 
-1. **Start the development server**
-   ```bash
-   make docs-dev
-   ```
+1. Set the `GITHUB_OAUTH_TOKEN` environment variable (_optional with the `gh` CLI installed_):
 
-2. **Visit [http://localhost:5173](http://localhost:5173) in your browser** 🎉
+```shell
+export GITHUB_OAUTH_TOKEN=<token>
+```
+
+2. Build and run a Docker container:
+
+```shell
+make preview
+```
+
+3. Visit [http://localhost:5173](http://localhost:5173) in your browser! 🎉
 
 ## 📚 Understanding the Documentation Structure
 
