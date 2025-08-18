@@ -1,15 +1,11 @@
 import { generateSidebar } from 'vitepress-sidebar';
-import { writeJsonDebug } from "./utils/debug-json.ts";
+import { writeJsonDebug } from './utils/debug-json.ts';
 import {
-  type SidebarItem,
   removeIndexEntries,
   sortByWeight,
   enhanceDirectoryTitles,
-  createLeafMap,
-  extractItems,
-  filterLeafMapByPersona,
-  filterSidebarByLeafMap,
-  removeEmptyItems
+  removeEmptyItems,
+  addTrailingSlashToLinks,
 } from './utils/sidebar.ts';
 
 const communitySidbarConfig =  {
@@ -47,6 +43,8 @@ export function communitySidebar(): any {
         'cleandCommunitySidebar.json',
         cleandSidebar
     );
+
+    addTrailingSlashToLinks(cleandSidebar['/community/'].items);
 
     return cleandSidebar;
 }
