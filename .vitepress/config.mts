@@ -4,15 +4,13 @@ import blogSidebar from './theme/blog-sidebar.ts'
 import {communitySidebar} from "./theme/community-sidebar.ts";
 import path from 'path'
 
+const indexPattern = new RegExp(/\/?_?index\.md$/i);
+
 export default defineConfig({
   srcDir: 'hugo/content',
   cleanUrls: true,
   rewrites(id) {
-    if (id.endsWith('/index.md') || id.endsWith('/_index.md')) {
-      return id;
-    }
-
-    if (id.endsWith('.md')) {
+    if (!indexPattern.test(id) && id.endsWith('.md')) {
       return id.slice(0, -3) + '/index.md';
     }
 
