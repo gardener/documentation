@@ -1,32 +1,22 @@
-FROM europe-docker.pkg.dev/gardener-project/releases/3rd/alpine:3.20.1 as base
+FROM europe-docker.pkg.dev/gardener-project/releases/docforge:v0.55.0 AS docforge
 
-RUN apk add curl
+FROM node:24.5.0-alpine3.21@sha256:efdcaa463d3350b21dd16dc18326348e79e12ade61ae021b104725f965b174a0
 
-ARG HUGO_VERSION=0.147.7
-ARG HUGO_TYPE=_extended
-ARG ARCH=_Linux-64bit
-ARG HUGO_ID=hugo${HUGO_TYPE}_${HUGO_VERSION}
-
-RUN curl -fsSLO --compressed https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${HUGO_ID}${ARCH}.tar.gz \
-    && curl -fsSL --compressed https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_checksums.txt | grep " ${HUGO_ID}${ARCH}.tar.gz\$" | sha256sum -c - \
-    && tar -xzf ${HUGO_ID}${ARCH}.tar.gz \
-    && mkdir -p /usr/local/bin \
-    && mv ./hugo /usr/local/bin/hugo
-
-FROM europe-docker.pkg.dev/gardener-project/releases/docforge:v0.55.0 as docforge
-FROM europe-docker.pkg.dev/gardener-project/releases/cicd/job-image:latest
-
-ARG DOCSY_VERSION=v0.12.0
+WORKDIR /app
 
 COPY --from=docforge /docforge /usr/local/bin/docforge
-COPY --from=base /usr/local/bin/hugo /usr/local/bin/hugo
 
-RUN apk add --update bash asciidoctor libc6-compat libstdc++ gcompat nodejs npm git
+ADD . .
 
-EXPOSE 1313
+RUN --mount=type=secret,id=GITHUB_OAUTH_TOKEN \
+    --mount=type=cache,target=/tmp/docforge \
+    apk add --no-cache git && \
+    export GITHUB_OAUTH_TOKEN=$(cat /run/secrets/GITHUB_OAUTH_TOKEN) && \
+    export DOCFORGE_CONFIG='.docforge/config' && \
+    docforge --cache-dir /tmp/docforge && \
+    npm ci && \
+    npm run post-processing-all
 
-COPY package.json hugo/package.json
+EXPOSE 5173
 
-RUN mkdir -p hugo/themes && cd hugo/themes && git clone https://github.com/google/docsy.git && cd docsy && git checkout "${DOCSY_VERSION}" && cd ../.. && npm install && cd themes/docsy && npm install
-
-CMD if [ -n "$DOCFORGE_CONFIG_PATH" ]; then export DOCFORGE_CONFIG="/${DOCFORGE_CONFIG_PATH}/config"; fi ; cd / && docforge && cd hugo && if [ -n "$WEBSITE_BUILD_PATH" ]; then hugo --minify --destination "$WEBSITE_BUILD_PATH"; else hugo serve $HUGO_FLAGS; fi
+CMD ["npx", "vitepress", "dev", "--host", "0.0.0.0"]
