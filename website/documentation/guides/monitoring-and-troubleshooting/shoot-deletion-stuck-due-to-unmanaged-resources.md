@@ -18,7 +18,7 @@ Unmanaged resources are cloud resources that are not automatically deleted or ma
 
 #### Identifying Unmanaged Resources
 1. **Use Cloud Provider Tools**: Utilize the cloud provider's console or CLI to list resources. For example, AWS CLI commands like `aws ec2 describe-instances` or `aws elbv2 describe-load-balancers` can help identify active resources.
-2. **Kubernetes Tools**: Use kubectl commands to list resources within your Kubernetes cluster. Commands like kubectl get services or kubectl get pv can help identify resources that may not be managed.
+2. **Kubernetes Tools**: Use kubectl commands to list resources within your Kubernetes cluster. Commands like `kubectl get services` or `kubectl get pv` can help identify resources that may not be managed.
 3. **Monitoring and Alerts**: Set up monitoring and alerts to notify you of resources that remain active beyond their expected lifecycle.
 
 #### Examples of unmanaged resources blocking deletion
