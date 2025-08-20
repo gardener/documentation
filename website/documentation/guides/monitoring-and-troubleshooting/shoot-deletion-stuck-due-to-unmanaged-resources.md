@@ -1,6 +1,6 @@
 ---
-title: tail -f /var/log/my-application.log
-description: "Aggregate log files from different pods"
+title: Shoot deletion stuck due to unmanaged resources
+description: "Shoot deletion stuck due to unmanaged resources"
 level: intermediate
 category: Debugging
 scope: app-developer
