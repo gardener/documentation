@@ -18,7 +18,7 @@ Unmanaged resources are cloud resources that are not automatically deleted or ma
 
 #### Identifying Unmanaged Resources
 1. **Use Cloud Provider Tools**: Utilize the cloud provider's console or CLI to list resources. For example, AWS CLI commands like `aws ec2 describe-instances` or `aws elbv2 describe-load-balancers` can help identify active resources.
-2. **Kubernetes Tools**: Use kubectl commands to list resources within your Kubernetes cluster. Commands like kubectl get services or kubectl get pv can help identify resources that may not be managed.
+2. **Kubernetes Tools**: Use kubectl commands to list resources within your Kubernetes cluster. Commands like `kubectl get services` or `kubectl get pv` can help identify resources that may not be managed.
 3. **Monitoring and Alerts**: Set up monitoring and alerts to notify you of resources that remain active beyond their expected lifecycle.
 
 #### Examples of unmanaged resources blocking deletion
@@ -54,12 +54,12 @@ kubectl delete service addons-nginx-ingress-controller -n kube-system --grace-pe
 
 5. **Retry Deletion**: After addressing any issues, retry the deletion process.
 
-#### Case 2: Shoot stuck due to ConvergedCloud networks 
+#### Case 2: Shoot stuck due to Openstack networks 
 
 Your shoot reports message of type:
 
 ```
-failed to "delete network": Expected HTTP response code [202 204] when accessing [DELETE https://network-3.eu-de-2.cloud.sap/v2.0/networks/387c61df-2f17-4e8b-a18d-7571078c78c2], but got 500 instead: {"NeutronError": {"type": "HTTPInternalServerError", "message": "Request Failed: internal server error while processing your request.", "detail": ""}}
+failed to "delete network": Expected HTTP response code [202 204] when accessing [DELETE https://network.example.com/v2.0/networks/387c61df-2f17-4e8b-a18d-7571078c78c2], but got 500 instead: {"NeutronError": {"type": "HTTPInternalServerError", "message": "Request Failed: internal server error while processing your request.", "detail": ""}}
 ```
 
 1. **Retry the Operation**: Sometimes, transient issues can cause a 500 error. Wait a few minutes and try the deletion operation again.
