@@ -25,3 +25,5 @@ persona-filter-enabled: true
 aliases-enabled: true
 docsy-edit-this-page-enabled: true
 skip-link-validation: true
+resourceMappings:
+  "https://github.com/gardener/documentation": "./"

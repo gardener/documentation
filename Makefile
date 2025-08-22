@@ -2,42 +2,6 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-
-# Default make target is `serve`
-.PHONY: 
-	@./scripts/serve
-.PHONY: serve
-# `make serve`: starts a `website-dev` container with hugo web server, serving the content from
-# `/website` in this repository. Changes to content are reflected on the server in real time. 
-# Suitable for preview of content changes. 
-serve:
-	@./scripts/serve
-# `make build`: builds the site without running a server. Suitable for quick validation.
-.PHONY: build
-build:
-	@./scripts/serve --build
-# `make production`: (Experimental) creates a full-blown build with the content (same as Concourse)
-# and runs a web server to preview the changes. Suitable for final quality check.
-.PHONY: production
-production:
-	@./scripts/serve --prod
-# `make stop`: gracefully stops `website-dev` container (if it was run).
-.PHONY: stop
-stop:
-	@./scripts/stop -c=website-dev
-
-.PHONY: check-manifest
-check-manifest:
-	@.ci/check-manifest-entrypoint
-
-.PHONY: test
-test:
-	@python3 test/selenium-test.py
-
-
-
-### vitepress ###
-
 .PHONY: docforge
 docforge: docforge-download ## Check environment and run docforge
 	@echo "Checking environment variables for docforge..."
@@ -169,11 +133,7 @@ docforge-run: docforge-download ## Check environment and run docforge with custo
 		./bin/docforge; \
 	fi
 
-# VitePress documentation targets
-
-.PHONY: docs-dev
-docs-dev: docforge-run ## Run docforge and start the VitePress development server
-	@echo "Building VitePress dev environment Docker image..."
-	docker build --no-cache -t gardener_docs_dev -f Dockerfile.dev . --load
-	@echo "Starting VitePress development server on port 5173..."
-	docker run --rm -p 5173:5173 -v `pwd`/:/app gardener_docs_dev
+.PHONY: preview
+preview:
+	@chmod +x hack/preview.sh
+	@hack/preview.sh
