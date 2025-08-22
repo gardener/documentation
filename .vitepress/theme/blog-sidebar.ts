@@ -1,6 +1,6 @@
 import { generateSidebar } from 'vitepress-sidebar';
 import _ from 'lodash-es';
-import {removeIndexEntries} from "./utils/sidebar.ts";
+import { addTrailingSlashToLinks, removeIndexEntries } from './utils/sidebar.ts';
 
 export const blogSidebarConfig = {
     documentRootPath: '/hugo/content',
@@ -53,6 +53,8 @@ function blogSidebar () {
 
   // Filter out all _index.md entries (called last)
   const filteredSidebar = removeIndexEntries(sortedSidebar);
+
+  addTrailingSlashToLinks(filteredSidebar['/blog/'].items);
 
   return filteredSidebar;
 }

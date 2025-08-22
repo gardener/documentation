@@ -548,3 +548,23 @@ export function promoteSingleChildLeafs(sidebar: any): {
   const transformed = processItem(sidebar);
   return { transformed, promotedLeafs };
 }
+
+export function addTrailingSlashToLinks(sidebar: any) {
+  if (Array.isArray(sidebar)) {
+    for (const item of sidebar) {
+      addTrailingSlashToLinks(item)
+    }
+  }
+
+  const link = sidebar.link;
+
+  if (link && link !== 'undefined' && !link.endsWith('/') && !link.endsWith('.md')) {
+    sidebar.link += '/';
+  }
+
+  if (sidebar.items) {
+    for (const item of sidebar.items) {
+      addTrailingSlashToLinks(item)
+    }
+  }
+}

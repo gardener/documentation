@@ -1,5 +1,5 @@
 import { generateSidebar } from 'vitepress-sidebar';
-import { writeJsonDebug } from "./utils/debug-json.ts";
+import { writeJsonDebug } from './utils/debug-json.ts';
 import {
   type SidebarItem,
   removeIndexEntries,
@@ -10,7 +10,8 @@ import {
   filterLeafMapByPersona,
   filterSidebarByLeafMap,
   removeEmptyItems,
-  promoteSingleChildLeafs
+  promoteSingleChildLeafs,
+  addTrailingSlashToLinks
 } from './utils/sidebar.ts';
 
 const docsSidbarConfig =  {
@@ -63,6 +64,8 @@ export function generateEnhancedDocsSidebar(): any {
     'cleandSidebar.json',
     cleandSidebar
   );
+
+  addTrailingSlashToLinks(cleandSidebar['/docs/'].items);
 
   return cleandSidebar;
 }
