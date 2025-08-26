@@ -11,6 +11,25 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2025/08/27 - [v1.126](https://github.com/gardener/gardener/releases/tag/v1.126.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@ScheererJ](https://github.com/ScheererJ) | `10m` | 🌍 `node-local-dns` Enablement w/o Nodes Rollout | [#12422](https://github.com/gardener/gardener/pull/12422) |
+| [@LucaBernstein](https://github.com/LucaBernstein) | `5m` | 🚨 Emergency Stop Of `Shoot` Reconciliations | [#12712](https://github.com/gardener/gardener/pull/12712) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- 🪓 [OPERATOR] ⚠️ The `NewWorkerPoolHash` feature gate has been promoted to beta and is now enabled by default. [...] All provider extensions must be upgraded to a version which includes Gardener `v1.98.0` first to support this feature. [#12550](https://github.com/gardener/gardener/pull/12550)
+- 🐛 [USER] Errors that occur during `Worker` reconciliation are now also propagated to the `Shoot` status. [#12769](https://github.com/gardener/gardener/pull/12769)
+- 🐛 [OPERATOR] An issue causing the `plutono-datasources` `ConfigMap` to be reconciled by 2 `ManagedResource`s when Seed is Garden managed by `gardener-operator` is now fixed. [...] [#12798](https://github.com/gardener/gardener/pull/12798)
+
+<hr />
+
 ### 2025/08/13 - [v1.125](https://github.com/gardener/gardener/releases/tag/v1.125.0) Release
 
 [📽️ Recording](https://youtu.be/v9utQl_WJR0)
