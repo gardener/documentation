@@ -8,10 +8,12 @@ structure:
     source:  https://github.com/gardener/gardener-extension-provider-aws/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-provider-aws/tree/master/docs
   - dir: tutorials
-    frontmatter:
-      title: Tutorials
-      weight: 1
-      persona: Developers
+    structure:
+    - file: _index.md
+      frontmatter:
+        title: Tutorials
+        weight: 1
+        persona: Developers
 - dir: gardener-extension-provider-gcp
   structure:
   - file: _index.md
