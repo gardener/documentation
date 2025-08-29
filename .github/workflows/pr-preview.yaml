@@ -46,7 +46,7 @@ jobs:
         if: github.event.action != 'closed'
         run: npm run docs:build
         env:
-          VITE_PUBLIC_BASE_PATH: 'documentation/pr-preview/pr-${{ github.event.number }}/'
+          VITE_PUBLIC_BASE_PATH: '/documentation/pr-preview/pr-${{ github.event.number }}/'
 
       - name: Deploy PR Preview
         uses: rossjrw/pr-preview-action@v1
