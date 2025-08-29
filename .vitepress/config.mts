@@ -7,6 +7,7 @@ import path from 'path'
 const indexPattern = new RegExp(/\/?_?index\.md$/i);
 
 export default defineConfig({
+  base: process.env.VITE_PUBLIC_BASE_PATH || '',
   srcDir: 'hugo/content',
   cleanUrls: true,
   rewrites(id) {
