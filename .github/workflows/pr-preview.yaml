@@ -1,0 +1,54 @@
+name: Deploy PR Preview
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+
+concurrency: preview-${{ github.ref }}
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        if: github.event.action != 'closed'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Docforge
+        if: github.event.action != 'closed'
+        run: |
+          wget https://github.com/gardener/docforge/releases/download/v0.55.0/docforge-linux-amd64
+          mv docforge-linux-amd64 docforge
+          chmod +x docforge
+          DOCFORGE_CONFIG=.docforge/config.yaml GITHUB_OAUTH_TOKEN=${{ secrets.GITHUB_TOKEN }} ./docforge
+
+      - name: Install dependencies
+        if: github.event.action != 'closed'
+        run: npm ci
+
+      - name: Postprocessing Content
+        if: github.event.action != 'closed'
+        run: npm run post-processing-all
+
+      - name: Build with VitePress
+        if: github.event.action != 'closed'
+        run: npm run docs:build
+
+      - name: Deploy PR Preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: .vitepress/dist/
+          preview-branch: gh-pages
+          umbrella-dir: pr-preview
