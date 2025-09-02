@@ -17,6 +17,8 @@ content-files-formats:
 - ".jpg"
 - ".jpeg" 
 - ".gif"
+- ".ico"
+- ".webmanifest"
 resources-download-path: content/__resources
 github-oauth-env-map:
   "github.com": GITHUB_OAUTH_TOKEN
