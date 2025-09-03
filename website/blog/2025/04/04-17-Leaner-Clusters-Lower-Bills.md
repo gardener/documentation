@@ -89,10 +89,21 @@ You need to optimize *both* stages for maximum efficiency.
 
 ### Enabling Higher Pod Density per Node
 
-*   **Node Configuration:** To effectively utilize larger instance types and enable better bin-packing, nodes must be configured to handle more pods. We observed nodes becoming pod-bound (unable to schedule more pods despite available CPU/memory). To prevent this, ensure you provide:
-    *   A large enough `--node-cidr-mask-size` (e.g., `/22` for ~1024 IPs, though assume ~80% effective due to IP reuse; see [kube-controller-manager docs](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-controller-manager)) to allocate sufficient IPs per node.
-    *   Sufficient `--kube-reserved` resources (see [kubelet docs](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet)) to account for system overhead.
-    *   An increased `--max-pods` value (again, see [kubelet docs](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet)) to inform the kubelet and scheduler of the node's actual pod capacity.
+*   **Node Configuration**: To effectively utilize larger instance types and enable better bin-packing, nodes must be configured to handle more pods. We observed nodes becoming pod-bound (unable to schedule more pods despite available CPU/memory). To prevent this, ensure you configure the following:
+    *   **Sufficient IP Addresses**: Provide a large enough `--node-cidr-mask-size` (e.g., `/22` for ~1024 IPs, though assume ~80% effective due to IP reuse; see [kube-controller-manager docs](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-controller-manager)) to allocate sufficient IPs per node.
+    *   **Kubelet Capacity**: Set an increased `--max-pods` value (see [kubelet docs](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet)) to inform the kubelet and scheduler of the node's actual pod capacity.
+    *   **Reserved Resources**: Allocate sufficient `--kube-reserved` resources (again, see [kubelet docs](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet)) to account for system overhead from the increased pod count.
+    *   **ARP Cache Tuning**: When running a high number of pods (e.g., 400 or more), the default kernel ARP cache size may be insufficient, leading to an "ARP cache overflow." This triggers constant, CPU-intensive garbage collection, which can destabilize the node and cause networking failures. To mitigate this, you should increase the ARP cache garbage collection thresholds. In a Gardener `Shoot` specification, you can apply these settings via `sysctls`:
+        ```yaml
+        spec:
+          provider:
+            workers:
+            - name: worker-pool-name
+              (...)
+              sysctls:
+                net.ipv4.neigh.default.gc_thresh2: '1024' # Default is 512
+                net.ipv4.neigh.default.gc_thresh3: '2048' # Default is 1024
+        ```
 
 ### Fine-Tuning the Cluster Autoscaler: Scaling Nodes Efficiently
 
