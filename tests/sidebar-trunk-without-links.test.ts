@@ -59,14 +59,7 @@ describe('Sidebar Trunk Without Links Validation', () => {
           })
         }
       }
-
-      if(sectionName === 'developersSidebar' || sectionName === 'all') {
-        // For developersSidebar and all, we expect at least one trunk without links
-        report(1, sectionName, trunksWithoutLinks) // ToDo: Fix, but okay for now
-      } else {
-        // Report findings
-        report(0, sectionName, trunksWithoutLinks)
-      }
+      report(0, sectionName, trunksWithoutLinks)
     })
   })
 })
