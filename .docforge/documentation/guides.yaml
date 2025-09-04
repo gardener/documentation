@@ -97,6 +97,16 @@ structure:
       category: Networking
       scope: operator
     source: https://github.com/gardener/gardener-extension-provider-aws/blob/master/docs/usage/ipv6.md
+  - file: ipv6.md
+    frontmatter:
+      title: Support for IPv6 on GCP
+      weight: 20
+      level: beginner
+      last_reviewed: 04.09.2025
+      publishdate: 2025-09-04
+      category: Networking
+      scope: operator
+    source: https://github.com/gardener/gardener-extension-provider-gcp/blob/master/docs/usage/ipv6.md
 - dir: applications
   structure:
   - file: shoot-pod-autoscaling-best-practices.md
