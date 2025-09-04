@@ -30,29 +30,20 @@ Could not clean all old resources: 1 error occurred: deletion of old resource "v
 ```
 
 1. **Check Resource Status**: Use kubectl to check the status of the resource. You can do this by running:
-   
 ```
 kubectl get service addons-nginx-ingress-controller -n kube-system -o yaml
 ```
 Look for any finalizers or conditions that might be preventing the deletion.
 
-1. **Remove Finalizers**: If the resource has finalizers that are preventing its deletion, you can remove them manually. Edit the resource to remove the finalizers:
-   
+2. **Remove Finalizers**: If the resource has custom finalizers (i.e. not gardener specific, but customer own finalizers) that are preventing its deletion, you can remove them manually. Edit the resource to remove the finalizers:
 ```
 kubectl edit service addons-nginx-ingress-controller -n kube-system
 ```
 Remove the finalizers section from the YAML and save the changes.
 
-1. **Force Delete the Resource**: If the resource is still not deleting, you can forcefully delete it:
-   
-```
-kubectl delete service addons-nginx-ingress-controller -n kube-system --grace-period=0 --force
-```
+3. **Check for Dependencies**: Ensure there are no other resources or dependencies that might be preventing the deletion. This could include other services, endpoints or configurations that depend on the service.
 
-
-1. **Check for Dependencies**: Ensure there are no other resources or dependencies that might be preventing the deletion. This could include other services, endpoints or configurations that depend on the service.
-
-1. **Retry Deletion**: After addressing any issues, retry the deletion process.
+4. **Retry Deletion**: After addressing any issues, retry the deletion process.
 
 ### Case 2: Shoot Stuck Due to OpenStack Networks 
 
