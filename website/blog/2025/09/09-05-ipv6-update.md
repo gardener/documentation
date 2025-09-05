@@ -25,10 +25,10 @@ For years, a common IT joke and a genuine troubleshooting step was to "turn off 
 
 An IPv4 address is a 32-bit number, allowing for roughly 4.3 billion unique addresses. In the 1990s, it became obvious this wouldn't be enough. To delay the inevitable, the Internet Engineering Task Force (IETF) introduced two key mitigations:
 
-1.  **Classless Inter-Domain Routing (CIDR):** In the early days, IPv4 addresses were allocated in rigid "classes" (Class A, B, C). If a company needed 300 addresses, they couldn't get a small block; they had to be assigned a Class B block (`/16`), which contains 65,536 addresses, wasting over 99% of them. CIDR replaced this with variable-length subnet masking, allowing network prefixes of any length and enabling far more efficient allocation.
-2.  **Network Address Translation (NAT):** You use this every day. Your home router gets a single public IPv4 address from your ISP, but all your devices (laptops, phones, TVs) get private, internal addresses (like `192.168.x.x`). The router translates traffic, making many devices share one public address.
+1.  **[Classless Inter-Domain Routing (CIDR)](https://www.rfc-editor.org/rfc/rfc1519):** In the early days, IPv4 addresses were allocated in rigid "classes" (Class A, B, C). If a company needed 300 addresses, they couldn't get a small block; they had to be assigned a Class B block (`/16`), which contains 65,536 addresses, wasting over 99% of them. CIDR replaced this with variable-length subnet masking, allowing network prefixes of any length and enabling far more efficient allocation.
+2.  **[Network Address Translation (NAT)](https://www.rfc-editor.org/rfc/rfc1631):** You use this every day. Your home router gets a single public IPv4 address from your ISP, but all your devices (laptops, phones, TVs) get private, internal addresses (like `192.168.x.x`). The router translates traffic, making many devices share one public address.
 
-These mitigations were incredibly successful, extending IPv4's life by decades. However, they were just that: mitigations. The central registry, IANA, allocated its last IPv4 block in 2011. The regional registries followed, with RIPE (the European registry) handing out its final block in 2019.
+These mitigations were incredibly successful, extending IPv4's life by decades. However, they were just that: mitigations. The central registry, IANA, allocated its last IPv4 block in 2011 ([details](https://en.wikipedia.org/wiki/IPv4_address_exhaustion)). The regional registries followed, with RIPE (the European registry) handing out its final block in 2019.
 
 Today, there are no "new" IPv4 addresses. A thriving market has emerged where addresses are bought and sold. At the height of the pandemic, a single IPv4 address could cost up to $60. While the price has settled to around $40-$50, hyperscalers are actively buying up large blocks, renting them to customers, and turning a handsome profit. This scarcity and cost create a powerful economic incentive to move to IPv6.
 
@@ -47,7 +47,7 @@ Moving from an IPv4-only world to one that embraces IPv6 isn't a simple switch. 
 
 While dual-stack seems like the obvious path, it can introduce complexity—what some call "dual-pain." You have two network stacks to manage, monitor, and troubleshoot. A failure in one might be masked by the other, leading to confusing behavior.
 
-Modern operating systems and browsers use a concept called **"Happy Eyeballs" (RFC 6555)**. When you type a domain name, the system requests both the IPv4 (`A`) and IPv6 (`AAAA`) records. It then tries to connect using both protocols in parallel and simply uses whichever connection establishes first, dropping the other. This creates a seamless user experience and has been a key driver of IPv6 adoption, especially in mobile networks where carriers have aggressively rolled out IPv6.
+Modern operating systems and browsers use a concept called **["Happy Eyeballs" (RFC 6555)](https://www.rfc-editor.org/rfc/rfc6555)**. When you type a domain name, the system requests both the IPv4 (`A`) and IPv6 (`AAAA`) records. It then tries to connect using both protocols in parallel and simply uses whichever connection establishes first, dropping the other. This creates a seamless user experience and has been a key driver of IPv6 adoption, especially in mobile networks where carriers have aggressively rolled out IPv6.
 
 #### The Path to IPv6-Only
 
@@ -67,7 +67,7 @@ For the reverse scenario—an IPv4 client reaching an IPv6-only service—the so
 
 ### The Business Driver: Why IPv6 Became a Priority
 
-For Gardener, the major catalyst for a full-fledged IPv6 effort came from an unexpected place: a 2020 US government mandate. This directive requires federal agencies to complete their transition to **IPv6-only** networks, with a target of 80% completion by 2025.
+For Gardener, the major catalyst for a full-fledged IPv6 effort came from an unexpected place: a [2020 US government mandate](https://www.whitehouse.gov/wp-content/uploads/2020/11/M-21-07.pdf). This directive requires federal agencies to complete their transition to **IPv6-only** networks, with a target of 80% completion by 2025.
 
 Crucially, this mandate stipulates that new government contracts must include IPv6 support or a "reliable roadmap" to it. An internal roadmap is often not considered "reliable" enough. You need to have a working implementation, so we started implementing IPv6 support in Gardener.
 
@@ -77,7 +77,7 @@ When we started this project, we established a few core principles to avoid repe
 
 #### Principle 1: No NAT for IPv6
 
-We decided to do "IPv6 the IPv6 way." This means **no Network Address Translation (NAT) for IPv6**. While IPv6 has a concept of private addresses called Unique Local Addresses (ULA), we chose to avoid them. Instead, we use **publicly routable IPv6 addresses** for everything: nodes, pods, and even services.
+We decided to do "IPv6 the IPv6 way." This means **no Network Address Translation (NAT) for IPv6**. While IPv6 has a concept of private addresses called [Unique Local Addresses (ULA)](https://en.wikipedia.org/wiki/Unique_local_address), we chose to avoid them. Instead, we use **publicly routable IPv6 addresses** for everything: nodes, pods, and even services.
 
 This might sound alarming from a security perspective, but "publicly routable" does not mean "publicly accessible." We explicitly configure firewall rules (e.g., AWS Security Groups) to block unsolicited inbound traffic, achieving the same security posture as a NAT gateway but in a stateless, more explicit way. This avoids the complexity of stateful NAT gateways, which can be a bottleneck and a single point of failure.
 
@@ -120,7 +120,7 @@ The implementation on GCP is slightly different due to the platform's specific c
 Key differences include:
 *   **Subnet Configuration:** IPv6 is enabled on a per-subnet basis. Gardener creates a dedicated subnet for nodes and a virtual one just to reserve an IPv6 range for services.
 *   **Routing:** Instead of creating explicit routes in the VPC route table (as was done for IPv4 native routing), the dual-stack implementation uses GCP's Alias IP Ranges feature, assigning pod CIDRs directly to the node's network interface.
-*   **Ingress:** The `ingress-gce` controller is used to provision dual-stack load balancers.
+*   **Ingress:** The [`ingress-gce`](https://github.com/kubernetes/ingress-gce) controller is used to provision dual-stack load balancers.
 
 Creating a dual-stack cluster is as simple as on AWS:
 ```yaml
@@ -149,7 +149,7 @@ This process is detailed in our [Dual-Stack Network Migration documentation](htt
 
 ### Monitoring in a Dual-Stack World
 
-Troubleshooting can be more complex in a dual-stack environment. To help with this, we've enhanced Gardener's `network-problem-detector`. It now runs its connectivity checks for both protocols independently. In the results, you will see distinct checks for IPv4 and IPv6 (e.g., `node-to-node-ipv4` and `node-to-node-ipv6`), making it easy to pinpoint if a problem is specific to one protocol family.
+Troubleshooting can be more complex in a dual-stack environment. To help with this, we've enhanced Gardener's [`network-problem-detector`](https://github.com/gardener/network-problem-detector). It now runs its connectivity checks for both protocols independently. In the results, you will see distinct checks for IPv4 and IPv6 (e.g., `node-to-node-ipv4` and `node-to-node-ipv6`), making it easy to pinpoint if a problem is specific to one protocol family.
 
 The journey to IPv6 is well underway. To help you navigate it, here is a quick reference guide to the current state of IPv6 support in Gardener across major cloud providers.
 
@@ -177,7 +177,7 @@ This summary outlines what is supported, where, and what you need to know as a c
 *   **Limitations & Considerations:**
     *   **No IPv6-Only:** Gardener does not offer an IPv6-only mode on GCP. This is a platform limitation, as GCP currently lacks managed, built-in services for protocol translation like a NAT64 gateway or translating load balancers. Without them, an IPv6-only cluster would be isolated from the IPv4 internet.
     *   **Architecture:** IPv6 is configured at the subnet level, not the VPC level. Gardener automatically handles the creation of necessary subnets for nodes and services.
-    *   **Ingress:** Dual-stack load balancers are provisioned using the `ingress-gce` controller, which is a mandatory component for dual-stack clusters on GCP.
+    *   **Ingress:** Dual-stack load balancers are provisioned using the [`ingress-gce`](https://github.com/kubernetes/ingress-gce) controller, which is a mandatory component for dual-stack clusters on GCP.
     *   **Migration:** A staged migration from IPv4-only to dual-stack is also supported, following a similar process to AWS.
 
 #### Other Cloud Providers (Azure, Alicloud, OpenStack, etc.)
