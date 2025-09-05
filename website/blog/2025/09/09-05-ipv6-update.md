@@ -53,13 +53,13 @@ Modern operating systems and browsers use a concept called **["Happy Eyeballs" (
 
 The ultimate goal for many is to return to the simplicity of a single-stack network, but this time with IPv6. However, the internet will have IPv4-only destinations for a long time. How can an IPv6-only client reach them?
 
-The solution is **DNS64 and NAT64**.
+The solution is **[DNS64](https://en.wikipedia.org/wiki/IPv6_transition_mechanism#DNS64) and [NAT64](https://en.wikipedia.org/wiki/NAT64)**.
 1.  An IPv6-only client asks its DNS server to resolve `ipv4-only-service.com`.
 2.  The DNS server sees only an IPv4 address for that service.
-3.  The DNS64 server *synthesizes* an IPv6 address, typically by embedding the 32-bit IPv4 address within a special IPv6 prefix.
+3.  The [DNS64](https://en.wikipedia.org/wiki/IPv6_transition_mechanism#DNS64) server *synthesizes* an IPv6 address, typically by embedding the 32-bit IPv4 address within a special IPv6 prefix.
 4.  It returns this fake IPv6 address to the client.
-5.  The client sends its traffic to this address, which is routed to a NAT64 gateway.
-6.  The NAT64 gateway extracts the IPv4 address, translates the packet headers, and forwards the traffic to the actual IPv4 destination.
+5.  The client sends its traffic to this address, which is routed to a [NAT64](https://en.wikipedia.org/wiki/NAT64) gateway.
+6.  The [NAT64](https://en.wikipedia.org/wiki/NAT64) gateway extracts the IPv4 address, translates the packet headers, and forwards the traffic to the actual IPv4 destination.
 
 This clever trick allows connectivity but has one major drawback: it breaks DNSSEC, which relies on cryptographic signatures to validate DNS records. If a server in the middle is modifying the response, the signature becomes invalid.
 
@@ -93,7 +93,7 @@ Gardener now offers a spectrum of IPv6 capabilities, allowing users to adopt it 
 
 1.  **IPv6 Ingress for IPv4 Clusters:** This is the easiest entry point. Your cluster remains entirely IPv4 internally, but you can expose services via a dual-stack AWS Network Load Balancer (NLB). The NLB handles protocol translation, allowing IPv6 clients to connect to your IPv4 services. This is great for simple web services but doesn't support egress (outbound) IPv6 traffic. For more details, see [Using IPv4/IPv6 (dual-stack) Ingress](https://github.com/gardener/gardener-extension-provider-aws/blob/master/docs/usage/dual-stack-ingress.md).
 
-2.  **IPv6-only Clusters:** To truly test if your application is IPv6-ready, you need to remove the IPv4 crutch. An IPv6-only cluster enforces this. To connect to the legacy IPv4 internet, these clusters are configured to use the cloud provider's DNS64/NAT64 service.
+2.  **IPv6-only Clusters:** To truly test if your application is IPv6-ready, you need to remove the IPv4 crutch. An IPv6-only cluster enforces this. To connect to the legacy IPv4 internet, these clusters are configured to use the cloud provider's [DNS64](https://en.wikipedia.org/wiki/IPv6_transition_mechanism#DNS64)/[NAT64](https://en.wikipedia.org/wiki/NAT64) service.
     ```yaml
     # Shoot.yaml
     spec:
@@ -115,7 +115,7 @@ Gardener now offers a spectrum of IPv6 capabilities, allowing users to adopt it 
 
 #### For GCP
 
-The implementation on GCP is slightly different due to the platform's specific capabilities. GCP does not offer a translating load balancer or a managed NAT64 gateway, so our focus has been on providing a first-class dual-stack experience.
+The implementation on GCP is slightly different due to the platform's specific capabilities. GCP does not offer a translating load balancer or a managed [NAT64](https://en.wikipedia.org/wiki/NAT64) gateway, so our focus has been on providing a first-class dual-stack experience.
 
 Key differences include:
 *   **Subnet Configuration:** IPv6 is enabled on a per-subnet basis. Gardener creates a dedicated subnet for nodes and a virtual one just to reserve an IPv6 range for services.
@@ -165,7 +165,7 @@ This summary outlines what is supported, where, and what you need to know as a c
 
 *   **Key Considerations:**
     *   **Architecture:** IPv6 is configured at both the VPC and subnet level. Gardener leverages Amazon-provided IPv6 CIDR blocks.
-    *   **IPv6-Only:** This mode is fully supported because AWS provides the necessary components for legacy compatibility: a protocol-translating Network Load Balancer (for IPv4 clients to reach IPv6 services) and a managed NAT64/DNS64 gateway (for IPv6-only pods to reach IPv4 destinations).
+    *   **IPv6-Only:** This mode is fully supported because AWS provides the necessary components for legacy compatibility: a protocol-translating Network Load Balancer (for IPv4 clients to reach IPv6 services) and a managed [NAT64](https://en.wikipedia.org/wiki/NAT64)/[DNS64](https://en.wikipedia.org/wiki/IPv6_transition_mechanism#DNS64) gateway (for IPv6-only pods to reach IPv4 destinations).
     *   **Instance Types:** Dual-stack and IPv6-only clusters require [Nitro-based instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#instance-hypervisor-type) to support assigning IPv6 prefixes to nodes.
     *   **Migration:** A mature, staged migration path from IPv4-only to dual-stack is available.
 
@@ -175,7 +175,7 @@ This summary outlines what is supported, where, and what you need to know as a c
     *   `Dual-Stack` (IPv4 + IPv6)
 
 *   **Limitations & Considerations:**
-    *   **No IPv6-Only:** Gardener does not offer an IPv6-only mode on GCP. This is a platform limitation, as GCP currently lacks managed, built-in services for protocol translation like a NAT64 gateway or translating load balancers. Without them, an IPv6-only cluster would be isolated from the IPv4 internet.
+    *   **No IPv6-Only:** Gardener does not offer an IPv6-only mode on GCP. This is a platform limitation, as GCP currently lacks managed, built-in services for protocol translation like a [NAT64](https://en.wikipedia.org/wiki/NAT64) gateway or translating load balancers. Without them, an IPv6-only cluster would be isolated from the IPv4 internet.
     *   **Architecture:** IPv6 is configured at the subnet level, not the VPC level. Gardener automatically handles the creation of necessary subnets for nodes and services.
     *   **Ingress:** Dual-stack load balancers are provisioned using the [`ingress-gce`](https://github.com/kubernetes/ingress-gce) controller, which is a mandatory component for dual-stack clusters on GCP.
     *   **Migration:** A staged migration from IPv4-only to dual-stack is also supported, following a similar process to AWS.
