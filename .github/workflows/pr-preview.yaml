@@ -1,4 +1,4 @@
-name: Deploy PR Preview
+name: Trigger PR Preview
 
 on:
   pull_request:
@@ -8,49 +8,145 @@ on:
       - synchronize
       - closed
 
-concurrency: preview-${{ github.ref }}
-
 jobs:
-  deploy-preview:
+  trigger-preview:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Generate GitHub App Token
+        id: app-token
+        uses: actions/create-github-app-token@v1
         with:
-          fetch-depth: 0
+          app-id: ${{ secrets.GARDENER_GITHUB_WORKFLOW_PKG_MNGR_APP_ID }}
+          private-key: ${{ secrets.GARDENER_GITHUB_WORKFLOW_PKG_MNGR_APP_PRIVATE_KEY }}
 
-      - name: Setup Node
-        if: github.event.action != 'closed'
-        uses: actions/setup-node@v4
+      - name: Trigger Preview Build
+        id: trigger
+        uses: actions/github-script@v7
         with:
-          node-version: 24
-          cache: npm
+          github-token: ${{ steps.app-token.outputs.token }}
+          script: |
+            const workflowId = 'build-preview.yaml';
+            const owner = 'klocke-io';
+            const repo = 'pr-preview';
+            
+            console.log(`Triggering workflow for PR #${{ github.event.pull_request.number }} (action: ${{ github.event.action }})`);
+            
+            try {
+              await github.rest.actions.createWorkflowDispatch({
+                owner,
+                repo,
+                workflow_id: workflowId,
+                ref: 'main',
+                inputs: {
+                  pr_number: '${{ github.event.pull_request.number }}',
+                  pr_action: '${{ github.event.action }}',
+                  pr_sha: '${{ github.event.pull_request.head.sha }}',
+                  source_repo: '${{ github.repository }}'
+                }
+              });
+              
+              console.log('Workflow dispatch successful');
+              
+              // Wait a moment for the workflow to be queued
+              await new Promise(resolve => setTimeout(resolve, 3000));
+              
+              // Get the workflow runs to find our triggered run
+              const runs = await github.rest.actions.listWorkflowRuns({
+                owner,
+                repo,
+                workflow_id: workflowId,
+                per_page: 5
+              });
+              
+              // Find the most recent run (should be ours)
+              const run = runs.data.workflow_runs[0];
+              if (run) {
+                core.setOutput('run_id', run.id);
+                core.setOutput('run_url', run.html_url);
+                console.log(`Workflow run started: ${run.html_url}`);
+              }
+            } catch (error) {
+              console.error('Failed to trigger workflow:', error);
+              throw error;
+            }
 
-      - name: Docforge
-        if: github.event.action != 'closed'
-        run: |
-          wget https://github.com/gardener/docforge/releases/download/v0.55.0/docforge-linux-amd64
-          mv docforge-linux-amd64 docforge
-          chmod +x docforge
-          DOCFORGE_CONFIG=.docforge/config.yaml GITHUB_OAUTH_TOKEN=${{ secrets.GITHUB_TOKEN }} ./docforge
-
-      - name: Install dependencies
-        if: github.event.action != 'closed'
-        run: npm ci
-
-      - name: Postprocessing Content
-        if: github.event.action != 'closed'
-        run: npm run post-processing-all
-
-      - name: Build with VitePress
-        if: github.event.action != 'closed'
-        run: npm run docs:build
-        env:
-          VITE_PUBLIC_BASE_PATH: '/documentation/pr-preview/pr-${{ github.event.number }}/'
-
-      - name: Deploy PR Preview
-        uses: rossjrw/pr-preview-action@v1
+      - name: Monitor Workflow Run
+        if: steps.trigger.outputs.run_id && github.event.action != 'closed'
+        uses: actions/github-script@v7
         with:
-          source-dir: .vitepress/dist/
-          preview-branch: gh-pages
-          umbrella-dir: pr-preview
+          github-token: ${{ steps.app-token.outputs.token }}
+          script: |
+            const owner = 'klocke-io';
+            const repo = 'pr-preview';
+            const runId = ${{ steps.trigger.outputs.run_id }};
+            const maxWaitTime = 30 * 60 * 1000; // 30 minutes
+            const checkInterval = 15 * 1000; // 15 seconds
+            const startTime = Date.now();
+            
+            console.log(`Monitoring workflow run ${runId}`);
+            
+            while (Date.now() - startTime < maxWaitTime) {
+              const run = await github.rest.actions.getWorkflowRun({
+                owner,
+                repo,
+                run_id: runId
+              });
+              
+              console.log(`Run status: ${run.data.status}, conclusion: ${run.data.conclusion || 'pending'}`);
+              
+              if (run.data.status === 'completed') {
+                const conclusion = run.data.conclusion;
+                const runUrl = run.data.html_url;
+                
+                if (conclusion === 'success') {
+                  // Success - comment with preview link
+                  const previewUrl = `https://klocke-io.github.io/pr-preview/pr-${{ github.event.pull_request.number }}/`;
+                  const comment = `🔍 **PR Preview deployed!**\n\n` +
+                    `Visit the preview at: ${previewUrl}\n\n` +
+                    `_Preview will be automatically removed when this PR is closed._`;
+                  
+                  await github.rest.issues.createComment({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    issue_number: ${{ github.event.pull_request.number }},
+                    body: comment
+                  });
+                  
+                  console.log('Preview deployed successfully');
+                  break;
+                } else {
+                  // Failure - comment with error
+                  const comment = `❌ **PR Preview deployment failed**\n\n` +
+                    `The preview build encountered an error.\n\n` +
+                    `View the workflow run for details: ${runUrl}`;
+                  
+                  await github.rest.issues.createComment({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    issue_number: ${{ github.event.pull_request.number }},
+                    body: comment
+                  });
+                  
+                  core.setFailed(`Preview deployment failed with conclusion: ${conclusion}`);
+                  break;
+                }
+              }
+              
+              // Wait before checking again
+              await new Promise(resolve => setTimeout(resolve, checkInterval));
+            }
+            
+            if (Date.now() - startTime >= maxWaitTime) {
+              const comment = `⏱️ **PR Preview deployment timed out**\n\n` +
+                `The preview build is taking longer than expected.\n\n` +
+                `Check the workflow run: ${{ steps.trigger.outputs.run_url }}`;
+              
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: ${{ github.event.pull_request.number }},
+                body: comment
+              });
+              
+              core.setFailed('Preview deployment timed out after 30 minutes');
+            }
