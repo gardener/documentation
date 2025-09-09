@@ -11,6 +11,26 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2025/09/10 - [v1.127](https://github.com/gardener/gardener/releases/tag/v1.127.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@rrhubenov](https://github.com/rrhubenov) | `10m` | 🪣 New `OpenTelemetryCollector` Feature Gate | [#12568](https://github.com/gardener/gardener/pull/12568) |
+| [@dimityrmirchev](https://github.com/dimityrmirchev) | `5m` | 🔩 Internal DNS Secret Configuration Via `Seed` API | [#12663](https://github.com/gardener/gardener/pull/12663) |
+| [@voelzmo](https://github.com/voelzmo) | `10m` | 🌀 `MutatingAdmissionPolicy` For Everyday Operations | [Kubernetes docs](https://kubernetes.io/docs/reference/access-authn-authz/mutating-admission-policy/) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- 🪓 [OPERATOR] ⚠️ Gardener does no longer support garden, seed, or shoot clusters with Kubernetes versions `<= 1.28`. Make sure to upgrade all existing clusters before upgrading to this Gardener version. [#12486](https://github.com/gardener/gardener/pull/12486)
+- ✨ [USER] `shoot.spec.secretBindingName` field is deprecated in favour of `shoot.spec.credentialsBindingName` and will be removed after Kubernetes support for version 1.34 is dropped. [...] [#12804](https://github.com/gardener/gardener/pull/12804)
+- ✨ [OPERATOR] When `gardenlet` starts up, it now checks the version skew with the `gardener-apiserver` (click [here](https://gardener.cloud/docs/gardener/deployment/version_skew_policy/#gardenlet) for the policy document). [#12863](https://github.com/gardener/gardener/pull/12863)
+
+<hr />
+
 ### 2025/08/27 - [v1.126](https://github.com/gardener/gardener/releases/tag/v1.126.0) Release
 
 [📽️ Recording](https://youtu.be/K15fRoS2WVs)
