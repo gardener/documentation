@@ -11,7 +11,7 @@ Gardener aims to comply with public security standards and guidelines, such as t
 
 While Gardener aims to follow this guideline, we also recognize that not all of the rules may be directly applicable or optimal for Gardener specific environment. Therefore, some of the requirements are adjusted. Rules that are not applicable to Gardener are skipped given an appropriate justification.
 
-For every release, we check that Gardener is able of creating security hardened shoot clusters, reconfirming that the configurations which are not secure by default (as per [Gardener Kubernetes Cluster Hardening Procedure](https://gardener.cloud/docs/guides/security-and-compliance/kubernetes-hardening/)) are still possible and work as expected.
+For every release, we check that Gardener is able of creating security hardened shoot clusters, reconfirming that the configurations which are not secure by default (as per [Gardener Kubernetes Cluster Hardening Procedure](https://github.com/gardener/documentation/blob/master/website/documentation/security-and-compliance/kubernetes-hardening.md)) are still possible and work as expected.
 
 In order to automate and ease this process, Gardener uses a tool called [diki](https://github.com/gardener/diki).
 

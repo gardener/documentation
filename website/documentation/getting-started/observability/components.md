@@ -27,7 +27,7 @@ The next sections will explore those components in detail.
 > Gardener only provides monitoring for Gardener-deployed components. If you need logging or monitoring for your workload, then you need to deploy your own monitoring stack into your shoot cluster.
 
 > [!NOTE]
-> Gardener only provides a monitoring stack if the cluster is not of `purpose: testing`. For more information, see [Shoot Cluster Purpose](https://gardener.cloud/docs/gardener/shoot_purposes/).
+> Gardener only provides a monitoring stack if the cluster is not of `purpose: testing`. For more information, see [Shoot Cluster Purpose](https://github.com/gardener/gardener/blob/master/docs/usage/shoot/shoot_purposes.md).
 
 ### Logging into Plutono
 

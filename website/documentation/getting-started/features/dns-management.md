@@ -35,4 +35,4 @@ For the above to work, we need some ingredients. Primarily, this is implemented 
 
 In addition, a shoot can reference credentials to a DNS provider. Those can be used to manage custom domains.
 
-Please have a look at the [documentation](https://gardener.cloud/docs/guides/networking/dns-extension/) for further details.
+Please have a look at the [documentation](https://github.com/gardener/gardener-extension-shoot-dns-service/blob/master/docs/usage/dns_names.md) for further details.

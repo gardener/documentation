@@ -4,7 +4,7 @@
 
 If you would like to strengthen the security of your Kubernetes cluster even further, this guide post explains how this can be achieved.
 
-The most common way to secure a Kubernetes cluster which was created with Gardener is to apply the ACLs described in the [Gardener ACL Extension](https://github.com/stackitcloud/gardener-extension-acl) repository or to use [ExposureClass](https://gardener.cloud/docs/gardener/exposureclasses/), which exposes the Kubernetes apiserver in a corporate network not exposed to the public internet.
+The most common way to secure a Kubernetes cluster which was created with Gardener is to apply the ACLs described in the [Gardener ACL Extension](https://github.com/stackitcloud/gardener-extension-acl) repository or to use [ExposureClass](https://github.com/gardener/gardener/blob/master/docs/usage/networking/exposureclasses.md), which exposes the Kubernetes apiserver in a corporate network not exposed to the public internet.
 
 However, those solutions are not without their drawbacks. Managing the ACL extension becomes fairly difficult with the growing number of participants, especially in a dynamic environment and work from home scenarios, and using ExposureClass requires you to first have a corporate network suitable for this purpose.
 

@@ -29,7 +29,7 @@ We're pleased to announce the release of [cluster-api-provider-gardener (CAPGa)]
 
 CAPGa allows you to manage Kubernetes clusters using declarative `cluster.x-k8s.io` Cluster API manifests, with Gardener acting as the cloud-agnostic provider and cluster orchestrator.
 
-Specifically, CAPGa implements the Cluster API's provider interfaces to manage Gardener's [Shoot clusters](https://gardener.cloud/about/) as Cluster API `Cluster` resources. This allows users to provision, update, and delete clusters managed by Gardener via standard Cluster API tooling and workflows.
+Specifically, CAPGa implements the Cluster API's provider interfaces to manage Gardener's Shoot clusters as Cluster API `Cluster` resources. This allows users to provision, update, and delete clusters managed by Gardener via standard Cluster API tooling and workflows.
 
 The following figure illustrates the semantic bi-directional mapping of Cluster API (CAPI) resources to Gardener API (GAPI) resources and vice versa:
 
@@ -95,7 +95,7 @@ If Cluster API is used to build a Kubernetes-as-a-Service offering for end users
 #### Gardener API + CAPGa: Managed by Service Teams
 
 GAPI and CAPI (with CAPGa) ultimately expose different API styles for the same Kubernetes-as-a-Service domain, while both are semantically congruent in using the Kubernetes Resource Model (KRM).
-With modern developments built on top of generic Kubernetes control planes, such as [KCP](https://www.kcp.io/) with [Platform Mesh](https://documentation.apeirora.eu/best-practices/platform-mesh), platform teams can offer both APIs to end users in a secure manner (fully as-a-Service).
+With modern developments built on top of generic Kubernetes control planes, such as [KCP](https://www.kcp.io/) with [Platform Mesh](https://documentation.apeirora.eu/docs/best-practices/platform-mesh/), platform teams can offer both APIs to end users in a secure manner (fully as-a-Service).
 Like Gardener, the Kubernetes runtime with CAPGa and Cluster API can be hosted and operated by platform or service teams.
 Only their KRM-based APIs are exposed to the end user.
 As an end user:
