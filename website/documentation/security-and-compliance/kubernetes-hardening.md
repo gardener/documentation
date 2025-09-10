@@ -11,7 +11,7 @@ aliases: ["/docs/guides/kubernetes-hardening/", "/docs/guides/security-and-compl
 
 ## Overview
 
-The Gardener team takes security seriously, which is why we mandate the Security Technical Implementation Guide (STIG) for Kubernetes as published by the Defense Information Systems Agency (DISA) [here](https://public.cyber.mil/stigs/downloads/). We offer Gardener adopters the opportunity to show compliance with DISA Kubernetes STIG via the compliance checker tool [diki](https://github.com/gardener/diki). The latest release in machine readable format can be found in the [STIGs Document Library](https://public.cyber.mil/stigs/downloads/?_dl_facet_stigs=container-platform) by searching for Kubernetes.
+The Gardener team takes security seriously, which is why we mandate the Security Technical Implementation Guide (STIG) for Kubernetes as published by the Defense Information Systems Agency (DISA) [here](https://www.cyber.mil/stigs/downloads/). We offer Gardener adopters the opportunity to show compliance with DISA Kubernetes STIG via the compliance checker tool [diki](https://github.com/gardener/diki). The latest release in machine readable format can be found in the [STIGs Document Library](https://www.cyber.mil/stigs/downloads/?_dl_facet_stigs=container-platform) by searching for Kubernetes.
 
 ## Kubernetes Clusters Security Requirements
 
