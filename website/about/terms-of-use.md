@@ -71,7 +71,7 @@ LF Europe and the Projects provide no assurances that any reported problems with
 
 Except as otherwise provided (including, without limitation, except with respect to contributions
 of code and artifacts to any Project), content on this site, including all materials posted by LF
-Europe, is licensed under a Creative Commons Attribution 4.0 International License (available at [Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode)).
+Europe, is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 All logos and trademarks contained on this website are and remain the property of their
 respective owners. No licenses or other rights in or to such logos and/or trademarks are
