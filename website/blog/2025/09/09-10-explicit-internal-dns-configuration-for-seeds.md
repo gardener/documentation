@@ -33,7 +33,7 @@ To ensure a smooth transition, Gardener provides an automatic migration path. On
 
 However, this automatic population is a temporary measure to facilitate migration. Operators are required to adapt their `Seed` manifests and configuration templates to explicitly define the `.spec.dns.internal` block.
 
-**Important:** The `.spec.dns.internal` field will become a **mandatory configuration** with the release of Gardener **v1.129.0**. After this version, `Seed` resources without this explicit configuration will fail validation.
+**Important:** The `.spec.dns.internal` field will become a **mandatory configuration** after the release of Gardener **v1.129.0**.
 
 This enhancement is the first step in improving DNS configuration management. A similar change is also planned for the default domain configuration in a future release.
 
