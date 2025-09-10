@@ -35,7 +35,7 @@ kube-public       Active   4m1s
 kube-system       Active   4m1s
 ```
 
-If you are having troubles accessing the Gardener Shoot cluster, please consult the [Accessing Shoot Clusters](https://gardener.cloud/docs/gardener/shoot_access/) documentation page.
+If you are having troubles accessing the Gardener Shoot cluster, please consult the [Accessing Shoot Clusters](https://github.com/gardener/gardener/blob/master/docs/usage/shoot/shoot_access.md) documentation page.
 
 ## Deploy the Spin Operator
 

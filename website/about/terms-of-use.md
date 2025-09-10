@@ -71,12 +71,11 @@ LF Europe and the Projects provide no assurances that any reported problems with
 
 Except as otherwise provided (including, without limitation, except with respect to contributions
 of code and artifacts to any Project), content on this site, including all materials posted by LF
-Europe, is licensed under a Creative Commons Attribution 4.0 International License (available
-here https://creativecommons.org/licenses/by/4.0/legalcode).
+Europe, is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 All logos and trademarks contained on this website are and remain the property of their
 respective owners. No licenses or other rights in or to such logos and/or trademarks are
-granted. The Trademark Policy can be found here: www.linuxfoundation.eu/trademarks/.
+granted. The Trademark Policy can be found at [Trademark Usage](https://www.linuxfoundation.org/legal/trademark-usage).
 
 Contributions of software source code, documentation or other artifacts to Projects are
 governed by the terms of the charter for each Project. Contributors do not grant any additional
@@ -144,8 +143,7 @@ LF Europe reserves the right to seek all remedies available at law and in equity
 these Terms of Use, including but not limited to the right to block access from a particular
 Internet address or account holder to this website.
 
-Please see the Privacy Policy of LF Europe available at
-https://linuxfoundation.eu/policies/privacy-policy for information on our privacy policy.
+Please see the [Privacy Policy](https://linuxfoundation.eu/policies/privacy-policy) of LF Europe for information on our privacy policy.
 
 ### Digital Millennium Copyright Act
 

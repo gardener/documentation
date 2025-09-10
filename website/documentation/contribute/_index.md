@@ -105,7 +105,7 @@ See [Security Release Process](https://github.com/gardener/.github/blob/main/SEC
 ### Slack
 
 We use the [Gardener Project workspace](https://gardener-cloud.slack.com) for public communication related to the Gardener project.
-Check out the [Community Bio](../../community/community-bio.md) for an invite link to join the workspace.
+Check out the [Community Bio](../../community/_index.md) for an invite link to join the workspace.
 
 Historically, we used the [#gardener](https://kubernetes.slack.com/messages/gardener) channel in the [Kubernetes workspace](http://slack.k8s.io/).
 
