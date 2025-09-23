@@ -11,6 +11,29 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2025/09/24 - [v1.128](https://github.com/gardener/gardener/releases/tag/v1.128.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@Roncossek](https://github.com/Roncossek) | `5m` | 🧩 GEP-33: Machine Image Capabilities | [GEP-33](https://github.com/gardener/gardener/blob/master/docs/proposals/33-machine-image-capabilities.md) |
+| [@axel7born](https://github.com/axel7born) | `5m` | 👯 Dual-Stack Migration Of `kube-dns` `Service` | [#12816](https://github.com/gardener/gardener/pull/12816) |
+| [@DockToFuture](https://github.com/DockToFuture) | `5m` | 🌍 Custom CoreDNS Configuration Support For `node-local-dns` | [#12893](https://github.com/gardener/gardener/pull/12893) |
+| [@petersutter](https://github.com/petersutter) | `5m` | 🕹 Gardener Dashboard Update | [dashboard#2444](https://github.com/gardener/dashboard/pull/2444), [dashboard#2572](https://github.com/gardener/dashboard/pull/2572) |
+| [@marc1404](https://github.com/marc1404) | `5m` | 🔤 Project Titles In Gardener Dashboard | [dashboard#2470](https://github.com/gardener/dashboard/pull/2470) |
+| [@ialidzhikov](https://github.com/ialidzhikov) | `5m` | 🔖 Developer Guideline For Validation | [#12811](https://github.com/gardener/gardener/pull/12811) |
+| [@vpnachev](https://github.com/vpnachev) | `5m` | 🫆 Dedicated Groups For `Shoot` Cluster Access | [#12673](https://github.com/gardener/gardener/pull/12673), [#12674](https://github.com/gardener/gardener/pull/12674) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- ✨ [USER] The `rotate-etcd-encryption-start` and `rotate-etcd-encryption-complete` operation annotations have been deprecated in favour of `rotate-etcd-encryption-key`. [#12605](https://github.com/gardener/gardener/pull/12605)
+- ✨ [OPERATOR] `gardener-node-agent` no longer reboots a node if it flaps too often between ready/non-ready in a short period of time. [#12930](https://github.com/gardener/gardener/pull/12930)
+
+<hr />
+
 ### 2025/09/10 - [v1.127](https://github.com/gardener/gardener/releases/tag/v1.127.0) Release
 
 [📽️ Recording](https://youtu.be/aUCxInp-yaA)
