@@ -1,0 +1,23 @@
+# See the OWNERS docs at https://go.k8s.io/owners
+
+aliases:
+  documentation-reviewers:
+  - dimitar-kostadinov
+  - JordanJordanov
+  - klocke-io
+  - Kostov6
+  - marc1404
+  - msohn
+  - n-boshnakov
+  - RadaBDimitrova
+  - rfranzke
+  documentation-approvers:
+  - dimitar-kostadinov
+  - JordanJordanov
+  - klocke-io
+  - Kostov6
+  - marc1404
+  - msohn
+  - n-boshnakov
+  - RadaBDimitrova
+  - rfranzke
