@@ -11,6 +11,26 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2025/10/08 - [v1.129](https://github.com/gardener/gardener/releases/tag/v1.129.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@vpnachev](https://github.com/vpnachev) | `5m` | 🪪 `WorkloadIdentity` For Backup Credentials | [#12924](https://github.com/gardener/gardener/pull/12924) |
+| [@domdom82](https://github.com/domdom82) | `5m` | 🍙 Multiple IPv4 Ranges For VPN | [vpn2#160](https://github.com/gardener/vpn2/pull/160) |
+| [@videlov](https://github.com/videlov) | `5m` | 🦜 Bird Exporter Sidecar For `calico-node` | [networking-calico#687](https://github.com/gardener/gardener-extension-networking-calico/pull/687) |
+| [@videlov](https://github.com/videlov) | `10m` | 🚚 EFS + Filestore CSI Drivers | [provider-aws#1174](https://github.com/gardener/gardener-extension-provider-aws/pull/1174), [provider-gcp#1095](https://github.com/gardener/gardener-extension-provider-gcp/pull/1095) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- 🐛 [OPERATOR] Fixed an issue that caused `Machine`s to be duplicated when being saved in the `ShootState`. This caused the `ShootState` to grow exponentially large and fail to be created. The issue could occur when there are multiple `MachineDeployment`s created for the Shoot. [#13089](https://github.com/gardener/gardener/pull/13089)
+- ✨ [OPERATOR] The `OperatingSystemConfig` containerd config was enhanced to specify the `override_path` option which is respected when generating the `hosts.toml` file for the respective upstream config. [#13002](https://github.com/gardener/gardener/pull/13002)
+
+<hr />
+
 ### 2025/09/24 - [v1.128](https://github.com/gardener/gardener/releases/tag/v1.128.0) Release
 
 [📽️ Recording](https://youtu.be/sfByvNPAnz8)
