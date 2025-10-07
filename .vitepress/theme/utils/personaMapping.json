@@ -231,6 +231,8 @@
   "/docs/other-components/dependency-watchdog/setup/": ["Developers"],
   "/docs/other-components/dependency-watchdog/setup/dwd-using-local-garden/": ["Developers"],
   "/docs/other-components/dependency-watchdog/testing/": ["Developers"],
+  "/docs/other-components/gardener-discovery-server/": ["Developers", "Operators"],
+  "/docs/other-components/gardener-discovery-server/api": ["Developers", "Operators"],
   "/docs/other-components/etcd-druid/": ["Developers", "Users"],
   "/docs/other-components/etcd-druid/add-new-etcd-cluster-component/": ["Developers"],
   "/docs/other-components/etcd-druid/api-reference/": ["Developers"],
