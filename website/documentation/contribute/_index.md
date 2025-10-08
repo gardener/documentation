@@ -80,7 +80,7 @@ We kindly ask you to follow the [Pull Request Checklist](#pull-request-checklist
 
 * Post review:
   * If a review requires you to change your commit(s), please test the changes again.
-  * Amend the affected commit(s) and force push onto your branch.
+  * Address the PR review feedback from a reviewer in a separate commit to make it easier for the reviewer to check how their feedback has been addressed. Do not mix PR review feedback from multiple reviews in a single commit. Create a separate commit per a review.
   * Set respective comments in your GitHub review to resolved.
   * Create a general PR comment to notify the reviewers that your amendments are ready for another round of review.
   
