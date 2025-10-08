@@ -22,7 +22,7 @@ Check back regularly for updates and upcoming topics!
 | [@vpnachev](https://github.com/vpnachev) | `5m` | 🪪 `WorkloadIdentity` For Backup Credentials | [#12924](https://github.com/gardener/gardener/pull/12924) |
 | [@domdom82](https://github.com/domdom82) | `5m` | 🍙 Multiple IPv4 Ranges For VPN | [vpn2#160](https://github.com/gardener/vpn2/pull/160) |
 | [@videlov](https://github.com/videlov) | `5m` | 🦜 Bird Exporter Sidecar For `calico-node` | [networking-calico#687](https://github.com/gardener/gardener-extension-networking-calico/pull/687) |
-| [@videlov](https://github.com/videlov) | `10m` | 🚚 EFS + Filestore CSI Drivers | [provider-aws#1174](https://github.com/gardener/gardener-extension-provider-aws/pull/1174), [provider-gcp#1095](https://github.com/gardener/gardener-extension-provider-gcp/pull/1095) |
+| [@hebelsan](https://github.com/hebelsan) | `10m` | 🚚 EFS + Filestore CSI Drivers | [provider-aws#1174](https://github.com/gardener/gardener-extension-provider-aws/pull/1174), [provider-gcp#1095](https://github.com/gardener/gardener-extension-provider-gcp/pull/1095) |
 
 #### No Demo, But Still Worth Celebrating 🎉
 
