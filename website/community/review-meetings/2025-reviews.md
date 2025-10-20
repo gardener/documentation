@@ -11,6 +11,29 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2025/10/22 - [v1.130](https://github.com/gardener/gardener/releases/tag/v1.130.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@vitanovs](https://github.com/vitanovs) | `5m` | ♻️ VPA's `Recreate` Update Mode | [#13046](https://github.com/gardener/gardener/pull/13046) |
+| [@RadaBDimitrova](https://github.com/RadaBDimitrova) | `5m` | 🕵️‍♀️ Improved VPA Recommendation Monitoring | [#12898](https://github.com/gardener/gardener/pull/12898) |
+| [@dnaeon](https://github.com/dnaeon) | `5m` | 📣 Extensible Advertised Addresses For `Shoot`s | [#13043](https://github.com/gardener/gardener/pull/13043) |
+| [@timebertt](https://github.com/timebertt) | `10m` | 🍼 GEP-28: `gardenadm bootstrap` Progress | [#2906 (issue)](https://github.com/gardener/gardener/issues/2906) |
+| [@hown3d](https://github.com/hown3d) | `10m` | 🌐 `UseUnifiedHTTPProxy` Feature Gate | [#13003](https://github.com/gardener/gardener/pull/13003) |
+| [@plkokanov](https://github.com/plkokanov) | `5m` | 🛠️ `Secret` Restoration During Control Plane Migration | [#13056](https://github.com/gardener/gardener/pull/13056) |
+| [@oliver-goetz](https://github.com/oliver-goetz) | `5m` | 🐛 Multi-Zonal L7 Load-Balancing Issues | [#13081](https://github.com/gardener/gardener/pull/13081) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- ✨ [OPERATOR] `gardener-operator` now prevents deletion of the `garden` namespace in the runtime cluster while `operator.gardener.cloud/v1alpha1.Garden` resources still exist. [#13101](https://github.com/gardener/gardener/pull/13101)
+- ✨ [OPERATOR] `gardener-node-agent-init` now outputs logs to journal and console (`/dev/console`). [#12822](https://github.com/gardener/gardener/pull/12822)
+
+<hr />
+
 ### 2025/10/08 - [v1.129](https://github.com/gardener/gardener/releases/tag/v1.129.0) Release
 
 [📽️ Recording](https://youtu.be/mqSwkR8TmuE)
