@@ -1,11 +1,13 @@
 ---
-title: Gardener Review Meetings 2025
+title: 2025
 weight: -2025
 ---
 
-## Overview
+# Gardener Review Meetings (2025)
 
 In case you couldn't participate and are interested in catching up, you can find the contents of the review meetings we have had in 2025 here.
+
+Meetings are recorded and published on [Gardener's YouTube channel](https://www.youtube.com/playlist?list=PLozz-rrEP0dvhVTsHqa8plb7Ai6dG6Ox4).
 
 Check back regularly for updates and upcoming topics!
 

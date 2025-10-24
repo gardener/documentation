@@ -1,9 +1,9 @@
 ---
-title: Gardener Community Meetings 2022
+title: 2022 (Community Meetings)
 weight: -2021
 ---
 
-## Overview
+# Gardener Community Meetings (2022)
 
 Despite the (back then) [SAP-internal Review Meetings in 2022](./2022-reviews.md), we also had a few Community Meetings in the open.
 

@@ -1,13 +1,13 @@
 ---
-title: Gardener Review Meetings 2022
+title: 2022
 weight: -2022
 ---
 
-## Overview
+# Gardener Review Meetings (2022)
 
 In case you couldn't participate and are interested in catching up, you can find the contents of the review meetings we have had in 2022 here.
 
-Note that all review meetings in 2022 were SAP-internal meetings back then. Despite those, we also had a few [Community Meetings](./2022-community.md) in the open.
+Note that all review meetings in 2022 were SAP-internal meetings back then. Despite those, we also had a few [Community Meetings](./2022-community.md) in the public.
 
 ## Reviews
 

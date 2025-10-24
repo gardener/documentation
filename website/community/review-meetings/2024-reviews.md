@@ -1,11 +1,13 @@
 ---
-title: Gardener Review Meetings 2024
+title: 2024
 weight: -2024
 ---
 
-## Overview
+# Gardener Review Meetings (2024)
 
 In case you couldn't participate and are interested in catching up, you can find the contents of the review meetings we have had in 2024 here.
+
+The meetings were recorded, but not published.
 
 ## Reviews
 
