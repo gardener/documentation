@@ -17,6 +17,7 @@ const communitySidbarConfig =  {
   useTitleFromFrontmatter: true,
   useFolderLinkFromIndexFile: true,
   includeFolderLinksInFolder: true,
+  excludeFilesByFrontmatterFieldName: 'exclude',
 }
 
 export function communitySidebar(): any {
