@@ -36,10 +36,8 @@ Experience the heart of our community collaboration at our week-long hackathons 
 - **Flexible participation** - switch topics and teams as interests evolve
 - **Great atmosphere** with shared meals, outdoor activities, and demos
 
----
+## Get Connected
 
-## Get Connected 💬
-
-Ready to join the conversation? Connect with us on [Slack](https://join.slack.com/t/gardener-cloud/shared_invite/zt-33c9daems-3oOorhnqOSnldZPWqGmIBw) where our community gathers daily to discuss ideas, share knowledge, and collaborate on making Gardener even better.
+Ready to join the conversation? 💬 Connect with us on [Slack](https://join.slack.com/t/gardener-cloud/shared_invite/zt-33c9daems-3oOorhnqOSnldZPWqGmIBw) where our community gathers daily to discuss ideas, share knowledge, and collaborate on making Gardener even better.
 
 *The Gardener community welcomes contributors of all backgrounds and skill levels. Come grow with us! 🌿*
