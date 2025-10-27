@@ -17,7 +17,7 @@ Gardener is committed to making `node-local-dns` a standard feature across all s
 
 Previously, enabling `node-local-dns` could alter the expected DNS resolution behavior for operators who defined custom rules in the `coredns-custom` ConfigMap. The `node-local-dns` agent, which acts as a DNS cache on each node, is designed to forward requests to either the in-cluster CoreDNS or directly to upstream DNS servers.
 
-This created a problem: if a user configured a custom rule—for example, to rewrite an external domain to a cluster-internal service—`node-local-dns` might forward the request directly to an upstream server, bypassing the main CoreDNS and ignoring the custom rule. This resulted in failed requests and inconsistent behavior compared to clusters without `node-local-dns`.
+This created a problem: if a user configured a custom rule (for example, to rewrite an external domain to a cluster-internal service), `node-local-dns` might forward the request directly to an upstream server, bypassing the main CoreDNS and ignoring the custom rule. This resulted in failed requests and inconsistent behavior compared to clusters without `node-local-dns`.
 
 ### The Solution: Applying Custom Rules to the Node Cache
 
