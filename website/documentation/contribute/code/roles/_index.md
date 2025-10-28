@@ -30,7 +30,7 @@ Technically, members are defined by their membership in the [Gardener GitHub org
 **How to become a member**
 - Fulfill listed requirements
 - Obtain sponsorship from at least two approvers
-- Open a membership request issue in [gardener/org](https://github.com/gardener/org/issues/new?template=membership.md); if accepted, an org owner assigns the member to the corresponding group.
+- Open a membership request issue in [gardener/org](https://github.com/gardener/org/issues/new?template=membership.yaml); if accepted, an org owner assigns the member to the corresponding group.
 
 ### Reviewer
 
@@ -52,7 +52,7 @@ Contributors with this role are technically defined in the [`OWNERS_ALIASES`](ht
 **How to become a reviewer**
 - Demonstrate the requirements through previous contributions (code changes, PR review participation, issue discussions) in the relevant topic area
 - Obtain sponsorship from at least two approvers
-- Open a [membership request](https://github.com/gardener/org/issues/new?template=membership.md); if accepted, an approver creates a PR to update [`OWNERS_ALIASES`](https://docs.prow.k8s.io/docs/components/plugins/approve/approvers/#overview) for the requested repository.
+- Open a [membership request](https://github.com/gardener/org/issues/new?template=membership.yaml); if accepted, an approver creates a PR to update [`OWNERS_ALIASES`](https://docs.prow.k8s.io/docs/components/plugins/approve/approvers/#overview) for the requested repository.
 
 ### Approver
 
