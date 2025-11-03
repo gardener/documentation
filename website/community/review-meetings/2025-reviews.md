@@ -13,6 +13,28 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2025/11/05 - [v1.131](https://github.com/gardener/gardener/releases/tag/v1.131.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@kon-angelo](https://github.com/kon-angelo) | `5m` | 🧽 Terraformer Removal | [provider-openstack#1166](https://github.com/gardener/gardener-extension-provider-openstack/pull/1166) |
+| [@rrhubenov](https://github.com/rrhubenov) | `10m` | 🎣 `valitail` Replacement With OpenTelemetry Collector | [#12846](https://github.com/gardener/gardener/pull/12846) |
+| [@DockToFuture](https://github.com/DockToFuture) | `5m` | 🌍 Custom `server` Configuration Support For `node-local-dns` | [#13160](https://github.com/gardener/gardener/pull/13160) |
+| [@rfranzke](https://github.com/rfranzke) | `10m` | 💀 GEP-28: `gardenadm connect` Skeleton | [#12391](https://github.com/gardener/gardener/pull/12391) |
+| [@hown3d](https://github.com/hown3d) | `5m` | 📐 Metrics For `Extension` Conditions | [#13015](https://github.com/gardener/gardener/pull/13015) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- 🐛 [OPERATOR] An issue has been fixed which was preventing `gardenlet` from registering its `Gardenlet` resource when `selfUpgrade` was set in its Helm chart values. [#13241](https://github.com/gardener/gardener/pull/13241)
+- ✨ [OPERATOR] Introduced `spec.settings.loadBalancerServices.zonalIngress.enabled` in the `Seed` API. When disabled, zonal istio ingress gateways are removed and the global istio ingress gateway is used instead. [#12956](https://github.com/gardener/gardener/pull/12956)
+- ✨ [OPERATOR] `gardenlet` now evaluates extension health conditions first when computing the conditions of a `Shoot`. [#13231](https://github.com/gardener/gardener/pull/13231)
+
+<hr />
+
 ### 2025/10/22 - [v1.130](https://github.com/gardener/gardener/releases/tag/v1.130.0) Release
 
 [📽️ Recording](https://youtu.be/GArG1wh2j1o)
