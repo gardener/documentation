@@ -7,7 +7,7 @@ url: /community
 
 The Gardener community is an open, welcoming space where contributors, users, and enthusiasts come together to collaborate, learn, and grow the project. Whether you're just getting started or you're a seasoned contributor, there's a place for you here.
 
-## 🗣️ [Review Meetings](./review-meetings)
+## 🗣️ [Review Meetings](./review-meetings/_index.md)
 
 Join our bi-weekly community meetings where we showcase the latest developments in the Gardener ecosystem. These sessions feature:
 
@@ -18,7 +18,7 @@ Join our bi-weekly community meetings where we showcase the latest developments 
 
 Perfect for staying up-to-date with Gardener's evolution and connecting with the community.
 
-## 🧭 [Project Steering](./steering)
+## 🧭 [Project Steering](./steering/_index.md)
 
 Our governance structure ensures strategic alignment and technical excellence through two steering committees:
 
@@ -27,7 +27,7 @@ Our governance structure ensures strategic alignment and technical excellence th
 
 If you're working on significant features or have ideas that could shape Gardener's future, this is where major decisions are made collaboratively.
 
-## 🔨 [Hackathons](./hackathons)
+## 🔨 [Hackathons](./hackathons/_index.md)
 
 Experience the heart of our community collaboration at our week-long hackathons held twice yearly! These events bring together Gardener enthusiasts from around the world for:
 
