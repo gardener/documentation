@@ -23,7 +23,7 @@ Check back regularly for updates and upcoming topics!
 | ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
 | [@kon-angelo](https://github.com/kon-angelo) | `5m` | 🧽 Terraformer Removal | [provider-openstack#1166](https://github.com/gardener/gardener-extension-provider-openstack/pull/1166) |
 | [@rrhubenov](https://github.com/rrhubenov) | `10m` | 🎣 `valitail` Replacement With OpenTelemetry Collector | [#12846](https://github.com/gardener/gardener/pull/12846) |
-| [@rfranzke](https://github.com/rfranzke) | `10m` | 💀 GEP-28: `gardenadm connect` Skeleton | [#12391](https://github.com/gardener/gardener/pull/12391) |
+| [@rfranzke](https://github.com/rfranzke) | `10m` | 💀 GEP-28: `gardenadm connect` Skeleton | [#13129](https://github.com/gardener/gardener/pull/13129) |
 | [@hown3d](https://github.com/hown3d) | `5m` | 📐 Metrics For `Extension` Conditions | [#13015](https://github.com/gardener/gardener/pull/13015) |
 
 #### No Demo, But Still Worth Celebrating 🎉
