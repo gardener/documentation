@@ -1,6 +1,7 @@
 ---
 title: 2025
 weight: -2025
+outline: 3
 ---
 
 # Gardener Review Meetings (2025)
