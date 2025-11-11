@@ -41,7 +41,8 @@ spec:
         enabled: true
         # id: fs-12345678 # Optional: Use an existing EFS file system
 ```
-**Note:** When using this feature, the instance metadata setting `httpTokens` must not be set to `required`, as this would prevent the driver from accessing the necessary metadata.
+> [!NOTE] 
+> When using this feature, the instance metadata setting `httpTokens` must not be set to `required`, as this would prevent the driver from accessing the necessary metadata.
 
 ### GCP Filestore Support
 
