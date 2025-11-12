@@ -1,8 +1,8 @@
 ---
 title: "PromCon EU 2025 Highlights"
 linkTitle: "PromCon EU 2025 Highlights"
-newsSubtitle: November 10, 2025
-publishdate: 2025-11-10
+newsSubtitle: November 12, 2025
+publishdate: 2025-11-12
 authors:
 - avatar: https://avatars.githubusercontent.com/chrkl
   login: chrkl
@@ -10,7 +10,7 @@ authors:
 - avatar: https://avatars.githubusercontent.com/rickardsjp
   login: rickardsjp
   name: Jeremy Rickards
-aliases: ["/blog/2025/11/01/promcon-eu-2025"]
+aliases: ["/blog/2025/11/12/promcon-eu-2025"]
 ---
 
 PromCon EU 2025, the 10th annual conference for Prometheus users and developers, took place on October 21st and 22nd. After being held in Berlin for two years, the event was kindly hosted by Google in Munich again this year. Since Prometheus and related tools are the core of Gardener's monitoring stack, we were excited to attend, connect with the community, and learn about the latest developments in the Prometheus ecosystem.
