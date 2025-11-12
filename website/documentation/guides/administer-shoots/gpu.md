@@ -229,7 +229,7 @@ However, **prometheus-adapter** is the most common and well-supported solution f
 
 The complete setup involves four main components:
 
-1. **ServiceMonitor**: Configure Prometheus to scrape DCGM Exporter metrics (see "Integrating with Your Monitoring Stack" above)
+1. **ServiceMonitor**: Configure Prometheus to scrape DCGM Exporter metrics (see ["Integrating with Your Monitoring Stack"](#integrating-with-your-monitoring-stack) above)
 
 2. **PrometheusRule**: Create recording rules to aggregate raw DCGM metrics into stable, pod-level custom metrics:
    ```yaml
