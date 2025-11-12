@@ -246,7 +246,7 @@ The complete setup involves four main components:
          expr: label_replace(label_replace(DCGM_FI_DEV_GPU_UTIL, "pod", "$1", "exported_pod", "(.*)"), "namespace", "$1", "exported_namespace", "(.*)")
    ```
 
-3. **Prometheus Adapter**: Deploy prometheus-adapter to expose Prometheus metrics via the custom.metrics.k8s.io API:
+3. **Prometheus Adapter**: Deploy prometheus-adapter to expose Prometheus metrics via the `custom.metrics.k8s.io` API:
    ```bash
    helm install prometheus-adapter prometheus-community/prometheus-adapter \
      --namespace monitoring \
