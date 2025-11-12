@@ -37,6 +37,10 @@ While Prometheus' time-series database (TSDB) is highly optimized, it has its li
 
 ![alt text](images/promcon2025-parquet.jpeg)
 
+## Alertmanager with Amnesia
+
+People often struggle with Alertmanager clusters to drop their state after a restart of different monitoring components. After the problem was already presented in a lightning talk on the first conference day, Joel Verezhak proposed a solution to that problem by persisting Alertmanager's state before a shutdown. As a Gardener operator, you might have experienced the enormous waste of disk space caused by attaching a persistent volume to each Alertmanager instance just to store a few kilobytes of data. We were excited to see Giantswarm's silence-operator, presented in a lightning talk, that utilizes Kubernetes CRDs to persist silenced alerts and has the potential to solve both the state inconsistency and disk space waste problems.
+
 ## Visiting Bavaria
 
 Besides excellent content, the conference organizers provided the chance to experience some of the local culture during the social event after the first conference day. The conference participants had the opportunity to visit Augustiner Bräustuben, one of Munich's traditional beer halls, and enjoy Bavarian food and drinks. One of the conference organizers demonstrated that they were not just able to organize a great conference, but also had the talent of tapping a wooden beer barrel.
