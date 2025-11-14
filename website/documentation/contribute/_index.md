@@ -96,10 +96,6 @@ If you want to add documentation that already exists on GitHub to the website, y
 
 We use GitHub issues to track bugs and enhancement requests. Please provide as much context as possible when you open an issue. The information you provide must be comprehensive enough to reproduce that issue for the assignee. Therefore, contributors may use but aren't restricted to the issue template provided by the Gardener maintainers.
 
-## Security Release Process
-
-See [Security Release Process](https://github.com/gardener/.github/blob/main/SECURITY.md).
-
 ## Community
 
 ### Slack
