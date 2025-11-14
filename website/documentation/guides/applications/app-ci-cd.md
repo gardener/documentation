@@ -66,7 +66,7 @@ echo $MY_PROJECT_NAMESPACE
 
 This will store the correct namespace in the `MY_PROJECT_NAMESPACE` variable for use in later steps.
 
-## Configure Structured Authentication (in the *Garden Cluster*)
+## Configure Structured Authentication in the *Garden Cluster*
 
 To enable structured authentication, create a `ConfigMap` in the *Garden Cluster*. Use the following example as a template:
 
@@ -237,4 +237,6 @@ Once everything is configured, you can trigger the workflow, and the `kubectl` c
 References:
 - [Gardener Structured Authentication](https://gardener.cloud/docs/gardener/shoot/shoot_access/#structured-authentication)
 - [Github Actions Defining Trust using job_workflow_ref](https://docs.github.com/en/actions/how-tos/secure-your-work/security-harden-deployments/oidc-with-reusable-workflows#defining-the-trust-conditions)
+## References
+
 - [kubernetes-auth github action](https://github.com/gardener/cc-utils/blob/b7e4d874f30171964c5262a0bc20d644f4bcedba/.github/actions/kubernetes-auth/action.yaml#L9-L34)
