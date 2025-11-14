@@ -14,7 +14,7 @@ An implementation of *Continuous Delivery* with modern technology and without th
 
 While this guide assumes your app is hosted on GitHub and uses GitHub-hosted runners for GitHub Actions, the approach can be adapted for other code forges and CI/CD systems with some modifications.
 
-It was originally written for the [Garden Linux Vulnerability Database](https://github.com/gardenlinux/glvd), which is open source.
+It was originally written for the [Garden Linux Vulnerability Database](https://github.com/gardenlinux/glvd), which is open-source.
 If you're interested, you can [explore the workflows on GitHub](https://github.com/search?q=org%3Agardenlinux+kubectl+%22set+image%22&type=code).
 
 ## Requirements
@@ -115,9 +115,9 @@ kubectl patch shoot $MY_SHOOT_NAME \
   -p '{"spec":{"kubernetes":{"kubeAPIServer":{"structuredAuthentication":{"configMapName":"name-of-configmap-containing-authentication-config"}}}}}'
 ```
 
-After applying this patch, Gardener will begin reconciling your shoot cluster.  
-This process may take a few minutes. You can monitor the progress by checking the current status:
 After applying this patch, Gardener will begin reconciling your `Shoot` cluster.  
+This process may take a few minutes to complete.
+You can monitor the progress by checking the current status:
 
 ```bash
 kubectl get shoot $MY_SHOOT_NAME
@@ -164,7 +164,7 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ```
 
-The *name* you'll need to configure here depends on your github org and repos as was defined above in the Config Map.
+The *name* you'll need to configure here depends on your GitHub organization and repositories, as was defined above in the `ConfigMap`.
 For example, it might look something like this:
 
 `"github.com:123456789:123456789:your-org/your-app:ref:refs/heads/main"`
@@ -180,7 +180,8 @@ With your cluster now configured, it's time to set up your GitHub Actions workfl
 
 To securely access your cluster from GitHub Actions, use the [kubernetes-auth action](https://github.com/gardener/cc-utils/blob/b7e4d874f30171964c5262a0bc20d644f4bcedba/.github/actions/kubernetes-auth/action.yaml#L9-L34), maintained by the Gardener CI/CD team.
 
-Below is an example workflow you can tailor to your environment. Adjust the parameters as needed to match your cluster and deployment setup:
+Below is an example workflow you can tailor to your environment.
+Adjust the parameters as needed to match your cluster and deployment setup:
 
 ```yaml
 name: CI
@@ -231,7 +232,7 @@ To obtain your `Shoot` cluster's UID, simply run:
 kubectl get shoot NAME -o jsonpath='{.metadata.uid}'
 ```
 
-Once everything is configured, you can trigger the workflow and the `kubectl` command should execute successfully, updating your application as intended.
+Once everything is configured, you can trigger the workflow, and the `kubectl` command should execute successfully, updating your application as intended.
 
 References:
 - [Gardener Structured Authentication](https://gardener.cloud/docs/gardener/shoot/shoot_access/#structured-authentication)
