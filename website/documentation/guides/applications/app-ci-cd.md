@@ -120,7 +120,7 @@ This process may take a few minutes to complete.
 You can monitor the progress by checking the current status:
 
 ```bash
-kubectl get shoot $MY_SHOOT_NAME
+kubectl get shoot $MY_SHOOT_NAME --watch
 ```
 
 ## Configure Role-Based Access Control RBAC in the `Shoot` Cluster
