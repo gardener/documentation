@@ -234,9 +234,8 @@ kubectl get shoot NAME -o jsonpath='{.metadata.uid}'
 
 Once everything is configured, you can trigger the workflow, and the `kubectl` command should execute successfully, updating your application as intended.
 
-References:
-- [Gardener Structured Authentication](https://gardener.cloud/docs/gardener/shoot/shoot_access/#structured-authentication)
-- [Github Actions Defining Trust using job_workflow_ref](https://docs.github.com/en/actions/how-tos/secure-your-work/security-harden-deployments/oidc-with-reusable-workflows#defining-the-trust-conditions)
 ## References
 
+- [Gardener Structured Authentication](https://github.com/gardener/gardener/blob/master/docs/usage/shoot/shoot_access.md)
+- [GitHub Actions Defining Trust using job_workflow_ref](https://docs.github.com/en/actions/how-tos/secure-your-work/security-harden-deployments/oidc-with-reusable-workflows#defining-the-trust-conditions)
 - [kubernetes-auth github action](https://github.com/gardener/cc-utils/blob/b7e4d874f30171964c5262a0bc20d644f4bcedba/.github/actions/kubernetes-auth/action.yaml#L9-L34)
