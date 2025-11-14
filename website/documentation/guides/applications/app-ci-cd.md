@@ -21,29 +21,29 @@ If you're interested, you can [explore the workflows on GitHub](https://github.c
 
 Before proceeding, make sure you have the following in place:
 
-### A Working Gardener (Shoot) Cluster
+### A Working Gardener `Shoot` Cluster
 
 This is the Kubernetes cluster where your application components (such as databases and backends) will run.
 As an application developer, you will receive a kubeconfig file from Gardener to access this cluster.
 
 ### Access to the *Garden Cluster*
 
-You will also need access to the *Garden Cluster*, which manages your shoot clusters.
+You will also need access to the *Garden Cluster*, which manages your `Shoot` clusters.
 
-Get the kubeconfig from the "My Accounts" page in the Gardener Dashboard to access the Garden Cluster.  
-This is another YAML file, not to be confused with the shoot cluster specific file.
+Get the `kubeconfig` from the "My Accounts" page in the Gardener Dashboard to access the Garden Cluster.  
+This is another YAML file, distinct from the `Shoot` cluster-specific file.
 
 1. **Set your shell to use the Garden cluster kubeconfig:**
   ```bash
   export KUBECONFIG=/path/to/kubeconfig-garden-somename.yaml
   ```
 
-2. **List your shoot clusters:**
+2. **List your `Shoot` clusters:**
   ```bash
   kubectl get shoot
   ```
 
-3. **Save your shoot cluster name for later use:**
+3. **Save your `Shoot` cluster name for later use:**
   ```bash
   MY_SHOOT_NAME=$(kubectl get shoot -o jsonpath='{.items[0].metadata.name}')
   echo $MY_SHOOT_NAME
@@ -52,12 +52,12 @@ This is another YAML file, not to be confused with the shoot cluster specific fi
 
 You can now proceed with the next steps using the correct context.
 
-### Knowing your *project*'s *namespace*
+### Knowing your `Project`'s *Namespace*
 
-Your Gardener (shoot) cluster resides in a *project*.  
+Your Gardener `Shoot` cluster resides in a `Project`.  
 The Kubernetes namespace you'll need is composed of `garden-$YOUR_PROJECT_NAME`.
 
-To retrieve your project namespace, run:
+To retrieve your `Project` namespace, run:
 
 ```bash
 MY_PROJECT_NAMESPACE=$(kubectl get shoot $MY_SHOOT_NAME -o jsonpath='{.metadata.namespace}')
@@ -100,13 +100,13 @@ data:
 
 If you want to restrict authentication to a single repository, you can also add a similar validation rule for the `repository_id` claim.
 
-Apply the resource with the kubeconfig set to the *Garden Cluster*:
+Apply the resource with the `kubeconfig` set to the *Garden Cluster*:
 
 ```bash
 kubectl apply -f 01_cm.yaml
 ```
 
-Next, you'll need to configure this config map to be used for Structured Authentication by your shoot cluster, which you can do using this patch command:
+Next, you'll need to configure this `ConfigMap` to be used for Structured Authentication by your `Shoot` cluster, which you can do using this patch command:
 
 ```bash
 kubectl patch shoot $MY_SHOOT_NAME \
@@ -117,20 +117,21 @@ kubectl patch shoot $MY_SHOOT_NAME \
 
 After applying this patch, Gardener will begin reconciling your shoot cluster.  
 This process may take a few minutes. You can monitor the progress by checking the current status:
+After applying this patch, Gardener will begin reconciling your `Shoot` cluster.  
 
 ```bash
 kubectl get shoot $MY_SHOOT_NAME
 ```
 
-## Configure Role Based Access Control RBAC (in the Shoot Cluster)
+## Configure Role-Based Access Control RBAC in the `Shoot` Cluster
 
-Switch your kubectl to use the kubeconfig specific for your shoot cluster:
+Switch your `kubectl` to use the `kubeconfig` specific to your `Shoot` cluster:
 
 ```bash
 export KUBECONFIG=/path/to/kubeconfig-gardenlogin--YOUR_PROJECT--$MY_SHOOT_NAME.yaml
 ```
 
-For each GitHub repository, create a dedicated Role and RoleBinding in your shoot cluster that grant only the minimum permissions required for your CI/CD workflow.
+For each GitHub repository, create a dedicated `Role` and `RoleBinding` in your `Shoot` cluster that grant only the minimum permissions required for your CI/CD workflow.
 For example, if your workflow only needs to update a deployment's container image, restrict access to just that resource:
 
 `02_role.yaml`:
@@ -224,7 +225,7 @@ The discovery server URL may vary depending on your Gardener landscape configura
 
 For help with `server-ca-discovery-url`, see: [Retrieve the CA of a shoot cluster via Gardener Discovery Server](https://github.com/gardener/gardener-discovery-server/blob/main/docs/api.md#retrieve-the-ca-of-a-shoot-cluster).
 
-To obtain your shoot cluster's UID, simply run:
+To obtain your `Shoot` cluster's UID, simply run:
 
 ```bash
 kubectl get shoot NAME -o jsonpath='{.metadata.uid}'
