@@ -17,8 +17,6 @@ structure:
   - dir: security-and-compliance
     structure:
     - manifest: ./security-and-compliance.yaml
-    - file: _index.md
-      source: /website/documentation/security-and-compliance/_index.md
     - file: https://github.com/gardener/diki/blob/main/docs/usage/disa-k8s-stig-shoot.md
       frontmatter:
         title: Run DISA K8s STIGs Ruleset
