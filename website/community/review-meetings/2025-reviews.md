@@ -14,6 +14,29 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2025/11/19 - [v1.132](https://github.com/gardener/gardener/releases/tag/v1.132.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@DockToFuture](https://github.com/DockToFuture) | `5m` | 🌍 Custom `server` Configuration Support For `node-local-dns` | [#13160](https://github.com/gardener/gardener/pull/13160) |
+| [@benedikt-haug](https://github.com/benedikt-haug) | `5m` | 📖 Garden Cluster Disaster Recovery Guide | [#13239](https://github.com/gardener/gardener/pull/13239) |
+| [@tobschli](https://github.com/tobschli) | `5m` | 🧮 Global Quotas For Cluster-Scoped Resources | [#12916](https://github.com/gardener/gardener/pull/12916) |
+| [@fwilhe](https://github.com/fwilhe) | `10m` | 🔐 Kubernetes Application CI/CD Using Structured Authentication | [guide](https://gardener.cloud/docs/guides/applications/app-ci-cd/) |
+| [@axel7born](https://github.com/axel7born) | `5m` | 👯 Dual-Stack IPv{4,6} -> Single-Stack IPv4 Migration | [#12967](https://github.com/gardener/gardener/pull/12967) |
+| [@oliver-goetz](https://github.com/oliver-goetz) | `5m` | 🔒 `IstioTLSTermination` Feature Gate Updates | [#13405](https://github.com/gardener/gardener/pull/13405) |
+| [@rrhubenov](https://github.com/rrhubenov) | `5m` | 🔄 On-Demand Worker Pool Rollout Trigger | [#12829](https://github.com/gardener/gardener/pull/12829) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- ✨ [USER] `gardener-node-agent` now labels worker nodes in shoot clusters with the `node-role.kubernetes.io/worker=""` label. [#13387](https://github.com/gardener/gardener/pull/13387)
+- ✨ [OPERATOR] Operators can set `Seed.spec.settings.loadBalancerServices.class` (docs) and/or `GardenletConfiguration.exposureClassHandlers[].loadBalancerService.class` (docs) to specify a non-default loadBalancerClass for the corresponding `istio-ingressgateway` services on seeds. [#13305](https://github.com/gardener/gardener/pull/13305)
+
+<hr />
+
 ### 2025/11/05 - [v1.131](https://github.com/gardener/gardener/releases/tag/v1.131.0) Release
 
 [📽️ Recording](https://youtu.be/dVLtdifYMTY)
