@@ -22,25 +22,42 @@ jobs:
           echo "Token starts with: $(echo "${{ steps.app-token.outputs.token }}" | cut -c1-10)..."
           
           # Get information about the token/app
-          echo -e "\n📋 App Installation Info:"
+          echo -e "\n📋 App Installation Info - Accessible Repositories:"
           curl -sS -H "Authorization: Bearer ${{ steps.app-token.outputs.token }}" \
                -H "Accept: application/vnd.github+json" \
                https://api.github.com/installation/repositories | jq -r '.repositories[] | "  - \(.full_name) (id: \(.id))"'
           
-          echo -e "\n🔐 App Permissions:"
+          echo -e "\n🔐 App Installation Permissions:"
           curl -sS -H "Authorization: Bearer ${{ steps.app-token.outputs.token }}" \
                -H "Accept: application/vnd.github+json" \
-               https://api.github.com/app/installations | jq -r '.[0].permissions'
+               https://api.github.com/installation/repositories | jq -r '.permissions // "No permissions data"'
           
           echo -e "\n👤 Token User Info:"
           curl -sS -H "Authorization: Bearer ${{ steps.app-token.outputs.token }}" \
                -H "Accept: application/vnd.github+json" \
-               https://api.github.com/user
+               https://api.github.com/user | jq '.'
           
           echo -e "\n📦 Checking access to klocke-io/pr-preview:"
-          curl -sS -H "Authorization: Bearer ${{ steps.app-token.outputs.token }}" \
+          REPO_CHECK=$(curl -sS -w "\nHTTP_CODE:%{http_code}" \
+               -H "Authorization: Bearer ${{ steps.app-token.outputs.token }}" \
                -H "Accept: application/vnd.github+json" \
-               https://api.github.com/repos/klocke-io/pr-preview | jq -r '{name: .name, permissions: .permissions}'
+               https://api.github.com/repos/klocke-io/pr-preview)
+          
+          HTTP_CODE=$(echo "$REPO_CHECK" | grep "HTTP_CODE:" | cut -d: -f2)
+          RESPONSE=$(echo "$REPO_CHECK" | sed '/HTTP_CODE:/d')
+          
+          if [ "$HTTP_CODE" == "200" ]; then
+            echo "✅ Repository accessible!"
+            echo "$RESPONSE" | jq -r '{name: .name, permissions: .permissions}'
+          else
+            echo "❌ Repository NOT accessible (HTTP $HTTP_CODE)"
+            echo "$RESPONSE" | jq -r '.message // .'
+          fi
+          
+          echo -e "\n🎯 Summary:"
+          echo "  - App has access to: klocke-io/documentation"
+          echo "  - App trying to access: klocke-io/pr-preview"
+          echo "  - Result: The app is NOT installed on klocke-io/pr-preview repository"
 
       - name: Test commit permissions to pr-preview repo
         run: |
