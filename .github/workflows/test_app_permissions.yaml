@@ -1,0 +1,33 @@
+name: test_app_permissions.yaml
+on:
+  workflow_dispatch:
+
+jobs:
+  test-permissions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate GitHub App Token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.GARDENER_GITHUB_WORKFLOW_PKG_MNGR_APP_ID }}
+          private-key: ${{ secrets.GARDENER_GITHUB_WORKFLOW_PKG_MNGR_APP_PRIVATE_KEY }}
+
+      - name: Test commit permissions to pr-preview repo
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Clone the repository using the app token
+          git clone https://x-access-token:${{ steps.app-token.outputs.token }}@github.com/klocke-io/pr-preview.git
+          cd pr-preview
+          
+          # Create a test file
+          echo "Test commit at $(date)" > test-commit-permissions.txt
+          
+          # Attempt to commit and push
+          git add test-commit-permissions.txt
+          git commit -m "Test: Verify GitHub App token commit permissions"
+          git push origin main || git push origin master
+          
+          echo "✅ Successfully committed to klocke-io/pr-preview repository"
