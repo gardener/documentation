@@ -1,6 +1,9 @@
 name: test_app_permissions.yaml
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - master
+      - pr-preview # ToDo adapt before merging to only use master:
 
 jobs:
   test-permissions:
