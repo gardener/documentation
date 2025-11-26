@@ -1,7 +1,4 @@
-name: PR Preview 2
-
-##ToDo add an ok to preview for external PR's
-
+name: PR Preview
 on:
   pull_request:
     types:
@@ -35,33 +32,20 @@ jobs:
       - name: Postprocessing Content
         run: |
           npm run post-processing-all
-      # Todo update but fine for now
       - name: Set Base Path
         id: set-base-path
         run: |
-          if [ "${{ github.repository }}" != "gardener/documentation" ]; then
-            echo "VITE_PUBLIC_BASE_PATH=/documentation/pr-preview/pr-${{ github.event.pull_request.number }}/" >> $GITHUB_ENV
-            echo "Base path set to: /documentation/pr-preview/pr-${{ github.event.pull_request.number }}/ (fork deployment)" 
-          else
-            echo "This should never be run on the main repo, use a dedicated repository for PR previews."
-            exit
-          fi
+            echo "VITE_PUBLIC_BASE_PATH=/pr-${{ github.event.pull_request.number }}/" >> $GITHUB_ENV
+            echo "Base path set to: /pr-${{ github.event.pull_request.number }}/"
       - name: Build with VitePress
         run: |
           echo "Building with VITE_PUBLIC_BASE_PATH: '$VITE_PUBLIC_BASE_PATH'"
           npm run docs:build  
 
-      - name: Generate GitHub App Token
-        id: app-token
-        uses: actions/create-github-app-token@v1
-        with:
-          app-id: ${{ secrets.GARDENER_GITHUB_WORKFLOW_PKG_MNGR_APP_ID }}
-          private-key: ${{ secrets.GARDENER_GITHUB_WORKFLOW_PKG_MNGR_APP_PRIVATE_KEY }}
-
       - name: Deploy preview
         uses: rossjrw/pr-preview-action@v1
         with:
-          token: ${{ steps.app-token.outputs.token }}
-          #token: ${{ secrets.PREVIEW_TOKEN }}
-          deploy-repository: klocke-io/pr-preview
+          token: ${{ secrets.GARDENER_ROBOT_PREVIEW_TOKEN }}
+          deploy-repository: gardener/documentation-demo
+          pages-base-url: documentation-demo.gardener.cloud/
           source-dir: .vitepress/dist
