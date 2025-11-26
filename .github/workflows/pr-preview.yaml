@@ -1,4 +1,4 @@
-name: Trigger PR Preview
+name: Old PR Preview
 
 on:
   pull_request:
@@ -9,7 +9,7 @@ on:
       - closed
 
 jobs:
-  trigger-preview:
+  old-pr-preview:
     runs-on: ubuntu-latest
     steps:
       - name: Generate GitHub App Token
