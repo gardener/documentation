@@ -51,7 +51,16 @@ jobs:
           echo "Building with VITE_PUBLIC_BASE_PATH: '$VITE_PUBLIC_BASE_PATH'"
           npm run docs:build  
 
+      - name: Generate GitHub App Token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.GARDENER_GITHUB_WORKFLOW_PKG_MNGR_APP_ID }}
+          private-key: ${{ secrets.GARDENER_GITHUB_WORKFLOW_PKG_MNGR_APP_PRIVATE_KEY }}
+
       - name: Deploy preview
         uses: rossjrw/pr-preview-action@v1
         with:
+          token: ${{ steps.app-token.outputs.token }}
+          deploy-repository: klocke-io/pr-preview
           source-dir: .vitepress/dist
