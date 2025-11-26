@@ -8,7 +8,7 @@
           
           <ul v-if="currentDirItems.length > 0">
             <li v-for="item in currentDirItems" :key="getConsistentLink(item.link)">
-              <a @click="taxonomyItemClicked(getConsistentLink(item.link))" :href="getConsistentLink(item.link)">{{ item.text }}</a>
+              <a @click="taxonomyItemClicked(getConsistentLink(item.link))" :href="getConsistentLink(withBase(item.link))">{{ item.text }}</a>
             </li>
           </ul>
           
@@ -23,7 +23,7 @@
 </template>
 
 <script setup>
-import { useData, useRouter } from 'vitepress'
+import {useData, useRouter, withBase} from 'vitepress'
 import { ref, computed, onMounted, nextTick, watch } from 'vue'
 import DefaultTheme from 'vitepress/theme'
 import { data as sidebars } from '@data/sidebar.data'
@@ -181,6 +181,8 @@ const getConsistentLink = (link) => {
   if (consistentLink && !consistentLink.startsWith('/docs')) {
     return '/docs' + (consistentLink.startsWith('/') ? consistentLink : '/' + consistentLink)
   }
+
+
   return consistentLink
 }
 

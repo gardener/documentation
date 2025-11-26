@@ -42,12 +42,20 @@ jobs:
       - name: Postprocessing Content
         run: |
           npm run post-processing-all
+      - name: Set Base Path
+        id: set-base-path
+        run: |
+          if [ "${{ github.repository }}" != "gardener/documentation" ]; then
+            echo "VITE_PUBLIC_BASE_PATH=/documentation/" >> $GITHUB_ENV
+            echo "Base path set to: /documentation/ (fork deployment)"
+          else
+            echo "VITE_PUBLIC_BASE_PATH=" >> $GITHUB_ENV
+            echo "Base path set to: (empty) (main repo deployment to gardener.cloud)"
+          fi
       - name: Build with VitePress
-        run: npm run docs:build
-        env:
-          # Set base path only for forks. Main repo (gardener/documentation) deploys to gardener.cloud without base path.
-          # Forks deploy to GitHub Pages (username.github.io/documentation/) and need the /documentation/ base path.
-          VITE_PUBLIC_BASE_PATH: ${{ github.repository != 'gardener/documentation' && '/documentation/' || '' }}
+        run: |
+          echo "Building with VITE_PUBLIC_BASE_PATH: '$VITE_PUBLIC_BASE_PATH'"
+          npm run docs:build
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master' || github.event_name != 'pull_request' && github.ref == 'refs/heads/pr-preview' # ToDo adapt before merging to only use master
