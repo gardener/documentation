@@ -35,8 +35,8 @@ jobs:
       - name: Set Base Path
         id: set-base-path
         run: |
-            echo "VITE_PUBLIC_BASE_PATH=/pr-${{ github.event.pull_request.number }}/" >> $GITHUB_ENV
-            echo "Base path set to: /pr-${{ github.event.pull_request.number }}/"
+            echo "VITE_PUBLIC_BASE_PATH=/pr-preview/pr-${{ github.event.pull_request.number }}/" >> $GITHUB_ENV
+            echo "Base path set to: /pr-preview/pr-${{ github.event.pull_request.number }}/"
       - name: Build with VitePress
         run: |
           echo "Building with VITE_PUBLIC_BASE_PATH: '$VITE_PUBLIC_BASE_PATH'"
