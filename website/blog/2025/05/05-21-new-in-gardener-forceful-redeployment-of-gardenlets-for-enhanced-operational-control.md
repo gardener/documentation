@@ -11,6 +11,8 @@ authors:
 aliases: ["/blog/2025/05/21/new-in-gardener-forceful-redeployment-of-gardenlets-for-enhanced-operational-control"]
 ---
 
+# New in Gardener: Forceful Redeployment of gardenlets for Enhanced Operational Control
+
 Gardener continues to enhance its operational capabilities, and a recent improvement introduces a much-requested feature for managing gardenlets: the ability to forcefully trigger their redeployment. This provides operators with greater control and a streamlined recovery path for specific scenarios.
 
 ### The Standard gardenlet Lifecycle

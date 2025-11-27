@@ -10,6 +10,8 @@ authors:
 aliases: ["/blog/2024/04/22/01"]
 ---
 
+# Gardener's Registry Cache Extension: Another Cost Saving Win and More
+
 ## Use Cases
 
 In Kubernetes, on every Node the container runtime daemon pulls the container images that are configured in the Pods' specifications running on the corresponding Node. Although these container images are cached on the Node's file system after the initial pull operation, there are imperfections with this setup.

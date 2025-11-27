@@ -11,6 +11,8 @@ authors:
 aliases: ["/blog/2025/09/05/ipv6-update"]
 ---
 
+# A Deep Dive into Gardener's IPv6 Journey
+
 The internet is built on the Internet Protocol (IP), and for decades, its fourth version, IPv4, has been the bedrock of global connectivity. However, the explosive growth of the internet, a phenomenon that began in the 1990s, made it clear that the 32-bit address space of IPv4 was finite and rapidly depleting. The long-foreseen solution, IPv6, with its vast 128-bit address space, has been around for nearly 30 years, but its adoption has been a slow and steady marathon rather than a sprint.
 
 Today, the need for IPv6 is no longer a distant future concern; it's a present-day reality driven by market forces, technological evolution, and even government mandates. At Gardener, we've been on a multi-year journey to integrate IPv6 deeply and thoughtfully into our managed Kubernetes offerings.

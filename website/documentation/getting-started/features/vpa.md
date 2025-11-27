@@ -1,9 +1,11 @@
 ---
 title: Vertical Pod Autoscaler
 weight: 6
+prev: false
+next: false
 ---
 
-## Vertical Pod Autoscaler
+# Vertical Pod Autoscaler
 
 ![vpa](./images/vpa.gif)
 

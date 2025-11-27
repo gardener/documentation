@@ -1,13 +1,16 @@
 ---
 title: Dockerfile Pitfalls
-description: "Common Dockerfile pitfalls"
+description: Common Dockerfile pitfalls
 level: beginner
 reviewer: Tieyan Fu
 last_reviewed: 22.06.2018
 category: Fails
 scope: app-developer
+prev: false
+next: false
 ---
 
+# Dockerfile Pitfalls
 
 ## Using the `latest` Tag for an Image
 

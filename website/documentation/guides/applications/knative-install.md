@@ -5,7 +5,11 @@ level: intermediate
 index: 10
 category: Setup
 scope: app-developer
+prev: false
+next: false
 ---
+
+# Install Knative in Gardener Clusters
 
 ## Overview
 

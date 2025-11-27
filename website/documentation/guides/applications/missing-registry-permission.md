@@ -1,12 +1,16 @@
 ---
 title: Container Image Not Pulled
-description: "Wrong Container Image or Invalid Registry Permissions"
+description: Wrong Container Image or Invalid Registry Permissions
 level: beginner
 reviewer: Tieyan Fu
 last_reviewed: 22.06.2018
 category: Fails
 scope: app-developer
+prev: false
+next: false
 ---
+
+# Container Image Not Pulled
 
 ## Problem
 

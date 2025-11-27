@@ -10,6 +10,8 @@ authors:
 aliases: ["/blog/2025/09/10/explicit-internal-dns-configuration-for-seeds"]
 ---
 
+# Explicit Internal DNS Configuration for Seeds
+
 Gardener's DNS management capabilities have been enhanced to provide a more explicit, secure, and flexible method for configuring internal DNS for `Seed` clusters. This change moves away from a global, label-based secret selection to a direct configuration within the `Seed` API.
 
 ### A New API for Per-Seed Configuration

@@ -1,7 +1,13 @@
 ---
 title: Dependencies
-remote: https://github.com/gardener/gardener/blob/master/docs/development/testing_and_dependencies.md
+remote: >-
+  https://github.com/gardener/gardener/blob/master/docs/development/testing_and_dependencies.md
+prev: false
+next: false
 ---
+
+# Dependencies
+
 ## Testing
 
 We follow the BDD-style testing principles and are leveraging the [Ginkgo](https://onsi.github.io/ginkgo/) framework along with [Gomega](http://onsi.github.io/gomega/) as matcher library. In order to execute the existing tests, you can use

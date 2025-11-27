@@ -11,6 +11,8 @@ authors:
 aliases: ["/blog/2025/05/21/fine-tuning-kube-proxy-readiness-ensuring-accurate-health-checks-during-node-scale-down"]
 ---
 
+# Fine-Tuning kube-proxy Readiness: Ensuring Accurate Health Checks During Node Scale-Down
+
 Gardener has recently refined how it determines the readiness of `kube-proxy` components within managed Kubernetes clusters. This adjustment leads to more accurate system health reporting, especially during node scale-down operations orchestrated by `cluster-autoscaler`.
 
 ### The Challenge: kube-proxy Readiness During Node Scale-Down

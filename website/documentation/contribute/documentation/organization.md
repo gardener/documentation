@@ -1,6 +1,10 @@
 ---
 title: Organization
+prev: false
+next: false
 ---
+
+# Organization
 
 The Gardener project implements the *documentation-as-code* paradigm. Essentially this means that:
 

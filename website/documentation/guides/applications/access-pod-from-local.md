@@ -6,7 +6,11 @@ status: Reviewed
 last_reviewed: 30.05.2018
 category: Debugging
 scope: app-developer
+prev: false
+next: false
 ---
+
+# Access a Port of a Pod Locally
 
 ## Question
 

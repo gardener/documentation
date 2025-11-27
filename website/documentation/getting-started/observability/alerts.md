@@ -1,7 +1,11 @@
 ---
 title: Alerts
 weight: 2
+prev: false
+next: false
 ---
+
+# Alerts
 
 ## Overview
 

@@ -1,3 +1,7 @@
+---
+prev: false
+next: false
+---
 # Access the Kubernetes apiserver from your tailnet
 
 ## Overview

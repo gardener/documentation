@@ -1,8 +1,12 @@
 ---
-title: "2025-03: Scaling Recommender"
-linkTitle: "2025-03: Scaling Recommender"
-publishdate: 2025-03-17
+title: '2025-03: Scaling Recommender'
+linkTitle: '2025-03: Scaling Recommender'
+publishdate: 2025-03-17T00:00:00.000Z
+prev: false
+next: false
 ---
+
+# 2025-03: Scaling Recommender
 
 - ✍🏻 **Author(s):** [@unmarshall](https://github.com/unmarshall) (Madhav Bhargava)
 - 🗓️ **Presentation:** 2025-03-17, 10:00 - 11:00 CET

@@ -13,6 +13,8 @@ authors:
 aliases: ["/blog/2025/11/12/promcon-eu-2025"]
 ---
 
+# PromCon EU 2025 Highlights
+
 PromCon EU 2025, the 10th annual conference for Prometheus users and developers, took place on October 21st and 22nd. After being held in Berlin for two years, the event was kindly hosted by Google in Munich again this year. Since Prometheus and related tools are the core of Gardener's monitoring stack, we were excited to attend, connect with the community, and learn about the latest developments in the Prometheus ecosystem.
 
 ![alt text](images/promcon2025.jpeg)

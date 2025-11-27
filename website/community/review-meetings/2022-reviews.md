@@ -1,7 +1,9 @@
 ---
-title: 2022
+title: '2022'
 weight: -2022
 outline: 3
+prev: false
+next: false
 ---
 
 # Gardener Review Meetings (2022)

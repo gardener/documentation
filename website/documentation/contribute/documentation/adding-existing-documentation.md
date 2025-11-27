@@ -1,6 +1,10 @@
 ---
 title: Adding Already Existing Documentation
+prev: false
+next: false
 ---
+
+# Adding Already Existing Documentation
 
 ## Overview
 

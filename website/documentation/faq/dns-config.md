@@ -1,6 +1,10 @@
 ---
 title: What are the meanings of different DNS configuration options?
+prev: false
+next: false
 ---
+
+# What are the meanings of different DNS configuration options?
 
 ## Can you adapt a DNS configuration to be used by the workload on the cluster (CoreDNS configuration)?
 

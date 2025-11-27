@@ -1,7 +1,9 @@
 ---
-title: 2024
+title: '2024'
 weight: -2024
 outline: 3
+prev: false
+next: false
 ---
 
 # Gardener Review Meetings (2024)

@@ -11,6 +11,8 @@ authors:
 aliases: ["/blog/2025/08/27/enabling-node-local-dns-without-node-rollouts"]
 ---
 
+# Enabling Node-Local DNS Without Node Rollouts
+
 The `node-local-dns` feature in Kubernetes significantly improves DNS reliability and performance by running a dedicated caching agent on each cluster node. However, enabling or disabling this feature in Gardener historically required a full, time-consuming rolling update of all worker nodes. A recent enhancement streamlines this process, improving operational efficiency and reducing disruption.
 
 ### The Challenge: Disruptive Configuration Changes

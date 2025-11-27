@@ -2,6 +2,8 @@
 title: 2022 (Community Meetings)
 weight: -2021
 outline: false
+prev: false
+next: false
 ---
 
 # Gardener Community Meetings (2022)

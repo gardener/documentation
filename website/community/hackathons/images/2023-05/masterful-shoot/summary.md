@@ -1,5 +1,7 @@
 ---
 exclude: true
+prev: false
+next: false
 ---
 
 # An Evaluation of Masterful Shoots

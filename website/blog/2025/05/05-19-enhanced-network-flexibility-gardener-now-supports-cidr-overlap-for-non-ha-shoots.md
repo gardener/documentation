@@ -11,6 +11,8 @@ authors:
 aliases: ["/blog/2025/05/19/enhanced-network-flexibility-gardener-now-supports-cidr-overlap-for-non-ha-shoots"]
 ---
 
+# Enhanced Network Flexibility: Gardener Now Supports CIDR Overlap for Non-HA Shoots
+
 Gardener is continually evolving to offer greater flexibility and efficiency in managing Kubernetes clusters. A significant enhancement has been introduced that addresses a common networking challenge: the requirement for completely disjoint network CIDR blocks between a shoot cluster and its seed cluster. Now, Gardener allows for IPv4 network overlap in specific scenarios, providing users with more latitude in their network planning.
 
 ### Addressing IP Address Constraints

@@ -1,13 +1,19 @@
 ---
 title: How to Debug a Pod
-description: "Your pod doesn't run as expected. Are there any log files? Where? How could I debug a pod?"
+description: >-
+  Your pod doesn't run as expected. Are there any log files? Where? How could I
+  debug a pod?
 level: intermediate
 reviewer: Tieyan Fu
 status: Reviewed
 last_reviewed: 19.06.2018
 category: Debugging
 scope: app-developer
+prev: false
+next: false
 ---
+
+# How to Debug a Pod
 
 ## Introduction
 

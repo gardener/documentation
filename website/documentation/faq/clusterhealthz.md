@@ -1,6 +1,10 @@
 ---
 title: How can you get the status of a shoot API server?
+prev: false
+next: false
 ---
+
+# How can you get the status of a shoot API server?
 
 There are two ways to get the health information of a shoot API server.
  

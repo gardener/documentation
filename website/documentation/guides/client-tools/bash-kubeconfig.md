@@ -1,13 +1,17 @@
 ---
 title: Kubeconfig Context as bash Prompt
-description: "Expose the active kubeconfig into bash"
+description: Expose the active kubeconfig into bash
 level: beginner
 reviewer: Tieyan Fu
 status: Reviewed
 last_reviewed: 29.05.2018
 category: kubectl
 scope: app-developer
+prev: false
+next: false
 ---
+
+# Kubeconfig Context as bash Prompt
 
 ## Overview
 

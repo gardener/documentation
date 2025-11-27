@@ -1,9 +1,11 @@
 ---
 title: Hibernation
 weight: 1
+prev: false
+next: false
 ---
 
-## Hibernation
+# Hibernation
 
 Some clusters need to be up all the time - typically, they would be hosting some kind of production workload. Others might be used for development purposes or testing during business hours only. Keeping them up and running all the time is a waste of money. Gardener can help you here with its "hibernation" feature. Essentially, hibernation means to shut down all components of a cluster.
 

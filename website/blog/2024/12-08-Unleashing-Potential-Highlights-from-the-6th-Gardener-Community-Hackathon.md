@@ -10,6 +10,8 @@ authors:
 aliases: ["/blog/2024/12/08/01"]
 ---
 
+# Unleashing Potential: Highlights from the 6th Gardener Community Hackathon
+
 ![Hackathon 2024/12 Team](images/hackathon202412-team.jpg "Hackathon 2024/12 Team")
 
 The [6th Gardener Community Hackathon](https://github.com/gardener-community/hackathon/blob/main/2024-12_Schelklingen/README.md), hosted at [Schlosshof Freizeitheim](https://www.schlosshof-info.de/) in [Schelklingen, Germany](https://maps.app.goo.gl/28FZXpzZLjgaKNef9) in December 2024, was a hub of creativity and collaboration. Developers of various companies joined forces to explore new frontiers of the Gardener project. Here's a rundown of the key outcomes:

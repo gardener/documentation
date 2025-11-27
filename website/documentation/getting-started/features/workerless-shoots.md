@@ -1,7 +1,11 @@
 ---
 title: Workerless Shoots
 weight: 2
+prev: false
+next: false
 ---
+
+# Workerless Shoots
 
 ## Controlplane as a Service
 

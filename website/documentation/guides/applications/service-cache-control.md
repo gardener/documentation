@@ -1,10 +1,14 @@
 ---
 title: Out-Dated HTML and JS Files Delivered
-description: "Why is my application always outdated?"
+description: Why is my application always outdated?
 level: intermediate
 category: Services
 scope: app-developer
+prev: false
+next: false
 ---
+
+# Out-Dated HTML and JS Files Delivered
 
 ## Problem
 

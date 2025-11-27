@@ -1,6 +1,10 @@
 ---
 title: Markdown
+prev: false
+next: false
 ---
+
+# Markdown
 
 Hugo uses [Markdown](https://www.markdownguide.org/) for its simple content format. However, there are a lot of things that Markdown doesn't support well. You could use pure HTML to expand possibilities. A typical example is reducing the original dimensions of an image.
 

@@ -1,8 +1,13 @@
 ---
 title: Working with Images
-aliases: ["/docs/guides/contributors/content/images"]
+aliases:
+  - /docs/guides/contributors/content/images
 weight: 15
+prev: false
+next: false
 ---
+
+# Working with Images
 
 Using images on the website has to contribute to the aesthetics and comprehensibility of the materials, with uncompromised experience when loading and browsing pages. That concerns crisp clear images, their consistent layout and color scheme, dimensions and aspect ratios, flicker-free and fast loading or the feeling of it, even on unreliable mobile networks and devices.
 

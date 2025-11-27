@@ -1,9 +1,11 @@
 ---
 title: Certificate Management
 weight: 5
+prev: false
+next: false
 ---
 
-## Certificate Management
+# Certificate Management
 
 For proper consumption, any service should present a TLS certificate to its consumers. However, self-signed certificates are not fit for this purpose - the certificate should be signed by a CA trusted by an application's userbase. Luckily, Issuers like Let's Encrypt and others help here by offering a signing service that issues certificates based on the ACME challenge (Automatic Certificate Management Environment).
 

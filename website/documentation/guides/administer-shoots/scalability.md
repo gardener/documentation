@@ -1,12 +1,16 @@
 ---
-title:  Scalability of Gardener Managed Kubernetes Clusters
-description: "Know the boundary conditions when scaling your workloads"
+title: Scalability of Gardener Managed Kubernetes Clusters
+description: Know the boundary conditions when scaling your workloads
 level: advanced
 index: 40
 category: Operations
 scope: Users
-publishdate: 2023-05-23
+publishdate: 2023-05-23T00:00:00.000Z
+prev: false
+next: false
 ---
+
+# Scalability of Gardener Managed Kubernetes Clusters
 
 Have you ever wondered how much more your Kubernetes cluster can scale before it breaks down?
 

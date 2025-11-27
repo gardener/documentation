@@ -3,7 +3,11 @@ title: Create / Delete a Shoot Cluster
 level: advanced
 category: Operation
 scope: operator
+prev: false
+next: false
 ---
+
+# Create / Delete a Shoot Cluster
 
 ## Create a Shoot Cluster
 

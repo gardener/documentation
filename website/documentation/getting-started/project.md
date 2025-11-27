@@ -1,7 +1,11 @@
 ---
 title: Gardener Projects
 weight: 3
+prev: false
+next: false
 ---
+
+# Gardener Projects
 
 ## Overview
 

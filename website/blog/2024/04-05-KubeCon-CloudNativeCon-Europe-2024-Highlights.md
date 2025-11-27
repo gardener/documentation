@@ -1,5 +1,5 @@
 ---
-title: KubeCon / CloudNativeCon Europe 2024 Highlights
+title: "KubeCon / CloudNativeCon Europe 2024 Highlights"
 linkTitle: KubeCon / CloudNativeCon Europe 2024 Highlights
 newsSubtitle: April 05, 2024
 publishdate: 2024-04-05
@@ -9,6 +9,8 @@ authors:
   avatar: https://avatars.githubusercontent.com/u/19169361
 aliases: ["/blog/2024/04/05/01"]
 ---
+
+# KubeCon / CloudNativeCon Europe 2024 Highlights
 
 ![KubeCon EU 2024 Keynote Room](images/kubecon-eu2024.png "KubeCon EU 2024 Keynote Room")
 

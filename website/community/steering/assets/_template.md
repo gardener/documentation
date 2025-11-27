@@ -1,7 +1,9 @@
 ---
-title: "YYYY-MM: Title of Proposal"
-linkTitle: "YYYY-MM: Title of Proposal"
-publishdate: 1970-01-01
+title: 'YYYY-MM: Title of Proposal'
+linkTitle: 'YYYY-MM: Title of Proposal'
+publishdate: 1970-01-01T00:00:00.000Z
+prev: false
+next: false
 ---
 
 - ✍🏻 **Author(s):** [@your-github-user](https://github.com/your-github-user) (FirstName LastName)

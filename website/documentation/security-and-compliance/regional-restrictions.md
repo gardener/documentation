@@ -1,13 +1,19 @@
 ---
 title: Regional Restrictions
-description: "How Gardener supports regional restrictions"
+description: How Gardener supports regional restrictions
 weight: 40
 level: advanced
 category: Security
-publishdate: 2023-11-22
-tags: ["task"]
-aliases: ["/docs/guides/security-and-compliance/regional-restrictions/"]
+publishdate: 2023-11-22T00:00:00.000Z
+tags:
+  - task
+aliases:
+  - /docs/guides/security-and-compliance/regional-restrictions/
+prev: false
+next: false
 ---
+
+# Regional Restrictions
 
 ## Shared Responsibility Model
 

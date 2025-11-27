@@ -1,7 +1,11 @@
 ---
 title: Shoot Lifecycle
 weight: 6
+prev: false
+next: false
 ---
+
+# Shoot Lifecycle
 
 ## Reconciliation in Kubernetes and Gardener
 

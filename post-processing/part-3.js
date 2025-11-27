@@ -3,7 +3,9 @@ import path from 'path';
 import matter from 'gray-matter';
 
 // Base path configuration - can be overridden by command line argument
-const BASE_PATH = './hugo/content/';
+// Usage: node part-3.js [BASE_PATH] [FLAGS]
+// Example: node part-3.js ./hugo/content/ --add-empty-metadata
+const BASE_PATH = process.argv[2] && !process.argv[2].startsWith('-') ? process.argv[2] : './hugo/content/';
 const IGNORE_DIRS = ['node_modules', '.git', 'dist', 'build'];
 
 await main();

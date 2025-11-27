@@ -1,10 +1,14 @@
 ---
 title: Orchestration of Container Startup
-description: "How to orchestrate a startup sequence of multiple containers"
+description: How to orchestrate a startup sequence of multiple containers
 level: beginner
 category: Getting Started
 scope: app-developer
+prev: false
+next: false
 ---
+
+# Orchestration of Container Startup
 
 ## Disclaimer
 

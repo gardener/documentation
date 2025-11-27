@@ -1,10 +1,14 @@
 ---
 title: Integrity and Immutability
-description: "Ensure that you always get the right image"
+description: Ensure that you always get the right image
 level: intermediate
 category: Docker Registry
 scope: app-developer
+prev: false
+next: false
 ---
+
+# Integrity and Immutability
 
 ## Introduction
 

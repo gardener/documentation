@@ -1,5 +1,5 @@
 ---
-title: Keeping Track of Your Cloud Resources with Gardener Inventory
+title: "Keeping Track of Your Cloud Resources with Gardener Inventory"
 linkTitle: Keeping Track of Your Cloud Resources with Gardener Inventory
 newsSubtitle: Aug 13, 2025
 publishdate: 2025-08-13
@@ -10,6 +10,9 @@ authors:
   name: Marin Atanasov Nikolov
 aliases: [/blog/2025/08/13/getting-started-with-gardener-inventory]
 ---
+
+# Keeping Track of Your Cloud Resources with Gardener Inventory
+
 Running Kubernetes clusters at scale comes with its own challenges.
 
 How do you keep track of the resources under your control? How can you tell if a

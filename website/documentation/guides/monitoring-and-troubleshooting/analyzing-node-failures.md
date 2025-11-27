@@ -1,11 +1,18 @@
 ---
 title: Analyzing Node Removal and Failures
-description: "Utilize Gardener's Monitoring and Logging to analyze removal and failures of nodes"
+description: >-
+  Utilize Gardener's Monitoring and Logging to analyze removal and failures of
+  nodes
 level: intermediate
 category: Debugging
-aliases: ["/docs/guides/monitoring-and-troubleshooting/analysing-node-failures/"]
+aliases:
+  - /docs/guides/monitoring-and-troubleshooting/analysing-node-failures/
 scope: operator
+prev: false
+next: false
 ---
+
+# Analyzing Node Removal and Failures
 
 ## Overview
 

@@ -1,5 +1,5 @@
 ---
-title: High Availability and Zone Outage Toleration
+title: "High Availability and Zone Outage Toleration"
 linkTitle: High Availability and Zone Outage Toleration
 newsSubtitle: March 27, 2023
 publishdate: 2023-03-27
@@ -9,6 +9,8 @@ authors:
   avatar: https://avatars.githubusercontent.com/u/4974203
 aliases: ["/blog/2023/03/27/01"]
 ---
+
+# High Availability and Zone Outage Toleration
 
 Developing highly available workload that can tolerate a zone outage is no trivial task. In this blog, we will explore various recommendations to get closer to that goal. While many recommendations are general enough, the examples are specific in how to achieve this in a [Gardener](https://gardener.cloud)-managed cluster and where/how to tweak the different control plane components. If you do not use Gardener, it may be still a worthwhile read as most settings can be influenced with most of the Kubernetes providers.
 

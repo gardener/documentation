@@ -1,16 +1,19 @@
 ---
-title: "AI/ML Workloads on GPU Clusters"
-linkTitle: "AI/ML Workloads on GPU Clusters"
-newsSubtitle: "Setting up a GPU Enabled Cluster for AI/ML Workloads"
-description: "Setting up a GPU Enabled Cluster for AI/ML Workloads"
-publishdate: 2025-10-26
-layout: single-page
+title: AI/ML Workloads on GPU Clusters
+linkTitle: AI/ML Workloads on GPU Clusters
+newsSubtitle: Setting up a GPU Enabled Cluster for AI/ML Workloads
+description: Setting up a GPU Enabled Cluster for AI/ML Workloads
+publishdate: 2025-10-26T00:00:00.000Z
 level: intermediate
 category: Setup
 scope: app-developer
 authors:
-- email: vedran.lerenc@sap.com
+  - email: vedran.lerenc@sap.com
+prev: false
+next: false
 ---
+
+# AI/ML Workloads on GPU Clusters
 
 > [!NOTE]
 > This guide focuses on NVIDIA accelerators, as Gardener provides first-class support for them, enabling a robust and conformant environment for GPU-powered applications.

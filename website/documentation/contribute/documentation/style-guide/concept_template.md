@@ -1,6 +1,8 @@
 ---
 Title: Concept Topic Structure
 Description: Describes the contents of a concept topic
+prev: false
+next: false
 ---
 
 # Concept Title

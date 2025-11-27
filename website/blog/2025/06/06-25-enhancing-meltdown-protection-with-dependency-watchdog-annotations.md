@@ -10,6 +10,8 @@ authors:
 aliases: ["/blog/2025/06/25/enhancing-meltdown-protection-with-dependency-watchdog-annotations"]
 ---
 
+# Enhancing Meltdown Protection with Dependency-Watchdog Annotations
+
 Gardener's `dependency-watchdog` is a crucial component for ensuring cluster stability. During infrastructure-level outages where worker nodes cannot communicate with the control plane, it activates a "meltdown protection" mechanism. This involves scaling down key control plane components like the `machine-controller-manager` (MCM), `cluster-autoscaler` (CA), and `kube-controller-manager` (KCM) to prevent them from taking incorrect actions based on stale information, such as deleting healthy nodes that are only temporarily unreachable.
 
 ### The Challenge: Premature Scale-Up During Reconciliation

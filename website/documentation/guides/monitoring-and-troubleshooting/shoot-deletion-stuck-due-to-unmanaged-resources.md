@@ -1,10 +1,14 @@
 ---
 title: Shoot Deletion Stuck Due to Unmanaged Resources
-description: "Identifying, managing, and cleaning up unmanaged resources"
+description: 'Identifying, managing, and cleaning up unmanaged resources'
 level: intermediate
 category: Debugging
 scope: app-developer
+prev: false
+next: false
 ---
+
+# Shoot Deletion Stuck Due to Unmanaged Resources
 
 ## Introduction
 In cloud environments, particularly when using Kubernetes and related infrastructure, users often encounter challenges with unmanaged resources. These are resources that remain active or are not automatically cleaned up when a shoot is deleted. Unmanaged resources can lead to increased costs, security risks, and operational inefficiencies. This guide provides an overview of how to identify, manage, and clean up unmanaged resources effectively.

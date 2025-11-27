@@ -1,7 +1,12 @@
 ---
 title: Upgrading Kubernetes Versions
-aliases: ["/docs/faq/automatic-upgrade/"]
+aliases:
+  - /docs/faq/automatic-upgrade/
+prev: false
+next: false
 ---
+
+# Upgrading Kubernetes Versions
 
 ## How can I upgrade my cluster versions?
 

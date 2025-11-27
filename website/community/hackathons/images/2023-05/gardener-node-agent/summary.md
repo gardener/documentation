@@ -1,5 +1,7 @@
 ---
 exclude: true
+prev: false
+next: false
 ---
 
 # Gardener Node Agent

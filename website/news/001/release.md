@@ -1,9 +1,11 @@
 ---
 title: Gardener 1.3.0 Released
-newsSubtitle: April 16, 2020
-publishdate: 2020-04-21
-archivedate: 2020-05-15
+newsSubtitle: 'April 16, 2020'
+publishdate: 2020-04-21T00:00:00.000Z
+archivedate: 2020-05-15T00:00:00.000Z
 newsType: release-notes
+prev: false
+next: false
 ---
 # Gardener 1.3.0 Released
 

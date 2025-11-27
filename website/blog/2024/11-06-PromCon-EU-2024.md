@@ -1,5 +1,5 @@
 ---
-title: PromCon EU 2024 Highlights
+title: "PromCon EU 2024 Highlights"
 linkTitle: PromCon EU 2024 Highlights
 newsSubtitle: November 06, 2024
 publishdate: 2024-11-01
@@ -12,6 +12,8 @@ authors:
   avatar: https://avatars.githubusercontent.com/u/9338170
 aliases: ["/blog/2024/11/06/01"]
 ---
+
+# PromCon EU 2024 Highlights
 
 ## Overview
 

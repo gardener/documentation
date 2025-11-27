@@ -1,7 +1,11 @@
 ---
 title: Shoot Status
 weight: 3
+prev: false
+next: false
 ---
+
+# Shoot Status
 
 ## Overview
 

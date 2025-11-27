@@ -1,5 +1,7 @@
 ---
 exclude: true
+prev: false
+next: false
 ---
 
 # Would it make sense to have a rolling update of the gardener-node-agent?

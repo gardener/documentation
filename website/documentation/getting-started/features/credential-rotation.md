@@ -1,7 +1,11 @@
 ---
 title: Credential Rotation
 weight: 3
+prev: false
+next: false
 ---
+
+# Credential Rotation
 
 ## Keys
 

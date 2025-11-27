@@ -3,9 +3,11 @@ title: Contributing Bigger Changes
 sidebar: true
 menu: sln
 weight: 60
+prev: false
+next: false
 ---
 
-## Contributing Bigger Changes
+# Contributing Bigger Changes
 
 Here are the guidelines you should follow when contributing larger changes to Gardener:
 

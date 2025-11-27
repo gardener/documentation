@@ -1,7 +1,11 @@
 ---
 title: Gardener Shoots
 weight: 4
+prev: false
+next: false
 ---
+
+# Gardener Shoots
 
 ## Overview
 

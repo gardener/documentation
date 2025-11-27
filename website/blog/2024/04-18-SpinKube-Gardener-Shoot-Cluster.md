@@ -1,5 +1,5 @@
 ---
-title: SpinKube on Gardener - Serverless WASM on Kubernetes
+title: "SpinKube on Gardener - Serverless WASM on Kubernetes"
 linkTitle: SpinKube on Gardener - Serverless WASM on Kubernetes
 newsSubtitle: April 18, 2024
 publishdate: 2024-04-18
@@ -9,6 +9,8 @@ authors:
   avatar: https://avatars.githubusercontent.com/dimityrmirchev
 aliases: ["/blog/2024/04/18/02"]
 ---
+
+# SpinKube on Gardener - Serverless WASM on Kubernetes
 
 With the rising popularity of [WebAssembly (WASM)](https://webassembly.org/) and [WebAssembly System Interface (WASI)](https://wasi.dev/) comes a variety of integration possibilities. WASM is now not only suitable for the browser, but can be also utilized for running workloads on the server. In this post we will explore how you can get started writing serverless applications powered by [SpinKube](https://www.spinkube.dev/) on a Gardener Shoot cluster. This post is inspired by a similar tutorial that goes through the steps of [Deploying the Spin Operator on Azure Kubernetes Service](https://www.spinkube.dev/docs/spin-operator/tutorials/deploy-on-azure-kubernetes-service/). Keep in mind that this post does not aim to define a production environment. It is meant to show that Gardener Shoot clusters are able to run WebAssembly workloads, giving users the chance to experiment and explore this cutting-edge technology.
 

@@ -1,6 +1,10 @@
 ---
 title: Formatting Guide
+prev: false
+next: false
 ---
+
+# Formatting Guide
 
 This page gives writing formatting guidelines for the Gardener documentation. For style guidelines, see the [Style Guide](./style-guide/_index.md).
 

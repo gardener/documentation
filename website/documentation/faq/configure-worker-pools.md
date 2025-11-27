@@ -1,6 +1,10 @@
 ---
 title: How do you configure Multi-AZ worker pools for different extensions?
+prev: false
+next: false
 ---
+
+# How do you configure Multi-AZ worker pools for different extensions?
 
 Configuration of Multi-AZ worker pools depends on the infrastructure.
 

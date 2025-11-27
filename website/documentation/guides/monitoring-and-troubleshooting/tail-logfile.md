@@ -1,10 +1,14 @@
 ---
 title: tail -f /var/log/my-application.log
-description: "Aggregate log files from different pods"
+description: Aggregate log files from different pods
 level: intermediate
 category: Debugging
 scope: app-developer
+prev: false
+next: false
 ---
+
+# tail -f /var/log/my-application.log
 
 ## Problem
 

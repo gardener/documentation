@@ -1,8 +1,12 @@
 ---
-title: "2025-03: Observability 2.0"
-linkTitle: "2025-03: Observability 2.0"
-publishdate: 2025-03-20
+title: '2025-03: Observability 2.0'
+linkTitle: '2025-03: Observability 2.0'
+publishdate: 2025-03-20T00:00:00.000Z
+prev: false
+next: false
 ---
+
+# 2025-03: Observability 2.0
 
 - ✍🏻 **Author(s):** [@nickytd](https://github.com/nickytd) (Niki Dokovski)
 - 🗓️ **Presentation:** 2025-03-20, 15:00 - 16:00 CET

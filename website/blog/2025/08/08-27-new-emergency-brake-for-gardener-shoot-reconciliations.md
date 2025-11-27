@@ -10,6 +10,8 @@ authors:
 aliases: ["/blog/2025/08/27/new-emergency-brake-for-gardener-shoot-reconciliations"]
 ---
 
+# New Emergency Brake for Gardener Shoot Reconciliations
+
 In large-scale Kubernetes landscapes, ensuring stability during updates is paramount. A faulty configuration or update can propagate quickly, potentially impacting numerous clusters. To provide operators with a powerful tool to mitigate such risks, Gardener has introduced an emergency stop mechanism for `Shoot` reconciliations.
 
 ### How It Works

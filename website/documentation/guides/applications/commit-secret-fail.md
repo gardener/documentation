@@ -1,10 +1,14 @@
 ---
-title: Remove Committed Secrets in Github 💀
-description: "Never ever commit a kubeconfig.yaml into github"
+title: "Remove Committed Secrets in Github \U0001F480"
+description: Never ever commit a kubeconfig.yaml into github
 level: intermediate
 category: Fails
 scope: app-developer
+prev: false
+next: false
 ---
+
+# Remove Committed Secrets in Github 💀
 
 ## Overview
 

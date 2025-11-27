@@ -10,6 +10,8 @@ authors:
 aliases: ["/blog/2025/05/12/01"]
 ---
 
+# Gardener: Powering Enterprise Kubernetes at Scale and Europe's Sovereign Cloud Future
+
 The Kubernetes ecosystem is dynamic, offering a wealth of tools to manage the complexities of modern cloud-native applications. For enterprises seeking to provision and manage Kubernetes clusters efficiently, securely, and at scale, a robust and comprehensive solution is paramount. Gardener, born from years of managing tens of thousands of clusters efficiently across diverse platforms and in demanding environments, stands out as a fully open-source choice for delivering fully managed Kubernetes Clusters as a Service. It already empowers organizations like SAP, STACKIT, T-Systems, and others (see [adopters](https://gardener.cloud/adopter)) and has become a core technology for [NeoNephos](https://neonephos.org/projects), a project aimed at advancing digital autonomy in Europe (see [KubeCon London 2025 Keynote](https://www.youtube.com/watch?v=85MDID9Ju04&t=621s) and [press announcement](https://neonephos.org/press/2025/the-linux-foundation-announces-the-launch-of-neonephos-to-advance-digital-autonomy-in-europe/)).
 
 ### The Gardener Approach: An Architecture Forged by Experience

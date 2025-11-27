@@ -1,8 +1,10 @@
 ---
 title: CI/CD
+prev: false
+next: false
 ---
 
-## CI/CD
+# CI/CD
 
 As an execution environment for CI/CD workloads, we use [Concourse](https://concourse-ci.org).
 We however abstract from the underlying "build executor" and instead offer a

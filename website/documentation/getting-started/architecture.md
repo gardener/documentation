@@ -1,7 +1,11 @@
 ---
 title: Architecture
 weight: 2
+prev: false
+next: false
 ---
+
+# Architecture
 
 ## Kubeception
 

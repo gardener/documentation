@@ -1,7 +1,11 @@
 ---
 title: Common Pitfalls
 weight: 9
+prev: false
+next: false
 ---
+
+# Common Pitfalls
 
 ## Architecture
 

@@ -1,6 +1,8 @@
 ---
 editLink: false
 outline: deep
+prev: false
+next: false
 ---
 
 # Terms of Use

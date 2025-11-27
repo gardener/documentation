@@ -1,10 +1,14 @@
 ---
 title: Auditing Kubernetes for Secure Setup
-description: "A few insecure configurations in Kubernetes"
+description: A few insecure configurations in Kubernetes
 level: advanced
 category: Security
 scope: operator
+prev: false
+next: false
 ---
+
+# Auditing Kubernetes for Secure Setup
 
 ![teaser](./images/teaser.svg)
 

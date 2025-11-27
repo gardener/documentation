@@ -19,7 +19,7 @@ tags:
   - KCP
 ---
 
-## Announcing cluster-api-provider-gardener: Manage Gardener Clusters with Cluster API
+# Announcing cluster-api-provider-gardener: Manage Gardener Clusters with Cluster API
 
 We're pleased to announce the release of [cluster-api-provider-gardener (CAPGa)](https://github.com/gardener/cluster-api-provider-gardener/), an open-source [Cluster API](https://cluster-api.sigs.k8s.io/) provider that leverages Gardener as the underlying platform for cluster lifecycle management.
 

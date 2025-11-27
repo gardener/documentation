@@ -4,7 +4,9 @@ import matter from 'gray-matter';
 
 
 // Base path configuration - can be overridden by command line argument
-const BASE_PATH = './hugo/content/';
+// Usage: node part-1.js [BASE_PATH] [FLAGS]
+// Example: node part-1.js ./hugo/content/ --rename-images
+const BASE_PATH = process.argv[2] && !process.argv[2].startsWith('-') ? process.argv[2] : './hugo/content/';
 const IGNORE_DIRS = ['node_modules', '.git', 'dist', 'build', 'images', 'assets', 'content', 'logo'];
 
 await main();

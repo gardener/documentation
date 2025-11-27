@@ -3,7 +3,11 @@ title: Custom Seccomp Profile
 level: advanced
 category: Security
 scope: operator
+prev: false
+next: false
 ---
+
+# Custom Seccomp Profile
 
 ## Overview
 

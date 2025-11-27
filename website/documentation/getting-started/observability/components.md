@@ -1,7 +1,11 @@
 ---
 title: Components
 weight: 1
+prev: false
+next: false
 ---
+
+# Components
 
 ## Core Components
 

@@ -5,8 +5,12 @@ index: 10
 category: Getting Started
 scope: app-developer
 featured: true
-publishdate: 2022-06-21
+publishdate: 2022-06-21T00:00:00.000Z
+prev: false
+next: false
 ---
+
+# Specifying a Disruption Budget for Kubernetes Controllers
 
 ## Introduction of Disruptions
 

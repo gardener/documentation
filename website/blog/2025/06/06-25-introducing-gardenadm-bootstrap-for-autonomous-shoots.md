@@ -11,6 +11,8 @@ authors:
 aliases: ["/blog/2025/06/25/introducing-gardenadm-bootstrap-for-autonomous-shoots"]
 ---
 
+# Introducing `gardenadm bootstrap` for Autonomous Shoots
+
 Gardener is enhancing its capabilities to support autonomous Shoot clusters, a model where the control plane runs on dedicated nodes within the cluster itself rather than on a separate Seed cluster. This approach is ideal for edge, air-gapped, or self-hosted Gardener environments. A new command-line tool, `gardenadm`, is being developed to streamline the creation and management of these clusters, as outlined in [GEP-28](https://github.com/gardener/gardener/tree/master/docs/proposals/28-autonomous-shoot-clusters.md).
 
 A significant step forward is the new `gardenadm bootstrap` command, which implements the "medium-touch" provisioning scenario.

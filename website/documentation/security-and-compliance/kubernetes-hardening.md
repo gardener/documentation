@@ -1,13 +1,20 @@
 ---
 title: Kubernetes Cluster Hardening Procedure
-description: "Compliant user management of your Gardener projects"
+description: Compliant user management of your Gardener projects
 weight: 10
 level: advanced
 category: Security
-publishdate: 2023-10-10
-tags: ["task"]
-aliases: ["/docs/guides/kubernetes-hardening/", "/docs/guides/security-and-compliance/kubernetes-hardening/"]
+publishdate: 2023-10-10T00:00:00.000Z
+tags:
+  - task
+aliases:
+  - /docs/guides/kubernetes-hardening/
+  - /docs/guides/security-and-compliance/kubernetes-hardening/
+prev: false
+next: false
 ---
+
+# Kubernetes Cluster Hardening Procedure
 
 ## Overview
 

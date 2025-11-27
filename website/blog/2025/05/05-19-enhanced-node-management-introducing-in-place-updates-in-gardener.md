@@ -18,6 +18,8 @@ authors:
 aliases: ["/blog/2025/05/19/enhanced-node-management-introducing-in-place-updates-in-gardener"]
 ---
 
+# Enhanced Node Management: Introducing In-Place Updates in Gardener
+
 Gardener is committed to providing efficient and flexible Kubernetes cluster management. Traditionally, updates to worker pool configurations, such as machine image or Kubernetes minor version changes, trigger a rolling update. This process involves replacing existing nodes with new ones, which is a robust approach for many scenarios. However, for environments with physical or bare-metal nodes, or stateful workloads sensitive to node replacement, or if the virtual machine type is scarce, this can introduce challenges like extended update times and potential disruptions.
 
 To address these needs, Gardener now introduces **In-Place Node Updates**. This new capability allows certain updates to be applied directly to existing worker nodes without requiring their replacement, significantly reducing disruption and speeding up update processes for compatible changes.

@@ -15,6 +15,8 @@ authors:
 aliases: ["/blog/2025/06/18/gardener-enhances-observability-with-opentelemetry-integration-for-logging"]
 ---
 
+# Gardener Enhances Observability with OpenTelemetry Integration for Logging
+
 Gardener is advancing its observability capabilities by integrating OpenTelemetry, starting with log collection and processing. This strategic move, outlined in [GEP-34: OpenTelemetry Operator And Collectors](https://github.com/gardener/gardener/pull/11861), lays the groundwork for a more standardized, flexible, and powerful observability framework in line with Gardener's [Observability 2.0 vision](https://github.com/gardener/logging/blob/master/docs/observability-2.0/Observability%202.0.md).
 
 ### The Drive Towards Standardization

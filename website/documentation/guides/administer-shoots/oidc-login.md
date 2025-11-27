@@ -1,12 +1,16 @@
 ---
-title:  Authenticating with an Identity Provider
-description: "Use OpenID Connect to authenticate users to access shoot clusters"
+title: Authenticating with an Identity Provider
+description: Use OpenID Connect to authenticate users to access shoot clusters
 level: advanced
 index: 40
 category: Security
 scope: operator
-publishdate: 2020-12-01
+publishdate: 2020-12-01T00:00:00.000Z
+prev: false
+next: false
 ---
+
+# Authenticating with an Identity Provider
 
 ## Prerequisites
 

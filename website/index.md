@@ -1,33 +1,34 @@
 ---
 layout: home
-
 title: Gardener
 titleTemplate: false
-
 hero:
   name: Gardener
   text: A Managed Kubernetes Service Done Right
-  tagline: Deliver fully-managed clusters at scale everywhere with your own Gardener installation
+  tagline: >-
+    Deliver fully-managed clusters at scale everywhere with your own Gardener
+    installation
   actions:
     - theme: brand
       text: Demo
-      link: https://demo.gardener.cloud/login?redirectPath=/terminal
+      link: 'https://demo.gardener.cloud/login?redirectPath=/terminal'
     - theme: alt
       text: Adopters
       link: /adopter/_index.md
   image:
     src: /gardener-logo.svg
     alt: Gardener
-
 features:
-  - icon: 
+  - icon:
       src: /highlights/cloud-agnostic.svg
     title: Homogeneous
     details: Identical Day-1 & 2 operations on any supported infrastructure
   - icon:
       src: /highlights/gardener.svg
     title: Open Source Grown
-    details: Powered by the open source Gardener project, developed in the public, pioneered by SAP
+    details: >-
+      Powered by the open source Gardener project, developed in the public,
+      pioneered by SAP
   - icon:
       src: /highlights/extensible.svg
     title: Ultra Scalable
@@ -35,15 +36,19 @@ features:
   - icon:
       src: /highlights/certified.svg
     title: Certified and Compliant
-    details: Enterprise-grade security certifications, CNCF 100% Kubernetes compliant
+    details: 'Enterprise-grade security certifications, CNCF 100% Kubernetes compliant'
   - icon:
       src: /highlights/ubiqutious.svg
     title: Ubiquitous
-    details: The same experience in Amazon, Azure, Google, Alicloud
+    details: 'The same experience in Amazon, Azure, Google, Alicloud'
   - icon:
       src: /highlights/autonomous.svg
     title: Autonomous
-    details: Self-healing, auto-scaling, and if you choose, auto-updating operating system and Kubernetes
+    details: >-
+      Self-healing, auto-scaling, and if you choose, auto-updating operating
+      system and Kubernetes
+prev: false
+next: false
 ---
 
 <script setup>

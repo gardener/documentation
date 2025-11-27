@@ -1,10 +1,14 @@
 ---
 title: Namespace Isolation
-description: "Deny all traffic from other namespaces"
+description: Deny all traffic from other namespaces
 level: advanced
 category: Networking
 scope: app-developer
+prev: false
+next: false
 ---
+
+# Namespace Isolation
 
 ## Overview
 

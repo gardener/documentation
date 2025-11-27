@@ -10,6 +10,8 @@ authors:
 aliases: ["/blog/2025/05/19/gardener-dashboard-180-streamlined-credentials-enhanced-cluster-views-and-real-time-updates"]
 ---
 
+# Gardener Dashboard 1.80: Streamlined Credentials, Enhanced Cluster Views, and Real-Time Updates
+
 Gardener Dashboard version 1.80 introduces several significant enhancements aimed at improving user experience, credentials management, and overall operational efficiency. These updates bring more clarity to credential handling, a smoother experience for managing large numbers of clusters, and a move towards a more reactive interface.
 
 ### Unified and Enhanced Credentials Management

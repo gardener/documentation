@@ -1,5 +1,7 @@
 ---
 title: Access Control List Extension
+prev: false
+next: false
 ---
 
 # Gardener Access Control List Extension

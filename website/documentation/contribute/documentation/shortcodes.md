@@ -1,6 +1,10 @@
 ---
 title: Shortcodes
+prev: false
+next: false
 ---
+
+# Shortcodes
 
 Shortcodes are the Hugo way to extend the limitations of Markdown before resorting to HTML. There are a number of built-in shortcodes available from Hugo. This list is extended with Gardener website shortcodes designed specifically for its content.
 Find a complete reference to the Hugo built-in shortcodes on its [website](https://gohugo.io/content-management/shortcodes/).

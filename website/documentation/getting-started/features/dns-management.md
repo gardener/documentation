@@ -1,9 +1,11 @@
 ---
 title: External DNS Management
 weight: 4
+prev: false
+next: false
 ---
 
-## External DNS Management
+# External DNS Management
 
 When you deploy to Kubernetes, there is no native management of external DNS. Instead, the cloud-controller-manager requests (mostly IPv4) addresses for every service of type LoadBalancer. Of course, the Ingress resource helps here, but how is the external DNS entry for the ingress controller managed?
 

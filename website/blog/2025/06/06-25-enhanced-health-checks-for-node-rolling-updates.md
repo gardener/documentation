@@ -10,6 +10,8 @@ authors:
 aliases: ["/blog/2025/06/25/enhanced-health-checks-for-node-rolling-updates"]
 ---
 
+# Enhanced Health Checks for Node Rolling Updates
+
 For operators managing Kubernetes clusters, clear and accurate health status is essential for stability and efficient troubleshooting. A recent enhancement to Gardener's `shoot-care` controller improves the precision of health checks during one of the most common operational tasks: rolling updates of worker nodes.
 
 ### The Challenge with Rolling Update Status

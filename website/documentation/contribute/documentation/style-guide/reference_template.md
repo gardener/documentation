@@ -1,6 +1,8 @@
 ---
 Title: Reference Topic Structure
 Description: Describes the contents of a reference topic
+prev: false
+next: false
 ---
 
 # Topic Title

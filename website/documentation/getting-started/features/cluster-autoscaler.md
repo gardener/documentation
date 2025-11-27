@@ -1,7 +1,11 @@
 ---
 title: Cluster Autoscaler
 weight: 7
+prev: false
+next: false
 ---
+
+# Cluster Autoscaler
 
 ## Obtaining Aditional Nodes
 

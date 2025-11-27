@@ -1,13 +1,20 @@
 ---
 title: Backup and Restore of Kubernetes Objects
-description: Details about backup and recovery of Kubernetes objects based on the open source tool [Velero](https://velero.io/).
+description: >-
+  Details about backup and recovery of Kubernetes objects based on the open
+  source tool [Velero](https://velero.io/).
 level: intermediate
 index: 500
 category: Operation
 scope: app-developer
-publishdate: 2020-01-01
-aliases: [ "/readmore/br" ]
+publishdate: 2020-01-01T00:00:00.000Z
+aliases:
+  - /readmore/br
+prev: false
+next: false
 ---
+
+# Backup and Restore of Kubernetes Objects
 
 ![Don't worry ... have a backup](images/teaser.png)
 

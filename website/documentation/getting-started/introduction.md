@@ -1,7 +1,11 @@
 ---
 title: Introduction to Gardener
 weight: 1
+prev: false
+next: false
 ---
+
+# Introduction to Gardener
 
 ## Problem Space
 

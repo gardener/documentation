@@ -1,7 +1,11 @@
 ---
 title: Control Plane Components
 weight: 5
+prev: false
+next: false
 ---
+
+# Control Plane Components
 
 ## Overview
 

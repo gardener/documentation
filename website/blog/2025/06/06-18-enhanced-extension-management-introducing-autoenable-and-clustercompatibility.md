@@ -10,6 +10,8 @@ authors:
 aliases: ["/blog/2025/06/18/enhanced-extension-management-introducing-autoenable-and-clustercompatibility"]
 ---
 
+# Enhanced Extension Management: Introducing `autoEnable` and `clusterCompatibility`
+
 Gardener's extension mechanism has been enhanced with two new fields in the `ControllerRegistration` and `operatorv1alpha1.Extension` APIs, offering operators more granular control and improved safety when managing extensions. These changes, detailed in [PR #11982](https://github.com/gardener/gardener/pull/11982), introduce `autoEnable` and `clusterCompatibility` for resources of `kind: Extension`.
 
 ### Fine-Grained Automatic Enablement with `autoEnable`

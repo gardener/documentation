@@ -1,6 +1,8 @@
 ---
 Title: Task Topic Structure
 Description: Describes the contents of a task topic
+prev: false
+next: false
 ---
 
 # Task Title
