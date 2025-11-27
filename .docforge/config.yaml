@@ -1,4 +1,4 @@
-manifest: https://github.com/gardener/documentation/blob/master/.docforge/hugo.yaml
+manifest: https://github.com/gardener/documentation/blob/clean-up-website-content/.docforge/hugo.yaml
 destination: hugo
 hugo: true
 hugo-structural-dirs:

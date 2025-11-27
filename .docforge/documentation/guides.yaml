@@ -2,7 +2,7 @@ structure:
 - fileTree: /website/documentation/guides
 - dir: high-availability
   structure:
-  - file: _index.md
+  - file: index.md
     frontmatter:
       title: High Availability
       weight: 20

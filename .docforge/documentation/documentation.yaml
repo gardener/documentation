@@ -1,5 +1,5 @@
 structure:
-  - file: _index.md
+  - file: index.md
     frontmatter:
       title: Docs
   - dir: getting-started
@@ -7,7 +7,7 @@ structure:
     - fileTree: /website/documentation/getting-started
   - dir: guides
     structure:
-    - file: _index.md
+    - file: index.md
       frontmatter:
         title: Guides
         description: Walkthroughs of common activities
