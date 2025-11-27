@@ -7,6 +7,9 @@ on:
       - synchronize
       - closed
 
+permissions:
+  pull-requests: write
+
 concurrency: preview-${{ github.ref }}
 
 jobs:
@@ -26,7 +29,7 @@ jobs:
           wget https://github.com/gardener/docforge/releases/download/v0.55.0/docforge-linux-amd64
           mv docforge-linux-amd64 docforge
           chmod +x docforge
-          DOCFORGE_CONFIG=.docforge/config.yaml GITHUB_OAUTH_TOKEN=${{ secrets.GITHUB_TOKEN }} ./docforge
+          DOCFORGE_CONFIG=.docforge/config.yaml GITHUB_OAUTH_TOKEN=${{ secrets.GARDENER_ROBOT_PREVIEW_TOKEN }} ./docforge
       - name: Install dependencies
         run: npm ci
       - name: Postprocessing Content
