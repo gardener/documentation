@@ -50,5 +50,5 @@ jobs:
         with:
           token: ${{ secrets.GARDENER_ROBOT_PREVIEW_TOKEN }}
           deploy-repository: gardener/documentation-demo
-          pages-base-url: documentation-demo.gardener.cloud/
+          pages-base-url: documentation-demo.gardener.cloud
           source-dir: .vitepress/dist
