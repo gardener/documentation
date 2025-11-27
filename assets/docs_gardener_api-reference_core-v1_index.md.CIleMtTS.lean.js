@@ -1,0 +1,235 @@
+import{c as o,o as d,j as e,a}from"./chunks/framework.Bfq10Vlj.js";const p=JSON.parse('{"title":"Core V1","description":"","frontmatter":{"github_repo":"https://github.com/gardener/gardener","github_subdir":"docs/api-reference","params":{"github_branch":"master"},"path_base_for_github_subdir":{"from":"content/docs/gardener/api-reference/core-v1.md","to":"core-v1.md"},"title":"Core V1","prev":false,"next":false},"headers":[],"relativePath":"docs/gardener/api-reference/core-v1/index.md","filePath":"docs/gardener/api-reference/core-v1.md","lastUpdated":null}'),n={name:"docs/gardener/api-reference/core-v1/index.md"},s=Object.assign(n,{setup(c){const r=`<p>Packages:</p>
+<ul>
+<li>
+<a href="/docs/gardener/api-reference/core-v1/#core.gardener.cloud/v1">core.gardener.cloud/v1</a>
+</li>
+</ul>
+<h2 id="core.gardener.cloud/v1">core.gardener.cloud/v1</h2>
+<p>
+<p>Package v1 is a version of the API.</p>
+</p>
+Resource Types:
+<ul><li>
+<a href="/docs/gardener/api-reference/core-v1/#core.gardener.cloud/v1.ControllerDeployment">ControllerDeployment</a>
+</li></ul>
+<h3 id="core.gardener.cloud/v1.ControllerDeployment">ControllerDeployment
+</h3>
+<p>
+<p>ControllerDeployment contains information about how this controller is deployed.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>apiVersion</code></br>
+string</td>
+<td>
+<code>
+core.gardener.cloud/v1
+</code>
+</td>
+</tr>
+<tr>
+<td>
+<code>kind</code></br>
+string
+</td>
+<td><code>ControllerDeployment</code></td>
+</tr>
+<tr>
+<td>
+<code>metadata</code></br>
+<em>
+<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.33/#objectmeta-v1-meta">
+Kubernetes meta/v1.ObjectMeta
+</a>
+</em>
+</td>
+<td>
+<p>Standard object metadata.</p>
+Refer to the Kubernetes API documentation for the fields of the
+<code>metadata</code> field.
+</td>
+</tr>
+<tr>
+<td>
+<code>helm</code></br>
+<em>
+<a href="/docs/gardener/api-reference/core-v1/#core.gardener.cloud/v1.HelmControllerDeployment">
+HelmControllerDeployment
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Helm configures that an extension controller is deployed using helm.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>injectGardenKubeconfig</code></br>
+<em>
+bool
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>InjectGardenKubeconfig controls whether a kubeconfig to the garden cluster should be injected into workload
+resources.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="core.gardener.cloud/v1.HelmControllerDeployment">HelmControllerDeployment
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="/docs/gardener/api-reference/core-v1/#core.gardener.cloud/v1.ControllerDeployment">ControllerDeployment</a>)
+</p>
+<p>
+<p>HelmControllerDeployment configures how an extension controller is deployed using helm.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>rawChart</code></br>
+<em>
+[]byte
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>RawChart is the base64-encoded, gzip’ed, tar’ed extension controller chart.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>values</code></br>
+<em>
+<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.33/#json-v1-apiextensions-k8s-io">
+Kubernetes apiextensions/v1.JSON
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Values are the chart values.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>ociRepository</code></br>
+<em>
+<a href="/docs/gardener/api-reference/core-v1/#core.gardener.cloud/v1.OCIRepository">
+OCIRepository
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>OCIRepository defines where to pull the chart.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="core.gardener.cloud/v1.OCIRepository">OCIRepository
+</h3>
+<p>
+(<em>Appears on:</em>
+<a href="/docs/gardener/api-reference/core-v1/#core.gardener.cloud/v1.HelmControllerDeployment">HelmControllerDeployment</a>)
+</p>
+<p>
+<p>OCIRepository configures where to pull an OCI Artifact, that could contain for example a Helm Chart.</p>
+</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>ref</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Ref is the full artifact Ref and takes precedence over all other fields.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>repository</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Repository is a reference to an OCI artifact repository.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>tag</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Tag is the image tag to pull.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>digest</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Digest of the image to pull, takes precedence over tag.
+The value should be in the format ‘sha256:<hash>’.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>pullSecretRef</code></br>
+<em>
+<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.33/#localobjectreference-v1-core">
+Kubernetes core/v1.LocalObjectReference
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>PullSecretRef is a reference to a secret containing the pull secret.
+The secret must be of type <code>kubernetes.io/dockerconfigjson</code> and must be located in the <code>garden</code> namespace.
+For usage in the gardenlet, the secret must have the label <code>gardener.cloud/role=helm-pull-secret</code>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<p><em>
+Generated with <a href="https://github.com/ahmetb/gen-crd-api-reference-docs">gen-crd-api-reference-docs</a>
+</em></p>`;return(l,t)=>(d(),o("div",null,[t[0]||(t[0]=e("h1",{id:"core-v1",tabindex:"-1"},[a("Core V1 "),e("a",{class:"header-anchor",href:"#core-v1","aria-label":'Permalink to "Core V1"'},"​")],-1)),e("div",{innerHTML:r})]))}});export{p as __pageData,s as default};
