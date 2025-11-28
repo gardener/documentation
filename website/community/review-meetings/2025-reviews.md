@@ -14,6 +14,38 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2025/12/03 - [Hack The Garden](../hackathons/2025-11.md) Wrap Up
+
+[📽️ Recording](TBD) 
+
+#### Demo Agenda 📋
+
+| Presenter(s)                                                                                   | Duration | Topic                                                                                              | Reference(s)                                                                                                                      |
+|------------------------------------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| [@kon-angelo](https://github.com/kon-angelo), [@oliver-goetz](https://github.com/oliver-goetz) | `5m`     | 🗽 Evaluate Talos as node operating system                                                         | [Summary](../hackathons/2025-11.md#-evaluate-talos-as-node-operating-system)                                                      |
+| [@LucaBernstein](https://github.com/LucaBernstein)                                             | `5m`     | 📦 Gardener API Types as Standalone Go Module                                                      | [Summary](../hackathons/2025-11.md#-gardener-api-types-as-standalone-go-module)                                                   |
+| [@rfranzke](https://github.com/rfranzke)                                                       | `5m`     | 🐶 Use Self-Hosted Shoot Cluster for Single-Node End-to-End Tests                                  | [Summary](../hackathons/2025-11.md#-use-self-hosted-shoot-cluster-for-single-node-end-to-end-tests)                               |
+| [@tobschli](https://github.com/tobschli)                                                       | `5m`     | 📈 Gardener Scale-Out Tests                                                                        | [Summary](../hackathons/2025-11.md#-gardener-scale-out-tests)                                                                     |
+| [@mhoffmann-noris](https://github.com/mhoffmann-noris)                                         | `5m`     | ❤️‍🩹 Add a force-restore operation annotation for Shoots                                          | [Summary](../hackathons/2025-11.md#-add-a-force-restore-operation-annotation-for-shoots)                                          |
+| [@axel7born](https://github.com/axel7born)                                                     | `5m`     | 🫆 Enrich Shoot Logs with Istio Access Logs                                                        | [Summary](../hackathons/2025-11.md#-enrich-shoot-logs-with-istio-access-logs)                                                     |
+| [@Gerrit91](https://github.com/Gerrit91)                                                       | `5m`     | 🪣 Allow Relocating Backup Buckets for Shoot Clusters                                              | [Summary](../hackathons/2025-11.md#-allow-relocating-backup-buckets-for-shoot-clusters)                                           |
+| [@shegox](https://github.com/shegox)                                                           | `5m`     | 🗃️ Go Build Cache in Prow                                                                         | [Summary](../hackathons/2025-11.md#-go-build-cache-in-prow)                                                                       |
+| [@afritzler](https://github.com/afritzler)                                                     | `5m`     | 🛠️ Support updating underlying infrastructure resources during in-place node updates in MCM       | [Summary](../hackathons/2025-11.md#-support-updating-underlying-infrastructure-resources-during-in-place-node-updates-in-mcm)     |
+| [@hown3d](https://github.com/hown3d)                                                           | `5m`     | 🪞 Gardener Node Agent should be pullable from a registry mirror                                   | [Summary](../hackathons/2025-11.md#-gardener-node-agent-should-be-pullable-from-a-registry-mirror)                                |
+| [@hown3d](https://github.com/hown3d)                                                           | `5m`     | 🐱 Add Support for Calico Whisker                                                                  | [Summary](../hackathons/2025-11.md#-add-support-for-calico-whisker)                                                               |
+| [@kon-angelo](https://github.com/kon-angelo)                                                   | `5m`     | 🏷️ MCM sets `ToBeDeletedByClusterAutoscaler` Taint to respect terminating nodes in load balancing | [Summary](../hackathons/2025-11.md#-mcm-sets-tobedeletedbyclusterautoscaler-taint-to-respect-terminating-nodes-in-load-balancing) |
+| [@Gerrit91](https://github.com/Gerrit91)                                                       | `5m`     | 🌉 Replace Ingress NGINX controller with Gateway API                                               | [Summary](../hackathons/2025-11.md#-replace-ingress-nginx-controller-with-gateway-api)                                            |
+| [@LucaBernstein](https://github.com/LucaBernstein)                                             | `5m`     | 🧰 Use go tools in `g/g` & remove vgopath                                                          | [Summary](../hackathons/2025-11.md#-use-go-tools-in-gg--remove-vgopath)                                                           |
+| [@axel7born](https://github.com/axel7born)                                                     | `5m`     | 🔌 Evaluation of NFT mode of `kube-proxy`                                                          | [Summary](../hackathons/2025-11.md#-evaluation-of-nft-mode-of-kube-proxy)                                                         |
+| [@maboehm](https://github.com/maboehm)                                                         | `5m`     | 🔔 `gardenadm/flow`: handle `SIGINFO` (`^T`) and print current task                                | [Summary](../hackathons/2025-11.md#-gardenadmflow-handle-siginfo-t-and-print-current-task)                                        |
+| [@rfranzke](https://github.com/rfranzke)                                                       | `5m`     | ⚖️️ provider-local: build a real `LoadBalancer` controller                                         | [Summary](../hackathons/2025-11.md#-provider-local-build-a-real-loadbalancer-controller)                                          |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+* 🔀 [Pod Overlay to Native Routing without Downtime](../hackathons/2025-11.md#-pod-overlay-to-native-routing-without-downtime)
+
+<hr />
+
 ### 2025/11/19 - [v1.132](https://github.com/gardener/gardener/releases/tag/v1.132.0) Release
 
 [📽️ Recording](https://youtu.be/oehF0Uoe7lg)
