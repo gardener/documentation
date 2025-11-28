@@ -8,7 +8,7 @@
           
           <ul v-if="currentDirItems.length > 0">
             <li v-for="item in currentDirItems" :key="getConsistentLink(item.link)">
-              <a @click="taxonomyItemClicked(getConsistentLink(item.link))" :href="getConsistentLink(item.link)">{{ item.text }}</a>
+              <a @click="taxonomyItemClicked(getConsistentLink(item.link))" :href="getRelativePath(getConsistentLink(item.link))">{{ item.text }}</a>
             </li>
           </ul>
           
@@ -23,7 +23,7 @@
 </template>
 
 <script setup>
-import { useData, useRouter } from 'vitepress'
+import {useData, useRouter, withBase} from 'vitepress'
 import { ref, computed, onMounted, nextTick, watch } from 'vue'
 import DefaultTheme from 'vitepress/theme'
 import { data as sidebars } from '@data/sidebar.data'
@@ -49,6 +49,53 @@ const { page, frontmatter, site, theme } = useData()
 const isEmptyIndexPage = ref(false)
 const lastClickedMenuItem = ref(null)
 const currentDirItems = ref([])
+
+// Get the current URL reactively
+console.log(`page.value.relativePath: ${page.value.relativePath}`)
+console.log(`page.value.filePath: ${page.value.filePath}`)
+const currentUrl = computed(() => page.value.relativePath || page.value.filePath)
+
+// Function to get the relative part of a link compared to the current URL
+const getRelativePath = (targetLink) => {
+  if (!targetLink) return ''
+
+  // Normalize links by removing leading slashes and ensuring consistency
+  const normalizeLink = (link) => {
+    let normalized = link.replace(/\/index\.md$/, '/').replace(/\.md$/, '')
+    return normalized.startsWith('/') ? normalized.slice(1) : normalized
+  }
+
+  const current = normalizeLink(currentUrl.value)
+  const target = normalizeLink(targetLink)
+
+  // Split paths into segments
+  const currentSegments = current.split('/').filter(Boolean)
+  const targetSegments = target.split('/').filter(Boolean)
+
+  // Find common base path
+  let commonLength = 0
+  while (
+    commonLength < currentSegments.length &&
+    commonLength < targetSegments.length &&
+    currentSegments[commonLength] === targetSegments[commonLength]
+  ) {
+    commonLength++
+  }
+
+  // Calculate relative path
+  const upLevels = currentSegments.length - commonLength
+  const downPath = targetSegments.slice(commonLength)
+
+  // Build relative path
+  if (upLevels === 0 && downPath.length === 0) {
+    return './'
+  }
+
+  const upSegments = Array(upLevels).fill('..')
+  const relativePath = [...upSegments, ...downPath].join('/')
+
+  return relativePath || './'
+}
 
 // Check if this is an empty index page
 const checkIfEmpty = () => {
@@ -181,7 +228,11 @@ const getConsistentLink = (link) => {
   if (consistentLink && !consistentLink.startsWith('/docs')) {
     return '/docs' + (consistentLink.startsWith('/') ? consistentLink : '/' + consistentLink)
   }
+
+
   return consistentLink
 }
+
+
 
 </script>
