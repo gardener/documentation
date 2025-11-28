@@ -68,7 +68,7 @@ We kindly ask you to follow the [Pull Request Checklist](#pull-request-checklist
 
 * Test your changes as thoroughly as possible before your commit them. Preferably, automate your testing with [unit / integration tests](https://github.com/gardener/gardener/blob/master/docs/development/testing.md). If tested manually, provide information about the test scope in the PR description (e.g., “Test passed: Upgrade K8s version from 1.14.5 to 1.15.2 on AWS, Azure, GCP, Alicloud, Openstack.”).
 
-* When creating the PR, make your [Pull Request description](./documentation/pr-description.md) as detailed as possible to help out the reviewers.
+* When creating the PR, follow the [Pull Request Creation Guidelines](./documentation/pr-guidelines.md) to help out the reviewers understand your changes.
 
 * Create *Work In Progress [WIP]* pull requests only if you need a clarification or an explicit review before you can continue your work item.
 
