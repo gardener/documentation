@@ -38,7 +38,7 @@ Check back regularly for updates and upcoming topics!
 | [@Gerrit91](https://github.com/Gerrit91) | `5m` | 🌉 Replace Ingress NGINX controller With Gateway API | [Summary](../hackathons/2025-11.md#-replace-ingress-nginx-controller-with-gateway-api) |
 | [@hown3d](https://github.com/hown3d) | `5m` | 🐱 Add Support For Calico Whisker | [Summary](../hackathons/2025-11.md#-add-support-for-calico-whisker) |
 | [@kon-angelo](https://github.com/kon-angelo) | `5m` | 🏷️ Respect Terminating `Node`s In Load-Balancing | [Summary](../hackathons/2025-11.md#️-respect-terminating-nodes-in-load-balancing) |
-| [@LucaBernstein](https://github.com/LucaBernstein) | `5m` | 🧰 Use Go Tools & Drop `VGOPATH` | [Summary](../hackathons/2025-11.md#-use-go-tools--drop-vgopath) |
+| [@maboehm](https://github.com/maboehm) | `5m` | 🧰 Use Go Tools & Drop `VGOPATH` | [Summary](../hackathons/2025-11.md#-use-go-tools--drop-vgopath) |
 
 #### No Demo, But Still Worth Celebrating 🎉
 
