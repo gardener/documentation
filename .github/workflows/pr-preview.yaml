@@ -1,11 +1,8 @@
 name: PR Preview
 on:
-  pull_request:
+  pull_request_target:
     types:
-      - opened
-      - reopened
-      - synchronize
-      - closed
+      - labeled
 
 permissions:
   pull-requests: write
@@ -14,10 +11,18 @@ concurrency: preview-${{ github.ref }}
 
 jobs:
   deploy-preview:
+    if: ${{ github.event_name != 'pull_request_target' || (github.event_name == 'pull_request_target' && github.event.label.name == 'reviewed/ok-to-test') }}
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/create-github-app-token@v2
+        id: app-token
+        with:
+        # required
+          app-id: ${{ vars.APP_ID }}
+          private-key: ${{ secrets.PRIVATE_KEY }}
+
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: gardener/cc-utils/.github/actions/trusted-checkout@master
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -29,7 +34,7 @@ jobs:
           wget https://github.com/gardener/docforge/releases/download/v0.55.0/docforge-linux-amd64
           mv docforge-linux-amd64 docforge
           chmod +x docforge
-          DOCFORGE_CONFIG=.docforge/config.yaml GITHUB_OAUTH_TOKEN=${{ secrets.GARDENER_ROBOT_PREVIEW_TOKEN }} ./docforge
+          DOCFORGE_CONFIG=.docforge/config.yaml GITHUB_OAUTH_TOKEN=${{ steps.app-token.outputs.token }} ./docforge
       - name: Install dependencies
         run: npm ci
       - name: Postprocessing Content
@@ -48,7 +53,7 @@ jobs:
       - name: Deploy preview
         uses: rossjrw/pr-preview-action@v1
         with:
-          token: ${{ secrets.GARDENER_ROBOT_PREVIEW_TOKEN }}
+          token: ${{ steps.app-token.outputs.token }}
           deploy-repository: gardener/documentation-demo
           pages-base-url: documentation-demo.gardener.cloud
           source-dir: .vitepress/dist
