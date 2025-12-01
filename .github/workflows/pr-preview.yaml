@@ -16,36 +16,67 @@ jobs:
   deploy-preview:
     runs-on: ubuntu-latest
     steps:
+      - name: Check if PR is from fork
+        id: check-fork
+        run: |
+          if [ "${{ github.event.pull_request.head.repo.full_name }}" != "${{ github.repository }}" ]; then
+            echo "is_fork=true" >> $GITHUB_OUTPUT
+            echo "PR is from a fork - preview deployment will be skipped"
+          else
+            echo "is_fork=false" >> $GITHUB_OUTPUT
+            echo "PR is from the same repository - proceeding with preview deployment"
+          fi
+
+      - name: Comment on fork PR
+        if: steps.check-fork.outputs.is_fork == 'true' && github.event.action != 'closed'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '💡**Preview deployment is currently not available for fork-based pull requests.**\n\nFor security reasons, preview deployments are only available for pull requests from branches within the main repository. \nOnce your PR is approved and merged, the changes will be reflected in the main documentation site.'
+            })
+
       - name: Checkout
+        if: steps.check-fork.outputs.is_fork == 'false'
         uses: actions/checkout@v4
 
       - name: Setup Node
+        if: steps.check-fork.outputs.is_fork == 'false'
         uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: npm
       - name: Docforge
+        if: steps.check-fork.outputs.is_fork == 'false'
         run: |
           wget https://github.com/gardener/docforge/releases/download/v0.55.0/docforge-linux-amd64
           mv docforge-linux-amd64 docforge
           chmod +x docforge
           DOCFORGE_CONFIG=.docforge/config.yaml GITHUB_OAUTH_TOKEN=${{ secrets.GARDENER_ROBOT_PREVIEW_TOKEN }} ./docforge
       - name: Install dependencies
+        if: steps.check-fork.outputs.is_fork == 'false'
         run: npm ci
       - name: Postprocessing Content
+        if: steps.check-fork.outputs.is_fork == 'false'
         run: |
           npm run post-processing-all
       - name: Set Base Path
+        if: steps.check-fork.outputs.is_fork == 'false'
         id: set-base-path
         run: |
             echo "VITE_PUBLIC_BASE_PATH=/pr-preview/pr-${{ github.event.pull_request.number }}/" >> $GITHUB_ENV
             echo "Base path set to: /pr-preview/pr-${{ github.event.pull_request.number }}/"
       - name: Build with VitePress
+        if: steps.check-fork.outputs.is_fork == 'false'
         run: |
           echo "Building with VITE_PUBLIC_BASE_PATH: '$VITE_PUBLIC_BASE_PATH'"
           npm run docs:build  
 
       - name: Deploy preview
+        if: steps.check-fork.outputs.is_fork == 'false'
         uses: rossjrw/pr-preview-action@v1
         with:
           token: ${{ secrets.GARDENER_ROBOT_PREVIEW_TOKEN }}
