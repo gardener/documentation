@@ -14,6 +14,39 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2025/12/03 - [Hack The Garden](../hackathons/2025-11.md) Wrap Up
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@rfranzke](https://github.com/rfranzke) | `5m` | 🐶 Use Self-Hosted Shoot Cluster For Single-Node E2E Tests | [Summary](../hackathons/2025-11.md#-use-self-hosted-shoot-cluster-for-single-node-e2e-tests) |
+| [@axel7born](https://github.com/axel7born) | `5m` | 🫆 Enrich Shoot Logs with Istio Access Logs | [Summary](../hackathons/2025-11.md#-enrich-shoot-logs-with-istio-access-logs) |
+| [@Gerrit91](https://github.com/Gerrit91) | `5m` | 🪣 Allow Relocating Backup Buckets | [Summary](../hackathons/2025-11.md#-allow-relocating-backup-buckets) |
+| [@hown3d](https://github.com/hown3d) | `5m` | 🪞 Pull `gardener-node-agent` From Registry Mirror | [Summary](../hackathons/2025-11.md#-pull-gardener-node-agent-from-registry-mirror) |
+| [@kon-angelo](https://github.com/kon-angelo), [@oliver-goetz](https://github.com/oliver-goetz) | `5m` | 🗽 Evaluate [Talos](https://www.talos.dev/) As Node Operating System | [Summary](../hackathons/2025-11.md#-evaluate-talos-as-node-operating-system) |
+| [@LucaBernstein](https://github.com/LucaBernstein) | `5m` | 📦 Gardener API Types As Standalone Go Module | [Summary](../hackathons/2025-11.md#-gardener-api-types-as-standalone-go-module) |
+| [@tobschli](https://github.com/tobschli) | `5m` | 📈 Gardener Scale-Out Tests | [Summary](../hackathons/2025-11.md#-gardener-scale-out-tests) |
+| [@mhoffmann-noris](https://github.com/mhoffmann-noris) | `5m` | ❤️‍🩹 `force-restore` Operation Annotation For `Shoot`s | [Summary](../hackathons/2025-11.md#️-force-restore-operation-annotation-for-shoots) |
+| [@shegox](https://github.com/shegox) | `5m` | 🗃️ Go Build Cache In Prow | [Summary](../hackathons/2025-11.md#️-go-build-cache-in-prow) |
+| [@afritzler](https://github.com/afritzler) | `5m` | 🛠️ MCM: Update Machines Updates During In-Place Updates | [Summary](../hackathons/2025-11.md#️-mcm-update-machines-updates-during-in-place-updates) |
+| [@maboehm](https://github.com/maboehm) | `5m` | 🔔 `gardenadm`/Flow Package: Handle `SIGINFO` (`^T`) | [Summary](../hackathons/2025-11.md#-gardenadmflow-package-handle-siginfo-t) |
+| [@rfranzke](https://github.com/rfranzke) | `5m` | ⚖️️ Load Balancer Controller For `provider-local` | [Summary](../hackathons/2025-11.md#️️-load-balancer-controller-for-provider-local) |
+| [@axel7born](https://github.com/axel7born) | `5m` | 🔌 Evaluation Of NFT mode In `kube-proxy` | [Summary](../hackathons/2025-11.md#-evaluation-of-nft-mode-in-kube-proxy) |
+| [@Gerrit91](https://github.com/Gerrit91) | `5m` | 🌉 Replace Ingress NGINX controller With Gateway API | [Summary](../hackathons/2025-11.md#-replace-ingress-nginx-controller-with-gateway-api) |
+| [@hown3d](https://github.com/hown3d) | `5m` | 🐱 Add Support For Calico Whisker | [Summary](../hackathons/2025-11.md#-add-support-for-calico-whisker) |
+| [@kon-angelo](https://github.com/kon-angelo) | `5m` | 🏷️ Respect Terminating `Node`s In Load-Balancing | [Summary](../hackathons/2025-11.md#️-respect-terminating-nodes-in-load-balancing) |
+| [@LucaBernstein](https://github.com/LucaBernstein) | `5m` | 🧰 Use Go Tools & Drop `VGOPATH` | [Summary](../hackathons/2025-11.md#-use-go-tools--drop-vgopath) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- 🔀 Pod Overlay To Native Routing Without Downtime. [Summary](../hackathons/2025-11.md#-pod-overlay-to-native-routing-without-downtime)
+- 🚪 [GEP-28] Expose API server Of Self-Hosted Shoots. [Summary](../hackathons/2025-11.md#-gep-28-expose-api-server-of-self-hosted-shoots)
+
+<hr />
+
 ### 2025/11/19 - [v1.132](https://github.com/gardener/gardener/releases/tag/v1.132.0) Release
 
 [📽️ Recording](https://youtu.be/oehF0Uoe7lg)
