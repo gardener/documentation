@@ -13,7 +13,7 @@ For alerts and other notes, use the [standard Hugo blockquote syntax for alerts]
 
 ## mermaid
 
-The [GitHub mermaid](https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/) fenced code block syntax is used. You can find additional documentation at [mermaid's official website](https://mermaid-js.github.io/mermaid/#/README).
+The [GitHub mermaid](https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/) fenced code block syntax is used. You can find additional documentation at [mermaid's official website](https://mermaid.js.org/#/README).
 
 ~~~
 ```mermaid
@@ -36,7 +36,7 @@ graph LR;
 ```
 
 Default settings can be overridden using the %%init%% header at the start of the diagram definition.
-See the [mermaid theming documentation](https://mermaid-js.github.io/mermaid/#/theming?id=themes-at-the-local-or-current-level).
+See the [mermaid theming documentation](https://mermaid.js.org/config/theming.html#themes-at-the-local-or-current-level).
 
 ~~~
 ```mermaid

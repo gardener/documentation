@@ -91,7 +91,7 @@ Without the cluster autoscaler, nodes could not be added or removed based on cur
 
 The machine controller manager, which lives on the seed in a shoot's control plane namespace, is the key component responsible for provisioning and removing worker nodes for a Kubernetes cluster. It acts on MachineClass, MachineDeployment, and MachineSet resources in the seed (think of them as the equivalent of Deployments and ReplicaSets) and controls the lifecycle of machine objects. Through a system of plugins, the MCM is the component that phones to the cloud provider's API and bootstraps virtual machines.
 
-For more information, see [MCM](https://github.com/gardener/machine-controller-manager/blob/master/docs/FAQ.md) and [Cluster-autoscaler](https://github.com/gardener/autoscaler/blob/machine-controller-manager-provider/cluster-autoscaler/FAQ.md).
+For more information, see [MCM](https://github.com/gardener/machine-controller-manager/blob/master/docs/faq.md) and [Cluster-autoscaler](https://github.com/gardener/autoscaler/blob/machine-controller-manager-provider/cluster-autoscaler/FAQ.md).
 
 ## ManagedResources
 
