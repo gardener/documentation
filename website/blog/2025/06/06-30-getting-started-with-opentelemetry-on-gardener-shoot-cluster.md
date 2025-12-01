@@ -142,7 +142,7 @@ In our example, we will use [victoria-logs](https://docs.victoriametrics.com/vic
 
 Here is the complete manifests for deploying a single `victoria-logs` instance with the `OTLP` ingestion endpoint enabled and `kube-rbac-proxy` sidecar for mTLS authentication and authorization, using the upstream helm chart:
 
-- [Victoria-Logs Certificate](./manifests/otel-VictoriaLogs/certificate.yaml)
+- [Victoria-Logs Certificate](./manifests/otel-victorialogs/certificate.yaml)
   That is the serving certificate of the `kube-rbac-proxy` sidecar. The OpenTelemetry collector needs to trust the signing CA hence we use the same `Issuer` we created earlier.
 - [Victoria-Logs chart values](./manifests/otel-victorialogs/values.yaml)
   The certificate secret shall be mounted in the VictoriaLogs pod as a volume, as it is referenced by the `kube-rbac-proxy` sidecar.
