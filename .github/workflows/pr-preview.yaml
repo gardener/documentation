@@ -3,6 +3,7 @@ on:
   pull_request_target:
     types:
       - labeled
+      - closed
 
 permissions:
   pull-requests: write
@@ -11,13 +12,13 @@ concurrency: preview-${{ github.ref }}
 
 jobs:
   deploy-preview:
-    if: ${{ github.event_name != 'pull_request_target' || (github.event_name == 'pull_request_target' && github.event.label.name == 'reviewed/ok-to-test') }}
+    if: ${{ github.event.action == 'labeled' && github.event.label.name == 'reviewed/ok-to-test' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/create-github-app-token@v2
         id: app-token
         with:
-        # required
+          # required
           app-id: ${{ vars.GARDENER_GITHUB_ACTIONS_APP_ID }}
           private-key: ${{ secrets.GARDENER_GITHUB_ACTIONS_PRIVATE_KEY }}
 
@@ -57,3 +58,23 @@ jobs:
           deploy-repository: gardener/documentation-demo
           pages-base-url: documentation-demo.gardener.cloud
           source-dir: .vitepress/dist
+          action: 'deploy'
+
+  cleanup-preview:
+    if: ${{ github.event.action == 'closed' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/create-github-app-token@v2
+        id: app-token
+        with:
+          # required
+          app-id: ${{ vars.GARDENER_GITHUB_ACTIONS_APP_ID }}
+          private-key: ${{ secrets.GARDENER_GITHUB_ACTIONS_PRIVATE_KEY }}
+      - name: Deploy preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          deploy-repository: gardener/documentation-demo
+          pages-base-url: documentation-demo.gardener.cloud
+          source-dir: .vitepress/dist
+          action: 'remove'
