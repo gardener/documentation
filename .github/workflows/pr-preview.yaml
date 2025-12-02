@@ -21,6 +21,8 @@ jobs:
           # required
           app-id: ${{ vars.GARDENER_GITHUB_ACTIONS_APP_ID }}
           private-key: ${{ secrets.GARDENER_GITHUB_ACTIONS_PRIVATE_KEY }}
+          owner: gardener
+          repositories: documentation-demo
 
       - name: Checkout
         uses: gardener/cc-utils/.github/actions/trusted-checkout@master
