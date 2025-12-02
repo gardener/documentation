@@ -38,7 +38,7 @@ Check back regularly for updates and upcoming topics!
 | [@ScheererJ](https://github.com/ScheererJ) | `5m` | 🐱 Add Support For Calico Whisker | [Summary](https://gardener.cloud/community/hackathons/2025-11/#%F0%9F%90%B1-add-support-for-calico-whisker) |
 | [@kon-angelo](https://github.com/kon-angelo) | `5m` | 🏷️ Respect Terminating `Node`s In Load-Balancing | [Summary](https://gardener.cloud/community/hackathons/2025-11/#%F0%9F%8F%B7%EF%B8%8F-respect-terminating-nodes-in-load-balancing) |
 | [@maboehm](https://github.com/maboehm) | `5m` | 🧰 Use Go Tools & Drop `VGOPATH` | [Summary](https://gardener.cloud/community/hackathons/2025-11/#%F0%9F%A7%B0-use-go-tools-drop-vgopath) |
-| [@vlerenc](https://github.com/vlerenc) | `5m` | 🤖 Tool-Enabled Agent For `Shoot`s | [Summary](https://gardener.cloud/community/hackathons/2025-11/TODO) |
+| [@vlerenc](https://github.com/vlerenc) | `5m` | 🤖 Tool-Enabled Agent For `Shoot`s | [Summary](https://gardener.cloud/community/hackathons/2025-11/#-tool-enabled-agent-for-shoots) |
 
 #### No Demo, But Still Worth Celebrating 🎉
 
