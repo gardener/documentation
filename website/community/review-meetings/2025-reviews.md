@@ -27,7 +27,7 @@ Check back regularly for updates and upcoming topics!
 | [@Gerrit91](https://github.com/Gerrit91) | `5m` | 🪣 Allow Relocating Backup Buckets | [Summary](https://gardener.cloud/community/hackathons/2025-11/#%F0%9F%AA%A3-allow-relocating-backup-buckets) |
 | [@maboehm](https://github.com/maboehm) | `5m` | 🪞 Pull `gardener-node-agent` From Registry Mirror | [Summary](https://gardener.cloud/community/hackathons/2025-11/#%F0%9F%AA%9E-pull-gardener-node-agent-from-registry-mirror) |
 | [@kon-angelo](https://github.com/kon-angelo), [@oliver-goetz](https://github.com/oliver-goetz) | `5m` | 🗽 Evaluate [Talos](https://www.talos.dev/) As Node Operating System | [Summary](https://gardener.cloud/community/hackathons/2025-11/#%F0%9F%97%BD-evaluate-talos-as-node-operating-system) |
-| [@LucaBernstein](https://github.com/LucaBernstein) | `5m` | 📦 Gardener API Types As Standalone Go Module | [Summary](https://gardener.cloud/community/hackathons/2025-11/#%F0%9F%93%A6-gardener-api-types-as-standalone-go-module) |
+| [@maboehm](https://github.com/maboehm) | `5m` | 📦 Gardener API Types As Standalone Go Module | [Summary](https://gardener.cloud/community/hackathons/2025-11/#%F0%9F%93%A6-gardener-api-types-as-standalone-go-module) |
 | [@tobschli](https://github.com/tobschli) | `5m` | 📈 Gardener Scale-Out Tests | [Summary](https://gardener.cloud/community/hackathons/2025-11/#%F0%9F%93%88-gardener-scale-out-tests) |
 | [@shegox](https://github.com/shegox) | `5m` | 🗃️ Go Build Cache In Prow | [Summary](https://gardener.cloud/community/hackathons/2025-11/#%F0%9F%97%83%EF%B8%8F-go-build-cache-in-prow) |
 | [@afritzler](https://github.com/afritzler) | `5m` | 🛠️ MCM: Update Machines Updates During In-Place Updates | [Summary](https://gardener.cloud/community/hackathons/2025-11/#%F0%9F%9B%A0%EF%B8%8F-mcm-update-machines-updates-during-in-place-updates) |
@@ -37,7 +37,7 @@ Check back regularly for updates and upcoming topics!
 | [@Gerrit91](https://github.com/Gerrit91) | `5m` | 🌉 Replace Ingress NGINX controller With Gateway API | [Summary](https://gardener.cloud/community/hackathons/2025-11/#%F0%9F%8C%89-replace-ingress-nginx-controller-with-gateway-api) |
 | [@ScheererJ](https://github.com/ScheererJ) | `5m` | 🐱 Add Support For Calico Whisker | [Summary](https://gardener.cloud/community/hackathons/2025-11/#%F0%9F%90%B1-add-support-for-calico-whisker) |
 | [@kon-angelo](https://github.com/kon-angelo) | `5m` | 🏷️ Respect Terminating `Node`s In Load-Balancing | [Summary](https://gardener.cloud/community/hackathons/2025-11/#%F0%9F%8F%B7%EF%B8%8F-respect-terminating-nodes-in-load-balancing) |
-| [@maboehm](https://github.com/maboehm) | `5m` | 🧰 Use Go Tools & Drop `VGOPATH` | [Summary](https://gardener.cloud/community/hackathons/2025-11/#%F0%9F%A7%B0-use-go-tools-drop-vgopath) |
+| [@LucaBernstein](https://github.com/LucaBernstein) | `5m` | 🧰 Use Go Tools & Drop `VGOPATH` | [Summary](https://gardener.cloud/community/hackathons/2025-11/#%F0%9F%A7%B0-use-go-tools-drop-vgopath) |
 | [@vlerenc](https://github.com/vlerenc) | `5m` | 🤖 Tool-Enabled Agent For `Shoot`s | [Summary](https://gardener.cloud/community/hackathons/2025-11/#-tool-enabled-agent-for-shoots) |
 
 #### No Demo, But Still Worth Celebrating 🎉
