@@ -87,15 +87,6 @@ const projectName = title || '<YOUR PROJECT NAME>'
           >
         </a>
       </div>
-
-      <div class="footer-legal-links">
-        <a href="/about/terms-of-use">Terms of Use</a>
-        <span class="footer-legal-sep">|</span>
-        <a href="/about/privacy">Privacy Statement</a>
-        <span class="footer-legal-sep">|</span>
-        <a href="/about/legal-disclosure">Legal Disclosure</a>
-      </div>
-
     </div>
   </footer>
 </template>
