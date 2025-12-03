@@ -63,10 +63,9 @@ jobs:
         run: |
           set -euo pipefail
           cd other-repo
-          git config --global user.name "some dude" && git config --global user.email "some.one@some.where
+          git config --global user.name "some dude" && git config --global user.email "some.one@some.where"
           git commit -m "test" --allow-empty
           git push origin @:refs/heads/test-please-ignore-me
-    
 
       - name: Deploy preview
         uses: rossjrw/pr-preview-action@v1
