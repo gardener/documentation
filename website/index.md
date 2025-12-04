@@ -86,7 +86,6 @@ const members = [
 ]
 </script>
 
-## Everywhere You Want It
-**The compute resources you need, wherever you want them**
+## Preview works !!!!
 
 <ThemedTeamMembers size="small" :members />
