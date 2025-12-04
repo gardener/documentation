@@ -42,30 +42,5 @@
         </a>
       </li>
     </ul>
-    {{with .Site.Params.copyright}}
-    <span class="copyright">{{.}} {{with $.Site.Params.termsOfUseURL}}
-      <div style="margin-top: 2%;">
-        <a href='{{.}}'>
-          Terms of Use
-          <i class="fa fa-external-link" aria-hidden="true"></i>
-        </a>
-        {{end}}
-        | 
-        {{with $.Site.Params.privacyStatementURL}}
-        <a href='{{.}}'>
-          Privacy Statement
-          <i class="fa fa-external-link" aria-hidden="true"></i>
-        </a>
-        {{end}}
-        | 
-        {{with $.Site.Params.legalDisclosureURL}}
-        <a href='{{.}}'>
-          Legal Disclosure
-          <i class="fa fa-external-link" aria-hidden="true"></i>
-        </a>
-        {{end}}
-      </div>
-    </span>
-    {{end}}
   </div>
 </footer>
