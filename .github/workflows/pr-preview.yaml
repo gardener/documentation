@@ -53,14 +53,90 @@ jobs:
           echo "Building with VITE_PUBLIC_BASE_PATH: '$VITE_PUBLIC_BASE_PATH'"
           npm run docs:build  
 
-      - name: Deploy preview
-        uses: rossjrw/pr-preview-action@v1
+      - uses: actions/checkout@v6
         with:
           token: ${{ steps.app-token.outputs.token }}
-          deploy-repository: gardener/documentation-demo
-          pages-base-url: documentation-demo.gardener.cloud
-          source-dir: .vitepress/dist
-          action: 'deploy'
+          repository: gardener/documentation-demo
+          path: other-repo
+      - name: commit-and-push
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd other-repo
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
+          
+          # Switch to gh-pages branch
+          git fetch origin gh-pages
+          git checkout gh-pages
+    
+          # Remove existing preview directory if it exists
+          rm -rf pr-preview/pr-${{ github.event.pull_request.number }}
+          
+          # Create pr-preview directory structure
+          mkdir -p pr-preview/pr-${{ github.event.pull_request.number }}
+          
+          # Copy built files
+          cp -r ../.vitepress/dist/* pr-preview/pr-${{ github.event.pull_request.number }}/
+          
+          # Stage changes
+          git add pr-preview/pr-${{ github.event.pull_request.number }}
+          
+          # Check if there are changes to commit
+          if git diff --staged --quiet; then
+            echo "No changes detected in preview files. Skipping commit and push."
+            exit 0
+          fi
+          
+          # Commit and push
+          git commit -m "Deploy PR #${{ github.event.pull_request.number }} preview"
+          git push origin gh-pages
+          echo "Preview deployed successfully"
+
+      - name: Comment on PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prNumber = context.payload.pull_request.number;
+            const previewUrl = `https://documentation-demo.gardener.cloud/pr-preview/pr-${prNumber}/`;
+            const commentBody = `## 🚀 Preview Deployed
+            
+            Your preview is being built and will be available at:
+            ${previewUrl}
+            
+            **Note:** The preview will only be available after the GitHub Pages deployment completes in the demo repository. 
+            
+            To view the deployment status, visit: https://github.com/gardener/documentation-demo/actions`;
+            
+            // Find existing comment
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber
+            });
+            
+            const botComment = comments.find(comment => 
+              comment.user.type === 'Bot' && 
+              comment.body.includes('Preview Deployed')
+            );
+            
+            if (botComment) {
+              // Update existing comment
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: commentBody
+              });
+            } else {
+              // Create new comment
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: prNumber,
+                body: commentBody
+              });
+            }
 
   cleanup-preview:
     if: ${{ github.event.action == 'closed' }}
@@ -72,11 +148,68 @@ jobs:
           # required
           app-id: ${{ vars.GARDENER_GITHUB_ACTIONS_APP_ID }}
           private-key: ${{ secrets.GARDENER_GITHUB_ACTIONS_PRIVATE_KEY }}
-      - name: Deploy preview
-        uses: rossjrw/pr-preview-action@v1
+          owner: gardener
+          repositories: documentation-demo
+
+      - uses: actions/checkout@v6
         with:
           token: ${{ steps.app-token.outputs.token }}
-          deploy-repository: gardener/documentation-demo
-          pages-base-url: documentation-demo.gardener.cloud
-          source-dir: .vitepress/dist
-          action: 'remove'
+          repository: gardener/documentation-demo
+          path: other-repo
+
+      - name: Remove preview and push
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd other-repo
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
+          
+          # Switch to gh-pages branch
+          git fetch origin gh-pages
+          git checkout gh-pages
+          
+          # Remove preview directory if it exists
+          if [ -d "pr-preview/pr-${{ github.event.pull_request.number }}" ]; then
+            rm -rf pr-preview/pr-${{ github.event.pull_request.number }}
+            git add -A pr-preview/pr-${{ github.event.pull_request.number }}
+            git commit -m "Remove PR #${{ github.event.pull_request.number }} preview"
+            git push origin gh-pages
+            echo "Preview removed successfully"
+          else
+            echo "Preview directory does not exist, nothing to clean up"
+          fi
+
+      - name: Update PR comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prNumber = context.payload.pull_request.number;
+            const commentBody = `## 🧹 Preview Removed
+            
+            The preview for this PR is no longer available since the PR has been closed.`;
+            
+            // Find existing comment
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber
+            });
+            
+            const botComment = comments.find(comment => 
+              comment.user.type === 'Bot' && 
+              comment.body.includes('Preview Deployed')
+            );
+            
+            if (botComment) {
+              // Update existing comment
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: commentBody
+              });
+              console.log('Updated existing comment');
+            } else {
+              console.log('No existing preview comment found to update');
+            }
