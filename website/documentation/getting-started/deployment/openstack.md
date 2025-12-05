@@ -2,6 +2,12 @@
 title: Deploying Gardener on OpenStack
 ---
 
+TODOS:
+- separate cluster for first seed
+- why is prometheus of seed failing
+- remove gke references, assume openstack runtime cluster
+- add guide for getting virtual cluster kubeconfig
+
 # Deploying Gardener on OpenStack
 
 TODO: introduction
@@ -20,6 +26,8 @@ TODO: introduction
 
 ## Prerequisites
 
+TODO: separate app creds for everything
+TODO: runtime cluster with connectivity to OpenStack infrastructure
 * Runtime cluster
   * Associated `Node`, `Pod`, and `Service` CIDR ranges 
 * DNS zone
@@ -41,18 +49,18 @@ helm upgrade \
   --install gardener-operator \
   --namespace=garden \
   --create-namespace \
-  oci://europe-docker.pkg.dev/gardener-project/releases/charts/gardener/operator:v1.131.1 \
-  --set replicaCount=3
+  oci://europe-docker.pkg.dev/gardener-project/releases/charts/gardener/operator:v1.133.0 \
+  --set replicaCount=2
 ```
 
 Verify:
 ```shell
-kubectl get deploy -n garden gardener-operator
+kubectl get deploy -n garden gardener-operator --watch
 ```
 
 ```terminal
 NAME                READY   UP-TO-DATE   AVAILABLE   AGE
-gardener-operator   3/3     3            3           29s
+gardener-operator   2/2     2            2           29s
 ```
 
 TODO: reference documentation
@@ -77,15 +85,15 @@ spec:
       runtimeCluster:
         helm:
           ociRepository:
-            ref: europe-docker.pkg.dev/gardener-project/public/charts/gardener/extensions/admission-openstack-runtime:v1.49.1
+            ref: europe-docker.pkg.dev/gardener-project/public/charts/gardener/extensions/admission-openstack-runtime:v1.51.0
       virtualCluster:
         helm:
           ociRepository:
-            ref: europe-docker.pkg.dev/gardener-project/public/charts/gardener/extensions/admission-openstack-application:v1.49.1
+            ref: europe-docker.pkg.dev/gardener-project/public/charts/gardener/extensions/admission-openstack-application:v1.51.0
     extension:
       helm:
         ociRepository:
-          ref: europe-docker.pkg.dev/gardener-project/public/charts/gardener/extensions/provider-openstack:v1.49.1
+          ref: europe-docker.pkg.dev/gardener-project/public/charts/gardener/extensions/provider-openstack:v1.51.0
       injectGardenKubeconfig: true
   resources:
   - kind: BackupBucket
@@ -127,7 +135,7 @@ spec:
     extension:
       helm:
         ociRepository:
-          ref: europe-docker.pkg.dev/gardener-project/public/charts/gardener/extensions/os-gardenlinux:v0.33.0
+          ref: europe-docker.pkg.dev/gardener-project/public/charts/gardener/extensions/os-gardenlinux:v0.35.0
   resources:
   - kind: OperatingSystemConfig
     type: gardenlinux
@@ -160,15 +168,15 @@ spec:
       runtimeCluster:
         helm:
           ociRepository:
-            ref: europe-docker.pkg.dev/gardener-project/releases/charts/gardener/extensions/shoot-dns-service-admission-runtime:v1.70.0
+            ref: europe-docker.pkg.dev/gardener-project/releases/charts/gardener/extensions/shoot-dns-service-admission-runtime:v1.75.0
       virtualCluster:
         helm:
           ociRepository:
-            ref: europe-docker.pkg.dev/gardener-project/releases/charts/gardener/extensions/shoot-dns-service-admission-application:v1.70.0
+            ref: europe-docker.pkg.dev/gardener-project/releases/charts/gardener/extensions/shoot-dns-service-admission-application:v1.75.0
     extension:
       helm:
         ociRepository:
-          ref: europe-docker.pkg.dev/gardener-project/releases/charts/gardener/extensions/shoot-dns-service:v1.70.0
+          ref: europe-docker.pkg.dev/gardener-project/releases/charts/gardener/extensions/shoot-dns-service:v1.75.0
   resources:
   - autoEnable:
     - shoot
@@ -203,7 +211,7 @@ spec:
     extension:
       helm:
         ociRepository:
-          ref: europe-docker.pkg.dev/gardener-project/public/charts/gardener/extensions/shoot-cert-service:v1.53.0
+          ref: europe-docker.pkg.dev/gardener-project/public/charts/gardener/extensions/shoot-cert-service:v1.55.0
       injectGardenKubeconfig: true
       policy: Always
       runtimeClusterValues:
@@ -263,15 +271,15 @@ spec:
       runtimeCluster:
         helm:
           ociRepository:
-            ref: europe-docker.pkg.dev/gardener-project/public/charts/gardener/extensions/admission-calico-runtime:v1.51.0
+            ref: europe-docker.pkg.dev/gardener-project/public/charts/gardener/extensions/admission-calico-runtime:v1.53.1
       virtualCluster:
         helm:
           ociRepository:
-            ref: europe-docker.pkg.dev/gardener-project/public/charts/gardener/extensions/admission-calico-application:v1.51.0
+            ref: europe-docker.pkg.dev/gardener-project/public/charts/gardener/extensions/admission-calico-application:v1.53.1
     extension:
       helm:
         ociRepository:
-          ref: europe-docker.pkg.dev/gardener-project/public/charts/gardener/extensions/networking-calico:v1.51.0
+          ref: europe-docker.pkg.dev/gardener-project/public/charts/gardener/extensions/networking-calico:v1.53.1
   resources:
   - kind: Network
     type: calico
@@ -415,6 +423,11 @@ Verify:
 kubectl get garden --watch
 ```
 
+```terminal
+NAME     K8S VERSION   GARDENER VERSION   LAST OPERATION   RUNTIME   VIRTUAL   API SERVER   OBSERVABILITY   AGE
+garden   1.33.5        v1.133.0           Succeeded        True      True      True         False           10m
+```
+
 ## Accessing the virtual garden cluster
 
 ## Deploying infrastructure `Secret`s in the virtual garden cluster
@@ -518,7 +531,7 @@ spec:
             services: 100.160.0.0/13
         provider:
           region: <region> # TODO: Use region of GKE runtime cluster
-          type: gcp
+          type: openstack
           zones: # TODO: Use zones of GKE runtime cluster
           - <zone-1>
           - <zone-2>
@@ -543,13 +556,23 @@ spec:
     helm:
       ociRepository:
         repository: europe-docker.pkg.dev/gardener-project/releases/charts/gardener/gardenlet
-        tag: v1.131.1
+        tag: v1.133.0
     image:
       pullPolicy: IfNotPresent
     podLabels:
       networking.resources.gardener.cloud/to-virtual-garden-kube-apiserver-tcp-443: allowed
     replicaCount: 2
     revisionHistoryLimit: 2
+```
+
+Verify:
+
+```shell
+kubectl get seed --watch
+```
+
+```terminal
+
 ```
 
 ## Creating a `CloudProfile`
