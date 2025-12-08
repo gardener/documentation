@@ -5,7 +5,7 @@ publishdate: 2025-12-08
 ---
 
 - ✍🏻 **Author(s):** [@timebertt](https://github.com/timebertt) (Tim Ebert)
-- 🗓️ **Presentation:** YYYY-MM-DD, HH:MM - HH:MM CET _(TBD)_
+- 🗓️ **Presentation:** 2026-01-19, 16:00 - 17:00 CET
 - 🎥 **Recording:** (TBA)
 - 👨‍⚖️ **Decisions:**
   - _pending_
