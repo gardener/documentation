@@ -53,6 +53,12 @@ jobs:
           echo "Building with VITE_PUBLIC_BASE_PATH: '$VITE_PUBLIC_BASE_PATH'"
           npm run docs:build  
 
+      - name: setup-git-identity
+        uses: gardener/cc-utils/.github/actions/setup-git-identity/@master
+        with:
+          user_name: "GitHub Actions Bot"
+          user_email: "actions@github.com"
+
       - uses: actions/checkout@v6
         with:
           token: ${{ steps.app-token.outputs.token }}
@@ -63,8 +69,6 @@ jobs:
         run: |
           set -euo pipefail
           cd other-repo
-          git config --global user.name "GitHub Actions Bot"
-          git config --global user.email "actions@github.com"
           
           # Switch to gh-pages branch
           git fetch origin gh-pages
@@ -157,13 +161,17 @@ jobs:
           repository: gardener/documentation-demo
           path: other-repo
 
+      - name: setup-git-identity
+        uses: gardener/cc-utils/.github/actions/setup-git-identity/@master
+        with:
+          user_name: "GitHub Actions Bot"
+          user_email: "actions@github.com"
+
       - name: Remove preview and push
         shell: bash
         run: |
           set -euo pipefail
           cd other-repo
-          git config --global user.name "GitHub Actions Bot"
-          git config --global user.email "actions@github.com"
           
           # Switch to gh-pages branch
           git fetch origin gh-pages
