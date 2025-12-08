@@ -30,10 +30,10 @@ We aim to align sponsored development capacity with Gardener's strategic vision 
 #### Who is on The Product Steering Committee?
 
 The committee is elected by the project's active contributing sponsors and consists of a small number of members (at least three). Currently, the committee members are:
-- [Johannes Scheerer](https://github.com/scheererj) ([Email](mailto:johannes.scheerer@sap.com) and [Slack](https://gardener-cloud.slack.com/archives/D08EXK51QJJ))
-- [Rafael Franzke](https://github.com/rfranzke) ([Email](mailto:rafael.franzke@sap.com) and [Slack](https://gardener-cloud.slack.com/archives/DAQ7R4D6D))
-- [Tim Ebert](https://github.com/timebertt) ([Email](mailto:tim.ebert@stackit.cloud) and [Slack](https://gardener-cloud.slack.com/archives/D0478U21E4U))
-- [Vedran Lerenc](https://github.com/vlerenc) ([Email](mailto:vedran.lerenc@sap.com) and [Slack](https://gardener-cloud.slack.com/archives/DAQH1NTUL))
+- [Johannes Scheerer](https://github.com/scheererj) ([Email](mailto:johannes.scheerer@sap.com) and [Slack](https://gardener-cloud.slack.com/team/U048D8K0N65))
+- [Rafael Franzke](https://github.com/rfranzke) ([Email](mailto:rafael.franzke@sap.com) and [Slack](https://gardener-cloud.slack.com/team/UAQT84PK7))
+- [Tim Ebert](https://github.com/timebertt) ([Email](mailto:tim.ebert@stackit.cloud) and [Slack](https://gardener-cloud.slack.com/team/U03VASPK6TC))
+- [Vedran Lerenc](https://github.com/vlerenc) ([Email](mailto:vedran.lerenc@sap.com) and [Slack](https://gardener-cloud.slack.com/team/UAQ7R439P))
 
 #### Key Considerations for Topics
 
@@ -60,10 +60,10 @@ Technical Steering ensures that major technical changes align with Gardener's ar
 #### Who is on The Technical Steering Committee?
 
 The committee is elected by the project's active code owners and contributors and consists of a small number of members (at least three). Currently, the committee members are:
-- [Johannes Scheerer](https://github.com/scheererj) ([Email](mailto:johannes.scheerer@sap.com) and [Slack](https://gardener-cloud.slack.com/archives/D08EXK51QJJ))
-- [Rafael Franzke](https://github.com/rfranzke) ([Email](mailto:rafael.franzke@sap.com) and [Slack](https://gardener-cloud.slack.com/archives/DAQ7R4D6D))
-- [Tim Ebert](https://github.com/timebertt) ([Email](mailto:tim.ebert@stackit.cloud) and [Slack](https://gardener-cloud.slack.com/archives/D0478U21E4U))
-- [Vedran Lerenc](https://github.com/vlerenc) ([Email](mailto:vedran.lerenc@sap.com) and [Slack](https://gardener-cloud.slack.com/archives/DAQH1NTUL))
+- [Johannes Scheerer](https://github.com/scheererj) ([Email](mailto:johannes.scheerer@sap.com) and [Slack](https://gardener-cloud.slack.com/team/U048D8K0N65))
+- [Rafael Franzke](https://github.com/rfranzke) ([Email](mailto:rafael.franzke@sap.com) and [Slack](https://gardener-cloud.slack.com/team/UAQT84PK7))
+- [Tim Ebert](https://github.com/timebertt) ([Email](mailto:tim.ebert@stackit.cloud) and [Slack](https://gardener-cloud.slack.com/team/U03VASPK6TC))
+- [Vedran Lerenc](https://github.com/vlerenc) ([Email](mailto:vedran.lerenc@sap.com) and [Slack](https://gardener-cloud.slack.com/team/UAQ7R439P))
 
 #### Key Considerations for Topics
 
