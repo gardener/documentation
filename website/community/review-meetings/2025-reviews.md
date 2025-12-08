@@ -14,6 +14,28 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2025/12/10 - [v1.133](https://github.com/gardener/gardener/releases/tag/v1.133.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@dimityrmirchev](https://github.com/dimityrmirchev) | `5m` | 🔩 Default DNS Secret Configuration Via `Seed` API | [#12884](https://github.com/gardener/gardener/pull/12884) |
+| [@ialidzhikov](https://github.com/ialidzhikov) | `5m` | 🧬 `ShootMutator` Admission Plugin | [#2158 (issue)](https://github.com/gardener/gardener/issues/2158) |
+| [@AleksandarSavchev](https://github.com/AleksandarSavchev) | `5m` | 🤹‍♀️ Support Multiple Operation Annotations | [#12717](https://github.com/gardener/gardener/pull/12717) |
+| [@rfranzke](https://github.com/rfranzke) | `5m` | 📓 Gardener Upgrade Guide | [#13401](https://github.com/gardener/gardener/pull/13401) |
+| [@timuthy](https://github.com/timuthy) | `5m` | 👉 Resource References In `Garden` API | [#13464](https://github.com/gardener/gardener/pull/13464) |
+| [@nickytd](https://github.com/nickytd) | `5m` | 🚤 Optimized Logging Stack Performance | [#13524](https://github.com/gardener/gardener/pull/13524) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- 🪓 [OPERATOR] ⚠️ Gardener does no longer support Garden, Seed, or Shoot clusters with Kubernetes versions <= 1.29. Make sure to upgrade all existing clusters before upgrading to this Gardener version. [#13487](https://github.com/gardener/gardener/pull/13487)
+- ✨ [OPERATOR] The `ShootCredentialsBinding` feature gate of gardenlet is promoted to GA and is unconditionally enabled. [#13530](https://github.com/gardener/gardener/pull/13530)
+
+<hr />
+
 ### 2025/12/03 - [Hack The Garden](https://gardener.cloud/community/hackathons/2025-11) Wrap Up
 
 [📽️ Recording](https://youtu.be/NtCsjDKJ3yA)
