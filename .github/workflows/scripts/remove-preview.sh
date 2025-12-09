@@ -23,6 +23,11 @@ echo "Changing directory to: other-repo"
 cd other-repo
 echo "Current directory: $(pwd)"
 
+# Set git identity for this repository (not inherited from parent repo)
+echo "Setting git identity..."
+git config user.name "GitHub Actions Bot"
+git config user.email "actions@github.com"
+
 echo "=== Git Configuration in other-repo ==="
 echo "Git user.name: $(git config user.name || echo '<not set>')"
 echo "Git user.email: $(git config user.email || echo '<not set>')"
