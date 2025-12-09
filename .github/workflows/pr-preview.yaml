@@ -53,14 +53,29 @@ jobs:
           echo "Building with VITE_PUBLIC_BASE_PATH: '$VITE_PUBLIC_BASE_PATH'"
           npm run docs:build  
 
-      - name: Deploy preview
-        uses: rossjrw/pr-preview-action@v1
+      - name: setup-git-identity
+        uses: gardener/cc-utils/.github/actions/setup-git-identity/@master
+        with:
+          user_name: "GitHub Actions Bot"
+          user_email: "actions@github.com"
+
+      - uses: actions/checkout@v6
         with:
           token: ${{ steps.app-token.outputs.token }}
-          deploy-repository: gardener/documentation-demo
-          pages-base-url: documentation-demo.gardener.cloud
-          source-dir: .vitepress/dist
-          action: 'deploy'
+          repository: gardener/documentation-demo
+          path: other-repo
+      - name: commit-and-push
+        shell: bash
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: .github/workflows/scripts/commit-and-push.sh
+
+      - name: Comment on PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const script = require('./.github/workflows/scripts/comment-on-pr.js');
+            await script({ github, context });
 
   cleanup-preview:
     if: ${{ github.event.action == 'closed' }}
@@ -72,11 +87,33 @@ jobs:
           # required
           app-id: ${{ vars.GARDENER_GITHUB_ACTIONS_APP_ID }}
           private-key: ${{ secrets.GARDENER_GITHUB_ACTIONS_PRIVATE_KEY }}
-      - name: Deploy preview
-        uses: rossjrw/pr-preview-action@v1
+          owner: gardener
+          repositories: documentation-demo
+
+      - name: Checkout main repository
+        uses: gardener/cc-utils/.github/actions/trusted-checkout@master
+
+      - uses: actions/checkout@v6
         with:
           token: ${{ steps.app-token.outputs.token }}
-          deploy-repository: gardener/documentation-demo
-          pages-base-url: documentation-demo.gardener.cloud
-          source-dir: .vitepress/dist
-          action: 'remove'
+          repository: gardener/documentation-demo
+          path: other-repo
+
+      - name: setup-git-identity
+        uses: gardener/cc-utils/.github/actions/setup-git-identity/@master
+        with:
+          user_name: "GitHub Actions Bot"
+          user_email: "actions@github.com"
+
+      - name: Remove preview and push
+        shell: bash
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: .github/workflows/scripts/remove-preview.sh
+
+      - name: Update PR comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const script = require('./.github/workflows/scripts/update-pr-comment.js');
+            await script({ github, context });
