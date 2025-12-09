@@ -6,7 +6,7 @@ titleTemplate: false
 
 hero:
   name: Gardener
-  text: A Managed Kubernetes Service Done Right
+  text: Look at this preview 👀
   tagline: Deliver fully-managed clusters at scale everywhere with your own Gardener installation
   actions:
     - theme: brand
