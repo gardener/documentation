@@ -73,7 +73,7 @@ jobs:
           ls -lisa
           ls -lisa .github/
           ls -lisa .github/workflows/
-          ls -lisa .github/workflows/script
+          ls -lisa .github/workflows/scripts
           bash .github/workflows/scripts/commit-and-push.sh
 
       - name: Comment on PR
