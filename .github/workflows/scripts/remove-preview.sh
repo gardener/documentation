@@ -8,12 +8,6 @@ set -euo pipefail
 echo "=== Starting remove-preview.sh ==="
 echo "PR_NUMBER: ${PR_NUMBER:-<not set>}"
 
-echo "=== Git Configuration ==="
-echo "Git user.name: $(git config user.name || echo '<not set>')"
-echo "Git user.email: $(git config user.email || echo '<not set>')"
-echo "Git remote origin URL: $(git config --get remote.origin.url || echo '<not set>')"
-echo "========================="
-
 if [ -z "${PR_NUMBER:-}" ]; then
   echo "Error: PR_NUMBER environment variable is required"
   exit 1
