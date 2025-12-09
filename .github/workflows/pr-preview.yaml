@@ -69,7 +69,12 @@ jobs:
         shell: bash
         env:
           PR_NUMBER: ${{ github.event.pull_request.number }}
-        run: bash .github/workflows/scripts/commit-and-push.sh
+        run: | 
+          output=$(bash .github/workflows/scripts/commit-and-push.sh 2>&1)
+          exit_code=$?
+          
+          echo "$output"
+          exit $exit_code
 
       - name: Comment on PR
         uses: actions/github-script@v7
@@ -110,7 +115,12 @@ jobs:
         shell: bash
         env:
           PR_NUMBER: ${{ github.event.pull_request.number }}
-        run: bash .github/workflows/scripts/remove-preview.sh
+        run: |
+          output=$(bash .github/workflows/scripts/remove-preview.sh 2>&1)
+          exit_code=$?
+
+          echo "$output"
+          exit $exit_code
 
       - name: Update PR comment
         uses: actions/github-script@v7
