@@ -53,17 +53,18 @@ jobs:
           echo "Building with VITE_PUBLIC_BASE_PATH: '$VITE_PUBLIC_BASE_PATH'"
           npm run docs:build  
 
+      - uses: actions/checkout@v6
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          repository: gardener/documentation-demo
+          path: other-repo
+
       - name: setup-git-identity
         uses: gardener/cc-utils/.github/actions/setup-git-identity/@master
         with:
           user_name: "GitHub Actions Bot"
           user_email: "actions@github.com"
 
-      - uses: actions/checkout@v6
-        with:
-          token: ${{ steps.app-token.outputs.token }}
-          repository: gardener/documentation-demo
-          path: other-repo
       - name: commit-and-push
         shell: bash
         env:
