@@ -69,7 +69,10 @@ jobs:
         shell: bash
         env:
           PR_NUMBER: ${{ github.event.pull_request.number }}
-        run: .github/workflows/scripts/commit-and-push.sh
+        run: |
+          ls -lisa
+          ls -lisa .github/workflows/script
+          bash .github/workflows/scripts/commit-and-push.sh
 
       - name: Comment on PR
         uses: actions/github-script@v7
