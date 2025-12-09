@@ -51,6 +51,7 @@ export default defineConfig({
       code: 'shell',
       term: 'shell',
       b: 'shell',
+      terminaloutput: 'shell',
     },
   }
 }
