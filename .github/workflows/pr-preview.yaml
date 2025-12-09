@@ -71,6 +71,8 @@ jobs:
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
           ls -lisa
+          ls -lisa .github/
+          ls -lisa .github/workflows/
           ls -lisa .github/workflows/script
           bash .github/workflows/scripts/commit-and-push.sh
 
