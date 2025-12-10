@@ -70,18 +70,124 @@ jobs:
         env:
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
-          ls -lisa
-          ls -lisa .github/
-          ls -lisa .github/workflows/
-          ls -lisa .github/workflows/scripts
-          bash .github/workflows/scripts/commit-and-push.sh
+          set -euo pipefail
+
+          echo "=== Starting commit-and-push ==="
+          echo "PR_NUMBER: ${PR_NUMBER:-<not set>}"
+
+          if [ -z "${PR_NUMBER:-}" ]; then
+            echo "Error: PR_NUMBER environment variable is required"
+            exit 1
+          fi
+
+          echo "Changing directory to: other-repo"
+          cd other-repo
+          echo "Current directory: $(pwd)"
+
+          # Set git identity for this repository (not inherited from parent repo)
+          echo "Setting git identity..."
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+
+          echo "=== Git Configuration in other-repo ==="
+          echo "Git user.name: $(git config user.name || echo '<not set>')"
+          echo "Git user.email: $(git config user.email || echo '<not set>')"
+          echo "Git remote origin URL: $(git config --get remote.origin.url || echo '<not set>')"
+          echo "========================================"
+
+          # Switch to gh-pages branch
+          echo "Fetching gh-pages branch from origin"
+          git fetch origin gh-pages
+          echo "Checking out gh-pages branch"
+          git checkout gh-pages
+          echo "Current branch: $(git branch --show-current)"
+
+          # Remove existing preview directory if it exists
+          PREVIEW_DIR="pr-preview/pr-${PR_NUMBER}"
+          echo "Removing existing preview directory: ${PREVIEW_DIR}"
+          rm -rf "${PREVIEW_DIR}"
+
+          # Create pr-preview directory structure
+          echo "Creating preview directory: ${PREVIEW_DIR}"
+          mkdir -p "${PREVIEW_DIR}"
+
+          # Copy built files
+          SOURCE_DIR="../.vitepress/dist"
+          echo "Copying built files from: ${SOURCE_DIR}"
+          echo "Destination: ${PREVIEW_DIR}/"
+          cp -r ${SOURCE_DIR}/* "${PREVIEW_DIR}/"
+          echo "Files copied. Directory contents:"
+          ls -la "${PREVIEW_DIR}/" | head -20
+
+          # Stage changes
+          echo "Staging changes: git add ${PREVIEW_DIR}"
+          git add "${PREVIEW_DIR}"
+
+          # Check if there are changes to commit
+          echo "Checking for staged changes..."
+          if git diff --staged --quiet; then
+            echo "No changes detected in preview files. Skipping commit and push."
+            exit 0
+          fi
+
+          echo "Changes detected. Git status:"
+          git status --short
+
+          # Commit and push
+          COMMIT_MSG="Deploy PR #${PR_NUMBER} preview"
+          echo "Committing changes with message: ${COMMIT_MSG}"
+          git commit -m "${COMMIT_MSG}"
+
+          REMOTE_BRANCH="origin gh-pages"
+          echo "Pushing to: ${REMOTE_BRANCH}"
+          git push origin gh-pages
+          echo "Preview deployed successfully"
+          echo "Preview URL should be available at: https://<username>.github.io/<repo>/pr-preview/pr-${PR_NUMBER}/"
 
       - name: Comment on PR
         uses: actions/github-script@v7
         with:
           script: |
-            const script = require('./.github/workflows/scripts/comment-on-pr.js');
-            await script({ github, context });
+            const prNumber = context.payload.pull_request.number;
+            const previewUrl = `https://documentation-demo.gardener.cloud/pr-preview/pr-${prNumber}/`;
+            const commentBody = `## 🚀 Preview Deployed
+
+            Your preview is being built and will be available at:
+            ${previewUrl}
+
+            **Note:** The preview will only be available after the GitHub Pages deployment completes in the demo repository. 
+
+            To view the deployment status, visit: https://github.com/gardener/documentation-demo/actions`;
+
+            // Find existing comment
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber
+            });
+
+            const botComment = comments.find(comment => 
+              comment.user.type === 'Bot' && 
+              comment.body.includes('Preview Deployed')
+            );
+
+            if (botComment) {
+              // Update existing comment
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: commentBody
+              });
+            } else {
+              // Create new comment
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: prNumber,
+                body: commentBody
+              });
+            }
 
   cleanup-preview:
     if: ${{ github.event.action == 'closed' }}
@@ -116,15 +222,122 @@ jobs:
         env:
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
-          output=$(bash .github/workflows/scripts/remove-preview.sh 2>&1)
-          exit_code=$?
+          set -euo pipefail
 
-          echo "$output"
-          exit $exit_code
+          echo "=== Starting remove-preview ==="
+          echo "PR_NUMBER: ${PR_NUMBER:-<not set>}"
+
+          if [ -z "${PR_NUMBER:-}" ]; then
+            echo "Error: PR_NUMBER environment variable is required"
+            exit 1
+          fi
+
+          echo "Changing directory to: other-repo"
+          cd other-repo
+          echo "Current directory: $(pwd)"
+
+          # Set git identity for this repository (not inherited from parent repo)
+          echo "Setting git identity..."
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+
+          echo "=== Git Configuration in other-repo ==="
+          echo "Git user.name: $(git config user.name || echo '<not set>')"
+          echo "Git user.email: $(git config user.email || echo '<not set>')"
+          echo "Git remote origin URL: $(git config --get remote.origin.url || echo '<not set>')"
+          echo "========================================"
+
+          # Switch to gh-pages branch
+          echo "Fetching gh-pages branch from origin"
+          git fetch origin gh-pages
+          echo "Checking out gh-pages branch"
+          git checkout gh-pages
+          echo "Current branch: $(git branch --show-current)"
+
+          # Remove preview directory if it exists
+          PREVIEW_DIR="pr-preview/pr-${PR_NUMBER}"
+          echo "Checking for preview directory: ${PREVIEW_DIR}"
+
+          if [ -d "${PREVIEW_DIR}" ]; then
+            echo "Preview directory exists. Removing: ${PREVIEW_DIR}"
+            rm -rf "${PREVIEW_DIR}"
+
+            echo "Staging removal: git add -A ${PREVIEW_DIR}"
+            git add -A "${PREVIEW_DIR}"
+
+            echo "Checking for staged changes..."
+            if git diff --staged --quiet; then
+              echo "No changes detected after removal. Nothing to commit."
+              exit 0
+            fi
+
+            echo "Changes detected. Git status:"
+            git status --short
+
+            COMMIT_MSG="Remove PR #${PR_NUMBER} preview"
+            echo "Committing changes with message: ${COMMIT_MSG}"
+            git commit -m "${COMMIT_MSG}"
+
+            REMOTE_BRANCH="origin gh-pages"
+            echo "Pushing to: ${REMOTE_BRANCH}"
+            git push origin gh-pages
+            echo "Preview removed successfully"
+          else
+            echo "Preview directory does not exist: ${PREVIEW_DIR}"
+            echo "Nothing to clean up"
+          fi
 
       - name: Update PR comment
         uses: actions/github-script@v7
         with:
           script: |
-            const script = require('./.github/workflows/scripts/update-pr-comment.js');
-            await script({ github, context });
+            console.log('=== Starting update-pr-comment ===');
+
+            const prNumber = context.payload.pull_request.number;
+            console.log(`PR Number: ${prNumber}`);
+            console.log(`Repository: ${context.repo.owner}/${context.repo.repo}`);
+            console.log(`Event: ${context.eventName}`);
+
+            const commentBody = `## 🧹 Preview Removed
+
+            The preview for this PR is no longer available since the PR has been closed.`;
+
+            console.log('Comment body to post:');
+            console.log(commentBody);
+
+            // Find existing comment
+            console.log(`Fetching comments for PR #${prNumber}...`);
+            console.log(`API call: github.rest.issues.listComments({ owner: "${context.repo.owner}", repo: "${context.repo.repo}", issue_number: ${prNumber} })`);
+
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber
+            });
+
+            console.log(`Found ${comments.length} total comments on PR #${prNumber}`);
+
+            const botComment = comments.find(comment => 
+              comment.user.type === 'Bot' && 
+              comment.body.includes('Preview Deployed')
+            );
+
+            if (botComment) {
+              console.log(`Found existing preview comment (ID: ${botComment.id})`);
+              console.log(`Comment author: ${botComment.user.login} (${botComment.user.type})`);
+              console.log(`API call: github.rest.issues.updateComment({ owner: "${context.repo.owner}", repo: "${context.repo.repo}", comment_id: ${botComment.id}, body: "..." })`);
+
+              // Update existing comment
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: commentBody
+              });
+              console.log(`✅ Successfully updated comment ID: ${botComment.id}`);
+            } else {
+              console.log('⚠️ No existing preview comment found to update');
+              console.log('Searched for comments from Bot users containing "Preview Deployed"');
+            }
+
+            console.log('=== update-pr-comment completed ===');
