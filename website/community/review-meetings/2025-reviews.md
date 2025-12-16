@@ -14,6 +14,25 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2025/12/17 - [v1.134](https://github.com/gardener/gardener/releases/tag/v1.134.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@vitanovs](https://github.com/vitanovs) | `10m` | ♻️ `InPlaceOrRecreate` VPA Update Mode Webhook | [#12940](https://github.com/gardener/gardener/pull/12940), [#13573](https://github.com/gardener/gardener/pull/13573) |
+| [@oliver-goetz](https://github.com/oliver-goetz) | `5m` | 📝 `kube-apiserver` Access Logs | [#13569](https://github.com/gardener/gardener/pull/1356) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- 🪓 [DEVELOPER] The registry for the local development setup is now exposed under `registry.local.gardener.cloud` instead of `garden.local.gardener.cloud`. Make sure to update your `/etc/hosts` file by replacing the existing `127.0.0.1 garden.local.gardener.cloud` entries with `127.0.0.1 registry.local.gardener.cloud`. [#13551](https://github.com/gardener/gardener/pull/13551)
+- 🐛 [USER] A bug which prevented the wildcard certificate endpoints to be advertised in the shoot status has been fixed. [#13644](https://github.com/gardener/gardener/pull/13644)
+- ✨ [OPERATOR] Seed clusters are now labelled with a specific extension label `extensions.extensions.gardener.cloud/<extension-type>: true` whenever such an extension is activated for the seed. [#13509](https://github.com/gardener/gardener/pull/13509)
+
+<hr />
+
 ### 2025/12/10 - [v1.133](https://github.com/gardener/gardener/releases/tag/v1.133.0) Release
 
 [📽️ Recording](https://youtu.be/VZgnIjnoDtA)
