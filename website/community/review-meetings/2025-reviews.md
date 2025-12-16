@@ -16,8 +16,6 @@ Check back regularly for updates and upcoming topics!
 
 ### 2025/12/17 - [v1.134](https://github.com/gardener/gardener/releases/tag/v1.134.0) Release
 
-[📽️ Recording]()
-
 #### Demo Agenda 📋
 
 _No topics available for presentation, hence, meeting was canceled._
