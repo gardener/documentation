@@ -20,10 +20,7 @@ Check back regularly for updates and upcoming topics!
 
 #### Demo Agenda 📋
 
-| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
-| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
-| [@vitanovs](https://github.com/vitanovs) | `10m` | ♻️ `InPlaceOrRecreate` VPA Update Mode Webhook | [#12940](https://github.com/gardener/gardener/pull/12940), [#13573](https://github.com/gardener/gardener/pull/13573) |
-| [@oliver-goetz](https://github.com/oliver-goetz) | `5m` | 📝 `kube-apiserver` Access Logs | [#13569](https://github.com/gardener/gardener/pull/1356) |
+_No topics available for presentation, hence, meeting was canceled._
 
 #### No Demo, But Still Worth Celebrating 🎉
 
