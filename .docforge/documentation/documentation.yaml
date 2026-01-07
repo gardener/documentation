@@ -17,6 +17,13 @@ structure:
   - dir: security-and-compliance
     structure:
     - manifest: ./security-and-compliance.yaml
+    - file: _index.md
+      frontmatter:
+        title: Security and Compliance
+        description: Make sure that your clusters are compliant and secure
+        weight: 30
+        aliases: ["/docs/security-and-compliance/"]
+      source: https://github.com/gardener/.github/blob/main/SECURITY.md
     - file: https://github.com/gardener/diki/blob/main/docs/usage/disa-k8s-stig-shoot.md
       frontmatter:
         title: Run DISA K8s STIGs Ruleset
