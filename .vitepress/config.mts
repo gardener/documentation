@@ -53,6 +53,14 @@ export default defineConfig({
       b: 'shell',
       terminaloutput: 'shell',
     },
+    /* Disable interpolation of inline code by Vue. Based on: https://github.com/vuejs/vitepress/discussions/3724#discussioncomment-8963669 */
+    config(md: any) {
+      const defaultCodeInline = md.renderer.rules.code_inline!
+      md.renderer.rules.code_inline = (tokens: any, idx: any, options: any, env: any, self: any) => {
+        tokens[idx].attrSet('v-pre', '')
+        return defaultCodeInline(tokens, idx, options, env, self)
+      }
+    },
   }
 }
 )
