@@ -1,7 +1,5 @@
 ---
 title: "2026-01: Self-Hosted Shoot Exposure"
-linkTitle: "2026-01: Self-Hosted Shoot Exposure"
-publishdate: 2025-12-08
 ---
 
 - ✍🏻 **Author(s):** [@timebertt](https://github.com/timebertt) (Tim Ebert)

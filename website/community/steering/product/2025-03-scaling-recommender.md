@@ -1,7 +1,5 @@
 ---
 title: "2025-03: Scaling Recommender"
-linkTitle: "2025-03: Scaling Recommender"
-publishdate: 2025-03-17
 ---
 
 - ✍🏻 **Author(s):** [@unmarshall](https://github.com/unmarshall) (Madhav Bhargava)
