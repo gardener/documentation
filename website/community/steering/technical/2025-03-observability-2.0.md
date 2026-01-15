@@ -1,7 +1,5 @@
 ---
 title: "2025-03: Observability 2.0"
-linkTitle: "2025-03: Observability 2.0"
-publishdate: 2025-03-20
 ---
 
 - ✍🏻 **Author(s):** [@nickytd](https://github.com/nickytd) (Niki Dokovski)
