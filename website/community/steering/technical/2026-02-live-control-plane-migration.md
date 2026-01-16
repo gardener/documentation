@@ -1,11 +1,10 @@
 ---
 title: "2026-02: Live Control Plane Migration (Live CPM)"
-linkTitle: "2026-02: Live Control Plane Migration (Live CPM)"
-publishdate: 2026-01-12
+
 ---
 
 - ✍🏻 **Author(s):** [@acumino](https://github.com/acumino) Sonu Kumar Singh, [@ary1992](https://github.com/ary1992) Ashish Ranjan Yadav, [@seshachalam-yv](https://github.com/seshachalam-yv) Seshachalam, [@shafeeqes](https://github.com/shafeeqes) Shafeeque E S
-- 🗓️ **Presentation:** (TBA)
+- 🗓️ **Presentation:** 2026-02-09, 13:00 - 14:00 CET
 - 🎥 **Recording:** (TBA)
 - 👨‍⚖️ **Decisions:**
   - _pending_
@@ -164,92 +163,6 @@ Open questions remain, such as:
 * How should CSI components be handled in this scenario?
 
 #### Live Migration Flow
-
-**"SourceEtcdPreparedForPeerJoin"**
-
-- ***[Source]*** Create load balancers for etcd peer communication.
-- ***[Source]*** Take full snapshot.
-- ***[Source]*** Update etcd CRs with load balancer IPs and apply reconciliation annotation on the etcd to reconcile it.
-- ***[Source]*** Store these load balancer IPs in shoot state so they can be fetched in the destination seed cluster.
-
-**"SixMemberETCDReady"**
-
-- ***[Destination]*** Create load balancers for etcd peer communication.
-- ***[Destination]*** Fetch load balancer IPs of peers from shoot state of the etcd members in the source seed cluster.
-- ***[Destination]*** Deploy etcd CR with the source etcd cluster information to form 6-member cluster and wait for its readiness.
-
-**"MigrateExtensionsNeededBeforeKAPI"**
-
-- ***[Source]*** Migrate extensions deployed before KAPI.
-
-**"RestoreExtensionsNeededBeforeKAPI"**
-
-- ***[Destination]*** Restore extensions deployed before KAPI.
-
-**"DestinationKAPIReady"**
-
-- ***[Destination]*** Deploy temporary DNS record for the VPN communication.
-- ***[Destination]*** Start kube-api-server with temporary VPN configuration and wait for its readiness.
-- ***[Destination]*** Deploy temporary VPN seed server and wait for its readiness.
-
-**"ShootSystemComponentsMigrated"**
-
-- ***[Source]*** Set `keepObjects` field to `true` for all the managed resources (MR) with class shoot and delete them.
-
-**"ShootSystemComponentsRestored"**
-
-- ***[Destination]*** Bring up [Gardener Resource Manager (GRM)](https://github.com/gardener/gardener/blob/master/docs/concepts/resource-manager.md)
-- ***[Destination]*** Deploy all MRs.
-- ***[Destination]*** Deploy temporary VPN shoot and wait for its readiness.
-
-**"ExtensionsMigrated"**
-
-- **[Source]** Delete machine-controller-manager (MCM) and migrate extensions.
-- **[Source]** Migrate Shoot control plane extension.
-- **[Source]** Migrate shoot infrastructure.
-
-**"ExtensionsRestored"**
-
-- **[Destination]** Deploy MCM and restore extensions
-- **[Destination]** Restore Shoot control plane extension.
-- **[Destination]** Restore shoot infrastructure.
-
-**"MigrateDNSRecords"**
-
-- ***[Source]*** Migrate DNS records.
-
-**"RestoreDNSRecords"**
-
-- ***[Destination]*** Restore DNS records.
-- ***[Destination]*** Wait for DNS caches to get updated/invalidated.
-
-**"CleanUpPhase1"**
-
-- ***[Source]*** Delete DNS records.
-- ***[Source]*** Destroy VPN seed server.
-
-**"CleanUpPhase2"**
-
-- ***[Destination]*** Deploy VPN seed server.
-- ***[Destination]*** Deploy KAPI again to use the regular VPN solution.
-- ***[Destination]*** Delete temporary VPN solution.
-- ***[Source]*** Migrate core backupentry.
-
-**"CleanUpPhase3"**
-
-- ***[Source]*** Migrate extensions needed after KAPI.
-- ***[Source]*** Delete all the components like KAPI and all the remaining components except ETCDs.
-- ***[Destination]*** Restore core backupentry and take full snapshot of the etcd.
-
-**"SourceETCDMembersRemoved"**
-
-- ***[Source]*** Remove etcd members part of source seed cluster.
-
-**"MigrationComplete"**
-
-- ***[Source]*** Delete shoot namespace.
-- ***[Destination]*** Update the etcd CR by unsetting the `bootstrapWithExistingCluster`.
-- ***[Destination]*** Migration complete.
 
 ![LiveCPM flow diagram](assets/livecpm-flow.png)
 
