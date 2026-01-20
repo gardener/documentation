@@ -63,3 +63,11 @@ structure:
       description: Gardener extension controller which configures the rsyslog and auditd services installed on shoot nodes.
     source: https://github.com/gardener/gardener-extension-shoot-rsyslog-relp/blob/main/README.md
   - fileTree: https://github.com/gardener/gardener-extension-shoot-rsyslog-relp/tree/main/docs
+- dir: gardener-extension-auditing
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: Kubernetes Auditing
+      description: Gardener extension controller which deploys an auditlog forwarder sending Kubernetes Audit Events to configured backends.
+    source: https://github.com/gardener/gardener-extension-auditing/blob/main/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-auditing/tree/main/docs
