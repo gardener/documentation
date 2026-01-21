@@ -20,7 +20,7 @@ Check back regularly for updates and upcoming topics!
 
 ### 2026/01/21 - Kubernetes v1.34 Special Edition
 
-[📽️ Recording]()
+[📽️ Recording](https://youtu.be/ksbM6eZo6Pg)
 
 #### Demo Agenda 📋
 
