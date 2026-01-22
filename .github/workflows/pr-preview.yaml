@@ -12,7 +12,7 @@ concurrency: preview-${{ github.ref }}
 
 jobs:
   deploy-preview:
-    if: ${{ github.event.action == 'labeled' && github.event.label.name == 'reviewed/ok-to-test' }}
+    if: ${{ github.event.action == 'labeled' && github.event.label.name == 'ok-to-test' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/create-github-app-token@v2
