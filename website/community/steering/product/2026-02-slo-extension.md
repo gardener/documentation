@@ -45,9 +45,9 @@ An SLO extension that provides a standardized framework for measuring and monito
 
 This extension delivers three core capabilities:
 
-- **SLO visibility**: View SLO status globally (across all shoots) and per-shoot via Perses dashboards.
-- **Configurable SLOs**: Define custom SLOs tailored to operator-specific reliability requirements (configured at landscape level)
-- **SLO-based alerting**: Create all the data to then configure alerting based on SLO breaches and burn rates. Hence an Alertmanager instance could also be deployed as part of the extension.
+- **Default and custom SLI**: A set of predefined SLIs based on industry best practices for Kubernetes clusters. However, since the needs of each operators may vary, these defaults will configurable. There should also be the ability to define custom SLIs based on specific metrics exposed by Gardener or the shoot clusters. However, those SLIs would be generic across the landscape.
+- **Configurable SLOs**: The SLOs perametrcs (SLI, threshold, ...) should be configurable. Then a templating engine would generate the necessary Prometheus recording rules and Perses dashboards.
+- **SLO-based alerting**: Since we have the data to calculate SLO violations and burn rates (SRE best practice), we should also provide as part of the extension the capability to configure an Alertmanager based on those SLOs.
 
 The extension builds on the observability 2.0 infrastructure (Prometheus and Perses operators), using a dedicated Prometheus instance in the runtime cluster to collect and aggregate SLO-specific metrics without impacting existing monitoring systems.
 
