@@ -21,7 +21,7 @@ title: "2026-06: SLO extension"
 
 **What is the problem/opportunity?**
 
-Although Gardener and Kubernetes expose a lot of metrics, there is presently no easy way to evaluate the availability of a shoot from the customer (shoot owner/operator) perspective. In the context that Gardener is meant to run a multitude of Kubernetes clusters at scale, operating it is usually not an easy endeavor. Having such means to measure and monitor the shoot's reliability is a key aspect from both customer happiness and operation excellence.
+Although Gardener and Kubernetes expose a lot of metrics, there is presently no easy way to evaluate the availability of a shoot from the customer (shoot owner/operator) perspective. In the context that Gardener is meant to run a multitude of Kubernetes clusters at scale, operating it is usually not an easy endeavor. Having such means to measure and monitor the shoot's reliability is a key aspect from both customer happiness and operational excellence.
 
 **Why should we care?**
 
@@ -48,7 +48,7 @@ An SLO (service level objective) extension that provides a standardized framewor
 This extension delivers 4 core capabilities:
 
 - **Default and custom SLI**: A set of predefined SLIs based on industry best practices for Kubernetes clusters and Gardener specifics, but always from the customer perspective. However, since the needs of each Gardener operator may vary, these defaults will be configurable. There should also be the ability to define custom SLIs based on specific metrics exposed by Gardener or the shoot clusters. However, those SLIs would need to be generic across the landscape.
-- **Configurable SLOs**: The SLOs parameters (SLI, threshold, ...) should be configurable. Then a templating engine would generate the necessary Prometheus recording rules and Perses dashboards.
+- **Configurable SLOs**: The SLO parameters (SLI, threshold, ...) should be configurable. Then a templating engine would generate the necessary Prometheus recording rules and Perses dashboards.
 - **SLO-based alerting**: Since we have the data to calculate SLO violations and burn rates (SRE best practice), we should also provide, as part of the extension, the capability to configure an Alertmanager based on those SLOs. Again, this should be configurable to fit the needs of each Gardener operator.
 - **Monitoring infrastructure**: The extension should provide the necessary monitoring infrastructure to collect, store, and visualize SLO-related metrics. This includes Prometheus rules for SLI calculation, Perses dashboards for visualization, Prometheus alerts for SLO violations, Alertmanager to manage those alerts, etc.
 
@@ -67,7 +67,6 @@ The primary complexity involves managing dedicated Prometheus infrastructure and
 **What alternative approaches were considered?**
 
 - **Reusing existing Prometheus instances**: Rejected due to risk of impacting other critical metrics. Since SLO calculations can be resource-intensive, isolating them ensures stability and separation of concerns.
-- **Manual dashboarding without framework**: Considered but lacks the standardization and ease-of-use needed for broad adoption across operators.
 
 ## Decision Request
 
