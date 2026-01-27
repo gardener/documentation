@@ -21,7 +21,7 @@ title: "2026-06: SLO extension"
 
 **What is the problem/opportunity?**
 
-Although Gardener and kubernetes expose a lot of metrics, there are presently no easy way to evaluate the availability of a shoot from the shoot-owner perspective. In the context that Gardener is meant to run a multitude of kubernetes clusters at scale, operating it is usually not an easy endavour.
+Although Gardener and Kubernetes expose a lot of metrics, there is presently no easy way to evaluate the availability of a shoot from the shoot-owner perspective. In the context that Gardener is meant to run a multitude of Kubernetes clusters at scale, operating it is usually not an easy endeavor.
 
 **Why should we care?**
 
@@ -33,7 +33,7 @@ Operation team(s): Having a ready to go extension to help with reliability and d
 
 Developers: Having SLOs is a great tool to help prioritize between reliability and feature.
 
-Users : Since SLOs are internal objectives for the meant for the team running Gardener, they are normally not shared with the users. However, better reliability generaly makes customers happy, which intern drives user adoption.
+Users: Since SLOs are internal objectives meant for the team running Gardener, they are normally not shared with the users. However, better reliability generally makes customers happy, which in turn drives user adoption.
 
 ## Proposal
 
@@ -45,11 +45,11 @@ An SLO extension that provides a standardized framework for measuring and monito
 
 This extension delivers three core capabilities:
 
-- **Default and custom SLI**: A set of predefined SLIs based on industry best practices for Kubernetes clusters. However, since the needs of each operators may vary, these defaults will configurable. There should also be the ability to define custom SLIs based on specific metrics exposed by Gardener or the shoot clusters. However, those SLIs would be generic across the landscape.
-- **Configurable SLOs**: The SLOs perametrcs (SLI, threshold, ...) should be configurable. Then a templating engine would generate the necessary Prometheus recording rules and Perses dashboards.
+- **Default and custom SLI**: A set of predefined SLIs based on industry best practices for Kubernetes clusters. However, since the needs of each operator may vary, these defaults will be configurable. There should also be the ability to define custom SLIs based on specific metrics exposed by Gardener or the shoot clusters. However, those SLIs would be generic across the landscape.
+- **Configurable SLOs**: The SLOs parameters (SLI, threshold, ...) should be configurable. Then a templating engine would generate the necessary Prometheus recording rules and Perses dashboards.
 - **SLO-based alerting**: Since we have the data to calculate SLO violations and burn rates (SRE best practice), we should also provide as part of the extension the capability to configure an Alertmanager based on those SLOs.
 
-The extension builds on the observability 2.0 infrastructure (Prometheus and Perses operators), using a dedicated Prometheus instance in the runtime cluster to collect and aggregate SLO-specific metrics without impacting existing monitoring systems.
+The extension builds on the [Observability 2.0](../technical/2025-03-observability-2.0.md) infrastructure (Prometheus and Perses operators), using a dedicated Prometheus instance in the runtime cluster to collect and aggregate SLO-specific metrics without impacting existing monitoring systems.
 
 **Include diagrams or examples where helpful.**
 
@@ -59,7 +59,7 @@ Technical architecture details, specific SLO definitions, and implementation des
 
 **What are the potential risks, downsides, or trade-offs?**
 
-The primary complexity involves managing dedicated Prometheus infrastructure and coordinating resource changes across both runtime and seed clusters. However, this is mitigated by building on the proven observability 2.0 foundation, which already handles similar cross-cluster orchestration.
+The primary complexity involves managing dedicated Prometheus infrastructure and coordinating resource changes across both runtime and seed clusters. However, this is mitigated by building on the proven Observability 2.0 foundation, which already handles similar cross-cluster orchestration.
 
 **What alternative approaches were considered?**
 
