@@ -2,6 +2,7 @@
 
 aliases:
   documentation-reviewers:
+  - BoHristova
   - dimitar-kostadinov
   - JordanJordanov
   - klocke-io
@@ -11,8 +12,8 @@ aliases:
   - n-boshnakov
   - RadaBDimitrova
   - rfranzke
-  - BoHristova
   documentation-approvers:
+  - BoHristova
   - dimitar-kostadinov
   - JordanJordanov
   - klocke-io
@@ -22,4 +23,3 @@ aliases:
   - n-boshnakov
   - RadaBDimitrova
   - rfranzke
-  - BoHristova
