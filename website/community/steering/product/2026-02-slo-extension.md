@@ -1,9 +1,9 @@
 ---
-title: "2026-06: SLO extension"
+title: "2026-02: SLO extension"
 ---
 
 - ✍🏻 **Author(s):** [etiennnr](https://github.com/etiennnr) (Étienne Kemp-Rousseau)
-- 🗓️ **Presentation:** 2026-02-26 15:00-16:00 CET
+- 🗓️ **Presentation:** 2026-02-24 15:00-16:00 CET
 - 🎥 **Recording:** _(TBD)_
 - 👨‍⚖️ **Decisions:**
   - _pending_
