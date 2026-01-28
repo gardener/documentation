@@ -379,6 +379,7 @@ posthog.init('phc_zYmm7RPD5YnDyWVuBE8z1uQKlBimlxHGrCfELNXfsTD', {
     api_host: 'https://eu.i.posthog.com',
     defaults: '2025-11-30',
     cookieless_mode: 'always',
+    person_profiles: 'always',
 })
       `
     ]
