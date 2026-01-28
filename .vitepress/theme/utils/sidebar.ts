@@ -18,45 +18,56 @@ export interface SidebarBranch {
 export type SidebarItem = SidebarLeaf | SidebarBranch;
 
 
+function normalizeLink(link: string): string {
+  // Normalize by replacing trailing '/_index' with '/index' and removing trailing slash
+  return link.replace(/\/_index$/, '/index').replace(/\/$/, '').concat('.md');
+}
+
 /**
  * Recursively removes all _index.md entries from the sidebar
  */
-export function removeIndexEntries(sidebar: any): any {
+export function removeIndexEntries(sidebar: any, processedLinks = new Set<string>()): any {
   if (Array.isArray(sidebar)) {
-    return sidebar
-      .map(item => removeIndexEntries(item))
-      .filter(item => item !== null);
+    return sidebar.map(item => removeIndexEntries(item, processedLinks));
   }
-  
+
   if (typeof sidebar !== 'object' || sidebar === null) {
     return sidebar;
   }
-  
-  // Create a copy of the object
-  const filtered = { ...sidebar };
-  
-  // If this object has items, filter them
-  if (filtered.items && Array.isArray(filtered.items)) {
-    filtered.items = filtered.items
-      .map((item: any) => {
-        // Filter out items that are _index entries
-        if (item.link && (item.link === '_index' || item.link.endsWith('/_index'))) {
-          return null;
-        }
-        // Recursively process remaining items
-        return removeIndexEntries(item);
-      })
-      .filter((item: any) => item !== null);
+
+  // Copy the object to avoid mutating the original
+  const node = { ...sidebar };
+
+  // If this node has a link ending with _index, rewrite it to the folder route
+  if (typeof node.link === 'string') {
+    const normalizedLink = normalizeLink(node.link);
+    if (!processedLinks.has(normalizedLink)) {
+      node.link = node.link
+        .replace(/\/_index$/, '') // /roles/_index → /roles
+        .replace(/_index$/, '');  // _index → '' for top-level
+      processedLinks.add(node.link);
+    } else {
+      return null; // skip duplicate node
+    }
+
   }
-  
-  // Process other properties recursively
-  for (const [key, value] of Object.entries(filtered)) {
+
+  // Recursively process items
+  if (Array.isArray(node.items)) {
+    processedLinks.add(node.link ? normalizeLink(node.link) : '');
+    node.items = node.items
+      .map((item: any) => removeIndexEntries(item, processedLinks))
+      .filter((item: any) => item != null);
+  }
+
+  // Recursively process other object properties
+  for (const [key, value] of Object.entries(node)) {
     if (key !== 'items' && typeof value === 'object') {
-      filtered[key] = removeIndexEntries(value);
+      node[key] = removeIndexEntries(value, processedLinks);
     }
   }
-  
-  return filtered;
+
+  return node;
 }
 
 /**
@@ -73,21 +84,21 @@ export function sortByWeight(sidebar: any, base): any {
         return weightA - weightB;
       });
   }
-  
+
   if (typeof sidebar !== 'object' || sidebar === null) {
     return sidebar;
   }
-  
+
   // Create a copy of the object
   const sorted = { ...sidebar };
-  
+
   // If this object has items, sort them
   if (sorted.items && Array.isArray(sorted.items)) {
     sorted.items = sorted.items
       .map((item: any) => sortByWeight(item, base))
       .sort(compareItemsByWeight);
   }
-  
+
   // Process other properties recursively
   for (const [key, value] of Object.entries(sorted)) {
     if (key !== 'items' && typeof value === 'object') {
@@ -96,13 +107,12 @@ export function sortByWeight(sidebar: any, base): any {
   }
 
 
-  function compareItemsByWeight(a: any, b: any): number
-  {
+  function compareItemsByWeight(a: any, b: any): number {
     const weightA = getWeightForItem(a, base);
     const weightB = getWeightForItem(b, base);
     return weightA - weightB;
   }
-  
+
   return sorted;
 }
 
@@ -114,13 +124,13 @@ export function getWeightForItem(item: any, base): number {
   if (!item || typeof item !== 'object') {
     return Number.MAX_SAFE_INTEGER; // Put invalid items at the end
   }
-  
+
   // If it's a directory with items, check for _index file
   if (item.items && Array.isArray(item.items)) {
-    const indexItem = item.items.find((subItem: any) => 
+    const indexItem = item.items.find((subItem: any) =>
       subItem.link && (subItem.link === '_index' || subItem.link.endsWith('/_index'))
     );
-    
+
     if (indexItem) {
       const weight = getWeightFromFile(indexItem.link, base);
       if (weight !== null) {
@@ -128,7 +138,7 @@ export function getWeightForItem(item: any, base): number {
       }
     }
   }
-  
+
   // If it's a leaf item with a link, get weight from that file
   if (item.link && typeof item.link === 'string') {
     const weight = getWeightFromFile(item.link, base);
@@ -136,7 +146,7 @@ export function getWeightForItem(item: any, base): number {
       return weight;
     }
   }
-  
+
   // Default weight if no weight found
   return Number.MAX_SAFE_INTEGER;
 }
@@ -148,7 +158,7 @@ export function getWeightFromFile(link: string, base?: string): number | null {
   try {
     // Construct the file path
     let filePath: string;
-    
+
     if (link === '_index') {
       // For root _index files
       filePath = join(process.cwd(), 'hugo', 'content', base, '_index.md');
@@ -160,28 +170,28 @@ export function getWeightFromFile(link: string, base?: string): number | null {
       // For regular files
       filePath = join(process.cwd(), 'hugo', 'content', base, `${link}.md`);
     }
-    
+
     // Check if file exists
     if (!existsSync(filePath)) {
       return null;
     }
-    
+
     // Read the file content
     const content = readFileSync(filePath, 'utf-8');
-    
+
     // Extract frontmatter
     const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
     if (!frontmatterMatch) {
       return null;
     }
-    
+
     // Parse YAML frontmatter
     const frontmatter = load(frontmatterMatch[1]) as any;
-    
+
     // Return the weight if it exists and is a number
     const weight = frontmatter?.weight;
     return typeof weight === 'number' ? weight : null;
-    
+
   } catch (error) {
     console.warn(`Error reading weight from ${link}:`, error);
     return null;
@@ -195,21 +205,21 @@ export function enhanceDirectoryTitles(sidebar: any, base): any {
   if (Array.isArray(sidebar)) {
     return sidebar.map(item => enhanceDirectoryTitles(item, base));
   }
-  
+
   if (typeof sidebar !== 'object' || sidebar === null) {
     return sidebar;
   }
-  
+
   // Create a copy of the object
   const enhanced = { ...sidebar };
-  
+
   // If this object has items (indicating it's a directory), enhance it
   if (enhanced.items && Array.isArray(enhanced.items)) {
     // Look for _index.md file in the items
-    const indexItem = enhanced.items.find((item: any) => 
+    const indexItem = enhanced.items.find((item: any) =>
       item.link && (item.link === '_index' || item.link.endsWith('/_index'))
     );
-    
+
     if (indexItem) {
       // Try to read the frontmatter and update the title
       const title = getTitleFromIndexFile(indexItem.link, base);
@@ -217,23 +227,23 @@ export function enhanceDirectoryTitles(sidebar: any, base): any {
         enhanced.text = title;
       }
     }
-    
+
     // Recursively process all items
     enhanced.items = enhanced.items.map((item: any) => enhanceDirectoryTitles(item, base));
   }
-  
+
   // If it's a top-level section with items, process those too
   if (enhanced.base && enhanced.items) {
     enhanced.items = enhanced.items.map((item: any) => enhanceDirectoryTitles(item, base));
   }
-  
+
   // Process other properties recursively
   for (const [key, value] of Object.entries(enhanced)) {
     if (key !== 'items' && typeof value === 'object') {
       enhanced[key] = enhanceDirectoryTitles(value, base);
     }
   }
-  
+
   return enhanced;
 }
 
@@ -244,7 +254,7 @@ export function getTitleFromIndexFile(link: string, base?: string): string | nul
   try {
     // Construct the file path
     let filePath: string;
-    
+
     if (link === '_index') {
       // For root _index files
       filePath = join(process.cwd(), 'hugo', 'content', base, '_index.md');
@@ -255,27 +265,27 @@ export function getTitleFromIndexFile(link: string, base?: string): string | nul
     } else {
       return null;
     }
-    
+
     // Check if file exists
     if (!existsSync(filePath)) {
       return null;
     }
-    
+
     // Read the file content
     const content = readFileSync(filePath, 'utf-8');
-    
+
     // Extract frontmatter
     const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
     if (!frontmatterMatch) {
       return null;
     }
-    
+
     // Parse YAML frontmatter
     const frontmatter = load(frontmatterMatch[1]) as any;
-    
+
     // Return the title if it exists
     return frontmatter?.title || null;
-    
+
   } catch (error) {
     console.warn(`Error reading title from ${link}:`, error);
     return null;
@@ -287,7 +297,7 @@ export function getTitleFromIndexFile(link: string, base?: string): string | nul
  */
 export function createLeafMap(items: SidebarItem[]): Map<string, SidebarLeaf> {
   const leafMap = new Map<string, SidebarLeaf>();
-  
+
   function processItem(item: SidebarItem) {
     // If the item has a link and no items, it's a leaf node
     if ('link' in item && !('items' in item)) {
@@ -298,7 +308,7 @@ export function createLeafMap(items: SidebarItem[]): Map<string, SidebarLeaf> {
       item.items.forEach(processItem);
     }
   }
-  
+
   items.forEach(processItem);
   return leafMap;
 }
@@ -317,7 +327,7 @@ export function extractItems(section: any): SidebarItem[] {
 }
 
 
-function removeTrailingSlash (str: string) {
+function removeTrailingSlash(str: string) {
   return str.endsWith('/') ? str.slice(0, -1) : str;
 }
 
@@ -329,7 +339,7 @@ function removeTrailingSlash (str: string) {
 export function filterLeafMapByPersona(leafMap: Map<string, SidebarLeaf>, persona: string): Map<string, SidebarLeaf> {
   // Create a copy of the original map
   const filteredMap = new Map(leafMap);
-  
+
   // Read the persona mapping
   const personaMapping = JSON.parse(
     readFileSync(`${import.meta.dirname}/personaMapping.json`, 'utf-8')
@@ -345,12 +355,12 @@ export function filterLeafMapByPersona(leafMap: Map<string, SidebarLeaf>, person
 
       // Find and remove all matching entries from filteredMap
       for (const [leafKey] of filteredMap) {
-        if (leafKey.includes(strippedPath+ '/')) {
+        if (leafKey.includes(strippedPath + '/')) {
           //delete dirs
           filteredMap.delete(leafKey);
         }
         if (leafKey === strippedPath) {
-            //delete files
+          //delete files
           filteredMap.delete(leafKey);
         }
       }
@@ -368,7 +378,7 @@ export function filterSidebarByLeafMap(
   allowedLeafMap: Map<string, SidebarLeaf>
 ): { filtered: Record<string, any>, deleted: SidebarLeaf[] } {
   const deletedItems: SidebarLeaf[] = [];
-  
+
   function filterItem(item: SidebarItem): SidebarItem | null {
     // If it's a leaf node (has link but no items)
     if ('link' in item && !('items' in item)) {
@@ -382,31 +392,31 @@ export function filterSidebarByLeafMap(
       item.link = `/docs/${item.link}`;
       return item;
     }
-    
+
     // If it's a branch node (has items)
     if ('items' in item && Array.isArray(item.items)) {
       const branch = item as SidebarBranch;
       const filteredItems = branch.items
         .map((subItem: SidebarItem) => filterItem(subItem))
         .filter((subItem): subItem is SidebarItem => subItem !== null);
-      
+
       // If all items were filtered out, remove this branch too
       if (filteredItems.length === 0) {
         return null;
       }
-      
+
       return {
         ...branch,
         items: filteredItems
       };
     }
-    
+
     return item;
   }
 
   // Create a deep copy of the sidebar
   const filteredSidebar = JSON.parse(JSON.stringify(sidebar));
-  
+
   // Filter each section of the sidebar
   for (const [path, section] of Object.entries(filteredSidebar)) {
     if (Array.isArray(section)) {
@@ -433,7 +443,7 @@ export function filterSidebarByLeafMap(
       }
     }
   }
-  
+
   return { filtered: filteredSidebar, deleted: deletedItems };
 }
 
@@ -450,7 +460,7 @@ export function removeEmptyItems(sidebar: any): any {
   if (sidebar && typeof sidebar === 'object') {
     // Create a copy of the object
     const cleaned = { ...sidebar };
-    
+
     // If this object has items, process them
     if (cleaned.items && Array.isArray(cleaned.items)) {
       if (cleaned.items.length === 0) {
@@ -459,21 +469,21 @@ export function removeEmptyItems(sidebar: any): any {
       } else {
         // Recursively process items
         cleaned.items = removeEmptyItems(cleaned.items);
-        
+
         // If after processing, items becomes empty, remove it
         if (cleaned.items.length === 0) {
           delete cleaned.items;
         }
       }
     }
-    
+
     // Process other properties recursively
     for (const [key, value] of Object.entries(cleaned)) {
       if (key !== 'items' && typeof value === 'object' && value !== null) {
         cleaned[key] = removeEmptyItems(value);
       }
     }
-    
+
     return cleaned;
   }
 
@@ -484,37 +494,37 @@ export function removeEmptyItems(sidebar: any): any {
  * Promotes single child leafs by replacing parent branches that contain only one leaf
  * with the leaf itself, using the leaf's title and link
  */
-export function promoteSingleChildLeafs(sidebar: any): { 
-  transformed: any, 
-  promotedLeafs: Array<{from: string, to: string, originalParent: string, newTitle: string}> 
+export function promoteSingleChildLeafs(sidebar: any): {
+  transformed: any,
+  promotedLeafs: Array<{ from: string, to: string, originalParent: string, newTitle: string }>
 } {
-  const promotedLeafs: Array<{from: string, to: string, originalParent: string, newTitle: string}> = [];
-  
+  const promotedLeafs: Array<{ from: string, to: string, originalParent: string, newTitle: string }> = [];
+
   function processItem(item: any): any {
     // If it's an array, process each item
     if (Array.isArray(item)) {
       return item.map(subItem => processItem(subItem)).filter(subItem => subItem !== null);
     }
-    
+
     // If it's not an object, return as-is
     if (!item || typeof item !== 'object') {
       return item;
     }
-    
+
     // Create a copy of the item
     const processedItem = { ...item };
-    
+
     // If this item has items (it's a branch)
     if (processedItem.items && Array.isArray(processedItem.items)) {
       // First, recursively process all child items
       processedItem.items = processedItem.items
         .map(subItem => processItem(subItem))
         .filter(subItem => subItem !== null);
-      
+
       // After processing children, check if this branch has exactly one leaf child
       if (processedItem.items.length === 1) {
         const singleChild = processedItem.items[0];
-        
+
         // Check if the single child is a leaf (has link but no items)
         if (singleChild && 'link' in singleChild && !('items' in singleChild)) {
           // Log the promotion
@@ -524,7 +534,7 @@ export function promoteSingleChildLeafs(sidebar: any): {
             originalParent: processedItem.text,
             newTitle: singleChild.text
           });
-          
+
           // Return the child leaf with its own title and link
           return {
             text: singleChild.text,
@@ -534,17 +544,17 @@ export function promoteSingleChildLeafs(sidebar: any): {
         }
       }
     }
-    
+
     // Process other properties recursively
     for (const [key, value] of Object.entries(processedItem)) {
       if (key !== 'items' && typeof value === 'object' && value !== null) {
         processedItem[key] = processItem(value);
       }
     }
-    
+
     return processedItem;
   }
-  
+
   const transformed = processItem(sidebar);
   return { transformed, promotedLeafs };
 }
