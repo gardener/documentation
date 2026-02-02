@@ -52,17 +52,19 @@ This extension delivers 4 core capabilities:
 - **SLO-based alerting**: Since we have the data to calculate SLO violations and burn rates (SRE best practice), we should also provide, as part of the extension, the capability to configure an Alertmanager based on those SLOs. Again, this should be configurable to fit the needs of each Gardener operator.
 - **Monitoring infrastructure**: The extension should provide the necessary monitoring infrastructure to collect, store, and visualize SLO-related metrics. This includes Prometheus rules for SLI calculation, Perses dashboards for visualization, Prometheus alerts for SLO violations, Alertmanager to manage those alerts, etc.
 
-The extension builds on the [Observability 2.0](../technical/2025-03-observability-2.0.md) infrastructure (Prometheus and Perses operators), using a dedicated Prometheus instance in the runtime cluster to collect and aggregate SLO-specific metrics without impacting existing monitoring systems.
+The extension builds on the existing monitoring infrastructure (Prometheus operator, Perses operators, plutono annotations, ...), using a dedicated Prometheus instance in the runtime cluster to collect and aggregate SLO-specific metrics with minimal impact on the existing monitoring systems.
 
 **Include diagrams or examples where helpful.**
 
-Technical architecture details, specific SLO definitions, and implementation design will be presented in a subsequent Technical Steering proposal upon approval.
+![SLO extension high-level architecture](../assets/slo-extension-plan.png)
+
+Low level architecture, specific SLI/SLO definitions and implementation design will be presented in a subsequent Technical Steering proposal upon approval.
 
 ## Impact and Alternatives
 
 **What are the potential risks, downsides, or trade-offs?**
 
-The primary complexity involves managing dedicated Prometheus infrastructure and coordinating resource changes across both runtime and seed clusters. However, this is mitigated by building on the proven Observability 2.0 foundation, which already handles similar cross-cluster orchestration.
+The primary complexity involves managing resource changes across both runtime and seed clusters.
 
 **What alternative approaches were considered?**
 
