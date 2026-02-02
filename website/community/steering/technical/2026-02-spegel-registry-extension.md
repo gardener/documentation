@@ -3,7 +3,7 @@ title: "2026-02: Spegel registry support in the registry-cache extension"
 ---
 
 - ✍🏻 **Author(s):** [@dimitar-kostadinov](https://github.com/dimitar-kostadinov) Dimitar Kostadinov, [@ialidzhikov](https://github.com/ialidzhikov) Ismail Alidzhikov
-- 🗓️ **Presentation:** YYYY-MM-DD, HH:MM - HH:MM CET _(TBD)_
+- 🗓️ **Presentation:** 2026-02-17, 15:00 - 16:00 CET
 - 🎥 **Recording:** [click here]()
 - 👨‍⚖️ **Decisions:**
   - _pending_
