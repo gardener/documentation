@@ -77,16 +77,10 @@ structure:
       - usage/configuration.md
       - usage/event-format.md
   - file: operations-configuration.md
-    frontmatter:
-      title: Configuring for Garden Clusters
     source: https://github.com/gardener/gardener-extension-auditing/blob/main/docs/operations/configuration.md
   - file: operations-event-format.md
     source: https://github.com/gardener/gardener-extension-auditing/blob/main/docs/operations/event-format.md
   - file: usage-configuration.md
-    frontmatter:
-      title: Configuring for Shoot Clusters
     source: https://github.com/gardener/gardener-extension-auditing/blob/main/docs/usage/configuration.md
   - file: usage-event-format.md
-    frontmatter:
-      title: Audit Event Format (Shoot)
     source: https://github.com/gardener/gardener-extension-auditing/blob/main/docs/usage/event-format.md
