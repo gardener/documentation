@@ -42,7 +42,7 @@ jobs:
         run: npm ci
       - name: Postprocessing Content
         run: |
-          npm run post-processing-all
+          make post-process
       - name: Set Base Path
         id: set-base-path
         run: |

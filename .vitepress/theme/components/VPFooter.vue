@@ -34,7 +34,7 @@ import neonephosLogo from '../assets/neonephos_logo.svg'
 import neonephosLogoDark from '../assets/neonephos_logo_dark.svg'
 
 const { hasSidebar } = useSidebar()
-const { isDark, title } = useData()
+const { isDark, title, theme } = useData()
 const projectName = title || '<YOUR PROJECT NAME>'
 
 </script>
@@ -94,6 +94,13 @@ const projectName = title || '<YOUR PROJECT NAME>'
         <a href="/about/privacy">Privacy Statement</a>
         <span class="footer-legal-sep">|</span>
         <a href="/about/legal-disclosure">Legal Disclosure</a>
+      </div>
+      <!-- Netlify Badge Section -->
+      <div v-if="theme.isNetlify" class="neonephos-logos">
+        <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer" class="neonephos-link">
+          <img v-if="!isDark" src="https://www.netlify.com/assets/badges/netlify-badge-light.svg" alt="Deploys by Netlify" class="netlify-logo" />
+          <img v-else src="https://www.netlify.com/assets/badges/netlify-badge-dark.svg" alt="Deploys by Netlify" class="netlify-logo" />
+        </a>
       </div>
 
     </div>
@@ -273,6 +280,11 @@ const projectName = title || '<YOUR PROJECT NAME>'
 
 .neonephos-link {
   display: inline-block;
+}
+
+.netlify-logo {
+  display: block;
+  margin: 0 auto;
 }
 
 /* Responsive adjustments */
