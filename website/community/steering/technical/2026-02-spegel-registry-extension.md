@@ -2,7 +2,7 @@
 title: "2026-02: Spegel Registry Support in the registry-cache extension"
 ---
 
-- ✍🏻 **Author(s):** [@dimitar-kostadinov](https://github.com/dimitar-kostadinov) Dimitar Kostadinov, [@ialidzhikov](https://github.com/ialidzhikov) Ismail Alidzhikov
+- ✍🏻 **Author(s):** [@dimitar-kostadinov](https://github.com/dimitar-kostadinov) Dimitar Kostadinov
 - 🗓️ **Presentation:** 2026-02-17, 15:00 - 16:00 CET
 - 🎥 **Recording:** [click here]()
 - 👨‍⚖️ **Decisions:**
@@ -28,29 +28,29 @@ title: "2026-02: Spegel Registry Support in the registry-cache extension"
 
 ## Motivation
 
-Current solution for image cache is based on [distribution/distribution](https://github.com/distribution/distribution) pull-through cache.
+The current solution for image cache is based on [Distribution project](https://github.com/distribution/distribution)'s pull-through cache.
 
 ### The Problem
 
-The adoption of the registry cache extension is around 10% and not all used upstreams are covered by the extension's configurations. This is likely due to:
-- **Complex configuration**: A separate [configuration](https://github.com/gardener/gardener-extension-registry-cache/blob/main/docs/usage/registry-cache/configuration.md#shoot-configuration) needs to be set for each upstream registry.
-- **Additional resources**: A StatefulSet is created for each of the configured upstream. The PV size (defaults to 10Gi) should be monitored and [increased](https://github.com/gardener/gardener-extension-registry-cache/blob/main/docs/usage/registry-cache/configuration.md#increase-the-cache-disk-size) if necessary, otherwise the cache becomes ineffective.
-- **[Limitations](https://github.com/gardener/gardener-extension-registry-cache/blob/main/docs/usage/registry-cache/configuration.md#limitations)**:
-  - It is not possible to cache most images of `kube-system` pods, as the cache can be used after Kubernetes services can be accessed (i.e., after kube-proxy configures iptables/IPVS rules).
-  - Only one set of upstream [credentials](https://github.com/gardener/gardener-extension-registry-cache/blob/main/docs/usage/registry-cache/upstream-credentials.md#how-to-provide-credentials-for-upstream-registry) is supported, therefore some private images cannot be cached.
+The registry cache extension is not widely adopted in some Gardener landscapes, and not all used upstreams are covered by the extension's configurations. This is likely due to:
+- **Explicit and non-trivial configuration**: A separate [configuration](https://github.com/gardener/gardener-extension-registry-cache/blob/v0.19.0/docs/usage/registry-cache/configuration.md#shoot-configuration) needs to be set for each upstream registry.
+- **Additional resources**: A StatefulSet is created for each of the configured upstream. The PV size (defaults to 10Gi) should be monitored and [increased](https://github.com/gardener/gardener-extension-registry-cache/blob/v0.19.0/docs/usage/registry-cache/configuration.md#increase-the-cache-disk-size) if necessary, otherwise the cache becomes ineffective.
+- **[Limitations](https://github.com/gardener/gardener-extension-registry-cache/blob/v0.19.0/docs/usage/registry-cache/configuration.md#limitations)**:
+  - It is not possible to cache most of images from the pods in the `kube-system` namespace, as the cache can be used only after its Kubernetes service can be accessed from the host (i.e., after kube-proxy configures iptables/IPVS rules).
+  - Only one set of [upstream credentials](https://github.com/gardener/gardener-extension-registry-cache/blob/v0.19.0/docs/usage/registry-cache/upstream-credentials.md#how-to-provide-credentials-for-upstream-registry) is supported, therefore some private images cannot be cached.
   - Amazon ECR mirroring is not supported - [ref](https://github.com/gardener/gardener-extension-registry-cache/issues/259).
   - Dynatrace registry mirroring is not effective, as incorrect `Content-Length: 0` header is returned for most of the image layers.
   - It is not possible to mirror private registries authenticated with a kubelet image credential provider - [ref](https://github.com/gardener/gardener-extension-registry-cache/issues/240).
   - Registry pods scaling is limited to `2` when [HighAvailability](https://github.com/gardener/gardener-extension-registry-cache/blob/8c5ef623b2f8d6b236eb9f2c4c1a8610b72515ce/pkg/apis/registry/v1alpha3/types.go#L103) is enabled. However, when pulling large images from many Nodes simultaneously, 2 registry replicas are not enough and the download speed becomes significantly slower.
-  - [TTL](https://github.com/gardener/gardener-extension-registry-cache/blob/main/docs/usage/registry-cache/configuration.md#garbage-collection) garbage collection setting is inefficient because it is not extended on access. Hence, an image is always deleted from the cache when its TTL expires, and will be re-pulled from upstream if requested again.
+  - [TTL](https://github.com/gardener/gardener-extension-registry-cache/blob/v0.19.0/docs/usage/registry-cache/configuration.md#garbage-collection) garbage collection setting is inefficient because it is not extended on access. Hence, an image is always deleted from the cache when its TTL expires, and will be re-pulled from upstream if requested again.
 
 ### Why Should We Care
 
-Due to the low adoption rate and incomplete coverage of upstream registers, there are significant NAT Gateways traffic costs for downloading images.
+Due to the low adoption rate and incomplete coverage of upstream registers, there are significant NAT Gateway traffic costs for downloading images.
 Additionally, there are costs for outbound traffic from image registries like `Amazon Elastic Container Registry`, `Google Cloud Artifact Registry`, and `Azure Container Registry`.
-Even if the pull-through cache is configured, there are also costs for cross zonal traffic.
+Even if the pull-through cache is configured, there are also costs for cross zonal traffic within the Shoot cluster.
 
-Providing a p2p image caching solution that is enabled by default and spans all upstream registries will reduce cloud costs and reduce latency when pulling images.
+Providing a p2p image caching solution that is enabled by default and spans all upstream registries will reduce both cloud costs and image pull latency.
 
 ### Who Benefits
 
@@ -67,13 +67,15 @@ The proposal is to extend the existing [registry-cache](https://github.com/garde
 A brief overview of the components used in this proposal.
 
 #### Spegel overview
+
 [Spegel][spegel] is a p2p image cache. It runs a local image registry on each node in a Kubernetes cluster. The local registry subscribes for containerd's image related events and serves image blobs and manifests that are available in the containerd image store.
-Content discovery in Kubernetes cluster is based on [Kademlia DHT][content-provider-routing]. When an image content (blob, manifest or index) is available in the containerd image store, Spegel adds its `digest` to the DHT provider store, announcing that the node provides the content corresponding to the `digest`. Then, when the same `digest` is needed by another node, Spegel searches the DHT for peers that provide the content and pulls it from them.
+The content discovery in a Kubernetes cluster is based on [Kademlia DHT][content-provider-routing]. When an image content (blob, manifest or index) is available in the containerd image store, Spegel adds its `digest` to the DHT provider store, announcing that the node provides the content corresponding to the `digest`. Then, when the same `digest` is needed by another node, Spegel searches the DHT for peers that provide the content and pulls it from them.
 
 The straightforward way to deploy Spegel to a Kubernetes cluster is by using the provided helm chart. However, this has some [drawbacks](https://spegel.dev/docs/faq/#what-should-i-do-if-other-pods-are-scheduled-on-new-nodes-before-spegel) when a new node join the cluster. 
 Our goal is to be able to use Spegel for all images pulled from the kubelet, including the `registry.k8s.io/pause` image. Therefore it was decided to [run][run-spegel-on-host] Spegel registry as a systemd unit service on the node. This requires contributing a new Spegel `bootstrapper` or extending the existing [HTTP bootstrapper](https://github.com/spegel-org/spegel/blob/6f02215fa3fc1d3bbdb11fa62dfa7c07dbe3b7c2/pkg/routing/bootstrap.go#L131-L135).
 
 #### Kademlia Distributed Hash Table Overview
+
 [Kademlia DHT][kad-dht] is part of libp2p library and is used by Spegel for peer routing and content provider advertisement and discovery. 
 A unique 256 bits ID is [generated](https://github.com/libp2p/go-libp2p/blob/636d44e15abc7bfbd1da09cc9fef674249625ae6/core/peer/peer.go#L163) for each peer node (this is the `Ed25519` public key in Spegel case). Based on the node ID, a routing table consisting of `k`-Buckets is maintained. Peers nodes are placed into `k`-Buckets based on how similar their IDs are to the local node's ID, using `XOR` distance to measure proximity. 
 
@@ -228,7 +230,7 @@ In the Shoot control plane a Spegel `bootstrapper` is provided. It consist of:
 - ingress
 
 The `spegel` registries send a GET request to `https://<ingress-host>/bootstrap-nodes` to get the bootstrap peers. Traffic is encrypted using mTLS.
-The `bootstrapper` uses client-go to access the `kube-apiserver` and list the Kubernetes nodes. It sorts the nodes and returns a subset of the first few node `net.IPAddr` addresses, similar to what is done in [`DNSBootstrapper`](https://github.com/spegel-org/spegel/blob/main/pkg/routing/bootstrap.go#L77-L80).
+The `bootstrapper` uses client-go to access the `kube-apiserver` and list the Kubernetes nodes. It sorts the nodes and returns a subset of the first few node `net.IPAddr` addresses, similar to what is done in [`DNSBootstrapper`](https://github.com/spegel-org/spegel/blob/v0.6.0/pkg/routing/bootstrap.go#L77-L80).
 
 ### Observability and Monitoring
 
@@ -242,11 +244,13 @@ The `spegel` registry exposes the following noticeable metrics:
 With these metrics, Spegel cache efficiency can be tracked.
 
 ### Future Enhancement
+
 In the [Network topology awareness][network-topology-awareness] issue there are options to implement zone aware routing (e.g., enhance Kademlia DHT with Soft Partitioning).
 
 A simple approach was tested locally on GCP infrastructure. When the content is available on the node, it registers `<digest>` and `<zone><digest>` as keys in the DHT. The disadvantage of this approach, besides duplication of keys, is that when searching for content, the `<zone><digest>` key is tried first, and if nothing is found, a new search is performed for the `<digest>` key.
 
 ### Proof of Concept
+
 There is **PoC** of the above proposal available here:
 - https://github.com/dimitar-kostadinov/gardener-extension-registry-cache/tree/spegel_api_poc
 - https://github.com/dimitar-kostadinov/spegel/tree/poc
@@ -254,9 +258,11 @@ There is **PoC** of the above proposal available here:
 ## Impact and Alternatives
 
 ### Risks, Downsides and Trade-offs
+
 The external `Bootstrapper` should be contributed to Spegel.
 
 ### Alternative approaches
+
 [`Dragonfly`][dragonfly] was evaluated as an alternative. Unlike Spegel, it is not stateless and requires central components such as:
 - manager - to manage the p2p network.
 - scheduler - for optimal parent peer selection.
@@ -276,6 +282,7 @@ We are seeking approval from the Technical Steering Committee to validate and ap
 ## Appendix (Optional)
 
 ### Supporting Materials (Linked or Embedded)
+
 - [Spegel][spegel]
 - [Setup Default Mirror for All Registries][setup-default-mirror-for-all-registries]
 - [Content provider routing][content-provider-routing]
@@ -284,14 +291,15 @@ We are seeking approval from the Technical Steering Committee to validate and ap
 - [Dragonfly][dragonfly]
 
 ### References to Related Issues
+
 - [Run Spegel directly on host][run-spegel-on-host]
 - [Network topology awareness][network-topology-awareness]
 
-[setup-default-mirror-for-all-registries]: https://github.com/containerd/containerd/blob/main/docs/hosts.md#setup-default-mirror-for-all-registries
+[setup-default-mirror-for-all-registries]: https://github.com/containerd/containerd/blob/v2.2.1/docs/hosts.md#setup-default-mirror-for-all-registries
 [spegel]: https://github.com/spegel-org/spegel#spegel
 [content-provider-routing]: https://docs.libp2p.io/concepts/discovery-routing/kaddht/#content-provider-routing
 [run-spegel-on-host]: https://github.com/spegel-org/spegel/issues/829
 [kad-dht]: https://github.com/libp2p/specs/blob/master/kad-dht/README.md
-[kad-dht-messages]: https://github.com/libp2p/go-libp2p-kad-dht/blob/master/pb/dht.pb.go#L28-L33
+[kad-dht-messages]: https://github.com/libp2p/go-libp2p-kad-dht/blob/v0.37.1/pb/dht.pb.go#L28-L33
 [network-topology-awareness]: https://github.com/spegel-org/spegel/issues/669
 [dragonfly]: https://github.com/dragonflyoss/dragonfly?tab=readme-ov-file#dragonfly
