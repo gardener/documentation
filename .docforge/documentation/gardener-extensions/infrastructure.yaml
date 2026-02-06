@@ -53,7 +53,7 @@ structure:
   structure:
   - file: _index.md
     frontmatter:
-      title: Provider Alicloud
+      title: Provider Alibaba Cloud
       description: Gardener extension controller for the Alibaba cloud provider
     source:  https://github.com/gardener/gardener-extension-provider-alicloud/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-provider-alicloud/tree/master/docs
@@ -68,7 +68,7 @@ structure:
   structure:
   - file: _index.md
     frontmatter:
-      title: Provider Openstack
+      title: Provider OpenStack
       description: Gardener extension controller for the OpenStack cloud provider
     source:  https://github.com/gardener/gardener-extension-provider-openstack/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-provider-openstack/tree/master/docs
