@@ -123,14 +123,6 @@ structure:
           frontmatter:
             title: Autoscaling
             weight: 20
-      - dir: high-availability
-        frontmatter:
-          aliases: ["/docs/gardener"]
-        structure:
-        - file: _index.md
-          frontmatter:
-            title: High Availability
-            weight: 30
       - dir: networking
         frontmatter:
           aliases: ["/docs/gardener"]
@@ -180,6 +172,10 @@ structure:
             title: Shoot Operations
             weight: 90
       - fileTree: https://github.com/gardener/gardener/tree/master/docs/usage
+        excludeFiles:
+          - "high-availability/shoot_high_availability_best_practices.md" # already included in ./guides.yaml, avoiding duplicates
+          - "high-availability/shoot_high_availability.md" # already included in ./guides.yaml, avoiding duplicates
+          - "autoscaling/shoot_pod_autoscaling_best_practices.md" # already included in ./guides.yaml, avoiding duplicates
   - dir: extensions
     structure:
     - file: _index.md
