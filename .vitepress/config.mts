@@ -168,6 +168,7 @@ function getSearchConfig() {
 
 function getThemeConfig() {
   return {
+    isNetlify: process.env.NETLIFY === 'true',
     logo: {src: '/gardener-logo.svg', width: 24, height: 24},
     nav: getNavConfig(),
     sidebar: {

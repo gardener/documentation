@@ -25,16 +25,11 @@
     "vue": "^3.5.16"
   },
   "scripts": {
-    "docs:dev": "vitepress dev",
-    "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview",
-    "post-processing-part-1": "node post-processing/part-1.js --rename-images --add-h1-title --youtube --fix-titles --fix-network-doc --add-missing-index",
-    "post-processing-part-2": "node post-processing/part-2.js --migrate-alerts --clean-layouts --flatten-single-dirs --add-navigation-frontmatter",
-    "post-processing-part-index": "node post-processing/part-index.js ./hugo/content",
-    "post-processing-part-3": "node post-processing/part-3.js --add-empty-metadata --update-report-link --process-api-html",
-    "post-processing-all": "npm run post-processing-part-1 && npm run post-processing-part-2 && npm run post-processing-part-index && npm run post-processing-part-3",
-
-    "test": "vitest run",
-    "test:watch": "vitest"
+    "docs:dev": "make docs-dev",
+    "docs:build": "make docs-build",
+    "docs:preview": "make docs-preview",
+    "post-process": "make post-process",
+    "test": "make test",
+    "test:watch": "make test-watch"
   }
 }

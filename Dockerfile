@@ -15,7 +15,7 @@ RUN --mount=type=secret,id=GITHUB_OAUTH_TOKEN \
     export DOCFORGE_CONFIG='.docforge/config' && \
     docforge --cache-dir /tmp/docforge && \
     npm ci && \
-    npm run post-processing-all
+    npm run post-process
 
 EXPOSE 5173
 
