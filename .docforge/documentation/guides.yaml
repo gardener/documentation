@@ -14,7 +14,7 @@ structure:
       scope: app-developer
       publishdate: 2023-03-17
       aliases: ["/readmore/shoot-high-availability-best-practices"]
-    source: https://github.com/gardener/gardener/blob/master/docs/usage/high-availability/shoot_high_availability_best_practices.md
+    source: https://github.com/gardener/gardener/blob/master/docs/usage/high-availability/shoot_high_availability_best_practices.md # excluded in ./documentation.yaml to avoid duplicates
   - file: control-plane.md
     frontmatter:
       title: Control Plane
@@ -23,7 +23,7 @@ structure:
       scope: app-developer
       publishdate: 2023-03-17
       aliases: ["/readmore/shoot-high-availability-control-plane"]
-    source: https://github.com/gardener/gardener/blob/master/docs/usage/high-availability/shoot_high_availability.md
+    source: https://github.com/gardener/gardener/blob/master/docs/usage/high-availability/shoot_high_availability.md # excluded in ./documentation.yaml to avoid duplicates
   - file: chaos-engineering.md
     frontmatter:
       title: Chaos Engineering
@@ -50,7 +50,7 @@ structure:
       category: Networking
       scope: operator
       aliases: ["/managing-dns-with-gardener", "/docs/015-guides/030-networking-lb/managed-dns"]
-    source: https://github.com/gardener/gardener-extension-shoot-dns-service/blob/master/docs/usage/dns_names.md
+    source: https://github.com/gardener/gardener-extension-shoot-dns-service/blob/master/docs/usage/dns_names.md # excluded in ./gardener-extensions/others.yaml to avoid duplicates
   - file: certificate-extension.md
     frontmatter:
       title: Manage Certificates with Gardener
@@ -62,7 +62,7 @@ structure:
       category: Networking
       scope: operator
       aliases: ["/managing-certificates-with-gardener", "/docs/015-guides/030-networking-lb/managed-certs-from-lets-encrypt"]
-    source: https://github.com/gardener/gardener-extension-shoot-cert-service/blob/master/docs/usage/request_cert.md
+    source: https://github.com/gardener/gardener-extension-shoot-cert-service/blob/master/docs/usage/request_cert.md # excluded in ./gardener-extensions/others.yaml to avoid duplicates
   - file: certificate-extension-default-domain.md
     frontmatter:
       title: Manage Certificates with Gardener for Default Domain
@@ -74,7 +74,7 @@ structure:
       category: Networking
       scope: operator
       aliases: ["/managing-certificates-with-gardener-default-domain"]
-    source: https://github.com/gardener/gardener-extension-shoot-cert-service/blob/master/docs/usage/request_default_domain_cert.md
+    source: https://github.com/gardener/gardener-extension-shoot-cert-service/blob/master/docs/usage/request_default_domain_cert.md # excluded in ./gardener-extensions/others.yaml to avoid duplicates
   - file: dual-stack-ipv4-ipv6-ingress-aws.md
     frontmatter:
       title: Enable IPv4/IPv6 (dual-stack) Ingress on AWS
@@ -86,7 +86,7 @@ structure:
       category: Networking
       scope: operator
       aliases: ["/enable-dual-stack-ingress-on-aws"]
-    source: https://github.com/gardener/gardener-extension-provider-aws/blob/master/docs/usage/dual-stack-ingress.md
+    source: https://github.com/gardener/gardener-extension-provider-aws/blob/master/docs/usage/dual-stack-ingress.md # excluded in ./gardener-extensions/infrastructure.yaml to avoid duplicates
   - file: ipv6.md
     frontmatter:
       title: Support for IPv6 on AWS
@@ -96,7 +96,7 @@ structure:
       publishdate: 2024-12-11
       category: Networking
       scope: operator
-    source: https://github.com/gardener/gardener-extension-provider-aws/blob/master/docs/usage/ipv6.md
+    source: https://github.com/gardener/gardener-extension-provider-aws/blob/master/docs/usage/ipv6.md # excluded in ./gardener-extensions/infrastructure.yaml to avoid duplicates
   - file: ipv6-gcp.md
     frontmatter:
       title: Support for IPv6 on GCP
@@ -106,7 +106,7 @@ structure:
       publishdate: 2025-09-04
       category: Networking
       scope: operator
-    source: https://github.com/gardener/gardener-extension-provider-gcp/blob/master/docs/usage/ipv6.md
+    source: https://github.com/gardener/gardener-extension-provider-gcp/blob/master/docs/usage/ipv6.md # excluded in ./gardener-extensions/infrastructure.yaml to avoid duplicates
 - dir: applications
   structure:
   - file: shoot-pod-autoscaling-best-practices.md
@@ -115,4 +115,4 @@ structure:
       level: advanced
       category: Applications
       publishdate: 2024-07-24
-    source: https://github.com/gardener/gardener/blob/master/docs/usage/autoscaling/shoot_pod_autoscaling_best_practices.md
+    source: https://github.com/gardener/gardener/blob/master/docs/usage/autoscaling/shoot_pod_autoscaling_best_practices.md # excluded in ./documentation.yaml to avoid duplicates

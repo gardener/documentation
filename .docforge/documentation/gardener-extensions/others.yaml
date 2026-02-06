@@ -7,6 +7,8 @@ structure:
       description: Gardener extension controller for DNS services for shoot clusters
     source:  https://github.com/gardener/gardener-extension-shoot-dns-service/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-shoot-dns-service/tree/master/docs
+    excludeFiles:
+      - "usage/dns_names.md" # already included in ../guides.yaml, avoiding duplicates
 - dir: gardener-extension-shoot-cert-service
   structure:
   - file: _index.md
@@ -15,6 +17,9 @@ structure:
       description: Gardener extension controller for certificate services for shoot clusters
     source:  https://github.com/gardener/gardener-extension-shoot-cert-service/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-shoot-cert-service/tree/master/docs
+    excludeFiles:
+      - "usage/request_cert.md" # already included in ../guides.yaml, avoiding duplicates
+      - "usage/request_default_domain_cert.md" # already included in ../guides.yaml, avoiding duplicates
 - dir: gardener-extension-shoot-oidc-service
   structure:
   - file: _index.md

@@ -7,6 +7,9 @@ structure:
       description: Gardener extension controller for the AWS cloud provider
     source:  https://github.com/gardener/gardener-extension-provider-aws/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-provider-aws/tree/master/docs
+    excludeFiles:
+      - "usage/dual-stack-ingress.md" # already included in ../guides.yaml, avoiding duplicates
+      - "usage/ipv6.md" # already included in ../guides.yaml, avoiding duplicates
   - dir: tutorials
     structure:
     - file: _index.md
@@ -22,6 +25,8 @@ structure:
       description: Gardener extension controller for the GCP cloud provider
     source: https://github.com/gardener/gardener-extension-provider-gcp/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-provider-gcp/tree/master/docs
+    excludeFiles:
+      - "usage/ipv6.md" # already included in ../guides.yaml, avoiding duplicates
   - dir: tutorials
     structure:
     - file: _index.md
@@ -48,7 +53,7 @@ structure:
   structure:
   - file: _index.md
     frontmatter:
-      title: Provider Alicloud
+      title: Provider Alibaba Cloud
       description: Gardener extension controller for the Alibaba cloud provider
     source:  https://github.com/gardener/gardener-extension-provider-alicloud/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-provider-alicloud/tree/master/docs
@@ -63,7 +68,7 @@ structure:
   structure:
   - file: _index.md
     frontmatter:
-      title: Provider Openstack
+      title: Provider OpenStack
       description: Gardener extension controller for the OpenStack cloud provider
     source:  https://github.com/gardener/gardener-extension-provider-openstack/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-provider-openstack/tree/master/docs

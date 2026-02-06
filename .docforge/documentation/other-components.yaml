@@ -14,11 +14,6 @@ structure:
       title: etcd-druid
       description: A druid for etcd management in Gardener
     source: https://github.com/gardener/etcd-druid/blob/master/README.md
-  - file: api-reference.md
-    frontmatter:
-      title: API Reference
-      persona: Developers
-    source: https://github.com/gardener/etcd-druid-api/blob/main/docs/api-reference/druid.md
   - fileTree: https://github.com/gardener/etcd-druid/tree/master/docs
     excludeFiles:
     - "README.md"
