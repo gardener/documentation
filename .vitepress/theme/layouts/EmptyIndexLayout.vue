@@ -220,16 +220,44 @@ const taxonomyItemClicked = (link) => {
   }))
 }
 
+/**
+ * Normalizes and ensures consistent link formatting for navigation and sidebar items.
+ * 
+ * Purpose:
+ * - Converts relative sidebar links to absolute paths under /docs
+ * - Normalizes index.md file references to directory paths
+ * - Preserves absolute paths for non-docs content (home, blog, community, etc.)
+ * 
+ * Used in two contexts:
+ * 1. Sidebar rendering: Converts relative links like 'gardener/concepts/index.md' to '/docs/gardener/concepts/'
+ * 2. Router navigation: Processes router paths while respecting absolute non-docs routes
+ * 
+ * @param {string} link - The link to normalize (can be relative or absolute)
+ * @returns {string} The normalized link
+ * 
+ * Examples:
+ * - 'gardener/concepts/index.md' ’ '/docs/gardener/concepts/'
+ * - 'gardener/concepts/' ’ '/docs/gardener/concepts/'
+ * - '/docs/gardener/concepts/' ’ '/docs/gardener/concepts/' (unchanged)
+ * - '/' ’ '/' (home page, unchanged)
+ * - '/blog' ’ '/blog' (other top-level routes, unchanged)
+ */
 const getConsistentLink = (link) => {
-
+  // Step 1: Normalize index.md references to directory paths
+  // Why: VitePress uses clean URLs, so '/path/index.md' should be '/path/'
   const consistentLink = link?.replace(/\/index\.md$/, '/')
 
-  // Ensure the link is consistent with the current persona
-  if (consistentLink && !consistentLink.startsWith('/docs')) {
-    return '/docs' + (consistentLink.startsWith('/') ? consistentLink : '/' + consistentLink)
+  // Step 2: Prepend /docs to relative links (sidebar items from config)
+  // Why: Sidebar items are defined as relative paths like 'gardener/concepts/'
+  //      but need to resolve to absolute paths '/docs/gardener/concepts/'
+  // Condition: Only apply to links that are:
+  //   - Not already under /docs (avoid double-prefixing)
+  //   - Not absolute paths starting with / (respect other top-level routes like /, /blog, /community)
+  if (consistentLink && !consistentLink.startsWith('/docs') && !consistentLink.startsWith('/')) {
+    return '/docs/' + consistentLink
   }
 
-
+  // Step 3: Return the link as-is if it's already absolute or properly prefixed
   return consistentLink
 }
 
