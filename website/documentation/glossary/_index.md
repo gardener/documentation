@@ -4,7 +4,8 @@ description: Commonly used terms in Gardener
 persona: Users
 weight: 90
 ---
-## Purpose
+
+# Purpose
 
 Synonyms and inconsistent writing style makes it hard for beginners to get into a new topic. This glossary aims to help users to get a better understanding of Gardener and authors to use the right terminology.
 
