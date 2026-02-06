@@ -10,7 +10,6 @@ import {
   filterLeafMapByPersona,
   filterSidebarByLeafMap,
   removeEmptyItems,
-  promoteSingleChildLeafs,
   addTrailingSlashToLinks
 } from './utils/sidebar.ts';
 
@@ -43,15 +42,11 @@ export function generateEnhancedDocsSidebar(): any {
   // Sort entries by weight from frontmatter
   const sortedSidebar = sortByWeight(enhancedSidebar, 'docs');
 
-  // NEW: Promote single child leafs to eliminate unnecessary nesting
-  const { transformed: promotedSidebar, promotedLeafs } = promoteSingleChildLeafs(sortedSidebar);
-  
-  // Log the promoted leafs for debugging
-  writeJsonDebug('promotedLeafs.json', promotedLeafs);
-  writeJsonDebug('promotedSidebar.json', promotedSidebar);
+  // Log the sorted sidebar for debugging
+  writeJsonDebug('sortedSidebar.json', sortedSidebar);
 
   // Filter out all _index.md entries (called last)
-  const filteredSidebar = removeIndexEntries(promotedSidebar);
+  const filteredSidebar = removeIndexEntries(sortedSidebar);
 
   writeJsonDebug(
     'filteredSidebar.json',
