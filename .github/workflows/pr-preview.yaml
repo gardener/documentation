@@ -51,7 +51,7 @@ jobs:
       - name: Build with VitePress
         run: |
           echo "Building with VITE_PUBLIC_BASE_PATH: '$VITE_PUBLIC_BASE_PATH'"
-          npm run docs:build  
+          make build  
 
       - uses: actions/checkout@v6
         with:
