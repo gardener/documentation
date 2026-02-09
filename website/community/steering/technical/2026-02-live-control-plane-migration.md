@@ -5,19 +5,63 @@ title: "2026-02: Live Control Plane Migration (Live CPM)"
 
 - ✍🏻 **Author(s):** [@acumino](https://github.com/acumino) Sonu Kumar Singh, [@ary1992](https://github.com/ary1992) Ashish Ranjan Yadav, [@seshachalam-yv](https://github.com/seshachalam-yv) Seshachalam, [@shafeeqes](https://github.com/shafeeqes) Shafeeque E S
 - 🗓️ **Presentation:** 2026-02-09, 13:00 - 14:00 CET
-- 🎥 **Recording:** (TBA)
+- 🎥 **Recording:** [click here](https://youtu.be/DdU8SNNf23o)
 - 👨‍⚖️ **Decisions:**
-  - _pending_
+  - No major technical decisions were finalized in this session.
+  - Agreement to:
+    - **Revamp and update the proposal document**, addressing the open questions above.
+    - Clearly document assumptions, risks, and guarantees.
+    - Hold a **follow-up Technical Steering session in a few weeks** to re-evaluate the updated proposal.
+  - _Key Discussion Points & Open Questions_
+    - **Failure Handling & Recovery**
+      - What additional failure modes exist beyond those documented (e.g., ETCD scale-up failures)?
+      - Can we always fall back to **normal CPM**, or are there cases requiring **manual intervention**?
+      - Assumption: all failures except those explicitly documented should be **retryable / recoverable**.
+      - Gardenlet restart behavior:
+        - Current proposal resumes from the failed step.
+        - This differs from usual reconciliation semantics (restart from beginning).
+        - Question: could this lead to **irrecoverable or inconsistent states**?
+    - **ETCD-related Topics**
+      - **6-member ETCD risk**:
+        - 3 members per seed implies **permanent quorum loss** if seed-to-seed connectivity is lost.
+      - **ETCD APIs**:
+        - Separate APIs exist for member name prefix vs. externally managed members due to uniqueness constraints.
+        - Question: can these be harmonized, or would that increase complexity?
+      - **ETCD member removal**:
+        - GEP-28 (SHSC) requires this as well.
+        - Existing plan: `etcd-druid` removes members via HTTP calls to the backup-restore sidecar.
+        - Question: can Live CPM reuse this approach instead of introducing `EtcdOpsTask`?
+      - **ETCD exposure**:
+        - Proposal doc is outdated and will be updated to reflect **Istio-based exposure**.
+        - Open question: how are `DNSRecord`s constructed in this model?
+    - **Networking & Connectivity**
+      - Is **seed-to-seed connectivity** guaranteed at all times?
+      - VPN setup:
+        - Why is an additional VPN seed server configuration needed on the destination seed?
+        - Can we deploy directly in the “target” configuration from the start?
+    - **Scheduling & Latency Constraints**
+      - Scheduler `ConfigMap` distances are **weights**, not necessarily latency in ms.
+      - How is the **“distant region” prevention** for LCPM enforced?
+      - The proposal should explain how the **180 ms latency threshold** was derived.
+    - **Control Plane Components & Coordination**
+      - **Lease management**:
+        - Can controllers simply be recreated in the destination seed instead of running in both seeds?
+        - Would this simplify the implementation / should we change the proposal?
+      - **Gardenlet coordination**:
+        - Current design uses back-and-forth updates via `.status.liveMigration`.
+        - Question: would **conditions** be a clearer and more robust coordination mechanism?
+      - **Gardenlet versions**:
+        - How is it enforced that gardenlets in both seeds run the **same version**?
+        - What happens if a gardenlet upgrade occurs while a migration is already in progress?
+    - **Autoscaling & Resource Management**
+      - **VPA recommendations**:
+        - Not yet considered.
+        - Open question: do `VPACheckpoint`s need to be transferred as part of migration?
 
 ## Proposal
 
 | Section | Description |
 | :--- | :--- |
-| **Title** | Live Control Plane Migration (LiveCPM) for Shoot Clusters |
-| **Status** | Implementable |
-| **Owner(s)** | `@acumino @ary1992 @seshachalam-yv @shafeeqes` |
-| **Reviewer(s)** | |
-| **Target Version** | v1.YY |
 | **Related GEPs** | [GEP-7: Shoot Control Plane Migration](https://github.com/gardener/gardener/blob/master/docs/proposals/07-shoot-control-plane-migration.md) |
 | **Related Issues** | [gardener/gardener\#10686](https://github.com/gardener/gardener/issues/10686) |
 
