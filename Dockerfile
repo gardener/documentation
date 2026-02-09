@@ -10,12 +10,12 @@ ADD . .
 
 RUN --mount=type=secret,id=GITHUB_OAUTH_TOKEN \
     --mount=type=cache,target=/tmp/docforge \
-    apk add --no-cache git && \
+    apk add --no-cache git make && \
     export GITHUB_OAUTH_TOKEN=$(cat /run/secrets/GITHUB_OAUTH_TOKEN) && \
     export DOCFORGE_CONFIG='.docforge/config' && \
     docforge --cache-dir /tmp/docforge && \
     npm ci && \
-    npm run post-process
+    make post-process
 
 EXPOSE 5173
 

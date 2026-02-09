@@ -22,7 +22,7 @@ export GITHUB_OAUTH_TOKEN=<token>
 2. Build and run a Docker container:
 
 ```shell
-make preview
+make docker-preview
 ```
 
 3. Visit [http://localhost:5173](http://localhost:5173) in your browser! 🎉

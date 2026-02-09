@@ -6,5 +6,6 @@
 !images/
 !post-processing/
 !website/
+!Makefile
 !package*.json
 !tsconfig.json
