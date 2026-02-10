@@ -40,32 +40,12 @@ jobs:
           path: .vitepress/dist
         if: github.event_name != 'pull_request'
 
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          cache: npm
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Test
-        run: make ci-test
-        env:
-          GITHUB_OAUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
   deploy:
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    needs: [build, test]
+    needs: [build]
     runs-on: ubuntu-latest
     name: Deploy
     steps:

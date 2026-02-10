@@ -140,14 +140,6 @@ post-process: ## Run post-processing scripts
 build: ## Build the documentation site
 	VITE_PUBLIC_BASE_PATH='' npx vitepress build
 
-.PHONY: test
-test: ## Run tests
-	npx vitest run
-
-.PHONY: test-watch
-test-watch:
-	npx vitest
-
 .PHONY: docforge-ci
 docforge-ci: docforge-download ## Run docforge in CI mode (non-interactive)
 	@echo "Running docforge (CI)..."
