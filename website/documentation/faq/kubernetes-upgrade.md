@@ -3,7 +3,7 @@ title: Upgrading Kubernetes Versions
 aliases: ["/docs/faq/automatic-upgrade/"]
 ---
 
-## How can I upgrade my cluster versions?
+## How can you upgrade cluster versions?
 
 Upgrading your shoot cluster version can be done manually or by pressing the *Upgrade* button in the Dashboard.
 
