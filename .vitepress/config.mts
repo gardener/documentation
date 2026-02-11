@@ -10,6 +10,9 @@ export default defineConfig({
   base: process.env.VITE_PUBLIC_BASE_PATH || '',
   srcDir: 'hugo/content',
   cleanUrls: true,
+  sitemap: {
+    hostname: 'https://gardener.cloud'
+  },
   rewrites(id) {
     if (!indexPattern.test(id) && id.endsWith('.md')) {
       return id.slice(0, -3) + '/index.md';
