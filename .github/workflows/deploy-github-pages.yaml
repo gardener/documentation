@@ -39,6 +39,17 @@ jobs:
         with:
           path: .vitepress/dist
         if: github.event_name != 'pull_request'
+      - name: Send failure notification
+        uses: gardener/cc-utils/.github/actions/send-mail@master
+        if: ${{ failure() && github.ref == 'refs/heads/master' }}
+        with:
+          subject: GHA workflow ${{ github.workflow_ref }} failed!
+          body: |
+            The following GHA job failed:
+            ${build_job_url}
+          recipients: |
+            niklas.klocke@sap.com
+            marc.vornetran@sap.com
 
   deploy:
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
