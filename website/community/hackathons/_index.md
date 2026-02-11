@@ -13,8 +13,9 @@ If you feel like you can contribute something, you are encouraged to file a PR.
 
 | Date                    | Location                                                                        | Organizer | Wrap Up                 |
 |:------------------------|:--------------------------------------------------------------------------------|:----------|:------------------------|
+| 08.12.2025 – 12.12.2025 | [SAP Center Walldorf](https://maps.app.goo.gl/L3Yv7jooK9kfsaxb9)                | SAP       | [Summary](./2025-12.md) |
 | 24.11.2025 – 28.11.2025 | [Schlosshof Freizeitheim, Schelklingen](https://www.schlosshof-info.de/)        | x-cellent | [Summary](./2025-11.md) |
-| 21.07.2025 – 25.07.2025 | [SAP Center Sofia](https://maps.app.goo.gl/SPdvQ4F2p7Qqfx4p9)                    | SAP       | [Summary](./2025-07.md) |
+| 21.07.2025 – 25.07.2025 | [SAP Center Sofia](https://maps.app.goo.gl/SPdvQ4F2p7Qqfx4p9)                   | SAP       | [Summary](./2025-07.md) |
 | 02.06.2025 – 06.06.2025 | [Schlosshof Freizeitheim, Schelklingen](https://www.schlosshof-info.de/)        | x-cellent | [Summary](./2025-06.md) |
 | 02.12.2024 – 06.12.2024 | [Schlosshof Freizeitheim, Schelklingen](https://www.schlosshof-info.de/)        | x-cellent | [Summary](./2024-12.md) |
 | 13.05.2024 – 17.05.2024 | [Schlosshof Freizeitheim, Schelklingen](https://www.schlosshof-info.de/)        | x-cellent | [Summary](./2024-05.md) |
