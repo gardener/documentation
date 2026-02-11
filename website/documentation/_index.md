@@ -59,6 +59,6 @@ Developer documentation includes architecture details, development guides, API r
 
 If you need assistance or have questions:
 
-- **Community Support**: Join our [community channels](/community) to connect with other Gardener users and contributors
-- **GitHub Issues**: Report bugs or request features in our [GitHub repository](https://github.com/gardener/gardener)
-- **Slack**: Join the Gardener community on the [Kubernetes Slack](https://kubernetes.slack.com/) in the #gardener channel
+- **Community Support**: Join our [community channels](../community/_index.md) to connect with other Gardener users and contributors
+- **GitHub Issues**: Report bugs or request features in our [GitHub repository](https://github.com/gardener/documentation)
+- **Slack**: Join the Gardener community on [Slack](https://join.slack.com/t/gardener-cloud/shared_invite/zt-33c9daems-3oOorhnqOSnldZPWqGmIBw)
