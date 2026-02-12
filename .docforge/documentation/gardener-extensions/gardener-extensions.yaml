@@ -25,14 +25,11 @@ structure:
       description: Gardener extension controllers for the supported container network interfaces
       weight: 30
   - manifest: ./network.yaml
-- dir: container-runtime-extensions
-  structure:
-  - file: _index.md
-    frontmatter:
-      title: Container Runtime Extensions
-      description: Gardener extensions for the supported container runtime interfaces
-      weight: 40
-  - manifest: ./container-runtime.yaml
+- file: gardener-extension-runtime-gvisor
+  frontmatter:
+    title: GVisor container runtime
+    description: Gardener extension controller for the gVisor container runtime sandbox
+  source: https://github.com/gardener/gardener-extension-runtime-gvisor/blob/master/README.md
 - dir: others
   structure:
   - manifest: ./others.yaml
