@@ -1,0 +1,341 @@
+[
+  {
+    "path": "hugo/content/blog/2023",
+    "type": "LONE_FILE",
+    "files": [
+      "03-27-High-Availability-and-Zone-Outage-Toleration.md",
+      "_index.md",
+      "index.md"
+    ],
+    "loneFile": "03-27-High-Availability-and-Zone-Outage-Toleration.md",
+    "hasIndexFiles": true
+  },
+  {
+    "path": "hugo/content/blog/2025/03",
+    "type": "LONE_FILE",
+    "files": [
+      "03-18-Gardener-KubeCon-CloudNativeCon-Europe-2025-Announcement.md",
+      "_index.md",
+      "index.md"
+    ],
+    "loneFile": "03-18-Gardener-KubeCon-CloudNativeCon-Europe-2025-Announcement.md",
+    "hasIndexFiles": true
+  },
+  {
+    "path": "hugo/content/blog/2025/04",
+    "type": "LONE_FILE",
+    "files": [
+      "04-17-Leaner-Clusters-Lower-Bills.md",
+      "_index.md",
+      "index.md"
+    ],
+    "loneFile": "04-17-Leaner-Clusters-Lower-Bills.md",
+    "hasIndexFiles": true
+  },
+  {
+    "path": "hugo/content/community/hackathons/images/2023-05/gardener-node-agent",
+    "type": "LONE_FILE",
+    "files": [
+      "design.drawio.svg",
+      "summary.md"
+    ],
+    "loneFile": "summary.md",
+    "hasIndexFiles": false
+  },
+  {
+    "path": "hugo/content/community/hackathons/images/2023-05/masterful-shoot",
+    "type": "LONE_FILE",
+    "files": [
+      "masterfulshoot.png",
+      "summary.md"
+    ],
+    "loneFile": "summary.md",
+    "hasIndexFiles": false
+  },
+  {
+    "path": "hugo/content/community/hackathons/images/2023-11/discussions",
+    "type": "LONE_FILE",
+    "files": [
+      "gardener_node_agent_rolling_update.md",
+      "rolling_update_proposal.drawio.svg"
+    ],
+    "loneFile": "gardener_node_agent_rolling_update.md",
+    "hasIndexFiles": false
+  },
+  {
+    "path": "hugo/content/community/steering/product",
+    "type": "LONE_FILE",
+    "files": [
+      "0037-scaling-advisor.md",
+      "_index.md",
+      "index.md"
+    ],
+    "loneFile": "0037-scaling-advisor.md",
+    "hasIndexFiles": true
+  },
+  {
+    "path": "hugo/content/docs",
+    "type": "LONE_FILE",
+    "files": [
+      "_index.md",
+      "gardenctl-v2.md",
+      "index.md",
+      "logo_gardener_cli_large.png"
+    ],
+    "loneFile": "gardenctl-v2.md",
+    "hasIndexFiles": true
+  },
+  {
+    "path": "hugo/content/docs/contribute/code/roles",
+    "type": "ONLY_INDEX_FILES",
+    "files": [
+      "_index.md",
+      "index.md"
+    ]
+  },
+  {
+    "path": "hugo/content/docs/extensions/container-runtime-extensions/gardener-extension-runtime-gvisor",
+    "type": "ONLY_INDEX_FILES",
+    "files": [
+      "_index.md",
+      "index.md"
+    ]
+  },
+  {
+    "path": "hugo/content/docs/extensions/infrastructure-extensions/gardener-extension-provider-alicloud/tutorials/kubernetes-cluster-on-alicloud-with-gardener",
+    "type": "LONE_FILE",
+    "files": [
+      "_index.md",
+      "index.md",
+      "kubernetes-cluster-on-alicloud-with-gardener.md"
+    ],
+    "loneFile": "kubernetes-cluster-on-alicloud-with-gardener.md",
+    "hasIndexFiles": true
+  },
+  {
+    "path": "hugo/content/docs/extensions/infrastructure-extensions/gardener-extension-provider-aws/tutorials/kubernetes-cluster-on-aws-with-gardener",
+    "type": "LONE_FILE",
+    "files": [
+      "_index.md",
+      "index.md",
+      "kubernetes-cluster-on-aws-with-gardener.md"
+    ],
+    "loneFile": "kubernetes-cluster-on-aws-with-gardener.md",
+    "hasIndexFiles": true
+  },
+  {
+    "path": "hugo/content/docs/extensions/infrastructure-extensions/gardener-extension-provider-azure/tutorials/kubernetes-cluster-on-azure-with-gardener",
+    "type": "LONE_FILE",
+    "files": [
+      "_index.md",
+      "index.md",
+      "kubernetes-cluster-on-azure-with-gardener.md"
+    ],
+    "loneFile": "kubernetes-cluster-on-azure-with-gardener.md",
+    "hasIndexFiles": true
+  },
+  {
+    "path": "hugo/content/docs/extensions/infrastructure-extensions/gardener-extension-provider-gcp/proposals",
+    "type": "LONE_FILE",
+    "files": [
+      "datadisk-image-restore.md"
+    ],
+    "loneFile": "datadisk-image-restore.md",
+    "hasIndexFiles": false
+  },
+  {
+    "path": "hugo/content/docs/extensions/infrastructure-extensions/gardener-extension-provider-gcp/tutorials/kubernetes-cluster-on-gcp-with-gardener",
+    "type": "LONE_FILE",
+    "files": [
+      "_index.md",
+      "index.md",
+      "kubernetes-cluster-on-gcp-with-gardener.md"
+    ],
+    "loneFile": "kubernetes-cluster-on-gcp-with-gardener.md",
+    "hasIndexFiles": true
+  },
+  {
+    "path": "hugo/content/docs/extensions/network-extensions/gardener-extension-networking-cilium",
+    "type": "LONE_FILE",
+    "files": [
+      "_index.md",
+      "index.md",
+      "usage.md"
+    ],
+    "loneFile": "usage.md",
+    "hasIndexFiles": true
+  },
+  {
+    "path": "hugo/content/docs/extensions/os-extensions/gardener-extension-os-coreos",
+    "type": "LONE_FILE",
+    "files": [
+      "_index.md",
+      "index.md",
+      "usage.md"
+    ],
+    "loneFile": "usage.md",
+    "hasIndexFiles": true
+  },
+  {
+    "path": "hugo/content/docs/extensions/os-extensions/gardener-extension-os-gardenlinux",
+    "type": "ONLY_INDEX_FILES",
+    "files": [
+      "_index.md",
+      "index.md"
+    ]
+  },
+  {
+    "path": "hugo/content/docs/extensions/os-extensions/gardener-extension-os-ubuntu",
+    "type": "LONE_FILE",
+    "files": [
+      "_index.md",
+      "index.md",
+      "usage.md"
+    ],
+    "loneFile": "usage.md",
+    "hasIndexFiles": true
+  },
+  {
+    "path": "hugo/content/docs/extensions/others",
+    "type": "LONE_FILE",
+    "files": [
+      "_index.md",
+      "acl-extension.md",
+      "index.md"
+    ],
+    "loneFile": "acl-extension.md",
+    "hasIndexFiles": true
+  },
+  {
+    "path": "hugo/content/docs/extensions/others/gardener-extension-registry-cache/registry-mirror",
+    "type": "LONE_FILE",
+    "files": [
+      "configuration.md"
+    ],
+    "loneFile": "configuration.md",
+    "hasIndexFiles": false
+  },
+  {
+    "path": "hugo/content/docs/gardener/gardener",
+    "type": "LONE_FILE",
+    "files": [
+      "gardener_info_configmap.md"
+    ],
+    "loneFile": "gardener_info_configmap.md",
+    "hasIndexFiles": false
+  },
+  {
+    "path": "hugo/content/docs/gardener/observability",
+    "type": "LONE_FILE",
+    "files": [
+      "_index.md",
+      "index.md",
+      "logging.md"
+    ],
+    "loneFile": "logging.md",
+    "hasIndexFiles": true
+  },
+  {
+    "path": "hugo/content/docs/gardener/reference",
+    "type": "LONE_FILE",
+    "files": [
+      "well-known-labels-annotations.md"
+    ],
+    "loneFile": "well-known-labels-annotations.md",
+    "hasIndexFiles": false
+  },
+  {
+    "path": "hugo/content/docs/glossary",
+    "type": "ONLY_INDEX_FILES",
+    "files": [
+      "_index.md",
+      "index.md"
+    ]
+  },
+  {
+    "path": "hugo/content/docs/other-components/dependency-watchdog/setup",
+    "type": "LONE_FILE",
+    "files": [
+      "dwd-using-local-garden.md"
+    ],
+    "loneFile": "dwd-using-local-garden.md",
+    "hasIndexFiles": false
+  },
+  {
+    "path": "hugo/content/docs/other-components/etcd-druid/api-reference",
+    "type": "LONE_FILE",
+    "files": [
+      "etcd-druid-api.md"
+    ],
+    "loneFile": "etcd-druid-api.md",
+    "hasIndexFiles": false
+  },
+  {
+    "path": "hugo/content/docs/other-components/etcd-druid/benchmark",
+    "type": "LONE_FILE",
+    "files": [
+      "etcd-network-latency.md"
+    ],
+    "loneFile": "etcd-network-latency.md",
+    "hasIndexFiles": false
+  },
+  {
+    "path": "hugo/content/docs/other-components/etcd-druid/monitoring",
+    "type": "LONE_FILE",
+    "files": [
+      "metrics.md"
+    ],
+    "loneFile": "metrics.md",
+    "hasIndexFiles": false
+  },
+  {
+    "path": "hugo/content/docs/other-components/gardener-discovery-server",
+    "type": "LONE_FILE",
+    "files": [
+      "_index.md",
+      "api.md",
+      "index.md"
+    ],
+    "loneFile": "api.md",
+    "hasIndexFiles": true
+  },
+  {
+    "path": "hugo/content/docs/other-components/machine-controller-manager/documents",
+    "type": "LONE_FILE",
+    "files": [
+      "_index.md",
+      "apis.md",
+      "index.md"
+    ],
+    "loneFile": "apis.md",
+    "hasIndexFiles": true
+  },
+  {
+    "path": "hugo/content/docs/other-components/machine-controller-manager/todo",
+    "type": "LONE_FILE",
+    "files": [
+      "_index.md",
+      "index.md",
+      "outline.md"
+    ],
+    "loneFile": "outline.md",
+    "hasIndexFiles": true
+  },
+  {
+    "path": "hugo/content/docs/other-components/network-problem-detector",
+    "type": "ONLY_INDEX_FILES",
+    "files": [
+      "_index.md",
+      "index.md"
+    ]
+  },
+  {
+    "path": "hugo/content/html",
+    "type": "LONE_FILE",
+    "files": [
+      "hardened_shoots_report.md"
+    ],
+    "loneFile": "hardened_shoots_report.md",
+    "hasIndexFiles": false
+  }
+]
