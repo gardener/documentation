@@ -21,7 +21,7 @@ structure:
       frontmatter:
         title: Security and Compliance
         description: Make sure that your clusters are compliant and secure
-        weight: 30
+        weight: 36
         aliases: ["/docs/security-and-compliance/"]
       source: https://github.com/gardener/.github/blob/main/SECURITY.md
     - file: https://github.com/gardener/diki/blob/main/docs/usage/disa-k8s-stig-shoot.md
@@ -176,6 +176,17 @@ structure:
           - "high-availability/shoot_high_availability_best_practices.md" # already included in ./guides.yaml, avoiding duplicates
           - "high-availability/shoot_high_availability.md" # already included in ./guides.yaml, avoiding duplicates
           - "autoscaling/shoot_pod_autoscaling_best_practices.md" # already included in ./guides.yaml, avoiding duplicates
+  - dir: proposals
+    structure:
+      - file: _index.md
+        frontmatter:
+          title: Proposals
+          weight: 34
+        source: https://github.com/gardener/enhancements/blob/main/geps/README.md
+      - fileTree: https://github.com/gardener/enhancements/tree/main/geps
+        excludeFiles:
+          - README.md
+          - NNNN-gep-template/README.md
   - dir: extensions
     structure:
     - file: _index.md
