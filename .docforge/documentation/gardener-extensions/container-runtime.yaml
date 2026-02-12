@@ -1,8 +1,0 @@
-structure:
-- dir: gardener-extension-runtime-gvisor
-  structure:
-  - file: _index.md
-    frontmatter:
-      title: GVisor container runtime
-      description: Gardener extension controller for the gVisor container runtime sandbox
-    source: https://github.com/gardener/gardener-extension-runtime-gvisor/blob/master/README.md
