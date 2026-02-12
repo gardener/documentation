@@ -3,6 +3,7 @@ import { fileURLToPath, URL } from 'node:url'
 import blogSidebar from './theme/blog-sidebar.ts'
 import {communitySidebar} from "./theme/community-sidebar.ts";
 import path from 'path'
+import { SearchResult } from 'minisearch'
 
 const indexPattern = new RegExp(/\/?_?index\.md$/i);
 
@@ -162,7 +163,14 @@ function getSearchConfig() {
               page_synonyms: 3 // Synonyms/alternate terms
             },
             // Fields to search in
-            fields: ['title', 'text', 'headings', 'tags', 'categories', 'description', 'page_synonyms']
+            fields: ['title', 'text', 'headings', 'tags', 'categories', 'description', 'page_synonyms'],
+            // TODO(marc1404): Remove once `_index.md` files are renamed to `index.md`.
+            // Historically our source documentation files are using `_index.md` as the default name for index pages.
+            // Since migrating from Hugo to VitePress, we're using a post-processing step (post-processing/part-index.js) to copy and rename all `_index.md` files to `index.md`.
+            // This leads to duplicate search results since both `_index.md` and `index.md` are indexed by MiniSearch.
+            filter(result: SearchResult) {
+              return !result.id.includes('/_index');
+            },
           }
         }
       }
