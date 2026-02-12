@@ -47,7 +47,7 @@ structure:
         frontmatter:
           title: API Reference
           weight: 10
-          aliases: 
+          aliases:
           - "/api-reference/"
           persona: Developers
         source: https://github.com/gardener/gardener/blob/master/docs/api-reference/README.md
@@ -217,7 +217,8 @@ structure:
   - dir: faq
     structure:
     - manifest: ./faq.yaml
-  - file: ../website/documentation/glossary.md
+  - file: glossary.md
+    source: /website/documentation/glossary.md
   - dir: resources
     structure:
     - fileTree: /website/documentation/resources
