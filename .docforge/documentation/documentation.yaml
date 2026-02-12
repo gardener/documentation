@@ -217,9 +217,6 @@ structure:
   - dir: faq
     structure:
     - manifest: ./faq.yaml
-  - dir: glossary
-    structure:
-    - fileTree: /website/documentation/glossary
   - dir: resources
     structure:
     - fileTree: /website/documentation/resources
