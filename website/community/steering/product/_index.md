@@ -4,6 +4,6 @@ title: Product Steering
 
 # Product Steering
 
-| Date         | Title                                                   |
-|--------------|---------------------------------------------------------|
-| `2025-03-17` | [Scaling Recommender](./2025-03-scaling-recommender.md) |
+| Date         | GEP  | Title                                        |
+|--------------|------|----------------------------------------------|
+| `2025-03-17` | 0037 | [Scaling Advisor](./0037-scaling-advisor.md) |
