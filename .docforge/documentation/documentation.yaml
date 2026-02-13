@@ -63,7 +63,6 @@ structure:
           persona: Operators
       - fileTree: https://github.com/gardener/gardener/tree/master/docs/concepts
       - file: https://github.com/gardener/gardener/blob/master/logo/gardenadm-large.png
-      - file: https://github.com/gardener/gardener/blob/master/docs/proposals/assets/28-overview.png
     - dir: extensions
       structure:
       - file: _index.md
