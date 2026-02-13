@@ -8,7 +8,7 @@ title: "GEP-0037: Scaling Advisor"
 - 📖 **GEP Link:** https://github.com/gardener/enhancements/tree/main/geps/0037-scaling-recommender
 - ✍🏻 **Author(s):** [@unmarshall](https://github.com/unmarshall) (Madhav Bhargava)
 - 🗓️ **Presentation:** 2025-03-17, 10:00 - 11:00 CET
-- 🎥 **Recording:** [click here](https://youtu.be/u4-fWwKITuM)
+- 🎥 **Recording:** https://youtu.be/u4-fWwKITuM
 - <details closed><summary>📝 <b>Meeting Minutes</b></summary>
 
   - Madhav (and Tarun on CA inefficiencies) presented the recommender proposal.
