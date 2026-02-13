@@ -122,7 +122,7 @@ Podrick took a quill. He wrote:
 Name: Podrick's Orchid Patch
 Soil Type: Special Orchid Soil
 Size: 3 large acres
-Watering: 1x per week
+Soil Humidity: 40% - 70%
 ```
 
 He handed it back.
