@@ -4,7 +4,7 @@ title: "GEP-0039: Live Control Plane Migration (Live CPM)"
 ---
 - 📌 **GEP Tracking Issue:** https://github.com/gardener/enhancements/issues/39
 - 📖 **GEP Link:** https://github.com/gardener/enhancements/tree/main/geps/0039-live-control-plane-migration
-- ✍🏻 **Author(s):** [@acumino](https://github.com/acumino) Sonu Kumar Singh, [@ary1992](https://github.com/ary1992) Ashish Ranjan Yadav, [@seshachalam-yv](https://github.com/seshachalam-yv) Seshachalam, [@shafeeqes](https://github.com/shafeeqes) Shafeeque E S
+- ✍🏻 **Author(s):** [@acumino](https://github.com/acumino) (Sonu Kumar Singh), [@ary1992](https://github.com/ary1992) (Ashish Ranjan Yadav), [@seshachalam-yv](https://github.com/seshachalam-yv) (Seshachalam), [@shafeeqes](https://github.com/shafeeqes) (Shafeeque E S)
 - 🗓️ **Presentation:** 2026-02-09, 13:00 - 14:00 CET
 - 🎥 **Recording:** https://youtu.be/DdU8SNNf23o
 - 👨‍⚖️ **Decisions:**
