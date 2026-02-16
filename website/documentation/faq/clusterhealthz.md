@@ -20,4 +20,3 @@ kubectl get shoot <shoot-name> -o json | jq -r '.status.conditions[] | select(.t
 
 The availability information in the second scenario is collected by the Gardener. If you want to collect the information independently from Gardener, you should choose the first scenario.
 
-If you want to archive a simple pull monitor in the AvS for a shoot cluster, you also need to use the first scenario, because with it you have a stable endpoint for the API server which you can query.

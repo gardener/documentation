@@ -24,4 +24,4 @@ It is therefore recommended to first update your test cluster and validate it be
 
 ## Can Kubernetes upgrade automatically?
 
-There is no automatic migration of major/minor versions of Kubernetes. You need to [update your clusters manually](#how-can-i-upgrade-my-cluster-versions) or press the *Upgrade* button in the Dashboard.
+There is no automatic migration of major/minor versions of Kubernetes. You need to [update your clusters manually](#how-can-you-upgrade-cluster-versions) or press the *Upgrade* button in the Dashboard.

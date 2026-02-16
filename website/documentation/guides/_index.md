@@ -7,8 +7,6 @@ weight: 20
 
 # Guides
 
-## Overview
-
 Step-by-step walkthroughs and best practices organized by topic:
 
 - [**Set Up Client Tools**](./client-tools/_index.md): Essential tools and techniques for working with Kubernetes clusters, including kubeconfig management, bash tips, and command-line workflows.
