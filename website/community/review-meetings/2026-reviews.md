@@ -14,6 +14,30 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2026/02/18 - [v1.136](https://github.com/gardener/gardener/releases/tag/v1.136.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@oliver-goetz](https://github.com/oliver-goetz) | `5m` | 📝 `kube-apiserver` Access Logs | [#13569](https://github.com/gardener/gardener/pull/13569) |
+| [@maxmsap](https://github.com/maxmsap) | `5m` | 🧲 `provider-ironcore`: Experimental GPU Support | [ironcore-dev/roadmap#31](https://github.com/ironcore-dev/roadmap/issues/31) |
+| [@rfranzke](https://github.com/rfranzke) | `5m` | 📣 Manifest Propagation To `Shoot`s | [#13614](https://github.com/gardener/gardener/pull/13614) |
+| [@vitanovs](https://github.com/vitanovs) | `10m` | ♻️ `InPlaceOrRecreate` VPA Update Mode Webhook | [#12940](https://github.com/gardener/gardener/pull/12940), [#13573](https://github.com/gardener/gardener/pull/13573) |
+| [@DockToFuture](https://github.com/DockToFuture) | `5m` | 🤝 Seamless Overlay Network Switch | [networking-calico#779](https://github.com/gardener/gardener-extension-networking-calico/pull/779), [aws-custom-route-controller#411](https://github.com/gardener/aws-custom-route-controller/pull/411) |
+| [@shafeeqes](https://github.com/shafeeqes) | `5m` | 🪪 Custom CA Bundle Support For Helm Repositories | [#13868](https://github.com/gardener/gardener/pull/13868) |
+| [@timuthy](https://github.com/timuthy) | `5m` | ➕ Leftover Toleration During `Shoot` Cleanup | [#13918](https://github.com/gardener/gardener/pull/13918) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- ✨ [USER] Shoot addons (`.spec.addons`) have been deprecated and will be forbidden starting with Kubernetes 1.35. Their usage was already discouraged for productive clusters, as they now only include unmaintained components (Kubernetes dashboard and Ingress NGINX Controller). [#13845](https://github.com/gardener/gardener/pull/13845)
+- ✨ [USER] The `Shoot` field `.spec.seedSelector` can now be adjusted for already scheduled shoots, as long as the new selector still selects the assigned seed. [#13920](https://github.com/gardener/gardener/pull/13920)
+- ✨ [OPERATOR] The `gardener-controller-manager` now increases all `ResourceQuota`s in project namespaces when a Gardener update leads to Gardener creating more resources in them. This was introduced to prevent failing `Shoot` reconciliations when `ResourceQuota`s of projects are near their limit. [#13850](https://github.com/gardener/gardener/pull/13850)
+
+<hr />
+
 ### 2026/01/28 - [v1.135](https://github.com/gardener/gardener/releases/tag/v1.135.0) Release
 
 [📽️ Recording](https://youtu.be/2rOOsQWLO_w)
