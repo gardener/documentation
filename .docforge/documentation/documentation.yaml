@@ -1,18 +1,11 @@
 structure:
   - file: _index.md
-    frontmatter:
-      title: Docs
+    source: /website/documentation/_index.md
   - dir: getting-started
     structure:
     - fileTree: /website/documentation/getting-started
   - dir: guides
     structure:
-    - file: _index.md
-      frontmatter:
-        title: Guides
-        description: Walkthroughs of common activities
-        persona: Developers
-        weight: 20
     - manifest: ./guides.yaml
   - dir: security-and-compliance
     structure:
@@ -197,11 +190,6 @@ structure:
     - manifest: ./gardener-extensions/gardener-extensions.yaml
   - dir: other-components
     structure:
-    - file: _index.md
-      frontmatter:
-        title: Other Components
-        description: Other components included in the Gardener project
-        weight: 50
     - manifest: ./other-components.yaml
   - dir: dashboard
     structure:

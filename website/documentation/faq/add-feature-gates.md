@@ -1,5 +1,5 @@
 ---
-title: How to add K8S feature gates to my shoot cluster?
+title: How do you add K8S feature gates to a shoot cluster?
 ---
 
 ## Adding a Feature Gate

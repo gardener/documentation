@@ -1,4 +1,6 @@
 structure:
+- file: _index.md
+  source: /website/documentation/other-components/_index.md
 - dir: machine-controller-manager
   structure:
   - file: _index.md
