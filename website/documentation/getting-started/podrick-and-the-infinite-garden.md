@@ -5,6 +5,8 @@ weight: 0
 
 # Podrick and the Infinite Garden
 
+**An Illustrated Guide to Gardener for Readers of All Ages**
+
 ![cover picture of podrick and the infinite garden](./images/podrick/scene-0.png)
 
 * **Written by:** _The Gardener authors_  
