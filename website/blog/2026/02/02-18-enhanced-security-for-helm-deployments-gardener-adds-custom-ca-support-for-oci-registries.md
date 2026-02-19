@@ -15,7 +15,7 @@ Gardener continues to enhance its security and flexibility, particularly for use
 
 ### The Challenge of Private Registries
 
-Previously, while Gardener supported authentication to private OCI registries using pull secrets, it lacked a way to establish trust with registries that use a custom TLS certificate chain. This would result in "x509: certificate signed by unknown authority" errors, preventing the download of Helm charts for extensions and other components.
+Previously, while Gardener supported authentication to private OCI registries using pull secrets, it lacked a way to establish trust with registries secured by custom TLS certificate chains. This prevented Helm charts for extensions and other components from being downloaded due to certificate verification failures.
 
 ### A New Level of Trust: `caBundleSecretRef`
 
@@ -30,9 +30,9 @@ This field allows you to reference a Kubernetes Secret that contains the necessa
 
 The process is straightforward:
 
-1.  **Create a CA Bundle Secret**: First, you create a standard Kubernetes Secret in the `garden` namespace. This secret must contain the PEM-encoded CA certificate bundle under the data key `bundle.crt`.
+1.  **Create a CA Bundle Secret**: First, you create a standard Kubernetes Secret in the `garden` namespace. For the `Extension` resource, this should be in the runtime garden cluster and for `ControllerDeployment` this should be in the virtual garden cluster. This secret must contain the PEM-encoded CA certificate bundle under the data key `bundle.crt`.
 
-2.  **Label the Secret**: For the `gardenlet` to use this secret, it must be labeled with `gardener.cloud/role: oci-ca-bundle`. This label allows Gardener's controllers to find the secret and propagate it to the virtual garden, making it available during reconciliation.
+2.  **Label the Secret**: For the `gardenlet` to use this secret, it must be labeled with `gardener.cloud/role: oci-ca-bundle`. This label allows the secret to be propagated to the seed namespace in the virtual garden.
 
 3.  **Reference the Secret**: Finally, you reference this secret by name in the `caBundleSecretRef` field within the `ociRepository` block of your `Extension` or `ControllerDeployment` manifest.
 
@@ -51,7 +51,6 @@ type: Opaque
 data:
   bundle.crt: <base64-encoded-ca-bundle>
 ```
-
 Next, reference this secret in your `Extension` definition:
 ```yaml
 apiVersion: operator.gardener.cloud/v1alpha1
@@ -60,6 +59,25 @@ metadata:
   name: provider-example
 spec:
   deployment:
+    admission:
+      runtimeCluster:
+        helm:
+          ociRepository:
+            repository: registry.example.com/charts/admission-runtime
+            tag: v1.0.0
+            caBundleSecretRef:
+              name: my-registry-ca
+            pullSecretRef:
+              name: my-pull-secret
+      virtualCluster:
+        helm:
+          ociRepository:
+            repository: registry.example.com/charts/admission-application
+            tag: v1.0.0
+            caBundleSecretRef:
+              name: my-registry-ca
+            pullSecretRef:
+              name: my-pull-secret
     extension:
       helm:
         ociRepository:
@@ -70,10 +88,26 @@ spec:
           pullSecretRef:
             name: my-pull-secret
 ```
+or `ControllerDeployment` definition:
+```yaml
+apiVersion: core.gardener.cloud/v1beta1
+kind: ControllerDeployment
+metadata:
+  name: provider-example
+spec:
+  helm:
+    ociRepository:
+      repository: registry.example.com/charts/controller
+      tag: v1.0.0
+      caBundleSecretRef:
+        name: my-registry-ca
+      pullSecretRef:
+        name: my-pull-secret
+```
 
 With this configuration, Gardener will use the provided CA bundle to securely pull the Helm chart, enabling seamless deployment of extensions from your private registries.
 
-This feature is the first step in a broader effort to improve support for custom CAs. Future updates will extend this capability, for example, to the `gardener-node-agent` for pulling images during node bootstrapping.
+This feature is the first step in a broader effort to improve support for custom CAs. Future updates will extend this capability, for example, to support the `gardener-node-agent` image to be pulled from a private registry during node bootstrapping.
 
 ---
 ### Explore Further
