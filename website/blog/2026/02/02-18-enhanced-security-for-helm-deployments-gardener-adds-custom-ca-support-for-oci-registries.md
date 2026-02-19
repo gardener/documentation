@@ -13,7 +13,7 @@ aliases: ["/blog/2026/02/18/enhanced-security-for-helm-deployments-gardener-adds
 
 Gardener continues to enhance its security and flexibility, particularly for users operating in air-gapped environments or utilizing private infrastructure. A new feature now allows operators to specify a custom Certificate Authority (CA) bundle when pulling Helm charts from OCI registries. This is a significant improvement for environments where registries are secured with custom or self-signed TLS certificates.
 
-### The Challenge of Private Registries
+## The Challenge of Private Registries
 
 Previously, while Gardener supported authentication to private OCI registries using pull secrets, it lacked a way to establish trust with registries secured by custom TLS certificate chains. This prevented Helm charts for extensions and other components from being downloaded due to certificate verification failures.
 
@@ -30,7 +30,7 @@ This field allows you to reference a Kubernetes Secret that contains the necessa
 
 The process is straightforward:
 
-1.  **Create a CA Bundle Secret**: First, you create a standard Kubernetes Secret in the `garden` namespace. For the `Extension` resource, this should be in the runtime garden cluster and for `ControllerDeployment` this should be in the virtual garden cluster. This secret must contain the PEM-encoded CA certificate bundle under the data key `bundle.crt`.
+1.  **Create a CA Bundle Secret**: First, you create a standard Kubernetes Secret in the `garden` namespace. For the `Extension` resource, create this secret in the runtime garden cluster; for `ControllerDeployment`, create it in the virtual garden cluster. This secret must contain the PEM-encoded CA certificate bundle under the data key `bundle.crt`.
 
 2.  **Label the Secret**: For the `gardenlet` to use this secret, it must be labeled with `gardener.cloud/role: oci-ca-bundle`. This label allows the secret to be propagated to the seed namespace in the virtual garden.
 
