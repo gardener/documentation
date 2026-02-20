@@ -6,6 +6,7 @@ on:
       - closed
 
 permissions:
+  id-token: write
   pull-requests: write
 
 concurrency: preview-${{ github.ref }}
@@ -15,14 +16,13 @@ jobs:
     if: ${{ github.event.action == 'labeled' && github.event.label.name == vars.DEFAULT_LABEL_OK_TO_TEST && vars.DEFAULT_LABEL_OK_TO_TEST != '' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/create-github-app-token@v2
+      - uses: gardener/cc-utils/.github/actions/github-auth@master
         id: app-token
         with:
-          # required
-          app-id: ${{ vars.GARDENER_GITHUB_ACTIONS_APP_ID }}
-          private-key: ${{ secrets.GARDENER_GITHUB_ACTIONS_PRIVATE_KEY }}
-          owner: gardener
+          token-server: ${{ vars.FEDERATED_GITHUB_ACCESS_TOKEN_SERVER }}
           repositories: documentation-demo
+          permissions: |
+            contents: write
 
       - name: Checkout
         uses: gardener/cc-utils/.github/actions/trusted-checkout@master
@@ -193,14 +193,13 @@ jobs:
     if: ${{ github.event.action == 'closed' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/create-github-app-token@v2
+      - uses: gardener/cc-utils/.github/actions/github-auth@master
         id: app-token
         with:
-          # required
-          app-id: ${{ vars.GARDENER_GITHUB_ACTIONS_APP_ID }}
-          private-key: ${{ secrets.GARDENER_GITHUB_ACTIONS_PRIVATE_KEY }}
-          owner: gardener
+          token-server: ${{ vars.FEDERATED_GITHUB_ACCESS_TOKEN_SERVER }}
           repositories: documentation-demo
+          permissions: |
+            contents: write
 
       - name: Checkout main repository
         uses: gardener/cc-utils/.github/actions/trusted-checkout@master
