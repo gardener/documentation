@@ -17,7 +17,7 @@ Switching networking configurations in a live Kubernetes cluster is a delicate o
 
 In a non-overlay mode, Calico relies on the cloud provider's infrastructure to route traffic between nodes. This is typically handled by a route controller that creates the necessary entries in the provider's route tables.
 
-The problem was a potential race condition. When an operator disabled the overlay network, the Calico daemonset would begin to roll and reconfigure itself. If this happened *before* the route controller had finished creating the required routes for all nodes, pods could temporarily lose the ability to communicate with each other, resulting in a period of network downtime. This was especially problematic in large clusters, where route creation can take time or even fail due to cloud provider quotas.
+The problem was a potential race condition. When an operator disabled the overlay network, the Calico daemonset would begin to roll and reconfigure itself. If this happened *before* the route controller had finished creating the required routes for all nodes, pods could temporarily lose the ability to communicate with each other, resulting in a period of network downtime. This was especially problematic in large clusters, where route creation can take time or even fail due to cloud provider route table quotas.
 
 ### The Solution: A Coordinated, Seamless Switch
 
@@ -34,6 +34,8 @@ With this crucial signal in place, the Calico extension can now perform a coordi
 5.  Only once this confirmation is received does the extension proceed with rolling the Calico daemonset to the new non-overlay configuration.
 
 If the routes are not yet ready on all nodes, the reconciliation process is safely retried, and the existing overlay network remains active and uninterrupted. This guarantees a zero-downtime transition and prevents the cluster from entering a partially configured, inconsistent state. This enhancement is currently available for AWS, with support for other cloud providers to follow.
+
+> **Side note:** The feature relies on mutating admission policies, which need to be enabled for the shoot cluster.
 
 ***
 
