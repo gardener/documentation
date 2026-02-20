@@ -71,10 +71,6 @@ export default defineConfig({
 function getNavConfig () {
   return [
     {
-      text: 'Demo',
-      link: 'https://demo.gardener.cloud/',
-    },
-    {
       text: 'Adopters',
       link: '/adopter',
       activeMatch: 'adopter',
