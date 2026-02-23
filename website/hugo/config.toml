@@ -35,7 +35,7 @@ disableHugoGeneratorInject = true
       weight = 30
       url = "/docs"
   [[menu.main]]
-      name = "Blogs"
+      name = "Blog"
       weight = 40
       url = "/blog"
   [[menu.main]]

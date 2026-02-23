@@ -90,7 +90,7 @@ function getNavConfig () {
       },
     },
     {
-      text: 'Blogs',
+      text: 'Blog',
       link: '/blog',
       activeMatch: 'blog',
     },

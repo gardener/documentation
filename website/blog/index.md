@@ -1,11 +1,11 @@
 ---
-title: "Blogs"
+title: "Blog"
 editLink: false
 outline: false
 aside: false
 ---
 
-# Blogs
+# Blog
 
 <script setup>
 import BlogIndex from '@components/BlogIndex.vue'
