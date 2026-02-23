@@ -23,10 +23,6 @@ disableHugoGeneratorInject = true
 
 [menu]
   [[menu.main]]
-      name = "Demo"
-      weight = 10
-      url = "https://demo.gardener.cloud"
-  [[menu.main]]
       name = "Adopters"
       weight = 20
       url = "/adopter"
