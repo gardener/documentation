@@ -71,10 +71,6 @@ export default defineConfig({
 function getNavConfig () {
   return [
     {
-      text: 'Demo',
-      link: 'https://demo.gardener.cloud/',
-    },
-    {
       text: 'Adopters',
       link: '/adopter',
       activeMatch: 'adopter',
@@ -94,7 +90,7 @@ function getNavConfig () {
       },
     },
     {
-      text: 'Blogs',
+      text: 'Blog',
       link: '/blog',
       activeMatch: 'blog',
     },

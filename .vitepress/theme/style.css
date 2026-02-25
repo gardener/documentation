@@ -71,3 +71,23 @@ img[src='/search.png'] {
 .VPSocialLink[href*="github"] {
   color: var(--vp-c-text-1);
 }
+
+/* Podrick button styling */
+.VPButton.alt[href*="podrick"]::after {
+  content: '';
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  margin-left: 8px;
+  margin-right: -4px;
+  background-image: url('/podrick.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  vertical-align: middle;
+}
+
+.VPButton.alt[href*="podrick"] {
+  display: inline-flex;
+  align-items: center;
+}
