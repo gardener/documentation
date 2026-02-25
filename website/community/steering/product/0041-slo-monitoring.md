@@ -6,5 +6,5 @@ title: "GEP-0041: SLO Monitoring"
 - 📖 **GEP Link:** https://github.com/gardener/enhancements/pull/42
 - ✍🏻 **Author(s):** [@etiennnr](https://github.com/etiennnr) (Étienne Kemp-Rousseau), [@xavier-re](https://github.com/xavier-re) (Xavier Renaut), [@jguipi](https://github.com/jguipi) (Juste Guipi), [@sonnyuplavan](https://github.com/sonnyuplavan) (Sonny Uplavan)
 - 🗓️ **Presentation:** 2026-02-24, 15:00 - 16:00 CET
-- 🎥 **Recording:** TBD
+- 🎥 **Recording:** https://youtu.be/bqjn-JcAA6w
 - 👨‍⚖️ **Decisions:**
