@@ -1,5 +1,5 @@
 ---
-title: January
+title: September
 layout: blog-list
 aggregate: true
 ---
