@@ -445,4 +445,4 @@ The Gardener project is Open Source and [hosted on GitHub](https://github.com/ga
 
 Feedback and contributions are always welcome!
 
-All channels for getting in touch or learning about the project are listed on our [landing page](../../documentation/contribute/_index.md#community). We are cordially inviting interested parties to join our [bi-weekly meetings](../../documentation/contribute/_index.md#bi-weekly-meetings).
+All channels for getting in touch or learning about the project are listed on our [landing page](../../../documentation/contribute/_index.md#community). We are cordially inviting interested parties to join our [bi-weekly meetings](../../../documentation/contribute/_index.md#bi-weekly-meetings).

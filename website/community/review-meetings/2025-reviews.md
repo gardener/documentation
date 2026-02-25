@@ -419,7 +419,7 @@ _The occurrence for the [v1.122](https://github.com/gardener/gardener/releases/t
 | Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
 | ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
 | [@domdom82](https://github.com/domdom82) | `10m` | 🧦 CIDR Overlap w/ `Seed` For Non-HA `Shoot`s | [#11582](https://github.com/gardener/gardener/pull/11582) |
-| [@vlerenc](https://github.com/vlerenc) | `10m` | 💰 Leaner Clusters, Lower Bills | [blog post](https://gardener.cloud/blog/2025/04/04-17-Leaner-Clusters-Lower-Bills/) |
+| [@vlerenc](https://github.com/vlerenc) | `10m` | 💰 Leaner Clusters, Lower Bills | [blog post](https://gardener.cloud/blog/2025/04/04-17-leaner-clusters-lower-bills/) |
 | [@grolu](https://github.com/grolu) | `10m` | 🕹 Recent Gardener Dashboard Features | [1.80.0 (release)](https://github.com/gardener/dashboard/releases/tag/1.80.0) |
 | [@shafeeqes](https://github.com/shafeeqes), [@ary1992](https://github.com/ary1992) | `15m` | 🦋 In-Place Node Updates | [#11191](https://github.com/gardener/gardener/pull/11191), [#11393](https://github.com/gardener/gardener/pull/11393), [#11631](https://github.com/gardener/gardener/pull/11631), [#11713](https://github.com/gardener/gardener/pull/11713), [#11718](https://github.com/gardener/gardener/pull/11718), [#11843](https://github.com/gardener/gardener/pull/11843), [#11844](https://github.com/gardener/gardener/pull/11844), [#11953](https://github.com/gardener/gardener/pull/11953) |
 
