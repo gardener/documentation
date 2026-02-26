@@ -314,6 +314,21 @@ function getHeadConfig(){
     ['meta', {property: 'og:url', content: 'https://gardener.cloud/'}],
     [
       'script',
+      {
+        async: '',
+        src: 'https://widget.kapa.ai/kapa-widget.bundle.js',
+        'data-website-id': '3dac305b-ea27-43c5-8421-dc61f4fefa23',
+        'data-project-name': 'Gardener',
+        'data-project-color': '#00D29C',
+        'data-project-logo': 'https://gardener.cloud/gardener-logo.svg',
+        'data-consent-required': 'true',
+        'data-consent-screen-disclaimer': 'This AI assistant uses your questions to provide answers based on Gardener documentation. Your questions and interactions may be collected and analyzed to improve the search functionality and overall user experience. By clicking "Accept", you consent to using this AI-powered feature and the collection of your data. AI-generated responses may contain inaccuracies - please verify important information with the official documentation.',
+        'data-consent-screen-accept-button-text': 'Accept',
+        'data-consent-screen-reject-button-text': 'Decline',
+      }
+    ],
+    [
+      'script',
       {},
       `
    !function (t, e) {
