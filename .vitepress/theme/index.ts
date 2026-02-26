@@ -3,7 +3,6 @@ import { Theme, useData } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import YouTubeVideo from './components/YouTubeVideo.vue'
 import VPFooter from './components/VPFooter.vue'
-import VPNavbarMenuGroupWrapper from './components/VPNavbarMenuGroupWrapper.vue'
 import EmptyIndexLayout from './layouts/EmptyIndexLayout.vue'
 import './style.css'
 
@@ -20,8 +19,6 @@ export default {
   enhanceApp({ app, router, siteData }) {
     app.component('YouTubeVideo', YouTubeVideo)
     app.component('VPFooter', VPFooter)
-    app.component('VPNavbarMenuGroupWrapper', VPNavbarMenuGroupWrapper)
-    
     // Handle 404 detection for both initial loads and SPA navigation
     if (typeof window !== 'undefined') {
       let lastTrackedPath = '';

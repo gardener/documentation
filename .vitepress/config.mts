@@ -1,16 +1,131 @@
 import { defineConfig } from 'vitepress'
-import { fileURLToPath, URL } from 'node:url'
+import { fileURLToPath, URL, pathToFileURL } from 'node:url'
 import blogSidebar from './theme/blog-sidebar.ts'
 import {communitySidebar} from "./theme/community-sidebar.ts";
 import path from 'path'
+import fs from 'fs'
 import { SearchResult } from 'minisearch'
+import { generateEnhancedDocsSidebar } from './theme/docs-sidebar.ts';
 
 const indexPattern = new RegExp(/\/?_?index\.md$/i);
+
+// Pre-compute sidebar data at module level (runs once at build start)
+const allSidebars = {
+  '/blog/': blogSidebar()['/blog/'],
+  '/community/': communitySidebar()['/community/'],
+  '/docs/': generateEnhancedDocsSidebar()['/docs/']
+};
+
+/**
+ * Check if a markdown file has meaningful body content (beyond frontmatter).
+ */
+function hasMarkdownContent(filePath: string): boolean {
+  try {
+    const raw = fs.readFileSync(filePath, 'utf-8')
+    // Strip frontmatter (--- ... ---)
+    const stripped = raw.replace(/^---[\s\S]*?---\s*/, '')
+    // Check if remaining content has meaningful text
+    return stripped.trim().length > 0
+  } catch {
+    return true // If we can't read, assume it has content
+  }
+}
+
+interface TaxonomySidebarItem {
+  text?: string
+  link?: string
+  items?: TaxonomySidebarItem[]
+  collapsed?: boolean
+}
+
+/**
+ * Normalize a path for comparison.
+ * e.g. 'gardener/advanced/' -> 'gardener/advanced/index.md'
+ */
+function normalizeSidebarPath(base: string, link: string): string {
+  let p = base + link
+  if (p.endsWith('/')) p += 'index.md'
+  else if (!p.endsWith('.md')) p += '/index.md'
+  // Remove leading slash for comparison with relativePath
+  return p.replace(/^\//, '')
+}
+
+/**
+ * Recursively find sidebar children for a given page path.
+ */
+function findSidebarChildren(
+  items: TaxonomySidebarItem[],
+  base: string,
+  targetRelativePath: string
+): Array<{ text: string; link: string }> | null {
+  for (const item of items) {
+    if (item.link) {
+      const normalized = normalizeSidebarPath(base, item.link)
+      if (normalized === targetRelativePath && item.items && item.items.length > 0) {
+        return item.items
+          .filter(child => child.text && child.link)
+          .map(child => ({
+            text: child.text!,
+            link: base + child.link!,
+          }))
+      }
+    }
+    if (item.items) {
+      const found = findSidebarChildren(item.items, base, targetRelativePath)
+      if (found) return found
+    }
+  }
+  return null
+}
+
+/**
+ * Find taxonomy children for a page across all sidebar configs.
+ */
+function getTaxonomyChildren(relativePath: string): Array<{ text: string; link: string }> | null {
+  for (const [, section] of Object.entries(allSidebars)) {
+    const sidebarSection = section as { base?: string; items?: TaxonomySidebarItem[] }
+    if (!sidebarSection.items) continue
+    const base = sidebarSection.base || ''
+
+    // Check if this page IS the section root
+    const sectionRootNormalized = normalizeSidebarPath(base, '').replace(/^\//, '')
+    if (sectionRootNormalized === relativePath && sidebarSection.items.length > 0) {
+      return sidebarSection.items
+        .filter(item => item.text && item.link)
+        .map(item => ({
+          text: item.text!,
+          link: base + item.link!,
+        }))
+    }
+
+    // Search deeper in the tree
+    const found = findSidebarChildren(sidebarSection.items, base, relativePath)
+    if (found) return found
+  }
+  return null
+}
 
 export default defineConfig({
   base: process.env.VITE_PUBLIC_BASE_PATH || '',
   srcDir: 'hugo/content',
   cleanUrls: true,
+  transformPageData(pageData) {
+    // Only process index pages
+    if (!pageData.relativePath.endsWith('index.md')) return
+
+    // Build the absolute file path
+    const configDir = path.dirname(fileURLToPath(import.meta.url))
+    const filePath = path.resolve(configDir, '..', 'hugo', 'content', pageData.relativePath)
+
+    // Check if the markdown body is empty
+    if (hasMarkdownContent(filePath)) return
+
+    // Look up sidebar children for this path
+    const children = getTaxonomyChildren(pageData.relativePath)
+    if (children && children.length > 0) {
+      pageData.frontmatter.taxonomyChildren = children
+    }
+  },
   sitemap: {
     hostname: 'https://gardener.cloud'
   },
@@ -71,30 +186,17 @@ export default defineConfig({
 function getNavConfig () {
   return [
     {
-      text: 'Demo',
-      link: 'https://demo.gardener.cloud/',
-    },
-    {
       text: 'Adopters',
       link: '/adopter',
       activeMatch: 'adopter',
     },
     {
-      component: 'VPNavbarMenuGroupWrapper',
-      props: {
-        text: 'Documentation',
-        link: '/docs/',
-        activeMatch: 'docs',
-        items: [
-          {text: 'User', link: '/docs/index.md',},
-          {text: 'Operator', link: '/docs/index.md',},
-          {text: 'Developer', link: '/docs/index.md',},
-          {text: 'All', link: '/docs/index.md',},
-        ],
-      },
+      text: 'Documentation',
+      activeMatch: 'docs',
+      link: '/docs',
     },
     {
-      text: 'Blogs',
+      text: 'Blog',
       link: '/blog',
       activeMatch: 'blog',
     },
@@ -182,30 +284,9 @@ function getThemeConfig() {
     isNetlify: process.env.NETLIFY === 'true',
     logo: {src: '/gardener-logo.svg', width: 24, height: 24},
     nav: getNavConfig(),
-    sidebar: {
-      '/blog/': blogSidebar()['/blog/'],
-      //@ts-ignore
-      '/community/': communitySidebar()['/community/'],
-      //@ts-ignore
-      '/docs/': { //generateEnhancedDocsSidebar()['/docs/'],
-        "base": "/docs/",
-        "text": "Docs",
-        "items": [
-          {
-            "text": "Gardener",
-            "link": "gardener/index.md",
-            "items": [
-              {
-                "text": "Concepts",
-                "link": "gardener/concepts/index.md",
-              }
-            ]
-          }
-        ],
-      },
-    },
+    sidebar: allSidebars,
     editLink: {
-      pattern: ({filePath, frontmatter}) => {
+      pattern: ({filePath, frontmatter}: {filePath: string, frontmatter: Record<string, any>}) => {
         const fileName = `${frontmatter?.path_base_for_github_subdir?.to ?? filePath.split("/").pop()}`
         const githubLink = `${frontmatter['github_repo']}/tree/master/${frontmatter['github_subdir']}/${fileName}`
         return githubLink
@@ -251,11 +332,11 @@ function getViteConfig() {
       alias: [
         {
           find: '@data',
-          replacement: path.resolve(__dirname, './data')
+          replacement: path.resolve(path.dirname(fileURLToPath(import.meta.url)), './data')
         },
         {
           find: '@components',
-          replacement: path.resolve(__dirname, './theme/components')
+          replacement: path.resolve(path.dirname(fileURLToPath(import.meta.url)), './theme/components')
         },
         {
           find: /^.*\/VPFeature\.vue$/,
@@ -267,24 +348,6 @@ function getViteConfig() {
           find: /^.*\/VPTeamMembersItem\.vue$/,
           replacement: fileURLToPath(
               new URL('./theme/components/VPTeamMembersItem.vue', import.meta.url)
-          )
-        },
-        {
-          find: /^.*\/VPNavBarMenuLink\.vue$/,
-          replacement: fileURLToPath(
-              new URL('./theme/components/VPNavBarMenuLink.vue', import.meta.url)
-          )
-        },
-        {
-          find: /^.*\/VPSidebarGroup\.vue$/,
-          replacement: fileURLToPath(
-              new URL('./theme/components/VPSidebarGroup.vue', import.meta.url)
-          )
-        },
-        {
-          find: /^.*\/VPMenu\.vue$/,
-          replacement: fileURLToPath(
-              new URL('./theme/components/VPMenu.vue', import.meta.url)
           )
         },
       ]
