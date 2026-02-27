@@ -282,26 +282,6 @@ export function getTitleFromIndexFile(link: string, base?: string): string | nul
   }
 }
 
-/**
- * Function to create a map of all leaf nodes
- */
-export function createLeafMap(items: SidebarItem[]): Map<string, SidebarLeaf> {
-  const leafMap = new Map<string, SidebarLeaf>();
-  
-  function processItem(item: SidebarItem) {
-    // If the item has a link and no items, it's a leaf node
-    if ('link' in item && !('items' in item)) {
-      leafMap.set(item.link, item);
-    }
-    // If it has items, process them recursively
-    if ('items' in item) {
-      item.items.forEach(processItem);
-    }
-  }
-  
-  items.forEach(processItem);
-  return leafMap;
-}
 
 /**
  * Function to recursively extract all items from a section
@@ -317,125 +297,6 @@ export function extractItems(section: any): SidebarItem[] {
 }
 
 
-function removeTrailingSlash (str: string) {
-  return str.endsWith('/') ? str.slice(0, -1) : str;
-}
-
-/**
- * Function to filter leaf map based on persona permissions
- * Only removes entries that are explicitly restricted for the persona.
- * Entries not mentioned in the persona mapping are kept (available to all personas).
- */
-export function filterLeafMapByPersona(leafMap: Map<string, SidebarLeaf>, persona: string): Map<string, SidebarLeaf> {
-  // Create a copy of the original map
-  const filteredMap = new Map(leafMap);
-  
-  // Read the persona mapping
-  const personaMapping = JSON.parse(
-    readFileSync(`${import.meta.dirname}/personaMapping.json`, 'utf-8')
-  ) as Record<string, string[]>;
-
-  // Process each entry in the persona mapping
-  for (const [path, allowedPersonas] of Object.entries(personaMapping)) {
-    // Only remove entries that are explicitly restricted (don't include this persona)
-    if (!allowedPersonas.includes(persona)) {
-      // Remove /docs/ prefix from the path
-      let strippedPath = path.replace('/docs/', '');
-      strippedPath = removeTrailingSlash(strippedPath);
-
-      // Find and remove all matching entries from filteredMap
-      for (const [leafKey] of filteredMap) {
-        if (leafKey.includes(strippedPath+ '/')) {
-          //delete dirs
-          filteredMap.delete(leafKey);
-        }
-        if (leafKey === strippedPath) {
-            //delete files
-          filteredMap.delete(leafKey);
-        }
-      }
-    }
-  }
-
-  return filteredMap;
-}
-
-/**
- * Function to filter sidebar based on allowed leaf nodes
- */
-export function filterSidebarByLeafMap(
-  sidebar: Record<string, any>,
-  allowedLeafMap: Map<string, SidebarLeaf>
-): { filtered: Record<string, any>, deleted: SidebarLeaf[] } {
-  const deletedItems: SidebarLeaf[] = [];
-  
-  function filterItem(item: SidebarItem): SidebarItem | null {
-    // If it's a leaf node (has link but no items)
-    if ('link' in item && !('items' in item)) {
-      // If this leaf is not in the allowed map, add to deleted items
-      if (!allowedLeafMap.has(item.link)) {
-        deletedItems.push(item as SidebarLeaf);
-        return null;
-      }
-
-      //Prefix the link with /docs/
-      item.link = `/docs/${item.link}`;
-      return item;
-    }
-    
-    // If it's a branch node (has items)
-    if ('items' in item && Array.isArray(item.items)) {
-      const branch = item as SidebarBranch;
-      const filteredItems = branch.items
-        .map((subItem: SidebarItem) => filterItem(subItem))
-        .filter((subItem): subItem is SidebarItem => subItem !== null);
-      
-      // If all items were filtered out, remove this branch too
-      if (filteredItems.length === 0) {
-        return null;
-      }
-      
-      return {
-        ...branch,
-        items: filteredItems
-      };
-    }
-    
-    return item;
-  }
-
-  // Create a deep copy of the sidebar
-  const filteredSidebar = JSON.parse(JSON.stringify(sidebar));
-  
-  // Filter each section of the sidebar
-  for (const [path, section] of Object.entries(filteredSidebar)) {
-    if (Array.isArray(section)) {
-      // If the section is an array, filter its items
-      filteredSidebar[path] = section
-        .map(item => filterItem(item))
-        .filter((item): item is SidebarItem => item !== null);
-    } else if (section && typeof section === 'object' && 'items' in section) {
-      // If the section has items, filter them
-      const sectionWithItems = section as { items: SidebarItem[] };
-      const filteredItems = sectionWithItems.items
-        .map((item: SidebarItem) => filterItem(item))
-        .filter((item): item is SidebarItem => item !== null);
-
-      if (filteredItems.length === 0) {
-        // If all items were filtered out, remove the section
-        delete filteredSidebar[path];
-      } else {
-        // Update the section with filtered items
-        filteredSidebar[path] = {
-          ...section,
-          items: filteredItems
-        };
-      }
-    }
-  }
-  
-  return { filtered: filteredSidebar, deleted: deletedItems };
-}
 
 /**
  * Recursively removes all items fields from the sidebar object that are empty arrays
@@ -498,4 +359,93 @@ export function addTrailingSlashToLinks(sidebar: any) {
       addTrailingSlashToLinks(item)
     }
   }
+}
+
+/**
+ * Check if a markdown file has meaningful body content (beyond frontmatter).
+ */
+export function hasMarkdownContent(filePath: string): boolean {
+  try {
+    const raw = readFileSync(filePath, 'utf-8')
+    // Strip frontmatter (--- ... ---)
+    const stripped = raw.replace(/^---[\s\S]*?---\s*/, '')
+    // Check if remaining content has meaningful text
+    return stripped.trim().length > 0
+  } catch {
+    return true // If we can't read, assume it has content
+  }
+}
+
+export interface TaxonomySidebarItem {
+  text?: string
+  link?: string
+  items?: TaxonomySidebarItem[]
+  collapsed?: boolean
+}
+
+/**
+ * Normalize a path for comparison.
+ * e.g. 'gardener/advanced/' -> 'gardener/advanced/index.md'
+ */
+export function normalizeSidebarPath(base: string, link: string): string {
+  let p = base + link
+  if (p.endsWith('/')) p += 'index.md'
+  else if (!p.endsWith('.md')) p += '/index.md'
+  // Remove leading slash for comparison with relativePath
+  return p.replace(/^\//, '')
+}
+
+/**
+ * Recursively find sidebar children for a given page path.
+ */
+export function findSidebarChildren(
+  items: TaxonomySidebarItem[],
+  base: string,
+  targetRelativePath: string
+): Array<{ text: string; link: string }> | null {
+  for (const item of items) {
+    if (item.link) {
+      const normalized = normalizeSidebarPath(base, item.link)
+      if (normalized === targetRelativePath && item.items && item.items.length > 0) {
+        return item.items
+          .filter(child => child.text && child.link)
+          .map(child => ({
+            text: child.text!,
+            link: base + child.link!,
+          }))
+      }
+    }
+    if (item.items) {
+      const found = findSidebarChildren(item.items, base, targetRelativePath)
+      if (found) return found
+    }
+  }
+  return null
+}
+
+/**
+ * Find taxonomy children for a page across all sidebar configs.
+ */
+export function getTaxonomyChildren(relativePath: string, allSidebars: Record<string, any>): Array<{ text: string; link: string }> | null {
+  for (const [, section] of Object.entries(allSidebars)) {
+    const sidebarSection = section as { base?: string; items?: TaxonomySidebarItem[] }
+    if (!sidebarSection.items) continue
+    const base = sidebarSection.base || ''
+
+    // Check if this page IS the section root
+    const sectionRootNormalized = normalizeSidebarPath(base, '').replace(/^\//, '')
+    if (sectionRootNormalized === relativePath && sidebarSection.items.length > 0) {
+      return sidebarSection.items
+        .filter(item => item.text && item.link)
+        .map(item => ({
+          text: item.text!,
+          link: base + item.link!,
+        }))
+    }
+
+    // Search deeper in the tree
+    const found = findSidebarChildren(sidebarSection.items, base, relativePath)
+    if (found) return found
+  }
+  return null
 }
