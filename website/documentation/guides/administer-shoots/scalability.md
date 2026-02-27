@@ -21,7 +21,7 @@ Let's take a rather simple example of two dimensions - the number of `Pods` per 
 
 ![Pods and Nodes](./images/pod-nodes.png)
 
-What sounds rather straightforward in theory can be a bit trickier in reality. While 110 `Pods` is the default limit, we successfully pushed beyond that and in certain cases run up to 800 `Pods` per `Node` without breaking the cluster (see [our remarks on higher pod density per node](https://gardener.cloud/blog/2025/04/04-17-Leaner-Clusters-Lower-Bills/#enabling-higher-pod-density-per-node)). This is possible in an environment where one knows and controls all workloads and cluster configurations. It still requires careful testing, though, and comes at the cost of limiting the scalability of other dimensions, like the number of `Nodes`.
+What sounds rather straightforward in theory can be a bit trickier in reality. While 110 `Pods` is the default limit, we successfully pushed beyond that and in certain cases run up to 800 `Pods` per `Node` without breaking the cluster (see [our remarks on higher pod density per node](https://gardener.cloud/blog/2025/04/04-17-leaner-clusters-lower-bills/#enabling-higher-pod-density-per-node)). This is possible in an environment where one knows and controls all workloads and cluster configurations. It still requires careful testing, though, and comes at the cost of limiting the scalability of other dimensions, like the number of `Nodes`.
 
 Of course, a Kubernetes cluster has a plethora of dimensions. Thus, when looking at a simple questions like *"How many resources can I store in ETCD?"*, the only meaningful answer must be: *"it depends"*
 

@@ -6,7 +6,7 @@ export const blogSidebarConfig = {
     documentRootPath: '/hugo/content',
     scanStartPath: 'blog',
     resolvePath: '/blog/',
-    collapsed: true,
+    collapsed: false,
     useTitleFromFrontmatter: true,
     capitalizeFirst: true,
     useFolderTitleFromIndexFile: true,
