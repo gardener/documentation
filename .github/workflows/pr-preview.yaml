@@ -22,7 +22,7 @@ jobs:
         with:
           token-server: ${{ vars.FEDERATED_GITHUB_ACCESS_TOKEN_SERVER }}
           permissions: |
-            contents: read
+            contents: write
 
       - name: Checkout
         uses: gardener/cc-utils/.github/actions/trusted-checkout@master
