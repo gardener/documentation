@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { useData } from 'vitepress'
 import { computed } from 'vue'
-import DefaultTheme from 'vitepress/theme'
 
-const { Layout } = DefaultTheme
 const { frontmatter, page } = useData()
 
 const children = computed(() => frontmatter.value.taxonomyChildren as Array<{ text: string; link: string }> | undefined)
@@ -14,18 +12,14 @@ const pageTitle = computed(() => {
 </script>
 
 <template>
-  <Layout>
-    <template #doc-before>
-      <div v-if="children?.length" class="taxonomy-index">
-        <h1>{{ pageTitle }}</h1>
-        <ul class="taxonomy-list">
-          <li v-for="child in children" :key="child.link">
-            <a :href="child.link">{{ child.text }}</a>
-          </li>
-        </ul>
-      </div>
-    </template>
-  </Layout>
+  <div v-if="children?.length" class="taxonomy-index">
+    <h1>{{ pageTitle }}</h1>
+    <ul class="taxonomy-list">
+      <li v-for="child in children" :key="child.link">
+        <a :href="child.link">{{ child.text }}</a>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <style scoped>
