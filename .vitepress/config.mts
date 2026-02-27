@@ -325,6 +325,7 @@ function getHeadConfig(){
         'data-consent-screen-disclaimer': 'This AI assistant uses your questions to provide answers based on Gardener documentation. Your questions and interactions may be anonymously collected and analyzed to improve the search functionality and overall user experience. We don\'t collect any personally identifiable information. By clicking "Accept", you consent to using this AI-powered feature and the collection of your data. AI-generated responses may contain inaccuracies - please verify important information with the official documentation.',
         'data-consent-screen-accept-button-text': 'I agree, let\'s chat!',
         'data-consent-screen-reject-button-text': 'No, not interested',
+        'data-modal-example-questions': "How do I access my shoot cluster after it's created?,What happens during the daily maintenance window?,How do I configure worker nodes for my cluster?"
       }
     ],
     [
