@@ -11,10 +11,6 @@ await main();
 // Main function
 async function main() {
     try {
-        if (process.argv.includes('--add-empty-metadata') || process.argv.includes('-e')) {
-            await addEmptyMetadata(BASE_PATH);
-        }
-        
         if (process.argv.includes('--update-report-link') || process.argv.includes('-r')) {
             await updateReportLink(path.join(BASE_PATH, 'docs/security-and-compliance/report.md'));
         }
@@ -23,173 +19,19 @@ async function main() {
             await processApiHtml(BASE_PATH);
         }
 
-        if (!process.argv.includes('--add-empty-metadata') &&
-            !process.argv.includes('-e') &&
-            !process.argv.includes('--update-report-link') &&
+        if (!process.argv.includes('--update-report-link') &&
             !process.argv.includes('-r') &&
             !process.argv.includes('--process-api-html') &&
             !process.argv.includes('-a')) {
             // If no specific action is specified, show usage
             console.log('Available commands:');
-            console.log('--add-empty-metadata, -e : Add isEmpty: true to frontmatter of empty index.md files');
             console.log('--update-report-link, -r : Update the report link in security-and-compliance/report.md');
             console.log('--process-api-html, -a : Extract HTML content to Vue script setup for API reference files');
-            console.log(`\nExample: node post-processing/part-3.js --add-empty-metadata`);
-            console.log(`Example: node post-processing/part-3.js --update-report-link`);
+            console.log(`\nExample: node post-processing/part-3.js --update-report-link`);
             console.log(`Example: node post-processing/part-3.js --process-api-html`);
         }
     } catch (err) {
         console.error('Error:', err);
-    }
-}
-
-/**
- * Post-processing function to add isEmpty: true to frontmatter 
- * of index.md files that have no substantial content
- */
-async function addEmptyMetadata(basePath) {
-    async function findIndexFiles(directory) {
-        let foundFiles = [];
-
-        try {
-            const files = await fs.readdir(directory);
-
-            for (const file of files) {
-                const fullPath = path.join(directory, file);
-
-                try {
-                    const stats = await fs.stat(fullPath);
-
-                    if (stats.isDirectory()) {
-                        // Skip ignored directories
-                        if (!IGNORE_DIRS.includes(file)) {
-                            const subdirFiles = await findIndexFiles(fullPath);
-                            foundFiles = foundFiles.concat(subdirFiles);
-                        }
-                    } else if (file === 'index.md') {
-                        foundFiles.push(fullPath);
-                    }
-                } catch (err) {
-                    console.error(`Error accessing ${fullPath}: ${err.message}`);
-                }
-            }
-        } catch (err) {
-            console.error(`Error reading directory ${directory}: ${err.message}`);
-        }
-
-        return foundFiles;
-    }
-
-    async function processIndexFile(filePath) {
-        try {
-            const content = await fs.readFile(filePath, 'utf-8');
-            const parsed = matter(content);
-            
-            // Check if body is empty (only whitespace, newlines, or comments)
-            const isEmpty = isBodyEmpty(parsed.content);
-            
-            if (isEmpty && parsed.data.isEmpty !== true) {
-                // Add isEmpty: true to frontmatter
-                parsed.data.isEmpty = true;
-                parsed.data.editLink = false;
-                
-                // Reconstruct the file with updated frontmatter
-                const updatedContent = matter.stringify(parsed.content, parsed.data);
-                await fs.writeFile(filePath, updatedContent, 'utf-8');
-                
-                return {
-                    file: filePath,
-                    modified: true,
-                    action: 'Added isEmpty: true'
-                };
-            } else if (!isEmpty && parsed.data.isEmpty === true) {
-                // Remove isEmpty if file now has content
-                delete parsed.data.isEmpty;
-                const updatedContent = matter.stringify(parsed.content, parsed.data);
-                await fs.writeFile(filePath, updatedContent, 'utf-8');
-                
-                return {
-                    file: filePath,
-                    modified: true,
-                    action: 'Removed isEmpty (now has content)'
-                };
-            } else if (isEmpty && parsed.data.isEmpty === true) {
-                return {
-                    file: filePath,
-                    modified: false,
-                    reason: 'Already marked as empty'
-                };
-            } else {
-                return {
-                    file: filePath,
-                    modified: false,
-                    reason: 'Has content, not empty'
-                };
-            }
-        } catch (err) {
-            console.error(`Error processing ${filePath}: ${err.message}`);
-            return {
-                file: filePath,
-                modified: false,
-                reason: err.message
-            };
-        }
-    }
-
-    /**
-     * Check if markdown body content is empty
-     * Returns true if body only contains whitespace, newlines, comments, or h1 markdown tags
-     */
-    function isBodyEmpty(body) {
-        if (!body || typeof body !== 'string') {
-            return true;
-        }
-        
-        // Remove HTML comments <!-- ... -->
-        const withoutHtmlComments = body.replace(/<!--[\s\S]*?-->/g, '');
-        
-        // Remove h1 markdown tags (# Title)
-        const withoutH1Tags = withoutHtmlComments.replace(/^#\s+.*$/gm, '');
-        
-        // Check if remaining content is only whitespace and newlines
-        const trimmed = withoutH1Tags.trim();
-        
-        return trimmed === '';
-    }
-
-    console.log(`Searching for index.md files in: ${basePath}`);
-    const indexFiles = await findIndexFiles(basePath);
-    console.log(`\nFound ${indexFiles.length} index.md files`);
-
-    if (indexFiles.length > 0) {
-        console.log('\nProcessing index.md files for empty content...');
-        const results = [];
-
-        for (const file of indexFiles) {
-            const result = await processIndexFile(file);
-            results.push(result);
-
-            if (result.modified) {
-                console.log(`- ${result.action}: ${path.relative(basePath, file)}`);
-            }
-        }
-
-        const modifiedCount = results.filter(r => r.modified).length;
-        const addedEmptyCount = results.filter(r => r.modified && r.action.includes('Added')).length;
-        const removedEmptyCount = results.filter(r => r.modified && r.action.includes('Removed')).length;
-        
-        console.log(`\nSummary: Modified ${modifiedCount} of ${indexFiles.length} index.md files.`);
-        if (addedEmptyCount > 0) {
-            console.log(`- Added isEmpty: true to ${addedEmptyCount} files`);
-        }
-        if (removedEmptyCount > 0) {
-            console.log(`- Removed isEmpty from ${removedEmptyCount} files`);
-        }
-        
-        if (modifiedCount > 0) {
-            console.log('\nEmpty metadata processing completed!');
-            console.log('Files with empty content now have isEmpty: true in their frontmatter.');
-        }
     }
 }
 

@@ -2,25 +2,18 @@
   "name": "documentation",
   "type": "module",
   "dependencies": {
-    "@types/js-yaml": "4.0.9",
     "autoprefixer": "10.4.0",
     "gray-matter": "4.0.3",
     "js-yaml": "4.1.1",
-    "postcss": "8.5.6",
-    "postcss-cli": "9.0.2",
-    "ts-node": "10.9.2",
-    "vitepress-plugin-autobar": "1.0.8",
-    "vitepress-sidebar": "1.31.1",
-    "@tailwindcss/typography": "0.5.14",
-    "@types/markdown-it": "12.2.3",
-    "@types/node": "20.11.27",
-    "feed": "4.2.2",
     "lodash-es": "4.17.23",
-    "@types/lodash-es": "4.17.12",
-    "tailwindcss": "3.4.10",
-    "tslib": "2.8.1",
     "vitepress": "1.6.3",
-    "vitest": "3.2.4",
+    "vitepress-sidebar": "1.31.1",
     "vue": "3.5.16"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "4.0.9",
+    "@types/lodash-es": "4.17.12",
+    "@types/markdown-it": "12.2.3",
+    "@types/node": "20.11.27"
   }
 }

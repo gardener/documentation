@@ -1,22 +1,24 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { load } from 'js-yaml';
+import { generateSidebar } from 'vitepress-sidebar';
+import type { VitePressSidebarOptions } from 'vitepress-sidebar';
 
-// Type definitions for sidebar items
-export interface SidebarLeaf {
-  text: string;
-  link: string;
-  collapsed?: boolean;
+/**
+ * Generates a sidebar with weight-based sorting and standard post-processing.
+ * Shared pipeline for docs and community sidebars.
+ */
+export function generateWeightSortedSidebar(config: VitePressSidebarOptions): any {
+  const sidebar = generateSidebar([config]);
+  const base = config.scanStartPath || '';
+  const resolvePath = config.resolvePath || '/';
+
+  const sorted = sortByWeight(sidebar, base);
+  const filtered = removeIndexEntries(sorted);
+  const cleaned = removeEmptyItems(filtered);
+  addTrailingSlashToLinks(cleaned[resolvePath].items);
+  return cleaned;
 }
-
-export interface SidebarBranch {
-  text: string;
-  items: (SidebarLeaf | SidebarBranch)[];
-  collapsed?: boolean;
-}
-
-export type SidebarItem = SidebarLeaf | SidebarBranch;
-
 
 /**
  * Recursively removes all _index.md entries from the sidebar
@@ -189,255 +191,6 @@ export function getWeightFromFile(link: string, base?: string): number | null {
 }
 
 /**
- * Recursively enhances directory titles by reading from _index.md frontmatter
- */
-export function enhanceDirectoryTitles(sidebar: any, base): any {
-  if (Array.isArray(sidebar)) {
-    return sidebar.map(item => enhanceDirectoryTitles(item, base));
-  }
-  
-  if (typeof sidebar !== 'object' || sidebar === null) {
-    return sidebar;
-  }
-  
-  // Create a copy of the object
-  const enhanced = { ...sidebar };
-  
-  // If this object has items (indicating it's a directory), enhance it
-  if (enhanced.items && Array.isArray(enhanced.items)) {
-    // Look for _index.md file in the items
-    const indexItem = enhanced.items.find((item: any) => 
-      item.link && (item.link === '_index' || item.link.endsWith('/_index'))
-    );
-    
-    if (indexItem) {
-      // Try to read the frontmatter and update the title
-      const title = getTitleFromIndexFile(indexItem.link, base);
-      if (title) {
-        enhanced.text = title;
-      }
-    }
-    
-    // Recursively process all items
-    enhanced.items = enhanced.items.map((item: any) => enhanceDirectoryTitles(item, base));
-  }
-  
-  // If it's a top-level section with items, process those too
-  if (enhanced.base && enhanced.items) {
-    enhanced.items = enhanced.items.map((item: any) => enhanceDirectoryTitles(item, base));
-  }
-  
-  // Process other properties recursively
-  for (const [key, value] of Object.entries(enhanced)) {
-    if (key !== 'items' && typeof value === 'object') {
-      enhanced[key] = enhanceDirectoryTitles(value, base);
-    }
-  }
-  
-  return enhanced;
-}
-
-/**
- * Reads the title from an _index.md file's frontmatter
- */
-export function getTitleFromIndexFile(link: string, base?: string): string | null {
-  try {
-    // Construct the file path
-    let filePath: string;
-    
-    if (link === '_index') {
-      // For root _index files
-      filePath = join(process.cwd(), 'hugo', 'content', base, '_index.md');
-    } else if (link.endsWith('/_index')) {
-      // For nested _index files
-      const relativePath = link.replace('/_index', '');
-      filePath = join(process.cwd(), 'hugo', 'content', base, relativePath, '_index.md');
-    } else {
-      return null;
-    }
-    
-    // Check if file exists
-    if (!existsSync(filePath)) {
-      return null;
-    }
-    
-    // Read the file content
-    const content = readFileSync(filePath, 'utf-8');
-    
-    // Extract frontmatter
-    const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
-    if (!frontmatterMatch) {
-      return null;
-    }
-    
-    // Parse YAML frontmatter
-    const frontmatter = load(frontmatterMatch[1]) as any;
-    
-    // Return the title if it exists
-    return frontmatter?.title || null;
-    
-  } catch (error) {
-    console.warn(`Error reading title from ${link}:`, error);
-    return null;
-  }
-}
-
-/**
- * Function to create a map of all leaf nodes
- */
-export function createLeafMap(items: SidebarItem[]): Map<string, SidebarLeaf> {
-  const leafMap = new Map<string, SidebarLeaf>();
-  
-  function processItem(item: SidebarItem) {
-    // If the item has a link and no items, it's a leaf node
-    if ('link' in item && !('items' in item)) {
-      leafMap.set(item.link, item);
-    }
-    // If it has items, process them recursively
-    if ('items' in item) {
-      item.items.forEach(processItem);
-    }
-  }
-  
-  items.forEach(processItem);
-  return leafMap;
-}
-
-/**
- * Function to recursively extract all items from a section
- */
-export function extractItems(section: any): SidebarItem[] {
-  if (Array.isArray(section)) {
-    return section as SidebarItem[];
-  }
-  if (section && typeof section === 'object' && 'items' in section) {
-    return section.items as SidebarItem[];
-  }
-  return [];
-}
-
-
-function removeTrailingSlash (str: string) {
-  return str.endsWith('/') ? str.slice(0, -1) : str;
-}
-
-/**
- * Function to filter leaf map based on persona permissions
- * Only removes entries that are explicitly restricted for the persona.
- * Entries not mentioned in the persona mapping are kept (available to all personas).
- */
-export function filterLeafMapByPersona(leafMap: Map<string, SidebarLeaf>, persona: string): Map<string, SidebarLeaf> {
-  // Create a copy of the original map
-  const filteredMap = new Map(leafMap);
-  
-  // Read the persona mapping
-  const personaMapping = JSON.parse(
-    readFileSync(`${import.meta.dirname}/personaMapping.json`, 'utf-8')
-  ) as Record<string, string[]>;
-
-  // Process each entry in the persona mapping
-  for (const [path, allowedPersonas] of Object.entries(personaMapping)) {
-    // Only remove entries that are explicitly restricted (don't include this persona)
-    if (!allowedPersonas.includes(persona)) {
-      // Remove /docs/ prefix from the path
-      let strippedPath = path.replace('/docs/', '');
-      strippedPath = removeTrailingSlash(strippedPath);
-
-      // Find and remove all matching entries from filteredMap
-      for (const [leafKey] of filteredMap) {
-        if (leafKey.includes(strippedPath+ '/')) {
-          //delete dirs
-          filteredMap.delete(leafKey);
-        }
-        if (leafKey === strippedPath) {
-            //delete files
-          filteredMap.delete(leafKey);
-        }
-      }
-    }
-  }
-
-  return filteredMap;
-}
-
-/**
- * Function to filter sidebar based on allowed leaf nodes
- */
-export function filterSidebarByLeafMap(
-  sidebar: Record<string, any>,
-  allowedLeafMap: Map<string, SidebarLeaf>
-): { filtered: Record<string, any>, deleted: SidebarLeaf[] } {
-  const deletedItems: SidebarLeaf[] = [];
-  
-  function filterItem(item: SidebarItem): SidebarItem | null {
-    // If it's a leaf node (has link but no items)
-    if ('link' in item && !('items' in item)) {
-      // If this leaf is not in the allowed map, add to deleted items
-      if (!allowedLeafMap.has(item.link)) {
-        deletedItems.push(item as SidebarLeaf);
-        return null;
-      }
-
-      //Prefix the link with /docs/
-      item.link = `/docs/${item.link}`;
-      return item;
-    }
-    
-    // If it's a branch node (has items)
-    if ('items' in item && Array.isArray(item.items)) {
-      const branch = item as SidebarBranch;
-      const filteredItems = branch.items
-        .map((subItem: SidebarItem) => filterItem(subItem))
-        .filter((subItem): subItem is SidebarItem => subItem !== null);
-      
-      // If all items were filtered out, remove this branch too
-      if (filteredItems.length === 0) {
-        return null;
-      }
-      
-      return {
-        ...branch,
-        items: filteredItems
-      };
-    }
-    
-    return item;
-  }
-
-  // Create a deep copy of the sidebar
-  const filteredSidebar = JSON.parse(JSON.stringify(sidebar));
-  
-  // Filter each section of the sidebar
-  for (const [path, section] of Object.entries(filteredSidebar)) {
-    if (Array.isArray(section)) {
-      // If the section is an array, filter its items
-      filteredSidebar[path] = section
-        .map(item => filterItem(item))
-        .filter((item): item is SidebarItem => item !== null);
-    } else if (section && typeof section === 'object' && 'items' in section) {
-      // If the section has items, filter them
-      const sectionWithItems = section as { items: SidebarItem[] };
-      const filteredItems = sectionWithItems.items
-        .map((item: SidebarItem) => filterItem(item))
-        .filter((item): item is SidebarItem => item !== null);
-
-      if (filteredItems.length === 0) {
-        // If all items were filtered out, remove the section
-        delete filteredSidebar[path];
-      } else {
-        // Update the section with filtered items
-        filteredSidebar[path] = {
-          ...section,
-          items: filteredItems
-        };
-      }
-    }
-  }
-  
-  return { filtered: filteredSidebar, deleted: deletedItems };
-}
-
-/**
  * Recursively removes all items fields from the sidebar object that are empty arrays
  */
 export function removeEmptyItems(sidebar: any): any {
@@ -498,4 +251,93 @@ export function addTrailingSlashToLinks(sidebar: any) {
       addTrailingSlashToLinks(item)
     }
   }
+}
+
+/**
+ * Check if a markdown file has meaningful body content (beyond frontmatter).
+ */
+export function hasMarkdownContent(filePath: string): boolean {
+  try {
+    const raw = readFileSync(filePath, 'utf-8')
+    // Strip frontmatter (--- ... ---)
+    const stripped = raw.replace(/^---[\s\S]*?---\s*/, '')
+    // Check if remaining content has meaningful text
+    return stripped.trim().length > 0
+  } catch {
+    return true // If we can't read, assume it has content
+  }
+}
+
+export interface TaxonomySidebarItem {
+  text?: string
+  link?: string
+  items?: TaxonomySidebarItem[]
+  collapsed?: boolean
+}
+
+/**
+ * Normalize a path for comparison.
+ * e.g. 'gardener/advanced/' -> 'gardener/advanced/index.md'
+ */
+export function normalizeSidebarPath(base: string, link: string): string {
+  let p = base + link
+  if (p.endsWith('/')) p += 'index.md'
+  else if (!p.endsWith('.md')) p += '/index.md'
+  // Remove leading slash for comparison with relativePath
+  return p.replace(/^\//, '')
+}
+
+/**
+ * Recursively find sidebar children for a given page path.
+ */
+export function findSidebarChildren(
+  items: TaxonomySidebarItem[],
+  base: string,
+  targetRelativePath: string
+): Array<{ text: string; link: string }> | null {
+  for (const item of items) {
+    if (item.link) {
+      const normalized = normalizeSidebarPath(base, item.link)
+      if (normalized === targetRelativePath && item.items && item.items.length > 0) {
+        return item.items
+          .filter(child => child.text && child.link)
+          .map(child => ({
+            text: child.text!,
+            link: base + child.link!,
+          }))
+      }
+    }
+    if (item.items) {
+      const found = findSidebarChildren(item.items, base, targetRelativePath)
+      if (found) return found
+    }
+  }
+  return null
+}
+
+/**
+ * Find taxonomy children for a page across all sidebar configs.
+ */
+export function getTaxonomyChildren(relativePath: string, allSidebars: Record<string, any>): Array<{ text: string; link: string }> | null {
+  for (const [, section] of Object.entries(allSidebars)) {
+    const sidebarSection = section as { base?: string; items?: TaxonomySidebarItem[] }
+    if (!sidebarSection.items) continue
+    const base = sidebarSection.base || ''
+
+    // Check if this page IS the section root
+    const sectionRootNormalized = normalizeSidebarPath(base, '').replace(/^\//, '')
+    if (sectionRootNormalized === relativePath && sidebarSection.items.length > 0) {
+      return sidebarSection.items
+        .filter(item => item.text && item.link)
+        .map(item => ({
+          text: item.text!,
+          link: base + item.link!,
+        }))
+    }
+
+    // Search deeper in the tree
+    const found = findSidebarChildren(sidebarSection.items, base, relativePath)
+    if (found) return found
+  }
+  return null
 }

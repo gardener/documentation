@@ -67,6 +67,21 @@ img[src='/search.png'] {
   --vp-c-brand-soft: var(--vp-c-green-soft);
 }
 
+/* Sidebar: directories (sections) are always bold, leaves (divs) never */
+#VPSidebarNav section.VPSidebarItem > .item .text {
+  font-weight: 700;
+  color: var(--vp-c-text-1);
+}
+
+#VPSidebarNav div.VPSidebarItem > .item .text {
+  font-weight: 500;
+}
+
+/* Sidebar: restore root-level item spacing (VitePress default is 24px) */
+#VPSidebarNav .VPSidebarItem.level-0 {
+  padding-bottom: 10px;
+}
+
 /* GitHub social link styling */
 .VPSocialLink[href*="github"] {
   color: var(--vp-c-text-1);
