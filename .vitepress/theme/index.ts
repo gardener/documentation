@@ -1,9 +1,10 @@
 // https://vitepress.dev/guide/custom-theme
-import { Theme, useData } from 'vitepress'
+import { h } from 'vue'
+import { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import YouTubeVideo from './components/YouTubeVideo.vue'
 import VPFooter from './components/VPFooter.vue'
-import EmptyIndexLayout from './layouts/EmptyIndexLayout.vue'
+import TaxonomyIndex from './components/TaxonomyIndex.vue'
 import './style.css'
 
 // Extend Window interface to include plausible
@@ -15,9 +16,13 @@ declare global {
 
 export default {
   extends: DefaultTheme,
-  Layout: EmptyIndexLayout,
-  enhanceApp({ app, router, siteData }) {
+  Layout() {
+    return h(DefaultTheme.Layout, null, {
+      'doc-before': () => h(TaxonomyIndex),
+      'layout-bottom': () => h(VPFooter),
+    })
+  },
+  enhanceApp({ app }) {
     app.component('YouTubeVideo', YouTubeVideo)
-    app.component('VPFooter', VPFooter)
   },
 } satisfies Theme
