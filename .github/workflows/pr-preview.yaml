@@ -1,4 +1,5 @@
 name: PR Preview
+
 on:
   pull_request_target:
     types:
@@ -20,9 +21,8 @@ jobs:
         id: app-token
         with:
           token-server: ${{ vars.FEDERATED_GITHUB_ACCESS_TOKEN_SERVER }}
-          repositories: documentation-demo
           permissions: |
-            contents: write
+            contents: read
 
       - name: Checkout
         uses: gardener/cc-utils/.github/actions/trusted-checkout@master
@@ -32,147 +32,55 @@ jobs:
         with:
           node-version: 24
           cache: npm
+
       - name: Docforge
         run: |
           wget https://github.com/gardener/docforge/releases/download/v0.55.0/docforge-linux-amd64
           mv docforge-linux-amd64 docforge
           chmod +x docforge
           DOCFORGE_CONFIG=.docforge/config.yaml GITHUB_OAUTH_TOKEN=${{ steps.app-token.outputs.token }} ./docforge
+
       - name: Install dependencies
         run: npm ci
+
       - name: Postprocessing Content
-        run: |
-          make post-process
-      - name: Set Base Path
-        id: set-base-path
-        run: |
-          echo "VITE_PUBLIC_BASE_PATH=/pr-preview/pr-${{ github.event.pull_request.number }}/" >> $GITHUB_ENV
-          echo "Base path set to: /pr-preview/pr-${{ github.event.pull_request.number }}/"
+        run: make post-process
+
       - name: Build with VitePress
-        run: |
-          echo "Building with VITE_PUBLIC_BASE_PATH: '$VITE_PUBLIC_BASE_PATH'"
-          make build  
+        run: make build
 
-      - uses: actions/checkout@v6
-        with:
-          token: ${{ steps.app-token.outputs.token }}
-          repository: gardener/documentation-demo
-          path: other-repo
-
-      - name: setup-git-identity
-        uses: gardener/cc-utils/.github/actions/setup-git-identity/@master
-        with:
-          user_name: "GitHub Actions Bot"
-          user_email: "actions@github.com"
-
-      - name: commit-and-push
-        shell: bash
+      - name: Deploy to Netlify
+        id: deploy
         env:
-          PR_NUMBER: ${{ github.event.pull_request.number }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         run: |
-          set -euo pipefail
-
-          echo "=== Starting commit-and-push ==="
-          echo "PR_NUMBER: ${PR_NUMBER:-<not set>}"
-
-          if [ -z "${PR_NUMBER:-}" ]; then
-            echo "Error: PR_NUMBER environment variable is required"
-            exit 1
-          fi
-
-          echo "Changing directory to: other-repo"
-          cd other-repo
-          echo "Current directory: $(pwd)"
-
-          # Set git identity for this repository (not inherited from parent repo)
-          echo "Setting git identity..."
-          git config user.name "GitHub Actions Bot"
-          git config user.email "actions@github.com"
-
-          echo "=== Git Configuration in other-repo ==="
-          echo "Git user.name: $(git config user.name || echo '<not set>')"
-          echo "Git user.email: $(git config user.email || echo '<not set>')"
-          echo "Git remote origin URL: $(git config --get remote.origin.url || echo '<not set>')"
-          echo "========================================"
-
-          # Switch to gh-pages branch
-          echo "Fetching gh-pages branch from origin"
-          git fetch origin gh-pages
-          echo "Checking out gh-pages branch"
-          git checkout gh-pages
-          echo "Current branch: $(git branch --show-current)"
-
-          # Remove existing preview directory if it exists
-          PREVIEW_DIR="pr-preview/pr-${PR_NUMBER}"
-          echo "Removing existing preview directory: ${PREVIEW_DIR}"
-          rm -rf "${PREVIEW_DIR}"
-
-          # Create pr-preview directory structure
-          echo "Creating preview directory: ${PREVIEW_DIR}"
-          mkdir -p "${PREVIEW_DIR}"
-
-          # Copy built files
-          SOURCE_DIR="../.vitepress/dist"
-          echo "Copying built files from: ${SOURCE_DIR}"
-          echo "Destination: ${PREVIEW_DIR}/"
-          cp -r ${SOURCE_DIR}/* "${PREVIEW_DIR}/"
-          echo "Files copied. Directory contents:"
-          ls -la "${PREVIEW_DIR}/" | head -20
-
-          # Stage changes
-          echo "Staging changes: git add ${PREVIEW_DIR}"
-          git add "${PREVIEW_DIR}"
-
-          # Check if there are changes to commit
-          echo "Checking for staged changes..."
-          if git diff --staged --quiet; then
-            echo "No changes detected in preview files. Skipping commit and push."
-            exit 0
-          fi
-
-          echo "Changes detected. Git status:"
-          git status --short
-
-          # Commit and push
-          COMMIT_MSG="Deploy PR #${PR_NUMBER} preview"
-          echo "Committing changes with message: ${COMMIT_MSG}"
-          git commit -m "${COMMIT_MSG}"
-
-          REMOTE_BRANCH="origin gh-pages"
-          echo "Pushing to: ${REMOTE_BRANCH}"
-          git push origin gh-pages
-          echo "Preview deployed successfully"
-          echo "Preview URL should be available at: https://<username>.github.io/<repo>/pr-preview/pr-${PR_NUMBER}/"
+          DEPLOY_OUTPUT=$(npx netlify-cli deploy \
+            --dir=.vitepress/dist \
+            --alias=pr-${{ github.event.pull_request.number }} \
+            --json)
+          echo "deploy_url=$(echo "$DEPLOY_OUTPUT" | jq -r '.deploy_url')" >> $GITHUB_OUTPUT
 
       - name: Comment on PR
         uses: actions/github-script@v7
         with:
           script: |
             const prNumber = context.payload.pull_request.number;
-            const previewUrl = `https://documentation-demo.gardener.cloud/pr-preview/pr-${prNumber}/`;
-            const commentBody = `## 🚀 Preview Deployed
+            const previewUrl = `${{ steps.deploy.outputs.deploy_url }}`;
+            const commentBody = `## 🚀 Preview Deployed\n\nYour preview is available at:\n${previewUrl}`;
 
-            Your preview is being built and will be available at:
-            ${previewUrl}
-
-            **Note:** The preview will only be available after the GitHub Pages deployment completes in the demo repository. 
-
-            To view the deployment status, visit: https://github.com/gardener/documentation-demo/actions`;
-
-            // Find existing comment
             const { data: comments } = await github.rest.issues.listComments({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: prNumber
             });
 
-            const botComment = comments.find(comment => 
-              comment.user.type === 'Bot' && 
+            const botComment = comments.find(comment =>
+              comment.user.type === 'Bot' &&
               comment.body.includes('Preview Deployed')
             );
 
             if (botComment) {
-              // Update existing comment
               await github.rest.issues.updateComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
@@ -180,7 +88,6 @@ jobs:
                 body: commentBody
               });
             } else {
-              // Create new comment
               await github.rest.issues.createComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
@@ -193,120 +100,31 @@ jobs:
     if: ${{ github.event.action == 'closed' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: gardener/cc-utils/.github/actions/github-auth@master
-        id: app-token
-        with:
-          token-server: ${{ vars.FEDERATED_GITHUB_ACCESS_TOKEN_SERVER }}
-          repositories: documentation-demo
-          permissions: |
-            contents: write
-
-      - name: Checkout main repository
-        uses: gardener/cc-utils/.github/actions/trusted-checkout@master
-
-      - uses: actions/checkout@v6
-        with:
-          token: ${{ steps.app-token.outputs.token }}
-          repository: gardener/documentation-demo
-          path: other-repo
-
-      - name: setup-git-identity
-        uses: gardener/cc-utils/.github/actions/setup-git-identity/@master
-        with:
-          user_name: "GitHub Actions Bot"
-          user_email: "actions@github.com"
-
-      - name: Remove preview and push
-        shell: bash
+      - name: Delete Netlify preview deploys
         env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
           set -euo pipefail
 
-          echo "=== Starting remove-preview ==="
-          echo "PR_NUMBER: ${PR_NUMBER:-<not set>}"
+          DEPLOYS=$(curl -s \
+            -H "Authorization: Bearer ${NETLIFY_AUTH_TOKEN}" \
+            "https://api.netlify.com/api/v1/sites/${NETLIFY_SITE_ID}/deploys?branch=pr-${PR_NUMBER}&per_page=100")
 
-          if [ -z "${PR_NUMBER:-}" ]; then
-            echo "Error: PR_NUMBER environment variable is required"
-            exit 1
-          fi
-
-          echo "Changing directory to: other-repo"
-          cd other-repo
-          echo "Current directory: $(pwd)"
-
-          # Set git identity for this repository (not inherited from parent repo)
-          echo "Setting git identity..."
-          git config user.name "GitHub Actions Bot"
-          git config user.email "actions@github.com"
-
-          echo "=== Git Configuration in other-repo ==="
-          echo "Git user.name: $(git config user.name || echo '<not set>')"
-          echo "Git user.email: $(git config user.email || echo '<not set>')"
-          echo "Git remote origin URL: $(git config --get remote.origin.url || echo '<not set>')"
-          echo "========================================"
-
-          # Switch to gh-pages branch
-          echo "Fetching gh-pages branch from origin"
-          git fetch origin gh-pages
-          echo "Checking out gh-pages branch"
-          git checkout gh-pages
-          echo "Current branch: $(git branch --show-current)"
-
-          # Remove preview directory if it exists
-          PREVIEW_DIR="pr-preview/pr-${PR_NUMBER}"
-          echo "Checking for preview directory: ${PREVIEW_DIR}"
-
-          if [ -d "${PREVIEW_DIR}" ]; then
-            echo "Preview directory exists. Removing: ${PREVIEW_DIR}"
-            rm -rf "${PREVIEW_DIR}"
-
-            echo "Staging removal: git add -A ${PREVIEW_DIR}"
-            git add -A "${PREVIEW_DIR}"
-
-            echo "Checking for staged changes..."
-            if git diff --staged --quiet; then
-              echo "No changes detected after removal. Nothing to commit."
-              exit 0
-            fi
-
-            echo "Changes detected. Git status:"
-            git status --short
-
-            COMMIT_MSG="Remove PR #${PR_NUMBER} preview"
-            echo "Committing changes with message: ${COMMIT_MSG}"
-            git commit -m "${COMMIT_MSG}"
-
-            REMOTE_BRANCH="origin gh-pages"
-            echo "Pushing to: ${REMOTE_BRANCH}"
-            git push origin gh-pages
-            echo "Preview removed successfully"
-          else
-            echo "Preview directory does not exist: ${PREVIEW_DIR}"
-            echo "Nothing to clean up"
-          fi
+          echo "$DEPLOYS" | jq -r '.[].id' | while read DEPLOY_ID; do
+            echo "Deleting deploy: $DEPLOY_ID"
+            curl -s -X DELETE \
+              -H "Authorization: Bearer ${NETLIFY_AUTH_TOKEN}" \
+              "https://api.netlify.com/api/v1/deploys/${DEPLOY_ID}"
+          done
 
       - name: Update PR comment
         uses: actions/github-script@v7
         with:
           script: |
-            console.log('=== Starting update-pr-comment ===');
-
             const prNumber = context.payload.pull_request.number;
-            console.log(`PR Number: ${prNumber}`);
-            console.log(`Repository: ${context.repo.owner}/${context.repo.repo}`);
-            console.log(`Event: ${context.eventName}`);
-
-            const commentBody = `## 🧹 Preview Removed
-
-            The preview for this PR is no longer available since the PR has been closed.`;
-
-            console.log('Comment body to post:');
-            console.log(commentBody);
-
-            // Find existing comment
-            console.log(`Fetching comments for PR #${prNumber}...`);
-            console.log(`API call: github.rest.issues.listComments({ owner: "${context.repo.owner}", repo: "${context.repo.repo}", issue_number: ${prNumber} })`);
+            const commentBody = `## 🧹 Preview Removed\n\nThe preview for this PR is no longer available since the PR has been closed.`;
 
             const { data: comments } = await github.rest.issues.listComments({
               owner: context.repo.owner,
@@ -314,29 +132,16 @@ jobs:
               issue_number: prNumber
             });
 
-            console.log(`Found ${comments.length} total comments on PR #${prNumber}`);
-
-            const botComment = comments.find(comment => 
-              comment.user.type === 'Bot' && 
+            const botComment = comments.find(comment =>
+              comment.user.type === 'Bot' &&
               comment.body.includes('Preview Deployed')
             );
 
             if (botComment) {
-              console.log(`Found existing preview comment (ID: ${botComment.id})`);
-              console.log(`Comment author: ${botComment.user.login} (${botComment.user.type})`);
-              console.log(`API call: github.rest.issues.updateComment({ owner: "${context.repo.owner}", repo: "${context.repo.repo}", comment_id: ${botComment.id}, body: "..." })`);
-
-              // Update existing comment
               await github.rest.issues.updateComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 comment_id: botComment.id,
                 body: commentBody
               });
-              console.log(`✅ Successfully updated comment ID: ${botComment.id}`);
-            } else {
-              console.log('⚠️ No existing preview comment found to update');
-              console.log('Searched for comments from Bot users containing "Preview Deployed"');
             }
-
-            console.log('=== update-pr-comment completed ===');
