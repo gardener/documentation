@@ -6,7 +6,6 @@
     "gray-matter": "4.0.3",
     "js-yaml": "4.1.1",
     "lodash-es": "4.17.23",
-    "ts-node": "10.9.2",
     "vitepress": "1.6.3",
     "vitepress-sidebar": "1.31.1",
     "vue": "3.5.16"

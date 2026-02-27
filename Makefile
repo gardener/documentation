@@ -112,7 +112,7 @@ dev:
 .PHONY: local-preview
 local-preview: ## Full local preview: clean hugo dir, run docforge, post-process, build, and preview
 	@if [ -d "hugo" ]; then \
-		echo "Removing existing hugo/content directory..."; \
+		echo "Removing existing hugo directory..."; \
 		rm -rf hugo; \
 	fi
 	@$(MAKE) docforge-ci
