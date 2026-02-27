@@ -7,12 +7,6 @@ import VPFooter from './components/VPFooter.vue'
 import TaxonomyIndex from './components/TaxonomyIndex.vue'
 import './style.css'
 
-// Extend Window interface to include plausible
-declare global {
-  interface Window {
-    plausible?: (event: string, options?: { props?: Record<string, any> }) => void;
-  }
-}
 
 export default {
   extends: DefaultTheme,
