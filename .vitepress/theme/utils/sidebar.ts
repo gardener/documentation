@@ -1,22 +1,24 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { load } from 'js-yaml';
+import { generateSidebar } from 'vitepress-sidebar';
+import type { VitePressSidebarOptions } from 'vitepress-sidebar';
 
-// Type definitions for sidebar items
-export interface SidebarLeaf {
-  text: string;
-  link: string;
-  collapsed?: boolean;
+/**
+ * Generates a sidebar with weight-based sorting and standard post-processing.
+ * Shared pipeline for docs and community sidebars.
+ */
+export function generateWeightSortedSidebar(config: VitePressSidebarOptions): any {
+  const sidebar = generateSidebar([config]);
+  const base = config.scanStartPath || '';
+  const resolvePath = config.resolvePath || '/';
+
+  const sorted = sortByWeight(sidebar, base);
+  const filtered = removeIndexEntries(sorted);
+  const cleaned = removeEmptyItems(filtered);
+  addTrailingSlashToLinks(cleaned[resolvePath].items);
+  return cleaned;
 }
-
-export interface SidebarBranch {
-  text: string;
-  items: (SidebarLeaf | SidebarBranch)[];
-  collapsed?: boolean;
-}
-
-export type SidebarItem = SidebarLeaf | SidebarBranch;
-
 
 /**
  * Recursively removes all _index.md entries from the sidebar
@@ -187,116 +189,6 @@ export function getWeightFromFile(link: string, base?: string): number | null {
     return null;
   }
 }
-
-/**
- * Recursively enhances directory titles by reading from _index.md frontmatter
- */
-export function enhanceDirectoryTitles(sidebar: any, base): any {
-  if (Array.isArray(sidebar)) {
-    return sidebar.map(item => enhanceDirectoryTitles(item, base));
-  }
-  
-  if (typeof sidebar !== 'object' || sidebar === null) {
-    return sidebar;
-  }
-  
-  // Create a copy of the object
-  const enhanced = { ...sidebar };
-  
-  // If this object has items (indicating it's a directory), enhance it
-  if (enhanced.items && Array.isArray(enhanced.items)) {
-    // Look for _index.md file in the items
-    const indexItem = enhanced.items.find((item: any) => 
-      item.link && (item.link === '_index' || item.link.endsWith('/_index'))
-    );
-    
-    if (indexItem) {
-      // Try to read the frontmatter and update the title
-      const title = getTitleFromIndexFile(indexItem.link, base);
-      if (title) {
-        enhanced.text = title;
-      }
-    }
-    
-    // Recursively process all items
-    enhanced.items = enhanced.items.map((item: any) => enhanceDirectoryTitles(item, base));
-  }
-  
-  // If it's a top-level section with items, process those too
-  if (enhanced.base && enhanced.items) {
-    enhanced.items = enhanced.items.map((item: any) => enhanceDirectoryTitles(item, base));
-  }
-  
-  // Process other properties recursively
-  for (const [key, value] of Object.entries(enhanced)) {
-    if (key !== 'items' && typeof value === 'object') {
-      enhanced[key] = enhanceDirectoryTitles(value, base);
-    }
-  }
-  
-  return enhanced;
-}
-
-/**
- * Reads the title from an _index.md file's frontmatter
- */
-export function getTitleFromIndexFile(link: string, base?: string): string | null {
-  try {
-    // Construct the file path
-    let filePath: string;
-    
-    if (link === '_index') {
-      // For root _index files
-      filePath = join(process.cwd(), 'hugo', 'content', base, '_index.md');
-    } else if (link.endsWith('/_index')) {
-      // For nested _index files
-      const relativePath = link.replace('/_index', '');
-      filePath = join(process.cwd(), 'hugo', 'content', base, relativePath, '_index.md');
-    } else {
-      return null;
-    }
-    
-    // Check if file exists
-    if (!existsSync(filePath)) {
-      return null;
-    }
-    
-    // Read the file content
-    const content = readFileSync(filePath, 'utf-8');
-    
-    // Extract frontmatter
-    const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
-    if (!frontmatterMatch) {
-      return null;
-    }
-    
-    // Parse YAML frontmatter
-    const frontmatter = load(frontmatterMatch[1]) as any;
-    
-    // Return the title if it exists
-    return frontmatter?.title || null;
-    
-  } catch (error) {
-    console.warn(`Error reading title from ${link}:`, error);
-    return null;
-  }
-}
-
-
-/**
- * Function to recursively extract all items from a section
- */
-export function extractItems(section: any): SidebarItem[] {
-  if (Array.isArray(section)) {
-    return section as SidebarItem[];
-  }
-  if (section && typeof section === 'object' && 'items' in section) {
-    return section.items as SidebarItem[];
-  }
-  return [];
-}
-
-
 
 /**
  * Recursively removes all items fields from the sidebar object that are empty arrays
