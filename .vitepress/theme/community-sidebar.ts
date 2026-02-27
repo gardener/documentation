@@ -1,5 +1,4 @@
 import { generateSidebar } from 'vitepress-sidebar';
-import { writeJsonDebug } from './utils/debug-json.ts';
 import {
   removeIndexEntries,
   sortByWeight,
@@ -33,17 +32,7 @@ export function communitySidebar(): any {
     // Filter out all _index.md entries (called last)
     const filteredSidebar = removeIndexEntries(sortedSidebar)
 
-    writeJsonDebug(
-        'filteredCommunitySidebar.json',
-        filteredSidebar
-    );
-
     const cleandSidebar = removeEmptyItems(filteredSidebar)
-
-    writeJsonDebug(
-        'cleandCommunitySidebar.json',
-        cleandSidebar
-    );
 
     addTrailingSlashToLinks(cleandSidebar['/community/'].items);
 

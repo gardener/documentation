@@ -110,8 +110,16 @@ dev:
 	npx vitepress dev
 
 .PHONY: local-preview
-local-preview:
-	docforge-ci install post-process npx vitepress preview
+local-preview: ## Full local preview: clean hugo dir, run docforge, post-process, build, and preview
+	@if [ -d "hugo" ]; then \
+		echo "Removing existing hugo/content directory..."; \
+		rm -rf hugo; \
+	fi
+	@$(MAKE) docforge-ci
+	@$(MAKE) install
+	@$(MAKE) post-process
+	@$(MAKE) build
+	npx vitepress preview
 
 .PHONY: post-processing-part-1
 post-processing-part-1:
@@ -127,7 +135,7 @@ post-processing-part-index:
 
 .PHONY: post-processing-part-3
 post-processing-part-3:
-	node post-processing/part-3.js --add-empty-metadata --update-report-link --process-api-html
+	node post-processing/part-3.js --update-report-link --process-api-html
 
 .PHONY: post-process
 post-process: ## Run post-processing scripts
@@ -148,6 +156,3 @@ docforge-ci: docforge-download ## Run docforge in CI mode (non-interactive)
 
 .PHONY: ci-build
 ci-build: docforge-ci install post-process build ## Run all steps for building in CI
-
-.PHONY: ci-test
-ci-test: docforge-ci install post-process test ## Run all steps for testing in CI
