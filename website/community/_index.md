@@ -20,10 +20,7 @@ Perfect for staying up-to-date with Gardener's evolution and connecting with the
 
 ## 🧭 [Project Steering](./steering/_index.md)
 
-Our governance structure ensures strategic alignment and technical excellence through two steering committees:
-
-- **Product Steering** - Strategic direction, roadmap alignment, and priority setting
-- **Technical Steering** - Architecture decisions, technical direction, and design reviews
+Our governance structure ensures technical excellence and strategic alignment through the **Technical Steering Committee (TSC)**, which oversees architecture decisions, technical direction, design reviews, and roadmap alignment for major product increments.
 
 If you're working on significant features or have ideas that could shape Gardener's future, this is where major decisions are made collaboratively.
 

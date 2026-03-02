@@ -4,6 +4,8 @@ title: "GEP-0037: Scaling Advisor"
 
 ℹ️ The "Scaling Advisor" was formerly called "Scaling Recommender".
 
+ℹ️ This session was part of the discontinued "Product Steering" which focused on prioritization, vision, roadmap alignment, and cross-cutting concerns.
+
 - 📌 **GEP Tracking Issue:** https://github.com/gardener/enhancements/issues/37
 - 📖 **GEP Link:** https://github.com/gardener/enhancements/tree/main/geps/0037-scaling-recommender
 - ✍🏻 **Author(s):** [@unmarshall](https://github.com/unmarshall) (Madhav Bhargava)
