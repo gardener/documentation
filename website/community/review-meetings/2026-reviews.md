@@ -14,6 +14,29 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2026/03/04 - [v1.137](https://github.com/gardener/gardener/releases/tag/v1.137.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@rfranzke](https://github.com/rfranzke) | `5m` | 🏠 GEPs Moved to New `gardener/enhancements` Repository | [#14043](https://github.com/gardener/gardener/pull/14043) |
+| [@rfranzke](https://github.com/rfranzke) | `5m` | 🔑 Secrets Manager: Config Functions and Lazy CA Loading | [#14000](https://github.com/gardener/gardener/pull/14000) |
+| [@rrhubenov](https://github.com/rrhubenov) | `10m` | 🪵 `VictoriaLogsBackend` Feature Gate | [#13988](https://github.com/gardener/gardener/pull/13988) |
+| [@ScheererJ](https://github.com/ScheererJ) | `5m` | 🖥️ Node-Specific Configuration Files in `gardener-node-agent` | [#13412](https://github.com/gardener/gardener/pull/13412) |
+| [@LucaBernstein](https://github.com/LucaBernstein) | `5m` | 📦 Go Submodule for Gardener APIs | [#13536](https://github.com/gardener/gardener/pull/13536) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- 🪓 [DEVELOPER] When using `ModeService` in the extension webhook library, the specified service port is now properly propagated when constructing the `admissionregistrationv1.WebhookClientConfig` for `{Validating,Mutating}WebhookConfiguration`s (previously, it was not specified at all and defaulted to `443` by Kubernetes). Make sure to specify `--webhook-config-service-port` to prevent falling back to the `--webhook-config-server-port` (if configured). [#14063](https://github.com/gardener/gardener/pull/14063)
+- 🐛 [OPERATOR] Fixed the shoot-care controller panic for clusters where `.status.credentials.rotation` exists but `.status.credentials.encryptionAtRest` is nil. [#14147](https://github.com/gardener/gardener/pull/14147)
+- 🐛 [OPERATOR] An issue causing the control-plane migration to get stuck if the source backup entry deployment was retried is now fixed. [#14091](https://github.com/gardener/gardener/pull/14091)
+- 🐛 [USER] An issue which lead to a nil pointer in gardenlet when a Shoot had an empty `.spec.addons` structure defined is now fixed. [#14112](https://github.com/gardener/gardener/pull/14112)
+
+<hr />
+
 ### 2026/02/18 - [v1.136](https://github.com/gardener/gardener/releases/tag/v1.136.0) Release
 
 [📽️ Recording](https://youtu.be/jScp5zha7Fc)
