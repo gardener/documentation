@@ -316,6 +316,7 @@ function getHeadConfig(){
         'data-website-id': '3dac305b-ea27-43c5-8421-dc61f4fefa23',
         'data-project-name': 'Gardener',
         'data-project-color': '#009f76',
+        'data-modal-header-bg-color': '#009f76',
         'data-project-logo': 'https://gardener.cloud/gardener-logo-white.svg',
         'data-consent-required': 'true',
         'data-consent-screen-disclaimer': 'This AI assistant uses your questions to provide answers based on Gardener documentation. Your questions and interactions may be anonymously collected and analyzed to improve the search functionality and overall user experience. We don\'t collect any personally identifiable information. By clicking "Accept", you consent to using this AI-powered feature and the collection of your data. AI-generated responses may contain inaccuracies - please verify important information with the official documentation.',
