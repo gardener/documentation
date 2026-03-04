@@ -16,7 +16,7 @@ Check back regularly for updates and upcoming topics!
 
 ### 2026/03/04 - [v1.137](https://github.com/gardener/gardener/releases/tag/v1.137.0) Release
 
-[📽️ Recording]()
+[📽️ Recording](https://youtu.be/axIwAmhJ_Hw)
 
 #### Demo Agenda 📋
 
