@@ -276,11 +276,24 @@ export interface TaxonomySidebarItem {
 }
 
 /**
+ * Join base and link with exactly one slash between segments.
+ * Preserves a leading slash only when the original path is absolute.
+ */
+function joinSidebarBaseAndLink(base: string, link: string): string {
+  const keepLeadingSlash = base.startsWith('/') || (!base && link.startsWith('/'))
+  const basePart = base.replace(/\/+$/, '').replace(/^\/+/, '')
+  const linkPart = link.replace(/^\/+/, '')
+  const joined = [basePart, linkPart].filter(Boolean).join('/')
+  if (!joined) return keepLeadingSlash ? '/' : ''
+  return keepLeadingSlash ? `/${joined}` : joined
+}
+
+/**
  * Normalize a path for comparison.
  * e.g. 'gardener/advanced/' -> 'gardener/advanced/index.md'
  */
 export function normalizeSidebarPath(base: string, link: string): string {
-  let p = base + link
+  let p = joinSidebarBaseAndLink(base, link)
   if (p.endsWith('/')) p += 'index.md'
   else if (!p.endsWith('.md')) p += '/index.md'
   // Remove leading slash for comparison with relativePath
@@ -303,7 +316,7 @@ export function findSidebarChildren(
           .filter(child => child.text && child.link)
           .map(child => ({
             text: child.text!,
-            link: base + child.link!,
+            link: joinSidebarBaseAndLink(base, child.link!),
           }))
       }
     }
@@ -331,7 +344,7 @@ export function getTaxonomyChildren(relativePath: string, allSidebars: Record<st
         .filter(item => item.text && item.link)
         .map(item => ({
           text: item.text!,
-          link: base + item.link!,
+          link: joinSidebarBaseAndLink(base, item.link!),
         }))
     }
 
