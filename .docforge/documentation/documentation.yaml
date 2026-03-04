@@ -207,7 +207,7 @@ structure:
     structure:
     - file: _index.md
       frontmatter:
-        title: Gardenctl V2
+        title: Gardenctl
         description: The command line interface to control your clusters
         weight: 70
         aliases: ["/docs/gardenctl/"]
