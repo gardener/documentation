@@ -44,7 +44,8 @@ A topic qualifies for Technical Steering if it:
 - Requires **significant development effort**, OR
 - Has **relevant cross-team impact**, OR
 - **Impacts Gardener's users or ecosystem significantly**, OR
-- Introduces **high technical or operational risk**
+- Introduces **high technical or operational risk**, OR
+- Introduces a **new Gardener extension** in the [Gardener GitHub organization](https://github.com/gardener)
 
 ### 🧭 [How to Propose a Topic](https://github.com/gardener/enhancements/blob/main/README.md#-how-to-propose-a-gardener-enhancement)
 
