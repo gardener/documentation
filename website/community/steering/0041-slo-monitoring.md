@@ -10,3 +10,7 @@ title: "GEP-0041: SLO Monitoring"
 - 🗓️ **Presentation:** 2026-02-24, 15:00 - 16:00 CET
 - 🎥 **Recording:** https://youtu.be/bqjn-JcAA6w
 - 👨‍⚖️ **Decisions:**
+  - Investment was approved as the general idea of SLO monitoring was deemed useful.
+  - Development will start internally as it is assumed that not many Gardener operators use the Gardener monitoring stack.
+  - Open sourcing at a later point in time is an option if there is demand.
+  - Technical details, e.g. prometheus federation vs. remote write, will be tackled along the way.
