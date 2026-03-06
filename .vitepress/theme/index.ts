@@ -5,7 +5,7 @@ import DefaultTheme from 'vitepress/theme'
 import YouTubeVideo from './components/YouTubeVideo.vue'
 import VPFooter from './components/VPFooter.vue'
 import TaxonomyIndex from './components/TaxonomyIndex.vue'
-import './style.css'
+import './custom.css'
 
 
 export default {
