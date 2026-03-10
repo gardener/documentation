@@ -65,7 +65,8 @@ export default defineConfig({
     // https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts
     //'**/tutorials/tutorial-custom-domain-with-istio.md',
     //'**/security-and-compliance/report.md',
-      '**/html/**'
+      '**/html/**',
+      `**/extensions/others/gardener-extension-registry-cache/getting-started-remotely.md`
   ],
   lastUpdated: true,
   ignoreDeadLinks: true, //ToDo enable after migration
@@ -193,7 +194,10 @@ function getSearchConfig() {
 function getThemeConfig() {
   return {
     isNetlify: process.env.NETLIFY === 'true',
-    logo: {src: '/gardener-logo.svg', width: 24, height: 24},
+    logo: {
+      light: '/gardener-logo.svg',
+      dark: '/gardener-logo-white.svg',
+    },
     nav: getNavConfig(),
     sidebar: allSidebars,
     editLink: {
