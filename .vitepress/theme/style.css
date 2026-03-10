@@ -37,6 +37,44 @@
   padding: 18px;
 }
 
+/* Landing page hero: keep certification logos aligned with CTA buttons */
+.VPHome .VPHero .actions {
+  display: inline-flex;
+  vertical-align: top;
+}
+
+.VPHome .home-hero-certification-logos {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 24px;
+  padding-left: 6px;
+  vertical-align: top;
+}
+
+.VPHome .home-hero-certification-logo {
+  display: block;
+  width: auto;
+  height: 44px;
+}
+
+@media (min-width: 640px) {
+  .VPHome .home-hero-certification-logos {
+    padding-top: 32px;
+  }
+}
+
+@media (max-width: 960px) {
+  .VPHome .VPHero.has-image .main {
+    text-align: center;
+  }
+
+  .VPHome .home-hero-certification-logos {
+    justify-content: center;
+    padding-left: 0;
+  }
+}
+
 /* used in reference/default-theme-search */
 img[src='/search.png'] {
   width: 100%;

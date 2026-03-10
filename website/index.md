@@ -29,13 +29,14 @@ features:
     title: Open Source Grown
     details: Powered by the open source Gardener project, developed in the public, pioneered by SAP
   - icon:
+     src: /highlights/certified.svg
+    title: Certified and Compliant
+    details: Enterprise-grade security certifications, CNCF 100% Kubernetes compliant
+  - icon:
       src: /highlights/extensible.svg
     title: Ultra Scalable
     details: Fleet management of thousands of clusters with low TCO by design
-  - icon:
-      src: /highlights/certified.svg
-    title: Certified and Compliant
-    details: Enterprise-grade security certifications, CNCF 100% Kubernetes compliant
+  
   - icon:
       src: /highlights/ubiqutious.svg
     title: Ubiquitous
