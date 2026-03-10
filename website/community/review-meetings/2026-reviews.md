@@ -14,6 +14,24 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2026/03/11 - Kubernetes v1.35 Special Edition
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+_Presenters:_ [@timuthy](https://github.com/timuthy), [@rfranzke](https://github.com/rfranzke)
+
+| Duration | Topic                                                        | Reference(s)                                                     |
+| -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| `15m` | 🎓 Graduation Ceremony<br><small>_Graduated Features_</small> | [KEP-1287](https://kep.k8s.io/1287), [KEP-5067](https://kep.k8s.io/5067), [KEP-4381](https://kep.k8s.io/4381), [KEP-3015](https://kep.k8s.io/3015), [KEP-4368](https://kep.k8s.io/4368), [KEP-4622](https://kep.k8s.io/4622), [KEP-5504](https://kep.k8s.io/5504) |
+| `20m` | 🌸 Beta Bloom<br><small>_Alpha -> Beta Promotions_</small> | [KEP-4742](https://kep.k8s.io/4742), [KEP-4192](https://kep.k8s.io/4192), [KEP-4876](https://kep.k8s.io/4876), [KEP-5598](https://kep.k8s.io/5598), [KEP-961](https://kep.k8s.io/961), [KEP-5295](https://kep.k8s.io/5295), [KEP-127](https://kep.k8s.io/127), [KEP-4639](https://kep.k8s.io/4639), [KEP-2535](https://kep.k8s.io/2535), [KEP-5307](https://kep.k8s.io/5307), [KEP-3973](https://kep.k8s.io/3973) |
+| `10m` | 🗞️ Fresh Off The Press<br><small>_New Alpha Features_</small> | [KEP-4671](https://kep.k8s.io/4671), [KEP-5284](https://kep.k8s.io/5284), [KEP-4828](https://kep.k8s.io/4828), [KEP-4827](https://kep.k8s.io/4827), [KEP-5440](https://kep.k8s.io/5440), [KEP-5237](https://kep.k8s.io/5237), [KEP-5471](https://kep.k8s.io/5471) |
+| `5m` | 🧼 Security, Deprecations & Removals | [KEP-5495](https://kep.k8s.io/5495), [KEP-4033](https://kep.k8s.io/4033), [KEP-5573](https://kep.k8s.io/5573), [KEP-4781](https://kep.k8s.io/4781) |
+| `5m` | 🪴 What's Changing In Gardener | [#13687](https://github.com/gardener/gardener/issues/13687), [#13845](https://github.com/gardener/gardener/pull/13845), [#13707](https://github.com/gardener/gardener/pull/13707) |
+
+<hr />
+
 ### 2026/03/04 - [v1.137](https://github.com/gardener/gardener/releases/tag/v1.137.0) Release
 
 [📽️ Recording](https://youtu.be/axIwAmhJ_Hw)
