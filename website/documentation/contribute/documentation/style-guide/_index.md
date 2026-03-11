@@ -10,6 +10,7 @@ These are guidelines, not rules. Use your best judgment, and feel free to propos
   - [Structure and File Names](#structure-and-file-names)
   - [Topic Structure](#topic-structure)
   - [Front Matter](#front-matter)
+    - [Blogs](#blogs)
   - [Alerts](#alerts)
   - [Images](#images)
   - [General Tips](#general-tips)
@@ -93,6 +94,26 @@ There are a number of [predefined](https://gohugo.io/content-management/front-ma
 While this section will be automatically generated if your topic has a title header, adding more detailed information helps other users, developers, and technical writers better sort, classify and understand the topic.
 
 By using a metadata section you can also skip adding a title header or overwrite it in the navigation section.
+
+#### Blogs
+
+If you are writing a blog, please add this additional metadata so that it can be shown as intended:
+```yaml
+title: Blog Title
+newsSubtitle: October 01, 2025
+publishdate: 2025-10-01
+authors:
+- avatar: <author-profile-picture-link>
+  login: <author-GitHub-name>
+  email: <author-email>
+  name: <author-name>>
+tags:
+  - <tag-1>
+  - <tag-2>
+  - ...
+```
+
+For more information on the currently used tags, see [Blog Tags Reference](../blog-tags.md).
 
 ### Alerts
 

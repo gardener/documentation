@@ -1,8 +1,8 @@
 ---
-title: "Blog Tag Reference"
+title: Blog Tags Reference
 ---
 
-# Blog Tag Reference
+## Overview
 
 This page documents the supported blog tags.
 
@@ -16,7 +16,7 @@ Use lowercase kebab-case (`tag-name`) for all tags.
 - `release-notes`: Release-focused updates tied to one or more versions.
 - `technical-deep-dive`: Detailed technical analysis and architecture content.
 - `case-study`: Practical implementation reports and production stories.
-- `community-event`: Community meeting, conference, or hackathon updates.
+- `community-event`: Community meeting, conference or Hackathon updates.
 - `tutorial`: Step-by-step usage guidance.
 - `milestone`: Project anniversary or major achievement summaries.
 
