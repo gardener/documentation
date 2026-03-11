@@ -32,6 +32,16 @@ features:
      src: /highlights/certified.svg
     title: Certified and Compliant
     details: Enterprise-grade security certifications, CNCF 100% Kubernetes compliant
+    badgePlacement: top-right
+    badges:
+      - src: /kubernets-certification/color.png
+        darkSrc: /kubernets-certification/white.png
+        href: https://github.com/cncf/k8s-conformance
+        alt: Kubernetes Conformance
+      - src: /kubernets-certification/ai-color.png
+        darkSrc: /kubernets-certification/ai-white.png
+        href: /blog/2025/11/11-12-gardener-ai-conformance
+        alt: Kubernetes AI Conformance
   - icon:
       src: /highlights/extensible.svg
     title: Ultra Scalable

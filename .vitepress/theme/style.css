@@ -37,96 +37,9 @@
   padding: 18px;
 }
 
-/* Landing page hero: keep certification logos aligned with CTA buttons */
-.VPHome .VPHero .actions {
-  position: relative;
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-  gap: 10px;
-  width: 100%;
-}
-
-.VPHome .home-hero-certification-logos {
-  --home-hero-badges-shift-x: 0px;
-  --home-hero-badges-shift-y: 0px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  margin-left: 0;
-  gap: 10px;
-  position: absolute;
-  right: 0;
-  top: calc(100% + 8px);
-  z-index: 6;
-  transform: translate(var(--home-hero-badges-shift-x), var(--home-hero-badges-shift-y));
-}
-
-.VPHome .home-hero-certification-logo-stack {
-  display: block;
-  line-height: 0;
-  flex: 0 0 auto;
-}
-
-.VPHome .home-hero-certification-logo {
-  display: none;
-  width: auto;
-  height: 100px;
-  max-width: none;
-}
-
-.VPHome .home-hero-certification-logo--dark {
-  display: none;
-}
-
-.VPHome .home-hero-certification-logo--light {
-  display: block;
-}
-
-.dark .VPHome .home-hero-certification-logo--light {
-  display: none;
-}
-
-.dark .VPHome .home-hero-certification-logo--dark {
-  display: block;
-}
-
 @media (max-width: 960px) {
   .VPHome .VPHero.has-image .main {
     text-align: center;
-  }
-
-  .VPHome .VPHero .actions {
-    flex-wrap: wrap;
-  }
-
-  .VPHome .home-hero-certification-logos {
-    position: static;
-    justify-content: center;
-    margin-left: 0;
-    width: 100%;
-    transform: none;
-  }
-
-  .VPHome .home-hero-certification-logo {
-    height: 108px;
-  }
-}
-
-@media (max-width: 640px) {
-  .VPHome .home-hero-certification-logos {
-    position: absolute;
-    right: 0;
-    top: calc(100% + 8px);
-    width: auto;
-    justify-content: flex-start;
-    gap: 6px;
-    transform: translate(var(--home-hero-badges-shift-x), var(--home-hero-badges-shift-y));
-  }
-
-  /* Mobile-only: show "Certified and Compliant" as the first feature card */
-  .VPHome .VPHomeFeatures .items .item:nth-child(3) {
-    order: -1;
   }
 }
 
@@ -198,4 +111,19 @@ img[src='/search.png'] {
 .VPButton.alt[href*="podrick"] {
   display: inline-flex;
   align-items: center;
+}
+
+@media (max-width: 640px) {
+  .VPHome .VPTeamMembers.small .container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .VPHome .VPTeamMembers.small .container .item {
+    min-width: 0;
+  }
+
+  .VPHome .VPTeamMembersItem.small .profile {
+    padding: 18px 12px;
+  }
 }

@@ -31,7 +31,9 @@ import VPSocialLinks from 'vitepress/dist/client/theme-default/components/VPSoci
 
 interface Props {
   size?: 'small' | 'medium'
-  member: DefaultTheme.TeamMember
+  member: DefaultTheme.TeamMember & {
+    darkAvatar?: string
+  }
 }
 
 withDefaults(defineProps<Props>(), {
@@ -43,7 +45,11 @@ withDefaults(defineProps<Props>(), {
   <article class="VPTeamMembersItem" :class="[size]">
     <div class="profile">
       <figure class="avatar">
-        <img class="avatar-img" :src="member.avatar" :alt="member.name" />
+        <template v-if="member.darkAvatar">
+          <img class="avatar-img dark" :src="member.darkAvatar" :alt="member.name" />
+          <img class="avatar-img light" :src="member.avatar" :alt="member.name" />
+        </template>
+        <img v-else class="avatar-img" :src="member.avatar" :alt="member.name" />
       </figure>
       <div class="data">
         <h1 class="name">
@@ -184,6 +190,14 @@ withDefaults(defineProps<Props>(), {
   bottom: 0;
   left: 0;
   object-fit: cover;
+}
+
+html:not(.dark) .avatar-img.dark {
+  display: none;
+}
+
+.dark .avatar-img.light {
+  display: none;
 }
 
 .name {

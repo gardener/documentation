@@ -196,7 +196,7 @@ function getThemeConfig() {
     isNetlify: process.env.NETLIFY === 'true',
     logo: {
       light: '/gardener-logo.svg',
-      dark: '/gardener-logo-white.svg',
+      dark: '/gardener-logo.svg',
     },
     nav: getNavConfig(),
     sidebar: allSidebars,
@@ -257,6 +257,12 @@ function getViteConfig() {
           find: /^.*\/VPFeature\.vue$/,
           replacement: fileURLToPath(
               new URL('./theme/components/VPFeature.vue', import.meta.url)
+          )
+        },
+        {
+          find: /^.*\/VPFeatures\.vue$/,
+          replacement: fileURLToPath(
+              new URL('./theme/components/VPFeatures.vue', import.meta.url)
           )
         },
         {
