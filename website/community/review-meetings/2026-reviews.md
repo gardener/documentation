@@ -16,7 +16,7 @@ Check back regularly for updates and upcoming topics!
 
 ### 2026/03/11 - Kubernetes v1.35 Special Edition
 
-[📽️ Recording]()
+[📽️ Recording](https://youtu.be/BV3w1l6lz-k)
 
 #### Demo Agenda 📋
 
