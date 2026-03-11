@@ -12,5 +12,7 @@ if [ -z "$GITHUB_OAUTH_TOKEN" ]; then
     exit 1
 fi
 
+host_port="${PREVIEW_PORT:-5180}"
+
 docker build -t gardener-documentation:dev --load --secret id=GITHUB_OAUTH_TOKEN .
-docker run --rm -p 5173:5173 gardener-documentation:dev
+docker run --rm -p "${host_port}:5173" gardener-documentation:dev

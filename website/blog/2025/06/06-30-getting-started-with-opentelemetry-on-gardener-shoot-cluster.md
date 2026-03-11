@@ -9,8 +9,11 @@ authors:
   login: nickytd
   name: Niki Dokovski
 aliases: ["/blog/2025/06/30/getting-started-with-opentelemetry-on-gardener-shoot-cluster"]
+tags:
+  - tutorial
+  - security
+  - observability
 ---
-
 In this blog post, we will explore how to set up an [OpenTelemetry](https://opentelemetry.io/) based observability stack on a Gardener shoot cluster. OpenTelemetry is an open-source observability framework that provides a set of APIs, SDKs, agents, and instrumentation to collect telemetry data from applications and systems.
 It provides a unified approach for collecting, processing, and exporting telemetry data such as traces, metrics, and logs. In addition, it gives flexibility in designing observability stacks, helping avoid vendor lock-in and allowing users to choose the most suitable tools for their use cases.
 

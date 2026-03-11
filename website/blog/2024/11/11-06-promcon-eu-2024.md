@@ -11,8 +11,10 @@ authors:
   email: jeremy.rickards@sap.com
   avatar: https://avatars.githubusercontent.com/u/9338170
 aliases: ["/blog/2024/11/06/01"]
+tags:
+  - community-event
+  - observability
 ---
-
 ## Overview
 
 Many innovative observability and application performance management (APM) products and services were released over the last few years. They often adopt or enhance concepts that Prometheus invented more than a decade ago. However, Prometheus, as an open-source project, has never lost its importance in this fast-moving industry and is the core of Gardener's monitoring stack.

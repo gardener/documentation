@@ -9,8 +9,9 @@ authors:
   login: marc1404
   name: Marc Vornetran
 aliases: ["/blog/2025/06/06-17-taking-gardener-to-the-next-level-highlights-from-the-7th-gardener-community-hackathon-in-schelklingen"]
+tags:
+  - community-event
 ---
-
 # Taking Gardener to the Next Level: Highlights from the 7th Gardener Community Hackathon in Schelklingen
 
 The latest "Hack The Garden" event, held in June 2025 at [Schlosshof in Schelklingen](https://schlosshof-info.de/), brought together members of the Gardener community for an intensive week of collaboration, coding, and problem-solving.

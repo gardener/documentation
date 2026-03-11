@@ -8,8 +8,9 @@ authors:
   login: hown3d
   name: Lukas Hoehl
 aliases: ["/blog/2025/10/22/unifying-http-proxy-infrastructure-in-gardener"]
+tags:
+  - technical-deep-dive
 ---
-
 Gardener is simplifying its networking infrastructure by moving towards a single, unified entrypoint for all HTTP CONNECT proxy traffic. This change, introduced as part of [GEP-30](https://github.com/gardener/gardener/blob/master/docs/proposals/30-apiserver-proxy.md), aims to streamline configuration and reduce complexity.
 
 ### The `UseUnifiedHTTPProxyPort` Feature Gate

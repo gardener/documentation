@@ -8,8 +8,14 @@ authors:
   email: ismail.alidzhikov@sap.com
   avatar: https://avatars.githubusercontent.com/u/9372594
 aliases: ["/blog/2024/04/22/01"]
+tags:
+  - technical-deep-dive
+  - cost-optimization
+  - networking
+  - storage
+  - node-management
+  - extensions
 ---
-
 ## Use Cases
 
 In Kubernetes, on every Node the container runtime daemon pulls the container images that are configured in the Pods' specifications running on the corresponding Node. Although these container images are cached on the Node's file system after the initial pull operation, there are imperfections with this setup.

@@ -9,8 +9,10 @@ authors:
   login: rfranzke
   name: Rafael Franzke
 aliases: ["/blog/2025/05/21/streamlined-node-onboarding-introducing-gardenadm-token-and-gardenadm-join"]
+tags:
+  - feature-announcement
+  - node-management
 ---
-
 Gardener continues to enhance its `gardenadm` tool, simplifying the management of autonomous Shoot clusters. Recently, new functionalities have been introduced to streamline the process of adding worker nodes to these clusters: the `gardenadm token` command suite and the corresponding `gardenadm join` command. These additions offer a more convenient and Kubernetes-native experience for cluster expansion.
 
 ### Managing Bootstrap Tokens with `gardenadm token`

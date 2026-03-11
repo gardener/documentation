@@ -9,8 +9,10 @@ authors:
   login: DockToFuture
   name: Sebastian Stauch
 aliases: ["/blog/2026/02/18/seamlessly-switch-calicos-overlay-network-in-gardener"]
+tags:
+  - technical-deep-dive
+  - networking
 ---
-
 Switching networking configurations in a live Kubernetes cluster is a delicate operation where timing is everything. A common scenario for Gardener operators is transitioning a cluster's Calico networking from an overlay mode (like IPIP) to a non-overlay, native routing mode. Previously, this switch could lead to temporary network disruptions. We're happy to announce a new feature that ensures this transition is seamless and free of downtime.
 
 ### The Challenge: A Race for Routes

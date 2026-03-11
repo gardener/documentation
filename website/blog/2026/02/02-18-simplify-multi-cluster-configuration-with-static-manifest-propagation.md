@@ -9,8 +9,12 @@ authors:
   login: rfranzke
   name: Rafael Franzke
 aliases: ["/blog/2026/02/18/simplify-multi-cluster-configuration-with-static-manifest-propagation"]
+tags:
+  - technical-deep-dive
+  - security
+  - node-management
+  - extensions
 ---
-
 Managing configurations consistently across a fleet of Kubernetes clusters can be a complex task. Operators often need a straightforward way to deploy baseline resources—such as security policies, resource quotas, or RBAC rules—to all or a subset of their clusters without the overhead of building and maintaining a full-blown extension.
 
 Gardener now introduces a new feature that directly addresses this need: **Static Manifest Propagation from Seeds to Shoots**. This enhancement provides a declarative, centralized mechanism for distributing Kubernetes manifests to Shoot clusters.

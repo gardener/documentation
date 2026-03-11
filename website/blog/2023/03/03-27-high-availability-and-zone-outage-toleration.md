@@ -8,8 +8,12 @@ authors:
   email: vedran.lerenc@sap.com
   avatar: https://avatars.githubusercontent.com/u/4974203
 aliases: ["/blog/2023/03/27/01"]
+tags:
+  - technical-deep-dive
+  - networking
+  - high-availability
+  - storage
 ---
-
 Developing highly available workload that can tolerate a zone outage is no trivial task. In this blog, we will explore various recommendations to get closer to that goal. While many recommendations are general enough, the examples are specific in how to achieve this in a [Gardener](https://gardener.cloud)-managed cluster and where/how to tweak the different control plane components. If you do not use Gardener, it may be still a worthwhile read as most settings can be influenced with most of the Kubernetes providers.
 
 First however, what is a zone outage? It sounds like a clear-cut "thing", but it isn't. There are many things that can go haywire. Here are some examples:

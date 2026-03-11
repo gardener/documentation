@@ -12,11 +12,13 @@ authors:
     name: Tobias Schlicht
 aliases: ["/blog/2025/08/04/announcing-cluster-api-provider-gardener"]
 tags:
-  - Cluster API
-  - CAPI
-  - GAPI
-  - CAPGa
-  - KCP
+  - feature-announcement
+  - cluster-api
+  - capi
+  - gapi
+  - capga
+  - kcp
+  - apeiro
 ---
 
 ## Announcing cluster-api-provider-gardener: Manage Gardener Clusters with Cluster API
@@ -140,3 +142,5 @@ The long-term goal is to support CAPGa within a centrally managed _Platform Mesh
 ### Contributing
 
 We encourage anyone interested to try out CAPGa and share their experiences. If you encounter issues or have ideas for improvements, please open an issue or a pull request in the [GitHub repository](https://github.com/gardener/cluster-api-provider-gardener). Contributions are very welcome.
+
+

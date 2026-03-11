@@ -8,8 +8,10 @@ authors:
   email: vedran.lerenc@sap.com
   avatar: https://avatars.githubusercontent.com/vlerenc
 aliases: ["/blog/2025/05/12/01"]
+tags:
+  - technical-deep-dive
+  - apeiro
 ---
-
 The Kubernetes ecosystem is dynamic, offering a wealth of tools to manage the complexities of modern cloud-native applications. For enterprises seeking to provision and manage Kubernetes clusters efficiently, securely, and at scale, a robust and comprehensive solution is paramount. Gardener, born from years of managing tens of thousands of clusters efficiently across diverse platforms and in demanding environments, stands out as a fully open-source choice for delivering fully managed Kubernetes Clusters as a Service. It already empowers organizations like SAP, STACKIT, T-Systems, and others (see [adopters](https://gardener.cloud/adopter)) and has become a core technology for [NeoNephos](https://neonephos.org/projects), a project aimed at advancing digital autonomy in Europe (see [KubeCon London 2025 Keynote](https://www.youtube.com/watch?v=85MDID9Ju04&t=621s) and [press announcement](https://neonephos.org/press/2025/the-linux-foundation-announces-the-launch-of-neonephos-to-advance-digital-autonomy-in-europe/)).
 
 ### The Gardener Approach: An Architecture Forged by Experience
@@ -79,3 +81,4 @@ Gardener's operational maturity is a direct reflection of its long evolution, sh
 For enterprises and organizations seeking a comprehensive, truly open-source solution for managing the full lifecycle of Kubernetes clusters at scale, Gardener offers a compelling proposition. Its mature architecture, rich feature set, operational robustness, built-in enterprise governance capabilities, and commitment to the open-source community provide a solid foundation for running demanding Kubernetes workloads with confidence. This makes it a suitable technical underpinning for ambitious projects like NeoNephos, contributing to a future of greater digital autonomy.
 
 We invite you to explore [Gardener](https://gardener.cloud/) and discover how it can empower your enterprise-grade and -scale Kubernetes journey.
+
