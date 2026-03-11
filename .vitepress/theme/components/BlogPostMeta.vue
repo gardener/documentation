@@ -60,6 +60,12 @@ function formatDate(raw: unknown): string | undefined {
     return undefined
   }
 
+  const isoDateOnly = /^(\d{4})-(\d{2})-(\d{2})$/.exec(trimmed)
+  if (isoDateOnly) {
+    const [, year, month, day] = isoDateOnly
+    return toDisplayDate(new Date(Date.UTC(Number(year), Number(month) - 1, Number(day))))
+  }
+
   const parsed = new Date(trimmed)
   if (!Number.isNaN(parsed.getTime())) {
     return toDisplayDate(parsed)
@@ -72,7 +78,8 @@ function toDisplayDate(date: Date): string {
   return date.toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
-    day: 'numeric'
+    day: 'numeric',
+    timeZone: 'UTC'
   })
 }
 
@@ -104,29 +111,90 @@ function normalizeAuthors(raw: unknown): Author[] {
 
 function normalizeAuthor(value: unknown): Author | undefined {
   if (typeof value === 'string') {
-    const name = value.trim().replace(/^@/, '')
-    return name ? { name } : undefined
+    const trimmed = value.trim()
+    if (!trimmed) {
+      return undefined
+    }
+
+    const login = getGitHubLogin(trimmed)
+    const name = trimmed.startsWith('@')
+      ? trimmed.slice(1)
+      : login ?? trimmed
+
+    return {
+      name,
+      avatar: toGitHubAvatar(login)
+    }
   }
 
   if (!value || typeof value !== 'object') {
     return undefined
   }
 
-  const rawAuthor = value as { name?: unknown; avatar?: unknown; image?: unknown }
-  const name = typeof rawAuthor.name === 'string' ? rawAuthor.name.trim() : ''
+  const rawAuthor = value as {
+    name?: unknown
+    avatar?: unknown
+    image?: unknown
+    login?: unknown
+    github?: unknown
+    url?: unknown
+  }
+
+  const explicitName = typeof rawAuthor.name === 'string' ? rawAuthor.name.trim() : ''
+  const login = getGitHubLogin(rawAuthor.login)
+    ?? getGitHubLogin(rawAuthor.github)
+    ?? getGitHubLogin(rawAuthor.url)
+
+  const name = explicitName || login || ''
   if (!name) {
     return undefined
   }
 
-  const avatar =
+  const explicitAvatar =
     typeof rawAuthor.avatar === 'string' && rawAuthor.avatar.trim()
       ? rawAuthor.avatar.trim()
       : (typeof rawAuthor.image === 'string' ? rawAuthor.image.trim() : undefined)
 
   return {
     name,
-    avatar: avatar || undefined
+    avatar: explicitAvatar || toGitHubAvatar(login)
   }
+}
+
+function getGitHubLogin(value: unknown): string | undefined {
+  if (typeof value !== 'string') {
+    return undefined
+  }
+
+  const trimmed = value.trim()
+  if (!trimmed) {
+    return undefined
+  }
+
+  const withoutPrefix = trimmed.startsWith('@') ? trimmed.slice(1) : trimmed
+
+  if (isGitHubLogin(withoutPrefix)) {
+    return withoutPrefix
+  }
+
+  const match = withoutPrefix.match(/github\.com\/([A-Za-z0-9-]+)/i)
+  if (match && isGitHubLogin(match[1])) {
+    return match[1]
+  }
+
+  return undefined
+}
+
+function isGitHubLogin(value: string): boolean {
+  return /^[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})$/.test(value)
+}
+
+function toGitHubAvatar(login: string | undefined): string | undefined {
+  if (!login) {
+    return undefined
+  }
+
+  return `https://avatars.githubusercontent.com/${login}`
 }
 
 function normalizeTags(raw: unknown): string[] {
@@ -306,4 +374,3 @@ function getTagHref(tag: string): string {
   text-decoration: underline;
 }
 </style>
-

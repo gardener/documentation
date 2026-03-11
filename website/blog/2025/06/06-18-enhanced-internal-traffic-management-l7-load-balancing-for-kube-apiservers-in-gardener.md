@@ -11,7 +11,6 @@ aliases: ["/blog/2025/06/18/enhanced-internal-traffic-management-l7-load-balanci
 tags:
   - feature-announcement
   - networking
-  - storage
 ---
 Gardener continuously evolves to optimize performance and reliability. A recent improvement focuses on how internal control plane components communicate with `kube-apiserver` instances, introducing cluster-internal Layer 7 (L7) load balancing to ensure better resource distribution and system stability.
 

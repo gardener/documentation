@@ -11,7 +11,6 @@ authors:
 aliases: ["/blog/2025/05/19/enhanced-network-flexibility-gardener-now-supports-cidr-overlap-for-non-ha-shoots"]
 tags:
   - feature-announcement
-  - cost-optimization
   - networking
   - node-management
 ---

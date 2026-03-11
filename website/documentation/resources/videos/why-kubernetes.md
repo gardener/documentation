@@ -6,4 +6,3 @@ weight: 10
 ---
 
 {{< youtube id="N6r-9ZzFgzw" title="Why Kubernetes" >}}
-

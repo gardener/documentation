@@ -31,10 +31,10 @@ const TAXONOMY_ORDER = [
   'helm',
   'cluster-api',
   'extensions',
-  'aws',
-  'azure',
-  'gcp',
-  'openstack',
+  'provider-aws',
+  'provider-azure',
+  'provider-gcp',
+  'provider-openstack',
   'metal-stack',
   'apeiro',
   'neonephos'
@@ -85,10 +85,10 @@ const COMPONENT_RULES = [
 ]
 
 const CLOUD_RULES = [
-  { tag: 'aws', keywords: ['aws', 'amazon web services', 'amazon efs', 's3'] },
-  { tag: 'azure', keywords: ['azure'] },
-  { tag: 'gcp', keywords: ['gcp', 'google cloud'] },
-  { tag: 'openstack', keywords: ['openstack'] },
+  { tag: 'provider-aws', keywords: ['aws', 'amazon web services', 'amazon efs', 's3'] },
+  { tag: 'provider-azure', keywords: ['azure'] },
+  { tag: 'provider-gcp', keywords: ['gcp', 'google cloud'] },
+  { tag: 'provider-openstack', keywords: ['openstack'] },
   { tag: 'metal-stack', keywords: ['metal-stack', 'equinix metal', 'equinix'] }
 ]
 
@@ -342,3 +342,4 @@ main().catch(error => {
   console.error(error)
   process.exit(1)
 })
+

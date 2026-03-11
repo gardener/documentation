@@ -6,4 +6,3 @@ weight: 20
 ---
 
 {{< youtube id="YiNt4kUnnIM" title="High Performance Microservices with Kubernetes, Go, and gRPC" >}}
-

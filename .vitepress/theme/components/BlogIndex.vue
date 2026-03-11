@@ -25,7 +25,7 @@ SOFTWARE.
 Copied and adapted from -> https://github.com/vitejs/vite/blob/9b98dcbf75546240e1609185828e18a77bac8c8d/docs/.vitepress/theme/components/YouTubeVideo.vue
 */
 
-import { computed, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { data as posts } from '../../data/blog.data'
 import { withBase } from 'vitepress'
 function parseSelectedTagsFromUrl(): string[] {
@@ -57,8 +57,12 @@ function parseSelectedTagsFromUrl(): string[] {
   return selected
 }
 
-const selectedTags = ref<string[]>(parseSelectedTagsFromUrl())
+const selectedTags = ref<string[]>([])
 const tagQuery = ref('')
+
+onMounted(() => {
+  selectedTags.value = parseSelectedTagsFromUrl()
+})
 
 function compareTags(a: string, b: string): number {
   const normalizedA = a.toLowerCase()

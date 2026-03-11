@@ -50,7 +50,6 @@ export default createContentLoader('blog/**/*.md', {
   excerpt: true,
   render: true,
   transform(raw): Post[] {
-
     return raw
       .filter(page => {
         // Filter out index files and images
@@ -59,33 +58,16 @@ export default createContentLoader('blog/**/*.md', {
         // Check if it's not a folder
         const isNotFolder = !page.url.endsWith('/')
 
-        // Check if page has a date in frontmatter or in filename
-        let hasDate = !!(page.frontmatter.publishdate || page.frontmatter.date)
+        const frontmatterDate = page.frontmatter.publishdate || page.frontmatter.date
+        const extractedDate = extractDateFromBlogUrl(page.url)
+        const hasDate = Boolean(frontmatterDate || extractedDate)
 
-        // If no date in frontmatter, try to extract from filename
-        if (!hasDate && page.url) {
-          // URLs like /blog/2019/06.11-Feature-Flags...
-          const datePattern = /\/(\d{4})\/(\d{2})\.(\d{2})-/
-          hasDate = datePattern.test(page.url)
-        }
-
-        return !isIndex && isNotFolder
+        return !isIndex && isNotFolder && hasDate
       })
       .map(page => {
         const { url, frontmatter, excerpt, html } = page
         const source = getSourceMarkdown(page)
-
-        // Try to get date from frontmatter
-        let dateValue = frontmatter.publishdate || frontmatter.date
-
-        // If no date in frontmatter, try to extract from URL/filename
-        if (!dateValue && url) {
-          const match = url.match(/\/(\d{4})\/(\d{2})\.(\d{2})-/)
-          if (match) {
-            const [, year, month, day] = match
-            dateValue = `${year}-${month}-${day}`
-          }
-        }
+        const dateValue = frontmatter.publishdate || frontmatter.date || extractDateFromBlogUrl(url)
 
         return {
           title: frontmatter.title || frontmatter.linkTitle || 'Untitled',
@@ -101,71 +83,118 @@ export default createContentLoader('blog/**/*.md', {
 })
 
 function formatDate(raw: string | Date | undefined, title: string | undefined): Post['date'] {
-  if (!raw) {
-    // Fallback for posts without dates
+  const parsed = parseDateValue(raw)
+  if (!parsed) {
     if (title !== 'Overview') {
-      console.warn(`Post: ${title} missing date, using current date as fallback`)
+      console.warn(`Post: ${title} missing or invalid date, sorting it to the bottom`)
     }
-    const now = new Date()
+
     return {
-      time: +now,
-      string: now.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      })
+      time: 0,
+      string: 'Undated'
     }
   }
 
-  const date = raw instanceof Date ? raw : new Date(raw)
-
-  // If the date is invalid, try parsing with a different format
-  if (isNaN(date.getTime())) {
-    // Try to parse from format like "2019-05-24" or other common formats
-    console.warn(`Invalid date format: ${raw}, attempting to parse differently`)
-
-    // Try different parsing strategies
-    if (typeof raw === 'string') {
-      // Try to extract a date from formats like "2019/06.11-Feature..."
-      const match = raw.match(/(\d{4})[-/.](\d{2})[-/.](\d{2})/)
-      if (match) {
-        const [, year, month, day] = match
-        const parsedDate = new Date(`${year}-${month}-${day}`)
-        if (!isNaN(parsedDate.getTime())) {
-          return {
-            time: +parsedDate,
-            string: parsedDate.toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
-            })
-          }
-        }
-      }
-    }
-
-    // If all else fails, use current date
-    const fallback = new Date()
-    return {
-      time: +fallback,
-      string: fallback.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      })
-    }
-  }
-
-  // Normal case - valid date
-  date.setUTCHours(12)
   return {
-    time: +date,
-    string: date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    })
+    time: +parsed,
+    string: toDisplayDate(parsed)
   }
+}
+
+function parseDateValue(raw: string | Date | undefined): Date | undefined {
+  if (!raw) {
+    return undefined
+  }
+
+  if (raw instanceof Date) {
+    if (Number.isNaN(raw.getTime())) {
+      return undefined
+    }
+
+    return new Date(Date.UTC(raw.getUTCFullYear(), raw.getUTCMonth(), raw.getUTCDate()))
+  }
+
+  const trimmed = raw.trim()
+  if (!trimmed) {
+    return undefined
+  }
+
+  const isoDateOnly = /^(\d{4})-(\d{2})-(\d{2})$/.exec(trimmed)
+  if (isoDateOnly) {
+    const [, year, month, day] = isoDateOnly
+    return normalizeDateParts(year, month, day)
+  }
+
+  const parsed = new Date(trimmed)
+  if (!Number.isNaN(parsed.getTime())) {
+    return parsed
+  }
+
+  const genericDate = /(\d{4})[-/.](\d{2})[-/.](\d{2})/.exec(trimmed)
+  if (genericDate) {
+    const [, year, month, day] = genericDate
+    return normalizeDateParts(year, month, day)
+  }
+
+  return undefined
+}
+
+function toDisplayDate(date: Date): string {
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    timeZone: 'UTC'
+  })
+}
+
+function extractDateFromBlogUrl(url: string | undefined): string | undefined {
+  if (!url) {
+    return undefined
+  }
+
+  // New format: /blog/2026/02/02-18-some-title/
+  const monthFolderAndDay = url.match(/\/(\d{4})\/(\d{2})\/(\d{2})[-.](\d{2})-/)
+  if (monthFolderAndDay) {
+    const [, year, , month, day] = monthFolderAndDay
+    const normalized = normalizeDateParts(year, month, day)
+    if (normalized) {
+      return normalized.toISOString().slice(0, 10)
+    }
+  }
+
+  // Legacy format without the repeated month: /blog/2020/11.23-some-title/
+  const legacy = url.match(/\/(\d{4})\/(\d{2})[.-](\d{2})-/)
+  if (legacy) {
+    const [, year, month, day] = legacy
+    const normalized = normalizeDateParts(year, month, day)
+    if (normalized) {
+      return normalized.toISOString().slice(0, 10)
+    }
+  }
+
+  return undefined
+}
+
+function normalizeDateParts(yearRaw: string, monthRaw: string, dayRaw: string): Date | undefined {
+  const year = Number(yearRaw)
+  const month = Number(monthRaw)
+  const day = Number(dayRaw)
+
+  if (!Number.isInteger(year) || !Number.isInteger(month) || !Number.isInteger(day)) {
+    return undefined
+  }
+
+  const date = new Date(Date.UTC(year, month - 1, day))
+  if (
+    date.getUTCFullYear() !== year
+    || date.getUTCMonth() !== month - 1
+    || date.getUTCDate() !== day
+  ) {
+    return undefined
+  }
+
+  return date
 }
 
 function normalizeTags(raw: unknown): string[] {
@@ -214,8 +243,12 @@ function normalizeAuthor(value: unknown): Author | undefined {
     }
 
     const login = getGitHubLogin(trimmed)
+    const name = trimmed.startsWith('@')
+      ? trimmed.slice(1)
+      : login ?? trimmed
+
     return {
-      name: trimmed.startsWith('@') ? trimmed.slice(1) : trimmed,
+      name,
       login,
       avatar: toGitHubAvatar(login)
     }
@@ -484,5 +517,3 @@ function normalizePreviewText(raw: string | undefined, maxLength = 360): string 
     ? `${text.slice(0, maxLength).trimEnd()}...`
     : text
 }
-
-
