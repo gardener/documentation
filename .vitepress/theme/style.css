@@ -37,6 +37,12 @@
   padding: 18px;
 }
 
+@media (max-width: 960px) {
+  .VPHome .VPHero.has-image .main {
+    text-align: center;
+  }
+}
+
 /* used in reference/default-theme-search */
 img[src='/search.png'] {
   width: 100%;
@@ -105,4 +111,19 @@ img[src='/search.png'] {
 .VPButton.alt[href*="podrick"] {
   display: inline-flex;
   align-items: center;
+}
+
+@media (max-width: 640px) {
+  .VPHome .VPTeamMembers.small .container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .VPHome .VPTeamMembers.small .container .item {
+    min-width: 0;
+  }
+
+  .VPHome .VPTeamMembersItem.small .profile {
+    padding: 18px 12px;
+  }
 }
