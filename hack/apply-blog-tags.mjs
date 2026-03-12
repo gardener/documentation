@@ -35,10 +35,18 @@ const TAXONOMY_ORDER = [
   'provider-azure',
   'provider-gcp',
   'provider-openstack',
-  'metal-stack',
-  'apeiro',
-  'neonephos'
+  'provider-metal-stack',
+  'apeiro'
 ]
+
+const TAG_ALIASES = {
+  aws: 'provider-aws',
+  azure: 'provider-azure',
+  gcp: 'provider-gcp',
+  openstack: 'provider-openstack',
+  'metal-stack': 'provider-metal-stack',
+  neonephos: 'apeiro'
+}
 
 const DOMAIN_RULES = [
   {
@@ -89,12 +97,11 @@ const CLOUD_RULES = [
   { tag: 'provider-azure', keywords: ['azure'] },
   { tag: 'provider-gcp', keywords: ['gcp', 'google cloud'] },
   { tag: 'provider-openstack', keywords: ['openstack'] },
-  { tag: 'metal-stack', keywords: ['metal-stack', 'equinix metal', 'equinix'] }
+  { tag: 'provider-metal-stack', keywords: ['metal-stack', 'equinix metal', 'equinix'] }
 ]
 
 const PROJECT_RULES = [
-  { tag: 'apeiro', keywords: ['apeiro'] },
-  { tag: 'neonephos', keywords: ['neonephos'] }
+  { tag: 'apeiro', keywords: ['apeiro', 'neonephos'] }
 ]
 
 async function main() {
@@ -121,10 +128,10 @@ async function main() {
     const frontmatter = yaml.load(frontmatterText, { schema: yaml.JSON_SCHEMA }) || {}
     const inferredTags = inferTags(frontmatter, body, file)
     const existingTags = normalizeTags(frontmatter.tags)
-    const mergedTags = mergeTags(inferredTags, existingTags)
+    let mergedTags = mergeTags(inferredTags, existingTags)
 
-    if (mergedTags.length === 0) {
-      mergedTags.push('technical-deep-dive')
+    if (!mergedTags.some(tag => CONTENT_TYPE_TAGS.includes(tag.toLowerCase()))) {
+      mergedTags = mergeTags(['technical-deep-dive'], mergedTags)
     }
 
     const updatedFrontmatter = replaceTagsBlock(frontmatterText, mergedTags, newline)
@@ -185,10 +192,6 @@ function inferTags(frontmatter, body, filePath) {
     tags.push('technical-deep-dive')
   }
 
-  if (!tags.some(tag => CONTENT_TYPE_TAGS.includes(tag))) {
-    tags.push('technical-deep-dive')
-  }
-
   applyRules(tags, focusText, DOMAIN_RULES)
   applyRules(tags, focusText, COMPONENT_RULES)
   applyRules(tags, focusText, CLOUD_RULES)
@@ -229,14 +232,30 @@ function escapeRegExp(value) {
 
 function normalizeTags(raw) {
   if (Array.isArray(raw)) {
-    return raw.filter(value => typeof value === 'string').map(value => value.trim()).filter(Boolean)
+    return raw
+      .filter(value => typeof value === 'string')
+      .map(value => canonicalizeTag(value))
+      .filter(Boolean)
   }
 
   if (typeof raw === 'string') {
-    return raw.split(',').map(value => value.trim()).filter(Boolean)
+    return raw
+      .split(',')
+      .map(value => canonicalizeTag(value))
+      .filter(Boolean)
   }
 
   return []
+}
+
+function canonicalizeTag(value) {
+  const trimmed = String(value || '').trim()
+  if (!trimmed) {
+    return ''
+  }
+
+  const key = trimmed.toLowerCase()
+  return TAG_ALIASES[key] || trimmed
 }
 
 function mergeTags(inferredTags, existingTags) {
@@ -342,4 +361,3 @@ main().catch(error => {
   console.error(error)
   process.exit(1)
 })
-

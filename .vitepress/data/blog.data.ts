@@ -125,9 +125,10 @@ function parseDateValue(raw: string | Date | undefined): Date | undefined {
     return normalizeDateParts(year, month, day)
   }
 
-  const parsed = new Date(trimmed)
-  if (!Number.isNaN(parsed.getTime())) {
-    return parsed
+  const isoDateTime = /^(\d{4})-(\d{2})-(\d{2})T/.exec(trimmed)
+  if (isoDateTime) {
+    const [, year, month, day] = isoDateTime
+    return normalizeDateParts(year, month, day)
   }
 
   const genericDate = /(\d{4})[-/.](\d{2})[-/.](\d{2})/.exec(trimmed)
@@ -197,6 +198,15 @@ function normalizeDateParts(yearRaw: string, monthRaw: string, dayRaw: string): 
   return date
 }
 
+const TAG_ALIASES: Record<string, string> = {
+  aws: 'provider-aws',
+  azure: 'provider-azure',
+  gcp: 'provider-gcp',
+  openstack: 'provider-openstack',
+  'metal-stack': 'provider-metal-stack',
+  neonephos: 'apeiro'
+}
+
 function normalizeTags(raw: unknown): string[] {
   if (Array.isArray(raw)) {
     return uniqueNonEmpty(raw)
@@ -261,6 +271,7 @@ function normalizeAuthor(value: unknown): Author | undefined {
   const rawAuthor = value as {
     name?: unknown
     avatar?: unknown
+    image?: unknown
     login?: unknown
     github?: unknown
     url?: unknown
@@ -276,7 +287,10 @@ function normalizeAuthor(value: unknown): Author | undefined {
     return undefined
   }
 
-  const avatar = asNonEmptyString(rawAuthor.avatar) || toGitHubAvatar(login)
+  const avatar =
+    asNonEmptyString(rawAuthor.avatar)
+    || asNonEmptyString(rawAuthor.image)
+    || toGitHubAvatar(login)
 
   return {
     name,
@@ -329,6 +343,16 @@ function toGitHubAvatar(login: string | undefined): string | undefined {
 
   return `https://avatars.githubusercontent.com/${login}`
 }
+function canonicalizeTag(value: string): string {
+  const trimmed = value.trim()
+  if (!trimmed) {
+    return ''
+  }
+
+  const key = trimmed.toLowerCase()
+  return TAG_ALIASES[key] || trimmed
+}
+
 function uniqueNonEmpty(values: unknown[]): string[] {
   const unique: string[] = []
 
@@ -337,8 +361,8 @@ function uniqueNonEmpty(values: unknown[]): string[] {
       continue
     }
 
-    const normalized = value.trim()
-    if (!normalized || unique.indexOf(normalized) !== -1) {
+    const normalized = canonicalizeTag(value)
+    if (!normalized || unique.some(tag => tag.toLowerCase() === normalized.toLowerCase())) {
       continue
     }
 

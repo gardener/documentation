@@ -25,7 +25,7 @@ SOFTWARE.
 Copied and adapted from -> https://github.com/vitejs/vite/blob/9b98dcbf75546240e1609185828e18a77bac8c8d/docs/.vitepress/theme/components/YouTubeVideo.vue
 */
 
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { data as posts } from '../../data/blog.data'
 import { withBase } from 'vitepress'
 function parseSelectedTagsFromUrl(): string[] {
@@ -60,8 +60,17 @@ function parseSelectedTagsFromUrl(): string[] {
 const selectedTags = ref<string[]>([])
 const tagQuery = ref('')
 
-onMounted(() => {
+function applySelectedTagsFromUrl(): void {
   selectedTags.value = parseSelectedTagsFromUrl()
+}
+
+onMounted(() => {
+  applySelectedTagsFromUrl()
+  window.addEventListener('popstate', applySelectedTagsFromUrl)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('popstate', applySelectedTagsFromUrl)
 })
 
 function compareTags(a: string, b: string): number {
@@ -119,6 +128,21 @@ const filteredPosts = computed(() => {
   })
 })
 
+function syncSelectedTagsToUrl(): void {
+  if (typeof window === 'undefined') {
+    return
+  }
+
+  const url = new URL(window.location.href)
+  url.searchParams.delete('tag')
+  url.searchParams.delete('tags')
+
+  for (const tag of selectedTags.value) {
+    url.searchParams.append('tag', tag)
+  }
+
+  window.history.replaceState({}, '', url)
+}
 function isTagActive(tag: string): boolean {
   return normalizedSelectedTags.value.indexOf(tag.toLowerCase()) !== -1
 }
@@ -134,11 +158,13 @@ function toggleTag(tag: string): void {
 
   // Clicking tags manages the selected tag set explicitly.
   tagQuery.value = ''
+  syncSelectedTagsToUrl()
 }
 
 function clearFilters(): void {
   selectedTags.value = []
   tagQuery.value = ''
+  syncSelectedTagsToUrl()
 }
 </script>
 
@@ -199,9 +225,9 @@ function clearFilters(): void {
         </h2>
 
         <p class="preview" v-if="post.preview">{{ post.preview }}</p>
-        <div class="authors" v-if="post.authors.length" aria-label="Post authors">
+        <div class="authors" :class="{ 'authors-multiple': post.authors.length > 1 }" v-if="post.authors.length" aria-label="Post authors">
           <span class="authors-label">By</span>
-          <ul class="author-list">
+          <ul class="author-list" :class="{ 'author-list-multiple': post.authors.length > 1 }">
             <li
               v-for="author of post.authors"
               :key="`${post.url}-author-${author.login || author.name}`"
@@ -346,15 +372,23 @@ function clearFilters(): void {
 .authors {
   margin: 0;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   gap: 0.45rem;
   font-size: 0.9rem;
   color: var(--vp-c-text-2);
+  min-height: 1.45rem;
+  overflow-x: auto;
+}
+
+.authors-multiple {
+  flex-wrap: nowrap;
 }
 
 .authors-label {
   font-weight: 600;
+  line-height: 1;
+  flex: 0 0 auto;
 }
 
 .author-list {
@@ -362,18 +396,49 @@ function clearFilters(): void {
   margin: 0;
   padding: 0;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  align-items: center;
   gap: 0.45rem;
+  min-height: 1.45rem;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-x: auto;
+}
+
+.author-list-multiple {
+  flex-wrap: nowrap;
+  align-items: center;
+  overflow-x: auto;
+}
+
+.author-list-multiple .author-item {
+  flex: 0 0 auto;
+  justify-content: flex-start;
+}
+
+.author-list-multiple .author-name {
+  white-space: nowrap;
 }
 
 .author-item {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: 0.35rem;
+  height: 1.45rem;
+  min-height: 1.45rem;
+  box-sizing: border-box;
+  margin: 0;
+  white-space: nowrap;
   border: 1px solid var(--vp-c-divider);
   border-radius: 999px;
   background: var(--vp-c-bg);
   padding: 0.1rem 0.45rem 0.1rem 0.1rem;
+}
+
+.author-list > li.author-item,
+.author-list > li.author-item + li.author-item {
+  margin: 0 !important;
 }
 
 .author-avatar {
@@ -385,7 +450,10 @@ function clearFilters(): void {
 }
 
 .author-name {
-  line-height: 1.1;
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.84rem;
+  line-height: 1;
 }
 
 .read-more {
@@ -458,13 +526,4 @@ function clearFilters(): void {
   }
 }
 </style>
-
-
-
-
-
-
-
-
-
 

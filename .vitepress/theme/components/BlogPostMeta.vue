@@ -48,7 +48,7 @@ function formatDate(raw: unknown): string | undefined {
   }
 
   if (raw instanceof Date && !Number.isNaN(raw.getTime())) {
-    return toDisplayDate(raw)
+    return toDisplayDate(new Date(Date.UTC(raw.getUTCFullYear(), raw.getUTCMonth(), raw.getUTCDate())))
   }
 
   if (typeof raw !== 'string') {
@@ -66,9 +66,10 @@ function formatDate(raw: unknown): string | undefined {
     return toDisplayDate(new Date(Date.UTC(Number(year), Number(month) - 1, Number(day))))
   }
 
-  const parsed = new Date(trimmed)
-  if (!Number.isNaN(parsed.getTime())) {
-    return toDisplayDate(parsed)
+  const isoDateTime = /^(\d{4})-(\d{2})-(\d{2})T/.exec(trimmed)
+  if (isoDateTime) {
+    const [, year, month, day] = isoDateTime
+    return toDisplayDate(new Date(Date.UTC(Number(year), Number(month) - 1, Number(day))))
   }
 
   return trimmed
@@ -197,6 +198,15 @@ function toGitHubAvatar(login: string | undefined): string | undefined {
   return `https://avatars.githubusercontent.com/${login}`
 }
 
+const TAG_ALIASES: Record<string, string> = {
+  aws: 'provider-aws',
+  azure: 'provider-azure',
+  gcp: 'provider-gcp',
+  openstack: 'provider-openstack',
+  'metal-stack': 'provider-metal-stack',
+  neonephos: 'apeiro'
+}
+
 function normalizeTags(raw: unknown): string[] {
   if (Array.isArray(raw)) {
     return uniqueNonEmpty(raw)
@@ -209,6 +219,16 @@ function normalizeTags(raw: unknown): string[] {
   return []
 }
 
+function canonicalizeTag(value: string): string {
+  const trimmed = value.trim()
+  if (!trimmed) {
+    return ''
+  }
+
+  const key = trimmed.toLowerCase()
+  return TAG_ALIASES[key] || trimmed
+}
+
 function uniqueNonEmpty(values: unknown[]): string[] {
   const unique: string[] = []
 
@@ -217,7 +237,7 @@ function uniqueNonEmpty(values: unknown[]): string[] {
       continue
     }
 
-    const normalized = value.trim()
+    const normalized = canonicalizeTag(value)
     if (!normalized || unique.some(tag => tag.toLowerCase() === normalized.toLowerCase())) {
       continue
     }
@@ -242,9 +262,9 @@ function getTagHref(tag: string): string {
     <div class="meta-primary">
       <span v-if="dateText" class="meta-date">{{ dateText }}</span>
 
-      <div v-if="authors.length" class="meta-authors">
+      <div v-if="authors.length" class="meta-authors" :class="{ 'meta-authors-multiple': authors.length > 1 }">
         <span class="meta-by">By</span>
-        <ul class="author-list">
+        <ul class="author-list" :class="{ 'author-list-multiple': authors.length > 1 }">
           <li v-for="author in authors" :key="author.name" class="author-item">
             <img
               v-if="author.avatar"
@@ -302,13 +322,21 @@ function getTagHref(tag: string): string {
   align-items: center;
   justify-content: flex-start;
   gap: 0.4rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  min-height: 1.45rem;
+  overflow-x: auto;
+}
+
+.meta-authors-multiple {
+  flex-wrap: nowrap;
 }
 
 .meta-by {
   color: var(--vp-c-text-2);
   font-size: 0.86rem;
   font-weight: 600;
+  line-height: 1;
+  flex: 0 0 auto;
 }
 
 .author-list {
@@ -319,17 +347,46 @@ function getTagHref(tag: string): string {
   align-items: center;
   justify-content: flex-start;
   gap: 0.45rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  min-height: 1.45rem;
+  min-width: 0;
+  overflow-x: auto;
+}
+
+.author-list-multiple {
+  flex-wrap: nowrap;
+  align-items: center;
+  overflow-x: auto;
+}
+
+.author-list-multiple .author-item {
+  flex: 0 0 auto;
+  justify-content: flex-start;
+}
+
+.author-list-multiple .author-name {
+  white-space: nowrap;
 }
 
 .author-item {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: 0.35rem;
+  height: 1.45rem;
+  min-height: 1.45rem;
+  box-sizing: border-box;
+  margin: 0;
+  white-space: nowrap;
   border: 1px solid var(--vp-c-divider);
   border-radius: 999px;
   background: var(--vp-c-bg-soft);
   padding: 0.1rem 0.45rem 0.1rem 0.1rem;
+}
+
+.author-list > li.author-item,
+.author-list > li.author-item + li.author-item {
+  margin: 0 !important;
 }
 
 .author-avatar {
@@ -341,7 +398,10 @@ function getTagHref(tag: string): string {
 }
 
 .author-name {
+  display: inline-flex;
+  align-items: center;
   font-size: 0.84rem;
+  line-height: 1;
   color: var(--vp-c-text-2);
 }
 
@@ -374,3 +434,4 @@ function getTagHref(tag: string): string {
   text-decoration: underline;
 }
 </style>
+
