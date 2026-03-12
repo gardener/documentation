@@ -22,16 +22,19 @@ hero:
 features:
   - icon: 
       src: /highlights/cloud-agnostic.svg
-    title: Homogeneous
-    details: Identical Day-1 & 2 operations on any supported infrastructure
+    title: Same Kubernetes, Any Cloud
+    details: Provision clusters with identical configuration and options on any infrastructure.
+    link: /docs/getting-started/architecture
   - icon:
-      src: /highlights/gardener.svg
-    title: Open Source Grown
-    details: Powered by the open source Gardener project, developed in the public, pioneered by SAP
+      src: /highlights/extensible.svg
+    title: Robust Scalability
+    details: Operate thousands of clusters without sacrificing performance, resilience, or cost efficiency.
+    link: /docs/guides/administer-shoots/scalability
   - icon:
-     src: /highlights/certified.svg
-    title: Certified and Compliant
-    details: Enterprise-grade security certifications, CNCF 100% Kubernetes compliant
+      src: /highlights/certified.svg
+    title: Security and Compliance
+    details: Check your clusters against enterprise-grade security standards.
+    link: /docs/security-and-compliance/kubernetes-hardening    
     badgePlacement: top-right
     badges:
       - src: /kubernets-certification/color.png
@@ -43,18 +46,20 @@ features:
         href: /blog/2025/11/11-12-gardener-ai-conformance
         alt: Kubernetes AI Conformance
   - icon:
-      src: /highlights/extensible.svg
-    title: Ultra Scalable
-    details: Fleet management of thousands of clusters with low TCO by design
-  
-  - icon:
       src: /highlights/ubiqutious.svg
-    title: Ubiquitous
-    details: The same experience in Amazon, Azure, Google, Alicloud
+    title: Fleet Management
+    details: Apply the same guardrails to all your clusters. Control available resources, versions, and their lifecycle.
+    link: /docs/guides/administer-shoots/maintain-shoot
   - icon:
       src: /highlights/autonomous.svg
-    title: Autonomous
-    details: Self-healing, auto-scaling, and if you choose, auto-updating operating system and Kubernetes
+    title: Built-in Automation
+    details: Benefit from self-healing, auto-scaling, and if you choose, auto-updating operating system and Kubernetes.
+    link: /docs/getting-started/lifecycle/
+  - icon:
+      src: /highlights/gardener.svg
+    title: Community-Grown Innovation
+    details: Gardener is built in the open and neutrally governed under the NeoNephos Foundation. 
+    link: /community/
 ---
 
 <script setup>
