@@ -36,7 +36,7 @@ features:
     badges:
       - src: /kubernets-certification/color.png
         darkSrc: /kubernets-certification/white.png
-        href: https://github.com/cncf/k8s-conformance
+        href: https://testgrid.k8s.io/conformance-gardener
         alt: Kubernetes Conformance
       - src: /kubernets-certification/ai-color.png
         darkSrc: /kubernets-certification/ai-white.png
