@@ -106,3 +106,8 @@ img[src='/search.png'] {
   display: inline-flex;
   align-items: center;
 }
+
+/* Hide VitePress local search modal to use kapa.ai search instead */
+.VPLocalSearchBox {
+  display: none !important;
+}
