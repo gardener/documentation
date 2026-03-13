@@ -23,7 +23,7 @@ features:
   - icon: 
       src: /highlights/cloud-agnostic.svg
     title: Same Kubernetes, Any Cloud
-    details: Provision clusters with identical configuration and options on any infrastructure.
+    details: Provision clusters with identical configuration and options on any infrastructure. Day-1 & 2 operations remain the same.
     link: /docs/getting-started/architecture
   - icon:
       src: /highlights/extensible.svg
