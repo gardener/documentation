@@ -5,7 +5,7 @@ newsSubtitle: April 18, 2024
 publishdate: 2024-04-18
 authors:
 - name: Dimitar Mirchev
-  email: dimitar.mirchev@sap.com
+  login: dimityrmirchev
   avatar: https://avatars.githubusercontent.com/dimityrmirchev
 aliases: ["/blog/2024/04/18/02"]
 tags:

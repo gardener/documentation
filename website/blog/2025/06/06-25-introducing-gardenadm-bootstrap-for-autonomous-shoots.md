@@ -5,7 +5,6 @@ newsSubtitle: June 25, 2025
 publishdate: 2025-06-25
 authors:
 - avatar: https://avatars.githubusercontent.com/timebertt
-  email: timebertt@gmail.com
   login: timebertt
   name: Tim Ebert
 aliases: ["/blog/2025/06/25/introducing-gardenadm-bootstrap-for-autonomous-shoots"]

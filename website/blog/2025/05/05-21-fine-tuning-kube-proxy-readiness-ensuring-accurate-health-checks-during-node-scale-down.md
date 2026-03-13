@@ -5,7 +5,6 @@ newsSubtitle: May 21, 2025
 publishdate: 2025-05-21
 authors:
 - avatar: https://avatars.githubusercontent.com/ScheererJ
-  email: johannes.scheerer@sap.com
   login: ScheererJ
   name: Johannes Scheerer
 aliases: ["/blog/2025/05/21/fine-tuning-kube-proxy-readiness-ensuring-accurate-health-checks-during-node-scale-down"]

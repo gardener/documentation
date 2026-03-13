@@ -32,7 +32,7 @@ The following table summarizes the types of documentation and their mapping to t
 | Reference | Provide a reference, for example, list all command line options of `gardenctl` and what they are used for. | [Overview of kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) | [Relevant headings](reference_template.md) | Reference |
 | Task | A step-by-step description that allows users to complete a specific task. | [Upgrading kubeadm clusters](https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/) |  [Overview, Prerequisites, Steps, Result](task_template.md) | Complex Task |
 | Trail | Collection of all other content types to cover a big topic. | [Custom Networking](https://docs.oracle.com/javase/tutorial/networking/TOC.html) | None | Maps |
-| Tutorial | A combination of many tasks that allows users to complete an example task with the goal to learn the details of a given feature.| [Deploying Cassandra with a StatefulSet](https://kubernetes.io/docs/tutorials/stateful-application/cassandra/) | Overview, Prerequisites, Tasks, Result | Tutorial |
+| Tutorial | A combination of many tasks that allows users to complete an example task with the goal to learn the details of a given feature. | [Deploying Cassandra with a StatefulSet](https://kubernetes.io/docs/tutorials/stateful-application/cassandra/) | Overview, Prerequisites, Tasks, Result | Tutorial |
 
 See the [Contributors Guide](../../_index.md) for more details on how to produce and contribute documentation.
 
@@ -101,11 +101,9 @@ If you are writing a blog, please add this additional metadata so that it can be
 ```yaml
 title: Blog Title
 newsSubtitle: October 01, 2025
-publishdate: 2025-10-01
 authors:
 - avatar: <author-profile-picture-link>
   login: <author-GitHub-name>
-  email: <author-email>
   name: <author-name>
 tags:
   - <tag-1>

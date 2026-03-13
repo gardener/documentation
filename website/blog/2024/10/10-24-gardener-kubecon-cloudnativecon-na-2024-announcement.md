@@ -5,7 +5,7 @@ newsSubtitle: Oct 24, 2024
 publishdate: 2024-10-24
 authors:
 - name: Tim Usner
-  email: tim.usner@sap.com
+  login: timuthy
   avatar: https://avatars.githubusercontent.com/u/40451181
 aliases: ["/blog/2024/10/24/01"]
 tags:

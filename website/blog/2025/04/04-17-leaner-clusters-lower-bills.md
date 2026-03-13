@@ -5,7 +5,7 @@ newsSubtitle: April 17, 2025
 publishdate: 2025-04-17
 authors:
 - name: Vedran Lerenc
-  email: vedran.lerenc@sap.com
+  login: vlerenc
   avatar: https://avatars.githubusercontent.com/vlerenc
 aliases: ["/blog/2025/04/17/01"]
 tags:

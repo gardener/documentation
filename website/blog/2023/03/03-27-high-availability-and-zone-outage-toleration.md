@@ -5,7 +5,7 @@ newsSubtitle: March 27, 2023
 publishdate: 2023-03-27
 authors:
 - name: Vedran Lerenc
-  email: vedran.lerenc@sap.com
+  login: vlerenc
   avatar: https://avatars.githubusercontent.com/u/4974203
 aliases: ["/blog/2023/03/27/01"]
 tags:

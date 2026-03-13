@@ -5,7 +5,7 @@ newsSubtitle: May 21, 2025
 publishdate: 2025-05-21
 authors:
 - avatar: https://avatars.githubusercontent.com/rfranzke
-  email: rafael.franzke@sap.com
+  login: rfranzke
   login: rfranzke
   name: Rafael Franzke
 aliases: ["/blog/2025/05/21/streamlined-node-onboarding-introducing-gardenadm-token-and-gardenadm-join"]

@@ -5,7 +5,6 @@ newsSubtitle: February 18, 2026
 publishdate: 2026-02-18
 authors:
 - avatar: https://avatars.githubusercontent.com/DockToFuture
-  email: sebastian.stauch@sap.com
   login: DockToFuture
   name: Sebastian Stauch
 aliases: ["/blog/2026/02/18/seamlessly-switch-calicos-overlay-network-in-gardener"]

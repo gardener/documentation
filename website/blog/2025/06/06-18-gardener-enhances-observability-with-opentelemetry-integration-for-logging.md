@@ -5,11 +5,9 @@ newsSubtitle: June 18, 2025
 publishdate: 2025-06-18
 authors:
 - avatar: https://avatars.githubusercontent.com/nickytd
-  email: nickytd@gmail.com
   login: nickytd
   name: Niki Dokovski
 - avatar: https://avatars.githubusercontent.com/rrhubenov
-  email: rrhubenov@gmail.com
   login: rrhubenov
   name: Rado Hubenov
 aliases: ["/blog/2025/06/18/gardener-enhances-observability-with-opentelemetry-integration-for-logging"]

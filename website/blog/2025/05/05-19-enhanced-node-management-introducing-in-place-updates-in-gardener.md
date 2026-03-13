@@ -5,14 +5,12 @@ newsSubtitle: May 19, 2025
 publishdate: 2025-05-19
 authors:
 - avatar: https://avatars.githubusercontent.com/shafeeqes
-  email: shafeeque.e.s@sap.com
   login: shafeeqes
   name: Shafeeque E S
 - avatar: https://avatars.githubusercontent.com/ary1992
   login: ary1992
   name: Ashish Ranjan Yadav
 - avatar: https://avatars.githubusercontent.com/acumino
-  email: sonu.kumar.singh02@sap.com
   login: acumino
   name: Sonu Kumar Singh
 aliases: ["/blog/2025/05/19/enhanced-node-management-introducing-in-place-updates-in-gardener"]

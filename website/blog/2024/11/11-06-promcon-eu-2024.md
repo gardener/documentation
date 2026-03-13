@@ -5,10 +5,10 @@ newsSubtitle: November 06, 2024
 publishdate: 2024-11-01
 authors:
 - name: Christoph Kleineweber
-  login: c.kleineweber@sap.com
+  login: chrkl
   avatar: https://avatars.githubusercontent.com/u/318416
 - name: Jeremy Rickards
-  email: jeremy.rickards@sap.com
+  login: rickardsjp
   avatar: https://avatars.githubusercontent.com/u/9338170
 aliases: ["/blog/2024/11/06/01"]
 tags:

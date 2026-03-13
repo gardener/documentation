@@ -5,7 +5,6 @@ newsSubtitle: May 19, 2025
 publishdate: 2025-05-19
 authors:
 - avatar: https://avatars.githubusercontent.com/domdom82
-  email: Dominik.Froehlich@sap.com
   login: domdom82
   name: Dominik Froehlich
 aliases: ["/blog/2025/05/19/enhanced-network-flexibility-gardener-now-supports-cidr-overlap-for-non-ha-shoots"]

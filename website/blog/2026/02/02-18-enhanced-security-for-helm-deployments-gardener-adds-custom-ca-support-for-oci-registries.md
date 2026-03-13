@@ -5,7 +5,6 @@ newsSubtitle: February 18, 2026
 publishdate: 2026-02-18
 authors:
 - avatar: https://avatars.githubusercontent.com/shafeeqes
-  email: shafeeque.e.s@sap.com
   login: shafeeqes
   name: Shafeeque E S
 aliases: ["/blog/2026/02/18/enhanced-security-for-helm-deployments-gardener-adds-custom-ca-support-for-oci-registries"]

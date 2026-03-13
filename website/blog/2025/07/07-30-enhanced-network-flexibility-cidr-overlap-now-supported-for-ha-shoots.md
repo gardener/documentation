@@ -5,7 +5,6 @@ newsSubtitle: July 30, 2025
 publishdate: 2025-07-30
 authors:
 - avatar: https://avatars.githubusercontent.com/domdom82
-  email: Dominik.Froehlich@sap.com
   login: domdom82
   name: Dominik Froehlich
 aliases: ["/blog/2025/07/30/enhanced-network-flexibility-cidr-overlap-now-supported-for-ha-shoots"]

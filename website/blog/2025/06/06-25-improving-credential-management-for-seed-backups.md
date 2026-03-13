@@ -5,11 +5,9 @@ newsSubtitle: June 25, 2025
 publishdate: 2025-06-25
 authors:
 - avatar: https://avatars.githubusercontent.com/dimityrmirchev
-  email: dimitar.mirchev@sap.com
   login: dimityrmirchev
   name: Dimitar Mirchev
 - avatar: https://avatars.githubusercontent.com/vpnachev
-  email: vladimir.nachev@sap.com
   login: vpnachev
   name: Vladimir Nachev
 aliases: ["/blog/2025/06/25/improving-credential-management-for-seed-backups"]

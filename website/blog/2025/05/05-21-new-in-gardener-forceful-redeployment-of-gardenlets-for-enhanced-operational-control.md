@@ -5,7 +5,6 @@ newsSubtitle: May 21, 2025
 publishdate: 2025-05-21
 authors:
 - avatar: https://avatars.githubusercontent.com/shafeeqes
-  email: shafeeque.e.s@sap.com
   login: shafeeqes
   name: Shafeeque E S
 aliases: ["/blog/2025/05/21/new-in-gardener-forceful-redeployment-of-gardenlets-for-enhanced-operational-control"]

@@ -5,7 +5,6 @@ newsSubtitle: June 25, 2025
 publishdate: 2025-06-25
 authors:
 - avatar: https://avatars.githubusercontent.com/DockToFuture
-  email: sebastian.stauch@sap.com
   login: DockToFuture
   name: Sebastian Stauch
 aliases: ["/blog/2025/06/25/enabling-seamless-ipv4-to-dual-stack-migration-for-kubernetes-clusters-on-gcp"]

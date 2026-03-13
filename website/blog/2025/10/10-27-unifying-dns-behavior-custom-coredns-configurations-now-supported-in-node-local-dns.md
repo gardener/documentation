@@ -5,7 +5,6 @@ newsSubtitle: October 27, 2025
 publishdate: 2025-10-27
 authors:
 - avatar: https://avatars.githubusercontent.com/DockToFuture
-  email: sebastian.stauch@sap.com
   login: DockToFuture
   name: Sebastian Stauch
 aliases: ["/blog/2025/10/27/unifying-dns-behavior-custom-coredns-configurations-now-supported-in-node-local-dns"]

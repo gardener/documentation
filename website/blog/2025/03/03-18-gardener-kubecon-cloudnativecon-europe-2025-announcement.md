@@ -5,7 +5,7 @@ newsSubtitle: Mar 18, 2025
 publishdate: 2025-03-18
 authors:
 - name: Sonu Kumar Singh
-  email: sonu.kumar.singh02@sap.com
+  login: acumino
   avatar: https://avatars.githubusercontent.com/acumino
 aliases: ["/blog/2025/03/18/01"]
 tags:

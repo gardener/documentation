@@ -5,7 +5,6 @@ newsSubtitle: August 27, 2025
 publishdate: 2025-08-27
 authors:
 - avatar: https://avatars.githubusercontent.com/ScheererJ
-  email: johannes.scheerer@sap.com
   login: ScheererJ
   name: Johannes Scheerer
 aliases: ["/blog/2025/08/27/enabling-node-local-dns-without-node-rollouts"]

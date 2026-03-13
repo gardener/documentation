@@ -5,7 +5,6 @@ newsSubtitle: June 30, 2025
 publishdate: 2025-06-30
 authors:
 - avatar: https://avatars.githubusercontent.com/nickytd
-  email: nickytd@gmail.com
   login: nickytd
   name: Niki Dokovski
 aliases: ["/blog/2025/06/30/getting-started-with-opentelemetry-on-gardener-shoot-cluster"]

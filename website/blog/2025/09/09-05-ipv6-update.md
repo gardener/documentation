@@ -7,7 +7,6 @@ authors:
 - avatar: https://avatars.githubusercontent.com/ScheererJ
   login: ScheererJ
   name: Johannes Scheerer
-  email: johannes.scheerer@sap.com
 aliases: ["/blog/2025/09/05/ipv6-update"]
 tags:
   - technical-deep-dive

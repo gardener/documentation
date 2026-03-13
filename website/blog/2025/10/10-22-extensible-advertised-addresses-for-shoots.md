@@ -5,7 +5,6 @@ newsSubtitle: October 22, 2025
 publishdate: 2025-10-22
 authors:
 - avatar: https://avatars.githubusercontent.com/dnaeon
-  email: dnaeon@gmail.com
   login: dnaeon
   name: Marin Atanasov Nikolov
 aliases: ["/blog/2025/10/22/enhanced-endpoint-discovery-with-extensible-advertised-addresses"]

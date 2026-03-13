@@ -2,6 +2,7 @@ export interface BlogAuthor {
   name: string
   avatar?: string
   login?: string
+  email?: string
 }
 
 const TAG_ALIASES: Record<string, string> = {
@@ -93,9 +94,11 @@ function normalizeAuthor(value: unknown): BlogAuthor | undefined {
     login?: unknown
     github?: unknown
     url?: unknown
+    email?: unknown
   }
 
   const explicitName = asNonEmptyString(rawAuthor.name)
+  const email = asNonEmptyString(rawAuthor.email)
   const login = getGitHubLogin(rawAuthor.login)
     ?? getGitHubLogin(rawAuthor.github)
     ?? getGitHubLogin(rawAuthor.url)
@@ -113,7 +116,8 @@ function normalizeAuthor(value: unknown): BlogAuthor | undefined {
   return {
     name,
     login: login || undefined,
-    avatar: avatar || undefined
+    avatar: avatar || undefined,
+    email: email || undefined
   }
 }
 

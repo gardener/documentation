@@ -167,6 +167,14 @@ function clearFilters(): void {
   tagQuery.value = ''
   syncSelectedTagsToUrl()
 }
+
+function isAuthorLinkable(author: { login?: string, email?: string }): boolean {
+  return Boolean(author.login)
+}
+
+function getAuthorGithubHref(login: string): string {
+  return `https://github.com/${encodeURIComponent(login)}`
+}
 </script>
 
 <template>
@@ -228,27 +236,47 @@ function clearFilters(): void {
         </h2>
 
         <p class="preview" v-if="post.preview">{{ post.preview }}</p>
-        <div class="authors" :class="{ 'authors-multiple': post.authors.length > 1 }" v-if="post.authors.length" aria-label="Post authors">
-          <span class="authors-label">By</span>
-          <ul class="author-list" :class="{ 'author-list-multiple': post.authors.length > 1 }">
-            <li
-              v-for="author of post.authors"
-              :key="`${post.url}-author-${author.login || author.name}`"
-              class="author-item"
-            >
-              <img
-                v-if="author.avatar"
-                class="author-avatar"
-                :src="author.avatar"
-                :alt="`${author.name} avatar`"
-                loading="lazy"
-              />
-              <span class="author-name">{{ author.name }}</span>
-            </li>
-          </ul>
-        </div>
+        <div class="post-footer">
+          <a class="read-more" :href="withBase(post.url)">Read post</a>
 
-        <a class="read-more" :href="withBase(post.url)">Read post</a>
+          <div class="authors" :class="{ 'authors-multiple': post.authors.length > 1 }" v-if="post.authors.length" aria-label="Post authors">
+            <span class="authors-label">By</span>
+            <ul class="author-list" :class="{ 'author-list-multiple': post.authors.length > 1 }">
+              <li
+                v-for="author of post.authors"
+                :key="`${post.url}-author-${author.login || author.name}`"
+                class="author-item"
+              >
+                <a
+                  v-if="isAuthorLinkable(author)"
+                  class="author-link"
+                  :href="getAuthorGithubHref(author.login!)"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    v-if="author.avatar"
+                    class="author-avatar"
+                    :src="author.avatar"
+                    :alt="`${author.name} avatar`"
+                    loading="lazy"
+                  />
+                  <span class="author-name">{{ author.name }}</span>
+                </a>
+                <span v-else class="author-static">
+                  <img
+                    v-if="author.avatar"
+                    class="author-avatar"
+                    :src="author.avatar"
+                    :alt="`${author.name} avatar`"
+                    loading="lazy"
+                  />
+                  <span class="author-name">{{ author.name }}</span>
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
       </article>
     </li>
   </ul>
@@ -380,6 +408,15 @@ function clearFilters(): void {
   line-height: 1.55;
 }
 
+.post-footer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 0.8rem;
+  row-gap: 0.45rem;
+  min-height: 2.2rem;
+}
+
 .authors {
   margin: 0;
   display: flex;
@@ -388,8 +425,10 @@ function clearFilters(): void {
   gap: 0.45rem;
   font-size: 0.9rem;
   color: var(--vp-c-text-2);
-  min-height: 1.65rem;
+  min-height: 2.2rem;
   overflow-x: auto;
+  flex: 1 1 18rem;
+  min-width: 0;
 }
 
 .authors-multiple {
@@ -410,7 +449,7 @@ function clearFilters(): void {
   flex-wrap: nowrap;
   align-items: center;
   gap: 0.45rem;
-  min-height: 1.65rem;
+  min-height: 2.2rem;
   flex: 1 1 auto;
   min-width: 0;
   overflow-x: auto;
@@ -428,23 +467,24 @@ function clearFilters(): void {
 }
 
 .author-list-multiple .author-name {
-  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.84rem;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--vp-c-text-1);
+  font-family: inherit;
 }
 
 .author-item {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 0.35rem;
-  height: 1.65rem;
-  min-height: 1.65rem;
+  height: 2.2rem;
+  min-height: 2.2rem;
   box-sizing: border-box;
   margin: 0;
   white-space: nowrap;
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 999px;
-  background: var(--vp-c-bg);
-  padding: 0.1rem 0.45rem 0.1rem 0.1rem;
 }
 
 .author-list > li.author-item,
@@ -453,8 +493,8 @@ function clearFilters(): void {
 }
 
 .author-avatar {
-  width: 1.35rem;
-  height: 1.35rem;
+  width: 1.85rem;
+  height: 1.85rem;
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
@@ -464,15 +504,46 @@ function clearFilters(): void {
   display: inline-flex;
   align-items: center;
   font-size: 0.84rem;
+  font-weight: 500;
   line-height: 1;
+  color: var(--vp-c-text-1);
+  font-family: inherit;
+}
+
+.author-link,
+.author-static {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  height: 100%;
+  color: var(--vp-c-text-1);
+  box-sizing: border-box;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 999px;
+  background: var(--vp-c-bg-soft);
+  padding: 0.1rem 0.45rem 0.1rem 0.1rem;
+  font-family: inherit;
+}
+
+.author-link {
+  text-decoration: none;
+}
+
+.author-link:visited {
+  color: var(--vp-c-text-1);
+}
+
+.author-link:hover .author-name {
+  text-decoration: underline;
 }
 
 .read-more {
   width: fit-content;
-  margin-top: 0.2rem;
+  margin-top: 0;
   font-weight: 600;
   color: var(--vp-c-brand-1);
   text-decoration: none;
+  flex: 0 0 auto;
 }
 
 .read-more:hover {
@@ -535,6 +606,19 @@ function clearFilters(): void {
   .tag-filters {
     padding: 0.8rem;
   }
+
+  .post-footer {
+    align-items: flex-start;
+  }
+
+  .authors {
+    flex: 1 1 100%;
+  }
 }
 </style>
+
+
+
+
+
 

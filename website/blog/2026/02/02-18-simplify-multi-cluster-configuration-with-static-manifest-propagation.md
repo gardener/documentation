@@ -5,7 +5,7 @@ newsSubtitle: February 18, 2026
 publishdate: 2026-02-18
 authors:
 - avatar: https://avatars.githubusercontent.com/rfranzke
-  email: rafael.franzke@sap.com
+  login: rfranzke
   login: rfranzke
   name: Rafael Franzke
 aliases: ["/blog/2026/02/18/simplify-multi-cluster-configuration-with-static-manifest-propagation"]

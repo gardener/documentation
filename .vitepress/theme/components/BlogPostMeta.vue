@@ -84,6 +84,14 @@ function toDisplayDate(date: Date): string {
 function getTagHref(tag: string): string {
   return withBase(`/blog/?tag=${encodeURIComponent(tag)}`)
 }
+
+function isAuthorLinkable(author: { login?: string, email?: string }): boolean {
+  return Boolean(author.login)
+}
+
+function getAuthorGithubHref(login: string): string {
+  return `https://github.com/${encodeURIComponent(login)}`
+}
 </script>
 
 <template>
@@ -99,14 +107,32 @@ function getTagHref(tag: string): string {
         <span class="meta-by">By</span>
         <ul class="author-list" :class="{ 'author-list-multiple': authors.length > 1 }">
           <li v-for="author in authors" :key="author.login || author.name" class="author-item">
-            <img
-              v-if="author.avatar"
-              class="author-avatar"
-              :src="author.avatar"
-              :alt="`${author.name} avatar`"
-              loading="lazy"
-            />
-            <span class="author-name">{{ author.name }}</span>
+            <a
+                v-if="isAuthorLinkable(author)"
+                class="author-link"
+                :href="getAuthorGithubHref(author.login!)"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  v-if="author.avatar"
+                  class="author-avatar"
+                  :src="author.avatar"
+                  :alt="`${author.name} avatar`"
+                  loading="lazy"
+                />
+                <span class="author-name">{{ author.name }}</span>
+              </a>
+              <span v-else class="author-static">
+                <img
+                  v-if="author.avatar"
+                  class="author-avatar"
+                  :src="author.avatar"
+                  :alt="`${author.name} avatar`"
+                  loading="lazy"
+                />
+                <span class="author-name">{{ author.name }}</span>
+              </span>
           </li>
         </ul>
       </div>
@@ -153,7 +179,7 @@ function getTagHref(tag: string): string {
   justify-content: flex-start;
   gap: 0.4rem;
   flex-wrap: nowrap;
-  min-height: 1.65rem;
+  min-height: 2.2rem;
   overflow-x: auto;
 }
 
@@ -178,7 +204,7 @@ function getTagHref(tag: string): string {
   justify-content: flex-start;
   gap: 0.45rem;
   flex-wrap: nowrap;
-  min-height: 1.65rem;
+  min-height: 2.2rem;
   min-width: 0;
   overflow-x: auto;
 }
@@ -195,23 +221,24 @@ function getTagHref(tag: string): string {
 }
 
 .author-list-multiple .author-name {
-  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.84rem;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--vp-c-text-1);
+  font-family: inherit;
 }
 
 .author-item {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 0.35rem;
-  height: 1.65rem;
-  min-height: 1.65rem;
+  height: 2.2rem;
+  min-height: 2.2rem;
   box-sizing: border-box;
   margin: 0;
   white-space: nowrap;
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 999px;
-  background: var(--vp-c-bg-soft);
-  padding: 0.1rem 0.45rem 0.1rem 0.1rem;
 }
 
 .author-list > li.author-item,
@@ -220,8 +247,8 @@ function getTagHref(tag: string): string {
 }
 
 .author-avatar {
-  width: 1.35rem;
-  height: 1.35rem;
+  width: 1.85rem;
+  height: 1.85rem;
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
@@ -231,8 +258,37 @@ function getTagHref(tag: string): string {
   display: inline-flex;
   align-items: center;
   font-size: 0.84rem;
+  font-weight: 500;
   line-height: 1;
-  color: var(--vp-c-text-2);
+  color: var(--vp-c-text-1);
+  font-family: inherit;
+}
+
+.author-link,
+.author-static {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  height: 100%;
+  color: var(--vp-c-text-1);
+  box-sizing: border-box;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 999px;
+  background: var(--vp-c-bg-soft);
+  padding: 0.1rem 0.45rem 0.1rem 0.1rem;
+  font-family: inherit;
+}
+
+.author-link {
+  text-decoration: none;
+}
+
+.author-link:visited {
+  color: var(--vp-c-text-1);
+}
+
+.author-link:hover .author-name {
+  text-decoration: underline;
 }
 
 .meta-tags {
@@ -264,5 +320,10 @@ function getTagHref(tag: string): string {
   text-decoration: underline;
 }
 </style>
+
+
+
+
+
 
 

@@ -9,7 +9,7 @@ level: intermediate
 category: Setup
 scope: app-developer
 authors:
-- email: vedran.lerenc@sap.com
+- login: vlerenc
 ---
 
 > [!NOTE]

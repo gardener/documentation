@@ -5,7 +5,7 @@ newsSubtitle: April 22, 2024
 publishdate: 2024-04-22
 authors:
 - name: Ismail Alidzhikov
-  email: ismail.alidzhikov@sap.com
+  login: ialidzhikov
   avatar: https://avatars.githubusercontent.com/u/9372594
 aliases: ["/blog/2024/04/22/01"]
 tags:
