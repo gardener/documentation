@@ -33,7 +33,7 @@ features:
   - icon:
       src: /highlights/certified.svg
     title: Security and Compliance
-    details: Check your clusters against enterprise-grade security standards.
+    details: Check your clusters against enterprise-grade security standards. CNCF 100% Kubernetes & AI conformance.
     link: /docs/security-and-compliance/kubernetes-hardening    
     badgePlacement: top-right
     badges:
