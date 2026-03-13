@@ -5,7 +5,7 @@ newsSubtitle: November 06, 2024
 publishdate: 2024-11-01
 authors:
 - name: Christoph Kleineweber
-  email: c.kleineweber@sap.com
+  login: c.kleineweber@sap.com
   avatar: https://avatars.githubusercontent.com/u/318416
 - name: Jeremy Rickards
   email: jeremy.rickards@sap.com

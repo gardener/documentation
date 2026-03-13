@@ -28,6 +28,7 @@ Copied and adapted from -> https://github.com/vitejs/vite/blob/9b98dcbf75546240e
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { data as posts } from '../../data/blog.data'
 import { withBase } from 'vitepress'
+import { canonicalizeTag } from '../../shared/blogMetadata'
 function parseSelectedTagsFromUrl(): string[] {
   if (typeof window === 'undefined') {
     return []
@@ -42,7 +43,7 @@ function parseSelectedTagsFromUrl(): string[] {
   const selected: string[] = []
 
   for (const value of rawValues) {
-    const normalized = value.trim()
+    const normalized = canonicalizeTag(value)
     if (!normalized) {
       continue
     }
@@ -220,6 +221,8 @@ function clearFilters(): void {
           </li>
         </ul>
 
+        <p class="post-date" v-if="post.date.string && post.date.string !== 'Undated'">{{ post.date.string }}</p>
+
         <h2 class="title">
           <a :href="withBase(post.url)">{{ post.title }}</a>
         </h2>
@@ -345,6 +348,14 @@ function clearFilters(): void {
   transform: translateY(-2px);
 }
 
+.post-date {
+  margin: 0;
+  color: var(--vp-c-text-1);
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
 .title {
   border: none;
   margin: 0;
@@ -377,7 +388,7 @@ function clearFilters(): void {
   gap: 0.45rem;
   font-size: 0.9rem;
   color: var(--vp-c-text-2);
-  min-height: 1.45rem;
+  min-height: 1.65rem;
   overflow-x: auto;
 }
 
@@ -399,7 +410,7 @@ function clearFilters(): void {
   flex-wrap: nowrap;
   align-items: center;
   gap: 0.45rem;
-  min-height: 1.45rem;
+  min-height: 1.65rem;
   flex: 1 1 auto;
   min-width: 0;
   overflow-x: auto;
@@ -425,8 +436,8 @@ function clearFilters(): void {
   align-items: center;
   justify-content: flex-start;
   gap: 0.35rem;
-  height: 1.45rem;
-  min-height: 1.45rem;
+  height: 1.65rem;
+  min-height: 1.65rem;
   box-sizing: border-box;
   margin: 0;
   white-space: nowrap;
@@ -442,8 +453,8 @@ function clearFilters(): void {
 }
 
 .author-avatar {
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 1.35rem;
+  height: 1.35rem;
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;

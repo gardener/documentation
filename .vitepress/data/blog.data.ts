@@ -25,6 +25,7 @@ Copied and adapted from -> https://github.com/vitejs/vite/blob/9b98dcbf75546240e
 */
 
 import { createContentLoader } from 'vitepress'
+import { normalizeAuthors, normalizeTags, type BlogAuthor } from '../shared/blogMetadata'
 
 interface Post {
   title: string
@@ -33,14 +34,9 @@ interface Post {
     time: number
     string: string
   }
-  authors: Author[]
+  authors: BlogAuthor[]
   tags: string[]
   preview: string | undefined
-}
-interface Author {
-  name: string
-  avatar?: string
-  login?: string
 }
 
 declare const data: Post[]
@@ -72,7 +68,7 @@ export default createContentLoader('blog/**/*.md', {
         return {
           title: frontmatter.title || frontmatter.linkTitle || 'Untitled',
           url,
-          authors: normalizeAuthors(frontmatter.authors),
+          authors: normalizeAuthors(frontmatter.authors ?? frontmatter.author),
           tags: normalizeTags(frontmatter.tags),
           preview: extractPreview(source, html, excerpt),
           date: formatDate(dateValue, frontmatter.title)
@@ -196,180 +192,6 @@ function normalizeDateParts(yearRaw: string, monthRaw: string, dayRaw: string): 
   }
 
   return date
-}
-
-const TAG_ALIASES: Record<string, string> = {
-  aws: 'provider-aws',
-  azure: 'provider-azure',
-  gcp: 'provider-gcp',
-  openstack: 'provider-openstack',
-  'metal-stack': 'provider-metal-stack',
-  neonephos: 'apeiro'
-}
-
-function normalizeTags(raw: unknown): string[] {
-  if (Array.isArray(raw)) {
-    return uniqueNonEmpty(raw)
-  }
-
-  if (typeof raw === 'string') {
-    return uniqueNonEmpty(raw.split(','))
-  }
-
-  return []
-}
-
-function normalizeAuthors(raw: unknown): Author[] {
-  if (!Array.isArray(raw)) {
-    return []
-  }
-
-  const unique: Author[] = []
-  const seen = new Set<string>()
-
-  for (const value of raw) {
-    const author = normalizeAuthor(value)
-    if (!author) {
-      continue
-    }
-
-    const key = `${author.name.toLowerCase()}::${(author.login ?? '').toLowerCase()}`
-    if (seen.has(key)) {
-      continue
-    }
-
-    seen.add(key)
-    unique.push(author)
-  }
-
-  return unique
-}
-
-function normalizeAuthor(value: unknown): Author | undefined {
-  if (typeof value === 'string') {
-    const trimmed = value.trim()
-    if (!trimmed) {
-      return undefined
-    }
-
-    const login = getGitHubLogin(trimmed)
-    const name = trimmed.startsWith('@')
-      ? trimmed.slice(1)
-      : login ?? trimmed
-
-    return {
-      name,
-      login,
-      avatar: toGitHubAvatar(login)
-    }
-  }
-
-  if (!value || typeof value !== 'object') {
-    return undefined
-  }
-
-  const rawAuthor = value as {
-    name?: unknown
-    avatar?: unknown
-    image?: unknown
-    login?: unknown
-    github?: unknown
-    url?: unknown
-  }
-
-  const explicitName = asNonEmptyString(rawAuthor.name)
-  const login = getGitHubLogin(rawAuthor.login)
-    ?? getGitHubLogin(rawAuthor.github)
-    ?? getGitHubLogin(rawAuthor.url)
-  const name = explicitName || login
-
-  if (!name) {
-    return undefined
-  }
-
-  const avatar =
-    asNonEmptyString(rawAuthor.avatar)
-    || asNonEmptyString(rawAuthor.image)
-    || toGitHubAvatar(login)
-
-  return {
-    name,
-    login: login || undefined,
-    avatar: avatar || undefined
-  }
-}
-
-function asNonEmptyString(value: unknown): string | undefined {
-  if (typeof value !== 'string') {
-    return undefined
-  }
-
-  const normalized = value.trim()
-  return normalized || undefined
-}
-
-function getGitHubLogin(value: unknown): string | undefined {
-  if (typeof value !== 'string') {
-    return undefined
-  }
-
-  const trimmed = value.trim()
-  if (!trimmed) {
-    return undefined
-  }
-
-  const withoutPrefix = trimmed.startsWith('@') ? trimmed.slice(1) : trimmed
-
-  if (isGitHubLogin(withoutPrefix)) {
-    return withoutPrefix
-  }
-
-  const match = withoutPrefix.match(/github\.com\/([A-Za-z0-9-]+)/i)
-  if (match && isGitHubLogin(match[1])) {
-    return match[1]
-  }
-
-  return undefined
-}
-
-function isGitHubLogin(value: string): boolean {
-  return /^[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})$/.test(value)
-}
-
-function toGitHubAvatar(login: string | undefined): string | undefined {
-  if (!login) {
-    return undefined
-  }
-
-  return `https://avatars.githubusercontent.com/${login}`
-}
-function canonicalizeTag(value: string): string {
-  const trimmed = value.trim()
-  if (!trimmed) {
-    return ''
-  }
-
-  const key = trimmed.toLowerCase()
-  return TAG_ALIASES[key] || trimmed
-}
-
-function uniqueNonEmpty(values: unknown[]): string[] {
-  const unique: string[] = []
-
-  for (const value of values) {
-    if (typeof value !== 'string') {
-      continue
-    }
-
-    const normalized = canonicalizeTag(value)
-    if (!normalized || unique.some(tag => tag.toLowerCase() === normalized.toLowerCase())) {
-      continue
-    }
-
-    unique.push(normalized)
-  }
-
-  return unique
 }
 
 function getSourceMarkdown(value: unknown): string | undefined {
@@ -541,3 +363,4 @@ function normalizePreviewText(raw: string | undefined, maxLength = 360): string 
     ? `${text.slice(0, maxLength).trimEnd()}...`
     : text
 }
+

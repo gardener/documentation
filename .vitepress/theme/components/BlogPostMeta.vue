@@ -1,11 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useData, useRoute, withBase } from 'vitepress'
+import { normalizeAuthors, normalizeTags } from '../../shared/blogMetadata'
 
-interface Author {
-  name: string
-  avatar?: string
-}
 
 const { frontmatter } = useData()
 const route = useRoute()
@@ -36,7 +33,7 @@ const dateText = computed(() => {
   return formatDate(raw)
 })
 
-const authors = computed(() => normalizeAuthors(frontmatter.value.authors))
+const authors = computed(() => normalizeAuthors(frontmatter.value.authors ?? frontmatter.value.author))
 const tags = computed(() => normalizeTags(frontmatter.value.tags))
 const hasVisibleMetadata = computed(() =>
   Boolean(dateText.value || authors.value.length || tags.value.length)
@@ -84,170 +81,6 @@ function toDisplayDate(date: Date): string {
   })
 }
 
-function normalizeAuthors(raw: unknown): Author[] {
-  if (!Array.isArray(raw)) {
-    return []
-  }
-
-  const unique: Author[] = []
-  const seen = new Set<string>()
-
-  for (const value of raw) {
-    const author = normalizeAuthor(value)
-    if (!author) {
-      continue
-    }
-
-    const key = author.name.toLowerCase()
-    if (seen.has(key)) {
-      continue
-    }
-
-    seen.add(key)
-    unique.push(author)
-  }
-
-  return unique
-}
-
-function normalizeAuthor(value: unknown): Author | undefined {
-  if (typeof value === 'string') {
-    const trimmed = value.trim()
-    if (!trimmed) {
-      return undefined
-    }
-
-    const login = getGitHubLogin(trimmed)
-    const name = trimmed.startsWith('@')
-      ? trimmed.slice(1)
-      : login ?? trimmed
-
-    return {
-      name,
-      avatar: toGitHubAvatar(login)
-    }
-  }
-
-  if (!value || typeof value !== 'object') {
-    return undefined
-  }
-
-  const rawAuthor = value as {
-    name?: unknown
-    avatar?: unknown
-    image?: unknown
-    login?: unknown
-    github?: unknown
-    url?: unknown
-  }
-
-  const explicitName = typeof rawAuthor.name === 'string' ? rawAuthor.name.trim() : ''
-  const login = getGitHubLogin(rawAuthor.login)
-    ?? getGitHubLogin(rawAuthor.github)
-    ?? getGitHubLogin(rawAuthor.url)
-
-  const name = explicitName || login || ''
-  if (!name) {
-    return undefined
-  }
-
-  const explicitAvatar =
-    typeof rawAuthor.avatar === 'string' && rawAuthor.avatar.trim()
-      ? rawAuthor.avatar.trim()
-      : (typeof rawAuthor.image === 'string' ? rawAuthor.image.trim() : undefined)
-
-  return {
-    name,
-    avatar: explicitAvatar || toGitHubAvatar(login)
-  }
-}
-
-function getGitHubLogin(value: unknown): string | undefined {
-  if (typeof value !== 'string') {
-    return undefined
-  }
-
-  const trimmed = value.trim()
-  if (!trimmed) {
-    return undefined
-  }
-
-  const withoutPrefix = trimmed.startsWith('@') ? trimmed.slice(1) : trimmed
-
-  if (isGitHubLogin(withoutPrefix)) {
-    return withoutPrefix
-  }
-
-  const match = withoutPrefix.match(/github\.com\/([A-Za-z0-9-]+)/i)
-  if (match && isGitHubLogin(match[1])) {
-    return match[1]
-  }
-
-  return undefined
-}
-
-function isGitHubLogin(value: string): boolean {
-  return /^[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})$/.test(value)
-}
-
-function toGitHubAvatar(login: string | undefined): string | undefined {
-  if (!login) {
-    return undefined
-  }
-
-  return `https://avatars.githubusercontent.com/${login}`
-}
-
-const TAG_ALIASES: Record<string, string> = {
-  aws: 'provider-aws',
-  azure: 'provider-azure',
-  gcp: 'provider-gcp',
-  openstack: 'provider-openstack',
-  'metal-stack': 'provider-metal-stack',
-  neonephos: 'apeiro'
-}
-
-function normalizeTags(raw: unknown): string[] {
-  if (Array.isArray(raw)) {
-    return uniqueNonEmpty(raw)
-  }
-
-  if (typeof raw === 'string') {
-    return uniqueNonEmpty(raw.split(','))
-  }
-
-  return []
-}
-
-function canonicalizeTag(value: string): string {
-  const trimmed = value.trim()
-  if (!trimmed) {
-    return ''
-  }
-
-  const key = trimmed.toLowerCase()
-  return TAG_ALIASES[key] || trimmed
-}
-
-function uniqueNonEmpty(values: unknown[]): string[] {
-  const unique: string[] = []
-
-  for (const value of values) {
-    if (typeof value !== 'string') {
-      continue
-    }
-
-    const normalized = canonicalizeTag(value)
-    if (!normalized || unique.some(tag => tag.toLowerCase() === normalized.toLowerCase())) {
-      continue
-    }
-
-    unique.push(normalized)
-  }
-
-  return unique
-}
-
 function getTagHref(tag: string): string {
   return withBase(`/blog/?tag=${encodeURIComponent(tag)}`)
 }
@@ -265,7 +98,7 @@ function getTagHref(tag: string): string {
       <div v-if="authors.length" class="meta-authors" :class="{ 'meta-authors-multiple': authors.length > 1 }">
         <span class="meta-by">By</span>
         <ul class="author-list" :class="{ 'author-list-multiple': authors.length > 1 }">
-          <li v-for="author in authors" :key="author.name" class="author-item">
+          <li v-for="author in authors" :key="author.login || author.name" class="author-item">
             <img
               v-if="author.avatar"
               class="author-avatar"
@@ -307,14 +140,11 @@ function getTagHref(tag: string): string {
 }
 
 .meta-date {
-  display: inline-flex;
-  align-items: center;
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 999px;
-  padding: 0.18rem 0.6rem;
-  color: var(--vp-c-text-2);
-  background: var(--vp-c-bg-soft);
-  font-size: 0.82rem;
+  margin: 0;
+  color: var(--vp-c-text-1);
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.2;
 }
 
 .meta-authors {
@@ -323,7 +153,7 @@ function getTagHref(tag: string): string {
   justify-content: flex-start;
   gap: 0.4rem;
   flex-wrap: nowrap;
-  min-height: 1.45rem;
+  min-height: 1.65rem;
   overflow-x: auto;
 }
 
@@ -348,7 +178,7 @@ function getTagHref(tag: string): string {
   justify-content: flex-start;
   gap: 0.45rem;
   flex-wrap: nowrap;
-  min-height: 1.45rem;
+  min-height: 1.65rem;
   min-width: 0;
   overflow-x: auto;
 }
@@ -373,8 +203,8 @@ function getTagHref(tag: string): string {
   align-items: center;
   justify-content: flex-start;
   gap: 0.35rem;
-  height: 1.45rem;
-  min-height: 1.45rem;
+  height: 1.65rem;
+  min-height: 1.65rem;
   box-sizing: border-box;
   margin: 0;
   white-space: nowrap;
@@ -390,8 +220,8 @@ function getTagHref(tag: string): string {
 }
 
 .author-avatar {
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 1.35rem;
+  height: 1.35rem;
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
@@ -434,4 +264,5 @@ function getTagHref(tag: string): string {
   text-decoration: underline;
 }
 </style>
+
 

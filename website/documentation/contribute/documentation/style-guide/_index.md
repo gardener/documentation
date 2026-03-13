@@ -106,7 +106,7 @@ authors:
 - avatar: <author-profile-picture-link>
   login: <author-GitHub-name>
   email: <author-email>
-  name: <author-name>>
+  name: <author-name>
 tags:
   - <tag-1>
   - <tag-2>
