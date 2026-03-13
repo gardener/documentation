@@ -291,7 +291,7 @@ function getHeadConfig(){
       {
         async: 'true',
         src: 'https://widget.kapa.ai/kapa-widget.bundle.js',
-        'data-website-id': '3dac305b-ea27-43c5-8421-dc61f4fefa23',
+        'data-website-id': '3f78706b-eb4b-4bdd-867c-abcd6a8eb778',
         'data-project-name': 'Gardener',
         'data-project-color': '#009f76',
         'data-modal-header-bg-color': '#009f76',
