@@ -304,6 +304,7 @@ function getHeadConfig(){
         'data-consent-screen-reject-button-text': 'No, not interested',
         'data-modal-example-questions': "How do I access my shoot cluster after it's created?,What happens during the daily maintenance window?,How do I configure worker nodes for my cluster?",
         'data-search-mode-enabled': 'true',
+        'data-search-consent-required': 'false',
         'data-modal-override-open-selector-search': 'div#local-search',
         'data-modal-open-on-command-k': 'true',
         'data-modal-command-k-search-mode-default': 'true'
