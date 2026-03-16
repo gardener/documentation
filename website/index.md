@@ -53,7 +53,7 @@ features:
   - icon:
       src: /highlights/autonomous.svg
     title: Batteries Included
-    details: Benefit from self-healing, auto-scaling, and if you choose, auto-updating operating system and Kubernetes.
+    details: Benefit from self-healing and auto-scaling capabilities across the stack. Manage the lifecycle of your clusters with the click of a button or a `kubectl apply`.
     link: /docs/getting-started/lifecycle/
   - icon:
       src: /highlights/gardener.svg
