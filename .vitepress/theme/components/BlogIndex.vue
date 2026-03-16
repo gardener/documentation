@@ -520,7 +520,7 @@ function getAuthorGithubHref(login: string): string {
   box-sizing: border-box;
   border: 1px solid var(--vp-c-divider);
   border-radius: 999px;
-  background: var(--vp-c-bg-soft);
+  background: #ffffff;
   padding: 0.1rem 0.45rem 0.1rem 0.1rem;
   font-family: inherit;
 }
@@ -616,9 +616,4 @@ function getAuthorGithubHref(login: string): string {
   }
 }
 </style>
-
-
-
-
-
 
