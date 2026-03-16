@@ -48,7 +48,7 @@ features:
   - icon:
       src: /highlights/ubiqutious.svg
     title: Fleet Management
-    details: Apply the same guardrails to all your clusters. Control available resources, versions, and their lifecycle.
+    details: Apply the same guardrails to all your clusters. Control available Kubernetes and operating system versions, and their lifecycle.
     link: /docs/guides/administer-shoots/maintain-shoot
   - icon:
       src: /highlights/autonomous.svg
