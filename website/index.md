@@ -52,7 +52,7 @@ features:
     link: /docs/guides/administer-shoots/maintain-shoot
   - icon:
       src: /highlights/autonomous.svg
-    title: Built-in Automation
+    title: Batteries Included
     details: Benefit from self-healing, auto-scaling, and if you choose, auto-updating operating system and Kubernetes.
     link: /docs/getting-started/lifecycle/
   - icon:
