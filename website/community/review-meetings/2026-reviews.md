@@ -14,6 +14,28 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2026/03/18 - [v1.138](https://github.com/gardener/gardener/releases/tag/v1.138.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@acumino](https://github.com/acumino) | `5m` | 🗺️ `gardenadm init/join` Availability Zone Support via `--zone` Flag | [#14081](https://github.com/gardener/gardener/pull/14081) |
+| [@rfranzke](https://github.com/rfranzke) | `10m` | 🔄 Serial `OperatingSystemConfig` Reconciliation Coordination in `gardener-node-agent` | [#14129](https://github.com/gardener/gardener/pull/14129) |
+| [@cerealsnow](https://github.com/cerealsnow) | `10m` | 🌍 Local Setup DNS via bind9 — No More `/etc/hosts` Manipulation | [#14062](https://github.com/gardener/gardener/pull/14062) |
+| [@oliver-goetz](https://github.com/oliver-goetz) | `10m` | 🏗️ Provider Extensions Setup Migrated to `gardener-operator`-Based `remote` Setup | [#13994](https://github.com/gardener/gardener/pull/13994) |
+| [@nickytd](https://github.com/nickytd) | `5m` | 🏷️ `ShootAdvertisedAddress` `Application` Field for UI-Friendly Endpoint Names | [#14140](https://github.com/gardener/gardener/pull/14140) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- ❗️ [OPERATOR] Hard memory limit on istio-ingress has been removed. Memory is managed by VPA in all cases now. [#14197](https://github.com/gardener/gardener/pull/14197)
+- 🐛 [OPERATOR] Fixed a race condition in the `ControllerInstallation` reconciler that could create duplicate installations due to reading from a stale informer cache instead of the API server. [#14274](https://github.com/gardener/gardener/pull/14274)
+- 🐛 [OPERATOR] The per-worker-pool `node-local-dns` `DaemonSet`s now also include the name of the worker in their label selector and in their Pods' labels. This resolves an issue where each of the corresponding `VPA`s targeted all `node-cache` containers from all of these `DaemonSet`s resulting in incorrect resource recommendations. [#14294](https://github.com/gardener/gardener/pull/14294)
+
+<hr />
+
 ### 2026/03/11 - Kubernetes v1.35 Special Edition
 
 [📽️ Recording](https://youtu.be/BV3w1l6lz-k)
