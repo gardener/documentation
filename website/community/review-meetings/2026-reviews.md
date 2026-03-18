@@ -22,11 +22,11 @@ Check back regularly for updates and upcoming topics!
 
 | Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
 | ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
-| [@acumino](https://github.com/acumino) | `5m` | 🗺️ `gardenadm init/join` Availability Zone Support via `--zone` Flag | [#14081](https://github.com/gardener/gardener/pull/14081) |
 | [@rfranzke](https://github.com/rfranzke) | `10m` | 🔄 Serial `OperatingSystemConfig` Reconciliation Coordination in `gardener-node-agent` | [#14129](https://github.com/gardener/gardener/pull/14129) |
 | [@cerealsnow](https://github.com/cerealsnow) | `10m` | 🌍 Local Setup DNS via bind9 — No More `/etc/hosts` Manipulation | [#14062](https://github.com/gardener/gardener/pull/14062) |
 | [@oliver-goetz](https://github.com/oliver-goetz) | `10m` | 🏗️ Provider Extensions Setup Migrated to `gardener-operator`-Based `remote` Setup | [#13994](https://github.com/gardener/gardener/pull/13994) |
 | [@nickytd](https://github.com/nickytd) | `5m` | 🏷️ `ShootAdvertisedAddress` `Application` Field for UI-Friendly Endpoint Names | [#14140](https://github.com/gardener/gardener/pull/14140) |
+| [@acumino](https://github.com/acumino) | `5m` | 🗺️ `gardenadm init/join` Availability Zone Support via `--zone` Flag | [#14081](https://github.com/gardener/gardener/pull/14081) |
 
 #### No Demo, But Still Worth Celebrating 🎉
 
