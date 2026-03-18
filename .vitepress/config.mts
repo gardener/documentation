@@ -286,29 +286,366 @@ function getHeadConfig(){
       }
     ],
     ['meta', {property: 'og:url', content: 'https://gardener.cloud/'}],
+    // Kapa.ai: Custom consent management with dual-mode loading
     [
       'script',
-      {
-        async: 'true',
-        src: 'https://widget.kapa.ai/kapa-widget.bundle.js',
-        'data-website-id': '3f78706b-eb4b-4bdd-867c-abcd6a8eb778',
-        'data-project-name': 'Gardener',
-        'data-project-color': '#009f76',
-        'data-modal-header-bg-color': '#009f76',
-        'data-modal-title-color': '#FFFFFF',
-        'data-project-logo': 'https://gardener.cloud/gardener-logo-white.svg',
-        'data-search-mode': 'integrated',
-        'data-consent-required': 'true',
-        'data-consent-screen-disclaimer': 'This AI assistant uses your questions to provide answers based on Gardener documentation. Your questions and interactions may be anonymously collected and analyzed to improve the search functionality and overall user experience. We don\'t collect any personally identifiable information. By clicking "Accept", you consent to using this AI-powered feature and the collection of your data. AI-generated responses may contain inaccuracies - please verify important information with the official documentation.',
-        'data-consent-screen-accept-button-text': 'I agree, let\'s chat!',
-        'data-consent-screen-reject-button-text': 'No, not interested',
-        'data-modal-example-questions': "How do I access my shoot cluster after it's created?,What happens during the daily maintenance window?,How do I configure worker nodes for my cluster?",
-        'data-search-mode-enabled': 'true',
-        'data-search-consent-required': 'false',
-        'data-modal-override-open-selector-search': 'div#local-search',
-        'data-modal-open-on-command-k': 'true',
-        'data-modal-command-k-search-mode-default': 'true'
-      }
+      {},
+      `(function() {
+        const CONSENT_KEY = 'gardener-kapa-consent';
+        
+        // Inject CSS to prevent search bar background changes
+        function injectLayoutFixes() {
+          const style = document.createElement('style');
+          style.textContent = \`
+            /* Prevent search bar background from changing */
+            .VPNavBarSearch .DocSearch-Button,
+            .VPNavBarSearch .DocSearch-Button:hover,
+            .VPNavBarSearch .DocSearch-Button:focus,
+            .VPNavBarSearch .DocSearch-Button:active {
+              background-color: var(--vp-c-bg-alt) !important;
+            }
+            
+            /* Wrapper inherits layout from VitePress - transparent wrapper */
+            #kapa-search-wrapper {
+              display: contents;
+            }
+            
+            /* Settings button positioned right next to search bar */
+            #kapa-settings-btn {
+              margin-left: 12px;
+            }
+            
+            /* Ensure VitePress navbar maintains proper responsive layout */
+            .VPNavBar .container,
+            .VPNavBar .content {
+              max-width: 100% !important;
+            }
+            
+            /* Prevent navbar overflow on pages with sidebar */
+            @media (min-width: 960px) {
+              .has-sidebar .VPNavBar .container {
+                padding-right: 32px !important;
+              }
+            }
+            
+            /* Ensure navbar doesn't extend beyond viewport */
+            .VPNav {
+              position: sticky !important;
+              top: 0 !important;
+              width: 100% !important;
+              max-width: 100vw !important;
+            }
+            
+            /* Dark mode support for Kapa.ai widget */
+            .dark [id*="kapa"][role="dialog"],
+            .dark [class*="kapa-modal"],
+            .dark [class*="kapa"] [role="dialog"] {
+              background-color: #1e1e1e !important;
+              color: #e0e0e0 !important;
+            }
+            
+            .dark [id*="kapa"][role="dialog"] [class*="header"],
+            .dark [id*="kapa"][role="dialog"] [class*="title"] {
+              background-color: #009f76 !important;
+              color: white !important;
+            }
+            
+            .dark [id*="kapa"][role="dialog"] input,
+            .dark [id*="kapa"][role="dialog"] textarea {
+              background-color: #2a2a2a !important;
+              color: #e0e0e0 !important;
+              border-color: #444 !important;
+            }
+          \`;
+          document.head.appendChild(style);
+        }
+        
+        // Inject CSS immediately
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', injectLayoutFixes);
+        } else {
+          injectLayoutFixes();
+        }
+        
+        function getConsent() {
+          return localStorage.getItem(CONSENT_KEY);
+        }
+        
+        function setConsent(value) {
+          localStorage.setItem(CONSENT_KEY, value);
+        }
+        
+        function loadKapaWidget(withConsent) {
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://widget.kapa.ai/kapa-widget.bundle.js';
+          script.setAttribute('data-website-id', '3f78706b-eb4b-4bdd-867c-abcd6a8eb778');
+          script.setAttribute('data-project-name', 'Gardener');
+          script.setAttribute('data-project-color', '#009f76');
+          script.setAttribute('data-modal-header-bg-color', '#009f76');
+          script.setAttribute('data-modal-title-color', '#FFFFFF');
+          script.setAttribute('data-project-logo', 'https://gardener.cloud/gardener-logo-white.svg');
+          script.setAttribute('data-modal-override-open-selector-search', 'div#local-search');
+          script.setAttribute('data-modal-open-on-command-k', 'true');
+          script.setAttribute('data-modal-command-k-search-mode-default', 'true');
+          script.setAttribute('data-modal-example-questions', "How do I access my shoot cluster after it's created?,What happens during the daily maintenance window?,How do I configure worker nodes for my cluster?");
+          
+          if (withConsent) {
+            script.setAttribute('data-search-mode', 'integrated');
+            script.setAttribute('data-search-mode-enabled', 'true');
+          } else {
+            script.setAttribute('data-search-mode', 'search-only');
+            script.setAttribute('data-button-hide', 'true');
+            script.setAttribute('data-user-analytics-cookie-enabled', 'false');
+          }
+          
+          document.head.appendChild(script);
+        }
+        
+        function showConsentModal() {
+          const isDark = document.documentElement.classList.contains('dark');
+          const modal = document.createElement('div');
+          modal.id = 'kapa-consent-modal';
+          modal.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center;z-index:999999;';
+          
+          const content = document.createElement('div');
+          content.style.cssText = 'background:' + (isDark ? '#1e1e1e' : 'white') + ';border-radius:8px;max-width:500px;padding:32px;margin:20px;box-shadow:0 4px 20px rgba(0,0,0,0.2);';
+          
+          const title = document.createElement('h2');
+          title.textContent = 'Gardener AI Assistant';
+          title.style.cssText = 'margin:0 0 16px 0;color:#009f76;font-size:24px;';
+          
+          const text = document.createElement('p');
+          text.innerHTML = 'Our AI assistant uses your questions to provide answers based on Gardener documentation. Your questions and interactions may be anonymously collected and analyzed to improve the search functionality and overall user experience. We don\\'t collect any personally identifiable information. By accepting, you consent to using this AI-powered feature and the collection of your data. <b>AI-generated responses may contain inaccuracies - please verify important information with the official documentation.</b>';
+          text.style.cssText = 'margin:0 0 24px 0;line-height:1.6;color:' + (isDark ? '#d0d0d0' : '#333') + ';font-size:15px;';
+          
+          const buttons = document.createElement('div');
+          buttons.style.cssText = 'display:flex;gap:12px;justify-content:flex-end;';
+          
+          const cancelBtn = document.createElement('button');
+          cancelBtn.textContent = 'Cancel';
+          cancelBtn.style.cssText = 'padding:10px 20px;border:1px solid #ddd;background:white;color:#333;border-radius:6px;cursor:pointer;font-size:14px;font-weight:500;';
+          cancelBtn.onmouseover = () => {
+            cancelBtn.style.background = '#f5f5f5';
+            cancelBtn.style.color = '#000';
+          };
+          cancelBtn.onmouseout = () => {
+            cancelBtn.style.background = 'white';
+            cancelBtn.style.color = '#333';
+          };
+          cancelBtn.onclick = () => {
+            document.body.removeChild(modal);
+            // Reset body styles that might affect layout
+            document.body.style.overflow = '';
+            document.body.style.paddingRight = '';
+          };
+          
+          const rejectBtn = document.createElement('button');
+          rejectBtn.textContent = 'Reject';
+          rejectBtn.style.cssText = 'padding:10px 20px;border:1px solid #ddd;background:white;color:#333;border-radius:6px;cursor:pointer;font-size:14px;font-weight:500;';
+          rejectBtn.onmouseover = () => {
+            rejectBtn.style.background = '#f5f5f5';
+            rejectBtn.style.color = '#000';
+          };
+          rejectBtn.onmouseout = () => {
+            rejectBtn.style.background = 'white';
+            rejectBtn.style.color = '#333';
+          };
+          rejectBtn.onclick = () => {
+            setConsent('rejected');
+            document.body.removeChild(modal);
+            const placeholder = document.getElementById('kapa-placeholder-btn');
+            if (placeholder) placeholder.remove();
+            // Reset body styles that might affect layout
+            document.body.style.overflow = '';
+            document.body.style.paddingRight = '';
+          };
+          
+          const acceptBtn = document.createElement('button');
+          acceptBtn.textContent = 'Accept';
+          acceptBtn.style.cssText = 'padding:10px 20px;border:none;background:#009f76;color:white;border-radius:6px;cursor:pointer;font-size:14px;';
+          acceptBtn.onmouseover = () => acceptBtn.style.background = '#00885f';
+          acceptBtn.onmouseout = () => acceptBtn.style.background = '#009f76';
+          acceptBtn.onclick = () => {
+            setConsent('accepted');
+            document.body.removeChild(modal);
+            const placeholder = document.getElementById('kapa-placeholder-btn');
+            if (placeholder) placeholder.remove();
+            // Reset body styles before reload
+            document.body.style.overflow = '';
+            document.body.style.paddingRight = '';
+            window.location.reload();
+          };
+          
+          buttons.appendChild(cancelBtn);
+          buttons.appendChild(rejectBtn);
+          buttons.appendChild(acceptBtn);
+          content.appendChild(title);
+          content.appendChild(text);
+          content.appendChild(buttons);
+          modal.appendChild(content);
+          document.body.appendChild(modal);
+          
+          modal.onclick = (e) => {
+            if (e.target === modal) {
+              document.body.removeChild(modal);
+              // Reset body styles that might affect layout
+              document.body.style.overflow = '';
+              document.body.style.paddingRight = '';
+            }
+          };
+        }
+        
+        function createPlaceholderButton() {
+          const btn = document.createElement('button');
+          btn.id = 'kapa-placeholder-btn';
+          btn.title = 'AI Chat Assistant';
+          btn.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12C2 13.93 2.6 15.73 3.63 17.21L2.36 21.36C2.22 21.79 2.63 22.2 3.06 22.06L7.21 20.79C8.69 21.82 10.49 22.42 12.42 22.42C17.94 22.42 22.42 17.94 22.42 12.42C22.42 6.9 17.52 2 12 2Z" fill="currentColor"/></svg>';
+          btn.style.cssText = 'position:fixed;bottom:20px;right:20px;width:56px;height:56px;border-radius:50%;background:#009f76;color:white;border:none;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.2);display:flex;align-items:center;justify-content:center;z-index:9999;transition:transform 0.2s;';
+          btn.onmouseenter = () => btn.style.transform = 'scale(1.05)';
+          btn.onmouseleave = () => btn.style.transform = 'scale(1)';
+          btn.onclick = showConsentModal;
+          document.body.appendChild(btn);
+        }
+        
+        function createSettingsButton() {
+          const btn = document.createElement('button');
+          btn.id = 'kapa-settings-btn';
+          btn.title = 'AI Assistant Preferences';
+          btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.2 19.8l4.2-4.2M15.6 8.4l4.2-4.2M1 12h6M17 12h6M4.2 4.2l4.2 4.2M15.6 15.6l4.2 4.2"/></svg>';
+          // Initial minimal styling - will be fully styled when inserted
+          btn.style.cssText = 'display:none;';
+          btn.onmouseover = () => {
+            btn.style.borderColor = '#009f76';
+            btn.style.color = '#009f76';
+          };
+          btn.onmouseout = () => {
+            btn.style.borderColor = 'var(--vp-c-divider)';
+            btn.style.color = 'var(--vp-c-text-2)';
+          };
+          btn.onclick = () => {
+            const isDark = document.documentElement.classList.contains('dark');
+            const currentConsent = getConsent();
+            const modal = document.createElement('div');
+            modal.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center;z-index:999999;';
+            
+            const content = document.createElement('div');
+            content.style.cssText = 'background:' + (isDark ? '#1e1e1e' : 'white') + ';border-radius:8px;max-width:500px;padding:32px;margin:20px;box-shadow:0 4px 20px rgba(0,0,0,0.2);';
+            
+            const title = document.createElement('h2');
+            title.textContent = 'AI Assistant Preferences';
+            title.style.cssText = 'margin:0 0 16px 0;color:#009f76;font-size:24px;';
+            
+            const status = document.createElement('p');
+            status.innerHTML = '<strong>Current status:</strong> ' + (currentConsent === 'accepted' ? 'AI Chat enabled with analytics' : 'Search only, no analytics');
+            status.style.cssText = 'margin:0 0 16px 0;padding:12px;background:' + (currentConsent === 'accepted' ? '#e8f5e9' : '#fff3e0') + ';border-radius:4px;color:' + (currentConsent === 'accepted' ? '#2e7d32' : '#e65100') + ';';
+            
+            const text = document.createElement('p');
+            text.innerHTML = 'Our AI assistant uses your questions to provide answers based on Gardener documentation. Your questions and interactions may be anonymously collected and analyzed to improve the search functionality and overall user experience. We don\\'t collect any personally identifiable information. By accepting, you consent to using this AI-powered feature and the collection of your data. <b>AI-generated responses may contain inaccuracies - please verify important information with the official documentation.</b>';
+            text.style.cssText = 'margin:0 0 24px 0;line-height:1.6;color:' + (isDark ? '#d0d0d0' : '#333') + ';font-size:15px;';
+            
+            const buttons = document.createElement('div');
+            buttons.style.cssText = 'display:flex;gap:12px;justify-content:flex-end;';
+            
+            const closeBtn = document.createElement('button');
+            closeBtn.textContent = 'Close';
+            closeBtn.style.cssText = 'padding:10px 20px;border:1px solid #ddd;background:white;color:#333;border-radius:6px;cursor:pointer;font-size:14px;font-weight:500;';
+            closeBtn.onmouseover = () => {
+              closeBtn.style.background = '#f5f5f5';
+              closeBtn.style.color = '#000';
+            };
+            closeBtn.onmouseout = () => {
+              closeBtn.style.background = 'white';
+              closeBtn.style.color = '#333';
+            };
+            closeBtn.onclick = () => {
+              document.body.removeChild(modal);
+              // Reset body styles that might affect layout
+              document.body.style.overflow = '';
+              document.body.style.paddingRight = '';
+            };
+            
+            const toggleBtn = document.createElement('button');
+            toggleBtn.textContent = currentConsent === 'accepted' ? 'Disable AI Chat' : 'Enable AI Chat';
+            toggleBtn.style.cssText = 'padding:10px 20px;border:none;background:#009f76;color:white;border-radius:6px;cursor:pointer;font-size:14px;';
+            toggleBtn.onmouseover = () => toggleBtn.style.background = '#00885f';
+            toggleBtn.onmouseout = () => toggleBtn.style.background = '#009f76';
+            toggleBtn.onclick = () => {
+              setConsent(currentConsent === 'accepted' ? 'rejected' : 'accepted');
+              document.body.removeChild(modal);
+              // Reset body styles before reload
+              document.body.style.overflow = '';
+              document.body.style.paddingRight = '';
+              window.location.reload();
+            };
+            
+            buttons.appendChild(closeBtn);
+            buttons.appendChild(toggleBtn);
+            content.appendChild(title);
+            content.appendChild(status);
+            content.appendChild(text);
+            content.appendChild(buttons);
+            modal.appendChild(content);
+            document.body.appendChild(modal);
+            
+            modal.onclick = (e) => {
+              if (e.target === modal) {
+                document.body.removeChild(modal);
+                // Reset body styles that might affect layout
+                document.body.style.overflow = '';
+                document.body.style.paddingRight = '';
+              }
+            };
+          };
+          
+          // Wrap search bar and insert button next to it
+          const insertButton = setInterval(() => {
+            const searchBar = document.querySelector('.VPNavBarSearch');
+            if (searchBar && !document.getElementById('kapa-settings-btn')) {
+              clearInterval(insertButton);
+              
+              // Create wrapper div
+              const wrapper = document.createElement('div');
+              wrapper.id = 'kapa-search-wrapper';
+              
+              // Insert wrapper in place of search bar
+              searchBar.parentNode.insertBefore(wrapper, searchBar);
+              
+              // Move search bar into wrapper
+              wrapper.appendChild(searchBar);
+              
+              // Style the button for inline positioning
+              btn.style.cssText = 'width:32px;height:32px;border-radius:6px;background:var(--vp-c-bg);color:var(--vp-c-text-2);border:1px solid var(--vp-c-divider);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;box-shadow:0 1px 2px rgba(0,0,0,0.1);flex-shrink:0;';
+              
+              // Add button to wrapper
+              wrapper.appendChild(btn);
+            }
+          }, 100);
+          
+          setTimeout(() => clearInterval(insertButton), 5000);
+        }
+        
+        const consent = getConsent();
+        if (consent === 'accepted') {
+          loadKapaWidget(true);
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', createSettingsButton);
+          } else {
+            createSettingsButton();
+          }
+        } else {
+          loadKapaWidget(false);
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+              if (!consent) createPlaceholderButton();
+              createSettingsButton();
+            });
+          } else {
+            if (!consent) createPlaceholderButton();
+            createSettingsButton();
+          }
+        }
+      })();`
     ],
     [
       'script',
