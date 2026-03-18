@@ -36,7 +36,7 @@ Currently, the `remote` setup supports a single soil cluster. However, work is u
 
 ### A Breaking Change for a Better Experience
 
-It's important to note that this is a **breaking change**. The `provider-extensions` setup has been removed, and there is no direct migration path to the new `remote` setup. If you have an existing setup, you must check out a previous Gardener version (v1.136.0 or earlier) to properly delete it and remove all resources from your infrastructure before adopting the new `remote` setup.
+It's important to note that this is a **breaking change**. The `provider-extensions` setup has been removed, and there is no direct migration path to the new `remote` setup. If you have an existing setup, you must check out a previous Gardener version (v1.137.0 or earlier) to properly delete it and remove all resources from your infrastructure before adopting the new `remote` setup.
 
 This change represents a significant step forward in improving the developer experience for Gardener, making it more stable, streamlined, and powerful.
 
