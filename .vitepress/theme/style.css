@@ -88,8 +88,8 @@ img[src='/search.png'] {
   padding-bottom: 10px;
 }
 
-/* Sidebar: indent all nested items (including level-1 categories) */
-#VPSidebarNav .VPSidebarItem.level-0 > .items {
+/* Sidebar: indent embedded/nested categories, but not top-level wrapper groups */
+#VPSidebarNav .VPSidebarItem.level-0 > .item + .items {
   border-left: 1px solid var(--vp-c-divider);
   padding-left: 16px;
 }
