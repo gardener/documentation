@@ -88,6 +88,12 @@ img[src='/search.png'] {
   padding-bottom: 10px;
 }
 
+/* Sidebar: indent all nested items (including level-1 categories) */
+#VPSidebarNav .VPSidebarItem.level-0 > .items {
+  border-left: 1px solid var(--vp-c-divider);
+  padding-left: 16px;
+}
+
 /* GitHub social link styling */
 .VPSocialLink[href*="github"] {
   color: var(--vp-c-text-1);
