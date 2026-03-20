@@ -1,15 +1,20 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vitepress'
 import banner from '../assets/banner.png'
 import bannerMobile from '../assets/banner-mobile.png'
 
-const BANNER_EXPIRY = new Date('2026-03-27T00:00:00')
+const BANNER_EXPIRY = new Date('2026-03-27T00:00:00Z')
 const BANNER_LINK = 'https://neonephos.org/events/2026_03_23_KubeCon_Europe'
+
+const now = ref(Date.now())
+let timer: ReturnType<typeof setInterval>
+onMounted(() => { timer = setInterval(() => { now.value = Date.now() }, 60_000) })
+onUnmounted(() => { clearInterval(timer) })
 
 const route = useRoute()
 const isLandingPage = computed(() => route.path === '/')
-const isExpired = computed(() => new Date() >= BANNER_EXPIRY)
+const isExpired = computed(() => now.value >= BANNER_EXPIRY.getTime())
 const isVisible = computed(() => isLandingPage.value && !isExpired.value)
 </script>
 
