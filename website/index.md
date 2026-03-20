@@ -53,7 +53,7 @@ features:
   - icon:
       src: /highlights/autonomous.svg
     title: Batteries Included
-    details: Benefit from self-healing and auto-scaling capabilities across the stack. Manage the lifecycle of your clusters with the click of a button or a `kubectl apply`.
+    details: Benefit from self-healing and auto-scaling capabilities across the stack. Manage the lifecycle of your clusters with the click of a button or a <code>kubectl apply</code>.
     link: /docs/getting-started/lifecycle/
   - icon:
       src: /highlights/gardener.svg
