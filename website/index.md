@@ -23,7 +23,7 @@ features:
   - icon: 
       src: /highlights/cloud-agnostic.svg
     title: Same Kubernetes, Any Cloud
-    details: Provision clusters with identical configuration and options on any infrastructure with 100% CNCF Kubernetes & AI conformance.
+    details: Provision clusters with identical configuration and options on any infrastructure. 100% CNCF Kubernetes & AI conformance.
     link: /docs/getting-started/architecture
     badgePlacement: top-right
     badges:
@@ -38,7 +38,7 @@ features:
   - icon:
       src: /highlights/extensible.svg
     title: Robust Scalability
-    details: Operate thousands of clusters without sacrificing performance, resilience, or cost efficiency. Day-1 & 2 operations are the same on any infrastructure.
+    details: Run thousands of clusters without sacrificing performance, resilience, or cost efficiency. Day-1 & 2 operations remain the same across infrastructures.
     link: /docs/guides/administer-shoots/scalability
   - icon:
       src: /highlights/certified.svg
