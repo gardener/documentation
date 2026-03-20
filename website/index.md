@@ -28,7 +28,7 @@ features:
   - icon:
       src: /highlights/extensible.svg
     title: Robust Scalability
-    details: Operate thousands of clusters without sacrificing performance, resilience, or cost efficiency.
+    details: Operate thousands of clusters without sacrificing performance, resilience, or cost efficiency. Day-1 & 2 operations are the same on any infrastructure.
     link: /docs/guides/administer-shoots/scalability
   - icon:
       src: /highlights/certified.svg
