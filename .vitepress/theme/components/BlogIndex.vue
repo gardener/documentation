@@ -353,10 +353,15 @@ function getAuthorGithubHref(login: string): string {
   margin: 1.2rem 0 0;
   display: grid;
   gap: 1.25rem;
+  width: 100%;
+  max-width: 100%;
 }
 
 .blog-entry {
   margin: 0;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .blog-card {
@@ -367,6 +372,10 @@ function getAuthorGithubHref(login: string): string {
   display: flex;
   flex-direction: column;
   gap: 0.55rem;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
@@ -390,6 +399,8 @@ function getAuthorGithubHref(login: string): string {
   padding: 0;
   font-size: 1.35rem;
   line-height: 1.25;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .title a {
@@ -406,6 +417,8 @@ function getAuthorGithubHref(login: string): string {
   margin: 0;
   color: var(--vp-c-text-2);
   line-height: 1.55;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .post-footer {
@@ -595,8 +608,18 @@ function getAuthorGithubHref(login: string): string {
 }
 
 @media (max-width: 640px) {
+  .blog-list,
+  .blog-entry,
+  .blog-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
   .blog-card {
     padding: 1rem 0.95rem 0.9rem;
+    overflow: hidden;
   }
 
   .title {
@@ -613,7 +636,11 @@ function getAuthorGithubHref(login: string): string {
 
   .authors {
     flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .author-list {
+    max-width: 100%;
   }
 }
 </style>
-
