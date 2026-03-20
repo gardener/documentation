@@ -25,16 +25,6 @@ features:
     title: Same Kubernetes, Any Cloud
     details: Provision clusters with identical configuration and options on any infrastructure with 100% CNCF Kubernetes & AI conformance.
     link: /docs/getting-started/architecture
-  - icon:
-      src: /highlights/extensible.svg
-    title: Robust Scalability
-    details: Operate thousands of clusters without sacrificing performance, resilience, or cost efficiency. Day-1 & 2 operations are the same on any infrastructure.
-    link: /docs/guides/administer-shoots/scalability
-  - icon:
-      src: /highlights/certified.svg
-    title: Security and Compliance
-    details: Check your clusters against enterprise-grade security standards. CNCF 100% Kubernetes & AI conformance.
-    link: /docs/security-and-compliance/kubernetes-hardening    
     badgePlacement: top-right
     badges:
       - src: /kubernets-certification/color.png
@@ -45,6 +35,16 @@ features:
         darkSrc: /kubernets-certification/ai-white.png
         href: /blog/2025/11/11-12-gardener-ai-conformance
         alt: Kubernetes AI Conformance
+  - icon:
+      src: /highlights/extensible.svg
+    title: Robust Scalability
+    details: Operate thousands of clusters without sacrificing performance, resilience, or cost efficiency. Day-1 & 2 operations are the same on any infrastructure.
+    link: /docs/guides/administer-shoots/scalability
+  - icon:
+      src: /highlights/certified.svg
+    title: Security and Compliance
+    details: Check your clusters against enterprise-grade security standards.
+    link: /docs/security-and-compliance/kubernetes-hardening    
   - icon:
       src: /highlights/ubiqutious.svg
     title: Fleet Management
