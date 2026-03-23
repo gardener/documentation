@@ -1,4 +1,30 @@
 <script setup lang="ts">
+/*
+MIT License
+
+Copyright (c) 2019-present, Yuxi (Evan) You
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Copied and adapted from -> https://github.com/vuejs/vitepress/blob/2342269486e82b9b3f692976892f77b0792268ee/src/client/theme-default/components/VPSidebarItem.vue
+*/
+
 import type { DefaultTheme } from 'vitepress/theme'
 import { useData } from 'vitepress'
 import {
@@ -130,7 +156,7 @@ const classes = computed(() => [
   { 'has-active': hasActiveLink.value }
 ])
 
-const SIDEBAR_LINK_CLICK_EVENT = 'gardener:sidebar-link-click'
+const SIDEBAR_LINK_CLICK_EVENT = 'gardener:sidebar-link-click' // Shared event for syncing collapse state across all sidebar items.
 
 type SidebarLinkClickDetail = {
   link: string
@@ -145,6 +171,7 @@ function normalizeLink(link?: string): string {
 }
 
 function itemContainsLink(item: DefaultTheme.SidebarItem, targetLink: string): boolean {
+  // Returns true when this item (or any nested child) is on the clicked link path.
   const normalizedTarget = normalizeLink(targetLink)
   if (!normalizedTarget) return false
 
@@ -156,6 +183,7 @@ function itemContainsLink(item: DefaultTheme.SidebarItem, targetLink: string): b
 }
 
 function onSidebarLinkClick(event: Event): void {
+  // Collapse this item unless it contains the clicked link in its subtree.
   const customEvent = event as CustomEvent<SidebarLinkClickDetail>
   const clickedLink = customEvent.detail?.link
   if (!clickedLink || !collapsible.value) return
@@ -177,6 +205,7 @@ function onCaretClick() {
 function onLinkClick() {
   if (typeof window === 'undefined' || !props.item.link) return
 
+  // Publish clicked link so sibling branches can auto-collapse.
   window.dispatchEvent(
     new CustomEvent<SidebarLinkClickDetail>(SIDEBAR_LINK_CLICK_EVENT, {
       detail: { link: props.item.link }
@@ -186,6 +215,7 @@ function onLinkClick() {
 
 onMounted(() => {
   if (typeof window === 'undefined') return
+  // Listen for link-click events dispatched from any sidebar item instance.
   window.addEventListener(SIDEBAR_LINK_CLICK_EVENT, onSidebarLinkClick as EventListener)
 })
 
