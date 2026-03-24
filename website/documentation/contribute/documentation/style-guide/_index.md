@@ -10,6 +10,7 @@ These are guidelines, not rules. Use your best judgment, and feel free to propos
   - [Structure and File Names](#structure-and-file-names)
   - [Topic Structure](#topic-structure)
   - [Front Matter](#front-matter)
+    - [Blogs](#blogs)
   - [Alerts](#alerts)
   - [Images](#images)
   - [General Tips](#general-tips)
@@ -31,7 +32,7 @@ The following table summarizes the types of documentation and their mapping to t
 | Reference | Provide a reference, for example, list all command line options of `gardenctl` and what they are used for. | [Overview of kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) | [Relevant headings](reference_template.md) | Reference |
 | Task | A step-by-step description that allows users to complete a specific task. | [Upgrading kubeadm clusters](https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/) |  [Overview, Prerequisites, Steps, Result](task_template.md) | Complex Task |
 | Trail | Collection of all other content types to cover a big topic. | [Custom Networking](https://docs.oracle.com/javase/tutorial/networking/TOC.html) | None | Maps |
-| Tutorial | A combination of many tasks that allows users to complete an example task with the goal to learn the details of a given feature.| [Deploying Cassandra with a StatefulSet](https://kubernetes.io/docs/tutorials/stateful-application/cassandra/) | Overview, Prerequisites, Tasks, Result | Tutorial |
+| Tutorial | A combination of many tasks that allows users to complete an example task with the goal to learn the details of a given feature. | [Deploying Cassandra with a StatefulSet](https://kubernetes.io/docs/tutorials/stateful-application/cassandra/) | Overview, Prerequisites, Tasks, Result | Tutorial |
 
 See the [Contributors Guide](../../_index.md) for more details on how to produce and contribute documentation.
 
@@ -93,6 +94,24 @@ There are a number of [predefined](https://gohugo.io/content-management/front-ma
 While this section will be automatically generated if your topic has a title header, adding more detailed information helps other users, developers, and technical writers better sort, classify and understand the topic.
 
 By using a metadata section you can also skip adding a title header or overwrite it in the navigation section.
+
+#### Blogs
+
+If you are writing a blog, please add this additional metadata so that it can be shown as intended:
+```yaml
+title: Blog Title
+newsSubtitle: October 01, 2025
+authors:
+- avatar: <author-profile-picture-link>
+  login: <author-GitHub-name>
+  name: <author-name>
+tags:
+  - <tag-1>
+  - <tag-2>
+  - ...
+```
+
+For more information on the currently used tags, see [Blog Tags Reference](../blog-tags.md).
 
 ### Alerts
 

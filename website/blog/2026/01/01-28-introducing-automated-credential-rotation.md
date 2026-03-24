@@ -8,8 +8,14 @@ authors:
   login: AleksandarSavchev
   name: Aleksandar Savchev
 aliases: ["/blog/2026/01/28/introducing-automated-credential-rotation"]
+tags:
+  - feature-announcement
+  - security
+  - observability
+  - storage
+  - node-management
+  - etcd
 ---
-
 Maintaining a strong security posture is crucial for any Kubernetes environment. A key aspect of this is the regular rotation of credentials. To simplify this essential task and reduce operational overhead, Gardener now supports the automatic rotation of several critical credentials during a `Shoot` cluster's maintenance window.
 
 ### Enhanced Security, Effortlessly

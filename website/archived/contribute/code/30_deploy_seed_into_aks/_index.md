@@ -16,7 +16,7 @@ setup.
 # High Level Overview
 
 In this example we'll follow these steps to create a Seed cluster on AKS:
-- [Deploying the Gardener and a Seed into an AKS cluster](#deploying-the-gardener-and-a-seed-into-an-aks-cluster)
+- [Deploying the previous Gardener versions and a Seed into an AKS cluster](#deploying-the-previous-gardener-versions-and-a-seed-into-an-aks-cluster)
 - [High Level Overview](#high-level-overview)
 - [Prerequisites](#prerequisites)
   - [AWS credentials for Route 53 Hosted Zone](#aws-credentials-for-route-53-hosted-zone)

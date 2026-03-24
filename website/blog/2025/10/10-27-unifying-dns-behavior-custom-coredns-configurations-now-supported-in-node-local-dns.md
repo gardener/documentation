@@ -5,12 +5,14 @@ newsSubtitle: October 27, 2025
 publishdate: 2025-10-27
 authors:
 - avatar: https://avatars.githubusercontent.com/DockToFuture
-  email: sebastian.stauch@sap.com
   login: DockToFuture
   name: Sebastian Stauch
 aliases: ["/blog/2025/10/27/unifying-dns-behavior-custom-coredns-configurations-now-supported-in-node-local-dns"]
+tags:
+  - technical-deep-dive
+  - networking
+  - node-management
 ---
-
 Gardener is committed to making `node-local-dns` a standard feature across all shoot clusters to enhance DNS performance and reliability. A recent enhancement ensures that enabling this feature is a seamless experience, even for clusters with specialized DNS configurations. Gardener now supports applying custom CoreDNS rules directly within `node-local-dns`.
 
 ### The Challenge: Inconsistent DNS Resolution

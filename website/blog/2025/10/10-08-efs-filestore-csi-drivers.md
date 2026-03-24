@@ -8,8 +8,15 @@ authors:
   login: hebelsan
   name: Alexander Hebel
 aliases: ["/blog/2025/10/08/new-shared-file-storage-options-on-aws-and-gcp"]
+tags:
+  - technical-deep-dive
+  - security
+  - networking
+  - storage
+  - node-management
+  - provider-aws
+  - provider-gcp
 ---
-
 Gardener continues to expand its storage capabilities, now offering integrated support for managed Network File System (NFS) services on Amazon Web Services (AWS) and Google Cloud Platform (GCP). These additions provide a straightforward way to provision shared, persistent storage with `ReadWriteMany` access for workloads that require concurrent access from multiple pods.
 
 ### AWS Elastic File System (EFS) Support
@@ -41,7 +48,8 @@ spec:
         enabled: true
         # id: fs-12345678 # Optional: Use an existing EFS file system
 ```
-> [!NOTE] 
+
+> [!NOTE]
 > When using this feature, the instance metadata setting `httpTokens` must not be set to `required`, as this would prevent the driver from accessing the necessary metadata.
 
 ### GCP Filestore Support

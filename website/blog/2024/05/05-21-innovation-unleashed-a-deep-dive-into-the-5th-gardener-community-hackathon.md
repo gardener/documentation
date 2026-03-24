@@ -5,11 +5,15 @@ newsSubtitle: May 21, 2024
 publishdate: 2024-05-21
 authors:
 - name: Rafael Franzke
-  email: rafael.franzke@sap.com
+  login: rfranzke
   avatar: https://avatars.githubusercontent.com/u/19169361
 aliases: ["/blog/2024/05/21/01"]
+tags:
+  - technical-deep-dive
+  - community-event
+  - security
+  - helm
 ---
-
 ![Hackathon 2024/05 Team](images/hackathon202405-team.jpg "Hackathon 2024/05 Team")
 
 The Gardener community recently concluded its [5th Hackathon](https://github.com/gardener-community/hackathon/blob/main/2024-05_Schelklingen/README.md), a week-long event that brought together multiple companies to collaborate on common topics of interest. The Hackathon, held at [Schlosshof Freizeitheim](https://www.schlosshof-info.de/) in [Schelklingen, Germany](https://maps.app.goo.gl/28FZXpzZLjgaKNef9), was a testament to the power of collective effort and open-source, producing a tremendous number of results in a short time and moving the Gardener project forward with innovative solutions.

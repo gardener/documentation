@@ -4,10 +4,13 @@ linkTitle: "Gardener Achieves CNCF AI Conformance for Kubernetes"
 newsSubtitle: November 12, 2025
 publishdate: 2025-11-12
 authors:
-- email: vedran.lerenc@sap.com
+- name: Vedran Lerenc
+  login: vlerenc
+  avatar: https://avatars.githubusercontent.com/vlerenc
 aliases: ["/blog/2025/11/12/gardener-ai-conformance"]
+tags:
+  - technical-deep-dive
 ---
-
 We are happy to announce that Gardener is one of the first Kubernetes offerings to report official AI Conformance, as defined by the Cloud Native Computing Foundation's (CNCF) Kubernetes AI Conformance Working Group. This significant milestone underscores Gardener's commitment to providing a robust, scalable, and reliable platform for running modern, resource-intensive AI and machine learning (ML) workloads.
 
 ### What is Kubernetes AI Conformance?
@@ -52,3 +55,4 @@ With Gardener, you can be assured that your Kubernetes clusters are not just cap
 *   [Gardener AI Conformance Submission](https://github.com/gardener/gardener-ai-conformance)
 *   [Gardener NVIDIA GPU Operator Installation Guide](https://github.com/gardener/gardener-ai-conformance/blob/main/v1.33/NVIDIA-GPU-Operator.md)
 *   [Gardener AI Conformance Requirements and Demonstration](https://github.com/gardener/gardener-ai-conformance/tree/main/v1.33)
+

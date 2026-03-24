@@ -5,12 +5,15 @@ newsSubtitle: October 22, 2025
 publishdate: 2025-10-22
 authors:
 - avatar: https://avatars.githubusercontent.com/dnaeon
-  email: dnaeon@gmail.com
   login: dnaeon
   name: Marin Atanasov Nikolov
 aliases: ["/blog/2025/10/22/enhanced-endpoint-discovery-with-extensible-advertised-addresses"]
+tags:
+  - feature-announcement
+  - security
+  - observability
+  - extensions
 ---
-
 Gardener has introduced a new feature that enhances the discoverability of services running within a Shoot's control plane. While the `.status.advertisedAddresses` field in the `Shoot` resource has always provided key endpoints like the API server URL, it now supports extension by other components.
 
 ### The Challenge of Endpoint Discovery

@@ -8,8 +8,13 @@ authors:
   login: ishan16696
   name: Ishan Tyagi
 aliases: ["/blog/2025/07/16/enhancing-data-protection-with-immutable-backup-buckets"]
+tags:
+  - feature-announcement
+  - security
+  - storage
+  - etcd
+  - extensions
 ---
-
 Gardener has introduced support for immutable backup buckets, a critical feature for enhancing the security and resilience of your Kubernetes clusters. This new capability leverages native cloud provider features to protect your etcd backups from accidental or malicious deletion and modification, helping you meet stringent security and compliance requirements.
 
 ### What Are Immutable Backup Buckets?

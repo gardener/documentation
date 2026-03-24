@@ -5,11 +5,13 @@ newsSubtitle: April 05, 2024
 publishdate: 2024-04-05
 authors:
 - name: Rafael Franzke
-  email: rafael.franzke@sap.com
+  login: rfranzke
   avatar: https://avatars.githubusercontent.com/u/19169361
 aliases: ["/blog/2024/04/05/01"]
+tags:
+  - community-event
+  - security
 ---
-
 ![KubeCon EU 2024 Keynote Room](images/kubecon-eu2024.png "KubeCon EU 2024 Keynote Room")
 
 KubeCon + CloudNativeCon Europe 2024, recently held in Paris, was a testament to the robustness of the open-source community and its pivotal role in driving advancements in AI and cloud-native technologies. With a record attendance of over +12,000 participants, the conference underscored the ubiquity of cloud-native architectures and the business opportunities they provide.

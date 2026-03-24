@@ -5,10 +5,16 @@ newsSubtitle: Aug 13, 2025
 publishdate: 2025-08-13
 authors:
 - avatar: https://avatars.githubusercontent.com/dnaeon
-  email: dnaeon@gmail.com
   login: dnaeon
   name: Marin Atanasov Nikolov
 aliases: [/blog/2025/08/13/getting-started-with-gardener-inventory]
+tags:
+  - technical-deep-dive
+  - cost-optimization
+  - provider-aws
+  - provider-azure
+  - provider-gcp
+  - provider-openstack
 ---
 Running Kubernetes clusters at scale comes with its own challenges.
 

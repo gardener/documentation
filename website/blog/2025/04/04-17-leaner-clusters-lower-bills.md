@@ -5,11 +5,15 @@ newsSubtitle: April 17, 2025
 publishdate: 2025-04-17
 authors:
 - name: Vedran Lerenc
-  email: vedran.lerenc@sap.com
+  login: vlerenc
   avatar: https://avatars.githubusercontent.com/vlerenc
 aliases: ["/blog/2025/04/17/01"]
+tags:
+  - technical-deep-dive
+  - cost-optimization
+  - node-management
+  - apeiro
 ---
-
 As organizations embrace Kubernetes for managing containerized applications at scale, the underlying infrastructure costs, particularly for compute resources, become a critical factor. Gardener, the open-source Kubernetes management platform, empowers organizations like SAP, STACKIT, T-Systems, and others (see [adopters](https://gardener.cloud/adopter)) to operate tens of thousands of Kubernetes clusters efficiently across diverse environments. Gardener's role as a core technology in initiatives like [NeoNephos](https://neonephos.org/projects), aimed at advancing digital autonomy in Europe (see [KubeCon London 2025 Keynote](https://www.youtube.com/watch?v=85MDID9Ju04&t=621s) and [press announcement](https://linuxfoundation.eu/newsroom/the-linux-foundation-announces-the-launch-of-neonephos-to-advance-digital-autonomy-in-europe)), further underscores the need for cost-effective and sustainable operations.
 
 At the heart of Gardener's architecture is the concept of "Kubeception" (see [readme](https://github.com/gardener/gardener?tab=readme-ov-file#gardener) and [architecture](https://github.com/gardener/gardener/blob/master/docs/concepts/architecture.md)): Gardener runs *on* Kubernetes (called a **runtime cluster**), facilitates access *through* a self-managed node-less Kubernetes cluster (called the **garden cluster**), manages Kubernetes control planes as pods *within* self-managed Kubernetes clusters that provide high scalability to Gardener (called **seed clusters**), and *provisions* end-user Kubernetes clusters (called **shoot clusters**). Therefore, optimizing Gardener's own Kubernetes-related resource consumption directly translates into cost savings across all these layers, benefiting both Gardener service providers and the end-users consuming the managed clusters.
@@ -322,3 +326,4 @@ Optimizing Kubernetes compute costs at scale is a complex but rewarding endeavor
 6.  **Accurate Overheads:** Measure and tailor `kube-reserved` based on actual system usage patterns rather than static formulas.
 
 These efforts have yielded substantial cost reductions for operating Gardener itself and, by extension, for all Gardener adopters running managed Kubernetes clusters. We hope sharing our journey provides valuable insights for your own optimization efforts, whether you're just starting or looking to refine your existing strategies.
+

@@ -5,11 +5,18 @@ newsSubtitle: Mar 18, 2025
 publishdate: 2025-03-18
 authors:
 - name: Sonu Kumar Singh
-  email: sonu.kumar.singh02@sap.com
+  login: acumino
   avatar: https://avatars.githubusercontent.com/acumino
 aliases: ["/blog/2025/03/18/01"]
+tags:
+  - community-event
+  - security
+  - networking
+  - provider-aws
+  - provider-azure
+  - provider-gcp
+  - provider-openstack
 ---
-
 # Gardener at KubeCon + CloudNativeCon Europe, London 2025
 
 The open-source project [Gardener](https://gardener.cloud/) is set to showcase its cutting-edge Kubernetes-as-a-Service (KaaS) capabilities at [KubeCon + CloudNativeCon Europe](https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/) 2025 in London.

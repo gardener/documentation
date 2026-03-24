@@ -5,12 +5,15 @@ newsSubtitle: May 21, 2025
 publishdate: 2025-05-21
 authors:
 - avatar: https://avatars.githubusercontent.com/ScheererJ
-  email: johannes.scheerer@sap.com
   login: ScheererJ
   name: Johannes Scheerer
 aliases: ["/blog/2025/05/21/fine-tuning-kube-proxy-readiness-ensuring-accurate-health-checks-during-node-scale-down"]
+tags:
+  - technical-deep-dive
+  - networking
+  - node-management
+  - provider-gcp
 ---
-
 Gardener has recently refined how it determines the readiness of `kube-proxy` components within managed Kubernetes clusters. This adjustment leads to more accurate system health reporting, especially during node scale-down operations orchestrated by `cluster-autoscaler`.
 
 ### The Challenge: kube-proxy Readiness During Node Scale-Down

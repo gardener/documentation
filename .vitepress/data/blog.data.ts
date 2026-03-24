@@ -25,6 +25,7 @@ Copied and adapted from -> https://github.com/vitejs/vite/blob/9b98dcbf75546240e
 */
 
 import { createContentLoader } from 'vitepress'
+import { normalizeAuthors, normalizeTags, type BlogAuthor } from '../shared/blogMetadata'
 
 interface Post {
   title: string
@@ -33,7 +34,9 @@ interface Post {
     time: number
     string: string
   }
-  excerpt: string | undefined
+  authors: BlogAuthor[]
+  tags: string[]
+  preview: string | undefined
 }
 
 declare const data: Post[]
@@ -41,117 +44,323 @@ export { data }
 
 export default createContentLoader('blog/**/*.md', {
   excerpt: true,
+  render: true,
   transform(raw): Post[] {
-
     return raw
-        .filter(page => {
-          // Filter out index files and images
-          const isIndex = page.url.includes('_index') || page.url === '/blog/' || page.url.includes('/images/');
+      .filter(page => {
+        // Filter out index files and images
+        const isIndex = page.url.includes('_index') || page.url === '/blog/' || page.url.includes('/images/')
 
-          // Check if it's not a folder
-          const isNotFolder = !page.url.endsWith('/');
+        // Check if it's not a folder
+        const isNotFolder = !page.url.endsWith('/')
 
-          // Check if page has a date in frontmatter or in filename
-          let hasDate = !!(page.frontmatter.publishdate || page.frontmatter.date);
+        const frontmatterDate = page.frontmatter.publishdate || page.frontmatter.date
+        const extractedDate = extractDateFromBlogUrl(page.url)
+        const hasDate = Boolean(frontmatterDate || extractedDate)
 
-          // If no date in frontmatter, try to extract from filename
-          if (!hasDate && page.url) {
-            // URLs like /blog/2019/06.11-Feature-Flags...
-            const datePattern = /\/(\d{4})\/(\d{2})\.(\d{2})-/;
-            hasDate = datePattern.test(page.url);
-          }
+        return !isIndex && isNotFolder && hasDate
+      })
+      .map(page => {
+        const { url, frontmatter, excerpt, html } = page
+        const source = getSourceMarkdown(page)
+        const dateValue = frontmatter.publishdate || frontmatter.date || extractDateFromBlogUrl(url)
 
-          return !isIndex && isNotFolder;
-        })
-        .map(({ url, frontmatter, excerpt }) => {
-          // Try to get date from frontmatter
-          let dateValue = frontmatter.publishdate || frontmatter.date;
-
-          // If no date in frontmatter, try to extract from URL/filename
-          if (!dateValue && url) {
-            const match = url.match(/\/(\d{4})\/(\d{2})\.(\d{2})-/);
-            if (match) {
-              const [, year, month, day] = match;
-              dateValue = `${year}-${month}-${day}`;
-            }
-          }
-
-          return {
-            title: frontmatter.title || frontmatter.linkTitle || 'Untitled',
-            url,
-            excerpt,
-            date: formatDate(dateValue, frontmatter.title)
-          };
-        })
-        .sort((a, b) => b.date.time - a.date.time)
+        return {
+          title: frontmatter.title || frontmatter.linkTitle || 'Untitled',
+          url,
+          authors: normalizeAuthors(frontmatter.authors ?? frontmatter.author),
+          tags: normalizeTags(frontmatter.tags),
+          preview: extractPreview(source, html, excerpt),
+          date: formatDate(dateValue, frontmatter.title)
+        }
+      })
+      .sort((a, b) => b.date.time - a.date.time)
   }
 })
 
-
-function formatDate(raw: string | Date, title: string): Post['date'] {
-  if (!raw) {
-    // Fallback for posts without dates
-    if(title !== 'Overview'){
-      console.warn(`Post: ${title} missing date, using current date as fallback`);
+function formatDate(raw: string | Date | undefined, title: string | undefined): Post['date'] {
+  const parsed = parseDateValue(raw)
+  if (!parsed) {
+    if (title !== 'Overview') {
+      console.warn(`Post: ${title} missing or invalid date, sorting it to the bottom`)
     }
-    const now = new Date();
+
     return {
-      time: +now,
-      string: now.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      })
-    };
+      time: 0,
+      string: 'Undated'
+    }
   }
 
-  const date = new Date(raw);
+  return {
+    time: +parsed,
+    string: toDisplayDate(parsed)
+  }
+}
 
-  // If the date is invalid, try parsing with a different format
-  if (isNaN(date.getTime())) {
-    // Try to parse from format like "2019-05-24" or other common formats
-    console.warn(`Invalid date format: ${raw}, attempting to parse differently`);
+function parseDateValue(raw: string | Date | undefined): Date | undefined {
+  if (!raw) {
+    return undefined
+  }
 
-    // Try different parsing strategies
-    if (typeof raw === 'string') {
-      // Try to extract a date from formats like "2019/06.11-Feature..."
-      const match = raw.match(/(\d{4})[-/.](\d{2})[-/.](\d{2})/);
-      if (match) {
-        const [, year, month, day] = match;
-        const parsedDate = new Date(`${year}-${month}-${day}`);
-        if (!isNaN(parsedDate.getTime())) {
-          return {
-            time: +parsedDate,
-            string: parsedDate.toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
-            })
-          };
-        }
+  if (raw instanceof Date) {
+    if (Number.isNaN(raw.getTime())) {
+      return undefined
+    }
+
+    return new Date(Date.UTC(raw.getUTCFullYear(), raw.getUTCMonth(), raw.getUTCDate()))
+  }
+
+  const trimmed = raw.trim()
+  if (!trimmed) {
+    return undefined
+  }
+
+  const isoDateOnly = /^(\d{4})-(\d{2})-(\d{2})$/.exec(trimmed)
+  if (isoDateOnly) {
+    const [, year, month, day] = isoDateOnly
+    return normalizeDateParts(year, month, day)
+  }
+
+  const isoDateTime = /^(\d{4})-(\d{2})-(\d{2})T/.exec(trimmed)
+  if (isoDateTime) {
+    const [, year, month, day] = isoDateTime
+    return normalizeDateParts(year, month, day)
+  }
+
+  const genericDate = /(\d{4})[-/.](\d{2})[-/.](\d{2})/.exec(trimmed)
+  if (genericDate) {
+    const [, year, month, day] = genericDate
+    return normalizeDateParts(year, month, day)
+  }
+
+  return undefined
+}
+
+function toDisplayDate(date: Date): string {
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    timeZone: 'UTC'
+  })
+}
+
+function extractDateFromBlogUrl(url: string | undefined): string | undefined {
+  if (!url) {
+    return undefined
+  }
+
+  // New format: /blog/2026/02/02-18-some-title/
+  const monthFolderAndDay = url.match(/\/(\d{4})\/(\d{2})\/(\d{2})[-.](\d{2})-/)
+  if (monthFolderAndDay) {
+    const [, year, , month, day] = monthFolderAndDay
+    const normalized = normalizeDateParts(year, month, day)
+    if (normalized) {
+      return normalized.toISOString().slice(0, 10)
+    }
+  }
+
+  // Legacy format without the repeated month: /blog/2020/11.23-some-title/
+  const legacy = url.match(/\/(\d{4})\/(\d{2})[.-](\d{2})-/)
+  if (legacy) {
+    const [, year, month, day] = legacy
+    const normalized = normalizeDateParts(year, month, day)
+    if (normalized) {
+      return normalized.toISOString().slice(0, 10)
+    }
+  }
+
+  return undefined
+}
+
+function normalizeDateParts(yearRaw: string, monthRaw: string, dayRaw: string): Date | undefined {
+  const year = Number(yearRaw)
+  const month = Number(monthRaw)
+  const day = Number(dayRaw)
+
+  if (!Number.isInteger(year) || !Number.isInteger(month) || !Number.isInteger(day)) {
+    return undefined
+  }
+
+  const date = new Date(Date.UTC(year, month - 1, day))
+  if (
+    date.getUTCFullYear() !== year
+    || date.getUTCMonth() !== month - 1
+    || date.getUTCDate() !== day
+  ) {
+    return undefined
+  }
+
+  return date
+}
+
+function getSourceMarkdown(value: unknown): string | undefined {
+  if (!value || typeof value !== 'object') {
+    return undefined
+  }
+
+  const src = (value as { src?: unknown }).src
+  return typeof src === 'string' ? src : undefined
+}
+
+function extractPreview(
+  source: string | undefined,
+  html: string | undefined,
+  fallbackExcerpt: string | undefined
+): string | undefined {
+  const fromSource = extractPreviewFromMarkdown(source)
+  if (fromSource) {
+    return fromSource
+  }
+
+  const fromHtml = extractPreviewFromHtml(html)
+  if (fromHtml) {
+    return fromHtml
+  }
+
+  return normalizePreviewText(fallbackExcerpt)
+}
+
+function extractPreviewFromMarkdown(markdown: string | undefined): string | undefined {
+  if (!markdown) {
+    return undefined
+  }
+
+  const withoutFrontmatter = markdown.replace(/^\uFEFF?---\s*[\r\n][\s\S]*?[\r\n]---\s*[\r\n]?/, '')
+  const lines = withoutFrontmatter.split(/\r?\n/)
+  const paragraphLines: string[] = []
+
+  let inFence = false
+  let fenceToken = ''
+
+  for (const rawLine of lines) {
+    const line = rawLine.trim()
+
+    const fenceMatch = line.match(/^(`{3,}|~{3,})/)
+    if (fenceMatch) {
+      const token = fenceMatch[1]
+      if (!inFence) {
+        inFence = true
+        fenceToken = token[0]
+      } else if (line.startsWith(fenceToken.repeat(3))) {
+        inFence = false
+        fenceToken = ''
+      }
+      continue
+    }
+
+    if (inFence) {
+      continue
+    }
+
+    if (!line) {
+      if (paragraphLines.length) {
+        break
+      }
+      continue
+    }
+
+    if (!paragraphLines.length) {
+      if (line.startsWith('#') || line.startsWith(':::')) {
+        continue
+      }
+
+      if (/^(-|\*|\+)\s/.test(line) || /^\d+\.\s/.test(line)) {
+        continue
+      }
+
+      if (line.startsWith('|') || /^<\w+/.test(line)) {
+        continue
       }
     }
 
-    // If all else fails, use current date
-    const fallback = new Date();
-    return {
-      time: +fallback,
-      string: fallback.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      })
-    };
+    paragraphLines.push(line)
   }
 
-  // Normal case - valid date
-  date.setUTCHours(12);
-  return {
-    time: +date,
-    string: date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    })
+  if (!paragraphLines.length) {
+    return undefined
   }
+
+  return normalizePreviewText(stripMarkdownFormatting(paragraphLines.join(' ')))
 }
+
+function extractPreviewFromHtml(html: string | undefined): string | undefined {
+  if (!html) {
+    return undefined
+  }
+
+  const trimmedHtml = html.trimStart()
+  const afterTitleHeading = trimmedHtml.replace(/^<h1\b[^>]*>[\s\S]*?<\/h1>/i, '')
+
+  // Prefer the first paragraph after the title.
+  const firstParagraph = afterTitleHeading.match(/<p\b[^>]*>[\s\S]*?<\/p>/i)
+  if (firstParagraph) {
+    const text = normalizePreviewText(firstParagraph[0])
+    if (text) {
+      return text
+    }
+  }
+
+  const divBlocks = afterTitleHeading.match(/<div\b[^>]*>[\s\S]*?<\/div>/gi) || []
+  for (const div of divBlocks) {
+    if (/<pre\b|<code\b|class="[^"]*language-/.test(div)) {
+      continue
+    }
+
+    const text = normalizePreviewText(div)
+    if (text) {
+      return text
+    }
+  }
+
+  const blocks = afterTitleHeading.match(/<(blockquote|ul|ol|pre|table)\b[^>]*>[\s\S]*?<\/\1>/gi) || []
+  for (const block of blocks) {
+    const text = normalizePreviewText(block)
+    if (text) {
+      return text
+    }
+  }
+
+  return normalizePreviewText(afterTitleHeading)
+}
+
+function stripMarkdownFormatting(raw: string): string {
+  return raw
+    .replace(/!\[([^\]]*)\]\([^)]+\)/g, '$1')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/`([^`]+)`/g, '$1')
+    .replace(/\*\*([^*]+)\*\*/g, '$1')
+    .replace(/\*([^*]+)\*/g, '$1')
+    .replace(/__([^_]+)__/g, '$1')
+    .replace(/_([^_]+)_/g, '$1')
+    .replace(/~~([^~]+)~~/g, '$1')
+}
+
+function normalizePreviewText(raw: string | undefined, maxLength = 360): string | undefined {
+  if (!raw) {
+    return undefined
+  }
+
+  const text = raw
+    .replace(/<!--[\s\S]*?-->/g, ' ')
+    .replace(/<script\b[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style\b[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/\s+/g, ' ')
+    .trim()
+
+  if (!text) {
+    return undefined
+  }
+
+  return text.length > maxLength
+    ? `${text.slice(0, maxLength).trimEnd()}...`
+    : text
+}
+

@@ -5,11 +5,15 @@ newsSubtitle: Oct 24, 2024
 publishdate: 2024-10-24
 authors:
 - name: Tim Usner
-  email: tim.usner@sap.com
+  login: timuthy
   avatar: https://avatars.githubusercontent.com/u/40451181
 aliases: ["/blog/2024/10/24/01"]
+tags:
+  - community-event
+  - security
+  - provider-aws
+  - provider-azure
 ---
-
 [KubeCon + CloudNativeCon NA](https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/) is just around the corner, taking place this year amidst the stunning backdrop of the Rocky Mountains in Salt Lake City, Utah.
 
 This year, we're thrilled to announce that the [Gardener open-source project](https://gardener.cloud/) will have its own booth at the event.

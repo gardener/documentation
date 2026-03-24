@@ -8,8 +8,10 @@ authors:
   login: oliver-goetz
   name: "Oliver G\xF6tz"
 aliases: ["/blog/2025/06/18/enhanced-internal-traffic-management-l7-load-balancing-for-kube-apiservers-in-gardener"]
+tags:
+  - feature-announcement
+  - networking
 ---
-
 Gardener continuously evolves to optimize performance and reliability. A recent improvement focuses on how internal control plane components communicate with `kube-apiserver` instances, introducing cluster-internal Layer 7 (L7) load balancing to ensure better resource distribution and system stability.
 
 ### The Challenge: Unbalanced Internal Load on kube-apiservers

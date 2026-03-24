@@ -5,16 +5,18 @@ newsSubtitle: June 25, 2025
 publishdate: 2025-06-25
 authors:
 - avatar: https://avatars.githubusercontent.com/dimityrmirchev
-  email: dimitar.mirchev@sap.com
   login: dimityrmirchev
   name: Dimitar Mirchev
 - avatar: https://avatars.githubusercontent.com/vpnachev
-  email: vladimir.nachev@sap.com
   login: vpnachev
   name: Vladimir Nachev
 aliases: ["/blog/2025/06/25/improving-credential-management-for-seed-backups"]
+tags:
+  - technical-deep-dive
+  - security
+  - storage
+  - node-management
 ---
-
 Gardener has introduced a new feature gate, `DoNotCopyBackupCredentials`, to enhance the security and clarity of how backup credentials for managed seeds are handled. This change moves away from an implicit credential-copying mechanism to a more explicit and secure configuration practice.
 
 ### The Old Behavior and Its Drawbacks

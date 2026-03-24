@@ -5,12 +5,15 @@ newsSubtitle: July 30, 2025
 publishdate: 2025-07-30
 authors:
 - avatar: https://avatars.githubusercontent.com/domdom82
-  email: Dominik.Froehlich@sap.com
   login: domdom82
   name: Dominik Froehlich
 aliases: ["/blog/2025/07/30/enhanced-network-flexibility-cidr-overlap-now-supported-for-ha-shoots"]
+tags:
+  - feature-announcement
+  - networking
+  - node-management
+  - extensions
 ---
-
 Gardener continues to enhance its networking capabilities, offering users greater flexibility in managing their cluster landscapes. A significant advancement is the extension of IPv4 network overlap support to Shoot clusters with high-availability (HA) control planes. Previously a feature exclusive to non-HA Shoots, this update allows both single-stack IPv4 and dual-stack Shoots to utilize pod, service, and node network ranges that overlap with the networks of their Seed cluster.
 
 ### Disentangling Networks with Double NAT

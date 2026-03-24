@@ -5,12 +5,15 @@ newsSubtitle: June 25, 2025
 publishdate: 2025-06-25
 authors:
 - avatar: https://avatars.githubusercontent.com/DockToFuture
-  email: sebastian.stauch@sap.com
   login: DockToFuture
   name: Sebastian Stauch
 aliases: ["/blog/2025/06/25/enabling-seamless-ipv4-to-dual-stack-migration-for-kubernetes-clusters-on-gcp"]
+tags:
+  - technical-deep-dive
+  - networking
+  - node-management
+  - provider-gcp
 ---
-
 Gardener continues to enhance its networking capabilities, now offering a streamlined migration path for existing IPv4-only shoot clusters on Google Cloud Platform (GCP) to dual-stack (IPv4 and IPv6). This allows clusters to leverage the benefits of IPv6 networking while maintaining IPv4 compatibility.
 
 ### The Shift to Dual-Stack: What Changes?

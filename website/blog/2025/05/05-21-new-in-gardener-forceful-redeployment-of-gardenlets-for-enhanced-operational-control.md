@@ -5,12 +5,14 @@ newsSubtitle: May 21, 2025
 publishdate: 2025-05-21
 authors:
 - avatar: https://avatars.githubusercontent.com/shafeeqes
-  email: shafeeque.e.s@sap.com
   login: shafeeqes
   name: Shafeeque E S
 aliases: ["/blog/2025/05/21/new-in-gardener-forceful-redeployment-of-gardenlets-for-enhanced-operational-control"]
+tags:
+  - feature-announcement
+  - security
+  - node-management
 ---
-
 Gardener continues to enhance its operational capabilities, and a recent improvement introduces a much-requested feature for managing gardenlets: the ability to forcefully trigger their redeployment. This provides operators with greater control and a streamlined recovery path for specific scenarios.
 
 ### The Standard gardenlet Lifecycle

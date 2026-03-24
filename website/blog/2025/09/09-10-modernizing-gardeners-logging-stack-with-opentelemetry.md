@@ -6,10 +6,13 @@ publishdate: 2025-09-10
 authors:
 - avatar: https://avatars.githubusercontent.com/rrhubenov
   login: rrhubenov
-  name: rhubenov
+  name: Radoslav Hubenov
 aliases: ["/blog/2025/09/10/modernizing-gardeners-logging-stack-with-opentelemetry"]
+tags:
+  - technical-deep-dive
+  - observability
+  - storage
 ---
-
 Gardener is introducing a significant enhancement to its logging architecture for shoot clusters. By enabling the new `OpenTelemetryCollector` feature gate, shoots will be instrumented with the power and flexibility of the [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/) to process and route shoot logs. This marks a key step in the evolution of Gardener's observability stack, as outlined in [GEP-34](https://github.com/gardener/gardener/blob/master/docs/proposals/34-observability2.0-opentelemtry-operator-and-collectors.md).
 
 ### A More Flexible Logging Pipeline
@@ -40,3 +43,4 @@ This update is a foundational move towards a more powerful, flexible, and standa
 *   **[GitHub Pull Request #12568](https://github.com/gardener/gardener/pull/12568)**
 *   **[GEP-34: Observability 2.0 - OpenTelemetry Operator and Collectors](https://github.com/gardener/gardener/blob/master/docs/proposals/34-observability2.0-opentelemtry-operator-and-collectors.md)**
 *   **[OpenTelemetry Collector Documentation](https://opentelemetry.io/docs/collector/)**
+
