@@ -25,11 +25,11 @@ The Shoot health check controller has been improved to produce error codes (if a
 
 ### Gardener will now block removal of Kubernetes and machine image versions from the `CloudProfile` which are still in use
 ​
-The Gardener API Server now validates the changes of `CloudProfile` against Shoots that are using it. And will block removal of in use versions of Kubernetes and machine images from the `CloudProfile`. This is part of the "Gardener Versioning Policy" proposal that you can find at [GEP-5](https://github.com/gardener/gardener/blob/master/docs/proposals/05-versioning-policy.md)
+The Gardener API Server now validates the changes of `CloudProfile` against Shoots that are using it. And will block removal of in use versions of Kubernetes and machine images from the `CloudProfile`. This is part of the "Gardener Versioning Policy" proposal that you can find at [GEP-5](https://github.com/gardener/enhancements/blob/main/geps/0005-versioning-policy/README.md)
 ​
 ### Forceful Shoot clusters updates
 ​
-You can specify for which Kubernetes and machine image versions you can forcefully upgrade to newer ones when expired. This is part of the "Gardener Versioning Policy" proposal that you can find at [GEP-5](https://github.com/gardener/gardener/blob/master/docs/proposals/05-versioning-policy.md)
+You can specify for which Kubernetes and machine image versions you can forcefully upgrade to newer ones when expired. This is part of the "Gardener Versioning Policy" proposal that you can find at [GEP-5](https://github.com/gardener/enhancements/blob/main/geps/0005-versioning-policy/README.md)
 
 ### Gardener supports `metadata.generateName` as alternative to `metadata.name`
 
