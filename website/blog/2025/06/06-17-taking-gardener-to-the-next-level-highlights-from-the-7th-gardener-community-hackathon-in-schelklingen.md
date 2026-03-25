@@ -46,7 +46,7 @@ The [PR #12260](https://github.com/gardener/gardener/pull/12260) is awaiting rev
 
 Improving how users monitor and manage Gardener clusters was another key theme.
 
-A significant step towards Gardener's [Observability 2.0 initiative](https://github.com/gardener/gardener/blob/master/docs/proposals/34-observability2.0-opentelemtry-operator-and-collectors.md) was made with the **OpenTelemetry Transport for `Shoot` Metrics** ([watch presentation](https://youtu.be/TCLXovw43HA?t=808s)).
+A significant step towards Gardener's [Observability 2.0 initiative](https://github.com/gardener/enhancements/blob/main/geps/0034-observability2.0-opentelemetry/README.md) was made with the **OpenTelemetry Transport for `Shoot` Metrics** ([watch presentation](https://youtu.be/TCLXovw43HA?t=808s)).
 The current method of collecting shoot metrics via the Kubernetes API server `/proxy` endpoint lacks fine-tuning capabilities.
 The hackathon proved the viability of collecting and filtering shoot metrics via OpenTelemetry collector instances on shoots, transporting them to Prometheus OTLP ingestion endpoints on seeds. This allows for more flexible and modern metrics collection.
 
