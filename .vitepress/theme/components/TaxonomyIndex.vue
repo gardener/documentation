@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useData } from 'vitepress'
 import { computed } from 'vue'
+// VPLink normalizes hrefs via cleanUrls (strips .md), matching how sidebar links are handled
+import VPLink from 'vitepress/dist/client/theme-default/components/VPLink.vue'
 
 const { frontmatter, page } = useData()
 
@@ -16,7 +18,7 @@ const pageTitle = computed(() => {
     <h1>{{ pageTitle }}</h1>
     <ul class="taxonomy-list">
       <li v-for="child in children" :key="child.link">
-        <a :href="child.link">{{ child.text }}</a>
+        <VPLink :href="child.link">{{ child.text }}</VPLink>
       </li>
     </ul>
   </div>
