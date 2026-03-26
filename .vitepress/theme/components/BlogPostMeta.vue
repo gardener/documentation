@@ -148,27 +148,31 @@ function getAuthorGithubHref(login: string): string {
 
 <style scoped>
 .blog-post-meta {
-  margin: 0.35rem 0 1rem;
+  margin: 0 0 1rem;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.55rem;
+  gap: 0.65rem;
   text-align: left;
+  padding: 0.8rem;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background: var(--vp-c-bg-soft);
 }
 
 .meta-primary {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  align-items: center;
+  flex-direction: column;
+  gap: 0.55rem;
+  align-items: flex-start;
   justify-content: flex-start;
 }
 
 .meta-date {
   margin: 0;
   color: var(--vp-c-text-1);
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   font-weight: 600;
   line-height: 1.2;
 }
@@ -320,10 +324,4 @@ function getAuthorGithubHref(login: string): string {
   text-decoration: underline;
 }
 </style>
-
-
-
-
-
-
 

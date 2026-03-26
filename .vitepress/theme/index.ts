@@ -14,7 +14,8 @@ export default {
   extends: DefaultTheme,
   Layout() {
     return h(DefaultTheme.Layout, null, {
-      'doc-before': () => [h(TaxonomyIndex), h(BlogPostMeta)],
+      'doc-before': () => h(TaxonomyIndex),
+      'aside-top': () => h(BlogPostMeta),
       'home-features-before': () => h(Banner),
       'layout-bottom': () => h(VPFooter),
     })
@@ -23,5 +24,4 @@ export default {
     app.component('YouTubeVideo', YouTubeVideo)
   },
 } satisfies Theme
-
 

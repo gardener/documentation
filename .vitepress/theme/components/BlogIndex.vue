@@ -29,15 +29,30 @@ import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { data as posts } from '../../data/blog.data'
 import { withBase } from 'vitepress'
 import { canonicalizeTag } from '../../shared/blogMetadata'
-function parseSelectedTagsFromUrl(): string[] {
+
+interface VisibleAuthor {
+  key: string
+  name: string
+  avatar?: string
+}
+
+function parseMultiValueFromUrl(paramName: string): string[] {
   if (typeof window === 'undefined') {
     return []
   }
 
   const params = new URLSearchParams(window.location.search)
+  return params
+    .getAll(paramName)
+    .flatMap(value => value.split(','))
+    .map(value => value.trim())
+    .filter(Boolean)
+}
+
+function parseSelectedTagsFromUrl(): string[] {
   const rawValues = [
-    ...params.getAll('tag'),
-    ...params.getAll('tags').flatMap(value => value.split(','))
+    ...parseMultiValueFromUrl('tag'),
+    ...parseMultiValueFromUrl('tags')
   ]
 
   const selected: string[] = []
@@ -58,20 +73,63 @@ function parseSelectedTagsFromUrl(): string[] {
   return selected
 }
 
+function normalizeFilterValue(value: string): string {
+  return value.trim().toLowerCase()
+}
+
+function normalizeYear(value: string): string {
+  const trimmed = value.trim()
+  return /^\d{4}$/.test(trimmed) ? trimmed : ''
+}
+
+function parseSelectedAuthorsFromUrl(): string[] {
+  const selected: string[] = []
+
+  for (const raw of parseMultiValueFromUrl('author')) {
+    const normalized = normalizeFilterValue(raw)
+    if (!normalized || selected.indexOf(normalized) !== -1) {
+      continue
+    }
+
+    selected.push(normalized)
+  }
+
+  return selected
+}
+
+function parseSelectedYearsFromUrl(): string[] {
+  const selected: string[] = []
+
+  for (const raw of parseMultiValueFromUrl('year')) {
+    const normalized = normalizeYear(raw)
+    if (!normalized || selected.indexOf(normalized) !== -1) {
+      continue
+    }
+
+    selected.push(normalized)
+  }
+
+  return selected
+}
+
 const selectedTags = ref<string[]>([])
+const selectedAuthors = ref<string[]>([])
+const selectedYears = ref<string[]>([])
 const tagQuery = ref('')
 
-function applySelectedTagsFromUrl(): void {
+function applySelectedFiltersFromUrl(): void {
   selectedTags.value = parseSelectedTagsFromUrl()
+  selectedAuthors.value = parseSelectedAuthorsFromUrl()
+  selectedYears.value = parseSelectedYearsFromUrl()
 }
 
 onMounted(() => {
-  applySelectedTagsFromUrl()
-  window.addEventListener('popstate', applySelectedTagsFromUrl)
+  applySelectedFiltersFromUrl()
+  window.addEventListener('popstate', applySelectedFiltersFromUrl)
 })
 
 onUnmounted(() => {
-  window.removeEventListener('popstate', applySelectedTagsFromUrl)
+  window.removeEventListener('popstate', applySelectedFiltersFromUrl)
 })
 
 function compareTags(a: string, b: string): number {
@@ -89,12 +147,32 @@ function visibleTags(tags: string[]): string[] {
   return [...tags].sort(compareTags)
 }
 
+function toVisibleAuthor(author: { login?: string, name: string, avatar?: string }): VisibleAuthor {
+  const keySource = author.login || author.name
+  return {
+    key: normalizeFilterValue(keySource),
+    name: author.name,
+    avatar: author.avatar
+  }
+}
+
+function extractPostYear(postDate: { time: number, string: string }): string {
+  if (postDate.time) {
+    return String(new Date(postDate.time).getUTCFullYear())
+  }
+
+  const match = postDate.string.match(/\b(\d{4})\b/)
+  return match ? match[1] : ''
+}
+
 const postsWithVisibleTags = computed(() => {
   return posts
     .filter(post => post.title !== 'Overview')
     .map(post => ({
       ...post,
-      visibleTags: visibleTags(post.tags)
+      visibleTags: visibleTags(post.tags),
+      visibleAuthors: post.authors.map(toVisibleAuthor),
+      year: extractPostYear(post.date)
     }))
 })
 
@@ -115,6 +193,7 @@ const allVisibleTags = computed(() => {
 
 const normalizedTagQuery = computed(() => tagQuery.value.trim().toLowerCase())
 const normalizedSelectedTags = computed(() => selectedTags.value.map(tag => tag.toLowerCase()))
+const normalizedSelectedAuthors = computed(() => selectedAuthors.value.map(author => normalizeFilterValue(author)))
 
 const filteredPosts = computed(() => {
   return postsWithVisibleTags.value.filter(post => {
@@ -124,12 +203,20 @@ const filteredPosts = computed(() => {
         post.visibleTags.some(tag => tag.toLowerCase() === selectedTag)
       )
     const matchesTagQuery = !normalizedTagQuery.value || post.visibleTags.some(tag => tag.toLowerCase().indexOf(normalizedTagQuery.value) !== -1)
+    const matchesSelectedAuthors =
+      !normalizedSelectedAuthors.value.length ||
+      normalizedSelectedAuthors.value.every(selectedAuthor =>
+        post.visibleAuthors.some(author => author.key === selectedAuthor)
+      )
+    const matchesSelectedYears =
+      !selectedYears.value.length ||
+      (post.year && selectedYears.value.indexOf(post.year) !== -1)
 
-    return matchesSelectedTags && matchesTagQuery
+    return matchesSelectedTags && matchesTagQuery && matchesSelectedAuthors && matchesSelectedYears
   })
 })
 
-function syncSelectedTagsToUrl(): void {
+function syncSelectedFiltersToUrl(): void {
   if (typeof window === 'undefined') {
     return
   }
@@ -137,13 +224,24 @@ function syncSelectedTagsToUrl(): void {
   const url = new URL(window.location.href)
   url.searchParams.delete('tag')
   url.searchParams.delete('tags')
+  url.searchParams.delete('author')
+  url.searchParams.delete('year')
 
   for (const tag of selectedTags.value) {
     url.searchParams.append('tag', tag)
   }
 
+  for (const author of selectedAuthors.value) {
+    url.searchParams.append('author', author)
+  }
+
+  for (const year of selectedYears.value) {
+    url.searchParams.append('year', year)
+  }
+
   window.history.replaceState({}, '', url)
 }
+
 function isTagActive(tag: string): boolean {
   return normalizedSelectedTags.value.indexOf(tag.toLowerCase()) !== -1
 }
@@ -159,21 +257,76 @@ function toggleTag(tag: string): void {
 
   // Clicking tags manages the selected tag set explicitly.
   tagQuery.value = ''
-  syncSelectedTagsToUrl()
+  syncSelectedFiltersToUrl()
 }
+
+function isAuthorActive(author: VisibleAuthor): boolean {
+  return normalizedSelectedAuthors.value.indexOf(author.key) !== -1
+}
+
+function toggleAuthor(author: VisibleAuthor): void {
+  const existingIndex = selectedAuthors.value.findIndex(selected => normalizeFilterValue(selected) === author.key)
+
+  if (existingIndex !== -1) {
+    selectedAuthors.value.splice(existingIndex, 1)
+  } else {
+    selectedAuthors.value.push(author.key)
+  }
+
+  syncSelectedFiltersToUrl()
+}
+
+function isYearActive(year: string): boolean {
+  return selectedYears.value.indexOf(year) !== -1
+}
+
+function toggleYear(year: string): void {
+  if (!year) {
+    return
+  }
+
+  const existingIndex = selectedYears.value.indexOf(year)
+  if (existingIndex !== -1) {
+    selectedYears.value.splice(existingIndex, 1)
+  } else {
+    selectedYears.value.push(year)
+  }
+
+  syncSelectedFiltersToUrl()
+}
+
+const selectedFiltersSummary = computed(() => {
+  const parts: string[] = []
+
+  if (selectedTags.value.length) {
+    parts.push(`tagged "${selectedTags.value.join(', ')}"`)
+  }
+
+  if (selectedAuthors.value.length) {
+    parts.push(`by selected author(s)`)
+  }
+
+  if (selectedYears.value.length) {
+    parts.push(`from year(s) "${selectedYears.value.join(', ')}"`)
+  }
+
+  if (tagQuery.value) {
+    parts.push(`matching "${tagQuery.value}"`)
+  }
+
+  if (!parts.length) {
+    return ''
+  }
+
+  return `Showing posts ${parts.join(' and ')}.`
+})
 
 function clearFilters(): void {
   selectedTags.value = []
+  selectedAuthors.value = []
+  selectedYears.value = []
   tagQuery.value = ''
-  syncSelectedTagsToUrl()
-}
-
-function isAuthorLinkable(author: { login?: string, email?: string }): boolean {
-  return Boolean(author.login)
-}
-
-function getAuthorGithubHref(login: string): string {
-  return `https://github.com/${encodeURIComponent(login)}`
+  syncSelectedFiltersToUrl()
 }
 </script>
 
@@ -190,7 +343,7 @@ function getAuthorGithubHref(login: string): string {
         placeholder="Type a tag (for example: security)"
       />
       <button
-        v-if="tagQuery || selectedTags.length"
+        v-if="tagQuery || selectedTags.length || selectedAuthors.length || selectedYears.length"
         class="clear-filter"
         type="button"
         @click="clearFilters"
@@ -205,17 +358,27 @@ function getAuthorGithubHref(login: string): string {
         />
       </datalist>
     </div>
-    <p v-if="selectedTags.length && tagQuery" class="filter-summary">Showing posts tagged "{{ selectedTags.join(', ') }}" and matching "{{ tagQuery }}".</p>
-    <p v-else-if="selectedTags.length" class="filter-summary">Showing posts tagged "{{ selectedTags.join(', ') }}".</p>
-    <p v-else-if="tagQuery" class="filter-summary">Showing posts matching "{{ tagQuery }}".</p>
+    <p v-if="selectedFiltersSummary" class="filter-summary">{{ selectedFiltersSummary }}</p>
   </section>
 
-  <p v-if="!filteredPosts.length" class="no-results">No posts found for this tag filter.</p>
+  <p v-if="!filteredPosts.length" class="no-results">No posts found for the selected filters.</p>
 
   <ul v-else class="blog-list">
     <li class="blog-entry" v-for="post of filteredPosts" :key="post.url">
       <article class="blog-card">
-        <ul class="tag-list" v-if="post.visibleTags.length" aria-label="Post tags">
+        <a class="card-link" :href="withBase(post.url)" :aria-label="`Open post: ${post.title}`" />
+        <ul class="tag-list" v-if="post.year || post.visibleTags.length" aria-label="Post tags">
+          <li v-if="post.year" :key="`${post.url}-year-${post.year}`">
+            <button
+              type="button"
+              class="tag tag-button year-button"
+              :class="{ 'tag-active': isYearActive(post.year) }"
+              :aria-pressed="isYearActive(post.year)"
+              @click="toggleYear(post.year)"
+            >
+              {{ post.year }}
+            </button>
+          </li>
           <li v-for="tag of post.visibleTags" :key="`${post.url}-${tag}`">
             <button
               type="button"
@@ -229,30 +392,28 @@ function getAuthorGithubHref(login: string): string {
           </li>
         </ul>
 
-        <p class="post-date" v-if="post.date.string && post.date.string !== 'Undated'">{{ post.date.string }}</p>
-
-        <h2 class="title">
-          <a :href="withBase(post.url)">{{ post.title }}</a>
-        </h2>
+        <div class="post-date-row" v-if="post.date.string && post.date.string !== 'Undated'">
+          <p class="post-date">{{ post.date.string }}</p>
+        </div>
+        <h2 class="title">{{ post.title }}</h2>
 
         <p class="preview" v-if="post.preview">{{ post.preview }}</p>
         <div class="post-footer">
-          <a class="read-more" :href="withBase(post.url)">Read post</a>
 
-          <div class="authors" :class="{ 'authors-multiple': post.authors.length > 1 }" v-if="post.authors.length" aria-label="Post authors">
+          <div class="authors" :class="{ 'authors-multiple': post.visibleAuthors.length > 1 }" v-if="post.visibleAuthors.length" aria-label="Post authors">
             <span class="authors-label">By</span>
-            <ul class="author-list" :class="{ 'author-list-multiple': post.authors.length > 1 }">
+            <ul class="author-list" :class="{ 'author-list-multiple': post.visibleAuthors.length > 1 }">
               <li
-                v-for="author of post.authors"
-                :key="`${post.url}-author-${author.login || author.name}`"
+                v-for="author of post.visibleAuthors"
+                :key="`${post.url}-author-${author.key}`"
                 class="author-item"
               >
-                <a
-                  v-if="isAuthorLinkable(author)"
-                  class="author-link"
-                  :href="getAuthorGithubHref(author.login!)"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  type="button"
+                  class="author-filter"
+                  :class="{ 'author-active': isAuthorActive(author) }"
+                  :aria-pressed="isAuthorActive(author)"
+                  @click="toggleAuthor(author)"
                 >
                   <img
                     v-if="author.avatar"
@@ -262,17 +423,7 @@ function getAuthorGithubHref(login: string): string {
                     loading="lazy"
                   />
                   <span class="author-name">{{ author.name }}</span>
-                </a>
-                <span v-else class="author-static">
-                  <img
-                    v-if="author.avatar"
-                    class="author-avatar"
-                    :src="author.avatar"
-                    :alt="`${author.name} avatar`"
-                    loading="lazy"
-                  />
-                  <span class="author-name">{{ author.name }}</span>
-                </span>
+                </button>
               </li>
             </ul>
           </div>
@@ -365,6 +516,7 @@ function getAuthorGithubHref(login: string): string {
 }
 
 .blog-card {
+  position: relative;
   border: 1px solid var(--vp-c-divider);
   border-radius: 14px;
   background: var(--vp-c-bg-soft);
@@ -377,6 +529,18 @@ function getAuthorGithubHref(login: string): string {
   min-width: 0;
   box-sizing: border-box;
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.card-link {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: 1;
+}
+
+.card-link:focus-visible {
+  outline: 2px solid var(--vp-c-brand-1);
+  outline-offset: 3px;
 }
 
 .blog-card:hover {
@@ -393,6 +557,13 @@ function getAuthorGithubHref(login: string): string {
   line-height: 1.2;
 }
 
+.post-date-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+
 .title {
   border: none;
   margin: 0;
@@ -401,16 +572,6 @@ function getAuthorGithubHref(login: string): string {
   line-height: 1.25;
   overflow-wrap: anywhere;
   word-break: break-word;
-}
-
-.title a {
-  font-weight: 700;
-  color: var(--vp-c-text-1);
-  text-decoration: none;
-}
-
-.title a:hover {
-  color: var(--vp-c-brand-1);
 }
 
 .preview {
@@ -433,19 +594,19 @@ function getAuthorGithubHref(login: string): string {
 .authors {
   margin: 0;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.45rem;
   font-size: 0.9rem;
   color: var(--vp-c-text-2);
   min-height: 2.2rem;
-  overflow-x: auto;
+  overflow: visible;
   flex: 1 1 18rem;
   min-width: 0;
 }
 
 .authors-multiple {
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 
 .authors-label {
@@ -459,19 +620,19 @@ function getAuthorGithubHref(login: string): string {
   margin: 0;
   padding: 0;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.45rem;
   min-height: 2.2rem;
   flex: 1 1 auto;
   min-width: 0;
-  overflow-x: auto;
+  overflow: visible;
 }
 
 .author-list-multiple {
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
-  overflow-x: auto;
+  overflow: visible;
 }
 
 .author-list-multiple .author-item {
@@ -523,8 +684,7 @@ function getAuthorGithubHref(login: string): string {
   font-family: inherit;
 }
 
-.author-link,
-.author-static {
+.author-filter {
   display: flex;
   align-items: center;
   gap: 0.4rem;
@@ -534,33 +694,33 @@ function getAuthorGithubHref(login: string): string {
   border: 1px solid var(--vp-c-divider);
   border-radius: 999px;
   background: #ffffff;
-  padding: 0.1rem 0.45rem 0.1rem 0.1rem;
+  padding: 0.2rem 0.6rem 0.2rem 0.2rem;
   font-family: inherit;
+  position: relative;
+  z-index: 2;
 }
 
-.author-link {
+.author-filter {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.author-filter::after {
+  content: '';
+  position: absolute;
+  inset: -0.18rem;
+}
+
+.author-filter:hover .author-name,
+.author-filter:focus-visible .author-name {
   text-decoration: none;
 }
 
-.author-link:visited {
-  color: var(--vp-c-text-1);
-}
-
-.author-link:hover .author-name {
-  text-decoration: underline;
-}
-
-.read-more {
-  width: fit-content;
-  margin-top: 0;
-  font-weight: 600;
-  color: var(--vp-c-brand-1);
-  text-decoration: none;
-  flex: 0 0 auto;
-}
-
-.read-more:hover {
-  text-decoration: underline;
+.author-filter:hover,
+.author-filter:focus-visible,
+.author-active {
+  border-color: var(--vp-c-brand-1);
+  background: var(--vp-c-brand-soft);
 }
 
 .tag-list {
@@ -591,15 +751,35 @@ function getAuthorGithubHref(login: string): string {
   border: 1px solid var(--vp-c-brand-1);
   background: var(--vp-c-brand-soft);
   color: var(--vp-c-brand-1);
-  padding: 0.18rem 0.55rem;
+  padding: 0.2rem 0.58rem;
   font-size: 0.75rem;
   font-weight: 600;
   line-height: 1.2;
   vertical-align: middle;
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
 }
 
 .tag-button {
   cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+
+.tag-button::after {
+  content: '';
+  position: absolute;
+  inset: -0.18rem;
+}
+
+.year-button {
+  padding: 0.16rem 0.48rem;
+}
+
+.tag-button:hover,
+.tag-button:focus-visible {
+  background: var(--vp-c-brand-1);
+  color: #fff;
+  border-color: var(--vp-c-brand-1);
 }
 
 .tag-active {
