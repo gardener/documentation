@@ -9,6 +9,8 @@ structure:
       description: Declarative way of managing machines for Kubernetes cluster
     source:  https://github.com/gardener/machine-controller-manager/blob/master/README.md
   - fileTree: https://github.com/gardener/machine-controller-manager/tree/master/docs
+    excludeFiles:
+    - "development/"
 - dir: etcd-druid
   structure:
   - file: _index.md
@@ -19,6 +21,7 @@ structure:
   - fileTree: https://github.com/gardener/etcd-druid/tree/master/docs
     excludeFiles:
     - "README.md"
+    - "development/"
 - dir: dependency-watchdog
   structure:
   - file: _index.md
@@ -30,6 +33,7 @@ structure:
   - fileTree: https://github.com/gardener/dependency-watchdog/tree/master/docs
     excludeFiles:
     - "README.md"
+    - "development/"
 - dir: gardener-discovery-server
   structure:
   - file: _index.md

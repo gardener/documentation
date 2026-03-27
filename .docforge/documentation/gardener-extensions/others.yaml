@@ -9,6 +9,7 @@ structure:
   - fileTree: https://github.com/gardener/gardener-extension-shoot-dns-service/tree/master/docs
     excludeFiles:
       - "usage/dns_names.md" # already included in ../guides.yaml, avoiding duplicates
+      - "development/"
 - dir: gardener-extension-shoot-cert-service
   structure:
   - file: _index.md
@@ -60,6 +61,8 @@ structure:
       description: Gardener extension controller which deploys pull-through caches for container registries.
     source: https://github.com/gardener/gardener-extension-registry-cache/blob/main/README.md
   - fileTree: https://github.com/gardener/gardener-extension-registry-cache/tree/main/docs
+    excludeFiles:
+      - "development/"
 - dir: gardener-extension-shoot-rsyslog-relp
   structure:
   - file: _index.md
@@ -68,6 +71,8 @@ structure:
       description: Gardener extension controller which configures the rsyslog and auditd services installed on shoot nodes.
     source: https://github.com/gardener/gardener-extension-shoot-rsyslog-relp/blob/main/README.md
   - fileTree: https://github.com/gardener/gardener-extension-shoot-rsyslog-relp/tree/main/docs
+    excludeFiles:
+      - "development/"
 - dir: gardener-extension-auditing
   structure:
   - file: _index.md
@@ -81,6 +86,7 @@ structure:
       - operations/event-format.md
       - usage/configuration.md
       - usage/event-format.md
+      - "development/"
   - file: operations-configuration.md
     source: https://github.com/gardener/gardener-extension-auditing/blob/main/docs/operations/configuration.md
   - file: operations-event-format.md
