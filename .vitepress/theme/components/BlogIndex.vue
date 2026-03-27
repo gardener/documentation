@@ -693,7 +693,7 @@ function clearFilters(): void {
   box-sizing: border-box;
   border: 1px solid var(--vp-c-divider);
   border-radius: 999px;
-  background: #ffffff;
+  background: var(--vp-c-bg-soft);
   padding: 0.2rem 0.6rem 0.2rem 0.2rem;
   font-family: inherit;
   position: relative;

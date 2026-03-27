@@ -150,6 +150,7 @@ function getAuthorGithubHref(login: string): string {
 .blog-post-meta {
   margin: 0 0 1rem;
   width: 100%;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
