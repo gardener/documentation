@@ -10,6 +10,7 @@ structure:
     excludeFiles:
       - "usage/dual-stack-ingress.md" # already included in ../guides.yaml, avoiding duplicates
       - "usage/ipv6.md" # already included in ../guides.yaml, avoiding duplicates
+      - "development/"
 - dir: gardener-extension-provider-gcp
   structure:
   - file: _index.md
@@ -21,6 +22,7 @@ structure:
     excludeFiles:
       - "usage/ipv6.md" # already included in ../guides.yaml, avoiding duplicates
       - "proposals/datadisk-image-restore.md" # no added value in including proposals
+      - "development/"
 - dir: gardener-extension-provider-azure
   structure:
   - file: _index.md
@@ -29,6 +31,8 @@ structure:
       description: Gardener extension controller for the Azure cloud provider
     source: https://github.com/gardener/gardener-extension-provider-azure/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-provider-azure/tree/master/docs
+    excludeFiles:
+      - "development/"
 - dir: gardener-extension-provider-alicloud
   structure:
   - file: _index.md
@@ -37,6 +41,8 @@ structure:
       description: Gardener extension controller for the Alibaba cloud provider
     source:  https://github.com/gardener/gardener-extension-provider-alicloud/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-provider-alicloud/tree/master/docs
+    excludeFiles:
+      - "development/"
 - dir: gardener-extension-provider-openstack
   structure:
   - file: _index.md
@@ -45,6 +51,8 @@ structure:
       description: Gardener extension controller for the OpenStack cloud provider
     source:  https://github.com/gardener/gardener-extension-provider-openstack/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-provider-openstack/tree/master/docs
+    excludeFiles:
+      - "development/"
 - dir: gardener-extension-provider-equinix-metal
   structure:
   - file: _index.md

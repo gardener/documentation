@@ -1,6 +1,6 @@
 ---
 title: Contributing Code
-url: docs/contribute/code/
+url: /contribute/code/
 persona: Developers
 ---
 

@@ -1,0 +1,125 @@
+structure:
+  - file: _index.md
+    source: /website/documentation/contribute/_index.md
+
+  - dir: code
+    structure:
+    - fileTree: /website/documentation/contribute/code
+
+  - dir: documentation
+    structure:
+    - fileTree: /website/documentation/contribute/documentation
+
+  - dir: gardener
+    structure:
+    - file: _index.md
+      frontmatter:
+        title: Gardener
+        description: The core component providing the extension API server of your Kubernetes cluster
+        weight: 30
+      source: https://github.com/gardener/gardener/blob/master/docs/README.md
+    - dir: api-reference
+      structure:
+      - file: _index.md
+        frontmatter:
+          title: API Reference
+          weight: 10
+          aliases:
+          - "/api-reference/"
+        source: https://github.com/gardener/gardener/blob/master/docs/api-reference/README.md
+      - fileTree: https://github.com/gardener/gardener/tree/master/docs/api-reference
+        excludeFiles:
+        - "README.md"
+    - dir: extensions
+      structure:
+      - file: _index.md
+        source: https://github.com/gardener/gardener/blob/master/docs/extensions/overview.md
+        frontmatter:
+          title: Extensions
+          weight: 30
+      - dir: resources
+        structure:
+        - file: _index.md
+          frontmatter:
+            title: Resources
+      - fileTree: https://github.com/gardener/gardener/tree/master/docs/extensions
+        excludeFiles:
+        - "overview.md"
+    - dir: development
+      structure:
+      - fileTree: https://github.com/gardener/gardener/tree/master/docs/development
+
+  - dir: faq
+    structure:
+    - file: _index.md
+      frontmatter:
+        title: FAQ
+        description: Commonly asked questions about Gardener
+        weight: 80
+    - fileTree: /website/documentation/faq
+
+  - dir: other-components
+    structure:
+    - dir: machine-controller-manager
+      structure:
+      - dir: development
+        structure:
+        - fileTree: https://github.com/gardener/machine-controller-manager/tree/master/docs/development
+    - dir: etcd-druid
+      structure:
+      - dir: development
+        structure:
+        - fileTree: https://github.com/gardener/etcd-druid/tree/master/docs/development
+    - dir: dependency-watchdog
+      structure:
+      - dir: development
+        structure:
+        - fileTree: https://github.com/gardener/dependency-watchdog/tree/master/docs/development
+
+  - dir: extensions
+    structure:
+    - dir: provider-aws
+      structure:
+      - dir: development
+        structure:
+        - fileTree: https://github.com/gardener/gardener-extension-provider-aws/tree/master/docs/development
+    - dir: provider-gcp
+      structure:
+      - dir: development
+        structure:
+        - fileTree: https://github.com/gardener/gardener-extension-provider-gcp/tree/master/docs/development
+    - dir: provider-azure
+      structure:
+      - dir: development
+        structure:
+        - fileTree: https://github.com/gardener/gardener-extension-provider-azure/tree/master/docs/development
+    - dir: provider-alicloud
+      structure:
+      - dir: development
+        structure:
+        - fileTree: https://github.com/gardener/gardener-extension-provider-alicloud/tree/master/docs/development
+    - dir: provider-openstack
+      structure:
+      - dir: development
+        structure:
+        - fileTree: https://github.com/gardener/gardener-extension-provider-openstack/tree/master/docs/development
+    - dir: shoot-dns-service
+      structure:
+      - dir: development
+        structure:
+        - fileTree: https://github.com/gardener/gardener-extension-shoot-dns-service/tree/master/docs/development
+    - dir: registry-cache
+      structure:
+      - dir: development
+        structure:
+        - fileTree: https://github.com/gardener/gardener-extension-registry-cache/tree/main/docs/development
+    - dir: shoot-rsyslog-relp
+      structure:
+      - dir: development
+        structure:
+        - fileTree: https://github.com/gardener/gardener-extension-shoot-rsyslog-relp/tree/main/docs/development
+    - dir: auditing
+      structure:
+      - dir: development
+        structure:
+        - fileTree: https://github.com/gardener/gardener-extension-auditing/tree/main/docs/development

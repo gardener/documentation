@@ -34,19 +34,6 @@ structure:
         description: The core component providing the extension API server of your Kubernetes cluster
         weight: 30
       source: https://github.com/gardener/gardener/blob/master/docs/README.md
-    - dir: api-reference
-      structure:
-      - file: _index.md
-        frontmatter:
-          title: API Reference
-          weight: 10
-          aliases:
-          - "/api-reference/"
-          persona: Developers
-        source: https://github.com/gardener/gardener/blob/master/docs/api-reference/README.md
-      - fileTree: https://github.com/gardener/gardener/tree/master/docs/api-reference
-        excludeFiles:
-        - "README.md"
     - dir: concepts
       structure:
       - file: _index.md
@@ -56,22 +43,6 @@ structure:
           persona: Operators
       - fileTree: https://github.com/gardener/gardener/tree/master/docs/concepts
       - file: https://github.com/gardener/gardener/blob/master/logo/gardenadm-large.png
-    - dir: extensions
-      structure:
-      - file: _index.md
-        source: https://github.com/gardener/gardener/blob/master/docs/extensions/overview.md
-        frontmatter:
-          title: Extensions
-          weight: 30
-          persona: Developers
-      - dir: resources
-        structure:
-        - file: _index.md
-          frontmatter:
-            title: Resources
-      - fileTree: https://github.com/gardener/gardener/tree/master/docs/extensions
-        excludeFiles:
-        - "overview.md"
     - dir: deployment
       structure:
       - file: _index.md
@@ -80,9 +51,6 @@ structure:
           weight: 40
           persona: Operators
       - fileTree: https://github.com/gardener/gardener/tree/master/docs/deployment
-    - dir: development
-      structure:
-      - fileTree: https://github.com/gardener/gardener/tree/master/docs/development
     - dir: monitoring
       structure:
       - file: _index.md
@@ -224,14 +192,8 @@ structure:
         frontmatter:
           title: Concepts
   - file: https://github.com/gardener/gardenctl-v2/blob/master/logo/logo_gardener_cli_large.png
-  - dir: faq
-    structure:
-    - manifest: ./faq.yaml
   - file: glossary.md
     source: /website/documentation/glossary.md
   - dir: resources
     structure:
     - fileTree: /website/documentation/resources
-  - dir: contribute
-    structure:
-    - fileTree: /website/documentation/contribute
