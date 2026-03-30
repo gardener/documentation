@@ -18,36 +18,20 @@ structure:
         description: The core component providing the extension API server of your Kubernetes cluster
         weight: 30
       source: https://github.com/gardener/gardener/blob/master/docs/README.md
-    - dir: api-reference
-      structure:
-      - file: _index.md
-        frontmatter:
-          title: API Reference
-          weight: 10
-          aliases:
-          - "/api-reference/"
-        source: https://github.com/gardener/gardener/blob/master/docs/api-reference/README.md
-      - fileTree: https://github.com/gardener/gardener/tree/master/docs/api-reference
-        excludeFiles:
-        - "README.md"
-    - dir: extensions
-      structure:
-      - file: _index.md
-        source: https://github.com/gardener/gardener/blob/master/docs/extensions/overview.md
-        frontmatter:
-          title: Extensions
-          weight: 30
-      - dir: resources
-        structure:
-        - file: _index.md
-          frontmatter:
-            title: Resources
-      - fileTree: https://github.com/gardener/gardener/tree/master/docs/extensions
-        excludeFiles:
-        - "overview.md"
     - dir: development
       structure:
       - fileTree: https://github.com/gardener/gardener/tree/master/docs/development
+
+  - dir: dashboard
+    structure:
+    - file: _index.md
+      frontmatter:
+        title: Dashboard
+        description: The web UI for managing your projects and clusters
+      source: https://github.com/gardener/dashboard/blob/master/README.md
+    - dir: development
+      structure:
+      - fileTree: https://github.com/gardener/dashboard/tree/master/docs/development
 
   - dir: faq
     structure:
@@ -60,66 +44,145 @@ structure:
 
   - dir: other-components
     structure:
+    - file: _index.md
+      frontmatter:
+        title: Other Components
     - dir: machine-controller-manager
       structure:
+      - file: _index.md
+        frontmatter:
+          title: Machine Controller Manager
+          description: Declarative way of managing machines for Kubernetes cluster
+        source: https://github.com/gardener/machine-controller-manager/blob/master/README.md
       - dir: development
         structure:
         - fileTree: https://github.com/gardener/machine-controller-manager/tree/master/docs/development
     - dir: etcd-druid
       structure:
+      - file: _index.md
+        frontmatter:
+          title: etcd-druid
+          description: A druid for etcd management in Gardener
+        source: https://github.com/gardener/etcd-druid/blob/master/README.md
       - dir: development
         structure:
         - fileTree: https://github.com/gardener/etcd-druid/tree/master/docs/development
     - dir: dependency-watchdog
       structure:
+      - file: _index.md
+        frontmatter:
+          title: Dependency Watchdog
+          description: A watchdog which actively looks out for disruption and recovery of critical services
+        source: https://github.com/gardener/dependency-watchdog/blob/master/README.md
       - dir: development
         structure:
         - fileTree: https://github.com/gardener/dependency-watchdog/tree/master/docs/development
 
   - dir: extensions
     structure:
-    - dir: provider-aws
+    - file: _index.md
+      frontmatter:
+        title: Extensions
+    - dir: infrastructure-extensions
       structure:
-      - dir: development
+      - file: _index.md
+        frontmatter:
+          title: Infrastructure Extensions
+          description: Gardener extension controllers for the different infrastructures
+          weight: 10
+      - dir: gardener-extension-provider-aws
         structure:
-        - fileTree: https://github.com/gardener/gardener-extension-provider-aws/tree/master/docs/development
-    - dir: provider-gcp
+        - file: _index.md
+          frontmatter:
+            title: Provider AWS
+            description: Gardener extension controller for the AWS cloud provider
+          source: https://github.com/gardener/gardener-extension-provider-aws/blob/master/README.md
+        - dir: development
+          structure:
+          - fileTree: https://github.com/gardener/gardener-extension-provider-aws/tree/master/docs/development
+      - dir: gardener-extension-provider-gcp
+        structure:
+        - file: _index.md
+          frontmatter:
+            title: Provider GCP
+            description: Gardener extension controller for the GCP cloud provider
+          source: https://github.com/gardener/gardener-extension-provider-gcp/blob/master/README.md
+        - dir: development
+          structure:
+          - fileTree: https://github.com/gardener/gardener-extension-provider-gcp/tree/master/docs/development
+      - dir: gardener-extension-provider-azure
+        structure:
+        - file: _index.md
+          frontmatter:
+            title: Provider Azure
+            description: Gardener extension controller for the Azure cloud provider
+          source: https://github.com/gardener/gardener-extension-provider-azure/blob/master/README.md
+        - dir: development
+          structure:
+          - fileTree: https://github.com/gardener/gardener-extension-provider-azure/tree/master/docs/development
+      - dir: gardener-extension-provider-alicloud
+        structure:
+        - file: _index.md
+          frontmatter:
+            title: Provider Alibaba Cloud
+            description: Gardener extension controller for the Alibaba cloud provider
+          source: https://github.com/gardener/gardener-extension-provider-alicloud/blob/master/README.md
+        - dir: development
+          structure:
+          - fileTree: https://github.com/gardener/gardener-extension-provider-alicloud/tree/master/docs/development
+      - dir: gardener-extension-provider-openstack
+        structure:
+        - file: _index.md
+          frontmatter:
+            title: Provider OpenStack
+            description: Gardener extension controller for the OpenStack cloud provider
+          source: https://github.com/gardener/gardener-extension-provider-openstack/blob/master/README.md
+        - dir: development
+          structure:
+          - fileTree: https://github.com/gardener/gardener-extension-provider-openstack/tree/master/docs/development
+    - dir: others
       structure:
-      - dir: development
+      - file: _index.md
+        frontmatter:
+          title: Others
+          weight: 50
+      - dir: gardener-extension-shoot-dns-service
         structure:
-        - fileTree: https://github.com/gardener/gardener-extension-provider-gcp/tree/master/docs/development
-    - dir: provider-azure
-      structure:
-      - dir: development
+        - file: _index.md
+          frontmatter:
+            title: DNS Services
+            description: Gardener extension controller for DNS services for shoot clusters
+          source: https://github.com/gardener/gardener-extension-shoot-dns-service/blob/master/README.md
+        - dir: development
+          structure:
+          - fileTree: https://github.com/gardener/gardener-extension-shoot-dns-service/tree/master/docs/development
+      - dir: gardener-extension-registry-cache
         structure:
-        - fileTree: https://github.com/gardener/gardener-extension-provider-azure/tree/master/docs/development
-    - dir: provider-alicloud
-      structure:
-      - dir: development
+        - file: _index.md
+          frontmatter:
+            title: Registry Cache
+            description: Gardener extension controller which deploys pull-through caches for container registries
+          source: https://github.com/gardener/gardener-extension-registry-cache/blob/main/README.md
+        - dir: development
+          structure:
+          - fileTree: https://github.com/gardener/gardener-extension-registry-cache/tree/main/docs/development
+      - dir: gardener-extension-shoot-rsyslog-relp
         structure:
-        - fileTree: https://github.com/gardener/gardener-extension-provider-alicloud/tree/master/docs/development
-    - dir: provider-openstack
-      structure:
-      - dir: development
+        - file: _index.md
+          frontmatter:
+            title: Node Audit Logging
+            description: Gardener extension controller which configures the rsyslog and auditd services installed on shoot nodes
+          source: https://github.com/gardener/gardener-extension-shoot-rsyslog-relp/blob/main/README.md
+        - dir: development
+          structure:
+          - fileTree: https://github.com/gardener/gardener-extension-shoot-rsyslog-relp/tree/main/docs/development
+      - dir: gardener-extension-auditing
         structure:
-        - fileTree: https://github.com/gardener/gardener-extension-provider-openstack/tree/master/docs/development
-    - dir: shoot-dns-service
-      structure:
-      - dir: development
-        structure:
-        - fileTree: https://github.com/gardener/gardener-extension-shoot-dns-service/tree/master/docs/development
-    - dir: registry-cache
-      structure:
-      - dir: development
-        structure:
-        - fileTree: https://github.com/gardener/gardener-extension-registry-cache/tree/main/docs/development
-    - dir: shoot-rsyslog-relp
-      structure:
-      - dir: development
-        structure:
-        - fileTree: https://github.com/gardener/gardener-extension-shoot-rsyslog-relp/tree/main/docs/development
-    - dir: auditing
-      structure:
-      - dir: development
-        structure:
-        - fileTree: https://github.com/gardener/gardener-extension-auditing/tree/main/docs/development
+        - file: _index.md
+          frontmatter:
+            title: Kubernetes Auditing
+            description: Gardener extension controller which deploys an auditlog forwarder sending Kubernetes Audit Events to configured backends
+          source: https://github.com/gardener/gardener-extension-auditing/blob/main/README.md
+        - dir: development
+          structure:
+          - fileTree: https://github.com/gardener/gardener-extension-auditing/tree/main/docs/development
