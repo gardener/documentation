@@ -14,6 +14,29 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2026/04/01 - [v1.139](https://github.com/gardener/gardener/releases/tag/v1.139.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@oliver-goetz](https://github.com/oliver-goetz) | `10m` | ⚖️ Dual Autoscaling for `istio-ingressgateway` with `VPA` and `HPA` | [#14313](https://github.com/gardener/gardener/pull/14313) |
+| [@timuthy](https://github.com/timuthy) | `5m` | 🔐 Static Username Prefixes for `{Admin,Viewer}KubeconfigRequest`s | [#14252](https://github.com/gardener/gardener/pull/14252) |
+| [@rfranzke](https://github.com/rfranzke) | `10m` | 🌐 Zone-Aware `Shoot` Control Plane Placement | [#14238](https://github.com/gardener/gardener/pull/14238) |
+| [@jamand](https://github.com/jamand) | `5m` | 🌐 Custom Domain Support for `gardener-discovery-server` | [#14126](https://github.com/gardener/gardener/pull/14126) |
+| [@DockToFuture](https://github.com/DockToFuture) | `10m` | 🚪 New [Traefik](https://github.com/traefik/traefik) Extension for `Shoot`s | [extension-shoot-traefik (repo)](https://github.com/gardener/gardener-extension-shoot-traefik) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- 🪓 [OPERATOR] Garden `.status.encryptedResources` field is removed, use Garden `.status.credentials.encryptionAtRest.resources` instead. [#14354](https://github.com/gardener/gardener/pull/14354)
+- 🪓 [OPERATOR] The `raise-spec-limits` verb has been removed for `NamespacedCloudProfile`s because it is no-longer needed. [#14344](https://github.com/gardener/gardener/pull/14344)
+- 🐛 [OPERATOR] A bug causing the `gardenlet` to crash during startup was fixed. Earlier, the startup procedure occasionally failed on large-scale seed clusters due to cache sync timeouts. [#14408](https://github.com/gardener/gardener/pull/14408)
+- 🐛 [OPERATOR] An issue preventing the `shootstate-controller` of gardenlet to populate all required states to the ShootState for a self-hosted Shoot is now fixed. [#14339](https://github.com/gardener/gardener/pull/14339)
+
+<hr />
+
 ### 2026/03/18 - [v1.138](https://github.com/gardener/gardener/releases/tag/v1.138.0) Release
 
 [📽️ Recording](https://youtu.be/JQLnnNJHOew)
