@@ -123,14 +123,6 @@ structure:
           frontmatter:
             title: Networking
             weight: 40
-      - dir: observability
-        frontmatter:
-          aliases: ["/docs/gardener"]
-        structure:
-        - file: _index.md
-          frontmatter:
-            title: Observability
-            weight: 50
       - dir: project
         frontmatter:
           aliases: ["/docs/gardener"]
