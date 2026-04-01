@@ -7,6 +7,9 @@ authors:
 - avatar: https://avatars.githubusercontent.com/oliver-goetz
   login: oliver-goetz
   name: "Oliver G\xF6tz"
+tags:
+  - feature-announcement
+  - extensions
 aliases: ["/blog/2026/03/18/say-goodbye-to-provider-extensions-introducing-the-new-remote-setup"]
 ---
 

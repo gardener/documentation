@@ -21,6 +21,14 @@ export default defineConfig({
   srcDir: 'hugo/content',
   cleanUrls: true,
   transformPageData(pageData) {
+    if (
+      pageData.relativePath.startsWith('blog/') &&
+      pageData.frontmatter &&
+      pageData.frontmatter.outline === undefined
+    ) {
+      pageData.frontmatter.outline = false
+    }
+
     // Only process index pages
     if (!pageData.relativePath.endsWith('index.md')) return
 
