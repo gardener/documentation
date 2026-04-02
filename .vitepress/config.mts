@@ -162,8 +162,31 @@ function getSearchConfig() {
             },
             // Custom tokenizer to handle special characters in technical docs
             tokenize: (text) => text.toLowerCase().split(/[\s\-_/]+/),
-            // Process terms to improve search (e.g., stemming)
-            processTerm: (term) => term.toLowerCase()
+            // Filter stopwords and normalize terms
+            processTerm: (term) => {
+              const normalized = term.toLowerCase();
+              // Stopwords inlined here because this function is serialized into the build worker
+              // and cannot reference variables from the outer module scope.
+              const stopwords = new Set([
+                // Articles & determiners
+                'a', 'an', 'the',
+                // Conjunctions & prepositions
+                'and', 'or', 'but', 'nor',
+                'in', 'on', 'at', 'to', 'for', 'of', 'from', 'with', 'by', 'as', 'into',
+                // Auxiliary & modal verbs
+                'is', 'are', 'was', 'were', 'be', 'been', 'being',
+                'have', 'has', 'had',
+                'do', 'does', 'did',
+                'will', 'would', 'could', 'should', 'may', 'might', 'shall',
+                // Pronouns
+                'i', 'we', 'you', 'he', 'she', 'it', 'they',
+                'this', 'that', 'these', 'those',
+                // Common filler
+                'not', 'no', 'only', 'just', 'also', 'both',
+                'than', 'then', 'too', 'very', 'such',
+              ]);
+              return stopwords.has(normalized) ? null : normalized;
+            }
           },
           /**
            * @type {import('minisearch').SearchOptions}
