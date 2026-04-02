@@ -8,6 +8,10 @@ authors:
   email: sebastian.stauch@sap.com
   login: DockToFuture
   name: Sebastian Stauch
+tags:
+  - feature-announcement
+  - networking
+  - extensions
 aliases: ["/blog/2026/04/01/introducing-the-new-traefik-ingress-controller-extension-for-gardener"]
 ---
 
