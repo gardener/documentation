@@ -8,6 +8,9 @@ authors:
   email: rafael.franzke@sap.com
   login: rfranzke
   name: Rafael Franzke
+tags:
+  - feature-announcement
+  - high-availability
 aliases: ["/blog/2026/04/01/fine-tune-your-shoot-control-plane-placement-with-zone-awareness"]
 ---
 
