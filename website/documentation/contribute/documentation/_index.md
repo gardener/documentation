@@ -1,6 +1,7 @@
 ---
 title: Contributing Documentation
 url: /contribute/documentation/
+weight: 60
 ---
 
 You are welcome to **contribute documentation** to Gardener.

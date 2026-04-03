@@ -2,9 +2,9 @@ structure:
   - file: _index.md
     source: /website/documentation/contribute/_index.md
 
-  - dir: code
+  - dir: general-information
     structure:
-    - fileTree: /website/documentation/contribute/code
+    - fileTree: /website/documentation/contribute/general-information
 
   - dir: documentation
     structure:
@@ -16,7 +16,7 @@ structure:
       frontmatter:
         title: Gardener
         description: The core component providing the extension API server of your Kubernetes cluster
-        weight: 30
+        weight: 20
       source: https://github.com/gardener/gardener/blob/master/docs/README.md
     - dir: development
       structure:
@@ -28,6 +28,7 @@ structure:
       frontmatter:
         title: Dashboard
         description: The web UI for managing your projects and clusters
+        weight: 30
       source: https://github.com/gardener/dashboard/blob/master/README.md
     - dir: development
       structure:
@@ -47,6 +48,7 @@ structure:
     - file: _index.md
       frontmatter:
         title: Other Components
+        weight: 50
     - dir: machine-controller-manager
       structure:
       - file: _index.md
@@ -83,6 +85,7 @@ structure:
     - file: _index.md
       frontmatter:
         title: Extensions
+        weight: 40
     - dir: infrastructure-extensions
       structure:
       - file: _index.md
