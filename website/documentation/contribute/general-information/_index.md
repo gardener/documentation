@@ -1,7 +1,8 @@
 ---
-title: Contributing Code
-url: /contribute/code/
+title: General Information
+url: /contribute/general-information/
 persona: Developers
+weight: 10
 ---
 
 You are welcome to **contribute code** to Gardener in order to fix a bug or to implement a new feature.
