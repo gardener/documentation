@@ -133,3 +133,8 @@ img[src='/search.png'] {
     padding: 18px 12px;
   }
 }
+
+/* Edit link moved to aside-outline-before; hide the default footer position */
+.VPDocFooter .edit-link {
+  display: none;
+}
