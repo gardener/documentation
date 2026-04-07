@@ -17,21 +17,47 @@ Register in .vitepress/theme/index.ts:
 import { computed } from 'vue'
 import { useData } from 'vitepress'
 
+interface LinkContext {
+  filePath: string
+  frontmatter: Record<string, unknown>
+  pageTitle: string
+  pageUrl: string
+}
+
+interface LinkConfig {
+  text: string
+  icon: string
+  url: string | ((context: LinkContext) => string | undefined)
+}
+
+interface PageActionsConfig {
+  siteHostname?: string
+  links?: LinkConfig[]
+}
+
+interface ResolvedLink {
+  text: string
+  icon: string
+  url: string
+}
+
 const { theme, page, frontmatter } = useData()
 
-const links = computed(() => {
-  const config = theme.value.pageActions
+const links = computed<ResolvedLink[]>(() => {
+  const config = theme.value.pageActions as PageActionsConfig | undefined
   if (!config || frontmatter.value.editLink === false) return []
 
   const siteHostname = config.siteHostname ?? ''
   const pageUrl = `${siteHostname}/${page.value.relativePath.replace(/\.md$/, '')}`
-  const context = { filePath: page.value.filePath, frontmatter: frontmatter.value, pageTitle: page.value.title, pageUrl }
+  const context: LinkContext = { filePath: page.value.filePath, frontmatter: frontmatter.value, pageTitle: page.value.title, pageUrl }
 
-  return (config.links ?? []).map((link: any) => ({
-    text: link.text,
-    icon: link.icon,
-    url: typeof link.url === 'function' ? link.url(context) : link.url,
-  })).filter((link: any) => link.url)
+  return (config.links ?? [])
+    .map((link) => ({
+      text: link.text,
+      icon: link.icon,
+      url: typeof link.url === 'function' ? link.url(context) : link.url,
+    }))
+    .filter((link): link is ResolvedLink => !!link.url)
 })
 </script>
 
