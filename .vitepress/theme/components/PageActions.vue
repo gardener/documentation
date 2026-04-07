@@ -101,6 +101,12 @@ const links = computed<ResolvedLink[]>(() => {
   height: 16px;
 }
 
+.vpi-report-issue {
+  --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cline x1='12' y1='8' x2='12' y2='12'/%3E%3Cline x1='12' y1='16' x2='12.01' y2='16'/%3E%3C/svg%3E");
+  width: 16px;
+  height: 16px;
+}
+
 .svg-icon {
   display: inline-flex;
   width: 16px;

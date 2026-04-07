@@ -242,7 +242,7 @@ function getThemeConfig() {
         },
         {
           text: 'Report a documentation issue',
-          icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>',
+          icon: 'vpi-report-issue',
           url: ({pageTitle, pageUrl}: {pageTitle: string, pageUrl: string}) => {
             const title = encodeURIComponent(pageTitle)
             const body = encodeURIComponent(`<!-- What's the issue? -->\n\n\n**URL:** ${pageUrl}\n\n`)
