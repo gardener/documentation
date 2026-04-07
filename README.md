@@ -6,6 +6,8 @@ Ready to jump in? Follow these steps to get the Gardener documentation running l
 
 ### Prerequisites
 
+
+
 * [Docker](https://www.docker.com/) installed and running.
 * A [GitHub](https://github.com/settings/personal-access-tokens) personal access token for API rate limits.
   * See the section [Getting the correct GitHub token](#getting-the-correct-github-token) below for details.
