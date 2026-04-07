@@ -257,6 +257,9 @@ function getThemeConfig() {
         },
       ],
     },
+    outline: {
+      label: 'Page Content'
+    },
     socialLinks: [
       {
         icon: {
