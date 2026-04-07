@@ -242,6 +242,7 @@ function getThemeConfig() {
           text: 'Edit this page on GitHub',
           icon: 'vpi-square-pen',
           url: ({filePath, frontmatter}: {filePath: string, frontmatter: Record<string, any>}) => {
+            if (!frontmatter['github_repo'] || !frontmatter['github_subdir']) return undefined
             const fileName = `${frontmatter?.path_base_for_github_subdir?.to ?? filePath.split("/").pop()}`
             return `${frontmatter['github_repo']}/tree/master/${frontmatter['github_subdir']}/${fileName}`
           },
