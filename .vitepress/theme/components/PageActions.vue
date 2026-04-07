@@ -4,7 +4,8 @@ Configured via `pageActions` in config.mts:
   - `siteHostname` (string): used to build the full page URL passed to url functions
   - `links` (array): links to render, each with:
       - `text` (string): link label
-      - `icon` (string): CSS class name (e.g. 'vpi-square-pen') or inline SVG string
+      - `icon` (string): CSS class name (e.g. 'vpi-square-pen', 'vpi-report-issue').
+        To add more icons, define them as CSS mask classes in this file.
       - `url` (string | function): static URL or function receiving
         { filePath, frontmatter, pageTitle, pageUrl }
 
@@ -48,7 +49,7 @@ const links = computed<ResolvedLink[]>(() => {
   if (!config || frontmatter.value.editLink === false) return []
 
   const siteHostname = config.siteHostname ?? ''
-  const pageUrl = `${siteHostname}/${page.value.relativePath.replace(/\.md$/, '')}`
+  const pageUrl = `${siteHostname}/${page.value.relativePath.replace(/\.md$/, '').replace(/\/index$/, '/')}`
   const context: LinkContext = { filePath: page.value.filePath, frontmatter: frontmatter.value, pageTitle: page.value.title, pageUrl }
 
   return (config.links ?? [])
@@ -64,8 +65,7 @@ const links = computed<ResolvedLink[]>(() => {
 <template>
   <div v-if="links.length" class="edit-this-page">
     <a v-for="link in links" :key="link.text" :href="link.url" target="_blank" rel="noreferrer">
-      <span v-if="!link.icon.includes('<')" :class="link.icon" aria-hidden="true" />
-      <span v-else class="svg-icon" aria-hidden="true" v-html="link.icon" />
+      <span :class="link.icon" aria-hidden="true" />
       {{ link.text }}
     </a>
   </div>
@@ -105,22 +105,5 @@ const links = computed<ResolvedLink[]>(() => {
   --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cline x1='12' y1='8' x2='12' y2='12'/%3E%3Cline x1='12' y1='16' x2='12.01' y2='16'/%3E%3C/svg%3E");
   width: 16px;
   height: 16px;
-}
-
-.svg-icon {
-  display: inline-flex;
-  width: 16px;
-  height: 16px;
-  flex-shrink: 0;
-}
-
-.svg-icon :deep(svg) {
-  width: 16px;
-  height: 16px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
 }
 </style>
