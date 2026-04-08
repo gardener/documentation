@@ -54,6 +54,24 @@ function normalizeUrlPath(rawValue: string): string {
   return `${withoutTrailingSlash}/`
 }
 
+function hasDotSegment(urlPath: string): boolean {
+  if (urlPath === '/..' || urlPath.includes('/../')) return true
+  return urlPath.split('/').some((segment) => segment === '..')
+}
+
+function isWithinOutDir(outDir: string, candidatePath: string): boolean {
+  const resolvedOutDir = path.resolve(outDir)
+  const resolvedCandidate = path.resolve(candidatePath)
+  const relative = path.relative(resolvedOutDir, resolvedCandidate)
+
+  return relative !== '..' && !relative.startsWith(`..${path.sep}`) && !path.isAbsolute(relative)
+}
+
+function safeJoinOutDir(outDir: string, ...segments: string[]): string | null {
+  const candidatePath = path.join(outDir, ...segments)
+  return isWithinOutDir(outDir, candidatePath) ? candidatePath : null
+}
+
 function joinBasePath(base: string, routePath: string): string {
   const normalizedRoute = normalizeUrlPath(routePath)
   const normalizedBase = normalizeUrlPath(base || '/')
@@ -99,12 +117,17 @@ function toRedirectOutputPath(outDir: string, aliasPath: string): string | null 
   const normalizedAliasPath = normalizeUrlPath(aliasPath)
   if (normalizedAliasPath === '/') return null
 
+  if (hasDotSegment(normalizedAliasPath)) {
+    console.warn(`[aliases] Skipping alias "${aliasPath}" because it contains dot segments.`)
+    return null
+  }
+
   if (normalizedAliasPath.toLowerCase().endsWith('.html')) {
-    return path.join(outDir, normalizedAliasPath.slice(1))
+    return safeJoinOutDir(outDir, normalizedAliasPath.slice(1))
   }
 
   const relativeAliasPath = normalizedAliasPath.slice(1, -1)
-  return path.join(outDir, ...relativeAliasPath.split('/'), 'index.html')
+  return safeJoinOutDir(outDir, ...relativeAliasPath.split('/'), 'index.html')
 }
 
 async function collectMarkdownFiles(rootDir: string): Promise<string[]> {
@@ -130,6 +153,12 @@ async function collectMarkdownFiles(rootDir: string): Promise<string[]> {
 async function collectAliasEntries(srcDir: string, basePath: string): Promise<Map<string, AliasEntry>> {
   const markdownFiles = await collectMarkdownFiles(srcDir)
   const redirects = new Map<string, AliasEntry>()
+  const canonicalRoutes = new Set(
+    markdownFiles.map((markdownFile) => {
+      const sourcePath = path.relative(srcDir, markdownFile).replace(/\\/g, '/')
+      return normalizeUrlPath(toRoutePath(sourcePath))
+    }),
+  )
 
   for (const markdownFile of markdownFiles) {
     const markdown = await fs.readFile(markdownFile, 'utf8')
@@ -139,12 +168,16 @@ async function collectAliasEntries(srcDir: string, basePath: string): Promise<Ma
     if (aliases.length === 0) continue
 
     const sourcePath = path.relative(srcDir, markdownFile).replace(/\\/g, '/')
-    const targetPath = normalizeUrlPath(joinBasePath(basePath, toRoutePath(sourcePath)))
+    const routePath = normalizeUrlPath(toRoutePath(sourcePath))
+    const targetPath = normalizeUrlPath(joinBasePath(basePath, routePath))
 
     for (const alias of aliases) {
       const normalizedAlias = normalizeUrlPath(alias)
 
-      if (normalizedAlias === targetPath) {
+      if (canonicalRoutes.has(normalizedAlias)) {
+        if (normalizedAlias !== routePath) {
+          console.warn(`[aliases] Skipping alias "${normalizedAlias}" in "${sourcePath}" because it matches an existing page route.`)
+        }
         continue
       }
 
@@ -173,6 +206,11 @@ export async function generateAliasRedirects(siteConfig: SiteConfig): Promise<vo
   for (const [aliasPath, redirect] of redirects.entries()) {
     const redirectFilePath = toRedirectOutputPath(siteConfig.outDir, aliasPath)
     if (!redirectFilePath) continue
+
+    if (!isWithinOutDir(siteConfig.outDir, redirectFilePath)) {
+      console.warn(`[aliases] Refusing to write redirect for "${aliasPath}" outside outDir.`)
+      continue
+    }
 
     await fs.mkdir(path.dirname(redirectFilePath), { recursive: true })
     await fs.writeFile(redirectFilePath, createRedirectHtml(redirect.targetPath), 'utf8')
