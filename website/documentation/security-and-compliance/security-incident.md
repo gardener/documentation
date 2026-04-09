@@ -18,7 +18,7 @@ Only supported versions receive patches. If using an old version, verify the iss
 
 Send an e-mail to [gardener-security@lists.neonephos.org](mailto:gardener-security@lists.neonephos.org).
 
-This is a private security mailing list monitored by the [Gardener Security Team](#who-handles-your-report). Use it for:
+This is a private security mailing list monitored by the [Gardener Security Team](https://github.com/gardener/.github/blob/main/SECURITY.md#gardener-security-team). Use it for:
 - Newly discovered vulnerabilities you have not yet disclosed anywhere
 - Suspected vulnerabilities you are unsure about
 - Coordinated disclosure requests
@@ -187,34 +187,3 @@ CVSS ≥ 7.0 is high-priority and accelerated regardless of disclosure method.
 ## Public Disclosure of an Already-Known Vulnerability
 
 If a vulnerability is already public (blog, GitHub issue, advisory), immediately email [gardener-security@lists.neonephos.org](mailto:gardener-security@lists.neonephos.org) to trigger the patch and release process.
-
-## Who Handles Your Report
-
-### Security Officer
-| Name | GitHub |
-|---|---|
-| Eva Kuhnle-Heck | [@HeckEK](https://github.com/HeckEK) |
-
-### Security Team
-| Name | GitHub |
-|---|---|
-| Christian Cwienk | [@ccwienk](https://github.com/ccwienk) |
-| Donka Dimitrova | [@donistz](https://github.com/donistz) |
-| Eva Kuhnle-Heck | [@HeckEK](https://github.com/HeckEK) |
-| Vedran Lerenc | [@vlerenc](https://github.com/vlerenc) |
-| Dirk Marwinski | [@marwinski](https://github.com/marwinski) |
-| Jordan Jordanov | [@jordanjordanov](https://github.com/jordanjordanov) |
-
-All Security Team members are subscribed to the private [Gardener Security mailing list](mailto:gardener-security@lists.neonephos.org).
-
----
-
-## Communication Channels Summary
-
-| Purpose | Channel |
-|---|---|
-| Report a new vulnerability (private) | [gardener-security@lists.neonephos.org](mailto:gardener-security@lists.neonephos.org) |
-| Report via GitHub (private) | GitHub → repo → Security tab → "Report a vulnerability" |
-| General security announcements | [Gardener mailing list](mailto:gardener@googlegroups.com) |
-| Security announcements (Slack) | [#general](https://gardener-cloud.slack.com/archives/CAPMD6DCG) on [gardener.cloud Slack](https://gardener.cloud/community/community-bio/) |
-| Public mailing list discussions | [Google Groups — gardener](https://groups.google.com/forum/#!forum/gardener) |
