@@ -220,6 +220,14 @@ structure:
         frontmatter:
           title: Concepts
   - file: https://github.com/gardener/gardenctl-v2/blob/master/logo/logo_gardener_cli_large.png
+  - dir: faq
+    structure:
+    - file: _index.md
+      frontmatter:
+        title: FAQ
+        description: Commonly asked questions about Gardener
+        weight: 80
+    - fileTree: /website/documentation/faq
   - file: glossary.md
     source: /website/documentation/glossary.md
   - dir: resources

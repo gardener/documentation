@@ -34,15 +34,6 @@ structure:
       structure:
       - fileTree: https://github.com/gardener/dashboard/tree/master/docs/development
 
-  - dir: faq
-    structure:
-    - file: _index.md
-      frontmatter:
-        title: FAQ
-        description: Commonly asked questions about Gardener
-        weight: 80
-    - fileTree: /website/documentation/faq
-
   - dir: other-components
     structure:
     - file: _index.md
