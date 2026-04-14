@@ -1,5 +1,5 @@
 ---
-title: Getting Started
+title: How to Contribute
 persona: Developers
 weight: 5
 ---

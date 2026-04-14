@@ -2,9 +2,9 @@ structure:
   - file: _index.md
     source: /website/documentation/contribute/_index.md
 
-  - dir: general-information
+  - dir: contribution-process
     structure:
-    - fileTree: /website/documentation/contribute/general-information
+    - fileTree: /website/documentation/contribute/contribution-process
 
   - dir: documentation
     structure:
