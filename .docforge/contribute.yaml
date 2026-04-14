@@ -134,49 +134,43 @@ structure:
         - dir: development
           structure:
           - fileTree: https://github.com/gardener/gardener-extension-provider-openstack/tree/master/docs/development
-    - dir: others
+    - dir: gardener-extension-shoot-dns-service
       structure:
       - file: _index.md
         frontmatter:
-          title: Others
-          weight: 50
-      - dir: gardener-extension-shoot-dns-service
+          title: DNS Services
+          description: Developer documentation for the DNS services extension
+        source: https://github.com/gardener/gardener-extension-shoot-dns-service/blob/master/README.md
+      - dir: development
         structure:
-        - file: _index.md
-          frontmatter:
-            title: DNS Services
-            description: Developer documentation for the DNS services extension
-          source: https://github.com/gardener/gardener-extension-shoot-dns-service/blob/master/README.md
-        - dir: development
-          structure:
-          - fileTree: https://github.com/gardener/gardener-extension-shoot-dns-service/tree/master/docs/development
-      - dir: gardener-extension-registry-cache
+        - fileTree: https://github.com/gardener/gardener-extension-shoot-dns-service/tree/master/docs/development
+    - dir: gardener-extension-registry-cache
+      structure:
+      - file: _index.md
+        frontmatter:
+          title: Registry Cache
+          description: Developer documentation for the registry cache extension
+        source: https://github.com/gardener/gardener-extension-registry-cache/blob/main/README.md
+      - dir: development
         structure:
-        - file: _index.md
-          frontmatter:
-            title: Registry Cache
-            description: Developer documentation for the registry cache extension
-          source: https://github.com/gardener/gardener-extension-registry-cache/blob/main/README.md
-        - dir: development
-          structure:
-          - fileTree: https://github.com/gardener/gardener-extension-registry-cache/tree/main/docs/development
-      - dir: gardener-extension-shoot-rsyslog-relp
+        - fileTree: https://github.com/gardener/gardener-extension-registry-cache/tree/main/docs/development
+    - dir: gardener-extension-shoot-rsyslog-relp
+      structure:
+      - file: _index.md
+        frontmatter:
+          title: Node Audit Logging
+          description: Developer documentation for the node audit logging extension
+        source: https://github.com/gardener/gardener-extension-shoot-rsyslog-relp/blob/main/README.md
+      - dir: development
         structure:
-        - file: _index.md
-          frontmatter:
-            title: Node Audit Logging
-            description: Developer documentation for the node audit logging extension
-          source: https://github.com/gardener/gardener-extension-shoot-rsyslog-relp/blob/main/README.md
-        - dir: development
-          structure:
-          - fileTree: https://github.com/gardener/gardener-extension-shoot-rsyslog-relp/tree/main/docs/development
-      - dir: gardener-extension-auditing
+        - fileTree: https://github.com/gardener/gardener-extension-shoot-rsyslog-relp/tree/main/docs/development
+    - dir: gardener-extension-auditing
+      structure:
+      - file: _index.md
+        frontmatter:
+          title: Kubernetes Auditing
+          description: Developer documentation for the Kubernetes auditing extension
+        source: https://github.com/gardener/gardener-extension-auditing/blob/main/README.md
+      - dir: development
         structure:
-        - file: _index.md
-          frontmatter:
-            title: Kubernetes Auditing
-            description: Developer documentation for the Kubernetes auditing extension
-          source: https://github.com/gardener/gardener-extension-auditing/blob/main/README.md
-        - dir: development
-          structure:
-          - fileTree: https://github.com/gardener/gardener-extension-auditing/tree/main/docs/development
+        - fileTree: https://github.com/gardener/gardener-extension-auditing/tree/main/docs/development
