@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed, ref, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vitepress'
-import banner from '../assets/banner.png'
-import bannerMobile from '../assets/banner-mobile.png'
+import banner from '../assets/banner.webp'
+import bannerMobile from '../assets/banner-mobile.webp'
 
 const BANNER_EXPIRY = new Date('2026-03-27T00:00:00Z')
 const BANNER_LINK = 'https://neonephos.org/events/2026_03_23_KubeCon_Europe'

@@ -19,13 +19,13 @@ Based on the shoot's specifications, Gardener will create network resources on a
 
 If you change the desired state, Gardener will reconcile the shoot and run through the same cycle to ensure the actual state matches the desired state.
 
-![update-shoot-state](./images/update-shoot-state.png)
+![update-shoot-state](./images/update-shoot-state.webp)
 
 For example, the (infrastructure-specific) machine type can be changed within the shoot resource. The following reconciliation will pick up the change and initiate the creation of new nodes with a different machine type and the removal of the old nodes.
 
 ## Maintenance Window and Daily Reconciliation
 
-![maintenance-window](./images/maintenance-window.png)
+![maintenance-window](./images/maintenance-window.webp)
 
 EVERY shoot cluster reconciles once per day during the so-called "maintenance window". You can confine the rollout of spec changes to this window.
 
@@ -33,7 +33,7 @@ Additionally, the daily reconciliation will help pick up all kind of version cha
 
 ## Impact of a Change
 
-![change-impact](./images/change-impact.png)
+![change-impact](./images/change-impact.webp)
 
 It is important to be aware of the impacts that a change can have on a cluster and the workloads within it.
 
@@ -43,7 +43,7 @@ When you change the shoot spec, it can also have significant impact on the clust
 
 ## Kubernetes Version Update (Minor + Patch)
 
-![k8s-version-update](./images/k8s-version-update.png)
+![k8s-version-update](./images/k8s-version-update.webp)
 
 Some operations are rather common and have to be performed on a regular basis. Updating the Kubernetes version is one them. Patch updates cause relatively little disruption, as only the control-plane pods will be re-created with new images and the kubelets on all nodes will restart.
 
@@ -51,14 +51,14 @@ A minor version update is more impactful - it will cause all nodes to be recreat
 
 ## OS Version Update
 
-![os-update](./images/os-update.png)
+![os-update](./images/os-update.webp)
 
 The OS version is defined for each worker pool and can be changed per worker pool. You can freely switch back and forth. However, as there is no in-place update, each change will cause the entire worker pool to roll and nodes will be replaced.
 For OS versions different update strategies can be configured. Please check the [documentation](https://github.com/gardener/gardener/blob/master/docs/usage/shoot-operations/shoot_versions.md#update-path-for-machine-image-versions) for details.
 
 ## Available Versions​
 
-<img style="width: 80%; height: auto; margin: 0, auto" alt="available-versions" src="./images/available-versions.png"/>
+<img style="width: 80%; height: auto; margin: 0, auto" alt="available-versions" src="./images/available-versions.webp"/>
 
 Gardener has a dedicated resource to maintain a list of available versions – the so-called `cloudProfile`.
 
@@ -73,7 +73,7 @@ Each shoot references a cloudProfile in order to obtain information about availa
 
 ## Version Classifications
 
-![version-classifications](./images/version-classifications.png)
+![version-classifications](./images/version-classifications.webp)
 
 Gardener has the following classifications for Kubernetes and OS image versions:
 
@@ -89,7 +89,7 @@ Version information is maintained in the relevant cloud profile resource. There 
 
 ## AutoUpdate / Forced Updates
 
-![auto-update](./images/auto-update.png)
+![auto-update](./images/auto-update.webp)
 
 AutoUpdate for a machine image version will update all node pools to the latest supported version based on the defined update strategy. Whenever a new version is set to `supported`, the cluster will pick it up during its next maintenance window.
 
@@ -101,7 +101,7 @@ For more information, see [Shoot Kubernetes and Operating System Versioning in G
 
 ## Applying Changes to a Seed
 
-![seeds-change](./images/seeds-change.png)
+![seeds-change](./images/seeds-change.webp)
 
 It is important to keep in mind that a seed is just another Kubernetes cluster. As such, it has its own lifecycle (daily reconciliation, maintenance, etc.) and is also a subject to change.
 

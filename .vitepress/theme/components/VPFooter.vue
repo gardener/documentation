@@ -29,7 +29,7 @@ Copied and adapted from: https://github.com/vuejs/vitepress/blob/828000099843c98
 <script setup lang="ts">
 import { useSidebar } from 'vitepress/theme';
 import { withBase, useData } from "vitepress";
-import euSupportImg from '../assets/eu-support.png'
+import euSupportImg from '../assets/eu-support.webp'
 import neonephosLogo from '../assets/neonephos_logo.svg'
 import neonephosLogoDark from '../assets/neonephos_logo_dark.svg'
 

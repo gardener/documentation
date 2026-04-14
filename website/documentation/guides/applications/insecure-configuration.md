@@ -50,7 +50,7 @@ certificate. The API server is started with the flag:
 
 The API server will check whether the client certificate presented by kubectl, kubelet, scheduler or another component is really signed by the configured certificate authority for clients.
 
-![](./images/image3.png)*The API server can have many clients of various kinds*<br/><br/><br/>
+![](./images/image3.webp)*The API server can have many clients of various kinds*<br/><br/><br/>
 
 However, it is possible to configure the API server differently for use with an intermediate authenticating proxy. The proxy will authenticate the client with its own custom method and then issue HTTP requests to the API server with additional HTTP headers specifying the user name and group name. The API server should only accept HTTP requests with HTTP headers from a legitimate proxy. To allow the API server to check incoming requests, you need pass on a list of certificate authorities (CAs) to it. Requests coming from a proxy are only accepted if they use a client certificate that is signed by one of the CAs of that list.
 
@@ -60,11 +60,11 @@ However, it is possible to configure the API server differently for use with an 
 --requestheader-group-headers=X-Remote-Group
 ```
 
-![](./images/image2.png)*API server clients can reach the API server through an authenticating proxy*<br/><br/><br/>
+![](./images/image2.webp)*API server clients can reach the API server through an authenticating proxy*<br/><br/><br/>
 
 So far, so good. But what happens if the malicious user “Mallory” tries to connect directly to the API server and reuses the HTTP headers to pretend to be someone else?
 
-![](./images/image8.png)*What happens when a client bypasses the proxy, connecting directly to the API server?*<br/><br/><br/>
+![](./images/image8.webp)*What happens when a client bypasses the proxy, connecting directly to the API server?*<br/><br/><br/>
 
 With a correct configuration, Mallory’s kubeconfig will have a certificate signed by the API server certificate authority but not signed by the proxy certificate authority. So the API server will not accept the extra HTTP header “X-Remote-Group: system:masters”.
 
@@ -78,11 +78,11 @@ We worked on [improving the Kubernetes documentation](https://github.com/kuberne
 
 The API server is a central component of Kubernetes and many components initiate connections to it, including the kubelet running on worker nodes. Most of the requests from those clients will end up updating Kubernetes objects (pods, services, deployments, and so on) in the etcd database but the API server usually does not need to initiate TCP connections itself.
 
-![](./images/image7.png)*The API server is mostly a component that receives requests*<br/><br/><br/>
+![](./images/image7.webp)*The API server is mostly a component that receives requests*<br/><br/><br/>
 
 However, there are exceptions. Some `kubectl` commands will trigger the API server to open a new connection to the kubelet. `kubectl exec` is one of those commands. In order to get the standard I/Os from the pod, the API server will start an HTTP connection to the kubelet on the worker node where the pod is running. Depending on the container runtime used, it can be done in different ways, but one way to do it is for the kubelet to reply with a HTTP-302 redirection to the [Container Runtime Interface (CRI)](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-node/container-runtime-interface.md). Basically, the kubelet is telling the API server to get the streams from CRI itself directly instead of forwarding. The redirection from the kubelet will only change the port and path from the URL; the IP address will not be changed because the kubelet and the CRI component run on the same worker node.
 
-![](./images/image1.png)*But the API server also initiates some connections, for example, to worker nodes*<br/><br/><br/>
+![](./images/image1.webp)*But the API server also initiates some connections, for example, to worker nodes*<br/><br/><br/>
 
 It’s often quite easy for users of a Kubernetes cluster to get access to worker nodes and tamper with the kubelet. They could be given explicit SSH access or they could be given a kubeconfig with enough privileges to create privileged pods or even just pods with “host” volumes.
 
@@ -91,7 +91,7 @@ On setups like, for example, GKE or Gardener, the control plane is running on se
 
 What would happen if a user was tampering with the kubelet to make it maliciously redirect `kubectl exec` requests to a different random endpoint? Most likely the given endpoint would not speak to the streaming server protocol, so there would be an error. However, the full HTTP payload from the endpoint is included in the error message printed by kubectl exec.
 
-![](./images/image6.png)*The API server is tricked to connect to other components*<br/><br/><br/>
+![](./images/image6.webp)*The API server is tricked to connect to other components*<br/><br/><br/>
 
 The impact of this issue depends on the specific setup. But in many configurations, we could find a metadata service (such as the [AWS metadata service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html)) containing user data, configurations and credentials. The setup we explored had a different AWS account and a different [EC2 instance profile](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) for the worker nodes and the control plane. This issue allowed users to get access to the AWS metadata service in the context of the control plane, which they should not have access to.
 
@@ -112,13 +112,13 @@ This is tracked in [CVE-2018-2475](https://cve.mitre.org/cgi-bin/cvename.cgi?nam
 
 For our tests, we had access to a Kubernetes setup where users are not only given access to the API server in the control plane, but also to a Grafana instance that is used to gather data from their Kubernetes clusters via Prometheus. The control plane is managed and users don’t have access to the nodes that it runs. They can only access the API server and Grafana via a load balancer. The internal network of the control plane is therefore hidden to users.
 
-![](./images/image5.png)*Prometheus and Grafana can be used to monitor worker nodes*<br/><br/><br/>
+![](./images/image5.webp)*Prometheus and Grafana can be used to monitor worker nodes*<br/><br/><br/>
 
 Unfortunately, that setup was not protecting the control plane network from nosy users. By configuring a new custom data source in Grafana, we could send HTTP requests to target the control plane network, for example the AWS metadata service. The reply payload is not displayed on the Grafana Web UI but it is possible to access it from the debugging console of the Chrome browser.
 
-![](./images/image9.png)*Credentials can be retrieved from the debugging console of Chrome*<br/><br/><br/>
+![](./images/image9.webp)*Credentials can be retrieved from the debugging console of Chrome*<br/><br/><br/>
 
-![](./images/image4.png)*Adding a Grafana data source is a way to issue HTTP requests to arbitrary targets*<br/><br/><br/>
+![](./images/image4.webp)*Adding a Grafana data source is a way to issue HTTP requests to arbitrary targets*<br/><br/><br/>
 
 In that installation, users could get the “user-data” for the seed cluster from the metadata service and retrieve a kubeconfig for that Kubernetes cluster.
 

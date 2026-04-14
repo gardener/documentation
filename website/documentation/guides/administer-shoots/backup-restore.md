@@ -9,7 +9,7 @@ publishdate: 2020-01-01
 aliases: [ "/readmore/br" ]
 ---
 
-![Don't worry ... have a backup](images/teaser.png)
+![Don't worry ... have a backup](images/teaser.webp)
 
 ## TL;DR
 
@@ -69,7 +69,7 @@ The diagram below explains the backup process. When creating a backup, Velero cl
 
 The size of the backup tar ball corresponds to the number of objects in etcd. The gzipped archive contains the `Json` representations of the objects.
 
-![Backup process](./images/backup-process.png)
+![Backup process](./images/backup-process.webp)
 
 > [!NOTE]
 > As of the writing of this tutorial, Velero or any other BR tool for Shoot clusters is not provided by Gardener.

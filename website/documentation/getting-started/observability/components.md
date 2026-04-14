@@ -5,7 +5,7 @@ weight: 1
 
 ## Core Components
 
-![core-components](./images/core-components.png)
+![core-components](./images/core-components.webp)
 
 The core Observability components which Gardener offers out-of-the-box are:
 
@@ -17,7 +17,7 @@ Both forks are done from the last version with an Apache license.
 
 ### Control Plane Components on the Seed
 
-![control-plane-components](./images/control-plane-components.png)
+![control-plane-components](./images/control-plane-components.webp)
 
 Prometheus, Plutono, and Vali are all located in the seed cluster. They run next to the control plane of your cluster.
 
@@ -35,7 +35,7 @@ Let us start by giving some visual hints on how to access Plutono. [Plutono](htt
 
 In order to access the Gardener provided dashboards, open the `Plutono` link provided in the Gardener dashboard. You will be automatically logged in through OIDC based authentication:
 
-![access-plutono](./images/access-plutono.png)
+![access-plutono](./images/access-plutono.webp)
 
 Access is still possible via the non-OIDC ingress using the credentials from the `<clustername>.monitoring` secret. It contains the HTTP basic auth credentials in base64-encoded form, as well as the Plutono ingress URL. The Plutono URL is present as an annotation on the `.monitoring` secret. It can be fetched with `kubectl get secret <clustername>.monitoring -o jsonpath="{.metadata.annotations.url}"`. The Prometheus URL can be derived from the Plutono URL by replacing the `gu` prefix with `p`.
 
@@ -43,7 +43,7 @@ Access is still possible via the non-OIDC ingress using the credentials from the
 
 After logging in, you will be greeted with a Plutono welcome screen. Navigate to `General/Home`, as depicted with the red arrow in the next picture:
 
-![welcome-plutono](./images/welcome-plutono.png)
+![welcome-plutono](./images/welcome-plutono.webp)
 
 Then you will be able to select the dashboards. Some interesting ones to look at are:
 
@@ -54,13 +54,13 @@ Then you will be able to select the dashboards. Some interesting ones to look at
 
 Here is a picture with the `Kubernetes Control Plane Status` dashboard.
 
-![plutono](./images/plutono.png)
+![plutono](./images/plutono.webp)
 
 ### Prometheus
 
 [Prometheus](https://prometheus.io/) is a monitoring system and a time series database. It can be queried using PromQL, the so called Prometheus Querying Language.
 
-![prometheus](./images/prometheus.png)
+![prometheus](./images/prometheus.webp)
 
 This example query describes the current uptime status of the kube apiserver.
 
@@ -68,7 +68,7 @@ This example query describes the current uptime status of the kube apiserver.
 
 Time series data from Prometheus can be made visible with Plutono. Here we see how the query above which describes the uptime of a Kubernetes cluster is visualized with a Plutono dashboard.
 
-![prometheus-plutono](./images/prometheus-plutono.png)
+![prometheus-plutono](./images/prometheus-plutono.webp)
 
 ### Vali Logs via Plutono
 
@@ -78,15 +78,15 @@ Vali is our logging solution. In order to access the logs provided by Vali, you 
 
 1. Choose `Explore`, which is depicted as the little compass symbol:
 
- ![explore-loki](images/explore-loki.png)
+ ![explore-loki](images/explore-loki.webp)
 
 1. Select `Vali` at the top left, as shown here:
 
-![select-vali](./images/select-vali.png)
+![select-vali](./images/select-vali.webp)
 
 There you can browse logs or events of the control plane components.
 
-![vali-logs](./images/vali-logs.png)
+![vali-logs](./images/vali-logs.webp)
 
 Here are some examples of helpful queries:
 
@@ -109,7 +109,7 @@ Our monitoring and logging solutions Vali and Prometheus both run next to the co
 
 The following diagram allows a more detailed look at Vali and the data flow.
 
-![data-flow-logging](./images/data-flow-logging.png)
+![data-flow-logging](./images/data-flow-logging.webp)
 
 On the very left, we see Plutono as it displays the logs. Vali is aggregating the logs from different sources.
 
@@ -135,7 +135,7 @@ The diagram below shows the data flow of metrics.
 Plutono uses PromQL queries to query data from Prometheus. It then visualises those metrics in dashboards.
 Prometheus itself scrapes various targets for metrics, as seen in the diagram below by the arrows pointing to the Prometheus instance.
 
-![data-flow-monitoring-1](./images/data-flow-monitoring-1.png)
+![data-flow-monitoring-1](./images/data-flow-monitoring-1.webp)
 
 Let us have a look what metrics we scrape for debugging purposes:
 
@@ -156,7 +156,7 @@ The different control plane pods (for example, etcd, API server, and kube-contro
 [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) is a simple service that listens to the Kubernetes API server and generates metrics about the state of the objects. It is not concerned with metrics about the Kubernetes components, but rather it exposes metrics calculated from the status of Kubernetes objects (for example, resource requests or health of pods).
 
 In the following image a few example metrics, which are exposed by the various components, are listed:
-![data-flow-monitoring-2](./images/data-flow-monitoring-2.png)
+![data-flow-monitoring-2](./images/data-flow-monitoring-2.webp)
 
 We only store metrics for Gardener deployed components. Those include the Kubernetes control plane, Gardener managed system components (e.g., pods) in the kube-system namespace of the shoot cluster or systemd units on the nodes. We do not gather metrics for workload deployed in the shoot cluster. This is also shown in the picture below.
 
@@ -164,4 +164,4 @@ This means that for any workload you deploy into your shoot cluster, you need to
 
 Logs or metrics are kept up to 14 days or when a configured space limit is reached.
 
-![data-flow-monitoring-3](./images/data-flow-monitoring-3.png)
+![data-flow-monitoring-3](./images/data-flow-monitoring-3.webp)
