@@ -6,7 +6,7 @@ title: Reporting a Security Incident
 
 ### Check the Affected Version
 
-Only supported versions receive patches. If using an old version, verify the issue exists in the latest release before reporting.
+Only supported versions receive patches. If using an outdated version, verify the issue exists in the latest release before reporting.
 
 ### Do Not Disclose Publicly
 
@@ -38,7 +38,7 @@ GitHub will keep the report private and notify the repository maintainers. This 
 
 Please use this template when submitting a security vulnerability. Fill in as much as possible:
 
-```
+```txt
 ---
 Subject: [SECURITY] Vulnerability Report
 ---
@@ -118,7 +118,7 @@ authentication bypass, SSRF, injection, etc.]
 [Score, e.g., 7.5]
 
 **Vector String:**
-[e.g., CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N]
+[e.g., CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N]
 
 [Get help: https://www.first.org/cvss/calculator/3.0]
 
@@ -157,7 +157,7 @@ authentication bypass, SSRF, injection, etc.]
 The Gardener Security Team will send a confirmation e-mail acknowledging receipt of your report. You will also receive a follow-up e-mail once the team has made a positive or negative determination about the issue.
 
 ### 2. Triage & CVSS Scoring
-The Security Team reproduces the issue and assesses severity. The [Security Officer](#who-handles-your-report) finalizes the CVSS score.
+The Security Team reproduces the issue and assesses severity. The [Security Officer](https://github.com/gardener/.github/blob/main/SECURITY.md#gardener-security-officer) finalizes the CVSS score.
 
 ### 3. Fix Development
 A **Fix Lead** directs a **Fix Team** in a private repository. You may review the fix before release.
