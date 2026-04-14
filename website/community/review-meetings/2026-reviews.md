@@ -14,6 +14,28 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2026/04/15 - [v1.140](https://github.com/gardener/gardener/releases/tag/v1.140.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@rrhubenov](https://github.com/rrhubenov) | `5m` | 🗑️ `RemoveVali` Feature Gate for `Vali` Instance Removal | [#14279](https://github.com/gardener/gardener/pull/14279) |
+| [@rfranzke](https://github.com/rfranzke) | `10m` | 🌐 `NetworkPolicy` Controller Optimization | [#14410](https://github.com/gardener/gardener/pull/14410) |
+| [@ScheererJ](https://github.com/ScheererJ) | `10m` | 🖥️ [GEP-28] Self-Hosted `Shoot` API Server Direct Access in Local Setup | [#14370](https://github.com/gardener/gardener/pull/14370) |
+| [@tobschli](https://github.com/tobschli) | `10m` | 🎮 [GEP-28] Extension Management & `gardenlet` Controllers | [#2906 (issue)](https://github.com/gardener/gardener/issue/2906) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- 🐛 [OPERATOR] Fix a bug where the `shoot-care` controller cannot reconcile shoots with `spec.maintenance.confineSpecUpdateRollout=true` and updated DNS credentials, i.e. `shoot.spec.dns.providers[].credentialsRef`, until the shoot is reconciled. [#14397](https://github.com/gardener/gardener/pull/14397)
+- 🐛 [USER] Fixed `EveryNodeReady` shoot condition incorrectly reporting `NodeAgentUnhealthy` for nodes not managed by MCM. [#14509](https://github.com/gardener/gardener/pull/14509)
+- ❗️ [OPERATOR] Ingress-GCE no longer requires deployment of `BackendConfig` CRDs. In addition, the deployment of the default-http-backend in the shoot is no longer necessary and hence removed. [gardener-extension-provider-gcp#1320](https://github.com/gardener/gardener-extension-provider-gcp/pull/1320)
+- 🐛 [OPERATOR] Fixing an issue where a rapid scale up and scale down can result in a cordoned machine in the cluster. [machine-controller-manager#1090](https://github.com/gardener/machine-controller-manager/pull/1090)
+
+<hr />
+
 ### 2026/04/01 - [v1.139](https://github.com/gardener/gardener/releases/tag/v1.139.0) Release
 
 [📽️ Recording](https://youtu.be/3-PobAcbtbw)
