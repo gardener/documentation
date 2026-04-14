@@ -7,7 +7,7 @@ weight: 9
 
 ### Containers will NOT fix a broken architecture!
 
-![microservices](./images/microservices.png)
+![microservices](./images/microservices.webp)
 
 Running a highly distributed system has advantages, but of course, those come at a cost. In order to succeed, one would need:
 
@@ -28,7 +28,7 @@ Reading the [Scalability of Gardener Managed Kubernetes Clusters](../guides/admi
 
 ### A Small Sample of Things That Can Grow Beyond Reasonable Limits
 
-![hibernation-1](./images/hibernation-1.png)
+![hibernation-1](./images/hibernation-1.webp)
 
 When scaling a cluster, there are plenty of resources that can be exhausted or reach a limit:
 
@@ -40,7 +40,7 @@ When scaling a cluster, there are plenty of resources that can be exhausted or r
 
 ### Infrastructure Capacity and Quotas
 
-![capacity](./images/capacity.png)
+![capacity](./images/capacity.webp)
 
 Sometimes requests cannot be fulfilled due to shortages on the infrastructure side. For example, a certain instance type might not be available and new Kubernetes nodes of this type cannot be added. It is a good practice to use the [cluster-autoscaler's priority expander](https://github.com/gardener/autoscaler/blob/machine-controller-manager-provider/cluster-autoscaler/expander/priority/readme.md) and have a secondary node pool.
 
@@ -54,7 +54,7 @@ Sometimes, it is not the physical capacity but exhausted quotas within an infras
 
 ### NodeCIDRMaskSize
 
-![mask-size](./images/mask-size.png)
+![mask-size](./images/mask-size.webp)
 
 Upon cluster creation, there are several settings that are network related. For example, the address space for Pods has to be defined. In this case, it is a `/16` subnet that includes a total of 65.536 hosts. However, that does not imply that you can easily use all addresses at the same point in time.
 
@@ -68,7 +68,7 @@ For more information, see [Shoot Networking](https://github.com/gardener/gardene
 
 ### Avoid Overlapping CIDR Ranges in VPCs
 
-![cidr-ranges](./images/cidr-ranges.png)
+![cidr-ranges](./images/cidr-ranges.webp)
 
 Gardener can create shoot cluster resources in an existing / user-created VPC. However, you have to make sure that the CIDR ranges used by the shoots nodes or subnets for zones do not overlap with other shoots deployed to the same VPC.
 
@@ -76,7 +76,7 @@ In case of an overlap, there might be strange routing effects, and packets endin
 
 ## Expired Credentials
 
-![expired-credentials](./images/expired-credentials.png)
+![expired-credentials](./images/expired-credentials.webp)
 
 Credentials expire or get revoked. When this happens to the actively used infrastructure credentials of a shoot, the cluster will stop working after a while. New nodes cannot be added, LoadBalancers cannot be created, and so on.
 
@@ -174,7 +174,7 @@ Common causes for failure are:
 
 ### Timeout
 
-![timeout](./images/timeout.png)
+![timeout](./images/timeout.webp)
 
 Webhooks are a very helpful feature of Kubernetes. However, they can easily be configured to break a shoot cluster. Take the timeout, for example. High timeouts (>15s) can lead to blocking requests of control plane components. That's because most control-plane API calls are made with a client-side timeout of 30s, so if a webhook has `timeoutSeconds=30`, the overall request might still fail as there is overhead in communication with the API server and other potential webhooks.
 
@@ -214,7 +214,7 @@ However, sometimes, you simply use helm or kustomize to install a (third-party) 
 
 ### CRD with a Conversion Webhook
 
-![conversion-webhook-crd](./images/conversion-webhook-crd.png)
+![conversion-webhook-crd](./images/conversion-webhook-crd.webp)
 
 Conversion webhooks are tricky. Similarly to regular webhooks, they should have a low timeout. However, they cannot be remediated automatically and can cause errors in the control plane. For example, if a webhook is invoked but not available, it can block the garbage collection run by the kube-controller-manager.
 

@@ -22,7 +22,7 @@ repositoryX
 |_ docs
    |_ usage
    |  |_ images
-   |     |_ 01.png
+   |     |_ 01.webp
    |  |_ hibernation.md
    |_ operations
    |_ deployment

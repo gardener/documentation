@@ -24,7 +24,7 @@ In other terms: you use Kubernetes to run Kubernetes.
 
 ## Cluster Hierarchy in Gardener
 
-![cluster-hierarchy](./images/cluster-hierarchy.png)
+![cluster-hierarchy](./images/cluster-hierarchy.webp)
 
 Gardener uses many Kubernetes clusters to eventually provide you with your very own shoot cluster.
 
@@ -36,7 +36,7 @@ Finally, there are the shoot clusters - what Gardener is all about. Shoot cluste
 
 ## Gardener Components Overview
 
-![components](./images/components.png)
+![components](./images/components.webp)
 
 From a very high level point of view, the important components of Gardener are:
 
@@ -52,11 +52,11 @@ Inside each seed is one of the most important controllers in Gardener - the gard
 
 Kubernetes' API can be extended - either by CRDs or by API aggregation.
 
-![api-endpoint-1](./images/api-endpoint-1.png)
+![api-endpoint-1](./images/api-endpoint-1.webp)
 
 API aggregation involves setting up a so called extension-API-server and registering it with the main Kubernetes API server. The extension API server will then serve resources of custom-defined API groups on its own. While the main Kubernetes API server is still used to handle RBAC, authorization, namespacing, quotas, limits, etc., all custom resources will be delegated to the extension-API-server. This is done through an APIService resource in the main API server - it specifies that, e.g., the API group `core.gardener.cloud` is served by a dedicated extension-API-server and all requests concerning this API group should be forwarded the specified IP address or Kubernetes service name. Extension API servers can persist their resources in their very own etcd but they do not have to - instead, they can use the main API servers etcd as well.
 
-![api-endpoint-2](./images/api-endpoint-2.png)
+![api-endpoint-2](./images/api-endpoint-2.webp)
 
 Gardener uses its very own extension API server for its resources like Shoot, Seed, CloudProfile, SecretBinding, etc... However, Gardener does not set up a dedicated etcd for its own extension API server - instead, it reuses the existing etcd of the main Kubernetes API server. This is absolutely possible since the resources of Gardener's API are part of the API group `gardener.cloud` and thus will not interfere with any resources of the main Kubernetes API in etcd.
 
@@ -68,7 +68,7 @@ In case you are interested, you can read more on:
 
 ## Gardener API Resources
 
-![api-resources](./images/api-resources.png)
+![api-resources](./images/api-resources.webp)
 
 Since Gardener's API endpoint is a regular Kubernetes cluster, it would theoretically serve all resources from the Kubernetes core API, including Pods, Deployments, etc. However, Gardener implements RBAC rules and disables certain controllers that make these resources inaccessible. Objects like Secrets, Namespaces, and ResourceQuotas are still available, though, as they play a vital role in Gardener.
 

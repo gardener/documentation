@@ -5,7 +5,7 @@ weight: 2
 
 ## Controlplane as a Service
 
-![workerless-shoots](./images/workerless-shoots.png)
+![workerless-shoots](./images/workerless-shoots.webp)
 
 Sometimes, there may be use cases for Kubernetes clusters that don't require pods but only features of the control plane. Gardener can create the so-called "workerless" shoots, which are exactly that. A Kubernetes cluster without nodes (and without any controller related to them).
 

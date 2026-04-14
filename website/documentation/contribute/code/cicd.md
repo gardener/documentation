@@ -9,7 +9,7 @@ We however abstract from the underlying "build executor" and instead offer a
 `Pipeline Definition Contract`, through which components declare their build pipelines as
 required.
 
-![Overview](./images/cicd-overview.png)
+![Overview](./images/cicd-overview.webp)
 
 In order to run continuous delivery workloads for all components contributing to the
 [Gardener](https://github.com/gardener) project, we operate a central service.

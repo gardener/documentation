@@ -43,7 +43,7 @@ Containers (famously brought to the mainstream as "Docker") and Kubernetes are t
 
 ## Solution Space 2 - Gardener
 
-![operating-apps](./images/operating-apps.png)
+![operating-apps](./images/operating-apps.webp)
 
 So, Kubernetes solves a lot of problems. But how do you get a Kubernetes cluster?
 
@@ -62,7 +62,7 @@ Of course, there are plenty more reasons - from acquiring operational knowledge 
 
 ## What exactly is Gardener?
 
-![universal-kubernetes](./images/universal-kubernetes.png)
+![universal-kubernetes](./images/universal-kubernetes.webp)
 
 Gardener is a system to manage Kubernetes clusters. It is driven by the same "desired state" pattern as Kubernetes itself. In fact, it is using Kubernetes to run Kubernetes.
 

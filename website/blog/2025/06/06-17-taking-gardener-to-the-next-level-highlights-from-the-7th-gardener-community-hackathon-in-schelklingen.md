@@ -17,7 +17,7 @@ The latest "Hack The Garden" event, held in June 2025 at [Schlosshof in Schelkli
 The hackathon focused on a wide array of topics aimed at enhancing Gardener's capabilities, modernizing its stack, and improving user experience.
 You can find a [full summary of all topics on GitHub](https://github.com/gardener-community/hackathon/blob/main/2025-06_Schelklingen/README.md) and watch the [wrap-up presentations on YouTube](https://youtu.be/TCLXovw43HA).
 
-![Group picture of the 7th Hack the Garden event in Schelklingen](./images/group-picture.png)
+![Group picture of the 7th Hack the Garden event in Schelklingen](./images/group-picture.webp)
 
 Here's a look at some of the key achievements and ongoing efforts:
 
