@@ -25,7 +25,7 @@ Check back regularly for updates and upcoming topics!
 | [@rrhubenov](https://github.com/rrhubenov) | `5m` | 🗑️ `RemoveVali` Feature Gate for `Vali` Instance Removal | [#14279](https://github.com/gardener/gardener/pull/14279) |
 | [@rfranzke](https://github.com/rfranzke) | `10m` | 🌐 `NetworkPolicy` Controller Optimization | [#14410](https://github.com/gardener/gardener/pull/14410) |
 | [@ScheererJ](https://github.com/ScheererJ) | `10m` | 🖥️ [GEP-28] Self-Hosted `Shoot` API Server Direct Access in Local Setup | [#14370](https://github.com/gardener/gardener/pull/14370) |
-| [@tobschli](https://github.com/tobschli) | `10m` | 🎮 [GEP-28] Extension Management & `gardenlet` Controllers | [#2906 (issue)](https://github.com/gardener/gardener/issue/2906) |
+| [@tobschli](https://github.com/tobschli) | `10m` | 🎮 [GEP-28] Extension Management & `gardenlet` Controllers | [#2906 (issue)](https://github.com/gardener/gardener/issues/2906) |
 
 #### No Demo, But Still Worth Celebrating 🎉
 
