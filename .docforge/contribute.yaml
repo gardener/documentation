@@ -6,6 +6,54 @@ structure:
     structure:
     - fileTree: /website/documentation/contribute/contribution-process
 
+  - dir: start-developing
+    structure:
+    - file: _index.md
+      frontmatter:
+        title: Start Developing
+        description: Developer documentation for getting started with local Gardener development
+        weight: 15
+    - file: local_setup.md
+      frontmatter:
+        weight: 10
+      source: https://github.com/gardener/gardener/blob/master/docs/development/local_setup.md
+    - file: getting_started_locally.md
+      frontmatter:
+        weight: 20
+      source: https://github.com/gardener/gardener/blob/master/docs/deployment/getting_started_locally.md
+    - file: dependencies.md
+      frontmatter:
+        weight: 30
+      source: https://github.com/gardener/gardener/blob/master/docs/development/dependencies.md
+    - file: testing.md
+      frontmatter:
+        weight: 40
+      source: https://github.com/gardener/gardener/blob/master/docs/development/testing.md
+    - file: testmachinery_tests.md
+      frontmatter:
+        weight: 50
+      source: https://github.com/gardener/gardener/blob/master/docs/development/testmachinery_tests.md
+    - file: kubernetes-clients.md
+      frontmatter:
+        weight: 60
+      source: https://github.com/gardener/gardener/blob/master/docs/development/kubernetes-clients.md
+    - file: logging-guidelines.md
+      frontmatter:
+        weight: 70
+      source: https://github.com/gardener/gardener/blob/master/docs/development/logging-guidelines.md
+    - file: changing-the-api.md
+      frontmatter:
+        weight: 80
+      source: https://github.com/gardener/gardener/blob/master/docs/development/changing-the-api.md
+    - file: defaulting.md
+      frontmatter:
+        weight: 90
+      source: https://github.com/gardener/gardener/blob/master/docs/development/defaulting.md
+    - file: validation-guidelines.md
+      frontmatter:
+        weight: 100
+      source: https://github.com/gardener/gardener/blob/master/docs/development/validation-guidelines.md
+
   - dir: documentation
     structure:
     - fileTree: /website/documentation/contribute/documentation
@@ -21,6 +69,22 @@ structure:
     - dir: development
       structure:
       - fileTree: https://github.com/gardener/gardener/tree/master/docs/development
+        excludeFiles:
+        - local_setup.md
+        - getting_started_locally.md
+        - testing.md
+        - testmachinery_tests.md
+        - dependencies.md
+        - validation-guidelines.md
+        - ipv6.md
+        - changing-the-api.md
+        - defaulting.md
+        - kubernetes-clients.md
+        - logging-guidelines.md
+    - file: ipv6.md
+      frontmatter:
+        title: IPv6
+      source: https://github.com/gardener/gardener/blob/master/docs/development/ipv6.md
 
   - dir: dashboard
     structure:
@@ -70,6 +134,14 @@ structure:
       - dir: development
         structure:
         - fileTree: https://github.com/gardener/dependency-watchdog/tree/master/docs/development
+          excludeFiles:
+          - "setup/"
+        - dir: setup
+          structure:
+          - file: _index.md
+            frontmatter:
+              title: Setup
+          - fileTree: https://github.com/gardener/dependency-watchdog/tree/master/docs/development/setup
 
   - dir: extensions
     structure:
