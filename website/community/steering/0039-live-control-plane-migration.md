@@ -5,56 +5,78 @@ title: "GEP-0039: Live Control Plane Migration (Live CPM)"
 - 📌 **GEP Tracking Issue:** https://github.com/gardener/enhancements/issues/39
 - 📖 **GEP Link:** https://github.com/gardener/enhancements/tree/main/geps/0039-live-control-plane-migration
 - ✍🏻 **Author(s):** [@acumino](https://github.com/acumino) (Sonu Kumar Singh), [@ary1992](https://github.com/ary1992) (Ashish Ranjan Yadav), [@seshachalam-yv](https://github.com/seshachalam-yv) (Seshachalam), [@shafeeqes](https://github.com/shafeeqes) (Shafeeque E S)
-- 🗓️ **Presentation:** 2026-02-09, 13:00 - 14:00 CET
-- 🎥 **Recording:** https://youtu.be/DdU8SNNf23o
+- 🗓️ **Presentations:** 2026-02-09, 13:00 - 14:00 CET, 2026-04-16, 13:30 - 14:30 CET
+- 🎥 **Recordings:** https://youtu.be/DdU8SNNf23o, https://youtu.be/_3mjjeeR9NQ
 - 👨‍⚖️ **Decisions:**
-  - No major technical decisions were finalized in this session.
-  - Agreement to:
-    - **Revamp and update the proposal document**, addressing the open questions above.
-    - Clearly document assumptions, risks, and guarantees.
-    - Hold a **follow-up Technical Steering session in a few weeks** to re-evaluate the updated proposal.
-  - _Key Discussion Points & Open Questions_
-    - **Failure Handling & Recovery**
-      - What additional failure modes exist beyond those documented (e.g., ETCD scale-up failures)?
-      - Can we always fall back to **normal CPM**, or are there cases requiring **manual intervention**?
-      - Assumption: all failures except those explicitly documented should be **retryable / recoverable**.
-      - Gardenlet restart behavior:
-        - Current proposal resumes from the failed step.
-        - This differs from usual reconciliation semantics (restart from beginning).
-        - Question: could this lead to **irrecoverable or inconsistent states**?
-    - **ETCD-related Topics**
-      - **6-member ETCD risk**:
-        - 3 members per seed implies **permanent quorum loss** if seed-to-seed connectivity is lost.
-      - **ETCD APIs**:
-        - Separate APIs exist for member name prefix vs. externally managed members due to uniqueness constraints.
-        - Question: can these be harmonized, or would that increase complexity?
-      - **ETCD member removal**:
-        - GEP-28 (SHSC) requires this as well.
-        - Existing plan: `etcd-druid` removes members via HTTP calls to the backup-restore sidecar.
-        - Question: can Live CPM reuse this approach instead of introducing `EtcdOpsTask`?
-      - **ETCD exposure**:
-        - Proposal doc is outdated and will be updated to reflect **Istio-based exposure**.
-        - Open question: how are `DNSRecord`s constructed in this model?
-    - **Networking & Connectivity**
-      - Is **seed-to-seed connectivity** guaranteed at all times?
-      - VPN setup:
-        - Why is an additional VPN seed server configuration needed on the destination seed?
-        - Can we deploy directly in the “target” configuration from the start?
-    - **Scheduling & Latency Constraints**
-      - Scheduler `ConfigMap` distances are **weights**, not necessarily latency in ms.
-      - How is the **“distant region” prevention** for LCPM enforced?
-      - The proposal should explain how the **180 ms latency threshold** was derived.
-    - **Control Plane Components & Coordination**
-      - **Lease management**:
-        - Can controllers simply be recreated in the destination seed instead of running in both seeds?
-        - Would this simplify the implementation / should we change the proposal?
-      - **Gardenlet coordination**:
-        - Current design uses back-and-forth updates via `.status.liveMigration`.
-        - Question: would **conditions** be a clearer and more robust coordination mechanism?
-      - **Gardenlet versions**:
-        - How is it enforced that gardenlets in both seeds run the **same version**?
-        - What happens if a gardenlet upgrade occurs while a migration is already in progress?
-    - **Autoscaling & Resource Management**
-      - **VPA recommendations**:
-        - Not yet considered.
-        - Open question: do `VPACheckpoint`s need to be transferred as part of migration?
+  - _Round 1 (2026-02-09):_
+    - No major technical decisions were finalized in this session.
+    - Agreement to:
+      - **Revamp and update the proposal document**, addressing the open questions above.
+      - Clearly document assumptions, risks, and guarantees.
+      - Hold a **follow-up Technical Steering session in a few weeks** to re-evaluate the updated proposal.
+    - _Key Discussion Points & Open Questions_
+      - **Failure Handling & Recovery**
+        - What additional failure modes exist beyond those documented (e.g., ETCD scale-up failures)?
+        - Can we always fall back to **normal CPM**, or are there cases requiring **manual intervention**?
+        - Assumption: all failures except those explicitly documented should be **retryable / recoverable**.
+        - Gardenlet restart behavior:
+          - Current proposal resumes from the failed step.
+          - This differs from usual reconciliation semantics (restart from beginning).
+          - Question: could this lead to **irrecoverable or inconsistent states**?
+      - **ETCD-related Topics**
+        - **6-member ETCD risk**:
+          - 3 members per seed implies **permanent quorum loss** if seed-to-seed connectivity is lost.
+        - **ETCD APIs**:
+          - Separate APIs exist for member name prefix vs. externally managed members due to uniqueness constraints.
+          - Question: can these be harmonized, or would that increase complexity?
+        - **ETCD member removal**:
+          - GEP-28 (SHSC) requires this as well.
+          - Existing plan: `etcd-druid` removes members via HTTP calls to the backup-restore sidecar.
+          - Question: can Live CPM reuse this approach instead of introducing `EtcdOpsTask`?
+        - **ETCD exposure**:
+          - Proposal doc is outdated and will be updated to reflect **Istio-based exposure**.
+          - Open question: how are `DNSRecord`s constructed in this model?
+      - **Networking & Connectivity**
+        - Is **seed-to-seed connectivity** guaranteed at all times?
+        - VPN setup:
+          - Why is an additional VPN seed server configuration needed on the destination seed?
+          - Can we deploy directly in the “target” configuration from the start?
+      - **Scheduling & Latency Constraints**
+        - Scheduler `ConfigMap` distances are **weights**, not necessarily latency in ms.
+        - How is the **”distant region” prevention** for LCPM enforced?
+        - The proposal should explain how the **180 ms latency threshold** was derived.
+      - **Control Plane Components & Coordination**
+        - **Lease management**:
+          - Can controllers simply be recreated in the destination seed instead of running in both seeds?
+          - Would this simplify the implementation / should we change the proposal?
+        - **Gardenlet coordination**:
+          - Current design uses back-and-forth updates via `.status.liveMigration`.
+          - Question: would **conditions** be a clearer and more robust coordination mechanism?
+        - **Gardenlet versions**:
+          - How is it enforced that gardenlets in both seeds run the **same version**?
+          - What happens if a gardenlet upgrade occurs while a migration is already in progress?
+      - **Autoscaling & Resource Management**
+        - **VPA recommendations**:
+          - Not yet considered.
+          - Open question: do `VPACheckpoint`s need to be transferred as part of migration?
+  - _Round 2 (2026-04-16):_
+    - **Overall approach approved.** Minor updates to the proposal, then merge and start implementation.
+    - _Decisions_
+      - **ETCD**
+        - **5-member cluster**: join 3 on destination, briefly scale to 6, immediately remove one source member (back to 5), then remove remaining two. Minimizes the 6-member window.
+        - **Separate API fields** for externally managed members vs. member name prefix — harmonization not feasible, different source of truth.
+        - **Reuse GEP-28 member removal**: destination-side `etcd-druid` orchestrates removal via backup-restore HTTP endpoint. Leadership transfer before removing the leader. No `EtcdOpsTask`.
+        - **Istio-based exposure** with one `DNSRecord` per ETCD member on the **seed's ingress domain**. Exact naming to be finalized during implementation review.
+      - **Networking & Connectivity**
+        - Seed-to-seed connectivity is an **operator prerequisite**. Future: configurable via labels.
+        - No temporary VPN seed server needed on the destination.
+      - **Scheduling & Latency**
+        - Same-region: no `ConfigMap` distance check. Cross-region: configurable threshold (default 180 ms, derived from AWS/GCP/Azure testing — issues observed beyond ~200 ms).
+      - **Control Plane Components & Coordination**
+        - Controllers are **removed and recreated** on destination (no dual-running). Eliminates lease/leadership concerns.
+        - Coordination via **standard `Shoot` conditions** (replacing `.status.liveMigration`), each owned by the respective gardenlet.
+        - **Exact gardenlet version match** (incl. patch) enforced before and during migration. API server may additionally reject mismatched versions.
+      - **VPA checkpoints**: out of scope — separate issue, also affects normal CPM.
+      - **Flow optimization**: combining migration phases (extensions + DNS record in one step) to reduce ping-pong — to be explored during implementation.
+    - _Action Items_
+      - Document ETCD member removal ordering and DNS record construction in the proposal, then merge and begin implementation.
