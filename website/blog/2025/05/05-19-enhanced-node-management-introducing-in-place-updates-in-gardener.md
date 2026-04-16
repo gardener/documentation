@@ -74,5 +74,5 @@ In-place node updates represent a significant step forward in Gardener's operati
 
 To explore the technical details and contributions that made this feature possible, refer to the following resources:
 *   **Parent Issue for "[GEP-31] Support for In-Place Node Updates"**: [Issue #10219](https://github.com/gardener/gardener/issues/10219)
-*   **GEP-31: In-Place Node Updates of Shoot Clusters**: [GEP-31: In-Place Node Updates of Shoot Clusters](https://github.com/gardener/gardener/blob/master/docs/proposals/31-inplace-node-update.md)
+*   **GEP-31: In-Place Node Updates of Shoot Clusters**: [GEP-31: In-Place Node Updates of Shoot Clusters](https://github.com/gardener/enhancements/blob/main/geps/0031-inplace-node-updates/README.md)
 *   **Developer Talk Recording (starting at 39m37s)**: [Youtube](https://youtu.be/ZwurVm1IJ7o?t=2377)

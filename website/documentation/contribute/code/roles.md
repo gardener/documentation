@@ -66,7 +66,7 @@ Approvers share the requirements and responsibilities of [reviewers](#reviewer),
 - Sound technical judgment
 - Deep understanding of the Gardener codebase, features, and extensions
 - Strong operational experience with Gardener
-- Active community engagement in the form of contributions to the [Gardener Community Review meeting](../../../../community/_index.md#gardener-review-meetings), [Slack](https://join.slack.com/t/gardener-cloud/shared_invite/zt-33c9daems-3oOorhnqOSnldZPWqGmIBw) discussions or similar
+- Active community engagement in the form of contributions to the [Gardener Community Review meeting](../../../community/_index.md#gardener-review-meetings), [Slack](https://join.slack.com/t/gardener-cloud/shared_invite/zt-33c9daems-3oOorhnqOSnldZPWqGmIBw) discussions or similar
 
 **Responsibilities**
 - General Responsiveness for subproject matters

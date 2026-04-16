@@ -57,4 +57,4 @@ This feature currently supports `Ingress` resources, with plans to include suppo
 To learn more about this feature, you can explore the following resources:
 *   [Watch the original presentation](https://youtu.be/GArG1wh2j1o?t=432)
 *   [Review the implementation on GitHub](https://github.com/gardener/gardener/pull/13043)
-*   [Read the developer documentation](https://github.com/gardener/gardener/blob/main/docs/development/shoot-advertised-addresses.md)
+*   [Read the developer documentation](https://github.com/gardener/gardener/blob/master/docs/development/shoot-advertised-addresses.md)
