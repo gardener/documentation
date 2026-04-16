@@ -35,6 +35,53 @@ You can check out past topics in the summary documents stored inside this reposi
 
 On-site, breakfast is provided daily, lunch comes via catering, and we cook dinner together (participation optional). One evening, we go out for dinner. For fun, there's table soccer, table tennis, pool, and a huge outdoor area. Some folks go running in the mornings before breakfast. Internet access is via Starlink, and we usually organize car pools to get to the location.
 
+### Which topics are in scope?
+
+In general, all topics in the ecosystem of Gardener are in scope.
+This includes, but is not limited to, anything directly part of [gardener/gardener](https://github.com/gardener/gardener), extensions, infrastructure providers, documentation, testing, performance evaluations, and anything else that you can think of that is related to Gardener!
+
+Once the planning for a hackathon events kicks off, topic proposals are collected in the [hackathon repository](https://github.com/gardener/hackathon) as issues.
+These issues are discussed and presented to each other in a topic collection meeting in the round of the participants.
+After the topic collection, a voting process takes place where each participant can vote for the topics they are interested in.
+Based on the voting results, initial teams are formed around the most popular topics, ensuring a mix of participants from different companies to foster diversity and collaboration.
+However, it's important to note that these teams are not fixed, and participants have the flexibility to switch topics dynamically during the week as they see fit, allowing for a fluid and collaborative environment.
+
+Long story short: Any topic that is agreed upon in the round of the hackathon participants is in scope for a hackathon.
+
 ## 🤝 How to Participate
 
 There is a Slack channel called [`#hack-the-garden`](https://gardener-cloud.slack.com/archives/C0531FVMZFU) in [Gardener's Slack workspace](https://join.slack.com/t/gardener-cloud/shared_invite/zt-33c9daems-3oOorhnqOSnldZPWqGmIBw). Feel free to join and reach out! The community is always happy to welcome new faces to the event.
+
+### Technical Prerequisites
+
+Gardener hackathons are a great opportunity for meeting new people in the community and collaborating on interesting topics from various parts of the codebase.
+Nonetheless, please be aware that you need to have a certain level of technical knowledge to be able to contribute effectively and making the event worthwhile for you as well!
+
+**Required:**
+* Solid experience programming in [Go](https://go.dev/) and ideally already familiar developing Kubernetes controllers using [controller-runtime](https://github.com/kubernetes-sigs/controller-runtime).
+* Familiarity with [Kubernetes](https://kubernetes.io/) concepts and architecture, as well as experience working with Kubernetes APIs and resources.
+* An understanding of Gardener's architecture and components, as well as its codebase and development practices.
+* Prepare the [local setup for Gardener](https://github.com/gardener/gardener/blob/master/docs/deployment/getting_started_locally.md) development. All required dependencies need to be downloaded before the event and your device should be capable of running Gardener locally.
+
+**Optional:**
+* Experience with cloud providers and their APIs, as Gardener supports multiple infrastructure providers (hyperscalers, OpenStack, bare metal, you name it).
+
+### Organization Prerequisites
+
+Due to logicists and available space at the event location there is a limit of 30 participants per event.
+Make sure to follow ongoing planning activities in the [`#hack-the-garden`](https://gardener-cloud.slack.com/archives/C0531FVMZFU) Slack channel and register yourself on time!
+
+Historically the cost per person for the week has been around 500-600 €, which includes accommodation, food, and drinks.
+The exact cost can vary based on the location and the number of participants, but we always strive to keep it affordable for everyone.
+Please clarify these costs before registering for the event!
+
+## 🤖 AI Guidance
+
+Usage of Generative AI tools at the hackathons is generally allowed, but it should be done in a responsible and conscious manner.
+Participants can use AI tools to assist with coding, debugging, and problem-solving, but they should not rely solely on AI for their work.
+At the end of the day, the hackathon is meant to be a collaborative event, between **humans**, where participants learn from each other and work together to solve problems.
+
+If you need further guidance feel free to consider the following documents as well.
+The points that they describe follow the same principles that the Gardener project follows:
+* [Kubernetes AI Guidance](https://www.kubernetes.dev/docs/guide/pull-requests/#ai-guidance)
+* [Usage of Generative AI Tools at metal-stack.io](https://metal-stack.io/community/contribution-guideline/#usage-of-generative-ai-tools)
