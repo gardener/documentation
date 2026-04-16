@@ -1,6 +1,5 @@
 import { defineConfig, type SiteConfig } from 'vitepress'
 import { fileURLToPath, URL, pathToFileURL } from 'node:url'
-import fs from 'node:fs/promises'
 import blogSidebar from './theme/blog-sidebar.ts'
 import {communitySidebar} from "./theme/community-sidebar.ts";
 import path from 'path'
@@ -19,6 +18,7 @@ const allSidebars = {
   '/community/': communitySidebar()['/community/'],
   '/docs/': generateEnhancedDocsSidebar()['/docs/']
 };
+
 export default defineConfig({
   base: siteBase,
   srcDir: siteSrcDir,

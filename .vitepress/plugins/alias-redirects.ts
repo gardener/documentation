@@ -1,4 +1,6 @@
 import { type SiteConfig } from 'vitepress'
+import type { ViteDevServer } from 'vite'
+import type { IncomingMessage, ServerResponse } from 'node:http'
 import fs from 'node:fs/promises'
 import matter from 'gray-matter'
 import path from 'path'
@@ -18,7 +20,7 @@ const createRedirectHtml = (targetPath: string) => {
     <title>Redirecting...</title>
     <meta http-equiv="refresh" content="0; url=${escapedTarget}">
     <link rel="canonical" href="${escapedTarget}">
-    <script>window.location.replace(${JSON.stringify(targetPath)})</script>
+    <script>window.location.replace(${JSON.stringify(targetPath).replace(/</g, '\u003c')})</script>
   </head>
   <body>
     <p>Redirecting to <a href="${escapedTarget}">${escapedTarget}</a>.</p>
@@ -46,7 +48,7 @@ function normalizeUrlPath(rawValue: string): string {
 
   if (collapsedSlashes === '/') return '/'
 
-  if (collapsedSlashes.toLowerCase().endsWith('.html')) {
+  if (collapsedSlashes.endsWith('.html')) {
     return collapsedSlashes
   }
 
@@ -56,7 +58,7 @@ function normalizeUrlPath(rawValue: string): string {
 
 function hasDotSegment(urlPath: string): boolean {
   if (urlPath === '/..' || urlPath.includes('/../')) return true
-  return urlPath.split('/').some((segment) => segment === '..')
+  return urlPath.split('/').some((segment) => segment === '.' || segment === '..')
 }
 
 function isWithinOutDir(outDir: string, candidatePath: string): boolean {
@@ -160,37 +162,46 @@ async function collectAliasEntries(srcDir: string, basePath: string): Promise<Ma
     }),
   )
 
-  for (const markdownFile of markdownFiles) {
-    const markdown = await fs.readFile(markdownFile, 'utf8')
-    const frontmatter = matter(markdown).data as Record<string, unknown>
-    const aliases = normalizeAliases(frontmatter.aliases)
+  const CONCURRENCY = 32
+  for (let i = 0; i < markdownFiles.length; i += CONCURRENCY) {
+    const batch = markdownFiles.slice(i, i + CONCURRENCY)
+    const results = await Promise.all(
+      batch.map(async (markdownFile) => {
+        const markdown = await fs.readFile(markdownFile, 'utf8')
+        const frontmatter = matter(markdown).data as Record<string, unknown>
+        const aliases = normalizeAliases(frontmatter.aliases)
+        return { markdownFile, aliases }
+      }),
+    )
 
-    if (aliases.length === 0) continue
+    for (const { markdownFile, aliases } of results) {
+      if (aliases.length === 0) continue
 
-    const sourcePath = path.relative(srcDir, markdownFile).replace(/\\/g, '/')
-    const routePath = normalizeUrlPath(toRoutePath(sourcePath))
-    const targetPath = normalizeUrlPath(joinBasePath(basePath, routePath))
+      const sourcePath = path.relative(srcDir, markdownFile).replace(/\\/g, '/')
+      const routePath = normalizeUrlPath(toRoutePath(sourcePath))
+      const targetPath = normalizeUrlPath(joinBasePath(basePath, routePath))
 
-    for (const alias of aliases) {
-      const normalizedAlias = normalizeUrlPath(alias)
+      for (const alias of aliases) {
+        const normalizedAlias = normalizeUrlPath(alias)
 
-      if (canonicalRoutes.has(normalizedAlias)) {
-        if (normalizedAlias !== routePath) {
-          console.warn(`[aliases] Skipping alias "${normalizedAlias}" in "${sourcePath}" because it matches an existing page route.`)
+        if (canonicalRoutes.has(normalizedAlias)) {
+          if (normalizedAlias !== routePath) {
+            console.warn(`[aliases] Skipping alias "${normalizedAlias}" in "${sourcePath}" because it matches an existing page route.`)
+          }
+          continue
         }
-        continue
-      }
 
-      const existing = redirects.get(normalizedAlias)
-      if (existing && existing.targetPath !== targetPath) {
-        console.warn(`[aliases] Skipping duplicate alias "${normalizedAlias}" in "${sourcePath}". Already mapped to "${existing.targetPath}" by "${existing.sourcePath}".`)
-        continue
-      }
+        const existing = redirects.get(normalizedAlias)
+        if (existing && existing.targetPath !== targetPath) {
+          console.warn(`[aliases] Skipping duplicate alias "${normalizedAlias}" in "${sourcePath}". Already mapped to "${existing.targetPath}" by "${existing.sourcePath}".`)
+          continue
+        }
 
-      redirects.set(normalizedAlias, {
-        sourcePath,
-        targetPath,
-      })
+        redirects.set(normalizedAlias, {
+          sourcePath,
+          targetPath,
+        })
+      }
     }
   }
 
@@ -217,6 +228,14 @@ export async function generateAliasRedirects(siteConfig: SiteConfig): Promise<vo
     redirectsWritten++
   }
 
+  if (redirectsWritten > 0) {
+    const sortedAliases = [...redirects.entries()]
+      .filter(([aliasPath]) => toRedirectOutputPath(siteConfig.outDir, aliasPath) !== null)
+      .sort(([a], [b]) => a.localeCompare(b))
+    for (const [aliasPath, redirect] of sortedAliases) {
+      console.info(`[aliases]   ${aliasPath} -> ${redirect.targetPath}`)
+    }
+  }
   console.info(`[aliases] Generated ${redirectsWritten} alias redirect files.`)
 }
 
@@ -258,7 +277,7 @@ export function createAliasRedirectDevPlugin(srcDir: string, basePath: string) {
   return {
     name: 'vitepress-aliases-dev-redirects',
     apply: 'serve',
-    configureServer(server: any) {
+    configureServer(server: ViteDevServer) {
       const refreshOnMarkdownChange = (filePath: string) => {
         if (filePath.toLowerCase().endsWith('.md')) {
           invalidateAliases()
@@ -269,7 +288,7 @@ export function createAliasRedirectDevPlugin(srcDir: string, basePath: string) {
       server.watcher.on('change', refreshOnMarkdownChange)
       server.watcher.on('unlink', refreshOnMarkdownChange)
 
-      server.middlewares.use((req: any, res: any, next: () => void) => {
+      server.middlewares.use((req: IncomingMessage, res: ServerResponse, next: () => void) => {
         if (!req.url || (req.method !== 'GET' && req.method !== 'HEAD')) {
           next()
           return
@@ -309,6 +328,12 @@ export function createAliasRedirectDevPlugin(srcDir: string, basePath: string) {
 
       void loadAliases()
         .then((aliases) => {
+          if (aliases.size > 0) {
+            const sortedAliases = [...aliases.entries()].sort(([a], [b]) => a.localeCompare(b))
+            for (const [aliasPath, redirect] of sortedAliases) {
+              console.info(`[aliases]   ${aliasPath} -> ${redirect.targetPath}`)
+            }
+          }
           console.info(`[aliases] Loaded ${aliases.size} aliases for dev redirects.`)
         })
         .catch((error) => {
