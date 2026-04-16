@@ -40,7 +40,7 @@ On-site, breakfast is provided daily, lunch comes via catering, and we cook dinn
 In general, all topics in the ecosystem of Gardener are in scope.
 This includes, but is not limited to, anything directly part of [gardener/gardener](https://github.com/gardener/gardener), extensions, infrastructure providers, documentation, testing, performance evaluations, and anything else that you can think of that is related to Gardener!
 
-Once the planning for a hackathon events kicks off, topic proposals are collected in the [hackathon repository](https://github.com/gardener/hackathon) as issues.
+Once the planning for a hackathon event kicks off, topic proposals are collected in the [hackathon repository](https://github.com/gardener/hackathon) as issues.
 These issues are discussed and presented to each other in a topic collection meeting in the round of the participants.
 After the topic collection, a voting process takes place where each participant can vote for the topics they are interested in.
 Based on the voting results, initial teams are formed around the most popular topics, ensuring a mix of participants from different companies to foster diversity and collaboration.
@@ -68,7 +68,7 @@ Nonetheless, please be aware that you need to have a certain level of technical 
 
 ### Organization Prerequisites
 
-Due to logicists and available space at the event location there is a limit of 30 participants per event.
+Due to logistics and available space at the event location there is a limit of 30 participants per event.
 Make sure to follow ongoing planning activities in the [`#hack-the-garden`](https://gardener-cloud.slack.com/archives/C0531FVMZFU) Slack channel and register yourself on time!
 
 Historically the cost per person for the week has been around 500-600 €, which includes accommodation, food, and drinks.
