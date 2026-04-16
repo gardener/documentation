@@ -34,7 +34,7 @@ A pull-through cache registry is a registry that caches container images in its 
 
 Imagine that you have a DaemonSet in your Kubernetes cluster. In a cluster without a pull-through cache, every Node must pull the same container image from the upstream registry. In a cluster with a pull-through cache, the image is pulled once from the upstream registry and served later for all Nodes.
 
-![A Shoot cluster setup with a registry cache for Docker Hub (docker.io)](images/shoot-cluster-with-registry-cache.png)
+![A Shoot cluster setup with a registry cache for Docker Hub (docker.io)](images/shoot-cluster-with-registry-cache.webp)
 
 <p style="text-align: center; font-style: italic;">A Shoot cluster setup with a registry cache for Docker Hub (docker.io).</p>
 

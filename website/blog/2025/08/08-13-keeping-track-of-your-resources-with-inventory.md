@@ -180,7 +180,7 @@ First, we will configure Inventory and grant it access to our Gardener
 Project. In order to do that, navigate to the Gardener Dashboard, select your
 project and go to the `Members` section. Then add a new service account.
 
-![Inventory Service Account](./images/inventory/inventory-sa.png)
+![Inventory Service Account](./images/inventory/inventory-sa.webp)
 
 After the service account has been created, you should download its
 `kubeconfig`, which we will configure in the next step. This snippet represents
@@ -476,7 +476,7 @@ also comes with a [pgadmin](https://www.pgadmin.org/) service, which you can use
 to query and inspect the schema, which is handy when you need to familiarize
 yourself with the existing schema.
 
-![Inventory AWS Schema](./images/inventory/aws-schema.png)
+![Inventory AWS Schema](./images/inventory/aws-schema.webp)
 
 In order to get better insights of the data collected by Inventory, you can
 connect your Inventory database with [Metabase](https://www.metabase.com/),
@@ -496,23 +496,23 @@ about its inner workings, which can be scraped, for example, by
 The following screenshot shows a summary of some of the data collected from a
 Gardener landscape.
 
-![Gardener Resources Summary](./images/inventory/gardener-stats.png)
+![Gardener Resources Summary](./images/inventory/gardener-stats.webp)
 
 This screenshot here displays a map of resources identified by Inventory as
 being orphaned.
 
-![AWS leaked resources map](./images/inventory/aws-leaked-map.png)
+![AWS leaked resources map](./images/inventory/aws-leaked-map.webp)
 
 And here we can see some of the `worker` metrics, showing us information about
 the AWS-related tasks.
 
-![Worker Metrics](./images/inventory/worker-metrics.png)
+![Worker Metrics](./images/inventory/worker-metrics.webp)
 
 Hooking up Inventory with your alerting system allows for early notification of
 orphan resources as soon as they are being discovered. Here we can see Inventory
 posting an alert about orphan EC2 instances in Slack.
 
-![Slack Alert](./images/inventory/slack-alert.png)
+![Slack Alert](./images/inventory/slack-alert.webp)
 
 Ever since our team started using Inventory to track our hyperscaler
 resources, we have identified a significant number of virtual machines
@@ -524,7 +524,7 @@ Reserved, but unused public IP addresses are also part of resources which we are
 actively tracking, and we've discovered more than a hundred public IPs in one of
 our environments, which we've cleaned up well.
 
-![Load Balancers and Public IPs](./images/inventory/lbs-ips.png)
+![Load Balancers and Public IPs](./images/inventory/lbs-ips.webp)
 
 Inventory helped with keeping our garden clean and cut some cloud costs.
 

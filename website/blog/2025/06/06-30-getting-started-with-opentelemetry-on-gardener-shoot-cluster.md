@@ -28,13 +28,13 @@ To follow along with this guide, you will need:
 
 ## Component Overview of the Sample OpenTelemetry Stack
 
-![OpenTelemetry Stack](./images/otel-gardener-shoot.png)
+![OpenTelemetry Stack](./images/otel-gardener-shoot.webp)
 
 ## Setting Up a Gardener Shoot for mTLS Certificate Management
 
 Here we use a self managed mTLS architecture with an illustration purpose. In a production environment, you would typically use a managed certificate authority (CA) or a service mesh to handle mTLS certificates and encryption. However, there might be cases where you want to have flexibility in authentication and authorization mechanisms, for example, by leveraging Kubernetes RBAC to determine whether a service is authorized to connect to a backend or not. In our illustration, we will use a `kube-rbac-proxy` as a sidecar to the backends, to enforce the mTLS authentication and authorization. The `kube-rbac-proxy` is a reverse proxy that uses Kubernetes RBAC to control access to services, allowing us to define fine-grained access control policies.
 
-![otel-mtls](./images/otel-mtls-kube-rbac-proxy.png)
+![otel-mtls](./images/otel-mtls-kube-rbac-proxy.webp)
 
 The `kube-rbac-proxy` extracts the identity of the client (OpenTelemetry collector) from the CommonName (CN) field of the TLS certificate and uses it to perform authorization checks against the Kubernetes API server. This enables fine-grained access control policies based on client identity, ensuring that only authorized clients can connect to the backends.
 
@@ -166,7 +166,7 @@ In this example, we use 2 receivers:
 - [k8s_cluster receiver](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/k8sclusterreceiver) to collect Kubernetes cluster metrics.
 
 Here is an example of Kubernetes events persited in the `victoria-logs` backend. It filters logs which represents events from `kube-system` namesapce related to a rollout restart of the target statefulset. Then it formats the UI to show the event reason and object name.
-![otel-victoria-logs](./images/otel-victoria-logs.png)
+![otel-victoria-logs](./images/otel-victoria-logs.webp)
 
 The collector features few important configurations related to reliability and performance.
 The collected metrics points are are sent in batches to the Prometheus backend using the corresponding OTLP exporter and the memory consumption of the collector is also limited. In general, it is always a good practice to set a memory limiter and batch processing in the collector pipeline.
@@ -284,7 +284,7 @@ transform/metrics:
 ```
 
 Here is a visualization of `container_network_transmit_bytes_total` metric collected from the `cadvisor` endpoint of the `kubelet` service, showing the network traffic in bytes transmitted by the `vpn-shoot` containers.
-![otel-prometheus](./images/otel-prometheus.png)
+![otel-prometheus](./images/otel-prometheus.webp)
 
 Similarly to the `k8s-events` collector, the `shoot-metrics` collector also emits its own telemetry data, including metrics and logs. The collector is configured to push its own metrics to the Prometheus backend using the `periodic` reader, avoiding the need for a separate Prometheus scrape configuration. It requires a corresponding set of permissions defined at [shoot-metrics rbac](./manifests/otel-collectors/shoot-metrics-rbac.yaml) manifest.
 

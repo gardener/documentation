@@ -31,6 +31,6 @@ When waking up a cluster, all control plane components will be scaled up again a
 
 The easiest way to configure hibernation schedules is via the dashboard. Of course, this is reflected in the shoot's spec and can also be maintained there. Before a cluster is hibernated, constraints in the shoot's status will be evaluated. There might be conditions (mostly revolving around mutating / validating webhooks) that would block a successful wake-up. In such a case, the constraint will block hibernation in the first place.
 
-![trigger-hibernation](./images/trigger-hibernation.png)
+![trigger-hibernation](./images/trigger-hibernation.webp)
 
 To wake-up or hibernate a shoot immediately, the dashboard can be used or a patch to the shoot's spec can be applied directly.

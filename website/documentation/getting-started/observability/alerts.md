@@ -32,4 +32,4 @@ Then you can use federation, which is a Prometheus feature, to forward the metri
 
 The credentials and endpoint for the Gardener managed Prometheus are exposed over the Gardener dashboard or programmatically in the garden project as a secret (`<shoot-name>.monitoring`).
 
-![custom-alerts](./images/custom-alerts.png)
+![custom-alerts](./images/custom-alerts.webp)

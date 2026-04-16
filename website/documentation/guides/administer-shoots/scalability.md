@@ -19,7 +19,7 @@ For a complex, distributed system like Kubernetes it is impossible to give absol
 
 Let's take a rather simple example of two dimensions - the number of `Pods` per `Node` and number of `Nodes` in a cluster. According to the [scalability thresholds documentation](https://github.com/kubernetes/community/blob/master/sig-scalability/configs-and-limits/thresholds.md), Kubernetes can scale up to 5000 `Nodes` and with default settings accommodate a maximum of 110 `Pods` on a single `Node`. Pushing only a single dimension towards its limit will likely harm the cluster. But if both are pushed simultaneously, any cluster will break way before reaching one dimension's limit.
 
-![Pods and Nodes](./images/pod-nodes.png)
+![Pods and Nodes](./images/pod-nodes.webp)
 
 What sounds rather straightforward in theory can be a bit trickier in reality. While 110 `Pods` is the default limit, we successfully pushed beyond that and in certain cases run up to 800 `Pods` per `Node` without breaking the cluster (see [our remarks on higher pod density per node](https://gardener.cloud/blog/2025/04/04-17-leaner-clusters-lower-bills/#enabling-higher-pod-density-per-node)). This is possible in an environment where one knows and controls all workloads and cluster configurations. It still requires careful testing, though, and comes at the cost of limiting the scalability of other dimensions, like the number of `Nodes`.
 

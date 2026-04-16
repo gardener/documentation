@@ -92,6 +92,6 @@ Copy following code to `Microsoft.PowerShell_profile.ps1`
  $host.ui.rawui.WindowTitle = prompt_k8s
 ```
 
-![port-forward](./images/howto-bash_kubeconfig_powershell.png)
+![port-forward](./images/howto-bash_kubeconfig_powershell.webp)
 
 If you want to switch to different cluster, you can set `KUBECONFIG` to new value, and re-run the file `Microsoft.PowerShell_profile.ps1`

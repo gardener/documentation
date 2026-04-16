@@ -17,6 +17,7 @@
     "@types/js-yaml": "4.0.9",
     "@types/lodash-es": "4.17.12",
     "@types/markdown-it": "12.2.3",
-    "@types/node": "20.11.27"
+    "@types/node": "20.11.27",
+    "sharp": "^0.34.5"
   }
 }
