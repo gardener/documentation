@@ -4,10 +4,6 @@ persona: Developers
 weight: 5
 ---
 
-## Welcome
-
-Welcome to the Contributor section of Gardener. Here you can learn how it is possible for you to contribute your ideas and expertise to the project and have it grow even more.
-
 ## Prerequisites
 
 Before you begin contributing to Gardener, there are a couple of things you should become familiar with and complete first.
@@ -21,7 +17,7 @@ Instances of abusive, harassing, or otherwise unacceptable behavior may be repor
 
 ### Developer Certificate of Origin
 
-Due to legal reasons, contributors will be asked to accept a Developer Certificate of Origin (DCO) before they submit the first pull request to this projects, this happens in an automated fashion during the submission process. We use [the standard DCO text of the Linux Foundation](https://developercertificate.org/).
+Due to legal reasons, contributors will be asked to accept a Developer Certificate of Origin (DCO) before they submit the first pull request to this project, this happens in an automated fashion during the submission process. We use [the standard DCO text of the Linux Foundation](https://developercertificate.org/).
 
 ### License
 
@@ -29,8 +25,7 @@ Your contributions to Gardener must be licensed properly:
 
 * Code contributions must be licensed under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0)
 * Documentation contributions must be licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/legalcode)
-
-You need to sign the Contributor License Agreement. We are using *[CLA assistant](https://cla-assistant.io/)* providing a click-through workflow for accepting the CLA. For company contributors additionally the company needs to sign a corporate license agreement.
+* You need to sign the Contributor License Agreement. We are using *[CLA assistant](https://cla-assistant.io/)* providing a click-through workflow for accepting the CLA. For company contributors additionally the company needs to sign a corporate license agreement.
 
 ## Contributing
 
