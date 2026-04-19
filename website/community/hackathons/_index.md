@@ -55,7 +55,7 @@ There is a Slack channel called [`#hack-the-garden`](https://gardener-cloud.slac
 ### Technical Prerequisites
 
 Gardener hackathons are a great opportunity for meeting new people in the community and collaborating on interesting topics from various parts of the codebase.
-Nonetheless, please be aware that you need to have a certain level of technical knowledge to be able to contribute effectively and making the event worthwhile for you as well!
+Nonetheless, please be aware that you need to have a certain level of technical knowledge to be able to contribute effectively and make the event worthwhile for you as well!
 
 **Recommendations:**
 * Solid experience in programming. Ideally, you already have hands-on experience with [Go](https://go.dev/) and you're familiar developing Kubernetes controllers using [controller-runtime](https://github.com/kubernetes-sigs/controller-runtime).
