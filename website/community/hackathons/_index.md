@@ -58,7 +58,7 @@ Gardener hackathons are a great opportunity for meeting new people in the commun
 Nonetheless, please be aware that you need to have a certain level of technical knowledge to be able to contribute effectively and make the event worthwhile for you as well!
 
 **Recommendations:**
-* Solid experience in programming. Ideally, you already have hands-on experience with [Go](https://go.dev/) and you're familiar developing Kubernetes controllers using [controller-runtime](https://github.com/kubernetes-sigs/controller-runtime).
+* Solid experience in programming. Ideally, you already have hands-on experience with [Go](https://go.dev/) and you're familiar with developing Kubernetes controllers using [controller-runtime](https://github.com/kubernetes-sigs/controller-runtime).
 * Familiarity with [Kubernetes](https://kubernetes.io/) concepts and architecture, as well as experience working with Kubernetes APIs and resources.
 * An understanding of Gardener's architecture and components, as well as its codebase and development practices.
 * Prepare the [local setup for Gardener](https://github.com/gardener/gardener/blob/master/docs/deployment/getting_started_locally.md) development. All required dependencies need to be downloaded before the event and your device should be capable of running Gardener locally.
