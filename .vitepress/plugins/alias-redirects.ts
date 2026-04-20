@@ -135,6 +135,7 @@ function toRedirectOutputPath(outDir: string, aliasPath: string): string | null 
 async function collectMarkdownFiles(rootDir: string): Promise<string[]> {
   const results: string[] = []
   const entries = await fs.readdir(rootDir, { withFileTypes: true })
+  entries.sort((a, b) => a.name.localeCompare(b.name))
 
   for (const entry of entries) {
     const absolutePath = path.join(rootDir, entry.name)
@@ -264,7 +265,10 @@ export function createAliasRedirectDevPlugin(srcDir: string, basePath: string) {
 
   const loadAliases = () => {
     if (!cachedAliases) {
-      cachedAliases = collectAliasEntries(srcDir, basePath)
+      cachedAliases = collectAliasEntries(srcDir, basePath).catch((error) => {
+        cachedAliases = null
+        throw error
+      })
     }
 
     return cachedAliases
