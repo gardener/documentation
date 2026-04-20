@@ -66,43 +66,49 @@ features:
 import ThemedTeamMembers from '@components/ThemedTeamMembers.vue'
 
 const members = [
-  { 
+  {
     name: 'Alibaba Cloud',
     logo: '/lp/platforms/alibaba-cloud.svg'
   },
-  { 
+  {
     name: 'Amazon Web Services',
     logo: '/lp/platforms/aws.svg',
     darkLogo: '/lp/platforms/aws-dark.svg'
   },
-  { 
+  {
     name: 'Microsoft Azure',
     logo: '/lp/platforms/microsoft-azure.svg'
   },
-  { 
+  {
     name: 'Google Cloud Platform',
     logo: '/lp/platforms/google-cloud-platform.svg',
   },
-  { 
+  {
     name: 'Metal-Stack',
     logo: '/lp/platforms/metalstack.svg'
   },
-  { 
+  {
     name: 'OpenStack',
     logo: '/lp/platforms/openstack.svg'
   },
-  { 
+  {
     name: 'SAP Data Center',
     logo: '/lp/platforms/sap.svg'
   },
-  { 
+  {
     name: 'Iron Core',
     logo: '/lp/platforms/iron_core.svg'
+  },
+  {
+    name: 'STACKIT',
+    logo: '/lp/platforms/stackit.svg',
+    darkLogo: '/lp/platforms/stackit-dark.svg'
   },
 ]
 </script>
 
 ## Everywhere You Want It
+
 **The compute resources you need, wherever you want them**
 
 <ThemedTeamMembers size="small" :members />

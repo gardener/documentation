@@ -53,3 +53,15 @@ structure:
       description: Gardener extension controller for the Equinix Metal cloud provider
     source:  https://github.com/gardener/gardener-extension-provider-equinix-metal/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-provider-equinix-metal/tree/master/docs
+- dir: gardener-extension-provider-stackit
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: Provider STACKIT
+      description: Gardener extension controller for the STACKIT cloud provider
+    source:  https://github.com/stackitcloud/gardener-extension-provider-stackit/blob/main/README.md
+  - fileTree: https://github.com/stackitcloud/gardener-extension-provider-stackit/tree/main/docs
+    excludeFiles:
+      - "development.md" # not relevant for users
+      - "releases.md" # not relevant for users
+      - "testing.md" # not relevant for users
