@@ -1,0 +1,26 @@
+---
+title: "GEP-0057: Replace Nginx Ingress Shoot Addon with Traefik Extension"
+---
+
+- 📌 **GEP Tracking Issue:** https://github.com/gardener/enhancements/issues/57
+- 📖 **GEP Link:** https://github.com/gardener/enhancements/pull/59
+- ✍🏻 **Author(s):** [@DockToFuture](https://github.com/DockToFuture) (Sebastian Stauch)
+- 🗓️ **Presentation:** 2026-04-20, 13:30 - 14:30 CEST
+- 🎥 **Recording:** https://youtu.be/v_MTCmd-PeU
+- 👨‍⚖️ **Decisions & Agreements:**
+  - Migration path with compatibility mode
+    - Users can stay in the nginx compatibility mode forever if they like the annotations or do not want to invest the migration effort.
+    - A migration from nginx compatibility mode to pure traefik ingress mode is possible, but requires a short downtime.
+    - The migration from `nginx-ingress` to traefik in nginx compatibility mode can happen without downtime, i.e. both controllers running in parallel with the same backends. The switch in DNS is the actual migration.
+  - Scope of the proposal in terms of cluster purpose
+    - The Addon was only ever intended for non-productive clusters as the gardener team did not want to cover the version management of `nginx-ingress` allowing users to upgrade at their own pace.
+    - The traefik extension is for now also intended for the same scope, i.e. non-productive clusters. Remove the hints about productisation of the extension from the proposal.
+    - It is intended to extend the scope of the extension to productive clusters once there are decisions about version management and lifecycle management available, but this is not part of this proposal.
+  - Gateway API
+    - Gateway API is not on the immediate roadmap for the traefik extension. It might come later, though.
+    - An extension for Gateway API is planned, but the decision on the operator/reverse proxy is independent of this proposal.
+  - Risk of traefik CRDs already being installed in the cluster
+    - For now, migration from self-managed traefik to gardener-managed traefik is out of scope. If it becomes a real problem it can be reconsidered.
+  - How does the traefik extension change the plan for the overall `nginx-ingress` removal in gardener?
+    - It should be possible for operators to disable the `nginx-ingress` addon per feature gate. This will not be part of the extension, but managed via https://github.com/gardener/gardener/issues/13448.
+  - We can continue with the proposal and implement it as optional extension for non-productive clusters.
