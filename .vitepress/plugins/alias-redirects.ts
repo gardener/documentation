@@ -213,7 +213,7 @@ export async function generateAliasRedirects(siteConfig: SiteConfig): Promise<vo
   const basePath = typeof siteConfig.site.base === 'string' ? siteConfig.site.base : '/'
   const redirects = await collectAliasEntries(siteConfig.srcDir, basePath)
 
-  let redirectsWritten = 0
+  const writtenAliases: { aliasPath: string; redirect: AliasEntry }[] = []
 
   for (const [aliasPath, redirect] of redirects.entries()) {
     const redirectFilePath = toRedirectOutputPath(siteConfig.outDir, aliasPath)
@@ -226,18 +226,16 @@ export async function generateAliasRedirects(siteConfig: SiteConfig): Promise<vo
 
     await fs.mkdir(path.dirname(redirectFilePath), { recursive: true })
     await fs.writeFile(redirectFilePath, createRedirectHtml(redirect.targetPath), 'utf8')
-    redirectsWritten++
+    writtenAliases.push({ aliasPath, redirect })
   }
 
-  if (redirectsWritten > 0) {
-    const sortedAliases = [...redirects.entries()]
-      .filter(([aliasPath]) => toRedirectOutputPath(siteConfig.outDir, aliasPath) !== null)
-      .sort(([a], [b]) => a.localeCompare(b))
-    for (const [aliasPath, redirect] of sortedAliases) {
+  if (writtenAliases.length > 0) {
+    writtenAliases.sort((a, b) => a.aliasPath.localeCompare(b.aliasPath))
+    for (const { aliasPath, redirect } of writtenAliases) {
       console.info(`[aliases]   ${aliasPath} -> ${redirect.targetPath}`)
     }
   }
-  console.info(`[aliases] Generated ${redirectsWritten} alias redirect files.`)
+  console.info(`[aliases] Generated ${writtenAliases.length} alias redirect files.`)
 }
 
 function stripBasePath(pathname: string, basePath: string): string | null {
