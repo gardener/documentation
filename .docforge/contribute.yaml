@@ -61,11 +61,7 @@ structure:
   - dir: gardener
     structure:
     - file: _index.md
-      frontmatter:
-        title: Gardener
-        description: Developer documentation for the core Gardener component
-        weight: 20
-      source: https://github.com/gardener/gardener/blob/master/docs/README.md
+      source: /website/contribute/gardener/_index.md
     - dir: development
       structure:
       - fileTree: https://github.com/gardener/gardener/tree/master/docs/development
