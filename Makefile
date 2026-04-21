@@ -135,7 +135,7 @@ post-processing-part-index:
 
 .PHONY: post-processing-part-3
 post-processing-part-3:
-	node post-processing/part-3.js --update-report-link --process-api-html
+	node post-processing/part-3.js --update-report-link --process-api-html --escape-angle-brackets
 
 .PHONY: post-process
 post-process: ## Run post-processing scripts
