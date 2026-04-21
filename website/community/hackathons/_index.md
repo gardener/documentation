@@ -46,7 +46,7 @@ After the topic collection, a voting process takes place where each participant 
 Based on the voting results, initial teams are formed around the most popular topics, ensuring a mix of participants from different companies to foster diversity and collaboration.
 However, it's important to note that these teams are not fixed, and participants have the flexibility to switch topics dynamically during the week as they see fit, allowing for a fluid and collaborative environment.
 
-Long story short: Any topic that is agreed upon in the round of the hackathon participants is in scope for a hackathon.
+Long story short: Any topic that the hackathon participants agree on is in scope.
 
 ## 🤝 How to Participate
 
