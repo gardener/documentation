@@ -1,6 +1,6 @@
 ---
 title: Enabling Trust Between Shoot and Garden Clusters
-description: "Set up OIDC-based trust so shoot service accounts can authenticate directly with the Garden cluster"
+description: "Set up OIDC-based trust so shoot service accounts can authenticate directly with the garden cluster"
 level: intermediate
 index: 40
 category: Security
@@ -9,10 +9,10 @@ scope: operator
 
 ## Overview
 
-This guide explains how to enable trust between the Garden cluster and a shoot cluster so that workloads running in the shoot can authenticate directly with the Garden API server using Kubernetes service account tokens (JWTs), removing the need for static credentials. Authorization decisions are then handled by RBAC in the Garden cluster. 
+This guide explains how to enable trust between the garden cluster and a shoot cluster so that workloads running in the shoot can authenticate directly with the Gardener API server using Kubernetes service account tokens (JWTs), removing the need for static credentials. Authorization decisions are then handled by RBAC in the garden cluster. 
 Example use cases:
 - A shoot cluster that manages Gardener resources for a specific organization
-- CI/CD pipelines running in a shoot that interact with the Garden API
+- CI/CD pipelines running in a shoot that interact with the Gardener API
 
 ## How It Works
 ### Setup - TL;DR
@@ -25,16 +25,16 @@ annotations:
     authentication.gardener.cloud/trusted: 'true'
 ```
 
-Additionally, RBAC rules in the Garden cluster should grant permissions to the shoot's service account identity which will perform requests to the Garden cluster.
+Additionally, RBAC rules in the garden cluster should grant permissions to the shoot's service account identity which will perform requests to the garden cluster.
 
 ### Authentication 
-The authentication flow, when a request is made is:
+When a request is made, the authentication flow is:
 
 ![Garden Shoot Trusted](./images/garden-shoot-trust.png)
-The following components help to enable this feature in the Garden cluster:
+The following components help to enable this feature in the garden cluster:
 
 - **[Managed Service Account Issuer (GEP-24)](https://github.com/gardener/enhancements/tree/main/geps/0024-shoot-oidc-issuer)**: Configures the shoot API server to sign service account tokens with a Gardener-managed key pair. The corresponding OIDC discovery documents and JWKS are served publicly by the Gardener Discovery Server.
-- **[oidc-webhook-authenticator (OWA)](https://github.com/gardener/oidc-webhook-authenticator)**: A webhook token authenticator deployed in the Garden cluster that validates OIDC tokens from trusted issuers.
+- **[oidc-webhook-authenticator (OWA)](https://github.com/gardener/oidc-webhook-authenticator)**: A webhook token authenticator deployed in the garden cluster that validates OIDC tokens from trusted issuers.
 - **[garden-shoot-trust-configurator](https://github.com/gardener/garden-shoot-trust-configurator)**: A controller that watches for shoots annotated as trusted and automatically creates the corresponding OIDC resources consumed by OWA.
 
 ## How to establish trust?
@@ -42,14 +42,14 @@ The following components help to enable this feature in the Garden cluster:
 We will follow an example setup where a shoot will contain a health-reporter workload. It monitors the health status of all shoots in a Gardener project by querying the Garden API.
 
 ```bash
-# Target Shoot cluster
+# Target shoot cluster
 kubectl create namespace health-reporter
 kubectl create serviceaccount health-reporter -n health-reporter
 ```
 
 ### Step 1: Enable Managed Issuer
 
-By enabling a managed service account issuer, Gardener configures the shoot API server to sign service account tokens with a managed key pair. The Gardener Discovery Server then exposes the corresponding OIDC discovery documents and JWKS at a publicly accessible URL, allowing the Garden cluster to verify the token signatures.
+By enabling a managed service account issuer, Gardener configures the shoot API server to sign service account tokens with a managed key pair. The Gardener Discovery Server then exposes the corresponding OIDC discovery documents and JWKS at a publicly accessible URL, allowing the garden cluster to verify the token signatures.
 
 Add the annotation to your shoot:
 
@@ -118,16 +118,16 @@ Decode the JWT to verify its claims:
 
 ### Step 2: Annotate Shoot as Trusted
 
-To have the Garden cluster trust this shoot's issuer, add the trusted annotation:
+To have the garden cluster trust the shoot's issuer, add the annotation:
 
 ```yaml
 annotations:
     authentication.gardener.cloud/trusted: 'true'
 ```
 
-The [`garden-shoot-trust-configurator`](https://github.com/gardener/garden-shoot-trust-configurator) watches for shoots with this annotation and automatically creates OIDC custom resources. These resources are consumed by the [`oidc-webhook-authenticator`](https://github.com/gardener/oidc-webhook-authenticator), which validates tokens presented to the Garden API server.
+The [`garden-shoot-trust-configurator`](https://github.com/gardener/garden-shoot-trust-configurator) watches for shoots with this annotation and automatically creates OIDC custom resources. These resources are consumed by the [`oidc-webhook-authenticator`](https://github.com/gardener/oidc-webhook-authenticator), which validates tokens presented to the Gardener API server.
 
-In essence, this will create the following OIDC resource in the Garden cluster:
+In essence, this will create the following OIDC resource in the garden cluster:
 ```yaml
 apiVersion: authentication.gardener.cloud/v1alpha1
 kind: OpenIDConnect
@@ -152,12 +152,12 @@ spec:
 
 ### Step 3: Configure RBAC
 
-Authentication (token verification) is now handled automatically, but the authenticated identity has no permissions by default. You must create RBAC rules in the Garden cluster to authorize the requested actions.
+Authentication (token verification) is now handled automatically, but the authenticated identity has no permissions by default. You must create RBAC rules in the garden cluster to authorize the requested actions.
 
 We need a `Role` that grants read access to `Shoot` resources and a `RoleBinding` that binds it to the shoot's ServiceAccount identity:
 
 ```bash
-# Target Garden cluster
+# Target garden cluster
 kubectl apply -f - <<EOF
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
@@ -194,10 +194,10 @@ EOF
 
 ### Step 4: Verification
 
-Test that we are authenticated and authorized by requesting a token from the shoot and making a request to the Garden API server:
+Test that we are authenticated and authorized by requesting a token from the shoot and making a request to the Gardener API server:
 
 ```bash
-# Shoot cluster
+# Target shoot cluster
 TOKEN=$(kubectl create token health-reporter -n health-reporter --audience garden)
 
 curl -k -H "Authorization: Bearer $TOKEN" \
