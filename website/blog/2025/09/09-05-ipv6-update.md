@@ -12,6 +12,7 @@ tags:
   - technical-deep-dive
   - networking
   - extensions
+  - apeiro
 ---
 The internet is built on the Internet Protocol (IP), and for decades, its fourth version, IPv4, has been the bedrock of global connectivity. However, the explosive growth of the internet, a phenomenon that began in the 1990s, made it clear that the 32-bit address space of IPv4 was finite and rapidly depleting. The long-foreseen solution, IPv6, with its vast 128-bit address space, has been around for nearly 30 years, but its adoption has been a slow and steady marathon rather than a sprint.
 

@@ -14,6 +14,7 @@ tags:
   - security
   - node-management
   - extensions
+  - apeiro
 ---
 Managing configurations consistently across a fleet of Kubernetes clusters can be a complex task. Operators often need a straightforward way to deploy baseline resources—such as security policies, resource quotas, or RBAC rules—to all or a subset of their clusters without the overhead of building and maintaining a full-blown extension.
 

@@ -13,6 +13,7 @@ tags:
   - security
   - observability
   - extensions
+  - apeiro
 ---
 Gardener has introduced a new feature that enhances the discoverability of services running within a Shoot's control plane. While the `.status.advertisedAddresses` field in the `Shoot` resource has always provided key endpoints like the API server URL, it now supports extension by other components.
 

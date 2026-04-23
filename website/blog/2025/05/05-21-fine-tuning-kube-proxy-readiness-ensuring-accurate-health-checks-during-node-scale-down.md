@@ -13,6 +13,7 @@ tags:
   - networking
   - node-management
   - provider-gcp
+  - apeiro
 ---
 Gardener has recently refined how it determines the readiness of `kube-proxy` components within managed Kubernetes clusters. This adjustment leads to more accurate system health reporting, especially during node scale-down operations orchestrated by `cluster-autoscaler`.
 

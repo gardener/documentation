@@ -13,6 +13,7 @@ tags:
   - networking
   - node-management
   - extensions
+  - apeiro
 ---
 Gardener continues to enhance its networking capabilities, offering users greater flexibility in managing their cluster landscapes. A significant advancement is the extension of IPv4 network overlap support to Shoot clusters with high-availability (HA) control planes. Previously a feature exclusive to non-HA Shoots, this update allows both single-stack IPv4 and dual-stack Shoots to utilize pod, service, and node network ranges that overlap with the networks of their Seed cluster.
 

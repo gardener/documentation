@@ -12,6 +12,7 @@ tags:
   - feature-announcement
   - networking
   - node-management
+  - apeiro
 ---
 Gardener is continually evolving to offer greater flexibility and efficiency in managing Kubernetes clusters. A significant enhancement has been introduced that addresses a common networking challenge: the requirement for completely disjoint network CIDR blocks between a shoot cluster and its seed cluster. Now, Gardener allows for IPv4 network overlap in specific scenarios, providing users with more latitude in their network planning.
 

@@ -12,6 +12,7 @@ tags:
   - technical-deep-dive
   - observability
   - storage
+  - apeiro
 ---
 
 Gardener is introducing a significant enhancement to its logging architecture for shoot clusters. By enabling the new `OpenTelemetryCollector` feature gate, shoots will be instrumented with the power and flexibility of the [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/) to process and route shoot logs. This marks a key step in the evolution of Gardener's observability stack, as outlined in [GEP-34](https://github.com/gardener/enhancements/blob/main/geps/0034-observability2.0-opentelemetry/README.md).

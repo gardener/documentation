@@ -13,6 +13,7 @@ tags:
   - networking
   - node-management
   - provider-gcp
+  - apeiro
 ---
 Gardener continues to enhance its networking capabilities, now offering a streamlined migration path for existing IPv4-only shoot clusters on Google Cloud Platform (GCP) to dual-stack (IPv4 and IPv6). This allows clusters to leverage the benefits of IPv6 networking while maintaining IPv4 compatibility.
 

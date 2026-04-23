@@ -16,6 +16,7 @@ tags:
   - security
   - storage
   - node-management
+  - apeiro
 ---
 Gardener has introduced a new feature gate, `DoNotCopyBackupCredentials`, to enhance the security and clarity of how backup credentials for managed seeds are handled. This change moves away from an implicit credential-copying mechanism to a more explicit and secure configuration practice.
 
