@@ -55,7 +55,7 @@ $ kubectl create serviceaccount health-reporter -n health-reporter
 
 ### Step 1: Enable Managed Issuer
 
-By enabling a managed service account issuer, Gardener takes ownership of the key pair used to sign service account tokens. This allows the Gardener Discovery Server to expose the corresponding OIDC discovery documents and JWKS at a publicly accessible URL, enabling the garden cluster to verify the token signatures.
+By enabling a managed service account issuer, Gardener manages the service account issuer of the shoot and configures the kube-apiserver accordingly. The Gardener Discovery Server then serves the corresponding OIDC discovery documents and JWKS at a publicly accessible URL, enabling the garden cluster to verify the token signatures.
 
 Add the annotation to your shoot:
 
@@ -70,7 +70,7 @@ annotations:
 > You can wait for the shoot maintenance window or trigger reconciliation by annotating the shoot with `gardener.cloud/operation=reconcile`.
 
 #### Verification
-Verify in the shoot's status that the `service-account-issuer` contains the managed issuer URL (in the format `https://discovery.<.spec.runtimeCluster.ingress.domains[0]>/projects/<project-name>/shoots/<shoot-uid>/issuer`).
+Verify in the shoot's status that the `service-account-issuer` contains the managed issuer URL ([Service Account Issuer format](https://github.com/gardener/gardener/blob/master/docs/concepts/operator.md#main-reconciler)).
 
 ```yaml
 status:
@@ -105,7 +105,7 @@ The service account tokens issued by the shoot's kube-API server will contain an
 You can request a token with the `garden` audience (this must match the audience configured in the OIDC resource that the `garden-shoot-trust-configurator` creates).
 
 ```bash
-$ kubectl create token health-reporter -n health-reporter --audience garden
+kubectl create token health-reporter -n health-reporter --audience garden
 ```
 
 Decode the JWT to verify its claims:
@@ -204,7 +204,7 @@ EOF
 > This ensures identities from different shoots are always unique, even if they share the same ServiceAccount name. The resulting username has the form:
 >
 > ```javascript
-> `ns:${project-namespace}:shoot:${shoot-name}:${shoot-uid}:${claims.sub}`
+> `ns:<project-ns>:shoot:<shoot-name>:<shoot-uid>:${claims.sub}`
 > ```
 
 ### Step 4: Verification
