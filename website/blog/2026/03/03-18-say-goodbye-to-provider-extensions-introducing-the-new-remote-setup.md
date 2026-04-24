@@ -10,6 +10,7 @@ authors:
 tags:
   - feature-announcement
   - extensions
+  - apeiro
 aliases: ["/blog/2026/03/18/say-goodbye-to-provider-extensions-introducing-the-new-remote-setup"]
 ---
 

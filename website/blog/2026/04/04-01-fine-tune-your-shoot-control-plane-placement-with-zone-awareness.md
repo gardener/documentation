@@ -11,6 +11,7 @@ authors:
 tags:
   - feature-announcement
   - high-availability
+  - apeiro
 aliases: ["/blog/2026/04/01/fine-tune-your-shoot-control-plane-placement-with-zone-awareness"]
 ---
 

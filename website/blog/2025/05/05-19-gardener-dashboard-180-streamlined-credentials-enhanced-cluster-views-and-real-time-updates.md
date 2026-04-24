@@ -13,6 +13,7 @@ tags:
   - cost-optimization
   - security
   - dashboard
+  - apeiro
 ---
 Gardener Dashboard version 1.80 introduces several significant enhancements aimed at improving user experience, credentials management, and overall operational efficiency. These updates bring more clarity to credential handling, a smoother experience for managing large numbers of clusters, and a move towards a more reactive interface.
 

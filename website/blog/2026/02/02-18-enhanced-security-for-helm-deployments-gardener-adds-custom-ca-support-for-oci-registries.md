@@ -13,6 +13,7 @@ tags:
   - security
   - helm
   - extensions
+  - apeiro
 ---
 Gardener continues to enhance its security and flexibility, particularly for users operating in air-gapped environments or utilizing private infrastructure. A new feature now allows operators to specify a custom Certificate Authority (CA) bundle when pulling Helm charts from OCI registries. This is a significant improvement for environments where registries are secured with custom or self-signed TLS certificates.
 

@@ -15,6 +15,7 @@ tags:
   - storage
   - node-management
   - etcd
+  - apeiro
 ---
 Maintaining a strong security posture is crucial for any Kubernetes environment. A key aspect of this is the regular rotation of credentials. To simplify this essential task and reduce operational overhead, Gardener now supports the automatic rotation of several critical credentials during a `Shoot` cluster's maintenance window.
 

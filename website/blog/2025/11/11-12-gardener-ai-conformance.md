@@ -10,6 +10,7 @@ authors:
 aliases: ["/blog/2025/11/12/gardener-ai-conformance"]
 tags:
   - technical-deep-dive
+  - apeiro
 ---
 We are happy to announce that Gardener is one of the first Kubernetes offerings to report official AI Conformance, as defined by the Cloud Native Computing Foundation's (CNCF) Kubernetes AI Conformance Working Group. This significant milestone underscores Gardener's commitment to providing a robust, scalable, and reliable platform for running modern, resource-intensive AI and machine learning (ML) workloads.
 

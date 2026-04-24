@@ -12,6 +12,7 @@ tags:
   - feature-announcement
   - security
   - node-management
+  - apeiro
 ---
 Gardener continues to enhance its operational capabilities, and a recent improvement introduces a much-requested feature for managing gardenlets: the ability to forcefully trigger their redeployment. This provides operators with greater control and a streamlined recovery path for specific scenarios.
 
