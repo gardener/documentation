@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig, type SiteConfig } from 'vitepress'
 import { fileURLToPath, URL, pathToFileURL } from 'node:url'
 import blogSidebar from './theme/blog-sidebar.ts'
 import {communitySidebar} from "./theme/community-sidebar.ts";
@@ -6,8 +6,11 @@ import path from 'path'
 import { SearchResult } from 'minisearch'
 import { generateEnhancedDocsSidebar } from './theme/docs-sidebar.ts';
 import { hasMarkdownContent, getTaxonomyChildren } from './theme/utils/sidebar.ts';
+import { generateAliasRedirects, createAliasRedirectDevPlugin } from './plugins/alias-redirects';
 
 const indexPattern = new RegExp(/\/?_?index\.md$/i);
+const siteBase = process.env.VITE_PUBLIC_BASE_PATH || ''
+const siteSrcDir = 'hugo/content'
 
 // Pre-compute sidebar data at module level (runs once at build start)
 const allSidebars = {
@@ -17,8 +20,8 @@ const allSidebars = {
 };
 
 export default defineConfig({
-  base: process.env.VITE_PUBLIC_BASE_PATH || '',
-  srcDir: 'hugo/content',
+  base: siteBase,
+  srcDir: siteSrcDir,
   cleanUrls: true,
   transformPageData(pageData) {
     if (
@@ -44,6 +47,9 @@ export default defineConfig({
     if (children && children.length > 0) {
       pageData.frontmatter.taxonomyChildren = children
     }
+  },
+  async buildEnd(siteConfig: SiteConfig) {
+    await generateAliasRedirects(siteConfig)
   },
   sitemap: {
     hostname: 'https://gardener.cloud'
@@ -80,7 +86,7 @@ export default defineConfig({
   description: "A Managed Kubernetes Service Done Right",
   head: getHeadConfig() as any,
   themeConfig: getThemeConfig() as any,
-  vite: getViteConfig(),
+  vite: getViteConfig(siteBase, siteSrcDir),
   markdown: {
     languages: ['go'],
     languageAlias: {
@@ -267,8 +273,11 @@ function getThemeConfig() {
   }
 }
 
-function getViteConfig() {
+function getViteConfig(basePath: string, srcDir: string) {
   return {
+    plugins: [
+      createAliasRedirectDevPlugin(srcDir, basePath),
+    ],
     build:{
       chunkSizeWarningLimit: 5000,
     },
@@ -433,3 +442,4 @@ posthog.init('phc_zYmm7RPD5YnDyWVuBE8z1uQKlBimlxHGrCfELNXfsTD', {
     ]
   ]
 }
+
