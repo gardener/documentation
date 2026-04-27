@@ -70,7 +70,7 @@ annotations:
 > You can wait for the shoot maintenance window or trigger reconciliation by annotating the shoot with `gardener.cloud/operation=reconcile`.
 
 #### Verification
-Verify in the shoot's status that the `service-account-issuer` contains the managed issuer URL ([Service Account Issuer format](https://github.com/gardener/gardener/blob/master/docs/concepts/operator.md#main-reconciler)).
+Verify in the shoot's status that the `service-account-issuer` contains the managed issuer URL ([Service Account Issuer format](https://github.com/gardener/gardener/blob/759c55c072d8eb0293038917f86ccb2ebd88b38f/docs/concepts/operator.md?plain=1#L262)).
 
 ```yaml
 status:
