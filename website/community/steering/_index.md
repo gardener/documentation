@@ -20,7 +20,7 @@ Before submitting a GEP, it is recommended to first **circulate your idea** to g
 
 So, Gardener's Technical Steering discusses topics when a design document has been crafted. It focuses on both the 'Whether'/'Why' and the 'How' question.
 
-The committee will schedule a Technical Steering meeting where the proposer presents the GEP. Committee members and interested contributors will challenge and discuss the idea. This meeting will be recorded.
+The committee will schedule a Technical Steering meeting where the proposer, committee members and interested contributors will challenge and discuss the idea. Proposer will not present the GEP, instead attendees are expected to get familiar with the proposal in advance. This meeting will be recorded.
 
 A decision on how to proceed with the proposal, including any recommended improvements, will be made within the same meeting. The decision and any required changes will be documented in the GEP.
 
@@ -52,10 +52,10 @@ A topic qualifies for Technical Steering if it:
 If you'd like to bring a topic to the steering meeting, follow these steps:
 
 1. **Create a tracking issue to reserve a GEP number**: https://github.com/gardener/enhancements/issues/new?template=enhancement.md
-2. **Create a proposal document** using the [official template](https://github.com/gardener/enhancements/tree/master/geps/NNNN-gep-template) in [`gardener/enhancements`](https://github.com/gardener/enhancements).
+2. **Create a proposal document** using the [official template](https://github.com/gardener/enhancements/tree/main/geps/NNNN-gep-template) in [`gardener/enhancements`](https://github.com/gardener/enhancements) repository.
 3. **Open a Pull Request** against the `gardener/enhancements` repository.
 4. The steering committee will start reviewing your PR - please react on their feedback!
-5. Once the initial PR reviews have been completed, a member of the steering committee will coordinate scheduling a meeting to discuss the GEP.
+5. Once the initial PR reviews have been completed, a member of the steering committee will schedule a meeting to discuss the GEP.
 
 > 💡 Keep your proposal concise (2–5 pages). The goal is to clearly motivate your idea and define what decision or feedback you need.
 
