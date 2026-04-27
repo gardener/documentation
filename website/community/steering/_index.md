@@ -20,7 +20,7 @@ Before submitting a GEP, it is recommended to first **circulate your idea** to g
 
 So, Gardener's Technical Steering discusses topics when a design document has been crafted. It focuses on both the 'Whether'/'Why' and the 'How' question.
 
-The committee will schedule a Technical Steering meeting where the proposer, committee members and interested contributors will challenge and discuss the idea. Proposer will not present the GEP, instead attendees are expected to get familiar with the proposal in advance. This meeting will be recorded.
+The committee will schedule a Technical Steering meeting where the proposer, committee members and interested contributors will challenge and discuss the idea. The proposer will not present the GEP, instead attendees are expected to get familiar with the proposal in advance. This meeting will be recorded.
 
 A decision on how to proceed with the proposal, including any recommended improvements, will be made within the same meeting. The decision and any required changes will be documented in the GEP.
 
