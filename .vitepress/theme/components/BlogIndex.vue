@@ -243,7 +243,10 @@ function syncSelectedFiltersToUrl(): void {
 }
 
 function isTagActive(tag: string): boolean {
-  return normalizedSelectedTags.value.indexOf(tag.toLowerCase()) !== -1
+  const lowerTag = tag.toLowerCase()
+  if (normalizedSelectedTags.value.indexOf(lowerTag) !== -1) return true
+  if (normalizedTagQuery.value && lowerTag.indexOf(normalizedTagQuery.value) !== -1) return true
+  return false
 }
 
 function toggleTag(tag: string): void {
@@ -258,6 +261,16 @@ function toggleTag(tag: string): void {
   // Clicking tags manages the selected tag set explicitly.
   tagQuery.value = ''
   syncSelectedFiltersToUrl()
+}
+
+function onTagInputChange(): void {
+  const query = tagQuery.value.trim()
+  if (!query) return
+
+  const matchedTag = allVisibleTags.value.find(tag => tag.toLowerCase() === query.toLowerCase())
+  if (matchedTag) {
+    toggleTag(matchedTag)
+  }
 }
 
 function isAuthorActive(author: VisibleAuthor): boolean {
@@ -341,6 +354,7 @@ function clearFilters(): void {
         list="blog-tag-options"
         type="text"
         placeholder="Type a tag (for example: security)"
+        @change="onTagInputChange"
       />
       <button
         v-if="tagQuery || selectedTags.length || selectedAuthors.length || selectedYears.length"
