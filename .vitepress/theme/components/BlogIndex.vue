@@ -191,6 +191,19 @@ const allVisibleTags = computed(() => {
   return Array.from(tagsByNormalized.values()).sort(compareTags)
 })
 
+const allVisibleYears = computed(() => {
+  const years = new Set<string>()
+  for (const post of postsWithVisibleTags.value) {
+    if (post.year) years.add(post.year)
+  }
+  return Array.from(years).sort().reverse()
+})
+
+const datalistYears = computed(() => {
+  if (!normalizedTagQuery.value) return []
+  return allVisibleYears.value.filter(year => year.indexOf(normalizedTagQuery.value) !== -1)
+})
+
 const normalizedTagQuery = computed(() => tagQuery.value.trim().toLowerCase())
 const normalizedSelectedTags = computed(() => selectedTags.value.map(tag => tag.toLowerCase()))
 const normalizedSelectedAuthors = computed(() => selectedAuthors.value.map(author => normalizeFilterValue(author)))
@@ -202,7 +215,9 @@ const filteredPosts = computed(() => {
       normalizedSelectedTags.value.every(selectedTag =>
         post.visibleTags.some(tag => tag.toLowerCase() === selectedTag)
       )
-    const matchesTagQuery = !normalizedTagQuery.value || post.visibleTags.some(tag => tag.toLowerCase().indexOf(normalizedTagQuery.value) !== -1)
+    const matchesTagQuery = !normalizedTagQuery.value ||
+      post.visibleTags.some(tag => tag.toLowerCase().indexOf(normalizedTagQuery.value) !== -1) ||
+      (post.year && post.year.indexOf(normalizedTagQuery.value) !== -1)
     const matchesSelectedAuthors =
       !normalizedSelectedAuthors.value.length ||
       normalizedSelectedAuthors.value.every(selectedAuthor =>
@@ -267,6 +282,13 @@ function onTagInputChange(): void {
   const query = tagQuery.value.trim()
   if (!query) return
 
+  const matchedYear = allVisibleYears.value.find(year => year === query)
+  if (matchedYear) {
+    toggleYear(matchedYear)
+    tagQuery.value = ''
+    return
+  }
+
   const matchedTag = allVisibleTags.value.find(tag => tag.toLowerCase() === query.toLowerCase())
   if (matchedTag) {
     toggleTag(matchedTag)
@@ -290,7 +312,9 @@ function toggleAuthor(author: VisibleAuthor): void {
 }
 
 function isYearActive(year: string): boolean {
-  return selectedYears.value.indexOf(year) !== -1
+  if (selectedYears.value.indexOf(year) !== -1) return true
+  if (normalizedTagQuery.value && year.indexOf(normalizedTagQuery.value) !== -1) return true
+  return false
 }
 
 function toggleYear(year: string): void {
@@ -365,6 +389,11 @@ function clearFilters(): void {
         Clear
       </button>
       <datalist id="blog-tag-options">
+        <option
+          v-for="year in datalistYears"
+          :key="`year-option-${year}`"
+          :value="year"
+        />
         <option
           v-for="tag in allVisibleTags"
           :key="`tag-option-${tag}`"
