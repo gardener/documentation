@@ -14,6 +14,30 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2026/04/29 - [v1.141](https://github.com/gardener/gardener/releases/tag/v1.141.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@rfranzke](https://github.com/rfranzke) | `5m` | 🩺 `gardener-node-agent` Monitors `systemd` Unit Health | [#14496](https://github.com/gardener/gardener/pull/14496) |
+| [@Shreyas-s14](https://github.com/Shreyas-s14) | `10m` | 🔂 etcd 3.4→3.5 Upgrade Path in `etcd-druid` | [etcd-druid#1281](https://github.com/gardener/etcd-druid/pull/1281), [etcd-druid#1300](https://github.com/gardener/etcd-druid/pull/1300) |
+| [@ScheererJ](https://github.com/ScheererJ) | `5m` | 🏜️ Ingress NGINX Retirement | [#13448 (issue)](https://github.com/gardener/gardener/issues/13448) |
+| [@timebertt](https://github.com/timebertt) | `10m` | 🐳 Local `cloud-controller-manager` for Load Balancers | [#14415](https://github.com/gardener/gardener/pull/14415) |
+| [@AleksandarSavchev](https://github.com/AleksandarSavchev) | `5m` | 🔐 New `aesgcm` and `secretbox` Encryption Provider Types | [#14034](https://github.com/gardener/gardener/pull/14034) |
+| [@petersutter](https://github.com/petersutter), [@grolu](https://github.com/grolu), [@klocke-io](https://github.com/klocke-io) | `10m` | 🕹 Gardener Dashboard Update | [1.84.0 (release)](https://github.com/gardener/dashboard/releases/tag/1.84.0) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- 🪓 [USER] Newly created `Shoot`s now have a set period of `28d` for etcd encryption key rotation. [#14034](https://github.com/gardener/gardener/pull/14034)
+- 🪓 [OPERATOR] The `NewWorkerPoolHash` feature gate has been promoted to GA and can no longer be disabled. [#14531](https://github.com/gardener/gardener/pull/14531)
+- 🐛 [USER] Cluster-proportional autoscaling of coredns now works with Kubernetes >= 1.33 [#14638](https://github.com/gardener/gardener/pull/14638)
+- 🐛 [OPERATOR] The garbage collection logic now also deletes pods that are stuck due to preemption by the kubelet or scheduler. [#14519](https://github.com/gardener/gardener/pull/14519)
+
+<hr />
+
 ### 2026/04/15 - [v1.140](https://github.com/gardener/gardener/releases/tag/v1.140.0) Release
 
 [📽️ Recording](https://youtu.be/drpgkEjONwQ)
