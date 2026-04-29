@@ -6,6 +6,10 @@ weight: 20
 
 # Gardener
 
+This section contains the developer documentation for core Gardener functionality.
+
+Before diving in, check out the [Developer Starter Kit](https://gardener.cloud/contribute/start-developing/). There you can learn how to set up your local environment and get familiar with the general development guidelines for Gardener.
+
 - [Releases, Features, Hotfixes](https://gardener.cloud/contribute/gardener/process)
 - [Checklist For Adding New Components](https://gardener.cloud/contribute/gardener/component-checklist)
 - [High Availability of Deployed Components](https://gardener.cloud/contribute/gardener/high-availability-of-components)

@@ -8,21 +8,21 @@ aside: false
 
 # Welcome to the Contributor page of Gardener
 
-This page is for anyone interested in contributing to Gardener. It contains information about the architecture, processes, and guidelines behind developing and documenting Gardener.
+This page is your starting point for contributing to Gardener. It contains all documentation related to developing and documenting Gardener.
 
-We appreciate all kinds of contributions – from fixing a typo to implementing a new feature.
+We appreciate all kinds of contributions – from fixing a typo to implementing a new feature. Let's grow Gardener together!
 
 ## Get Started
 
 <CardGrid :cards="[
   {
     title: 'Contributor Guide',
-    details: 'Discover the steps for contributing, licensing requirements, and many useful tips',
+    details: 'Learn how to contribute to Gardener, including contribution workflows, licensing requirements, and best practices.',
     link: 'https://gardener.cloud/contribute/contribution-process/how-to-contribute'
   },
   {
     title: 'Developer Starter Kit',
-    details: 'Set up and deploy Gardener locally. Explore key development guidelines, such as testing, validation, and dependency management guidelines',
+    details: 'Set up and deploy Gardener locally. Explore key development guidelines, such as testing, validation, and dependency management guidelines.',
     link: 'https://gardener.cloud/contribute/start-developing/'
   }
 ]"/>
@@ -32,27 +32,27 @@ We appreciate all kinds of contributions – from fixing a typo to implementing 
 <CardGrid :cards="[
   {
     title: 'Gardener',
-    details: 'Main developer documentation for the Gardener project – development guidelines, information about networking, observability, how to extend Gardener, and more',
+    details: 'Browse the developer docs for the core Gardener functionality – development guidelines, information about networking, observability, how to extend Gardener, and more.',
     link: 'https://gardener.cloud/contribute/gardener/'
   },
   {
     title: 'Extensions',
-    details: 'Developer documentation for Gardener extensions, including extensions for infrastructure providers, DNS services, registry cache, node audit logging, and Kubernetes auditing',
+    details: 'Browse the developer docs for Gardener extensions, including the extensions for infrastructure providers, DNS services, registry cache, and more.',
     link: 'https://gardener.cloud/contribute/extensions/'
   },
   {
     title: 'Other Components',
-    details: 'Developer documentation for components maintained alongside Gardener, such as Dependency Watchdog, etcd-druid, Machine Controller Manager, and others',
+    details: 'Browse the developer docs for components maintained alongside Gardener, such as Dependency Watchdog, etcd-druid, Machine Controller Manager, and others.',
     link: 'https://gardener.cloud/contribute/other-components/'
   },
   {
     title: 'Dashboard',
-    details: 'Developer documentation for the Gardener web UI – architecture, local development setup, contribution and testing guidelines',
+    details: 'Browse the developer docs for the Gardener web UI – architecture, local development setup, contribution and testing guidelines.',
     link: 'https://gardener.cloud/contribute/dashboard/'
   },
   {
     title: 'Documentation',
-    details: 'Guidelines for contributing to the Gardener documentation – writing style, structure, tooling, and how to add or update content',
+    details: 'Browse the guidelines for contributing documentation – writing style, structure, tooling, and how to add or update content.',
     link: 'https://gardener.cloud/contribute/documentation/'
   }
 ]"/>
