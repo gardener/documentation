@@ -1,5 +1,5 @@
 ---
 title: Documentation
 url: /contribute/documentation/
-weight: 60
+weight: 70
 ---
