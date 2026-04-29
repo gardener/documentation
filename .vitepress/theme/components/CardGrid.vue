@@ -20,7 +20,7 @@ defineProps<{
 <style scoped>
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   grid-auto-rows: 1fr;
   gap: 16px;
   margin: 16px 0;
