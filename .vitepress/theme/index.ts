@@ -7,6 +7,8 @@ import VPFooter from './components/VPFooter.vue'
 import TaxonomyIndex from './components/TaxonomyIndex.vue'
 import Banner from './components/Banner.vue'
 import BlogPostMeta from './components/BlogPostMeta.vue'
+import VPFeatures from './components/VPFeatures.vue'
+import CardGrid from './components/CardGrid.vue'
 import './style.css'
 
 
@@ -22,6 +24,8 @@ export default {
   },
   enhanceApp({ app }) {
     app.component('YouTubeVideo', YouTubeVideo)
+    app.component('VPFeatures', VPFeatures)
+    app.component('CardGrid', CardGrid)
   },
 } satisfies Theme
 
