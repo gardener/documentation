@@ -18,12 +18,12 @@ We appreciate all kinds of contributions – from fixing a typo to implementing 
   {
     title: 'Contributor Guide',
     details: 'Learn how to contribute to Gardener, including contribution workflows, licensing requirements, and best practices.',
-    link: 'https://gardener.cloud/contribute/contribution-process/how-to-contribute'
+    link: '/contribute/contribution-process/contributor-guide'
   },
   {
     title: 'Developer Starter Kit',
     details: 'Set up and deploy Gardener locally. Explore key development guidelines, such as testing, validation, and dependency management guidelines.',
-    link: 'https://gardener.cloud/contribute/developer-starter-kit/'
+    link: '/contribute/developer-starter-kit/'
   }
 ]"/>
 
@@ -33,26 +33,26 @@ We appreciate all kinds of contributions – from fixing a typo to implementing 
   {
     title: 'Gardener',
     details: 'Browse the developer docs for the core Gardener functionality – development guidelines, information about networking, observability, how to extend Gardener, and more.',
-    link: 'https://gardener.cloud/contribute/gardener/'
+    link: '/contribute/gardener/'
   },
   {
     title: 'Extensions',
     details: 'Browse the developer docs for Gardener extensions, including the extensions for infrastructure providers, DNS services, registry cache, and more.',
-    link: 'https://gardener.cloud/contribute/extensions/'
+    link: '/contribute/extensions/'
   },
   {
     title: 'Other Components',
     details: 'Browse the developer docs for components maintained alongside Gardener, such as Dependency Watchdog, etcd-druid, Machine Controller Manager, and others.',
-    link: 'https://gardener.cloud/contribute/other-components/'
+    link: '/contribute/other-components/'
   },
   {
     title: 'Dashboard',
     details: 'Browse the developer docs for the Gardener web UI – architecture, local development setup, contribution and testing guidelines.',
-    link: 'https://gardener.cloud/contribute/dashboard/'
+    link: '/contribute/dashboard/'
   },
   {
     title: 'Documentation',
     details: 'Browse the guidelines for contributing documentation – writing style, structure, tooling, and how to add or update content.',
-    link: 'https://gardener.cloud/contribute/documentation/'
+    link: '/contribute/documentation/'
   }
 ]"/>
