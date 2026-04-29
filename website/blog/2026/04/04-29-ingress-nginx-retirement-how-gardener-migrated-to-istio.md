@@ -4,10 +4,10 @@ linkTitle: "Ingress NGINX Retirement: How Gardener Migrated to Istio"
 newsSubtitle: April 29, 2026
 publishdate: 2026-04-29
 authors:
-- avatar: https://avatars.githubusercontent.com/rfranzke
-  email: rafael.franzke@sap.com
-  login: rfranzke
-  name: Rafael Franzke
+- avatar: https://avatars.githubusercontent.com/u/30600170?v=4
+  email: johannes.scheerer@sap.com
+  login: ScheererJ
+  name: Johannes Scheerer
 aliases: ["/blog/2026/04/29/ingress-nginx-retirement-how-gardener-migrated-to-istio"]
 ---
 
