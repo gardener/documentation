@@ -8,20 +8,20 @@ weight: 30
 
 This section contains the developer documentation for core Gardener functionality.
 
-Before diving in, check out the [Developer Starter Kit](https://gardener.cloud/contribute/developer-starter-kit/). There you can learn how to set up your local environment and get familiar with the general development guidelines for Gardener.
+Before diving in, check out the [Developer Starter Kit](../developer-starter-kit/_index.md). There you can learn how to set up your local environment and get familiar with the general development guidelines for Gardener.
 
-- [Releases, Features, Hotfixes](https://gardener.cloud/contribute/gardener/process)
-- [Checklist For Adding New Components](https://gardener.cloud/contribute/gardener/component-checklist)
-- [High Availability of Deployed Components](https://gardener.cloud/contribute/gardener/high-availability-of-components)
-- [Autoscaling Specifics for Components](https://gardener.cloud/contribute/gardener/autoscaling-specifics-for-components)
-- [`PriorityClass`es in Gardener Clusters](https://gardener.cloud/contribute/gardener/priority-classes)
-- [Secrets Management for Seed and Shoot Cluster](https://gardener.cloud/contribute/gardener/secrets_management)
-- [Reversed VPN Tunnel Setup and Configuration](https://gardener.cloud/contribute/gardener/reversed-vpn-tunnel)
-- [IPv6 in Gardener Clusters](https://gardener.cloud/contribute/gardener/ipv6)
-- [Shoot Advertised Addresses](https://gardener.cloud/contribute/gardener/shoot-advertised-addresses)
-- [The Logging Stack in Gardener](https://gardener.cloud/contribute/gardener/logging-stack)
-- [Creating Log Parsers for fluent-bit](https://gardener.cloud/contribute/gardener/log_parsers)
-- [Adding Support For a New Kubernetes Version](https://gardener.cloud/contribute/gardener/new-kubernetes-version)
-- [Removing Support For a Kubernetes Version](https://gardener.cloud/contribute/gardener/remove-support-for-kubernetes-version)
-- [Adding a New Cloud Provider](https://gardener.cloud/contribute/gardener/new-cloud-provider)
-- [Extending the Monitoring Stack](https://gardener.cloud/contribute/gardener/monitoring-stack)
+- [Releases, Features, Hotfixes](https://github.com/gardener/gardener/blob/master/docs/development/process.md)
+- [Checklist For Adding New Components](https://github.com/gardener/gardener/blob/master/docs/development/component-checklist.md)
+- [High Availability of Deployed Components](https://github.com/gardener/gardener/blob/master/docs/development/high-availability-of-components.md)
+- [Autoscaling Specifics for Components](https://github.com/gardener/gardener/blob/master/docs/development/autoscaling-specifics-for-components.md)
+- [`PriorityClass`es in Gardener Clusters](https://github.com/gardener/gardener/blob/master/docs/development/priority-classes.md)
+- [Secrets Management for Seed and Shoot Cluster](https://github.com/gardener/gardener/blob/master/docs/development/secrets_management.md)
+- [Reversed VPN Tunnel Setup and Configuration](https://github.com/gardener/gardener/blob/master/docs/development/reversed-vpn-tunnel.md)
+- [IPv6 in Gardener Clusters](https://github.com/gardener/gardener/blob/master/docs/development/ipv6.md)
+- [Shoot Advertised Addresses](https://github.com/gardener/gardener/blob/master/docs/development/shoot-advertised-addresses.md)
+- [The Logging Stack in Gardener](https://github.com/gardener/gardener/blob/master/docs/development/logging-stack.md)
+- [Creating Log Parsers for fluent-bit](https://github.com/gardener/gardener/blob/master/docs/development/log_parsers.md)
+- [Adding Support For a New Kubernetes Version](https://github.com/gardener/gardener/blob/master/docs/development/new-kubernetes-version.md)
+- [Removing Support For a Kubernetes Version](https://github.com/gardener/gardener/blob/master/docs/development/remove-support-for-kubernetes-version.md)
+- [Adding a New Cloud Provider](https://github.com/gardener/gardener/blob/master/docs/development/new-cloud-provider.md)
+- [Extending the Monitoring Stack](https://github.com/gardener/gardener/blob/master/docs/development/monitoring-stack.md)
