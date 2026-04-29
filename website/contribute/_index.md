@@ -1,6 +1,6 @@
 ---
 title: Contribute
-description: Contributors guides for code and documentation
+description: Contributor guides for code and documentation
 persona: Developers
 weight: 110
 aside: false
