@@ -10,7 +10,7 @@ structure:
     structure:
     - file: _index.md
       frontmatter:
-        title: Start Developing
+        title: Developer Starter Kit
         description: Developer documentation for getting started with local Gardener development
         weight: 15
     - file: local_setup.md
