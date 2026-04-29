@@ -2,7 +2,7 @@
 title: Contributing Bigger Changes
 sidebar: true
 menu: sln
-weight: 60
+weight: 20
 ---
 
 ## Contributing Bigger Changes
