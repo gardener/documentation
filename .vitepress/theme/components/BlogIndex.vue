@@ -257,6 +257,10 @@ function syncSelectedFiltersToUrl(): void {
   window.history.replaceState({}, '', url)
 }
 
+function isTagSelected(tag: string): boolean {
+  return normalizedSelectedTags.value.indexOf(tag.toLowerCase()) !== -1
+}
+
 function isTagActive(tag: string): boolean {
   const lowerTag = tag.toLowerCase()
   if (normalizedSelectedTags.value.indexOf(lowerTag) !== -1) return true
@@ -309,6 +313,10 @@ function toggleAuthor(author: VisibleAuthor): void {
   }
 
   syncSelectedFiltersToUrl()
+}
+
+function isYearSelected(year: string): boolean {
+  return selectedYears.value.indexOf(year) !== -1
 }
 
 function isYearActive(year: string): boolean {
@@ -379,6 +387,7 @@ function clearFilters(): void {
         type="text"
         placeholder="Type a tag (for example: security)"
         @change="onTagInputChange"
+        @keyup.enter="onTagInputChange"
       />
       <button
         v-if="tagQuery || selectedTags.length || selectedAuthors.length || selectedYears.length"
@@ -416,7 +425,7 @@ function clearFilters(): void {
               type="button"
               class="tag tag-button year-button"
               :class="{ 'tag-active': isYearActive(post.year) }"
-              :aria-pressed="isYearActive(post.year)"
+              :aria-pressed="isYearSelected(post.year)"
               @click="toggleYear(post.year)"
             >
               {{ post.year }}
@@ -427,7 +436,7 @@ function clearFilters(): void {
               type="button"
               class="tag tag-button"
               :class="{ 'tag-active': isTagActive(tag) }"
-              :aria-pressed="isTagActive(tag)"
+              :aria-pressed="isTagSelected(tag)"
               @click="toggleTag(tag)"
             >
               {{ tag }}
