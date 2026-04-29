@@ -4,10 +4,10 @@ linkTitle: "Local cloud-controller-manager for Load Balancers"
 newsSubtitle: April 29, 2026
 publishdate: 2026-04-29
 authors:
-- avatar: https://avatars.githubusercontent.com/rfranzke
-  email: rafael.franzke@sap.com
-  login: rfranzke
-  name: Rafael Franzke
+- avatar: https://avatars.githubusercontent.com/u/46341950?v=4
+  email: timebertt@gmail.com
+  login: timebertt
+  name: Tim Ebert
 aliases: ["/blog/2026/04/29/local-cloud-controller-manager-for-load-balancers"]
 ---
 
