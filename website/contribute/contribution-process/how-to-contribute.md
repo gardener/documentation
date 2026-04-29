@@ -1,5 +1,5 @@
 ---
-title: How to Contribute
+title: Contributor Guide
 persona: Developers
 weight: 5
 ---

@@ -16,13 +16,13 @@ We appreciate all kinds of contributions – from fixing a typo to implementing 
 
 <CardGrid :cards="[
   {
-    title: 'How to Contribute',
+    title: 'Contributor Guide',
     details: 'Discover the steps for contributing, licensing requirements, and many useful tips',
-    link: 'https://gardener.cloud/contribute/contribution-process/how-to-contribute.md'
+    link: 'https://gardener.cloud/contribute/contribution-process/how-to-contribute'
   },
   {
-    title: 'Start Developing',
-    details: 'Set up and deploy Gardener locally. Explore key development guidelines, such as testing, validation, and dependency management',
+    title: 'Developer Starter Kit',
+    details: 'Set up and deploy Gardener locally. Explore key development guidelines, such as testing, validation, and dependency management guidelines',
     link: 'https://gardener.cloud/contribute/start-developing/'
   }
 ]"/>
