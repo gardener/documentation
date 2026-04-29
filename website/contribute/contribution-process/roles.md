@@ -1,6 +1,6 @@
 ---
 title: Community Roles
-weight: 20
+weight: 30
 outline: 2
 ---
 

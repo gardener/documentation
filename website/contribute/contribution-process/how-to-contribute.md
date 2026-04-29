@@ -1,7 +1,7 @@
 ---
 title: Contributor Guide
 persona: Developers
-weight: 5
+weight: 10
 ---
 
 Thank you for your interest in contributing to Gardener. This page provides an overview of how to get started, what to expect from the contribution process, and how to connect with the community.
