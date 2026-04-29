@@ -4,10 +4,9 @@ linkTitle: "etcd 3.4 to 3.5 Upgrade Path in etcd-druid"
 newsSubtitle: April 29, 2026
 publishdate: 2026-04-29
 authors:
-- avatar: https://avatars.githubusercontent.com/rfranzke
-  email: rafael.franzke@sap.com
-  login: rfranzke
-  name: Rafael Franzke
+- avatar: https://avatars.githubusercontent.com/u/79797969?v=4
+  login: Shreyas-s14
+  name: Shreyas S
 aliases: ["/blog/2026/04/29/etcd-34-to-35-upgrade-path-in-etcd-druid"]
 ---
 
