@@ -6,10 +6,10 @@ structure:
     structure:
     - fileTree: /website/contribute/contribution-process
 
-  - dir: start-developing
+  - dir: developer-starter-kit
     structure:
     - file: _index.md
-      source: /website/contribute/start-developing/_index.md
+      source: /website/contribute/developer-starter-kit/_index.md
     - file: local_setup.md
       frontmatter:
         weight: 10
@@ -51,10 +51,6 @@ structure:
         weight: 100
       source: https://github.com/gardener/gardener/blob/master/docs/development/validation-guidelines.md
 
-  - dir: documentation
-    structure:
-    - fileTree: /website/contribute/documentation
-
   - dir: gardener
     structure:
     - file: _index.md
@@ -78,63 +74,6 @@ structure:
       frontmatter:
         title: IPv6
       source: https://github.com/gardener/gardener/blob/master/docs/development/ipv6.md
-
-  - dir: dashboard
-    structure:
-    - file: _index.md
-      frontmatter:
-        title: Dashboard
-        description: Developer documentation for the Gardener web UI
-        weight: 30
-      source: https://github.com/gardener/dashboard/blob/master/README.md
-    - dir: development
-      structure:
-      - fileTree: https://github.com/gardener/dashboard/tree/master/docs/development
-
-  - dir: other-components
-    structure:
-    - file: _index.md
-      frontmatter:
-        title: Other Components
-        weight: 50
-    - dir: machine-controller-manager
-      structure:
-      - file: _index.md
-        frontmatter:
-          title: Machine Controller Manager
-          description: Developer documentation for the machine controller manager
-        source: https://github.com/gardener/machine-controller-manager/blob/master/README.md
-      - dir: development
-        structure:
-        - fileTree: https://github.com/gardener/machine-controller-manager/tree/master/docs/development
-    - dir: etcd-druid
-      structure:
-      - file: _index.md
-        frontmatter:
-          title: etcd-druid
-          description: Developer documentation for the etcd management operator
-        source: https://github.com/gardener/etcd-druid/blob/master/README.md
-      - dir: development
-        structure:
-        - fileTree: https://github.com/gardener/etcd-druid/tree/master/docs/development
-    - dir: dependency-watchdog
-      structure:
-      - file: _index.md
-        frontmatter:
-          title: Dependency Watchdog
-          description: Developer documentation for the dependency watchdog
-        source: https://github.com/gardener/dependency-watchdog/blob/master/README.md
-      - dir: development
-        structure:
-        - fileTree: https://github.com/gardener/dependency-watchdog/tree/master/docs/development
-          excludeFiles:
-          - "setup/"
-        - dir: setup
-          structure:
-          - file: _index.md
-            frontmatter:
-              title: Setup
-          - fileTree: https://github.com/gardener/dependency-watchdog/tree/master/docs/development/setup
 
   - dir: extensions
     structure:
@@ -239,3 +178,64 @@ structure:
       - dir: development
         structure:
         - fileTree: https://github.com/gardener/gardener-extension-auditing/tree/main/docs/development
+
+  - dir: other-components
+    structure:
+    - file: _index.md
+      frontmatter:
+        title: Other Components
+        weight: 50
+    - dir: machine-controller-manager
+      structure:
+      - file: _index.md
+        frontmatter:
+          title: Machine Controller Manager
+          description: Developer documentation for the machine controller manager
+        source: https://github.com/gardener/machine-controller-manager/blob/master/README.md
+      - dir: development
+        structure:
+        - fileTree: https://github.com/gardener/machine-controller-manager/tree/master/docs/development
+    - dir: etcd-druid
+      structure:
+      - file: _index.md
+        frontmatter:
+          title: etcd-druid
+          description: Developer documentation for the etcd management operator
+        source: https://github.com/gardener/etcd-druid/blob/master/README.md
+      - dir: development
+        structure:
+        - fileTree: https://github.com/gardener/etcd-druid/tree/master/docs/development
+    - dir: dependency-watchdog
+      structure:
+      - file: _index.md
+        frontmatter:
+          title: Dependency Watchdog
+          description: Developer documentation for the dependency watchdog
+        source: https://github.com/gardener/dependency-watchdog/blob/master/README.md
+      - dir: development
+        structure:
+        - fileTree: https://github.com/gardener/dependency-watchdog/tree/master/docs/development
+          excludeFiles:
+          - "setup/"
+        - dir: setup
+          structure:
+          - file: _index.md
+            frontmatter:
+              title: Setup
+          - fileTree: https://github.com/gardener/dependency-watchdog/tree/master/docs/development/setup
+
+  - dir: dashboard
+    structure:
+    - file: _index.md
+      frontmatter:
+        title: Dashboard
+        description: Developer documentation for the Gardener web UI
+        weight: 60
+      source: https://github.com/gardener/dashboard/blob/master/README.md
+    - dir: development
+      structure:
+      - fileTree: https://github.com/gardener/dashboard/tree/master/docs/development
+
+  - dir: documentation
+    structure:
+    - fileTree: /website/contribute/documentation

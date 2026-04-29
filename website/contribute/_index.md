@@ -23,7 +23,7 @@ We appreciate all kinds of contributions – from fixing a typo to implementing 
   {
     title: 'Developer Starter Kit',
     details: 'Set up and deploy Gardener locally. Explore key development guidelines, such as testing, validation, and dependency management guidelines.',
-    link: 'https://gardener.cloud/contribute/start-developing/'
+    link: 'https://gardener.cloud/contribute/developer-starter-kit/'
   }
 ]"/>
 
