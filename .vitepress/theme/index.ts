@@ -9,6 +9,7 @@ import Banner from './components/Banner.vue'
 import BlogPostMeta from './components/BlogPostMeta.vue'
 import VPFeatures from './components/VPFeatures.vue'
 import CardGrid from './components/CardGrid.vue'
+import CardGridGroup from './components/CardGridGroup.vue'
 import './style.css'
 
 
@@ -26,6 +27,7 @@ export default {
     app.component('YouTubeVideo', YouTubeVideo)
     app.component('VPFeatures', VPFeatures)
     app.component('CardGrid', CardGrid)
+    app.component('CardGridGroup', CardGridGroup)
   },
 } satisfies Theme
 
