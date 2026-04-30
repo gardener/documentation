@@ -4,14 +4,28 @@ import { join } from 'path';
 const CACHE_DIR = '.docforge-cache';
 const CACHE_TTL = 86400;
 
-async function collectDigests(dir) {
+async function collectDigests(baseDir) {
   const digests = [];
-  const entries = await readdir(dir, { withFileTypes: true, recursive: true });
-  for (const entry of entries) {
-    if (entry.isFile() && entry.name.endsWith('.yaml')) {
-      digests.push(join(entry.parentPath || entry.path, entry.name));
+
+  async function walk(dir) {
+    let entries;
+    try {
+      entries = await readdir(dir, { withFileTypes: true });
+    } catch (err) {
+      if (err.code === 'ENOENT') return;
+      throw err;
+    }
+    for (const entry of entries) {
+      const fullPath = join(dir, entry.name);
+      if (entry.isDirectory()) {
+        await walk(fullPath);
+      } else if (entry.isFile() && entry.name.endsWith('.yaml')) {
+        digests.push(fullPath);
+      }
     }
   }
+
+  await walk(baseDir);
   return digests;
 }
 
