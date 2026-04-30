@@ -31,8 +31,7 @@ async function collectDigests(baseDir) {
 
 export const onPreBuild = async function ({ utils }) {
   if (process.env.CONTEXT === 'production') {
-    console.log('Production build — skipping docforge cache restore (always fresh).');
-    await utils.cache.remove(CACHE_DIR);
+    console.log('Production build — skipping docforge cache (always fresh).');
     return;
   }
 
