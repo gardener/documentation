@@ -152,7 +152,7 @@ build: ## Build the documentation site
 docforge-ci: docforge-download ## Run docforge in CI mode (non-interactive)
 	@echo "Running docforge (CI)..."
 	@export DOCFORGE_CONFIG=.docforge/config.yaml && \
-	./bin/docforge
+	./bin/docforge --cache-dir ./.docforge-cache
 
 .PHONY: ci-build
 ci-build: docforge-ci install post-process build ## Run all steps for building in CI

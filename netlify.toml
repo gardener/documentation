@@ -1,4 +1,13 @@
+[build]
+  command = "make ci-build"
+
+[context.deploy-preview]
+  command = "make ci-build"
+
+[[plugins]]
+  package = "./plugins/netlify-plugin-docforge-cache"
+
 [[headers]]
-    for = "/*"
-    [headers.values]
-        X-Frame-Options = "DENY"
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
