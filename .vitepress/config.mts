@@ -239,7 +239,7 @@ function getThemeConfig() {
       siteHostname: 'https://gardener.cloud',
       links: [
         {
-          text: 'Edit this page on GitHub',
+          text: 'Edit this page',
           icon: 'vpi-square-pen',
           url: ({filePath, frontmatter}: {filePath: string, frontmatter: Record<string, any>}) => {
             if (!frontmatter['github_repo'] || !frontmatter['github_subdir']) return undefined
@@ -248,11 +248,11 @@ function getThemeConfig() {
           },
         },
         {
-          text: 'Report a documentation issue',
+          text: 'Report an issue',
           icon: 'vpi-report-issue',
           url: ({pageTitle, pageUrl}: {pageTitle: string, pageUrl: string}) => {
             const title = encodeURIComponent(pageTitle)
-            const body = encodeURIComponent(`<!-- What's the issue? -->\n\n\n**URL:** ${pageUrl}\n\n`)
+            const body = encodeURIComponent(`**Description:**\n<!-- Please describe the issue. -->\n\n**Screenshots:**\n<!-- Add screenshots if possible. -->\n\n**URL:** ${pageUrl}\n\n`)
             return `https://github.com/gardener/documentation/issues/new?title=${title}&body=${body}`
           },
         },
