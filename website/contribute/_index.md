@@ -34,22 +34,22 @@ We appreciate all kinds of contributions – from fixing a typo to implementing 
 <CardGrid :cards="[
   {
     title: 'Gardener',
-    details: 'Browse the developer docs for the core Gardener functionality – development guidelines, information about networking, observability, how to extend Gardener, and more.',
+    details: 'Browse the developer docs for the core Gardener functionality – development and contribution guidelines, information about networking, observability, how to extend Gardener, and more.',
     link: '/contribute/gardener/'
   },
   {
     title: 'Extensions',
-    details: 'Browse the developer docs for Gardener extensions, including the extensions for infrastructure providers, DNS services, registry cache, and more.',
+    details: 'Browse the developer docs for the Gardener extensions for infrastructure providers, Kubernetes auditing, registry cache, DNS services, and more.',
     link: '/contribute/extensions/'
   },
   {
     title: 'Other Components',
-    details: 'Browse the developer docs for components maintained alongside Gardener, such as Dependency Watchdog, etcd-druid, Machine Controller Manager, and others.',
+    details: 'Browse the developer docs for components such as Dependency Watchdog, etcd-druid, and Machine Controller Manager.',
     link: '/contribute/other-components/'
   },
   {
     title: 'Dashboard',
-    details: 'Browse the developer docs for the Gardener web UI – architecture, local development setup, contribution and testing guidelines.',
+    details: 'Browse the developer docs for the Gardener web UI – architecture, local development setup, and testing guidelines.',
     link: '/contribute/dashboard/'
   },
   {
