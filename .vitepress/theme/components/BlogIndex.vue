@@ -191,6 +191,19 @@ const allVisibleTags = computed(() => {
   return Array.from(tagsByNormalized.values()).sort(compareTags)
 })
 
+const allVisibleYears = computed(() => {
+  const years = new Set<string>()
+  for (const post of postsWithVisibleTags.value) {
+    if (post.year) years.add(post.year)
+  }
+  return Array.from(years).sort().reverse()
+})
+
+const datalistYears = computed(() => {
+  if (!normalizedTagQuery.value) return []
+  return allVisibleYears.value.filter(year => year.indexOf(normalizedTagQuery.value) !== -1)
+})
+
 const normalizedTagQuery = computed(() => tagQuery.value.trim().toLowerCase())
 const normalizedSelectedTags = computed(() => selectedTags.value.map(tag => tag.toLowerCase()))
 const normalizedSelectedAuthors = computed(() => selectedAuthors.value.map(author => normalizeFilterValue(author)))
@@ -202,7 +215,9 @@ const filteredPosts = computed(() => {
       normalizedSelectedTags.value.every(selectedTag =>
         post.visibleTags.some(tag => tag.toLowerCase() === selectedTag)
       )
-    const matchesTagQuery = !normalizedTagQuery.value || post.visibleTags.some(tag => tag.toLowerCase().indexOf(normalizedTagQuery.value) !== -1)
+    const matchesTagQuery = !normalizedTagQuery.value ||
+      post.visibleTags.some(tag => tag.toLowerCase().indexOf(normalizedTagQuery.value) !== -1) ||
+      (post.year && post.year.indexOf(normalizedTagQuery.value) !== -1)
     const matchesSelectedAuthors =
       !normalizedSelectedAuthors.value.length ||
       normalizedSelectedAuthors.value.every(selectedAuthor =>
@@ -242,8 +257,15 @@ function syncSelectedFiltersToUrl(): void {
   window.history.replaceState({}, '', url)
 }
 
-function isTagActive(tag: string): boolean {
+function isTagSelected(tag: string): boolean {
   return normalizedSelectedTags.value.indexOf(tag.toLowerCase()) !== -1
+}
+
+function isTagActive(tag: string): boolean {
+  const lowerTag = tag.toLowerCase()
+  if (normalizedSelectedTags.value.indexOf(lowerTag) !== -1) return true
+  if (normalizedTagQuery.value && lowerTag.indexOf(normalizedTagQuery.value) !== -1) return true
+  return false
 }
 
 function toggleTag(tag: string): void {
@@ -258,6 +280,23 @@ function toggleTag(tag: string): void {
   // Clicking tags manages the selected tag set explicitly.
   tagQuery.value = ''
   syncSelectedFiltersToUrl()
+}
+
+function onTagInputChange(): void {
+  const query = tagQuery.value.trim()
+  if (!query) return
+
+  const matchedYear = allVisibleYears.value.find(year => year === query)
+  if (matchedYear) {
+    toggleYear(matchedYear)
+    tagQuery.value = ''
+    return
+  }
+
+  const matchedTag = allVisibleTags.value.find(tag => tag.toLowerCase() === query.toLowerCase())
+  if (matchedTag) {
+    toggleTag(matchedTag)
+  }
 }
 
 function isAuthorActive(author: VisibleAuthor): boolean {
@@ -276,8 +315,14 @@ function toggleAuthor(author: VisibleAuthor): void {
   syncSelectedFiltersToUrl()
 }
 
-function isYearActive(year: string): boolean {
+function isYearSelected(year: string): boolean {
   return selectedYears.value.indexOf(year) !== -1
+}
+
+function isYearActive(year: string): boolean {
+  if (selectedYears.value.indexOf(year) !== -1) return true
+  if (normalizedTagQuery.value && year.indexOf(normalizedTagQuery.value) !== -1) return true
+  return false
 }
 
 function toggleYear(year: string): void {
@@ -341,6 +386,8 @@ function clearFilters(): void {
         list="blog-tag-options"
         type="text"
         placeholder="Type a tag (for example: security)"
+        @change="onTagInputChange"
+        @keyup.enter="onTagInputChange"
       />
       <button
         v-if="tagQuery || selectedTags.length || selectedAuthors.length || selectedYears.length"
@@ -351,6 +398,11 @@ function clearFilters(): void {
         Clear
       </button>
       <datalist id="blog-tag-options">
+        <option
+          v-for="year in datalistYears"
+          :key="`year-option-${year}`"
+          :value="year"
+        />
         <option
           v-for="tag in allVisibleTags"
           :key="`tag-option-${tag}`"
@@ -373,7 +425,7 @@ function clearFilters(): void {
               type="button"
               class="tag tag-button year-button"
               :class="{ 'tag-active': isYearActive(post.year) }"
-              :aria-pressed="isYearActive(post.year)"
+              :aria-pressed="isYearSelected(post.year)"
               @click="toggleYear(post.year)"
             >
               {{ post.year }}
@@ -384,7 +436,7 @@ function clearFilters(): void {
               type="button"
               class="tag tag-button"
               :class="{ 'tag-active': isTagActive(tag) }"
-              :aria-pressed="isTagActive(tag)"
+              :aria-pressed="isTagSelected(tag)"
               @click="toggleTag(tag)"
             >
               {{ tag }}
