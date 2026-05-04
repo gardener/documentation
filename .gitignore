@@ -107,6 +107,9 @@ dist
 # Docforge binary directory
 /bin
 
+# Docforge HTTP cache (persisted by Netlify plugin between builds)
+.docforge-cache
+
 # vuepress build output
 .vuepress/dist
 
