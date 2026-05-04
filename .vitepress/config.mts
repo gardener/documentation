@@ -235,13 +235,31 @@ function getThemeConfig() {
     },
     nav: getNavConfig(),
     sidebar: allSidebars,
-    editLink: {
-      pattern: ({filePath, frontmatter}: {filePath: string, frontmatter: Record<string, any>}) => {
-        const fileName = `${frontmatter?.path_base_for_github_subdir?.to ?? filePath.split("/").pop()}`
-        const githubLink = `${frontmatter['github_repo']}/tree/master/${frontmatter['github_subdir']}/${fileName}`
-        return githubLink
-      },
-      text: 'Edit this page on GitHub'
+    pageActions: {
+      siteHostname: 'https://gardener.cloud',
+      links: [
+        {
+          text: 'Edit this page',
+          icon: 'vpi-square-pen',
+          url: ({filePath, frontmatter}: {filePath: string, frontmatter: Record<string, any>}) => {
+            if (!frontmatter['github_repo'] || !frontmatter['github_subdir']) return undefined
+            const fileName = `${frontmatter?.path_base_for_github_subdir?.to ?? filePath.split("/").pop()}`
+            return `${frontmatter['github_repo']}/tree/master/${frontmatter['github_subdir']}/${fileName}`
+          },
+        },
+        {
+          text: 'Report an issue',
+          icon: 'vpi-report-issue',
+          url: ({pageTitle, pageUrl}: {pageTitle: string, pageUrl: string}) => {
+            const title = encodeURIComponent(pageTitle)
+            const body = encodeURIComponent(`**Description:**\n<!-- Please describe the issue. -->\n\n**Screenshots:**\n<!-- Add screenshots if possible. -->\n\n**URL:** ${pageUrl}\n\n`)
+            return `https://github.com/gardener/documentation/issues/new?title=${title}&body=${body}`
+          },
+        },
+      ],
+    },
+    outline: {
+      label: 'Page Content'
     },
     socialLinks: [
       {
