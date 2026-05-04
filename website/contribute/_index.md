@@ -12,8 +12,6 @@ This page is your starting point for contributing to Gardener. It contains all d
 
 We appreciate all kinds of contributions – from fixing a typo to implementing a new feature. Let's grow Gardener together!
 
-<CardGridGroup>
-
 ## Get Started
 
 <CardGrid :cards="[
@@ -58,5 +56,3 @@ We appreciate all kinds of contributions – from fixing a typo to implementing 
     link: '/contribute/documentation/'
   }
 ]"/>
-
-</CardGridGroup>
