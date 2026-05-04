@@ -42,11 +42,25 @@ structure:
           weight: 10
           aliases:
           - "/api-reference/"
-          persona: Developers
         source: https://github.com/gardener/gardener/blob/master/docs/api-reference/README.md
       - fileTree: https://github.com/gardener/gardener/tree/master/docs/api-reference
         excludeFiles:
         - "README.md"
+    - dir: extensions
+      structure:
+      - file: _index.md
+        source: https://github.com/gardener/gardener/blob/master/docs/extensions/overview.md
+        frontmatter:
+          title: Extensions
+          weight: 30
+      - dir: resources
+        structure:
+        - file: _index.md
+          frontmatter:
+            title: Resources
+      - fileTree: https://github.com/gardener/gardener/tree/master/docs/extensions
+        excludeFiles:
+        - "overview.md"
     - dir: concepts
       structure:
       - file: _index.md
@@ -56,22 +70,6 @@ structure:
           persona: Operators
       - fileTree: https://github.com/gardener/gardener/tree/master/docs/concepts
       - file: https://github.com/gardener/gardener/blob/master/logo/gardenadm-large.png
-    - dir: extensions
-      structure:
-      - file: _index.md
-        source: https://github.com/gardener/gardener/blob/master/docs/extensions/overview.md
-        frontmatter:
-          title: Extensions
-          weight: 30
-          persona: Developers
-      - dir: resources
-        structure:
-        - file: _index.md
-          frontmatter:
-            title: Resources
-      - fileTree: https://github.com/gardener/gardener/tree/master/docs/extensions
-        excludeFiles:
-        - "overview.md"
     - dir: deployment
       structure:
       - file: _index.md
@@ -80,9 +78,6 @@ structure:
           weight: 40
           persona: Operators
       - fileTree: https://github.com/gardener/gardener/tree/master/docs/deployment
-    - dir: development
-      structure:
-      - fileTree: https://github.com/gardener/gardener/tree/master/docs/development
     - dir: monitoring
       structure:
       - file: _index.md
@@ -195,6 +190,7 @@ structure:
     - fileTree: https://github.com/gardener/dashboard/tree/master/docs
       excludeFiles:
       - "README.md"
+      - "development/"
   - dir: gardenctl-v2
     structure:
     - file: _index.md
@@ -226,12 +222,14 @@ structure:
   - file: https://github.com/gardener/gardenctl-v2/blob/master/logo/logo_gardener_cli_large.png
   - dir: faq
     structure:
-    - manifest: ./faq.yaml
+    - file: _index.md
+      frontmatter:
+        title: FAQ
+        description: Commonly asked questions about Gardener
+        weight: 80
+    - fileTree: /website/documentation/faq
   - file: glossary.md
     source: /website/documentation/glossary.md
   - dir: resources
     structure:
     - fileTree: /website/documentation/resources
-  - dir: contribute
-    structure:
-    - fileTree: /website/documentation/contribute
