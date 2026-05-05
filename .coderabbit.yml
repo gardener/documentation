@@ -1,0 +1,4 @@
+# .coderabbit.yml
+reviews:
+  path_filters:
+    - "!website/**"
