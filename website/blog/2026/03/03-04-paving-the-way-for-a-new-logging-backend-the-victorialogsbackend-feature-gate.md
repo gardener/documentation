@@ -7,6 +7,9 @@ authors:
 - avatar: https://avatars.githubusercontent.com/rrhubenov
   login: rrhubenov
   name: rhubenov
+tags:
+  - feature-announcement
+  - observability
 aliases: ["/blog/2026/03/04/paving-the-way-for-a-new-logging-backend-the-victorialogsbackend-feature-gate"]
 ---
 
