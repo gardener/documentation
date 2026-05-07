@@ -8,6 +8,10 @@ authors:
   email: Dominik.Froehlich@sap.com
   login: domdom82
   name: Dominik Froehlich
+  tags:
+  - feature-announcement
+  - high-availability
+  - networking
 aliases: ["/blog/2026/01/28/enhancing-vpn-high-availability-with-round-robin-bonding-mode"]
 ---
 
