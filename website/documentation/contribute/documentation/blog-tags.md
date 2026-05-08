@@ -17,6 +17,7 @@ Use lowercase kebab-case (`tag-name`) for all tags.
 - `technical-deep-dive`: Detailed technical analysis and architecture content.
 - `case-study`: Practical implementation reports and production stories.
 - `community-event`: Community meeting, conference or Hackathon updates.
+- `hackathon`: Hackathon updates.
 - `tutorial`: Step-by-step usage guidance.
 - `milestone`: Project anniversary or major achievement summaries.
 
