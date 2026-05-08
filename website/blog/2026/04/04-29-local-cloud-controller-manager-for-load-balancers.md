@@ -8,6 +8,10 @@ authors:
   email: timebertt@gmail.com
   login: timebertt
   name: Tim Ebert
+tags:
+  - extensions
+  - feature-announcement
+  - networking
 aliases: ["/blog/2026/04/29/local-cloud-controller-manager-for-load-balancers"]
 ---
 
