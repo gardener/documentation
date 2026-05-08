@@ -11,6 +11,7 @@ aliases: ["/blog/2025/06/06-17-taking-gardener-to-the-next-level-highlights-from
 tags:
   - community-event
   - apeiro
+  - hackathon
 ---
 # Taking Gardener to the Next Level: Highlights from the 7th Gardener Community Hackathon in Schelklingen
 
