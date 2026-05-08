@@ -11,6 +11,7 @@ const CONTENT_TYPE_TAGS = [
   'technical-deep-dive',
   'case-study',
   'community-event',
+  'hackathon',
   'tutorial',
   'milestone'
 ]
@@ -165,6 +166,10 @@ function inferTags(frontmatter, body, filePath) {
 
   if (includesAny(title, ['community meeting', 'kubecon', 'promcon', 'hackathon', 'conference']) || includesAny(slug, ['community-meeting', 'kubecon', 'promcon', 'hackathon'])) {
     tags.push('community-event')
+  }
+
+  if (includesAny(title, ['hackathon']) || includesAny(slug, ['hackathon'])) {
+    tags.push('hackathon')
   }
 
   if (/\bv\d+\.\d+(\.\d+)?\b/.test(title) || includesAny(title, [' release ', 'released'])) {
