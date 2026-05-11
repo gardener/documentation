@@ -13,6 +13,7 @@ tags:
   - community-event
   - security
   - helm
+  - hackathon
 ---
 ![Hackathon 2024/05 Team](images/hackathon202405-team.jpg "Hackathon 2024/05 Team")
 

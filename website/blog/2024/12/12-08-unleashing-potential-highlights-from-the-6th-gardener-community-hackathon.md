@@ -12,6 +12,7 @@ tags:
   - feature-announcement
   - community-event
   - networking
+  - hackathon
 ---
 ![Hackathon 2024/12 Team](images/hackathon202412-team.jpg "Hackathon 2024/12 Team")
 
