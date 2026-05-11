@@ -14,6 +14,35 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2026/05/13 - [Hack The Garden](https://gardener.cloud/community/hackathons/2026-05/) Wrap Up
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s) | Duration | Topic | Reference(s) |
+|---|---|---|---|
+| `@tobschli` | `5m` | 🌱 Complete the `ManagedSeedSet` Implementation | [hackathon#52](https://github.com/gardener/hackathon/issues/52), [Summary](https://gardener.cloud/community/hackathons/2026-05/#%F0%9F%8C%B1-complete-the-managedseedset-implementation-52) |
+| `@vknabel` | `5m` | 🔍 Improve Debugability of Failed Node Joins | [hackathon#68](https://github.com/gardener/hackathon/issues/68), [Summary](https://gardener.cloud/community/hackathons/2026-05/#%F0%9F%94%8D-improve-debugability-of-failed-node-joins-68) |
+| `@hown3d` | `5m` | 🔒 Add Support for Virtual Garden to ACL Extension | [hackathon#47](https://github.com/gardener/hackathon/issues/47), [Summary](https://gardener.cloud/community/hackathons/2026-05/#%F0%9F%94%92-add-support-for-virtual-garden-to-acl-extension-47) |
+| `@majst01` | `5m` | 🛡️ Replace OpenVPN with WireGuard | [hackathon#70](https://github.com/gardener/hackathon/issues/70), [Summary](https://gardener.cloud/community/hackathons/2026-05/#%F0%9F%9B%A1%EF%B8%8F-replace-openvpn-with-wireguard-70) |
+| `@timebertt` | `5m` | 🌐 Make Internal Domain Optional/Mutable | [hackathon#53](https://github.com/gardener/hackathon/issues/53), [Summary](https://gardener.cloud/community/hackathons/2026-05/#%F0%9F%8C%90-make-internal-domain-optional-mutable-53) |
+| `@rfranzke` | `5m` | 🌿 Experiment with `shoot/shoot` Controller in Self-Hosted Shoot Clusters | [hackathon#45](https://github.com/gardener/hackathon/issues/45), [Summary](https://gardener.cloud/community/hackathons/2026-05/#%F0%9F%8C%BF-gep-28-experiment-with-shoot-shoot-controller-in-self-hosted-shoot-clusters-45) |
+| `@georgibaltiev` | `5m` | 🔑 Implement Public CA Bundle Discovery Mechanism | [hackathon#15](https://github.com/gardener/hackathon/issues/15), [Summary](https://gardener.cloud/community/hackathons/2026-05/#%F0%9F%94%91-gep-28-implement-public-ca-bundle-discovery-mechanism-15) |
+| `@hown3d` | `5m` | 🐝 `SelfHostedShootExposure` in Cilium Extension | [hackathon#46](https://github.com/gardener/hackathon/issues/46), [Summary](https://gardener.cloud/community/hackathons/2026-05/#%F0%9F%90%9D-gep-28-selfhostedshootexposure-in-cilium-extension-46) |
+| `@maboehm` | `5m` | ⚙️ Run `Garden` and `Seed` in Self-Hosted Shoot Cluster on Managed Infrastructure | [hackathon#55](https://github.com/gardener/hackathon/issues/55), [Summary](https://gardener.cloud/community/hackathons/2026-05/#%E2%9A%99%EF%B8%8F-gep-28-run-garden-and-seed-in-self-hosted-shoot-cluster-on-managed-infrastructure-55) |
+| `@maboehm` | `5m` | 👁️ Allow Admins to Easily Use a Viewer Kubeconfig by Default | [hackathon#71](https://github.com/gardener/hackathon/issues/71), [Summary](https://gardener.cloud/community/hackathons/2026-05/#%F0%9F%91%81%EF%B8%8F-allow-admins-to-easily-use-a-viewer-kubeconfig-by-default-71) |
+| `@Kostov6` | `5m` | 📝 Stage `confineSpecUpdateRollout` Changes in Annotation | [hackathon#64](https://github.com/gardener/hackathon/issues/64), [Summary](https://gardener.cloud/community/hackathons/2026-05/#%F0%9F%93%9D-stage-confinespecupdaterollout-changes-in-annotation-64) |
+| `@LucaBernstein` | `5m` | 💾 `GardenState` Resource for Automated Garden Cluster Disaster Recovery | [hackathon#44](https://github.com/gardener/hackathon/issues/44), [Summary](https://gardener.cloud/community/hackathons/2026-05/#%F0%9F%92%BE-gardenstate-resource-for-automated-garden-cluster-disaster-recovery-44) |
+| `@mhoffmann-noris` | `5m` | 🔐 Separately Encrypt etcd Backups | [hackathon#69](https://github.com/gardener/hackathon/issues/69), [Summary](https://gardener.cloud/community/hackathons/2026-05/#%F0%9F%94%90-separately-encrypt-etcd-backups-69) |
+| `@plkokanov` | `5m` | ⚡ Reduce `Secret` Watch Pressure by Splitting `ManagedResource` Data | [hackathon#61](https://github.com/gardener/hackathon/issues/61), [Summary](https://gardener.cloud/community/hackathons/2026-05/#%E2%9A%A1-reduce-secret-watch-pressure-by-splitting-managedresource-data-61) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- 🤝 Support Joining Control Plane Nodes in Managed Infrastructure. [hackathon#54](https://github.com/gardener/hackathon/issues/54), [Summary](https://gardener.cloud/community/hackathons/2026-05/#%F0%9F%A4%9D-gep-28-support-joining-control-plane-nodes-in-managed-infrastructure-54)
+
+<hr />
+
 ### 2026/04/29 - [v1.141](https://github.com/gardener/gardener/releases/tag/v1.141.0) Release
 
 [📽️ Recording](https://youtu.be/xUINvwIt9Kk)
