@@ -1,0 +1,241 @@
+structure:
+  - file: _index.md
+    source: /website/contribute/_index.md
+
+  - dir: contribution-process
+    structure:
+    - fileTree: /website/contribute/contribution-process
+
+  - dir: developer-starter-kit
+    structure:
+    - file: _index.md
+      source: /website/contribute/developer-starter-kit/_index.md
+    - file: local_setup.md
+      frontmatter:
+        weight: 10
+      source: https://github.com/gardener/gardener/blob/master/docs/development/local_setup.md
+    - file: getting_started_locally.md
+      frontmatter:
+        weight: 20
+      source: https://github.com/gardener/gardener/blob/master/docs/deployment/getting_started_locally.md
+    - file: dependencies.md
+      frontmatter:
+        weight: 30
+      source: https://github.com/gardener/gardener/blob/master/docs/development/dependencies.md
+    - file: testing.md
+      frontmatter:
+        weight: 40
+      source: https://github.com/gardener/gardener/blob/master/docs/development/testing.md
+    - file: testmachinery_tests.md
+      frontmatter:
+        weight: 50
+      source: https://github.com/gardener/gardener/blob/master/docs/development/testmachinery_tests.md
+    - file: kubernetes-clients.md
+      frontmatter:
+        weight: 60
+      source: https://github.com/gardener/gardener/blob/master/docs/development/kubernetes-clients.md
+    - file: logging-guidelines.md
+      frontmatter:
+        weight: 70
+      source: https://github.com/gardener/gardener/blob/master/docs/development/logging-guidelines.md
+    - file: changing-the-api.md
+      frontmatter:
+        weight: 80
+      source: https://github.com/gardener/gardener/blob/master/docs/development/changing-the-api.md
+    - file: defaulting.md
+      frontmatter:
+        weight: 90
+      source: https://github.com/gardener/gardener/blob/master/docs/development/defaulting.md
+    - file: validation-guidelines.md
+      frontmatter:
+        weight: 100
+      source: https://github.com/gardener/gardener/blob/master/docs/development/validation-guidelines.md
+
+  - dir: gardener
+    structure:
+    - file: _index.md
+      source: /website/contribute/gardener/_index.md
+    - dir: development
+      structure:
+      - fileTree: https://github.com/gardener/gardener/tree/master/docs/development
+        excludeFiles:
+        - local_setup.md
+        - getting_started_locally.md
+        - testing.md
+        - testmachinery_tests.md
+        - dependencies.md
+        - validation-guidelines.md
+        - ipv6.md
+        - changing-the-api.md
+        - defaulting.md
+        - kubernetes-clients.md
+        - logging-guidelines.md
+    - file: ipv6.md
+      frontmatter:
+        title: IPv6
+      source: https://github.com/gardener/gardener/blob/master/docs/development/ipv6.md
+
+  - dir: extensions
+    structure:
+    - file: _index.md
+      frontmatter:
+        title: Extensions
+        weight: 40
+    - dir: infrastructure-extensions
+      structure:
+      - file: _index.md
+        frontmatter:
+          title: Infrastructure Extensions
+          description: Developer documentation for cloud provider extensions
+          weight: 10
+      - dir: gardener-extension-provider-aws
+        structure:
+        - file: _index.md
+          frontmatter:
+            title: Provider AWS
+            description: Developer documentation for the AWS cloud provider extension
+          source: https://github.com/gardener/gardener-extension-provider-aws/blob/master/README.md
+        - dir: development
+          structure:
+          - fileTree: https://github.com/gardener/gardener-extension-provider-aws/tree/master/docs/development
+      - dir: gardener-extension-provider-gcp
+        structure:
+        - file: _index.md
+          frontmatter:
+            title: Provider GCP
+            description: Developer documentation for the GCP cloud provider extension
+          source: https://github.com/gardener/gardener-extension-provider-gcp/blob/master/README.md
+        - dir: development
+          structure:
+          - fileTree: https://github.com/gardener/gardener-extension-provider-gcp/tree/master/docs/development
+      - dir: gardener-extension-provider-azure
+        structure:
+        - file: _index.md
+          frontmatter:
+            title: Provider Azure
+            description: Developer documentation for the Azure cloud provider extension
+          source: https://github.com/gardener/gardener-extension-provider-azure/blob/master/README.md
+        - dir: development
+          structure:
+          - fileTree: https://github.com/gardener/gardener-extension-provider-azure/tree/master/docs/development
+      - dir: gardener-extension-provider-alicloud
+        structure:
+        - file: _index.md
+          frontmatter:
+            title: Provider Alibaba Cloud
+            description: Developer documentation for the Alibaba Cloud provider extension
+          source: https://github.com/gardener/gardener-extension-provider-alicloud/blob/master/README.md
+        - dir: development
+          structure:
+          - fileTree: https://github.com/gardener/gardener-extension-provider-alicloud/tree/master/docs/development
+      - dir: gardener-extension-provider-openstack
+        structure:
+        - file: _index.md
+          frontmatter:
+            title: Provider OpenStack
+            description: Developer documentation for the OpenStack cloud provider extension
+          source: https://github.com/gardener/gardener-extension-provider-openstack/blob/master/README.md
+        - dir: development
+          structure:
+          - fileTree: https://github.com/gardener/gardener-extension-provider-openstack/tree/master/docs/development
+    - dir: gardener-extension-shoot-dns-service
+      structure:
+      - file: _index.md
+        frontmatter:
+          title: DNS Services
+          description: Developer documentation for the DNS services extension
+        source: https://github.com/gardener/gardener-extension-shoot-dns-service/blob/master/README.md
+      - dir: development
+        structure:
+        - fileTree: https://github.com/gardener/gardener-extension-shoot-dns-service/tree/master/docs/development
+    - dir: gardener-extension-registry-cache
+      structure:
+      - file: _index.md
+        frontmatter:
+          title: Registry Cache
+          description: Developer documentation for the registry cache extension
+        source: https://github.com/gardener/gardener-extension-registry-cache/blob/main/README.md
+      - dir: development
+        structure:
+        - fileTree: https://github.com/gardener/gardener-extension-registry-cache/tree/main/docs/development
+    - dir: gardener-extension-shoot-rsyslog-relp
+      structure:
+      - file: _index.md
+        frontmatter:
+          title: Node Audit Logging
+          description: Developer documentation for the node audit logging extension
+        source: https://github.com/gardener/gardener-extension-shoot-rsyslog-relp/blob/main/README.md
+      - dir: development
+        structure:
+        - fileTree: https://github.com/gardener/gardener-extension-shoot-rsyslog-relp/tree/main/docs/development
+    - dir: gardener-extension-auditing
+      structure:
+      - file: _index.md
+        frontmatter:
+          title: Kubernetes Auditing
+          description: Developer documentation for the Kubernetes auditing extension
+        source: https://github.com/gardener/gardener-extension-auditing/blob/main/README.md
+      - dir: development
+        structure:
+        - fileTree: https://github.com/gardener/gardener-extension-auditing/tree/main/docs/development
+
+  - dir: other-components
+    structure:
+    - file: _index.md
+      frontmatter:
+        title: Other Components
+        weight: 50
+    - dir: machine-controller-manager
+      structure:
+      - file: _index.md
+        frontmatter:
+          title: Machine Controller Manager
+          description: Developer documentation for the machine controller manager
+        source: https://github.com/gardener/machine-controller-manager/blob/master/README.md
+      - dir: development
+        structure:
+        - fileTree: https://github.com/gardener/machine-controller-manager/tree/master/docs/development
+    - dir: etcd-druid
+      structure:
+      - file: _index.md
+        frontmatter:
+          title: etcd-druid
+          description: Developer documentation for the etcd management operator
+        source: https://github.com/gardener/etcd-druid/blob/master/README.md
+      - dir: development
+        structure:
+        - fileTree: https://github.com/gardener/etcd-druid/tree/master/docs/development
+    - dir: dependency-watchdog
+      structure:
+      - file: _index.md
+        frontmatter:
+          title: Dependency Watchdog
+          description: Developer documentation for the dependency watchdog
+        source: https://github.com/gardener/dependency-watchdog/blob/master/README.md
+      - dir: development
+        structure:
+        - fileTree: https://github.com/gardener/dependency-watchdog/tree/master/docs/development
+          excludeFiles:
+          - "setup/"
+        - dir: setup
+          structure:
+          - file: _index.md
+            frontmatter:
+              title: Setup
+          - fileTree: https://github.com/gardener/dependency-watchdog/tree/master/docs/development/setup
+
+  - dir: dashboard
+    structure:
+    - file: _index.md
+      frontmatter:
+        title: Dashboard
+        description: Developer documentation for the Gardener web UI
+        weight: 60
+      source: https://github.com/gardener/dashboard/blob/master/README.md
+    - dir: development
+      structure:
+      - fileTree: https://github.com/gardener/dashboard/tree/master/docs/development
+
+  - dir: documentation
+    structure:
+    - fileTree: /website/contribute/documentation

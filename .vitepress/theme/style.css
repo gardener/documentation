@@ -1,3 +1,19 @@
+a.action-button {
+  display: inline-block;
+  border-radius: 20px;
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: var(--vp-button-brand-bg);
+  color: var(--vp-button-brand-text) !important;
+  text-decoration: none !important;
+  transition: background-color 0.25s;
+}
+
+a.action-button:hover {
+  background-color: var(--vp-button-brand-hover-bg);
+}
+
 :root:where(:lang(fa)) {
   --vp-font-family-base:
     'Vazirmatn', 'Inter', ui-sans-serif, system-ui, sans-serif,

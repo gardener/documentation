@@ -2,6 +2,7 @@ import { defineConfig, type SiteConfig } from 'vitepress'
 import { fileURLToPath, URL, pathToFileURL } from 'node:url'
 import blogSidebar from './theme/blog-sidebar.ts'
 import {communitySidebar} from "./theme/community-sidebar.ts";
+import { contributeSidebar } from "./theme/contribute-sidebar.ts";
 import path from 'path'
 import { SearchResult } from 'minisearch'
 import { generateEnhancedDocsSidebar } from './theme/docs-sidebar.ts';
@@ -16,6 +17,7 @@ const siteSrcDir = 'hugo/content'
 const allSidebars = {
   '/blog/': blogSidebar()['/blog/'],
   '/community/': communitySidebar()['/community/'],
+  '/contribute/': contributeSidebar()['/contribute/'],
   '/docs/': generateEnhancedDocsSidebar()['/docs/']
 };
 
@@ -128,6 +130,11 @@ function getNavConfig () {
       text: 'Community',
       link: '/community',
       activeMatch: 'community',
+    },
+    {
+      text: 'Contribute',
+      link: '/contribute',
+      activeMatch: 'contribute',
     },
   ]
 }
