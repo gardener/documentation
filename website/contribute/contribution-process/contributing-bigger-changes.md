@@ -3,6 +3,7 @@ title: Contributing Bigger Changes
 sidebar: true
 menu: sln
 weight: 20
+aliases: ["/docs/contribute/code/contributing-bigger-changes/"]
 ---
 
 ## Contributing Bigger Changes

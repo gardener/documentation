@@ -1,5 +1,6 @@
 ---
 title: Organization
+aliases: ["/docs/contribute/documentation/organization/"]
 ---
 
 The Gardener project implements the *documentation-as-code* paradigm. Essentially this means that:

@@ -1,5 +1,6 @@
 ---
 title: Shortcodes
+aliases: ["/docs/contribute/documentation/shortcodes/"]
 ---
 
 Shortcodes are the Hugo way to extend the limitations of Markdown before resorting to HTML. There are a number of built-in shortcodes available from Hugo. This list is extended with Gardener website shortcodes designed specifically for its content.

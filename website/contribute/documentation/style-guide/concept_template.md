@@ -1,6 +1,7 @@
 ---
 Title: Concept Topic Structure
 Description: Describes the contents of a concept topic
+aliases: ["/docs/contribute/documentation/style-guide/concept_template/"]
 ---
 
 # Concept Title
