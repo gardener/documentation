@@ -1,6 +1,6 @@
 ---
 title: Working with Images
-aliases: ["/docs/guides/contributors/content/images"]
+aliases: ["/docs/guides/contributors/content/images", "/docs/contribute/documentation/images/"]
 weight: 15
 ---
 

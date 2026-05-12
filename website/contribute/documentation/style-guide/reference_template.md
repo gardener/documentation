@@ -1,6 +1,7 @@
 ---
 Title: Reference Topic Structure
 Description: Describes the contents of a reference topic
+aliases: ["/docs/contribute/documentation/style-guide/reference_template/"]
 ---
 
 # Topic Title

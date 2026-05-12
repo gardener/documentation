@@ -1,6 +1,6 @@
 ---
 title: Pull Request Creation Guidelines
-aliases: ["/docs/contribute/documentation/pr-description"]
+aliases: ["/docs/contribute/documentation/pr-description", "/docs/contribute/documentation/pr-guidelines/"]
 ---
 
 <!-- contains only public information -->

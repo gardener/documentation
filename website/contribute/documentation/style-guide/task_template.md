@@ -1,6 +1,7 @@
 ---
 Title: Task Topic Structure
 Description: Describes the contents of a task topic
+aliases: ["/docs/contribute/documentation/style-guide/task_template/"]
 ---
 
 # Task Title

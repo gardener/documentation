@@ -1,5 +1,6 @@
 ---
 Title: Style Guide
+aliases: ["/docs/contribute/documentation/style-guide/"]
 ---
 This page gives writing style guidelines for the Gardener documentation. For formatting guidelines, see the [Formatting Guide](../formatting-guide.md).
 

@@ -2,6 +2,7 @@
 title: Community Roles
 weight: 30
 outline: 2
+aliases: ["/docs/contribute/code/roles/"]
 ---
 
 # Community Roles

@@ -1,5 +1,6 @@
 ---
 title: Blog Tags Reference
+aliases: ["/docs/contribute/documentation/blog-tags/"]
 ---
 
 ## Overview

@@ -1,5 +1,6 @@
 ---
 title: Adding Already Existing Documentation
+aliases: ["/docs/contribute/documentation/adding-existing-documentation/"]
 ---
 
 ## Overview
