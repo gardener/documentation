@@ -41,7 +41,7 @@ The dashboard now uses the new `credentialsRef` / `credentials` keys for DNS pro
 
 ## Helm Chart Deprecation Notice
 
-The `gardener-dashboard` and `identity` Helm charts are **deprecated** in favor of `gardener-operator` managed deployments. These charts will be removed earliest around November 2026. If you still rely on Helm-based dashboard installations, please plan your migration to `gardener-operator` — see the [migration guide](https://github.com/gardener/gardener/blob/master/docs/concepts/operator.md#migrating-an-existing-gardener-landscape-to-gardener-operator).
+The `gardener-dashboard` Helm chart is **deprecated** in favor of `gardener-operator` managed deployments. The `identity` Helm chart is **deprecated without replacement**. Both charts will be removed earliest around November 2026. If you still rely on Helm-based dashboard installations, please plan your migration to `gardener-operator` — see the [migration guide](https://github.com/gardener/gardener/blob/master/docs/concepts/operator.md#migrating-an-existing-gardener-landscape-to-gardener-operator).
 
 ## Links
 
