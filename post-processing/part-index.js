@@ -48,6 +48,18 @@ function main() {
 
       fs.copyFileSync(file, destinationFile);
       console.log(`Copied ${file} to ${destinationFile}`);
+
+      // Fix /path/readme/ links that docforge generates when it rewrites links
+      // in README.md files before renaming them to _index.md. Two cases:
+      //   1. Self-referential ToC:  (/path/readme/#anchor) → (#anchor)
+      //   2. Cross-proposal links:  (/path/readme/)        → (/path/)
+      let content = fs.readFileSync(destinationFile, 'utf8');
+      let fixed = content.replace(/\(([^)]*?)\/readme\/(#[^)]*)\)/gi, '($2)');
+      fixed = fixed.replace(/\(([^)]*?)\/readme\/\)/gi, '($1/)');
+      if (fixed !== content) {
+        fs.writeFileSync(destinationFile, fixed, 'utf8');
+        console.log(`  Fixed readme links in ${destinationFile}`);
+      }
     }
 
     console.log(`Processed ${indexFiles.length} files`);

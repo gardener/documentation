@@ -10,6 +10,7 @@ import { hasMarkdownContent, getTaxonomyChildren } from './theme/utils/sidebar.t
 import { generateAliasRedirects, createAliasRedirectDevPlugin } from './plugins/alias-redirects';
 
 const indexPattern = new RegExp(/\/?_?index\.md$/i);
+const readmePattern = new RegExp(/\/?readme\.md$/i);
 const siteBase = process.env.VITE_PUBLIC_BASE_PATH || ''
 const siteSrcDir = 'hugo/content'
 
@@ -57,6 +58,9 @@ export default defineConfig({
     hostname: 'https://gardener.cloud'
   },
   rewrites(id) {
+    if (readmePattern.test(id)) {
+      return id.replace(readmePattern, '/index.md').replace(/^\//, '');
+    }
     if (!indexPattern.test(id) && id.endsWith('.md')) {
       return id.slice(0, -3) + '/index.md';
     }
