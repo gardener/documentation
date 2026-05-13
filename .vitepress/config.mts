@@ -145,6 +145,38 @@ function getSearchConfig() {
       options: {
         detailedView: true,
         miniSearch: {
+          // Custom implementation of VitePress's splitPageIntoSections (vitepress@1.6.3, chunk-Zsoi3j4v.js:40590).
+          // The original headingContentRegex matches the first <a href="#..."> in a heading, which
+          // may be an inline content link rather than the permalink anchor, causing duplicate MiniSearch IDs.
+          // We target only the header-anchor permalink instead.
+          _splitIntoSections(_file: string, html: string) {
+            const headingRegex = /<h(\d*).*?>(.*?<a.*? href="#.*?".*?>.*?<\/a>)<\/h\1>/gi;
+            // Changed from original: matches only <a class="header-anchor"> to avoid picking up inline content links
+            const headingContentRegex = /(.*?)<a[^>]*class="header-anchor"[^>]*href="#([^"]*)"[^>]*>/i;
+            return (function* () {
+              const result = html.split(headingRegex);
+              result.shift();
+              let parentTitles: string[] = [];
+              for (let i = 0; i < result.length; i += 3) {
+                const level = parseInt(result[i]) - 1;
+                const heading = result[i + 1];
+                const headingResult = headingContentRegex.exec(heading);
+                const title = (headingResult?.[1] ?? '').replace(/<[^>]*>/g, '').trim();
+                const anchor = headingResult?.[2] ?? '';
+                const content = result[i + 2];
+                if (!title || !content) continue;
+                let titles = parentTitles.slice(0, level);
+                titles[level] = title;
+                titles = titles.filter(Boolean);
+                yield { anchor, titles, text: content.replace(/<[^>]*>/g, '') };
+                if (level === 0) {
+                  parentTitles = [title];
+                } else {
+                  parentTitles[level] = title;
+                }
+              }
+            })();
+          },
           /**
            * @type {Pick<import('minisearch').Options, 'extractField' | 'tokenize' | 'processTerm'>}
            */
