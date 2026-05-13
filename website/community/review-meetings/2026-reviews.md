@@ -16,7 +16,7 @@ Check back regularly for updates and upcoming topics!
 
 ### 2026/05/13 - [Hack The Garden](https://gardener.cloud/community/hackathons/2026-05/) Wrap Up
 
-[📽️ Recording]()
+[📽️ Recording](https://youtu.be/FkRxbM375So)
 
 #### Demo Agenda 📋
 
