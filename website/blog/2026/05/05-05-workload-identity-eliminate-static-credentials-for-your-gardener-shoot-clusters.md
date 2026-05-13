@@ -19,11 +19,11 @@ tags:
 aliases: ["/blog/2026/05/05/workload-identity-eliminate-static-credentials-for-your-gardener-shoot-clusters"]
 ---
 
-Gardener now supports **Workload Identity Federation** for AWS, Azure, and GCP. Instead of storing long-lived static credentials (access keys, service principal secrets, service account keys), you can configure trust between your cloud account and the Gardener Workload Identity Issuer. Gardener then issues short-lived, auto-rotated JSON Web Tokens that your Shoot clusters use to authenticate with cloud APIs — no secrets to manage, rotate, or risk leaking.
+Gardener now supports **Workload Identity Federation** for AWS, Azure, and GCP. Instead of storing long-lived static credentials (access keys, service principal secrets, service account keys), you can configure trust between your cloud account and the Gardener Workload Identity Issuer. Gardener then issues short-lived, auto-rotated JSON Web Tokens that your shoot clusters use to authenticate with cloud APIs — no secrets to manage, rotate, or risk leaking.
 
 ## The Problem with Static Credentials
 
-Every Gardener Shoot cluster needs credentials to interact with cloud provider APIs — creating VMs, managing load balancers, provisioning volumes, configuring DNS records. Traditionally, this required creating a cloud provider service account or access key and storing it as a Kubernetes Secret in the Garden cluster.
+Every Gardener shoot cluster needs credentials to interact with cloud provider APIs — creating VMs, managing load balancers, provisioning volumes, configuring DNS records. Traditionally, this required creating a cloud provider service account or access key and storing it as a Kubernetes Secret in the garden cluster.
 
 This approach comes with well-known operational and security challenges:
 
@@ -37,12 +37,12 @@ This approach comes with well-known operational and security challenges:
 
 With workload identity, Gardener acts as an **OIDC-compatible token issuer**. Instead of handing Gardener a static secret, you establish a one-time trust relationship between your cloud provider account and the Gardener issuer. From that point on:
 
-1. **Gardener issues short-lived JWTs** — tokens are created on-demand by the Gardener API server and contain claims identifying the specific Shoot, project, and Seed.
-1. **Tokens are auto-rotated** — Gardenlet continuously refreshes tokens before they expire, with no manual intervention.
+1. **Gardener issues short-lived JWTs** — tokens are created on-demand by the Gardener API server and contain claims identifying the specific shoot, project, and seed.
+1. **Tokens are auto-rotated** — gardenlet continuously refreshes tokens before they expire, with no manual intervention.
 1. **No credentials are stored** — tokens are ephemeral and never persisted by the issuer. The cloud provider validates them using the publicly available OIDC discovery metadata.
-1. **Fine-grained access control** — cloud-side trust policies can restrict which Gardener workload identities (by subject claim) are allowed to assume which roles, enabling per-Shoot or per-project isolation.
+1. **Fine-grained access control** — cloud-side trust policies can restrict which Gardener workload identities (by subject claim) are allowed to assume which roles, enabling per-shoot or per-project isolation.
 
-The following diagram shows how the components interact end-to-end — from the `WorkloadIdentity` resource in the Garden cluster, through token issuance by the Gardener API server, to token validation by the cloud provider:
+The following diagram shows how the components interact end-to-end — from the `WorkloadIdentity` resource in the garden cluster, through token issuance by the Gardener API server, to token validation by the cloud provider:
 
 ![Workload Identity Overview](./images/workload-identity-overview.png)
 
@@ -64,7 +64,7 @@ Each JWT issued by Gardener carries rich contextual information:
 }
 ```
 
-This means your cloud IAM policies can scope permissions not just to the Gardener issuer, but down to the individual Shoot or project requesting access.
+This means your cloud IAM policies can scope permissions not just to the Gardener issuer, but down to the individual shoot or project requesting access.
 
 ## Getting Started
 
@@ -192,7 +192,7 @@ For detailed instructions, see the [GCP Workload Identity Federation documentati
 
 Gardener Workload Identity isn't limited to infrastructure credentials. You can also use it for **DNS providers**. The same `WorkloadIdentity` resource (with `spec.targetSystem.type` set to the cloud provider — `aws`, `azure`, or `gcp`) can be reused for both infrastructure and DNS purposes, simplifying your credential management further.
 
-To configure DNS with Workload Identity, reference the `WorkloadIdentity` as a named resource in your Shoot and use it in the `shoot-dns-service` extension's `providerConfig`:
+To configure DNS with Workload Identity, reference the `WorkloadIdentity` as a named resource in your shoot and use it in the `shoot-dns-service` extension's `providerConfig`:
 
 ```yaml
 apiVersion: core.gardener.cloud/v1beta1
@@ -241,11 +241,11 @@ spec:
 
 ## Migrating Existing Shoots
 
-Already have Shoots running with static credentials? The migration is a two-step process. If your Shoot still uses the deprecated `SecretBinding`, you must first move to a `CredentialsBinding` (still referencing the same `Secret`), and then switch to `WorkloadIdentity`.
+Already have shoots running with static credentials? The migration is a two-step process. If your shoot still uses the deprecated `SecretBinding`, you must first move to a `CredentialsBinding` (still referencing the same `Secret`), and then switch to `WorkloadIdentity`.
 
 ### Step 1: Migrate from `SecretBinding` to `CredentialsBinding`
 
-If your Shoot references a `SecretBinding`, create a `CredentialsBinding` that points to the **same Secret** and update the Shoot:
+If your shoot references a `SecretBinding`, create a `CredentialsBinding` that points to the **same Secret** and update the shoot:
 
 ```yaml
 apiVersion: security.gardener.cloud/v1alpha1
@@ -277,7 +277,7 @@ For detailed instructions, see the [SecretBinding to CredentialsBinding migratio
 
 ### Step 2: Switch to Workload Identity
 
-Once your Shoot uses a `CredentialsBinding` with a `Secret`, you can move to `WorkloadIdentity`:
+Once your shoot uses a `CredentialsBinding` with a `Secret`, you can move to `WorkloadIdentity`:
 
 1. Set up the trust relationship in your cloud provider account (see [Provider-Specific Setup](#provider-specific-setup) above).
 1. Create a `WorkloadIdentity` resource in your project namespace.
@@ -308,7 +308,7 @@ Since the `credentialsRef` field of `CredentialsBinding` is immutable, you creat
 
 > [!TIP]
 > DNS credentials can be migrated to Workload Identity independently of infrastructure credentials.
-> If your Shoot uses static `Secret`s for DNS providers, you can create a `WorkloadIdentity` and reference it in the `shoot-dns-service` extension configuration (see [DNS Credentials Too](#workload-identity-for-dns) above) without changing your infrastructure credentials binding.
+> If your shoot uses static `Secret`s for DNS providers, you can create a `WorkloadIdentity` and reference it in the `shoot-dns-service` extension configuration (see [DNS Credentials Too](#workload-identity-for-dns) above) without changing your infrastructure credentials binding.
 
 ## Security Benefits at a Glance
 
@@ -317,8 +317,8 @@ Since the `credentialsRef` field of `CredentialsBinding` is immutable, you creat
 | Long-lived or non-expiring | Short-lived, auto-rotated (default: 6 hours) |
 | Stored in Kubernetes Secrets | Never persisted, issued on demand |
 | Shared across tools and environments | Scoped to specific Gardener workloads |
-| Manual rotation required | Automatic rotation by Gardenlet |
-| Broad IAM policies common | Fine-grained: scope by Shoot, project, or Seed |
+| Manual rotation required | Automatic rotation by gardenlet |
+| Broad IAM policies common | Fine-grained: scope by shoot, project, or seed |
 | Credential leaks require immediate response | No credentials to leak |
 
 ## Further Reading
@@ -332,6 +332,6 @@ Since the `credentialsRef` field of `CredentialsBinding` is immutable, you creat
 
 ## Start Today
 
-Workload Identity is production-ready and available now for AWS, Azure, and GCP. We encourage all Gardener users to migrate their Shoot clusters away from static credentials. The one-time setup of a cloud-side trust relationship pays for itself through eliminated credential rotation overhead, reduced security risk, and simplified operations.
+Workload Identity is production-ready and available now for AWS, Azure, and GCP. We encourage all Gardener users to migrate their shoot clusters away from static credentials. The one-time setup of a cloud-side trust relationship pays for itself through eliminated credential rotation overhead, reduced security risk, and simplified operations.
 
 If you have questions or need help with the migration, reach out to the Gardener community.
