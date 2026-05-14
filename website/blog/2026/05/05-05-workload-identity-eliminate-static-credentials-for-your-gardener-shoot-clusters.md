@@ -40,7 +40,7 @@ With workload identity, Gardener acts as an **OIDC-compatible token issuer**. In
 1. **Gardener issues short-lived JWTs** — tokens are created on-demand by the Gardener API server and contain claims identifying the specific shoot, project, and seed.
 1. **Tokens are auto-rotated** — gardenlet continuously refreshes tokens before they expire, with no manual intervention.
 1. **No credentials are stored** — tokens are ephemeral and never persisted by the issuer. The cloud provider validates them using the publicly available OIDC discovery metadata.
-1. **Fine-grained access control** — cloud-side trust policies can restrict which Gardener workload identities (by subject claim) are allowed to assume which roles, enabling per-shoot or per-project isolation.
+1. **Fine-grained access control** — cloud-side trust policies can restrict Gardener workload identities (by subject claim) to concrete IAM roles, enabling per-shoot or per-project isolation.
 
 The following diagram shows how the components interact end-to-end — from the `WorkloadIdentity` resource in the garden cluster, through token issuance by the Gardener API server, to token validation by the cloud provider:
 
@@ -277,7 +277,7 @@ For detailed instructions, see the [SecretBinding to CredentialsBinding migratio
 
 ### Step 2: Switch to Workload Identity
 
-Once your shoot uses a `CredentialsBinding` with a `Secret`, you can move to `WorkloadIdentity`:
+Once your shoot is using a `CredentialsBinding` with a `Secret`, you can move to `WorkloadIdentity`:
 
 1. Set up the trust relationship in your cloud provider account (see [Provider-Specific Setup](#provider-specific-setup) above).
 1. Create a `WorkloadIdentity` resource in your project namespace.
@@ -304,7 +304,7 @@ Once your shoot uses a `CredentialsBinding` with a `Secret`, you can move to `Wo
       credentialsBindingName: my-infra-wi-binding
     ```
 
-Since the `credentialsRef` field of `CredentialsBinding` is immutable, you create a new `CredentialsBinding` rather than modifying the existing one. The migration is seamless — Gardener handles the transition without cluster downtime.
+Since the `credentialsRef` field of `CredentialsBinding` is immutable, you must create a new `CredentialsBinding` rather than modifying the existing one. The migration is seamless — Gardener handles the transition without cluster downtime.
 
 > [!TIP]
 > DNS credentials can be migrated to Workload Identity independently of infrastructure credentials.
