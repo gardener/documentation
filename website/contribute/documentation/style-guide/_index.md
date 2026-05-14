@@ -116,7 +116,7 @@ For more information on the currently used tags, see [Blog Tags Reference](../bl
 
 ### Alerts
 
-If you want to add a note, tip or a warning to your topic, use the templates provides in the [Shortcodes](../shortcodes.md#alert) documentation.
+If you want to add a note, tip or a warning to your topic, use the templates provides in the [Shortcodes](../shortcodes.md#alerts) documentation.
 
 ### Images
 
