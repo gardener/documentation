@@ -13,9 +13,8 @@ docforge-download: ## Download the appropriate docforge binary for the current O
 				echo "Docforge for macOS ARM64 already exists and is executable."; \
 			else \
 				echo "Downloading docforge for macOS ARM64..."; \
-				curl -L -o bin/docforge https://github.com/gardener/docforge/releases/download/v0.57.0/docforge-darwin-arm64; \
-				echo "Making docforge executable..."; \
-				chmod +x bin/docforge; \
+				curl -fL https://github.com/gardener/docforge/releases/download/v0.57.0/docforge-darwin-arm64 | tar -xz -C bin; \
+				mv bin/docforge-darwin-arm64 bin/docforge; \
 				echo "Docforge binary downloaded and is ready to use."; \
 			fi; \
 		else \
@@ -23,9 +22,8 @@ docforge-download: ## Download the appropriate docforge binary for the current O
 				echo "Docforge for macOS AMD64 already exists and is executable."; \
 			else \
 				echo "Downloading docforge for macOS AMD64..."; \
-				curl -L -o bin/docforge https://github.com/gardener/docforge/releases/download/v0.57.0/docforge-darwin-amd64; \
-				echo "Making docforge executable..."; \
-				chmod +x bin/docforge; \
+				curl -fL https://github.com/gardener/docforge/releases/download/v0.57.0/docforge-darwin-amd64 | tar -xz -C bin; \
+				mv bin/docforge-darwin-amd64 bin/docforge; \
 				echo "Docforge binary downloaded and is ready to use."; \
 			fi; \
 		fi; \
@@ -35,9 +33,8 @@ docforge-download: ## Download the appropriate docforge binary for the current O
 				echo "Docforge for Linux ARM64 already exists and is executable."; \
 			else \
 				echo "Downloading docforge for Linux ARM64..."; \
-				curl -L -o bin/docforge https://github.com/gardener/docforge/releases/download/v0.57.0/docforge-linux-arm64; \
-				echo "Making docforge executable..."; \
-				chmod +x bin/docforge; \
+				curl -fL https://github.com/gardener/docforge/releases/download/v0.57.0/docforge-linux-arm64 | tar -xz -C bin; \
+				mv bin/docforge-linux-arm64 bin/docforge; \
 				echo "Docforge binary downloaded and is ready to use."; \
 			fi; \
 		else \
@@ -45,9 +42,8 @@ docforge-download: ## Download the appropriate docforge binary for the current O
 				echo "Docforge for Linux AMD64 already exists and is executable."; \
 			else \
 				echo "Downloading docforge for Linux AMD64..."; \
-				curl -L -o bin/docforge https://github.com/gardener/docforge/releases/download/v0.57.0/docforge-linux-amd64; \
-				echo "Making docforge executable..."; \
-				chmod +x bin/docforge; \
+				curl -fL https://github.com/gardener/docforge/releases/download/v0.57.0/docforge-linux-amd64 | tar -xz -C bin; \
+				mv bin/docforge-linux-amd64 bin/docforge; \
 				echo "Docforge binary downloaded and is ready to use."; \
 			fi; \
 		fi; \
@@ -56,7 +52,8 @@ docforge-download: ## Download the appropriate docforge binary for the current O
 			echo "Docforge for Windows already exists."; \
 		else \
 			echo "Downloading docforge for Windows..."; \
-			curl -L -o bin/docforge.exe https://github.com/gardener/docforge/releases/download/v0.57.0/docforge-windows-386.exe; \
+			curl -fL https://github.com/gardener/docforge/releases/download/v0.57.0/docforge-windows-386 | tar -xz -C bin; \
+			mv bin/docforge-windows-386.exe bin/docforge.exe; \
 			echo "Docforge binary downloaded and is ready to use."; \
 		fi; \
 	else \
