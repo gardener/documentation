@@ -308,10 +308,60 @@ async function renameImagesToLowercase(basePath){
 
             const successCount = renameResults.filter(r => r.success).length;
             console.log(`\nRename summary: ${successCount} of ${matchingFiles.length} files renamed successfully.`);
+
+            // Update markdown references to match the renamed filenames
+            const renames = renameResults
+                .filter(r => r.success)
+                .map(r => ({
+                    original: path.basename(r.original),
+                    lowercase: path.basename(r.renamed)
+                }));
+            if (renames.length > 0) {
+                await updateMarkdownReferences(basePath, renames);
+            }
         } else {
             console.log('\nTo rename these files to lowercase, run the script with the --rename or -r flag:');
             console.log(`node post-processing.js ${basePath} --rename`);
         }
+    }
+
+    async function updateMarkdownReferences(dir, renames) {
+        async function findMarkdownFiles(directory) {
+            let found = [];
+            const entries = await fs.readdir(directory);
+            for (const entry of entries) {
+                const fullPath = path.join(directory, entry);
+                const stats = await fs.stat(fullPath);
+                if (stats.isDirectory()) {
+                    if (!IGNORE_IMAGE_DIRS.includes(entry)) {
+                        found = found.concat(await findMarkdownFiles(fullPath));
+                    }
+                } else if (entry.endsWith('.md')) {
+                    found.push(fullPath);
+                }
+            }
+            return found;
+        }
+
+        const mdFiles = await findMarkdownFiles(dir);
+        let updatedFiles = 0;
+
+        for (const mdFile of mdFiles) {
+            let content = await fs.readFile(mdFile, 'utf-8');
+            let modified = false;
+            for (const { original, lowercase } of renames) {
+                if (content.includes(original)) {
+                    content = content.replaceAll(original, lowercase);
+                    modified = true;
+                }
+            }
+            if (modified) {
+                await fs.writeFile(mdFile, content, 'utf-8');
+                updatedFiles++;
+            }
+        }
+
+        console.log(`\nReference update summary: updated references in ${updatedFiles} markdown file(s).`);
     }
 }
 
