@@ -1,43 +1,59 @@
 /**
- * Converts PNG/JPG/JPEG images to WebP in the website/ directory.
- * GIFs are skipped (animated GIFs cannot be converted to WebP simply).
- * Favicons and web manifest icons are also skipped.
+ * Converts large PNG images to WebP and updates all references.
+ * Fully configurable via CLI arguments — no project-specific defaults.
  *
  * Usage:
- *   node scripts/optimize-assets.mjs              ← dry run, shows what would happen
- *   node scripts/optimize-assets.mjs --write       ← actually converts files
- *   node scripts/optimize-assets.mjs --dir website ← target a specific subdirectory
+ *   node scripts/optimize-assets.mjs --dir website --min-kb 200   ← dry run
+ *   node scripts/optimize-assets.mjs --dir website --min-kb 200 --write
+ *
+ * Arguments:
+ *   --dir       Target directory to scan for images (required)
+ *   --min-kb    Only convert files above this size in KB (default: 0 = all)
+ *   --skip      Comma-separated list of filenames to skip
+ *   --write     Apply changes (default is dry run)
  */
 
 import sharp from 'sharp'
-import { readdir, stat, unlink } from 'fs/promises'
+import { readdir, stat, unlink, readFile, writeFile } from 'fs/promises'
 import { join, extname, basename, dirname } from 'path'
 import { fileURLToPath } from 'url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = join(__dirname, '..')
 
-// Parse args
-const DRY_RUN = !process.argv.includes('--write')
-const dirArg = process.argv.find((a, i) => process.argv[i - 1] === '--dir')
-const TARGET_DIR = join(ROOT, dirArg ?? 'website')
+// parse args 
+const args = process.argv.slice(2)
+const DRY_RUN = !args.includes('--write')
 
-// Only convert PNG files — JPG/JPEG are photos that lose quality when re-compressed
-const CONVERTIBLE = ['.png']
-const SKIP_BELOW_KB = 5
+function getArg(flag) {
+  const i = args.indexOf(flag)
+  return i !== -1 ? args[i + 1] : null
+}
 
-// These files must stay as PNG — browsers require specific formats for them
-const SKIP_FILENAMES = new Set([
-  'favicon.png',
-  'favicon-16x16.png',
-  'favicon-32x32.png',
-  'favicon-96x96.png',
-  'apple-touch-icon.png',
-  'web-app-manifest-192x192.png',
-  'web-app-manifest-512x512.png',
-])
+const dirArg = getArg('--dir')
+if (!dirArg) {
+  console.error('Error: --dir argument is required')
+  console.error('Usage: node scripts/optimize-assets.mjs --dir website --min-kb 200')
+  process.exit(1)
+}
 
-// helpers
+const TARGET_DIR = join(ROOT, dirArg)
+const MIN_SIZE_KB = parseFloat(getArg('--min-kb') ?? '0')
+const skipArg = getArg('--skip')
+const SKIP_FILENAMES = new Set(skipArg ? skipArg.split(',') : [])
+
+//config
+
+// Directories to search for references to update
+const REF_DIRS = [
+  TARGET_DIR,
+  join(ROOT, '.vitepress', 'theme'),
+]
+
+const CONVERTIBLE = new Set(['.png'])
+const REF_EXTENSIONS = new Set(['.md', '.vue', '.html', '.js', '.ts'])
+
+//helpers 
 
 async function fileSizeKB(p) {
   return ((await stat(p)).size / 1024).toFixed(1)
@@ -51,83 +67,112 @@ async function* walk(dir) {
   }
 }
 
-//main
+/**
+ * Find and optionally replace partialOld → partialNew in all ref files.
+ * Uses partial path (e.g. "images/foo.png") for more precise matching.
+ * Returns list of affected files.
+ */
+async function updateRefs(partialOld, partialNew) {
+  const affected = []
+  for (const refDir of REF_DIRS) {
+    for await (const file of walk(refDir)) {
+      if (!REF_EXTENSIONS.has(extname(file))) continue
+      const content = await readFile(file, 'utf8')
+      if (!content.includes(partialOld)) continue
+      if (!DRY_RUN) {
+        await writeFile(file, content.replaceAll(partialOld, partialNew), 'utf8')
+      }
+      affected.push(file.replace(ROOT + '/', ''))
+    }
+  }
+  return affected
+}
+
+//main 
 
 async function main() {
   if (DRY_RUN) {
     console.log('DRY RUN — nothing will be changed. Pass --write to convert.\n')
   }
 
-  console.log(`Scanning: ${TARGET_DIR}\n`)
-
-  const candidates = []
-  for await (const file of walk(TARGET_DIR)) {
-    if (CONVERTIBLE.includes(extname(file).toLowerCase())) {
-      candidates.push(file)
-    }
+  console.log(`Scanning:  ${TARGET_DIR}`)
+  console.log(`Threshold: files over ${MIN_SIZE_KB}KB`)
+  if (SKIP_FILENAMES.size > 0) {
+    console.log(`Skipping:  ${[...SKIP_FILENAMES].join(', ')}`)
   }
+  console.log()
 
-  if (candidates.length === 0) {
-    console.log('No convertible images found.')
-    return
-  }
-
+  let converted = 0
+  let skippedSize = 0
+  let skippedName = 0
   let totalBefore = 0
   let totalAfter = 0
-  let converted = 0
-  let skipped = 0
-  let skippedFavicon = 0
 
-  for (const src of candidates) {
+  for await (const src of walk(TARGET_DIR)) {
+    if (!CONVERTIBLE.has(extname(src).toLowerCase())) continue
+
     const name = basename(src)
+
+    if (SKIP_FILENAMES.has(name)) {
+      skippedName++
+      continue
+    }
+
     const kb = parseFloat(await fileSizeKB(src))
 
-    // Skip favicons and manifest icons
-    if (SKIP_FILENAMES.has(name)) {
-      skippedFavicon++
-      if (DRY_RUN) console.log(`Skipping ${name} (favicon/manifest — must stay PNG)`)
+    if (kb < MIN_SIZE_KB) {
+      skippedSize++
       continue
     }
 
-    if (kb < SKIP_BELOW_KB) {
-      skipped++
-      continue
-    }
-
-    const dest = src.replace(/\.(png|jpg|jpeg)$/i, '.webp')
+    const dest = src.replace(/\.png$/i, '.webp')
     const relSrc = src.replace(ROOT + '/', '')
-
+    const partialOld = `images/${name}`
+    const partialNew = `images/${basename(dest)}`
     totalBefore += kb
 
     if (DRY_RUN) {
-      console.log(`  ${relSrc}  (${kb}KB)  →  ${basename(dest)}`)
+      console.log(`  CONVERT  ${relSrc} (${kb}KB) → ${basename(dest)}`)
+      const refs = await updateRefs(partialOld, partialNew)
+      for (const r of refs) {
+        console.log(`           ref in: ${r}`)
+      }
       continue
     }
 
+    // Convert PNG → WebP
     await sharp(src).webp({ quality: 85 }).toFile(dest)
 
     const kbAfter = parseFloat(await fileSizeKB(dest))
     totalAfter += kbAfter
     const saved = (((kb - kbAfter) / kb) * 100).toFixed(0)
 
+    // Update references only for converted files
+    const refs = await updateRefs(partialOld, partialNew)
+
+    // Delete original
     await unlink(src)
 
-    console.log(`${relSrc}  ${kb}KB → ${kbAfter}KB  (-${saved}%)`)
+    console.log(`${relSrc}`)
+    console.log(`  ${kb}KB → ${kbAfter}KB (-${saved}%)`)
+    for (const r of refs) {
+      console.log(`  ref: ${r}`)
+    }
+
     converted++
   }
 
   console.log('\n' + '─'.repeat(60))
 
   if (DRY_RUN) {
-    const toConvert = candidates.length - skipped - skippedFavicon
-    console.log(`Would convert ${toConvert} file(s).`)
-    console.log(`Skipped ${skipped} tiny files, ${skippedFavicon} favicon/manifest file(s) (must stay PNG).`)
-    console.log(`\nRun with --write to apply changes.`)
+    console.log(`Skipped ${skippedSize} files under ${MIN_SIZE_KB}KB.`)
+    console.log(`Skipped ${skippedName} files by name.`)
+    console.log('\nRun with --write to apply changes.')
   } else {
     const savedMB = ((totalBefore - totalAfter) / 1024).toFixed(1)
-    console.log(`Converted ${converted} file(s). Skipped ${skipped} tiny + ${skippedFavicon} favicon files.`)
-    console.log(`Space saved: ~${savedMB}MB  (${totalBefore.toFixed(0)}KB → ${totalAfter.toFixed(0)}KB)`)
-    console.log(`\nRun update-asset-refs.mjs --write to update .md/.vue references.`)
+    console.log(`Converted: ${converted} file(s)`)
+    console.log(`Skipped:   ${skippedSize} under ${MIN_SIZE_KB}KB + ${skippedName} by name`)
+    console.log(`Saved:     ~${savedMB}MB (${totalBefore.toFixed(0)}KB → ${totalAfter.toFixed(0)}KB)`)
   }
 }
 
