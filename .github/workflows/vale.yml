@@ -32,5 +32,5 @@ jobs:
           files: website/
           vale_flags: "--minAlertLevel=warning"
           reporter: github-pr-check
-          fail_on_error: false
+          fail_on_error: true
           filter_mode: added
