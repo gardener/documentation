@@ -212,7 +212,7 @@ async function renameImagesToLowercase(basePath){
 
         try {
             // Match any file with uppercase letters and image extensions
-            const regex = /[A-Z]+.*\.(png|jpg|jpeg|svg)$/i;
+            const regex = /[A-Z]+.*\.(png|jpg|jpeg|svg|webp)$/i;
             const files = await fs.readdir(directory);
 
             for (const file of files) {
