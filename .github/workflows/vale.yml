@@ -1,0 +1,36 @@
+name: Vale
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'website/**/*.md'
+      - '.vale.ini'
+      - '.vale/**'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  checks: write
+  pull-requests: write
+
+jobs:
+  vale:
+    name: Lint prose
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Vale
+        uses: vale-cli/vale-action@v2.1.1
+        with:
+          files: website/
+          vale_flags: "--minAlertLevel=warning"
+          reporter: github-pr-check
+          fail_on_error: false
+          filter_mode: added

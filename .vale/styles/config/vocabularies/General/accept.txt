@@ -1,0 +1,25 @@
+# General English words, loanwords, and place names missing from Vale's built-in dictionary
+matcha
+homogenous
+homogenously
+decentrally
+overconsumption
+nonobvious
+updateability
+
+# Place names (hackathon venues, cities, regions)
+Schelklingen
+Schlosshof
+Freizeitheim
+Walldorf
+Mesnerhof
+Hirschegg
+Rofan
+Augustiner
+Leverkusen
+Westeurope
+Brussel
+Kunstlaan
+Weyhe
+Bourgon
+uncompromised

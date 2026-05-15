@@ -1,0 +1,15 @@
+extends: substitution
+message: "Use '%s' instead of '%s'. Address the reader directly as 'you'."
+level: warning
+link: https://github.com/gardener/documentation/blob/master/website/documentation/contribute/documentation/style-guide/_index.md
+action:
+  name: replace
+ignorecase: true
+swap:
+  'the user can': 'you can'
+  'the user must': 'you must'
+  'the user should': 'you should'
+  'the user needs to': 'you need to'
+  'the user has to': 'you have to'
+  'the user is': 'you are'
+  'the user wants': 'you want'

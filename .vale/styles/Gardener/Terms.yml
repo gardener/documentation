@@ -1,0 +1,17 @@
+extends: substitution
+message: "Use '%s' instead of '%s'."
+level: error
+action:
+  name: replace
+ignorecase: false
+swap:
+  '(?<![a-zA-Z0-9_./@])[Gg]it[Hh]ub(?![a-zA-Z0-9_.com-])': GitHub
+  '(?<![a-zA-Z0-9_./@])[Gg]it[Ll]ab(?![a-zA-Z0-9_.-])': GitLab
+  '(?<![a-zA-Z0-9_./@])kubernetes(?![a-zA-Z0-9_.-])': Kubernetes
+  '(?<![a-zA-Z0-9_./@])gardener(?![a-zA-Z0-9_@.-])': Gardener
+  '(?<![a-zA-Z0-9_./@])gardenlet(?![a-zA-Z0-9_.-])': gardenlet
+  '(?<![a-zA-Z0-9_./@])openstack(?![a-zA-Z0-9_.-])': OpenStack
+  '(?<![a-zA-Z0-9_./@])vsphere(?![a-zA-Z0-9_.-])': vSphere
+  '(?<![a-zA-Z0-9_./@])stackit(?![a-zA-Z0-9_.-])': STACKIT
+  '(?<![a-zA-Z0-9_./@])controlplane(?![a-zA-Z0-9_.-])': control plane
+  '(?<![a-zA-Z0-9_./@])controlplanes(?![a-zA-Z0-9_.-])': control planes
