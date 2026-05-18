@@ -85,7 +85,7 @@ const projectName = title || '<YOUR PROJECT NAME>'
             <strong>Copyright © Linux Foundation Europe.</strong>
           </p>
           <p>
-            {{ projectName }} is a project of the Open Component Model Community.
+            {{ projectName }} is a project of the NeoNephos Foundation.
             For applicable policies including privacy policy, terms of use and trademark usage guidelines, please see <a href="https://linuxfoundation.eu">https://linuxfoundation.eu</a>.
             Linux is a registered trademark of Linus Torvalds.
           </p>
