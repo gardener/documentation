@@ -173,3 +173,47 @@ docforge-ci: docforge-download ## Run docforge in CI mode (non-interactive)
 
 .PHONY: ci-build
 ci-build: docforge-ci install post-process build ## Run all steps for building in CI
+
+.PHONY: vale-install
+vale-install: ## Install Vale binary if not already present
+	@if command -v vale >/dev/null 2>&1; then \
+		echo "Vale is already installed: $$(vale --version)"; \
+	else \
+		echo "Installing Vale..."; \
+		mkdir -p bin; \
+		if [ "$$(uname)" = "Darwin" ]; then \
+			if [ "$$(uname -m)" = "arm64" ]; then \
+				curl -sL https://github.com/vale-cli/vale/releases/download/v3.14.2/vale_3.14.2_macOS_arm64.tar.gz | tar -xz -C bin vale; \
+			else \
+				curl -sL https://github.com/vale-cli/vale/releases/download/v3.14.2/vale_3.14.2_macOS_64-bit.tar.gz | tar -xz -C bin vale; \
+			fi; \
+		elif [ "$$(uname)" = "Linux" ]; then \
+			if [ "$$(uname -m)" = "aarch64" ] || [ "$$(uname -m)" = "arm64" ]; then \
+				curl -sL https://github.com/vale-cli/vale/releases/download/v3.14.2/vale_3.14.2_Linux_arm64.tar.gz | tar -xz -C bin vale; \
+			else \
+				curl -sL https://github.com/vale-cli/vale/releases/download/v3.14.2/vale_3.14.2_Linux_64-bit.tar.gz | tar -xz -C bin vale; \
+			fi; \
+		elif echo "$$(uname -s)" | grep -qi "mingw\|cygwin\|msys"; then \
+			curl -sL https://github.com/vale-cli/vale/releases/download/v3.14.2/vale_3.14.2_Windows_64-bit.zip -o bin/vale.zip; \
+			unzip -q bin/vale.zip vale.exe -d bin; \
+			rm -f bin/vale.zip; \
+		else \
+			echo "Unsupported OS. Install Vale manually: https://vale.sh/docs/install"; \
+			exit 1; \
+		fi; \
+		echo "Vale installed to bin/. Add bin/ to your PATH or run: bin/vale"; \
+	fi
+
+.PHONY: vale-run
+vale-run: ## Lint changed website markdown files with Vale
+	@CHANGED=$$(git diff --name-only --diff-filter=d HEAD -- 'website/**/*.md' | \
+		grep -v '^website/about/legal-disclosure\.md' | \
+		grep -v '^website/archived/'); \
+	if [ -n "$$CHANGED" ]; then \
+		vale $$CHANGED; \
+	else \
+		echo "No changed .md files to lint."; \
+	fi
+
+.PHONY: vale
+vale: vale-install vale-run ## Install Vale and lint changed website markdown files
