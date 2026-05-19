@@ -14,6 +14,28 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2026/05/20 - [v1.142](https://github.com/gardener/gardener/releases/tag/v1.142.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@timuthy](https://github.com/timuthy) | `5m` | 🏗️ New `BackupEntryForGarden` Feature Gate | [#14628](https://github.com/gardener/gardener/pull/14628) |
+| [@oliver-goetz](https://github.com/oliver-goetz) | `10m` | 🗑️ Removal of Legacy `gardener/controlplane` Helm Chart | [#14614](https://github.com/gardener/gardener/pull/14614) |
+| [@maboehm](https://github.com/maboehm) | `5m` | 🏷️ Configurable Deletion Propagation for `ManagedResources` | [#14642](https://github.com/gardener/gardener/pull/14642) |
+| [@timebertt](https://github.com/timebertt) | `10m` | 🪆 **G**ardener-**in**-**D**ocker (GinD) | [#14700](https://github.com/gardener/gardener/pull/14700) |
+| [@takoverflow](https://github.com/takoverflow) | `5m` | ⚙️ Customizable `maxBinpackingTime` Flag for `cluster-autoscaler` | [#14698](https://github.com/gardener/gardener/pull/14698) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- ❗️ [OPERATOR] `DisableNginxIngressInGarden` allows to disable `nginx-ingress` in a Garden runtime cluster managed by `gardener-operator`. [...]. [#14636](https://github.com/gardener/gardener/pull/14636)
+- 🐛 [USER] Rotating the etcd encryption key tolerates unavailable `APIServices`. [#14679](https://github.com/gardener/gardener/pull/14679)
+- 🐛 [OPERATOR] The `reconcileSeedWebhookConfig` function now correctly reconciles both `MutatingWebhookConfiguration` and `ValidatingWebhookConfiguration` for extensions that register both mutating and validating admission webhooks. Previously, only the first configuration was reconciled due to a premature return in the loop. [#14664](https://github.com/gardener/gardener/pull/14664)
+
+<hr />
+
 ### 2026/05/13 - [Hack The Garden](https://gardener.cloud/community/hackathons/2026-05/) Wrap Up
 
 [📽️ Recording](https://youtu.be/FkRxbM375So)
