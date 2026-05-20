@@ -7,7 +7,7 @@ authors:
 - avatar: https://avatars.githubusercontent.com/vitanovs
   login: vitanovs
   name: Stoyan Vitanov
-aliases: [/blog/2026/05/11/in-place-pod-resource-updates]
+aliases: [/blog/2026/05/19/in-place-pod-resource-updates]
 tags:
 - autoscaling
 - vpa
