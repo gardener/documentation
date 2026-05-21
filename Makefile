@@ -102,6 +102,26 @@ docker-preview:
 install: ## Install npm dependencies
 	npm ci
 
+
+OPTIMIZE_DIR ?= website
+OPTIMIZE_MIN_KB ?= 200
+OPTIMIZE_SKIP ?= favicon.png,favicon-16x16.png,favicon-32x32.png,favicon-96x96.png,apple-touch-icon.png,web-app-manifest-192x192.png,web-app-manifest-512x512.png,2025-07.png,og-gardener.png
+
+.PHONY: optimize-assets
+optimize-assets: ## Dry run: show which PNG images would be converted to WebP
+	node scripts/optimize-assets.mjs \
+		--dir $(OPTIMIZE_DIR) \
+		--min-kb $(OPTIMIZE_MIN_KB) \
+		--skip $(OPTIMIZE_SKIP)
+
+.PHONY: optimize-assets-write
+optimize-assets-write: ## Convert large PNG images to WebP and update references
+	node scripts/optimize-assets.mjs \
+		--dir $(OPTIMIZE_DIR) \
+		--min-kb $(OPTIMIZE_MIN_KB) \
+		--skip $(OPTIMIZE_SKIP) \
+		--write
+
 .PHONY: dev
 dev:
 	npx vitepress dev

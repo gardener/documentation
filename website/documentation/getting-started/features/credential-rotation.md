@@ -10,14 +10,14 @@ The ETCD needs one to store resources like secrets encrypted at rest.
 Gardener generates certificate authorities (CAs) to ensure secured communication between the various components and actors and service account tokens are signed with a dedicated key.
 There is also an SSH key pair to allow debugging of nodes and the observability stack has its own passwords too.
 
-![keys](./images/keys.png)
+![keys](./images/keys.webp)
 
 All of these keys share a common property: they are managed by Gardener.
 Rotating them, however, is potentially very disruptive.
 Hence, Gardener does not do it automatically, but offers you means to perform these tasks easily.
 For a single cluster, you may conveniently use the dashboard.
 
-![Prepare the rotation of all credentials from the Gardener dashboard](./images/prepare-rotation-of-all-credentials.png)
+![Prepare the rotation of all credentials from the Gardener dashboard](./images/prepare-rotation-of-all-credentials.webp)
 
 Where possible, the rotation happens in two phases - Preparing and Completing.
 
@@ -42,7 +42,7 @@ kubectl -n <shoot-namespace> annotate shoot <shoot-name> gardener.cloud/operatio
 
 ## Rotation Phases
 
-![rotation-phases](./images/rotation-phases.png)
+![rotation-phases](./images/rotation-phases.webp)
 
 At the beginning, only the old set of credentials exists.
 By triggering the rotation, new credentials are created in the Preparing phase and both sets are valid.
@@ -55,7 +55,7 @@ For more information, see [Credentials Rotation for Shoot Clusters](https://gith
 
 ## User-Provided Credentials
 
-![user-provided-keys](./images/user-provided-keys.png)
+![user-provided-keys](./images/user-provided-keys.webp)
 
 You grant Gardener permissions to create resources by handing over cloud provider keys.
 These keys are stored in a secret and referenced to a shoot via a SecretBinding.

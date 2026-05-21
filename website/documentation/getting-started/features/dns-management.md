@@ -11,7 +11,7 @@ Essentially, some sort of automation for DNS management is missing.
 
 ## Automating DNS Management
 
-![automate-dns-management](./images/automate-dns-management.png)
+![automate-dns-management](./images/automate-dns-management.webp)
 
 From a user's perspective, it is desirable to work with already known resources and concepts. Hence, the DNS management offered by Gardener plugs seamlessly into Kubernetes resources and you do not need to "leave" the context of the shoot cluster.
 
@@ -31,7 +31,7 @@ For more information, see [DNS Names](https://github.com/gardener/gardener-exten
 
 For the above to work, we need some ingredients. Primarily, this is implemented via a so-called DNSProvider. Every shoot has a default provider that is used to set up the API server's public DNS record. It can be used to request sub-domains as well.
 
-![](./images/dns-provider.png)
+![](./images/dns-provider.webp)
 
 In addition, a shoot can reference credentials to a DNS provider. Those can be used to manage custom domains.
 

@@ -27,12 +27,12 @@ features:
     link: /docs/getting-started/architecture
     badgePlacement: top-right
     badges:
-      - src: /kubernets-certification/color.png
-        darkSrc: /kubernets-certification/white.png
+      - src: /kubernets-certification/color.webp
+        darkSrc: /kubernets-certification/white.webp
         href: https://testgrid.k8s.io/conformance-gardener
         alt: Kubernetes Conformance
-      - src: /kubernets-certification/ai-color.png
-        darkSrc: /kubernets-certification/ai-white.png
+      - src: /kubernets-certification/ai-color.webp
+        darkSrc: /kubernets-certification/ai-white.webp
         href: /blog/2025/11/11-12-gardener-ai-conformance
         alt: Kubernetes AI Conformance
   - icon:

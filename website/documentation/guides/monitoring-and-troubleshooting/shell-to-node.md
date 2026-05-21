@@ -43,28 +43,28 @@ All of the described approaches involve scheduling a pod with root permissions a
 **Prerequisite**: the terminal feature is configured for the Gardener dashboard.
 
 1. Navigate to the cluster overview page and find the `Terminal` in the `Access` tile.
-    <br>
-    <img style="margin-left:0;width:80%;height:auto;" alt="Access Tile" src="./images/9fb6ca4ff9b7480f93debba833f48590.png"/>
-    <br>
-    Select the target Cluster (Garden, Seed / Control Plane, Shoot cluster) depending on the requirements and access rights (only certain users have access to the Seed Control Plane).
+
+<img style="margin-left:0;width:80%;height:auto;" alt="Access Tile" src="./images/9fb6ca4ff9b7480f93debba833f48590.webp"/>
+<br>
+
+Select the target Cluster (Garden, Seed / Control Plane, Shoot cluster) depending on the requirements and access rights (only certain users have access to the Seed Control Plane).
 
 1. To open the terminal configuration, interact with the top right-hand corner of the screen.
-    <br>
-    <img style="margin-left:0" alt="Terminal configuration" src="./images/db573582bfc544d294cbde8906a74e07.png"/>
-    <br>
+
+<img style="margin-left:0" alt="Terminal configuration" src="./images/db573582bfc544d294cbde8906a74e07.webp"/>
+<br>
 
 1. Set the Terminal Runtime to "Privileged". Also, specify the target node from the drop-down menu.
-    <br>
-    <img style="margin-left:0;width:50%;height:auto"  alt="Dashboard terminal pod configuration" src="./images/f7b10d48edf44c17ba838ff5c429e39d.png"/>
-    <br>
 
+<img style="margin-left:0;width:50%;height:auto"  alt="Dashboard terminal pod configuration" src="./images/f7b10d48edf44c17ba838ff5c429e39d.webp"/>
+<br>
 #### Result
 
 The Dashboard then schedules a pod and opens a shell session to the node.
 
 To get access to the common binaries installed on the host, prefix the command with `chroot /hostroot`. Note that the path depends on where the root path is mounted in the container. In the default image used by the Dashboard, it is under `/hostroot`.
 
-<img style="margin-left:0"  alt="Dashboard terminal pod configuration" src="./images/3da659e9cc4744a2ad3e1c6a50d39c04.png"/>
+<img style="margin-left:0"  alt="Dashboard terminal pod configuration" src="./images/3da659e9cc4744a2ad3e1c6a50d39c04.webp"/>
 <br>
 
 ### Gardener Ops Toolbelt
@@ -189,9 +189,7 @@ Despite some cloud provider specifics, they can be generalized to the following 
 
 The following diagram shows an overview of how the SSH access to the target instance works:
 
-<br>
-<img style="margin-left:0"  alt="SSH Bastion diagram" src="./images/913441003e5641bc90249bdc07d55656.png"/>
-<br>
+<img style="margin-left:0"  alt="SSH Bastion diagram" src="./images/913441003e5641bc90249bdc07d55656.webp"/><br>
 
 This guide demonstrates the setup of a bastion on AWS.
 

@@ -5,7 +5,7 @@ weight: 3
 
 ## Overview
 
-![overview](./images/overview.png)
+![overview](./images/overview.webp)
 
 Gardener is all about Kubernetes clusters, which we call shoots. However, Gardener also does user management, delicate permission management and offers technical accounts to integrate its services into other infrastructures. It allows you to create several quotas and it needs credentials to connect to cloud providers. All of these are arranged in multiple fully contained projects, each of which belongs to a dedicated user and / or group.
 
@@ -44,7 +44,7 @@ ResourceQuotas - if any - will be enforced on the project namespace.
 
 For Gardener to create all relevant infrastructure that a shoot cluster needs inside a cloud provider, it needs to know how to authenticate to the cloud provider's API. This is done through regular secrets.
 
-![secret](./images/secret.png)
+![secret](./images/secret.webp)
 
 Through the Gardener dashboard, secrets can be created for each supported cloud provider (using the dashboard is the preferred way, as it provides interactive help on what information needs to be placed into the secret and how the corresponding user account on the cloud provider should be configured). All of that is stored in a standard, opaque Kubernetes secret.
 
@@ -54,7 +54,7 @@ In the shoot manifest, we refer to a SecretBinding and the SecretBinding in turn
 
 ## SecretBindings
 
-![secretbindings](./images/secretbindings.png)
+![secretbindings](./images/secretbindings.webp)
 
 With SecretBindings, it is possible to reference the same infrastructure secret in different projects across namespaces. This has the following advantages:​
 
@@ -63,7 +63,7 @@ With SecretBindings, it is possible to reference the same infrastructure secret 
 
 ## Service Accounts
 
-![service-account](./images/service-account.png)
+![service-account](./images/service-account.webp)
 
 Since Gardener is 100% Kubernetes, it can be easily used in a programmatic way - by just sending the resource manifest of a Gardener resource to its API server. To do so, a kubeconfig file and a (technical) user that the kubeconfig maps to are required.
 

@@ -19,7 +19,7 @@ If you've become aware of a security breach that affects you, you may want to re
 
 Never distribute the `kubeconfig`, which you can download directly within the Gardener dashboard, for a productive cluster.
 
-![kubeconfig-dont](./images/kubeconfig-initial.png)
+![kubeconfig-dont](./images/kubeconfig-initial.webp)
 
 ## Create a Custom kubeconfig File for Each User
 

@@ -5,7 +5,7 @@ weight: 4
 
 ## Overview
 
-![k8s-cluster](./images/k8s-cluster.png)
+![k8s-cluster](./images/k8s-cluster.webp)
 
 A Kubernetes cluster consists of a control plane and a data plane. The data plane runs the actual containers on worker nodes (which translate to physical or virtual machines). For the control and data plane to work together properly, lots of components need matching configuration.
 
@@ -20,7 +20,7 @@ Luckily there is a dashboard to get started.
 
 ## Basic Configuration Options
 
-![basic-configurations-1](./images/basic-configurations-1.png)
+![basic-configurations-1](./images/basic-configurations-1.webp)
 
 Every cluster needs a name - after all, it is a Kubernetes resource and therefore unique within a namespace.
 
@@ -28,7 +28,7 @@ The Kubernetes version will be used as a starting point. Once a newer version is
 
 The "purpose" affects some configuration (like automatic deployment of a monitoring stack or setting up certain alerting rules) and generally indicates the importance of a cluster.
 
-![basic-configurations-2](./images/basic-configurations-2.png)
+![basic-configurations-2](./images/basic-configurations-2.webp)
 
 Start by selecting the infrastructure you want to use. The choice will be mapped to a cloud profile that contains provider specific information like the available (actual) OS images, zones and regions or machine types.
 
@@ -41,7 +41,7 @@ Each data plane runs in an infrastructure account owned by the end user. By sele
 
 As part of the infrastructure you chose, the region for data plane has to be chosen as well. The Gardener scheduler will try to place the control plane on a seed cluster based on a minimal distance strategy. See [Gardener Scheduler](https://github.com/gardener/gardener/blob/master/docs/concepts/scheduler.md) for more details.
 
-![basic-configurations-3](./images/basic-configurations-3.png)
+![basic-configurations-3](./images/basic-configurations-3.webp)
 
 Up next, the networking provider (CNI) for the cluster has to be selected. At the point of writing, it is possible to choose between Calico and Cilium. If not specified in the shoot's manifest, default CIDR ranges for nodes, services, and pods will be used.
 
@@ -58,7 +58,7 @@ Other specifications for the workers include the volume type and size. These set
 
 The autoscaler parameter defines the initial elasticity / scalability of your cluster. The cluster-autoscaler will add more nodes up to the maximum defined here when your workload grows and remove nodes in case your workload shrinks. The minimum number of nodes should be equal to or higher than the number of zones. You can distribute the nodes of a worker pool among all zones available to your cluster. This is the first step in running HA workloads.
 
-![basic-configurations-4](./images/basic-configurations-4.png)
+![basic-configurations-4](./images/basic-configurations-4.webp)
 
 Once per day, all clusters reconcile. This means all controllers will check if there are any updates they have to apply (e.g., new image version for ETCD). The maintenance window defines when this daily operation will be triggered. It is important to understand that there is no opt-out for reconciliation.
 
@@ -78,13 +78,13 @@ The result of your provided inputs and a set of conscious default values is a sh
 
 ## How to Access a Shoot
 
-![access-shoot-1](./images/access-shoot-1.png)
+![access-shoot-1](./images/access-shoot-1.webp)
 
 Static credentials for shoots were discontinued in Gardener with Kubernetes v1.27. Short lived credentials need to be used instead. You can create/request tokens directly via Gardener or delegate authentication to an identity provider.
 
 A short-lived admin kubeconfig can be requested by using kubectl. If this is something you do frequently, consider switching to [gardenlogin](https://github.com/gardener/gardenlogin), which helps you with it.
 
-![access-shoot-2](./images/access-shoot-2.png)
+![access-shoot-2](./images/access-shoot-2.webp)
 
 An alternative is to use an identity provider and issue OIDC tokens.
 
@@ -102,11 +102,11 @@ You can fine-tune the cluster-autoscaler or help the kubelet to cope better with
 
 There are a couple of ways to configure a worker pool. One of them is to set everything in the Gardener dashboard. However, only a subset of options is presented there.
 
-![worker-pools-1](./images/worker-pools-1.png)
+![worker-pools-1](./images/worker-pools-1.webp)
 
 A slightly more complex way is to set the configuration through the yaml file itself.
 
-![worker-pools-2](./images/worker-pools-2.png)
+![worker-pools-2](./images/worker-pools-2.webp)
 
 This allows you to configure much more properties of a worker pool, like the timeout after which an unhealthy machine is getting replaced. For more options, see the [Worker](https://github.com/gardener/gardener/blob/master/docs/api-reference/core.md#worker) API reference.
 
@@ -114,7 +114,7 @@ This allows you to configure much more properties of a worker pool, like the tim
 
 Since a shoot is just another Kubernetes resource, changes can be applied via kubectl. For convenience, the basic settings are configurable via the dashboard's UI. It also has a "yaml" tab where you can alter all of the shoot's specification in your browser. Once applied, the cluster will reconcile eventually and your changes become active (or cause an error).
 
-![change-things](./images/change-things.png)
+![change-things](./images/change-things.webp)
 
 ## Immutability in a Shoot
 
