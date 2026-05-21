@@ -35,7 +35,7 @@ jobs:
           files_ignore: |
             website/about/legal-disclosure.md
             website/archived/**
-          json: true
+          separator: ","
 
       - name: Vale
         if: steps.changed-files.outputs.any_changed == 'true'
@@ -46,3 +46,4 @@ jobs:
           reporter: github-pr-review
           fail_on_error: true
           filter_mode: file
+          separator: ","
