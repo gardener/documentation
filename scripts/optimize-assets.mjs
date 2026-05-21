@@ -38,7 +38,12 @@ if (!dirArg) {
 }
 
 const TARGET_DIR = join(ROOT, dirArg)
-const MIN_SIZE_KB = parseFloat(getArg('--min-kb') ?? '0')
+const minKbRaw = getArg('--min-kb') ?? '0'
+const MIN_SIZE_KB = parseFloat(minKbRaw)
+if (isNaN(MIN_SIZE_KB)) {
+  console.error(`Error: --min-kb must be a number, got: ${minKbRaw}`)
+  process.exit(1)
+}
 const skipArg = getArg('--skip')
 const SKIP_FILENAMES = new Set(skipArg ? skipArg.split(',') : [])
 
@@ -107,6 +112,7 @@ async function main() {
   let skippedName = 0
   let totalBefore = 0
   let totalAfter = 0
+  let errors = 0
 
   for await (const src of walk(TARGET_DIR)) {
     if (!CONVERTIBLE.has(extname(src).toLowerCase())) continue
@@ -127,8 +133,9 @@ async function main() {
 
     const dest = src.replace(/\.png$/i, '.webp')
     const relSrc = src.replace(ROOT + '/', '')
-    const partialOld = `images/${name}`
-    const partialNew = `images/${basename(dest)}`
+    const parentDir = basename(dirname(src))
+    const partialOld = `${parentDir}/${name}`
+    const partialNew = `${parentDir}/${basename(dest)}`
     totalBefore += kb
 
     if (DRY_RUN) {
@@ -141,25 +148,32 @@ async function main() {
     }
 
     // Convert PNG → WebP
-    await sharp(src).webp({ quality: 85 }).toFile(dest)
+    try {
+      await sharp(src).webp({ quality: 85 }).toFile(dest)
 
-    const kbAfter = parseFloat(await fileSizeKB(dest))
-    totalAfter += kbAfter
-    const saved = (((kb - kbAfter) / kb) * 100).toFixed(0)
+      const kbAfter = parseFloat(await fileSizeKB(dest))
+      totalAfter += kbAfter
+      const saved = (((kb - kbAfter) / kb) * 100).toFixed(0)
 
-    // Update references only for converted files
-    const refs = await updateRefs(partialOld, partialNew)
+      // Update references only for converted files
+      const refs = await updateRefs(partialOld, partialNew)
 
-    // Delete original
-    await unlink(src)
+      // Delete original
+      await unlink(src)
 
-    console.log(`${relSrc}`)
-    console.log(`  ${kb}KB → ${kbAfter}KB (-${saved}%)`)
-    for (const r of refs) {
-      console.log(`  ref: ${r}`)
+      console.log(`${relSrc}`)
+      console.log(`  ${kb}KB → ${kbAfter}KB (-${saved}%)`)
+      for (const r of refs) {
+        console.log(`  ref: ${r}`)
+      }
+
+      converted++
+    } catch (err) {
+      // Clean up partial webp if conversion failed before unlink
+      try { await unlink(dest) } catch {}
+      console.error(`  ERROR: ${relSrc}: ${err.message}`)
+      errors++
     }
-
-    converted++
   }
 
   console.log('\n' + '─'.repeat(60))
@@ -173,6 +187,10 @@ async function main() {
     console.log(`Converted: ${converted} file(s)`)
     console.log(`Skipped:   ${skippedSize} under ${MIN_SIZE_KB}KB + ${skippedName} by name`)
     console.log(`Saved:     ~${savedMB}MB (${totalBefore.toFixed(0)}KB → ${totalAfter.toFixed(0)}KB)`)
+    if (errors > 0) {
+      console.error(`Errors:    ${errors} file(s) failed — originals preserved`)
+      process.exit(1)
+    }
   }
 }
 
