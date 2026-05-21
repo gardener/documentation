@@ -1,4 +1,5 @@
 import { defineConfig, type SiteConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 import { fileURLToPath, URL, pathToFileURL } from 'node:url'
 import blogSidebar from './theme/blog-sidebar.ts'
 import {communitySidebar} from "./theme/community-sidebar.ts";
@@ -21,7 +22,7 @@ const allSidebars = {
   '/docs/': generateEnhancedDocsSidebar()['/docs/']
 };
 
-export default defineConfig({
+export default withMermaid(defineConfig({
   base: siteBase,
   srcDir: siteSrcDir,
   cleanUrls: true,
@@ -106,9 +107,12 @@ export default defineConfig({
         return defaultCodeInline(tokens, idx, options, env, self)
       }
     },
-  }
+  },
+  mermaid: {
+    securityLevel: 'strict',
+  },
 }
-)
+))
 function getNavConfig () {
   return [
     {
