@@ -26,11 +26,23 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v45
+        with:
+          files: |
+            website/**/*.md
+          files_ignore: |
+            website/about/legal-disclosure.md
+            website/archived/**
+          json: true
+
       - name: Vale
+        if: steps.changed-files.outputs.any_changed == 'true'
         uses: vale-cli/vale-action@v2.1.1
         with:
-          files: website/
+          files: '${{ steps.changed-files.outputs.all_changed_files }}'
           vale_flags: "--minAlertLevel=warning"
           reporter: github-pr-review
           fail_on_error: true
-          filter_mode: added
+          filter_mode: file
