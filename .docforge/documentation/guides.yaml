@@ -1,5 +1,4 @@
 structure:
-- fileTree: /website/documentation/guides
 - dir: high-availability
   structure:
   - file: _index.md
