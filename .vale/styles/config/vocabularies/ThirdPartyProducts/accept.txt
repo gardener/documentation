@@ -1,3 +1,5 @@
+# Third-party product, project, and company names.
+# Use (?i) prefix for terms that appear in mixed capitalizations in prose.
 (?i)activedirectory
 (?i)activemq
 (?i)adoptium

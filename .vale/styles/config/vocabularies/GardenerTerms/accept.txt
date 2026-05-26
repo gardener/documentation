@@ -1,3 +1,5 @@
+# Gardener-specific CRDs, APIs, tools, and project names.
+# Use (?i) prefix for terms that appear in mixed capitalizations in prose.
 Diki
 (?i)docforge
 etcd-druid
