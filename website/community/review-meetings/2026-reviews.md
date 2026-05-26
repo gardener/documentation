@@ -14,6 +14,30 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2026/05/27 - [v1.143](https://github.com/gardener/gardener/releases/tag/untagged-7231897ac8ee46fa185c) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@axel7born](https://github.com/axel7born) | `10m` | 🌐 Automatic MTU Configuration for VPN | [#14768](https://github.com/gardener/gardener/pull/14768), [vpn2#265](https://github.com/gardener/vpn2/pull/265) |
+| [@axel7born](https://github.com/axel7born) | `5m` | 🔀 Dual-Stack IPv4/IPv6 Networking Support on OpenStack | [provider-openstack#1257](https://github.com/gardener/gardener-extension-provider-openstack/pull/1257) |
+| [@theoddora](https://github.com/theoddora) | `10m` | 🤝 Garden-Shoot Trust Configuration | [garden-shoot-trust-configurator (repo)](https://github.com/gardener/garden-shoot-trust-configurator) |
+| [@oliver-goetz](https://github.com/oliver-goetz) | `5m` | 🔗 HTTP/2 Connection Coalescing Fix for Gardener Observability | [#14867](https://github.com/gardener/gardener/pull/14867) |
+| [@cerealsnow](https://github.com/cerealsnow) | `10m` | 🌐 [GEP-36] Self-Hosted Shoot Control Plane Exposure | [#14723](https://github.com/gardener/gardener/pull/14723), [#14781](https://github.com/gardener/gardener/pull/14781) |
+
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- 🪓 [OPERATOR] The deprecated `gardenClusterCACert` field was removed from the `GardenletConfiguration`. The CA is now always automatically set by Gardener. [#14803](https://github.com/gardener/gardener/pull/14803)
+- 🪓 [OPERATOR] ⚠️ This extension no longer supports Kubernetes versions `<= 1.31`. Please make sure to upgrade all Garden, Seed and Shoot clusters to at least version 1.32 before deploying this extension version. (gardener-extension-provider-openstack) [gardener-extension-provider-openstack#1331](https://github.com/gardener/gardener-extension-provider-openstack/pull/1331)
+- 🐛 [OPERATOR] The `gardener-resource-manager` deployment procedure was hardened. In rare situations, the procedure became stuck indefinitely after the seed's CA rotation. [#14765](https://github.com/gardener/gardener/pull/14765)
+- ✨ [USER] gardener-apiserver no longer accepts invalid values for the Shoot's `.spec.kubernetes.kubeAPIServer.eventTTL` field even for existing Shoot resources with already invalid values. Invalid values are values outside of the range `[0, 24h]`. gardener-apiserver caps the `eventTTL` to `24h` for already persisted Shoots with a value exceeding the allowed maximum. [#14707](https://github.com/gardener/gardener/pull/14707)
+
+<hr />
+
 ### 2026/05/20 - [v1.142](https://github.com/gardener/gardener/releases/tag/v1.142.0) Release
 
 [📽️ Recording](https://youtu.be/WHITqFSYilc)
