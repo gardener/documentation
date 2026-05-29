@@ -5,8 +5,6 @@ on:
     types: [opened, synchronize, reopened]
     paths:
       - 'website/**/*.md'
-      - '.vale.ini'
-      - '.vale/**'
   workflow_dispatch:
 
 concurrency:
