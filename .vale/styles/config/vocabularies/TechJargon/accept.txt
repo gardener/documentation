@@ -313,7 +313,6 @@
 (?i)deployer
 (?i)deps
 (?i)dereference
-(?i)deserialising
 (?i)deserialization
 (?i)deserialize
 (?i)deserialized
@@ -871,7 +870,6 @@ PoC
 (?i)procid
 (?i)procrun
 (?i)proctitle
-(?i)productisation
 (?i)productization
 (?i)profiler
 (?i)profilers
@@ -1271,8 +1269,6 @@ PoC
 (?i)vhost
 (?i)vhosts
 (?i)viewport
-(?i)virtualise
-(?i)virtualised
 (?i)virtualized
 (?i)vlan
 (?i)vm
