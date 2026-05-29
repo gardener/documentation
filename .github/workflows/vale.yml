@@ -24,26 +24,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Get changed files
-        id: changed-files
-        uses: tj-actions/changed-files@v45
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
-          files: |
-            website/**/*.md
-          files_ignore: |
-            website/about/legal-disclosure.md
-            website/archived/**
-          separator: ","
+          persist-credentials: false
 
       - name: Vale
-        if: steps.changed-files.outputs.any_changed == 'true'
-        uses: vale-cli/vale-action@v2.1.1
+        uses: vale-cli/vale-action@d89dee975228ae261d22c15adcd03578634d429c # v2.1.1
         with:
-          files: '${{ steps.changed-files.outputs.all_changed_files }}'
+          files: website/
           vale_flags: "--minAlertLevel=warning"
           reporter: github-pr-review
           fail_on_error: true
-          filter_mode: file
-          separator: ","
+          filter_mode: added

@@ -6,7 +6,6 @@ ignore:
   - GardenerTerms/accept.txt
   - ThirdPartyProducts/accept.txt
   - TechJargon/accept.txt
-  - Places/accept.txt
   - General/accept.txt
 filters:
   # Uppercase acronyms (e.g. HTTP, YAML, REST)

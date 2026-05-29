@@ -176,8 +176,8 @@ ci-build: docforge-ci install post-process build ## Run all steps for building i
 
 .PHONY: vale-install
 vale-install: ## Install Vale binary if not already present
-	@if command -v vale >/dev/null 2>&1; then \
-		echo "Vale is already installed: $$(vale --version)"; \
+	@if [ -x bin/vale ]; then \
+		echo "Vale is already installed: $$(bin/vale --version)"; \
 	else \
 		echo "Installing Vale..."; \
 		mkdir -p bin; \
@@ -201,7 +201,7 @@ vale-install: ## Install Vale binary if not already present
 			echo "Unsupported OS. Install Vale manually: https://vale.sh/docs/install"; \
 			exit 1; \
 		fi; \
-		echo "Vale installed to bin/. Add bin/ to your PATH or run: bin/vale"; \
+		echo "Vale installed to bin/."; \
 	fi
 
 .PHONY: vale-run
@@ -210,7 +210,7 @@ vale-run: ## Lint changed website markdown files with Vale
 		grep -v '^website/about/legal-disclosure\.md' | \
 		grep -v '^website/archived/'); \
 	if [ -n "$$CHANGED" ]; then \
-		vale $$CHANGED; \
+		bin/vale $$CHANGED; \
 	else \
 		echo "No changed .md files to lint."; \
 	fi
