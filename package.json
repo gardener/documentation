@@ -9,7 +9,8 @@
     "vitepress-sidebar": "1.33.1",
     "vue": "3.5.16",
     "mermaid": "11.15.0",
-    "vitepress-plugin-mermaid": "2.0.17"
+    "vitepress-plugin-mermaid": "2.0.17",
+    "debug": "4.4.3"
   },
   "devDependencies": {
     "@types/js-yaml": "4.0.9",
