@@ -9,4 +9,5 @@
 !Makefile
 !package*.json
 !pnpm-lock.yaml
+!.npmrc
 !tsconfig.json
