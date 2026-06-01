@@ -20,7 +20,7 @@
   },
   "pnpm": {
     "overrides": {
-      "axios": "1.14.0"
+      "axios": "1.16.1"
     },
     "onlyBuiltDependencies": ["esbuild", "sharp"]
   }

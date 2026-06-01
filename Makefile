@@ -102,6 +102,10 @@ docker-preview:
 install: ## Install npm dependencies
 	pnpm install
 
+.PHONY: ci-install
+ci-install: ## Install npm dependencies with frozen lockfile for CI
+	pnpm install --frozen-lockfile
+
 
 OPTIMIZE_DIR ?= website
 OPTIMIZE_MIN_KB ?= 200
@@ -172,7 +176,7 @@ docforge-ci: docforge-download ## Run docforge in CI mode (non-interactive)
 	./bin/docforge
 
 .PHONY: ci-build
-ci-build: docforge-ci install post-process build ## Run all steps for building in CI
+ci-build: docforge-ci ci-install post-process build ## Run all steps for building in CI
 
 .PHONY: vale-install
 vale-install: ## Install Vale binary if not already present
