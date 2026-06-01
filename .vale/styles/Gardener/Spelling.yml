@@ -1,5 +1,5 @@
 extends: spelling
-message: "Did you really mean '%s'?"
+message: "Verify the spelling of '%s'. If it is correct, add it to the appropriate vocabulary ('.vale/styles/config/vocabularies/')."
 level: error
 append: true
 ignore:
