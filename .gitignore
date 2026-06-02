@@ -1,5 +1,7 @@
 *~
 .idea
+.worktrees
+worktrees
 hugo/public
 node_modules
 hugo/resources/_gen
