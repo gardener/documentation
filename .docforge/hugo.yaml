@@ -2,17 +2,3 @@ structure:
 - dir: content
   structure:
   - manifest: ./website.yaml
-- dir: assets
-  structure:
-  - fileTree: ../website/hugo/assets
-- dir: layouts
-  structure:
-  - fileTree: ../website/hugo/layouts
-- dir: static
-  structure:
-  - fileTree: ../website/hugo/static
-  - dir: js
-    structure:
-    - file: filtering.js
-      processor: persona
-- file: ../website/hugo/config.toml
