@@ -1,0 +1,11 @@
+# Wrong capitalizations — use the correct form instead
+fluentbit
+Fluentbit
+giantswarm
+Giantswarm
+metallb
+Metallb
+neonephos
+Neonephos
+wireguard
+Wireguard

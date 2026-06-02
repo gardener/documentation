@@ -1,0 +1,40 @@
+extends: substitution
+message: "Use '%s' instead of '%s'. The article depends on pronunciation, not spelling."
+link: https://github.com/gardener/documentation/blob/master/website/documentation/contribute/documentation/style-guide/_index.md
+level: warning
+ignorecase: false
+action:
+  name: replace
+swap:
+  # Acronyms starting with vowel-sound letters that need "an"
+  # A (ay), E (ee), F (ef), H (aitch), I (eye), L (el), M (em), N (en), O (oh), R (ar), S (es), X (ex)
+  'a OS': an OS
+  'a HA': an HA
+  'a HTTP': an HTTP
+  'a HTML': an HTML
+  'a SSH': an SSH
+  'a SSL': an SSL
+  'a API': an API
+  'a OIDC': an OIDC
+  'a OCI': an OCI
+  'a SSD': an SSD
+  'a SDK': an SDK
+  'a XML': an XML
+  'a IDE': an IDE
+  'a IAM': an IAM
+  'a HPA': an HPA
+  'a FAQ': an FAQ
+  'a ETCD': an ETCD
+  'a NFS': an NFS
+  'a RBAC': an RBAC
+  # Acronyms starting with consonant-sound letters that need "a"
+  # U (yoo), V (vee), W (double-yoo), C (see) when starts acronym
+  'an VM': a VM
+  'an VPA': a VPA
+  'an VPC': a VPC
+  'an VPN': a VPN
+  'an URL': a URL
+  'an URI': a URI
+  'an GPU': a GPU
+  'an CPU': a CPU
+  'an SIG': a SIG

@@ -1,0 +1,27 @@
+extends: spelling
+message: "Verify the spelling of '%s'. If the spelling is correct, please add the term to the appropriate vocabulary (`.vale/styles/config/vocabularies/`)."
+level: error
+append: true
+ignore:
+  - GardenerTerms/accept.txt
+  - ThirdPartyProducts/accept.txt
+  - TechJargon/accept.txt
+  - General/accept.txt
+filters:
+  # Uppercase acronyms (e.g. HTTP, YAML, REST)
+  - '[A-Z]{2,}'
+  # Uppercase acronym plurals (e.g. CAs, VMs, CRDs, APIs)
+  - '[A-Z]{2,}s\b'
+  # camelCase and PascalCase identifiers (e.g. kubeConfig, GardenNamespace)
+  - '[a-z]+[A-Z][a-zA-Z]+'
+  - '[A-Z][a-z]+[A-Z][a-zA-Z]+'
+  # Tokens with digits (e.g. IPv4, log4j, int64, v1alpha1)
+  - '[a-zA-Z]*[0-9]+[a-zA-Z0-9]*'
+  # CLI flags (e.g. --flag, -f)
+  - '--?[a-zA-Z][a-zA-Z0-9-]+'
+  # File extensions and dot-separated identifiers (e.g. .yaml, cert.gardener.cloud)
+  - '\.[a-zA-Z]{1,6}\b'
+  # Underscore-separated identifiers (e.g. config_key, _source)
+  - '_?[a-zA-Z]+_[a-zA-Z0-9_]+'
+  # Version strings (e.g. v1, v1.2, v1alpha1, v2beta1)
+  - '[vV][0-9]+(?:\.[0-9]+)*(?:alpha[0-9]+|beta[0-9]+)?'

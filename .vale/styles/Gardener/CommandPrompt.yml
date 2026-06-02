@@ -1,0 +1,8 @@
+extends: existence
+message: "Don't include the command prompt '%s' in code blocks. Show only the command itself."
+level: error
+link: https://github.com/gardener/documentation/blob/master/website/documentation/contribute/documentation/formatting-guide.md
+scope: raw
+tokens:
+  - '```[a-z]*\n\$\s'
+  - '`\$\s\w'

@@ -1,0 +1,27 @@
+# General English words, loanwords, and place names missing from Vale's built-in dictionary
+Augustiner
+Bourgon
+Brussel
+decentrally
+Freizeitheim
+Hirschegg
+homogenous
+homogenously
+Kunstlaan
+Leverkusen
+matcha
+Mesnerhof
+nonobvious
+overconsumption
+re-enable
+reenable
+Rofan
+Schelklingen
+Schlosshof
+uncompromised
+updateability
+toolbelt
+Vitosha
+Walldorf
+Westeurope
+Weyhe

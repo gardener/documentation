@@ -1,0 +1,13 @@
+extends: existence
+message: "Avoid generic link text '%s'. Use a descriptor of the link's destination instead."
+level: warning
+link: https://github.com/gardener/documentation/blob/master/website/documentation/contribute/documentation/style-guide/_index.md
+scope: raw
+nonword: true
+tokens:
+  - '\[here\]\('
+  - '\[click here\]\('
+  - '\[this link\]\('
+  - '\[this page\]\('
+  - '\[read more\]\('
+  - '\[learn more\]\('
