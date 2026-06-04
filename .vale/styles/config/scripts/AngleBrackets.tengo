@@ -5,6 +5,9 @@ matches := []
 // Strip fenced code blocks so placeholders inside them are not flagged
 stripped := text.re_replace("(?s)```[^`][^`][^`].*?```", scope, "")
 
+// Strip <code>...</code> blocks
+stripped = text.re_replace("(?s)<code>.*?</code>", stripped, "")
+
 // Strip inline backtick spans so `<pod-name>` is not flagged
 stripped = text.re_replace("`[^`]+`", stripped, "")
 
