@@ -1,0 +1,41 @@
+text := import("text")
+
+matches := []
+
+// Strip fenced code blocks so placeholders inside them are not flagged
+stripped := text.re_replace("(?s)```[^`][^`][^`].*?```", scope, "")
+
+// Strip inline backtick spans so `<pod-name>` is not flagged
+stripped = text.re_replace("`[^`]+`", stripped, "")
+
+// Match any <word> or <multi word> pattern (Go RE2 - no lookaheads)
+found := text.re_find("<[A-Za-z][\\w\\s._\\-|]*>", stripped, -1)
+if !is_undefined(found) {
+    search_from := 0
+    for group in found {
+        m := group[0]
+        tag := text.to_lower(text.trim(m.text, "<>"))
+        tag_name := text.split(tag, " ")[0]
+
+        // Skip known HTML5 tags
+        html_tags := ["a","abbr","address","area","article","aside","audio","b","base","bdi","bdo","blockquote","body","br","button","canvas","caption","cite","code","col","colgroup","data","datalist","dd","del","details","dfn","dialog","div","dl","dt","em","embed","fencedframe","fieldset","figcaption","figure","footer","form","h1","h2","h3","h4","h5","h6","head","header","hgroup","hr","html","i","iframe","img","input","ins","kbd","label","legend","li","link","main","map","mark","math","menu","meta","meter","nav","noscript","object","ol","optgroup","option","output","p","param","picture","pre","progress","q","rp","rt","ruby","s","samp","script","search","section","select","slot","small","source","span","strong","style","sub","summary","sup","svg","table","tbody","td","template","textarea","tfoot","th","thead","time","title","tr","track","u","ul","var","video","wbr"]
+        is_html := false
+        for t in html_tags {
+            if tag_name == t {
+                is_html = true
+                break
+            }
+        }
+
+        if !is_html {
+            // Find this match in the original scope, starting from search_from
+            // to correctly handle duplicate placeholder text
+            pos := text.index(scope[search_from:], m.text)
+            if pos >= 0 {
+                abs_pos := search_from + pos
+                matches = append(matches, {begin: abs_pos, end: abs_pos + len(m.text)})
+                search_from = abs_pos + len(m.text)
+            }
+        }
+    }
+}
