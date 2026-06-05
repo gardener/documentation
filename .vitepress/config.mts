@@ -1,6 +1,7 @@
 import { defineConfig, type SiteConfig } from 'vitepress'
 import { withMermaid } from 'vitepress-plugin-mermaid'
 import { fileURLToPath, URL, pathToFileURL } from 'node:url'
+import { createRequire } from 'node:module'
 import blogSidebar from './theme/blog-sidebar.ts'
 import {communitySidebar} from "./theme/community-sidebar.ts";
 import { contributeSidebar } from "./theme/contribute-sidebar.ts";
@@ -9,6 +10,8 @@ import { SearchResult } from 'minisearch'
 import { generateEnhancedDocsSidebar } from './theme/docs-sidebar.ts';
 import { hasMarkdownContent, getTaxonomyChildren } from './theme/utils/sidebar.ts';
 import { generateAliasRedirects, createAliasRedirectDevPlugin } from './plugins/alias-redirects';
+
+const require = createRequire(import.meta.url)
 
 const indexPattern = new RegExp(/\/?_?index\.md$/i);
 const siteBase = process.env.VITE_PUBLIC_BASE_PATH || ''
@@ -348,8 +351,8 @@ function getViteConfig(basePath: string, srcDir: string) {
     resolve: {
       alias: [
         {
-          find: 'dayjs',
-          replacement: 'dayjs/index.js',
+          find: /^dayjs$/,
+          replacement: require.resolve('dayjs'),
         },
         {
           find: '@data',
