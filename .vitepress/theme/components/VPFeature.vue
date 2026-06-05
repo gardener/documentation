@@ -215,7 +215,6 @@ function handleMouseLeave() {
   pointer-events: none;
   width: 420px;
   height: 420px;
-  border-radius: 12px; /* Match the feature box border radius */
   /* Use the same gradient as the hero image, but more intense and diffused */
   background: radial-gradient(circle, rgba(8,114,84,0.45) 0%, rgba(193,219,194,0.25) 60%, transparent 100%);
   filter: blur(48px);
