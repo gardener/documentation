@@ -342,8 +342,15 @@ function getViteConfig(basePath: string, srcDir: string) {
     build:{
       chunkSizeWarningLimit: 5000,
     },
+    optimizeDeps: {
+      include: ['dayjs'],
+    },
     resolve: {
       alias: [
+        {
+          find: 'dayjs',
+          replacement: 'dayjs/index.js',
+        },
         {
           find: '@data',
           replacement: path.resolve(path.dirname(fileURLToPath(import.meta.url)), './data')

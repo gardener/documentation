@@ -1,7 +1,7 @@
 {
   "name": "documentation",
   "type": "module",
-  "packageManager": "pnpm@10.11.0",
+  "packageManager": "pnpm@11.5.1",
   "dependencies": {
     "gray-matter": "4.0.3",
     "js-yaml": "4.1.1",
@@ -17,11 +17,5 @@
     "@types/markdown-it": "12.2.3",
     "@types/node": "20.11.27",
     "sharp": "0.34.5"
-  },
-  "pnpm": {
-    "overrides": {
-      "axios": "1.16.1"
-    },
-    "onlyBuiltDependencies": ["esbuild", "sharp"]
   }
 }

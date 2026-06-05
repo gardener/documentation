@@ -14,6 +14,7 @@ hugo/**
 !.github/**/*.yaml
 !.docforge/**/*.yaml
 !pnpm-lock.yaml
+!pnpm-workspace.yaml
 content
 .vitepress/theme/utils/debug/**
 
