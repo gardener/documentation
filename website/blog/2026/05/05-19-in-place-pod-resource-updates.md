@@ -82,28 +82,15 @@ With sections covering `VerticalPodAutoscaler` resource overviews (segregated by
 
 ## References
 
-The following list of references can be used for further reading and technical deep dives into the topic.
-
-### Kubernetes Documentation
-
 - [In-Place Pod Resize (GA in v1.35)](https://kubernetes.io/blog/2025/12/19/kubernetes-v1-35-in-place-pod-resize-ga/)
 - [Resize Container Resources](https://kubernetes.io/docs/tasks/configure-pod-container/resize-container-resources/)
 - [Pod v1 API Reference - resize subresource](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#operations-pod-v1-resize)
-
-### Vertical Pod Autoscaler
-
-- [VPA v1.4.0 Release Notes](https://github.com/kubernetes/autoscaler/releases/tag/vertical-pod-autoscaler-1.4.0) (introduced InPlaceOrRecreate)
-- [VPA v1.5.0 Release Notes](https://github.com/kubernetes/autoscaler/releases/tag/vertical-pod-autoscaler-1.5.0) (deprecated Auto mode)
+- [VPA v1.4.0 Release Notes](https://github.com/kubernetes/autoscaler/releases/tag/vertical-pod-autoscaler-1.4.0) (introduces _update mode_ `InPlaceOrRecreate`)
+- [VPA v1.5.0 Release Notes](https://github.com/kubernetes/autoscaler/releases/tag/vertical-pod-autoscaler-1.5.0) (deprecates _update mode_  `Auto`)
 - [VPA In-Place Updates Documentation](https://github.com/kubernetes/autoscaler/blob/master/vertical-pod-autoscaler/docs/features.md#in-place-updates-inplaceorrecreate)
-
-### Gardener Documentation
-
-- [Usage: In-Place Resource Updates](https://github.com/gardener/gardener/blob/master/docs/usage/autoscaling/in-place-resource-updates.md)
-- [Operations: Enabling In-Place Resource Updates](https://github.com/gardener/gardener/blob/master/docs/operations/enabling-in-place-resource-updates.md)
+- [Gardener Usage: In-Place Resource Updates](https://github.com/gardener/gardener/blob/master/docs/usage/autoscaling/in-place-resource-updates.md)
+- [Gardener Operations: Enabling In-Place Resource Updates](https://github.com/gardener/gardener/blob/master/docs/operations/enabling-in-place-resource-updates.md)
 - [Gardener Resource Manager](https://github.com/gardener/gardener/blob/master/docs/concepts/resource-manager.md)
-- [Gardener v1.137.0 Release Notes](https://github.com/gardener/gardener/releases/tag/v1.137.0)
-
-### Technical Deep Dives
-
+- [Gardener v1.137](https://github.com/gardener/gardener/releases/tag/v1.137.0)
 - [Linux cgroups v2](https://www.kernel.org/doc/html/latest/admin-guide/cgroup-v2.html)
 - [CRI (Container Runtime Interface) Specification](https://github.com/kubernetes/cri-api)
