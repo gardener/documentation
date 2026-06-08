@@ -72,6 +72,17 @@ We also built a _rollback_ mechanism to ensure safety—if the feature gate is d
 
 For detailed information on [usage](https://github.com/gardener/gardener/blob/master/docs/usage/autoscaling/in-place-resource-updates.md) and [enablement](https://github.com/gardener/gardener/blob/master/docs/operations/enabling-in-place-resource-updates.md), refer to the official documentation.
 
+## How does Gardener benefit from the _in-place_ Pod resource updates adoption ?
+
+Apart from the above-mentioned advantages of using _in-place_ resource updates, adopting the mechanism allows mitigation of a few shortcomings that have the potential to cause
+severe troubles.
+Since Gardener offers the ability to configure _non-HA_ `Shoot` clusters, their `etcd` data stores become vulnerable to restarts. Having a `VerticalPodAutoscaler` resource with an
+_update mode_ `Recreate`, referencing a _single-node_ `etcd` store, causes just enough downtime of the control plane that could leave the cluster in a corrupted state.
+An identical situation can be witnessed in the Gardener _monitoring_ and _logging_ stacks, where [Prometheus](https://prometheus.io) and [Vali](https://github.com/credativ/vali) run as _single-instances_, facing the _single-node_ `etcd` problem when _evicted_.
+
+Another good example of a Kubernetes flaw that could have been resolved by using _in-place_ resources _update mode_ has to do with the `kube-scheduler` and its prior behavior of getting `Pod`s, with volumes, scheduled on `Node`s that have already reached their volume attachment limit. Documented in a dedicated Kubernetes [issue](https://github.com/kubernetes/kubernetes/issues/126921), this problem had appeared when the CSI `Node` plugin `Pod` gets restarted during _eviction_, exactly how VPA was configured to do at the time of reporting it.
+During the gap between the deletion and the new `Pod` creation, the `CSINode` object temporarily has an empty drivers section. The `kube-scheduler`'s `NodeVolumeLimits` plugin treated this missing information as "no limit" and incorrectly scheduled volume-backed pods to fully-saturated `Node`s.
+
 ## Monitoring
 
 Performing configuration migrations can become an exhausting task without a convenient dashboard to evaluate the process state. For this reason, as part of the effort to support _in-place_ Pod resource updates, we introduced a brand new _dashboard_ for the `vpa-updater` component.
