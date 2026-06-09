@@ -14,6 +14,30 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2026/06/10 - [v1.144](https://github.com/gardener/gardener/releases/tag/v1.144.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@AleksandarSavchev](https://github.com/AleksandarSavchev) | `5m` | 🔓 Mutable `encryptionConfig` Provider Type | [#14720](https://github.com/gardener/gardener/pull/14720) |
+| [@Vincinator](https://github.com/Vincinator) | `5m` | 📦 `containerd` Configuration Version 4 Support | [#14856](https://github.com/gardener/gardener/pull/14856) |
+| [@voelzmo](https://github.com/voelzmo) | `10m` | ⚡ VPC MTU Configuration for Jumbo Frame Support | [provider-gcp#1399](https://github.com/gardener/gardener-extension-provider-gcp/pull/1399), [provider-aws#1732](https://github.com/gardener/gardener-extension-provider-aws/pull/1732) |
+| [@axel7born](https://github.com/axel7born) | `5m` | 🧪 Configurable Network Probes | [shoot-networking-problemdetector#352](https://github.com/gardener/gardener-extension-shoot-networking-problemdetector/pull/352) |
+| [@plkokanov](https://github.com/plkokanov) | `10m` | 📀 GEP-0038: Autoscaling `PersistentVolumeClaim`s | [pvc-autoscaler@v0.2.0](https://github.com/gardener/pvc-autoscaler/releases/tag/v0.2.0) |
+| [@shreyas-s-rao](https://github.com/shreyas-s-rao) | `5m` | ⚡ Advanced AWS Worker Configuration Options | [provider-aws#1791](https://github.com/gardener/gardener-extension-provider-aws/pull/1791) |
+| [@oliver-goetz](https://github.com/oliver-goetz) | `5m` | 🌐 Envoy Edge Proxy Best Practices | [#14690](https://github.com/gardener/gardener/pull/14690) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- 🪓 [OPERATOR] The `UseUnifiedHTTPProxyPort` feature gate has graduated to GA and cannot be disabled anymore. The feature gate can be removed from your component configuration. If you're using [gardener-extension-acl](https://github.com/stackitcloud/gardener-extension-acl), ensure that all shoots enabling the extension have been successfully reconciled with version [v1.15.0](https://github.com/stackitcloud/gardener-extension-acl/releases/tag/v1.15.0) or higher before upgrading to this Gardener version that enables the feature gate unconditionally. [#14899](https://github.com/gardener/gardener/pull/14899)
+- 🐛 [OPERATOR] A bug has been fixed where `gardener-resource-manager` would crash-loop after a hibernated shoot woke up with an expired authentication token. The bootstrap detection now evaluates the current time dynamically instead of using a value frozen at gardenlet startup. [#14937](https://github.com/gardener/gardener/pull/14937)
+- 🐛 [OPERATOR] A bug has been fixed where `Garden` resources would start encryption key rotation on creation. [#14801](https://github.com/gardener/gardener/pull/14801)
+
+<hr />
+
 ### 2026/05/27 - [v1.143](https://github.com/gardener/gardener/releases/tag/v1.143.0) Release
 
 [📽️ Recording](https://youtu.be/fpbPv63uHRo)
