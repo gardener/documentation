@@ -100,7 +100,11 @@ docker-preview:
 
 .PHONY: install
 install: ## Install npm dependencies
-	npm ci
+	pnpm install
+
+.PHONY: ci-install
+ci-install: ## Install npm dependencies with frozen lockfile for CI
+	pnpm install --frozen-lockfile
 
 
 OPTIMIZE_DIR ?= website
@@ -124,7 +128,7 @@ optimize-assets-write: ## Convert large PNG images to WebP and update references
 
 .PHONY: dev
 dev:
-	npx vitepress dev
+	pnpm exec vitepress dev
 
 .PHONY: local-preview
 local-preview: ## Full local preview: clean hugo dir, run docforge, post-process, build, and preview
@@ -136,7 +140,7 @@ local-preview: ## Full local preview: clean hugo dir, run docforge, post-process
 	@$(MAKE) install
 	@$(MAKE) post-process
 	@$(MAKE) build
-	npx vitepress preview
+	pnpm exec vitepress preview
 
 .PHONY: post-processing-part-1
 post-processing-part-1:
@@ -163,7 +167,7 @@ post-process: ## Run post-processing scripts
 
 .PHONY: build
 build: ## Build the documentation site
-	VITE_PUBLIC_BASE_PATH='' npx vitepress build
+	VITE_PUBLIC_BASE_PATH='' pnpm exec vitepress build
 
 .PHONY: docforge-ci
 docforge-ci: docforge-download ## Run docforge in CI mode (non-interactive)
@@ -172,7 +176,7 @@ docforge-ci: docforge-download ## Run docforge in CI mode (non-interactive)
 	./bin/docforge
 
 .PHONY: ci-build
-ci-build: docforge-ci install post-process build ## Run all steps for building in CI
+ci-build: docforge-ci ci-install post-process build ## Run all steps for building in CI
 
 .PHONY: vale-install
 vale-install: ## Install Vale binary if not already present

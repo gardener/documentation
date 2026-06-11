@@ -8,15 +8,17 @@ COPY --from=docforge /docforge /usr/local/bin/docforge
 
 ADD . .
 
+RUN corepack enable
+
 RUN --mount=type=secret,id=GITHUB_OAUTH_TOKEN \
     --mount=type=cache,target=/tmp/docforge \
     apk add --no-cache git make && \
     export GITHUB_OAUTH_TOKEN=$(cat /run/secrets/GITHUB_OAUTH_TOKEN) && \
     export DOCFORGE_CONFIG='.docforge/config' && \
     docforge --cache-dir /tmp/docforge && \
-    npm ci && \
+    pnpm install --frozen-lockfile && \
     make post-process
 
 EXPOSE 5173
 
-CMD ["npx", "vitepress", "dev", "--host", "0.0.0.0"]
+CMD ["pnpm", "exec", "vitepress", "dev", "--host", "0.0.0.0"]
