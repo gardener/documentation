@@ -13,71 +13,62 @@ next: false
 local: true
 ---
 
-# Credential Rotation
+## Overview
 
-## Keys
+Gardener manages a number of credentials for every shoot cluster — certificate authorities, SSH key pairs, encryption keys, service account signing keys, and observability passwords.
+Beyond those, you provide cloud provider credentials (such as an Azure Service Principal or AWS access keys) that Gardener uses to manage your cluster's infrastructure.
 
-There are plenty of keys in Gardener.
-The ETCD needs one to store resources like secrets encrypted at rest.
-Gardener generates certificate authorities (CAs) to ensure secured communication between the various components and actors and service account tokens are signed with a dedicated key.
-There is also an SSH key pair to allow debugging of nodes and the observability stack has its own passwords too.
+These two classes of credentials are distinct in how they are owned and how they are rotated:
 
-![keys](/docs/getting-started/features/images/keys.webp)
+| Class | Examples | Who rotates |
+|---|---|---|
+| **User-provided** | Cloud provider keys (AWS, Azure, GCP, OpenStack) | You, using the procedure below |
+| **Gardener-managed** | CAs, SSH key pair, ETCD encryption key, ServiceAccount signing key, observability passwords | You, via `kubectl annotate` operations on the Shoot |
 
-All of these keys share a common property: they are managed by Gardener.
-Rotating them, however, is potentially very disruptive.
-Hence, Gardener does not do it automatically, but offers you means to perform these tasks easily.
-For a single cluster, you may conveniently use the dashboard.
+For step-by-step instructions, go directly to the relevant guide in the [Credentials Rotation for Shoot Clusters](https://github.com/gardener/gardener/blob/master/docs/usage/shoot-operations/shoot_credentials_rotation.md) documentation:
+- [Rotating user-provided credentials](https://github.com/gardener/gardener/blob/master/docs/usage/shoot-operations/shoot_credentials_rotation.md#user-provided-credentials) (cloud provider keys)
+- [Rotating Gardener-managed credentials](https://github.com/gardener/gardener/blob/master/docs/usage/shoot-operations/shoot_credentials_rotation.md#gardener-provided-credentials) (CAs, SSH, ETCD, etc.)
 
-![Prepare the rotation of all credentials from the Gardener dashboard](/docs/getting-started/features/images/prepare-rotation-of-all-credentials.webp)
+## Two-Phase Rotation Model
 
-Where possible, the rotation happens in two phases - Preparing and Completing.
-
-### Prepare Rotation of All Credentials
-
-The Preparing phase introduces new keys while the old ones are still valid.
-Users can safely exchange keys / CA bundles wherever they are used.
-It is possible to start the preparation by annotating the shoot resource accordingly:
-
-```bash
-kubectl -n <shoot-namespace> annotate shoot <shoot-name> gardener.cloud/operation=rotate-credentials-start
-```
-
-### Complete Rotation of All Credentials
-
-Afterward, the Completing phase will invalidate the old keys / CA bundles.
-Annotate the shoot resource accordingly:
-
-```bash
-kubectl -n <shoot-namespace> annotate shoot <shoot-name> gardener.cloud/operation=rotate-credentials-complete
-```
-
-## Rotation Phases
+For Gardener-managed credentials, rotation happens in two phases where possible.
 
 ![rotation-phases](/docs/getting-started/features/images/rotation-phases.webp)
 
-At the beginning, only the old set of credentials exists.
-By triggering the rotation, new credentials are created in the Preparing phase and both sets are valid.
-Now, all clients have to update and start using the new credentials.
-Only afterward it is safe to trigger the Completing phase, which invalidates the old credentials.
+In the **Preparing phase**, new credentials are created alongside the old ones — both sets are valid simultaneously.
+This gives you time to update any API clients, kubeconfigs, or tooling that depend on the old credentials before they are invalidated.
 
-The shoot's status will always show the current status / phase of the rotation.
+In the **Completing phase**, the old credentials are invalidated and only the new set remains.
+You should only trigger this phase after all clients have been updated to use the new credentials.
 
-For more information, see [Credentials Rotation for Shoot Clusters](/docs/gardener/shoot-operations/shoot_credentials_rotation/).
+The shoot's status always reflects the current rotation phase, readable at `.status.credentials.rotation`.
+
+You can also conveniently trigger rotation from the Gardener dashboard:
+
+![Prepare the rotation of all credentials from the Gardener dashboard](./images/prepare-rotation-of-all-credentials.webp)
+
+## Automatic Rotation
+
+Some Gardener-managed credential types support automatic rotation during the maintenance window via `.spec.maintenance.autoRotation.credentials`:
+
+- SSH key pair
+- ETCD encryption key (enabled by default on new shoots)
+- Observability passwords
+
+Certificate authorities and the ServiceAccount signing key require user action between phases and therefore cannot be rotated automatically.
+
+For configuration details, see [Automatic Credentials Rotation](https://github.com/gardener/gardener/blob/master/docs/usage/shoot/shoot_maintenance.md#automatic-credentials-rotation).
 
 ## User-Provided Credentials
 
 ![user-provided-keys](/docs/getting-started/features/images/user-provided-keys.webp)
 
-You grant Gardener permissions to create resources by handing over cloud provider keys.
-These keys are stored in a secret and referenced to a shoot via a SecretBinding.
-Gardener uses the keys to create the network for the cluster resources, routes, VMs, disks, and IP addresses.
+You grant Gardener permissions to create infrastructure resources by providing cloud provider keys.
+These keys are stored in a `Secret` in the garden cluster and referenced by your Shoot via a `CredentialsBinding` (or the legacy `SecretBinding`).
 
-When you rotate credentials, the new keys have to be stored in the same secret and the shoot needs to reconcile successfully to ensure the replication to every controller.
-Afterward, the old keys can be deleted safely from Gardener's perspective.
-
-While the reconciliation can be triggered manually, there is no need for it (if you're not in a hurry).
-Each shoot reconciles once within 24h and the new keys will be picked up during the next maintenance window.
+When you rotate these credentials, you update the `Secret` with new keys, wait for all Shoots using that `Secret` to reconcile successfully, and only then deactivate the old keys in your cloud provider account.
 
 > [!NOTE]
-> It is not possible to move a shoot to a different infrastructure account (at all!).
+> It is not possible to move a Shoot to a different infrastructure account.
+
+For the full rotation procedure, see [User-Provided Credentials](https://github.com/gardener/gardener/blob/master/docs/usage/shoot-operations/shoot_credentials_rotation.md#user-provided-credentials) in the Credentials Rotation guide.
