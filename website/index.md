@@ -92,10 +92,6 @@ const members = [
     logo: '/lp/platforms/openstack.svg'
   },
   {
-    name: 'SAP Data Center',
-    logo: '/lp/platforms/sap.svg'
-  },
-  {
     name: 'Iron Core',
     logo: '/lp/platforms/iron_core.svg'
   },
