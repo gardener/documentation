@@ -1,0 +1,74 @@
+name: Aggregate Documentation Content
+
+on:
+  schedule:
+    - cron: '0 4 * * 1-5'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: aggregate-content
+  cancel-in-progress: false
+
+jobs:
+  aggregate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Aggregate (docforge)
+        env:
+          DOCFORGE_CONFIG: .docforge/config.yaml
+          GITHUB_OAUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: make docforge-ci
+
+      - name: Post-process
+        run: make post-process
+
+      - name: Verify build
+        id: build
+        run: make build
+        continue-on-error: true
+
+      - name: Push on success
+        if: steps.build.outcome == 'success'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add hugo/content/
+          if git diff --cached --quiet; then
+            echo "No content changes"
+            exit 0
+          fi
+          git commit -m "chore(content): aggregate docs $(date -u +%Y-%m-%d)"
+          git push origin HEAD:${{ github.ref_name }}
+
+      - name: Open PR on failure
+        if: steps.build.outcome == 'failure'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: bot/content-aggregation-failure
+          title: "🚨 Content aggregation build failed"
+          body: |
+            Daily content aggregation produced a tree that fails `make build`.
+
+            **Action required:** review the diff, fix the broken upstream source(s),
+            then close this PR (next nightly run will pick up the fix).
+
+            **Note:** If no CI checks ran on this PR, close and reopen it once —
+            PRs created by `GITHUB_TOKEN` do not trigger downstream workflows by default.
+          commit-message: "chore(content): aggregation with build failure"
+          add-paths: hugo/content/
