@@ -2,7 +2,7 @@
 title: 'CI Content Aggregation — PR 1: workflow + first aggregated commit + Netlify reduction'
 type: 'feature'
 created: '2026-06-22'
-status: 'in-progress'
+status: 'completed'
 context:
   - '_bmad-output/specs/spec-ci-content-aggregation/SPEC.md'
   - '_bmad-output/project-context.md'
