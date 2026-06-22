@@ -71,11 +71,11 @@ const members = [
     logo: '/lp/platforms/openstack.svg'
   },
   {
-    name: 'Metal-Stack',
+    name: 'metal-stack',
     logo: '/lp/platforms/metalstack.svg'
   },
   {
-    name: 'Iron Core',
+    name: 'IronCore',
     logo: '/lp/platforms/iron_core.svg'
   },
   {
@@ -93,7 +93,7 @@ const members = [
     logo: '/lp/platforms/microsoft-azure.svg'
   },
   {
-    name: 'Google Cloud Platform',
+    name: 'Google Cloud',
     logo: '/lp/platforms/google-cloud-platform.svg',
   },
   {
