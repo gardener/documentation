@@ -1,5 +1,5 @@
 extends: script
-message: "'%s' looks like an unescaped placeholder or unknown HTML tag. Wrap it in backticks if it's a placeholder (e.g., `<placeholder>`), or add it to the allowed tags list in AngleBrackets.yml if it's a valid HTML tag."
+message: "'%s' looks like an unescaped placeholder or unknown HTML tag. Wrap it in backticks if it's a placeholder (e.g., `<placeholder>`), or add it to the allowed tags list in `.vale/styles/config/scripts/AngleBrackets.tengo` if it's a valid HTML tag."
 level: error
 scope: raw
 script: AngleBrackets.tengo
