@@ -67,8 +67,21 @@ import ThemedTeamMembers from '@components/ThemedTeamMembers.vue'
 
 const members = [
   {
-    name: 'Alibaba Cloud',
-    logo: '/lp/platforms/alibaba-cloud.svg'
+    name: 'OpenStack',
+    logo: '/lp/platforms/openstack.svg'
+  },
+  {
+    name: 'metal-stack',
+    logo: '/lp/platforms/metalstack.svg'
+  },
+  {
+    name: 'IronCore',
+    logo: '/lp/platforms/iron_core.svg'
+  },
+  {
+    name: 'STACKIT',
+    logo: '/lp/platforms/stackit.svg',
+    darkLogo: '/lp/platforms/stackit-dark.svg'
   },
   {
     name: 'Amazon Web Services',
@@ -80,29 +93,12 @@ const members = [
     logo: '/lp/platforms/microsoft-azure.svg'
   },
   {
-    name: 'Google Cloud Platform',
+    name: 'Google Cloud',
     logo: '/lp/platforms/google-cloud-platform.svg',
   },
   {
-    name: 'Metal-Stack',
-    logo: '/lp/platforms/metalstack.svg'
-  },
-  {
-    name: 'OpenStack',
-    logo: '/lp/platforms/openstack.svg'
-  },
-  {
-    name: 'SAP Data Center',
-    logo: '/lp/platforms/sap.svg'
-  },
-  {
-    name: 'Iron Core',
-    logo: '/lp/platforms/iron_core.svg'
-  },
-  {
-    name: 'STACKIT',
-    logo: '/lp/platforms/stackit.svg',
-    darkLogo: '/lp/platforms/stackit-dark.svg'
+    name: 'Alibaba Cloud',
+    logo: '/lp/platforms/alibaba-cloud.svg'
   },
 ]
 </script>
