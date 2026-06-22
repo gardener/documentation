@@ -158,12 +158,17 @@ post-processing-part-index:
 post-processing-part-3:
 	node post-processing/part-3.js --update-report-link --process-api-html
 
+.PHONY: post-processing-part-managed
+post-processing-part-managed:
+	node post-processing/part-managed.js ./hugo/content
+
 .PHONY: post-process
 post-process: ## Run post-processing scripts
 	@$(MAKE) post-processing-part-1
 	@$(MAKE) post-processing-part-2
 	@$(MAKE) post-processing-part-index
 	@$(MAKE) post-processing-part-3
+	@$(MAKE) post-processing-part-managed
 
 .PHONY: build
 build: ## Build the documentation site
