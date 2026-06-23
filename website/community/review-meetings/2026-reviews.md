@@ -14,6 +14,28 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2026/06/24 - [v1.145](https://github.com/gardener/gardener/releases/tag/v1.145.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@RadaBDimitrova](https://github.com/RadaBDimitrova) | `5m` | 💾 `pvc-autoscaler` as a `Seed` Cluster Component | [#14991](https://github.com/gardener/gardener/pull/14991) |
+| [@AleksandarSavchev](https://github.com/AleksandarSavchev) | `10m` | 🦅 Advanced Falco Configuration Options | [shoot-falco-service#517](https://github.com/gardener/gardener-extension-shoot-falco-service/pull/517), [shoot-falco-service#519](https://github.com/gardener/gardener-extension-shoot-falco-service/pull/519), [shoot-falco-service#511](https://github.com/gardener/gardener-extension-shoot-falco-service/pull/511) |
+| [@kevin-lacoo](https://github.com/kevin-lacoo) | `5m` | ☁️ Alicloud: Dual-Stack and Custom Route Table Support | [provider-alicloud#901](https://github.com/gardener/gardener-extension-provider-alicloud/pull/901) |
+| [@MartinWeindel](https://github.com/MartinWeindel) | `10m` | 🌍 `shoot-dns-service`: Migration to Next-Gen Controller | [shoot-dns-service#727](https://github.com/gardener/gardener-extension-shoot-dns-service/pull/727), [shoot-dns-service#643](https://github.com/gardener/gardener-extension-shoot-dns-service/pull/643), [shoot-dns-service#615](https://github.com/gardener/gardener-extension-shoot-dns-service/pull/615) |
+| [@timuthy](https://github.com/timuthy) | `5m` | 🔑 Helper Script to Re-Bootstrap `gardenlet` | [#14805](https://github.com/gardener/gardener/pull/14805) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- 🪓 [OPERATOR] The `gardener-scheduler` candidate determination strategy deployed by `gardener-operator` is now configurable via `Garden.spec.virtualCluster.gardener.gardenerScheduler.candidateDeterminationStrategy` (allowed values: `SameRegion`, `MinimalDistance`). [...]. [#14963](https://github.com/gardener/gardener/pull/14963)
+- 🐛 [OPERATOR] A bug has been fixed that prevented Gardenlet from reconciling shoots without an external cluster domain. [#14521](https://github.com/gardener/gardener/pull/14521)
+- 🐛 [USER] Fix malformed registry cache endpoint URLs when the registry cache Service in the Shoot contains an IPv6 clusterIP. IPv6 cluster IPs are now correctly wrapped in square brackets (e.g. `https://[2a05:d018:197f:7e06::1]:5000`) [registry-cache#595](https://github.com/gardener/gardener-extension-registry-cache/pull/595)
+
+<hr />
+
 ### 2026/06/10 - [v1.144](https://github.com/gardener/gardener/releases/tag/v1.144.0) Release
 
 [📽️ Recording](https://youtu.be/iX9tPbZOuPk)
