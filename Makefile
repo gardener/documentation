@@ -177,7 +177,18 @@ docforge-ci: docforge-download ## Run docforge in CI mode (non-interactive)
 	./bin/docforge
 
 .PHONY: ci-build
-ci-build: docforge-ci install post-process build ## Run all steps for building in CI
+ci-build: ## Build for CI/Netlify: skip aggregation if hugo/content/ is already committed, otherwise run the full pipeline
+	@if [ -d hugo/content ]; then \
+		echo "hugo/content/ found — using committed tree, skipping docforge + post-process"; \
+		$(MAKE) install; \
+		$(MAKE) build; \
+	else \
+		echo "hugo/content/ missing — running full aggregation pipeline"; \
+		$(MAKE) docforge-ci; \
+		$(MAKE) install; \
+		$(MAKE) post-process; \
+		$(MAKE) build; \
+	fi
 
 .PHONY: vale-install
 vale-install: ## Install Vale binary if not already present

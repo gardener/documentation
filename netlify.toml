@@ -1,5 +1,5 @@
 [build]
-    command = "npx vitepress build"
+    command = "make ci-build"
     publish = ".vitepress/dist"
 
 [[headers]]
