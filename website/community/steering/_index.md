@@ -35,7 +35,7 @@ The committee is elected by the project's active code owners and contributors an
 - [Johannes Scheerer](https://github.com/scheererj) ([Email](mailto:johannes.scheerer@sap.com) and [Slack](https://gardener-cloud.slack.com/team/U048D8K0N65))
 - [Rafael Franzke](https://github.com/rfranzke) ([Email](mailto:rafael.franzke@sap.com) and [Slack](https://gardener-cloud.slack.com/team/UAQT84PK7))
 - [Tim Ebert](https://github.com/timebertt) ([Email](mailto:tim.ebert@stackit.cloud) and [Slack](https://gardener-cloud.slack.com/team/U03VASPK6TC))
-- [Vedran Lerenc](https://github.com/vlerenc) ([Email](mailto:vedran.lerenc@sap.com) and [Slack](https://gardener-cloud.slack.com/team/UAQ7R439P))
+- [Vladimir Nachev](https://github.com/vpnachev) ([Email](mailto:vladimir.nachev@sap.com) and [Slack](https://gardener-cloud.slack.com/team/UC7K9V6AC))
 
 #### Key Considerations for Topics
 
