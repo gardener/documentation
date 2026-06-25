@@ -40,13 +40,15 @@ spec:
     kind: StatefulSet
     name: prometheus
   volumePolicies:
-  - storageThresholdPercentage: 80
-    inodesThresholdPercentage: 80
-    stepPercent: 100
-    cooldownDuration: 10m
+  - maxCapacity: 5Gi
+    scaleUp:
+      utilizationThresholdPercent: 80
+      stepPercent: 100
+      minStepAbsolute: 1Gi
+      cooldownDuration: 10m
 ```
 
-This tells the autoscaler: "Watch all PVCs belonging to the `prometheus` StatefulSet. When any of them exceeds 80% storage or inode usage, double its size. Don't resize again for at least 10 minutes."
+This tells the autoscaler: "Watch all PVCs belonging to the `prometheus` `StatefulSet`. When any of them exceeds 80% storage or inode usage, double its size. Don't resize again for at least 10 minutes."
 
 ## Key Features in v0.2.0
 
@@ -58,10 +60,11 @@ Previously, the pvc-autoscaler could only target individual `PersistentVolumeCla
 
 The new `.spec.volumePolicies` array gives fine-grained control over scaling behavior:
 
-- **`storageThresholdPercentage`** — trigger resize when used space exceeds this percentage
-- **`inodesThresholdPercentage`** — trigger resize when inode usage exceeds this percentage
-- **`stepPercent`** — how much to grow the volume (100 = double the size)
-- **`cooldownDuration`** — minimum time between consecutive resizes for the same PVC (important for cloud providers like AWS that limit volume modifications to 4 per 24 hours)
+- **`maxCapacity`** - the maximum allowed size for a PVC. Once this limit is reached, no further scaling will occur
+- **`scaleUp.utilizationThresholdPercent`** - trigger resize when used space or inodes exceed this percentage
+- **`scaleUp.stepPercent`** - how much to grow the volume (100 = double the size)
+- **`scaleUp.minStepAbsolute`** - the minimum absolute storage increase that must be applied during a scaling operation
+- **`scaleUp.cooldownDuration`** - minimum time between consecutive resizes for the same PVC (important for cloud providers like AWS that limit volume modifications to 4 per 24 hours)
 
 ### Rich Status Reporting
 
@@ -70,16 +73,35 @@ The status now provides per-volume recommendations and conditions:
 ```yaml
 status:
   conditions:
-  - type: RecommendationsAvailable
-    status: "True"
   - type: Resizing
     status: "True"
-    message: "Resizing PVC from 1Gi to 2Gi (storage threshold exceeded)"
+    reason: ResizeInProgress
+    lastTransitionTime: "2025-08-07T11:59:54Z"
+    message: |
+      Some PersistentVolumeClaims are being resized:
+      - PVC prometheus-1 is being resized due to passing inodes threshold.
+  - type: RecommendationsAvailable
+    status: "True"
+    reason: RecommendationsProvided
+    lastTransitionTime: "2025-08-07T11:59:54Z"
+    message: Recommendations have been provided for all PersistentVolumeClaims.
   volumeRecommendations:
-  - persistentVolumeClaimName: data-prometheus-0
-    currentSize: 2Gi
-    targetSize: 2Gi
-    usedSpacePercentage: 50
+  - persistentVolumeClaimName: prometheus-0
+    usedByPods: ["prometheus-0"]
+    current:
+      usedBytesPercentage: 30
+      usedInodesPercentage: 20
+      size: 4Gi
+    target:
+      size: 4Gi
+  - persistentVolumeClaimName: prometheus-1
+    usedByPods: ["prometheus-1"]
+    current:
+      usedBytesPercentage: 90
+      usedInodesPercentage: 70
+      size: 3Gi
+    target:
+      size: 4Gi
 ```
 
 Operators can see at a glance which volumes are being resized, why (storage vs. inodes), and what the current utilization looks like.
