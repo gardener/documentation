@@ -9,7 +9,7 @@ hero:
   text: A Managed Kubernetes Service Done Right
   tagline: Deliver fully-managed clusters at scale everywhere with your own Gardener installation
   actions:
-    - theme: brand
+    - theme: alt
       text: Learn More with Podrick
       link: /docs/getting-started/podrick-and-the-infinite-garden.md
   image:
