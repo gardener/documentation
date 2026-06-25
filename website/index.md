@@ -10,7 +10,7 @@ hero:
   tagline: Deliver fully-managed clusters at scale everywhere with your own Gardener installation
   actions:
     - theme: alt
-      text: Learn More with Podrick
+      text: Learn more with Podrick
       link: /docs/getting-started/podrick-and-the-infinite-garden.md
   image:
     src: /gardener-logo.svg
