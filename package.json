@@ -6,7 +6,7 @@
     "@braintree/sanitize-url": "7.1.2",
     "cytoscape": "3.33.4",
     "cytoscape-cose-bilkent": "4.1.0",
-    "dayjs": "^1.11.21",
+    "dayjs": "1.11.21",
     "debug": "4.4.3",
     "gray-matter": "4.0.3",
     "js-yaml": "4.1.1",
@@ -21,7 +21,7 @@
     "@types/markdown-it": "12.2.3",
     "@types/node": "20.11.27",
     "sharp": "0.34.5",
-    "node-addon-api": "^8.8.0",
-    "node-gyp": "^13.0.0"
+    "node-addon-api": "8.8.0",
+    "node-gyp": "13.0.0"
   }
 }

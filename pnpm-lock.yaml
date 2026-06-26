@@ -21,7 +21,7 @@ importers:
         specifier: 4.1.0
         version: 4.1.0(cytoscape@3.33.4)
       dayjs:
-        specifier: ^1.11.21
+        specifier: 1.11.21
         version: 1.11.21
       debug:
         specifier: 4.4.3
@@ -58,10 +58,10 @@ importers:
         specifier: 20.11.27
         version: 20.11.27
       node-addon-api:
-        specifier: ^8.8.0
+        specifier: 8.8.0
         version: 8.8.0
       node-gyp:
-        specifier: ^13.0.0
+        specifier: 13.0.0
         version: 13.0.0
       sharp:
         specifier: 0.34.5
