@@ -11,8 +11,6 @@
     "gray-matter": "4.0.3",
     "js-yaml": "4.1.1",
     "mermaid": "11.15.0",
-    "node-addon-api": "^8.8.0",
-    "node-gyp": "^13.0.0",
     "vitepress": "1.6.4",
     "vitepress-plugin-mermaid": "2.0.17",
     "vitepress-sidebar": "1.33.1",
@@ -22,6 +20,8 @@
     "@types/js-yaml": "4.0.9",
     "@types/markdown-it": "12.2.3",
     "@types/node": "20.11.27",
-    "sharp": "0.34.5"
+    "sharp": "0.34.5",
+    "node-addon-api": "^8.8.0",
+    "node-gyp": "^13.0.0"
   }
 }
