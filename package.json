@@ -14,7 +14,9 @@
     "dayjs": "1.11.21",
     "@braintree/sanitize-url": "7.1.2",
     "cytoscape": "3.33.4",
-    "cytoscape-cose-bilkent": "4.1.0"
+    "cytoscape-cose-bilkent": "4.1.0",
+    "node-addon-api": "^8.8.0",
+    "node-gyp": "^13.0.0"
   },
   "devDependencies": {
     "@types/js-yaml": "4.0.9",
