@@ -13,6 +13,8 @@ hugo/**
 
 !.github/**/*.yaml
 !.docforge/**/*.yaml
+!pnpm-lock.yaml
+!pnpm-workspace.yaml
 content
 .vitepress/theme/utils/debug/**
 
@@ -65,6 +67,9 @@ web_modules/
 
 # TypeScript cache
 *.tsbuildinfo
+
+# npm lockfile — project uses pnpm (pnpm-lock.yaml)
+package-lock.json
 
 # Optional npm cache directory
 .npm

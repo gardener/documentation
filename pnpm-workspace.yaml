@@ -1,0 +1,17 @@
+overrides:
+  axios: "1.16.1"
+
+onlyBuiltDependencies:
+  - esbuild
+  - sharp
+
+allowBuilds:
+  esbuild: true
+  sharp: true
+
+trustPolicy: no-downgrade
+trustPolicyExclude:
+  - 'vite@5.4.21' # Pined because of Trust downgread, vite migrated from Trusted Publisher Signing to Provenance Attestation, which is the recommended solution by OpenSSF.
+  - 'tinyexec@1.2.2' # Pined because of Trust downgread, because of using two auth methods interchangeably.
+blockExoticSubdeps: true
+minimumReleaseAge: 10080 # Only install after 7 days, to educe the risk of installing compromised packages.

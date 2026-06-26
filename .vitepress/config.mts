@@ -342,6 +342,9 @@ function getViteConfig(basePath: string, srcDir: string) {
     build:{
       chunkSizeWarningLimit: 5000,
     },
+    optimizeDeps: {
+      include: ['dayjs'],
+    },
     resolve: {
       alias: [
         {
