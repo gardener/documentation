@@ -31,7 +31,7 @@ Technically, members are defined by their membership in the [Gardener GitHub org
 **How to become a member**
 - Fulfill listed requirements
 - Obtain sponsorship from at least two approvers
-- Open a membership request issue in [gardener/org](https://github.com/gardener/org/issues/new?template=membership.yaml); if accepted, an org owner assigns the member to the corresponding group.
+- Open a membership request issue in [gardener/org](https://github.com/gardener/org/issues/new?template=membership.yaml); if accepted, an approver or org admin creates a PR to update [`org.yaml`](https://github.com/gardener/org/blob/main/config/org.yaml).
 
 ## Reviewer
 
