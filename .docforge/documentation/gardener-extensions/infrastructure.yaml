@@ -53,14 +53,6 @@ structure:
   - fileTree: https://github.com/gardener/gardener-extension-provider-openstack/tree/master/docs
     excludeFiles:
       - "development/"
-- dir: gardener-extension-provider-equinix-metal
-  structure:
-  - file: _index.md
-    frontmatter:
-      title: Provider Equinix Metal
-      description: Gardener extension controller for the Equinix Metal cloud provider
-    source:  https://github.com/gardener/gardener-extension-provider-equinix-metal/blob/master/README.md
-  - fileTree: https://github.com/gardener/gardener-extension-provider-equinix-metal/tree/master/docs
 - dir: gardener-extension-provider-stackit
   structure:
   - file: _index.md
