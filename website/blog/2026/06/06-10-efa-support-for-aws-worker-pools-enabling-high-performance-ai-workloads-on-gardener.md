@@ -60,7 +60,7 @@ To validate the implementation, [NCCL all-reduce performance tests](https://docs
 
 Enabling EFA in the provider config is only the first step. To make EFA devices and GPUs schedulable within the cluster, two additional components must be installed:
 
-1. **AWS EFA Kubernetes Device Plugin** — available as a [Helm chart from AWS](https://artifacthub.io/packages/helm/aws/aws-efa-k8s-device-plugin). It deploys a DaemonSet on EFA-enabled nodes, exposeing EFA devices as schedulable resources (`vpc.amazonaws.com/efa`), and making them visible to pods.
+1. **AWS EFA Kubernetes Device Plugin** — available as a [Helm chart from AWS](https://artifacthub.io/packages/helm/aws/aws-efa-k8s-device-plugin). It deploys a DaemonSet on EFA-enabled nodes, exposing EFA devices as schedulable resources (`vpc.amazonaws.com/efa`), and making them visible to pods.
 2. **NVIDIA GPU Operator** - available as a [Helm chart from NVIDIA](https://github.com/nvidia/gpu-operator). It deploys the nvidia-gpu-operator Deployment and various DaemonSets on the GPU-supported nodes, making GPUs available to cluster workloads and as schedulable resources on the cluster (`nvidia.com/gpu`). If running these nodes with [GardenLinux OS](https://github.com/gardenlinux/gardenlinux), use it with the [Garden Linux NVIDIA installer](https://github.com/gardenlinux/gardenlinux-nvidia-installer) flavor to install the right GPU drivers and container runtime plugins.
 
 Both must currently be installed manually. Dedicated Gardener extensions to automate this are already in progress — watch upcoming community meetings for updates.
