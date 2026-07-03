@@ -12,6 +12,8 @@ tags:
 - provider-aws
 - node-management
 - networking
+- ai
+- gpu
 aliases: ["/blog/2026/06/10/efa-support-for-aws-worker-pools-enabling-high-performance-ai-workloads-on-gardener"]
 ---
 
@@ -43,8 +45,8 @@ Placement groups are now a first-class field in the worker pool provider config.
 
 High-demand instance types (H200, P200, GP200, and similar) are rarely available on demand. The provider config now supports:
 
-- **`instanceMarketOptions.marketType: capacity-block`** — reserves capacity through an ML Capacity Block
-- **`capacityReservationID`** — references a pre-purchased capacity reservation, required when using capacity blocks
+- **`capacityReservationID`** — references a pre-purchased capacity reservation of EC2 instances
+- **`instanceMarketOptions.marketType: capacity-block`** — allows users to specify the reservation type as an ML Capacity Block, required specifically for capacity reservations of many high-end GPU instance types
 
 ### End-to-End Shoot Spec Example
 
@@ -52,18 +54,20 @@ With all three features enabled, the worker section of a shoot's provider config
 
 ## Validation
 
-To validate the implementation, NCCL all-reduce performance tests were run on a two-node worker pool of P4d.24xlarge instances (each with eight A100 GPUs and four EFA NICs). The theoretical ceiling for this instance type is 400 Gbps; the tests achieved approximately 342 Gbps — confirming that EFA traffic is flowing correctly end-to-end through the Gardener-managed cluster.
+To validate the implementation, [NCCL all-reduce performance tests](https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/usage/collectives.html#allreduce) were run on a two-node worker pool of [p4d.24xlarge instances](https://aws.amazon.com/ec2/instance-types/p4/) (each with eight A100 GPUs and four EFA NICs). The theoretical ceiling for this instance type is 400 Gbps; the tests achieved approximately 342 Gbps, confirming that EFA traffic is flowing correctly end-to-end through the Gardener-managed cluster. The difference in the bandwidth can be attributed to fine-tuning of the tests and other network and instance conditions at runtime.
 
 ## What Users Need to Do
 
 Enabling EFA in the provider config is only the first step. To make EFA devices and GPUs schedulable within the cluster, two additional components must be installed:
 
-1. **AWS EFA Kubernetes Device Plugin** — available as a Helm chart from AWS. It deploys a DaemonSet on EFA-enabled nodes, exposes EFA devices as schedulable resources (`vpc.amazonaws.com/efa`), and makes them visible to pods.
-2. **NVIDIA GPU Operator** — if running Garden Linux, use it with the Garden Linux NVIDIA installer flavor (available in the repository) to install GPU drivers and container runtime plugins.
+1. **AWS EFA Kubernetes Device Plugin** — available as a [Helm chart from AWS](https://artifacthub.io/packages/helm/aws/aws-efa-k8s-device-plugin). It deploys a DaemonSet on EFA-enabled nodes, exposeing EFA devices as schedulable resources (`vpc.amazonaws.com/efa`), and making them visible to pods.
+2. **NVIDIA GPU Operator** - available as a [Helm chart from NVIDIA](https://github.com/nvidia/gpu-operator). It deploys the nvidia-gpu-operator Deployment and various DaemonSets on the GPU-supported nodes, making GPUs available to cluster workloads and as schedulable resources on the cluster (`nvidia.com/gpu`). If running these nodes with [GardenLinux OS](https://github.com/gardenlinux/gardenlinux), use it with the [Garden Linux NVIDIA installer](https://github.com/gardenlinux/gardenlinux-nvidia-installer) flavor to install the right GPU drivers and container runtime plugins.
 
 Both must currently be installed manually. Dedicated Gardener extensions to automate this are already in progress — watch upcoming community meetings for updates.
 
 ## Further Reading
 
 - [Recording: Gardener Community Meeting — EFA Support for AWS Workers](https://www.youtube.com/watch?v=iX9tPbZOuPk&t=2373)
-
+- [GitHub PR: EFA Support for AWS Workers](https://github.com/gardener/gardener-extension-provider-aws/pull/1791)
+- [AWS Elastic Fabric Adapter](https://aws.amazon.com/hpc/efa/)
+- [AWS User Guide - EFA for AI/ML and HPC workloads](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html)
