@@ -14,6 +14,27 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2026/07/08 - [v1.146](https://github.com/gardener/gardener/releases/tag/v1.146.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@domdom82](https://github.com/domdom82) | `10m` | 🐶 VPN Watchdog | [#15054](https://github.com/gardener/gardener/pull/15054), [vpn2#294](https://github.com/gardener/vpn2/pull/294), [vpn2#295](https://github.com/gardener/vpn2/pull/295), [vpn2#297](https://github.com/gardener/vpn2/pull/297) |
+| [@adenitiu](https://github.com/adenitiu) | `5m` | 🔍 New `HasIgnoredManagedResources` `Shoot` Constraint | [#15023](https://github.com/gardener/gardener/pull/15023) |
+| [@hown3d](https://github.com/hown3d) | `5m` | 🔀 Calico NFTables Mode Support | [networking-calico#824](https://github.com/gardener/gardener-extension-networking-calico/pull/824) |
+| [@timuthy](https://github.com/timuthy) | `10m` | 🏗️ Gardener Landscape Kit | [gardener-landscape-kit (repo)](https://github.com/gardener/gardener-landscape-kit) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- 🪓 [OPERATOR] The `WorkerPoolHashV1` function used for worker pool hash calculation is dropped now that `NewWorkerPoolHash` is removed in an earlier gardener version. [#14918](https://github.com/gardener/gardener/pull/14918)
+- ❗️ [DEPENDENCY] Dependencies from `hack/tools.mk` are built using `go tool`. Existing entries to `_ "github.com/gardener/gardener/hack"`, e.g., in hack/tools.go files, should be removed. [#14861](https://github.com/gardener/gardener/pull/14861)
+- 🐛 [OPERATOR] Fixed a bug in the `shoot-state` controller where periodic `ShootState` backups would fail with `unable to find api field in struct RawExtension for the json field "data"` when a persisted secret's data had been modified. [#15169](https://github.com/gardener/gardener/pull/15169)
+
+<hr />
+
 ### 2026/06/24 - [v1.145](https://github.com/gardener/gardener/releases/tag/v1.145.0) Release
 
 [📽️ Recording](https://youtu.be/sxIoblNMKA4)
