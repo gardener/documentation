@@ -43,7 +43,7 @@ kubectl apply --filename my-cluster.yaml
 ```
 
 The easier alternative is to create the cluster following the cluster creation wizard in the Gardener dashboard:
-![shoot creation](./images/gardener_shoot_creation.webp "shoot creation via the dashboard")
+![Shoot creation via the dashboard](./images/gardener_shoot_creation.webp)
 
 ### Configure kubectl for Your Cluster
 

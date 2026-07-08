@@ -31,8 +31,6 @@ There are many [exporters](https://prometheus.io/docs/instrumenting/exporters/) 
 - Powerful Query Language
 The Prometheus query language [PromQL](https://prometheus.io/docs/prometheus/latest/querying/basics/) lets the user select and aggregate time series data in real time. Results can either be shown as a graph, viewed as tabular data in the Prometheus expression browser, or consumed by external systems via the [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/).
 
-Find query examples on [Prometheus Query Examples](https://github.com/infinityworks/prometheus-example-queries/blob/master/README.md).
-
 One very popular open-source visualization tool not only for Prometheus is [Grafana](https://grafana.com). Grafana is a metric analytics and visualization suite. It is popular for visualizing time series data for infrastructure and application analytics but many use it in other domains including industrial sensors, home automation, weather, and process control. For more information, see the [Grafana Documentation](http://docs.grafana.org/).
 
 Grafana accesses data via [Data Sources](https://grafana.com/docs/grafana/latest/basics/). The continuously growing list of supported backends includes Prometheus.
@@ -265,7 +263,7 @@ Setup port forwarding for port 9090:
 kubectl port-forward -n <your-prometheus-namespace> <your-prometheus-server-pod> 9090:9090
 ```
 
-Open `http://localhost:9090` in your web browser. Select Graph from the top tab and enter the following expressing to show the overall CPU usage for a server (see [Prometheus Query Examples](https://github.com/infinityworks/prometheus-example-queries/blob/master/README.md)):
+Open `http://localhost:9090` in your web browser. Select Graph from the top tab and enter the following expressing to show the overall CPU usage for a server:
 
 ```code
 100 * (1 - avg by(instance)(irate(node_cpu{mode='idle'}[5m])))
