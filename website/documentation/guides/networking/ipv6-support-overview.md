@@ -75,7 +75,7 @@ GCP supports dual-stack clusters. IPv6-only is not supported.
 
 ### Requirements
 
-- IPv4 ranges are user-defined; IPv6 ranges (`/64` per node, `/96` per VM, `/112` per pod) are assigned automatically by GCP.
+- IPv4 ranges are user-defined; IPv6 ranges are assigned automatically by GCP.
 - The `ingress-gce` component is deployed automatically and is required for IPv6 load balancers (the GCP Cloud Controller Manager does not support IPv6 load balancers).
 
 ### Migration
