@@ -68,7 +68,7 @@ Once your PR is open:
   - Steering committee members review the document and leave questions or comments **directly in the PR review**.
   - The goal of this phase is to clarify open questions and address smaller issues before the meeting.
 - Once feedback from a **majority of the committee** (typically 3 out of 4 members) has been provided, a steering meeting is scheduled.
-  - A [TSC meeting](#-meeting-process) is picked from the **recurring Thursday slot** (10:00–11:00 CET), usually about **two weeks out** to allow for review ping-pong and for incorporating feedback into the document.
+  - A [TSC meeting](#-meeting-process) is picked from the **recurring Thursday slot** (10:00–11:00 Europe/Berlin), usually about **two weeks out** to allow for review ping-pong and for incorporating feedback into the document.
 - The meeting will be **announced** to the community via our [`#gardener`](https://gardener-cloud.slack.com/archives/C045DSWJZB9) Slack channel and in the public meeting agenda. If no proposal is scheduled for a given Thursday, the meeting for that week is **canceled**.
 - Based on the outcome of the meeting, the proposal in the GEP PR may need to be **adjusted, refined, or extended**. In this case, the PR remains open and meeting feedback is addressed asynchronously.
   Depending on the outcome, **an additional steering meeting may be scheduled**. Once all steering committee members are satisfied, the GEP PR is merged, which signals a clear **go for the next steps** (typically implementation work).
@@ -80,7 +80,7 @@ Once your PR is open:
 
 ### 📑 Meeting Process
 
-TSC meetings are held in a **recurring weekly slot: Thursdays, 10:00–11:00 CET**.
+TSC meetings are held in a **recurring weekly slot: Thursdays, 10:00–11:00 Europe/Berlin**.
 The meeting is listed in the [public Gardener calendar](https://zoom-lfx.platform.linuxfoundation.org/meetings/gardener?view=month), where you can also find the registration/join link.
 If no proposal is scheduled for a given Thursday, that week's meeting is usually canceled.
 
