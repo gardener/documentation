@@ -37,12 +37,16 @@ jobs:
           fetch-depth: 0
           persist-credentials: true
 
+      - name: Enable corepack
+        run: corepack enable
+
       - uses: actions/setup-node@v4
         with:
           node-version: 24
+          cache: pnpm
 
       - name: Install deps
-        run: npm ci
+        run: make ci-install
 
       # Docforge primarily reads via raw.githubusercontent.com which does not
       # consume GitHub API rate limits. The default GITHUB_TOKEN authenticates
