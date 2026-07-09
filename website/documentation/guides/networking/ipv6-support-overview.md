@@ -67,7 +67,7 @@ Connectivity to IPv4-only external services from IPv6-only clusters is handled t
 **References:**
 - [AWS IPv6 guide](https://github.com/gardener/gardener-extension-provider-aws/blob/master/docs/usage/ipv6.md)
 - [AWS dual-stack ingress guide](https://github.com/gardener/gardener-extension-provider-aws/blob/master/docs/usage/dual-stack-ingress.md)
-- [Dual-stack network migration](https://gardener.cloud/docs/gardener/usage/networking/dual-stack-networking-migration/) (gardener/gardener)
+- [Dual-stack network migration](https://github.com/gardener/gardener/blob/master/docs/usage/networking/dual-stack-networking-migration.md) (gardener/gardener)
 
 ## GCP
 
@@ -88,7 +88,7 @@ Services of type `LoadBalancer` require `spec.ipFamilies`, `spec.ipFamilyPolicy`
 
 **References:**
 - [GCP IPv6 guide](https://github.com/gardener/gardener-extension-provider-gcp/blob/master/docs/usage/ipv6.md)
-- [Dual-stack network migration](https://gardener.cloud/docs/gardener/usage/networking/dual-stack-networking-migration/) (gardener/gardener)
+- [Dual-stack network migration](https://github.com/gardener/gardener/blob/master/docs/usage/networking/dual-stack-networking-migration.md) (gardener/gardener)
 
 ## Azure
 
@@ -118,7 +118,7 @@ Load Balancers are not yet supported.
 
 **References:**
 - [OpenStack provider usage docs](https://github.com/gardener/gardener-extension-provider-openstack/blob/master/docs/usage/usage.md)
-- [Dual-stack network migration](https://gardener.cloud/docs/gardener/usage/networking/dual-stack-networking-migration/) (gardener/gardener)
+- [Dual-stack network migration](https://github.com/gardener/gardener/blob/master/docs/usage/networking/dual-stack-networking-migration.md) (gardener/gardener)
 
 ## Alibaba Cloud
 
@@ -158,12 +158,12 @@ Alibaba Cloud NLB requires at least two VSwitches in different zones — this is
 
 **References:**
 - [AliCloud provider usage docs](https://github.com/gardener/gardener-extension-provider-alicloud/blob/master/docs/usage/usage.md)
-- [Dual-stack network migration](https://gardener.cloud/docs/gardener/usage/networking/dual-stack-networking-migration/) (gardener/gardener)
+- [Dual-stack network migration](https://github.com/gardener/gardener/blob/master/docs/usage/networking/dual-stack-networking-migration.md) (gardener/gardener)
 
 ## Related Pages
 
-- [Dual-stack network migration](https://gardener.cloud/docs/gardener/usage/networking/dual-stack-networking-migration/) — gardener/gardener
-- [Shoot networking configurations](https://gardener.cloud/docs/gardener/usage/networking/shoot_networking/) — gardener/gardener
+- [Dual-stack network migration](https://github.com/gardener/gardener/blob/master/docs/usage/networking/dual-stack-networking-migration.md) — gardener/gardener
+- [Shoot networking configurations](https://github.com/gardener/gardener/blob/master/docs/usage/networking/shoot_networking.md) — gardener/gardener
 - [AWS IPv6 guide](https://github.com/gardener/gardener-extension-provider-aws/blob/master/docs/usage/ipv6.md) — gardener-extension-provider-aws
 - [AWS dual-stack ingress guide](https://github.com/gardener/gardener-extension-provider-aws/blob/master/docs/usage/dual-stack-ingress.md) — gardener-extension-provider-aws
 - [GCP IPv6 guide](https://github.com/gardener/gardener-extension-provider-gcp/blob/master/docs/usage/ipv6.md) — gardener-extension-provider-gcp
