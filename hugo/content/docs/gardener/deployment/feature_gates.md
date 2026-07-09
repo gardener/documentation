@@ -1,0 +1,306 @@
+---
+github_repo: 'https://github.com/gardener/gardener'
+github_subdir: docs/deployment
+params:
+  github_branch: master
+path_base_for_github_subdir:
+  from: content/docs/gardener/deployment/feature_gates.md
+  to: feature_gates.md
+title: Feature Gates
+prev: false
+next: false
+managed: true
+---
+
+# Feature Gates in Gardener
+
+This page contains an overview of the various feature gates an administrator can specify on different Gardener components.
+
+## Overview
+
+Feature gates are a set of key=value pairs that describe Gardener features. You can turn these features on or off using the component configuration file for a specific component.
+
+Each Gardener component lets you enable or disable a set of feature gates that are relevant to that component. For example, this is the configuration of the [gardenlet](https://github.com/gardener/gardener/blob/master/example/20-componentconfig-gardenlet.yaml) component.
+
+The following tables are a summary of the feature gates that you can set on different Gardener components.
+
+* The “Since” column contains the Gardener release when a feature is introduced or its release stage is changed.
+* The “Until” column, if not empty, contains the last Gardener release in which you can still use a feature gate.
+* If a feature is in the *Alpha* or *Beta* state, you can find the feature listed in the Alpha/Beta feature gate table.
+* If a feature is stable you can find all stages for that feature listed in the Graduated/Deprecated feature gate table.
+* The Graduated/Deprecated feature gate table also lists deprecated and withdrawn features.
+
+## Feature Gates for Alpha or Beta Features
+
+| Feature | Default | Stage | Since | Until |
+| --- | --- | --- | --- | --- |
+| DefaultSeccompProfile | `false` | `Alpha` | `1.54` |  |
+| InPlaceNodeUpdates | `false` | `Alpha` | `1.113` |  |
+| IstioTLSTermination | `false` | `Alpha` | `1.114` | `1.143` |
+| IstioTLSTermination | `true` | `Beta` | `1.144` |  |
+| CloudProfileCapabilities | `false` | `Alpha` | `1.117` | `1.145` |
+| CloudProfileCapabilities | `true` | `Beta` | `1.146` |  |
+| OpenTelemetryCollector | `false` | `Alpha` | `1.124` | `1.135` |
+| OpenTelemetryCollector | `true` | `Beta` | `1.136` |  |
+| VictoriaLogsBackend | `false` | `Alpha` | `1.137` |  |
+| CustomDNSServerInNodeLocalDNS | `true` | `Beta` | `1.133` |  |
+| VPNBondingModeRoundRobin | `false` | `Alpha` | `1.135` |  |
+| PrometheusHealthChecks | `false` | `Alpha` | `1.135` |  |
+| RemoveVali | `false` | `Alpha` | `1.140` |  |
+| VersionClassificationLifecycle | `false` | `Alpha` | `1.137` |  |
+| DisableNginxIngressInGarden | `false` | `Alpha` | `1.142` |  |
+| DisableNginxIngressInSeed | `false` | `Alpha` | `1.142` |  |
+| DisableNginxIngressInShoot | `false` | `Alpha` | `1.142` |  |
+| LiveControlPlaneMigration | `false` | `Alpha` | `1.142` |  |
+| BackupEntryForGarden | `false` | `Alpha` | `1.142` | `1.146` |
+| BackupEntryForGarden | `true` | `Beta` | `1.147` |  |
+
+## Feature Gates for Graduated or Deprecated Features
+
+| Feature | Default | Stage | Since | Until |
+| --- | --- | --- | --- | --- |
+| NodeLocalDNS | `false` | `Alpha` | `1.7` | `1.25` |
+| NodeLocalDNS |  | `Removed` | `1.26` |  |
+| KonnectivityTunnel | `false` | `Alpha` | `1.6` | `1.26` |
+| KonnectivityTunnel |  | `Removed` | `1.27` |  |
+| MountHostCADirectories | `false` | `Alpha` | `1.11` | `1.25` |
+| MountHostCADirectories | `true` | `Beta` | `1.26` | `1.27` |
+| MountHostCADirectories | `true` | `GA` | `1.27` | `1.29` |
+| MountHostCADirectories |  | `Removed` | `1.30` |  |
+| DisallowKubeconfigRotationForShootInDeletion | `false` | `Alpha` | `1.28` | `1.31` |
+| DisallowKubeconfigRotationForShootInDeletion | `true` | `Beta` | `1.32` | `1.35` |
+| DisallowKubeconfigRotationForShootInDeletion | `true` | `GA` | `1.36` | `1.37` |
+| DisallowKubeconfigRotationForShootInDeletion |  | `Removed` | `1.38` |  |
+| Logging | `false` | `Alpha` | `0.13` | `1.40` |
+| Logging |  | `Removed` | `1.41` |  |
+| AdminKubeconfigRequest | `false` | `Alpha` | `1.24` | `1.38` |
+| AdminKubeconfigRequest | `true` | `Beta` | `1.39` | `1.41` |
+| AdminKubeconfigRequest | `true` | `GA` | `1.42` | `1.49` |
+| AdminKubeconfigRequest |  | `Removed` | `1.50` |  |
+| UseDNSRecords | `false` | `Alpha` | `1.27` | `1.38` |
+| UseDNSRecords | `true` | `Beta` | `1.39` | `1.43` |
+| UseDNSRecords | `true` | `GA` | `1.44` | `1.49` |
+| UseDNSRecords |  | `Removed` | `1.50` |  |
+| CachedRuntimeClients | `false` | `Alpha` | `1.7` | `1.33` |
+| CachedRuntimeClients | `true` | `Beta` | `1.34` | `1.44` |
+| CachedRuntimeClients | `true` | `GA` | `1.45` | `1.49` |
+| CachedRuntimeClients |  | `Removed` | `1.50` |  |
+| DenyInvalidExtensionResources | `false` | `Alpha` | `1.31` | `1.41` |
+| DenyInvalidExtensionResources | `true` | `Beta` | `1.42` | `1.44` |
+| DenyInvalidExtensionResources | `true` | `GA` | `1.45` | `1.49` |
+| DenyInvalidExtensionResources |  | `Removed` | `1.50` |  |
+| RotateSSHKeypairOnMaintenance | `false` | `Alpha` | `1.28` | `1.44` |
+| RotateSSHKeypairOnMaintenance | `true` | `Beta` | `1.45` | `1.47` |
+| RotateSSHKeypairOnMaintenance (deprecated) | `false` | `Beta` | `1.48` | `1.50` |
+| RotateSSHKeypairOnMaintenance (deprecated) |  | `Removed` | `1.51` |  |
+| ShootForceDeletion | `false` | `Alpha` | `1.81` | `1.90` |
+| ShootForceDeletion | `true` | `Beta` | `1.91` | `1.110` |
+| ShootForceDeletion | `true` | `GA` | `1.111` | `1.119` |
+| ShootForceDeletion |  | `Removed` | `1.120` |  |
+| ShootMaxTokenExpirationOverwrite | `false` | `Alpha` | `1.43` | `1.44` |
+| ShootMaxTokenExpirationOverwrite | `true` | `Beta` | `1.45` | `1.47` |
+| ShootMaxTokenExpirationOverwrite | `true` | `GA` | `1.48` | `1.50` |
+| ShootMaxTokenExpirationOverwrite |  | `Removed` | `1.51` |  |
+| ShootMaxTokenExpirationValidation | `false` | `Alpha` | `1.43` | `1.45` |
+| ShootMaxTokenExpirationValidation | `true` | `Beta` | `1.46` | `1.47` |
+| ShootMaxTokenExpirationValidation | `true` | `GA` | `1.48` | `1.50` |
+| ShootMaxTokenExpirationValidation |  | `Removed` | `1.51` |  |
+| WorkerPoolKubernetesVersion | `false` | `Alpha` | `1.35` | `1.45` |
+| WorkerPoolKubernetesVersion | `true` | `Beta` | `1.46` | `1.49` |
+| WorkerPoolKubernetesVersion | `true` | `GA` | `1.50` | `1.51` |
+| WorkerPoolKubernetesVersion |  | `Removed` | `1.52` |  |
+| DisableDNSProviderManagement | `false` | `Alpha` | `1.41` | `1.49` |
+| DisableDNSProviderManagement | `true` | `Beta` | `1.50` | `1.51` |
+| DisableDNSProviderManagement | `true` | `GA` | `1.52` | `1.59` |
+| DisableDNSProviderManagement |  | `Removed` | `1.60` |  |
+| SecretBindingProviderValidation | `false` | `Alpha` | `1.38` | `1.50` |
+| SecretBindingProviderValidation | `true` | `Beta` | `1.51` | `1.52` |
+| SecretBindingProviderValidation | `true` | `GA` | `1.53` | `1.54` |
+| SecretBindingProviderValidation |  | `Removed` | `1.55` |  |
+| SeedKubeScheduler | `false` | `Alpha` | `1.15` | `1.54` |
+| SeedKubeScheduler | `false` | `Deprecated` | `1.55` | `1.60` |
+| SeedKubeScheduler |  | `Removed` | `1.61` |  |
+| ShootCARotation | `false` | `Alpha` | `1.42` | `1.50` |
+| ShootCARotation | `true` | `Beta` | `1.51` | `1.56` |
+| ShootCARotation | `true` | `GA` | `1.57` | `1.59` |
+| ShootCARotation |  | `Removed` | `1.60` |  |
+| ShootSARotation | `false` | `Alpha` | `1.48` | `1.50` |
+| ShootSARotation | `true` | `Beta` | `1.51` | `1.56` |
+| ShootSARotation | `true` | `GA` | `1.57` | `1.59` |
+| ShootSARotation |  | `Removed` | `1.60` |  |
+| ReversedVPN | `false` | `Alpha` | `1.22` | `1.41` |
+| ReversedVPN | `true` | `Beta` | `1.42` | `1.62` |
+| ReversedVPN | `true` | `GA` | `1.63` | `1.69` |
+| ReversedVPN |  | `Removed` | `1.70` |  |
+| ForceRestore |  | `Removed` | `1.66` |  |
+| SeedChange | `false` | `Alpha` | `1.12` | `1.52` |
+| SeedChange | `true` | `Beta` | `1.53` | `1.68` |
+| SeedChange | `true` | `GA` | `1.69` | `1.72` |
+| SeedChange |  | `Removed` | `1.73` |  |
+| CopyEtcdBackupsDuringControlPlaneMigration | `false` | `Alpha` | `1.37` | `1.52` |
+| CopyEtcdBackupsDuringControlPlaneMigration | `true` | `Beta` | `1.53` | `1.68` |
+| CopyEtcdBackupsDuringControlPlaneMigration | `true` | `GA` | `1.69` | `1.72` |
+| CopyEtcdBackupsDuringControlPlaneMigration |  | `Removed` | `1.73` |  |
+| ManagedIstio | `false` | `Alpha` | `1.5` | `1.18` |
+| ManagedIstio | `true` | `Beta` | `1.19` | `1.47` |
+| ManagedIstio | `true` | `Deprecated` | `1.48` | `1.69` |
+| ManagedIstio |  | `Removed` | `1.70` |  |
+| APIServerSNI | `false` | `Alpha` | `1.7` | `1.18` |
+| APIServerSNI | `true` | `Beta` | `1.19` | `1.47` |
+| APIServerSNI | `true` | `Deprecated` | `1.48` | `1.72` |
+| APIServerSNI |  | `Removed` | `1.73` |  |
+| HAControlPlanes | `false` | `Alpha` | `1.49` | `1.70` |
+| HAControlPlanes | `true` | `Beta` | `1.71` | `1.72` |
+| HAControlPlanes | `true` | `GA` | `1.73` | `1.73` |
+| HAControlPlanes |  | `Removed` | `1.74` |  |
+| FullNetworkPoliciesInRuntimeCluster | `false` | `Alpha` | `1.66` | `1.70` |
+| FullNetworkPoliciesInRuntimeCluster | `true` | `Beta` | `1.71` | `1.72` |
+| FullNetworkPoliciesInRuntimeCluster | `true` | `GA` | `1.73` | `1.73` |
+| FullNetworkPoliciesInRuntimeCluster |  | `Removed` | `1.74` |  |
+| DisableScalingClassesForShoots | `false` | `Alpha` | `1.73` | `1.78` |
+| DisableScalingClassesForShoots | `true` | `Beta` | `1.79` | `1.80` |
+| DisableScalingClassesForShoots | `true` | `GA` | `1.81` | `1.81` |
+| DisableScalingClassesForShoots |  | `Removed` | `1.82` |  |
+| ContainerdRegistryHostsDir | `false` | `Alpha` | `1.77` | `1.85` |
+| ContainerdRegistryHostsDir | `true` | `Beta` | `1.86` | `1.86` |
+| ContainerdRegistryHostsDir | `true` | `GA` | `1.87` | `1.87` |
+| ContainerdRegistryHostsDir |  | `Removed` | `1.88` |  |
+| WorkerlessShoots | `false` | `Alpha` | `1.70` | `1.78` |
+| WorkerlessShoots | `true` | `Beta` | `1.79` | `1.85` |
+| WorkerlessShoots | `true` | `GA` | `1.86` | `1.87` |
+| WorkerlessShoots |  | `Removed` | `1.88` |  |
+| MachineControllerManagerDeployment | `false` | `Alpha` | `1.73` | `1.80` |
+| MachineControllerManagerDeployment | `true` | `Beta` | `1.81` | `1.81` |
+| MachineControllerManagerDeployment | `true` | `GA` | `1.82` | `1.91` |
+| MachineControllerManagerDeployment |  | `Removed` | `1.92` |  |
+| APIServerFastRollout | `true` | `Beta` | `1.82` | `1.89` |
+| APIServerFastRollout | `true` | `GA` | `1.90` | `1.91` |
+| APIServerFastRollout |  | `Removed` | `1.92` |  |
+| UseGardenerNodeAgent | `false` | `Alpha` | `1.82` | `1.88` |
+| UseGardenerNodeAgent | `true` | `Beta` | `1.89` | `1.89` |
+| UseGardenerNodeAgent | `true` | `GA` | `1.90` | `1.91` |
+| UseGardenerNodeAgent |  | `Removed` | `1.92` |  |
+| CoreDNSQueryRewriting | `false` | `Alpha` | `1.55` | `1.95` |
+| CoreDNSQueryRewriting | `true` | `Beta` | `1.96` | `1.96` |
+| CoreDNSQueryRewriting | `true` | `GA` | `1.97` | `1.100` |
+| CoreDNSQueryRewriting |  | `Removed` | `1.101` |  |
+| MutableShootSpecNetworkingNodes | `false` | `Alpha` | `1.64` | `1.95` |
+| MutableShootSpecNetworkingNodes | `true` | `Beta` | `1.96` | `1.96` |
+| MutableShootSpecNetworkingNodes | `true` | `GA` | `1.97` | `1.100` |
+| MutableShootSpecNetworkingNodes |  | `Removed` | `1.101` |  |
+| VPAForETCD | `false` | `Alpha` | `1.94` | `1.96` |
+| VPAForETCD | `true` | `Beta` | `1.97` | `1.104` |
+| VPAForETCD | `true` | `GA` | `1.105` | `1.108` |
+| VPAForETCD |  | `Removed` | `1.109` |  |
+| VPAAndHPAForAPIServer | `false` | `Alpha` | `1.95` | `1.100` |
+| VPAAndHPAForAPIServer | `true` | `Beta` | `1.101` | `1.104` |
+| VPAAndHPAForAPIServer | `true` | `GA` | `1.105` | `1.108` |
+| VPAAndHPAForAPIServer |  | `Removed` | `1.109` |  |
+| HVPA | `false` | `Alpha` | `0.31` | `1.105` |
+| HVPA | `false` | `Deprecated` | `1.106` | `1.108` |
+| HVPA |  | `Removed` | `1.109` |  |
+| HVPAForShootedSeed | `false` | `Alpha` | `0.32` | `1.105` |
+| HVPAForShootedSeed | `false` | `Deprecated` | `1.106` | `1.108` |
+| HVPAForShootedSeed |  | `Removed` | `1.109` |  |
+| IPv6SingleStack | `false` | `Alpha` | `1.63` | `1.106` |
+| IPv6SingleStack |  | `Removed` | `1.107` |  |
+| ShootManagedIssuer | `false` | `Alpha` | `1.93` | `1.110` |
+| ShootManagedIssuer |  | `Removed` | `1.111` |  |
+| NewVPN | `false` | `Alpha` | `1.104` | `1.114` |
+| NewVPN | `true` | `Beta` | `1.115` | `1.115` |
+| NewVPN | `true` | `GA` | `1.116` | `1.126` |
+| NewVPN |  | `Removed` | `1.127` |  |
+| RemoveAPIServerProxyLegacyPort | `false` | `Alpha` | `1.113` | `1.118` |
+| RemoveAPIServerProxyLegacyPort | `true` | `Beta` | `1.119` | `1.121` |
+| RemoveAPIServerProxyLegacyPort | `true` | `GA` | `1.122` | `1.122` |
+| RemoveAPIServerProxyLegacyPort |  | `Removed` | `1.123` |  |
+| NodeAgentAuthorizer | `false` | `Alpha` | `1.109` | `1.115` |
+| NodeAgentAuthorizer | `true` | `Beta` | `1.116` | `1.122` |
+| NodeAgentAuthorizer | `true` | `GA` | `1.123` | `1.123` |
+| NodeAgentAuthorizer |  | `Removed` | `1.124` |  |
+| UseNamespacedCloudProfile | `false` | `Alpha` | `1.92` | `1.111` |
+| UseNamespacedCloudProfile | `true` | `Beta` | `1.112` | `1.124` |
+| UseNamespacedCloudProfile | `true` | `GA` | `1.125` | `1.128` |
+| UseNamespacedCloudProfile |  | `Removed` | `1.129` |  |
+| CredentialsRotationWithoutWorkersRollout | `false` | `Alpha` | `1.112` | `1.120` |
+| CredentialsRotationWithoutWorkersRollout | `true` | `Beta` | `1.121` | `1.126` |
+| CredentialsRotationWithoutWorkersRollout | `true` | `GA` | `1.127` | `1.128` |
+| CredentialsRotationWithoutWorkersRollout |  | `Removed` | `1.129` |  |
+| ShootCredentialsBinding | `false` | `Alpha` | `1.98` | `1.106` |
+| ShootCredentialsBinding | `true` | `Beta` | `1.107` | `1.132` |
+| ShootCredentialsBinding | `true` | `GA` | `1.133` | `1.133` |
+| ShootCredentialsBinding |  | `Removed` | `1.134` |  |
+| DoNotCopyBackupCredentials | `false` | `Alpha` | `1.121` | `1.122` |
+| DoNotCopyBackupCredentials | `true` | `Beta` | `1.123` | `1.133` |
+| DoNotCopyBackupCredentials | `true` | `GA` | `1.134` |  |
+| NewWorkerPoolHash | `false` | `Alpha` | `1.98` | `1.125` |
+| NewWorkerPoolHash | `true` | `Beta` | `1.126` | `1.140` |
+| NewWorkerPoolHash | `true` | `GA` | `1.141` | `1.142` |
+| NewWorkerPoolHash |  | `Removed` | `1.143` |  |
+| UseUnifiedHTTPProxyPort | `false` | `Alpha` | `1.130` | `1.139` |
+| UseUnifiedHTTPProxyPort | `true` | `Beta` | `1.140` | `1.143` |
+| UseUnifiedHTTPProxyPort | `true` | `GA` | `1.144` | `1.144` |
+| UseUnifiedHTTPProxyPort |  | `Removed` | `1.145` |  |
+| VPAInPlaceUpdates | `false` | `Alpha` | `1.133` | `1.137` |
+| VPAInPlaceUpdates | `true` | `Beta` | `1.138` | `1.145` |
+| VPAInPlaceUpdates | `true` | `GA` | `1.146` |  |
+
+## Using a Feature
+
+A feature can be in *Alpha*, *Beta* or *GA* stage.
+An *Alpha* feature means:
+
+* Disabled by default.
+* Might be buggy. Enabling the feature may expose bugs.
+* Support for feature may be dropped at any time without notice.
+* The API may change in incompatible ways in a later software release without notice.
+* Recommended for use only in short-lived testing clusters, due to increased
+  risk of bugs and lack of long-term support.
+
+A *Beta* feature means:
+
+* Enabled by default.
+* The feature is well tested. Enabling the feature is considered safe.
+* Support for the overall feature will not be dropped, though details may change.
+* The schema and/or semantics of objects may change in incompatible ways in a
+  subsequent beta or stable release. When this happens, we will provide instructions
+  for migrating to the next version. This may require deleting, editing, and
+  re-creating API objects. The editing process may require some thought.
+  This may require downtime for applications that rely on the feature.
+* Recommended for only non-critical uses because of potential for
+  incompatible changes in subsequent releases.
+
+> Please do try *Beta* features and give feedback on them!
+> After they exit beta, it may not be practical for us to make more changes.
+
+A *General Availability* (GA) feature is also referred to as a *stable* feature. It means:
+
+* The feature is always enabled; you cannot disable it.
+* The corresponding feature gate is no longer needed.
+* Stable versions of features will appear in released software for many subsequent versions.
+
+## List of Feature Gates
+
+> Note: All feature gates that are relevant for `gardenlet`, are also relevant for `gardenadm`.
+
+| Feature | Relevant Components | Description |
+| --- | --- | --- |
+| DefaultSeccompProfile | `gardenlet`, `gardener-operator` | Enables the defaulting of the seccomp profile for Gardener managed workload in the garden or seed to `RuntimeDefault`. |
+| ShootManagedIssuer | `gardenlet` | Enables the shoot managed issuer functionality described in GEP 24. |
+| InPlaceNodeUpdates | `gardener-apiserver` | Enables setting the update strategy of worker pools to `AutoInPlaceUpdate` or `ManualInPlaceUpdate` in the Shoot API. |
+| IstioTLSTermination | `gardenlet`, `gardener-operator` | Enables TLS termination for the Istio Ingress Gateway instead of TLS termination at the kube-apiserver. It allows load-balancing of requests to the kube-apiserver on request level instead of connection level. |
+| CloudProfileCapabilities | `gardener-apiserver` | Enables the usage of capabilities in the `CloudProfile`. Capabilities are used to create a relation between machineTypes and machineImages. It allows to validate worker groups of a shoot ensuring the selected image and machine combination will boot up successfully. Capabilities are also used to determine valid upgrade paths during automated maintenance operation. |
+| DoNotCopyBackupCredentials | `gardenlet` | Disables the copying of Shoot infrastructure credentials as backup credentials when the Shoot is used as a ManagedSeed. Operators are responsible for providing the credentials for backup explicitly. Credentials that were already copied will be labeled with `secret.backup.gardener.cloud/status=previously-managed` and would have to be cleaned up by operators. |
+| OpenTelemetryCollector | `gardenlet` | Routes logs through an instance of an `OpenTelemetry Collector` in the control-plane of `Shoots`. |
+| VictoriaLogsBackend | `gardenlet`, `gardener-operator` | Enables the deployment of `VictoriaLogs` instance in the control-plane of `Shoots` and `garden` namespace of `Seed` and `Garden` clusters. `VictoriaLogs` will be used as the log aggregation system instead of `Vali`. |
+| VPAInPlaceUpdates | `gardenlet`, `gardener-operator` | Enables the usage of in-place Pod resource updates in `Shoot`, `Seed` and `Garden` cluster's Vertical Pod Autoscaler deployments. |
+| CustomDNSServerInNodeLocalDNS | `gardenlet` | Enables custom server block support for NodeLocalDNS in the custom CoreDNS configuration of Shoot clusters. |
+| VPNBondingModeRoundRobin | `gardenlet` | Enables round-robin bonding mode for HA VPN for increased availability in network degradation scenarios. Both VPN servers are used simultaneously instead of using vpn-seed-server-0 as primary and vpn-seed-server-1 as backup. |
+| PrometheusHealthChecks | `gardenlet`, `gardener-operator` | Enables care controllers to query Prometheus for enhanced health checks of monitoring components. Detected health issues are reported in the respective `Shoot`, `Seed`, or `Garden` resource. |
+| RemoveVali | `gardenlet`, `gardener-operator` | Enables the automatic removal of `Vali` log aggregation components once `VictoriaLogs` has been enabled for 2 weeks. Requires `VictoriaLogsBackend` feature gate to be enabled. |
+| VersionClassificationLifecycle | `gardener-apiserver` | Enables the features introduced by GEP-32, including lifecycle-based classification for Kubernetes and machine image versions. |
+| DisableNginxIngressInGarden | `gardener-operator` | Disables the deployment of the nginx ingress controller in the Garden runtime cluster and removes the nginx ingress controller (if existing) from the Garden runtime cluster. |
+| DisableNginxIngressInSeed | `gardenlet` | Disables the deployment of the nginx ingress controller in the Seed cluster and removes the nginx ingress controller (if existing) from the Seed cluster. |
+| DisableNginxIngressInShoot | `gardener-apiserver`, `gardener-controller-manager` | Disables the creation/enablement of the deployment nginx ingress shoot addon and removes the nginx ingress controller (if existing) from the Shoot clusters. |
+| LiveControlPlaneMigration | `gardener-apiserver` | Enables setting the `gardener.cloud/operation=live-migrate` annotation on Shoot to trigger live control-plane migration, as described in [GEP-0039](https://github.com/gardener/enhancements/tree/main/geps/0039-live-control-plane-migration). |
+| BackupEntryForGarden | `gardener-operator` | Enables deploying a `BackupEntry` extension object in the garden controller alongside the `BackupBucket` when etcd backup is configured, aligning the garden with the same extension contract that shoot clusters use for backup credential management. |

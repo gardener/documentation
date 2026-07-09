@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1141px" height="422px" viewBox="0 0 1141 422" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>faq-port-forward</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="68" y="66" width="411" height="264" rx="8"></rect>
+        <filter x="-3.5%" y="-4.7%" width="107.1%" height="111.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feMorphology radius="1" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0459692029 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-3" x="89" y="86" width="91" height="72" rx="5"></rect>
+        <filter x="-7.7%" y="-6.9%" width="115.4%" height="119.4%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.22619452 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-5" x="314" y="86" width="137" height="72" rx="5"></rect>
+        <filter x="-5.1%" y="-6.9%" width="110.2%" height="119.4%" filterUnits="objectBoundingBox" id="filter-6">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.22619452 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <path d="M903.316401,32.5784952 C905.350796,31.7067164 908.650524,31.707282 910.683599,32.5784952 L1041.70057,88.721861 C1043.73497,89.5936398 1045.82881,92.0338203 1046.37935,94.1801665 L1078.56706,219.667237 C1079.11668,221.809997 1078.36875,224.878754 1076.8884,226.530556 L986.471267,327.419088 C984.994543,329.066834 982.005964,330.402597 979.807292,330.402597 L834.192708,330.402597 C831.98902,330.402597 829.009091,329.07089 827.528733,327.419088 L737.111604,226.530556 C735.634881,224.882809 734.882397,221.813583 735.432939,219.667237 L767.620648,94.1801665 C768.17027,92.0374064 770.266351,89.5930742 772.299427,88.721861 L903.316401,32.5784952 Z" id="path-7"></path>
+        <filter x="-3.9%" y="-3.9%" width="107.9%" height="110.8%" filterUnits="objectBoundingBox" id="filter-8">
+            <feMorphology radius="1.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0459692029 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <path d="M968.455931,81.8756551 C970.413266,80.8397594 973.583997,80.8383112 975.544069,81.8756551 L1025.45593,108.290896 C1027.41327,109.326792 1029,111.955833 1029,114.171899 L1029,166.494307 C1029,168.706399 1027.416,171.337966 1025.45593,172.37531 L975.544069,198.790551 C973.586734,199.826447 970.416003,199.827895 968.455931,198.790551 L918.544069,172.37531 C916.586734,171.339414 915,168.710374 915,166.494307 L915,114.171899 C915,111.959807 916.583997,109.32824 918.544069,108.290896 L968.455931,81.8756551 Z" id="path-9"></path>
+        <filter x="-10.4%" y="-4.6%" width="120.7%" height="112.4%" filterUnits="objectBoundingBox" id="filter-10">
+            <feMorphology radius="0.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.22619452 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <polygon id="path-11" points="451 121.414486 887.269249 121.414486 887.269249 110 915 125 888.445431 140 888.445431 130.151688 451 130.151688"></polygon>
+        <filter x="-1.5%" y="-16.7%" width="103.0%" height="146.7%" filterUnits="objectBoundingBox" id="filter-12">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0210880888 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <polygon id="path-13" points="180 121.414486 287.91072 121.414486 287.91072 110 317 125 288.201648 140 288.201648 130.151688 180 130.151688"></polygon>
+        <filter x="-5.1%" y="-16.7%" width="110.2%" height="146.7%" filterUnits="objectBoundingBox" id="filter-14">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0210880888 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="faq-port-forward">
+            <g id="Rectangle">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <use fill="#FBFBFA" fill-rule="evenodd" xlink:href="#path-1"></use>
+                <rect stroke="#0CA391" stroke-width="1" x="68.5" y="66.5" width="410" height="263" rx="8"></rect>
+            </g>
+            <g id="Rectangle">
+                <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-3"></use>
+                <rect stroke-opacity="0.379076087" stroke="#C9C9C9" stroke-width="1" x="89.5" y="86.5" width="90" height="71" rx="5"></rect>
+            </g>
+            <g id="Rectangle">
+                <use fill="black" fill-opacity="1" filter="url(#filter-6)" xlink:href="#path-5"></use>
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-5"></use>
+                <rect stroke-opacity="0.379076087" stroke="#C9C9C9" stroke-width="1" x="314.5" y="86.5" width="136" height="71" rx="5"></rect>
+            </g>
+            <text id="curl" font-family="Verdana" font-size="22" font-weight="normal" fill="#4A4A4A">
+                <tspan x="108" y="128">curl</tspan>
+            </text>
+            <text id="local-machine" font-family="Verdana" font-size="14" font-weight="normal" fill="#00AF85">
+                <tspan x="365" y="317">local machine</tspan>
+            </text>
+            <text id="port-8080" font-family="Verdana" font-size="14" font-weight="normal" fill="#4A4A4A">
+                <tspan x="214" y="112">port 8080</tspan>
+            </text>
+            <text id="port-80" font-family="Verdana" font-size="14" font-weight="normal" fill="#4A4A4A">
+                <tspan x="630" y="114">port 80</tspan>
+            </text>
+            <text id="kubectl" font-family="Verdana" font-size="22" font-weight="normal" fill="#4A4A4A">
+                <tspan x="336" y="130">kubectl</tspan>
+            </text>
+            <text id="&gt;-kubectl-port-forwa" font-family="Verdana" font-size="22" font-weight="normal" fill="#4990E2">
+                <tspan x="68" y="380">&gt; kubectl port-forward pod-### 8080:80</tspan>
+            </text>
+            <g id="Polygon-2">
+                <use fill="black" fill-opacity="1" filter="url(#filter-8)" xlink:href="#path-7"></use>
+                <use stroke="#0CA391" stroke-width="1" fill="#FBFBFA" fill-rule="evenodd" xlink:href="#path-7"></use>
+            </g>
+            <g id="Polygon">
+                <use fill="black" fill-opacity="1" filter="url(#filter-10)" xlink:href="#path-9"></use>
+                <use stroke-opacity="0.379076087" stroke="#C9C9C9" stroke-width="1" fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-9"></use>
+            </g>
+            <g id="Rectangle-2">
+                <use fill="black" fill-opacity="1" filter="url(#filter-12)" xlink:href="#path-11"></use>
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-11"></use>
+                <path stroke="#C9C9C9" stroke-width="1" d="M451.5,121.914486 L887.269249,121.914486 L887.769249,121.914486 L887.769249,121.414486 L887.769249,110.838918 L913.966606,125.009481 L888.945431,139.143306 L888.945431,130.151688 L888.945431,129.651688 L888.445431,129.651688 L451.5,129.651688 L451.5,121.914486 Z"></path>
+            </g>
+            <text id="kubernetes-cluster" font-family="Verdana" font-size="14" font-weight="normal" fill="#00AF85">
+                <tspan x="842" y="324">kubernetes cluster</tspan>
+            </text>
+            <text id="pod-####" font-family="Verdana" font-size="16" font-weight="normal" fill="#4A4A4A">
+                <tspan x="934" y="161">pod-####</tspan>
+            </text>
+            <g id="Rectangle-2">
+                <use fill="black" fill-opacity="1" filter="url(#filter-14)" xlink:href="#path-13"></use>
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-13"></use>
+                <path stroke="#C9C9C9" stroke-width="1" d="M180.5,121.914486 L287.91072,121.914486 L288.41072,121.914486 L288.41072,121.414486 L288.41072,110.820388 L315.913361,125.002231 L288.701648,139.175809 L288.701648,130.151688 L288.701648,129.651688 L288.201648,129.651688 L180.5,129.651688 L180.5,121.914486 Z"></path>
+            </g>
+        </g>
+    </g>
+</svg>

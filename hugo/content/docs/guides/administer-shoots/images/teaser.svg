@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="839px" height="249px" viewBox="0 0 839 249" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>teaser</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-4.5%" y="-5.2%" width="109.0%" height="110.3%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="teaser" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="computer" transform="translate(497.000000, 213.000000)">
+            <circle id="Oval" fill="#C71D3D" cx="189" cy="18" r="6"></circle>
+            <rect id="Rectangle" stroke="#C71D3D" stroke-width="3" x="1.5" y="1.5" width="204" height="33" rx="5"></rect>
+            <rect id="Rectangle" stroke="#C71D3D" stroke-width="2" x="19" y="14" width="18" height="8" rx="4"></rect>
+            <rect id="Rectangle" stroke="#C71D3D" stroke-width="2" x="45" y="14" width="18" height="8" rx="4"></rect>
+            <rect id="Rectangle" stroke="#C71D3D" stroke-width="2" x="70" y="14" width="18" height="8" rx="4"></rect>
+        </g>
+        <g id="computer" transform="translate(497.000000, 174.000000)">
+            <circle id="Oval" fill="#C71D3D" cx="189" cy="18" r="6"></circle>
+            <rect id="Rectangle" stroke="#C71D3D" stroke-width="3" x="1.5" y="1.5" width="204" height="33" rx="5"></rect>
+            <rect id="Rectangle" stroke="#C71D3D" stroke-width="2" x="19" y="14" width="18" height="8" rx="4"></rect>
+            <rect id="Rectangle" stroke="#C71D3D" stroke-width="2" x="45" y="14" width="18" height="8" rx="4"></rect>
+            <rect id="Rectangle" stroke="#C71D3D" stroke-width="2" x="70" y="14" width="18" height="8" rx="4"></rect>
+        </g>
+        <g id="computer" transform="translate(497.000000, 135.000000)">
+            <circle id="Oval" fill="#C71D3D" cx="189" cy="18" r="6"></circle>
+            <rect id="Rectangle" stroke="#C71D3D" stroke-width="3" x="1.5" y="1.5" width="204" height="33" rx="5"></rect>
+            <rect id="Rectangle" stroke="#C71D3D" stroke-width="2" x="19" y="14" width="18" height="8" rx="4"></rect>
+            <rect id="Rectangle" stroke="#C71D3D" stroke-width="2" x="45" y="14" width="18" height="8" rx="4"></rect>
+            <rect id="Rectangle" stroke="#C71D3D" stroke-width="2" x="70" y="14" width="18" height="8" rx="4"></rect>
+        </g>
+        <g id="computer" transform="translate(497.000000, 96.000000)">
+            <circle id="Oval" fill="#C71D3D" cx="189" cy="18" r="6"></circle>
+            <rect id="Rectangle" stroke="#C71D3D" stroke-width="3" x="1.5" y="1.5" width="204" height="33" rx="5"></rect>
+            <rect id="Rectangle" stroke="#C71D3D" stroke-width="2" x="19" y="14" width="18" height="8" rx="4"></rect>
+            <rect id="Rectangle" stroke="#C71D3D" stroke-width="2" x="45" y="14" width="18" height="8" rx="4"></rect>
+            <rect id="Rectangle" stroke="#C71D3D" stroke-width="2" x="70" y="14" width="18" height="8" rx="4"></rect>
+        </g>
+        <g id="computer" transform="translate(497.000000, 57.000000)">
+            <circle id="Oval" fill="#C71D3D" cx="189" cy="18" r="6"></circle>
+            <rect id="Rectangle" stroke="#C71D3D" stroke-width="3" x="1.5" y="1.5" width="204" height="33" rx="5"></rect>
+            <rect id="Rectangle" stroke="#C71D3D" stroke-width="2" x="19" y="14" width="18" height="8" rx="4"></rect>
+            <rect id="Rectangle" stroke="#C71D3D" stroke-width="2" x="45" y="14" width="18" height="8" rx="4"></rect>
+            <rect id="Rectangle" stroke="#C71D3D" stroke-width="2" x="70" y="14" width="18" height="8" rx="4"></rect>
+        </g>
+        <g id="star" filter="url(#filter-1)" transform="translate(349.000000, 78.000000)">
+            <polygon id="outline" fill="#D0021B" points="127.651265 178.054416 70.4976247 232 77.0252462 166.99505 0 170.804844 43.7993434 118.580519 10.0062697 73.0904838 63.7021876 82.5272609 21.1861629 0 112.327338 56.2040522 127.651265 5.49542206 154.442356 56.2040522 232.443824 5.49542206 191.720953 73.0904838 257.987139 69.4615866 211.138822 109.716581 267 140.183968 205.284931 140.183968 257.987139 195.708288 176.482961 166.99505 164.252694 224.215961"></polygon>
+            <polygon id="inner" fill="#FD7F00" points="126.899414 167.128906 80.1941644 213.495117 84 158.583008 16.9628906 163.075763 53.3183594 118.24707 25.4326172 82.7 80.1941644 90.6068876 37.6777344 18.5732422 115.226563 66.8935547 128.222656 19.9130859 150.286133 70.6375569 214.770508 24.0615234 177.047313 83.4479532 239.482422 76 191.737985 111.233268 234 134.346459 187.309199 134.346459 227.181281 176.468356 169.3125 156 159.647461 208.022461"></polygon>
+        </g>
+        <path d="M87.8027344,249.933594 C85.4410048,232.197139 84.4836481,215.503129 84.9306641,199.851562 C85.6011881,176.374213 83.9257812,182.84668 90.5644531,153.236328 C97.203125,123.625977 129.894018,103.296558 135.089844,99.1816406 C140.28567,95.0667235 142.231065,98.3546869 145.599609,91.640625 C148.968154,84.9265631 142.314453,64.3808594 157.113281,60.5019531 C171.912109,56.6230469 177.038086,76.7070313 171.692383,89.0693359 C166.34668,101.431641 161.885742,105.229004 157.113281,109.714844 L165.036133,102.181152 C177.487305,115.349121 186.178711,115.830078 213.520508,114.123047 C228.190603,113.207148 244.659659,111.519408 256.204102,118.847656 C262.686964,122.962885 267.568626,128.186874 269.497559,131.209961 C276.190701,141.699675 259.175646,143.469805 253.763672,136.032227 C248.719563,129.100198 167.588867,138.555664 163.243164,131.209961 L167.085937,118.086914 L160.730469,136.032227 C151.845703,156.777669 148.558594,165.942057 148.558594,167.314453 C148.558594,168.686849 149.086914,182.694987 150.143555,209.338867 L150.143555,250.478516 L87.8027344,249.933594 Z" id="Path-2" stroke="#C71D3D" stroke-width="3" fill="#FFFFFF"></path>
+        <polyline id="Path-3" stroke="#C71D3D" stroke-width="3" points="104.491211 248.430664 98.5996094 200.581055 100.425781 167.629883 105.977539 145.538086"></polyline>
+        <polyline id="Path-4" stroke="#C71D3D" stroke-width="3" points="136.548828 131.335938 125.538086 172.164063 127.305664 249.036133"></polyline>
+        <path d="M169.685547,249.751953 L169.685547,189.212891 L178.914062,156.410156 L197.277344,134.300781 L215.076172,119.722656 L220.152344,105.904297 L215.076172,82 C217.888737,74.296875 222.348372,70.4453125 228.455078,70.4453125 C237.615137,70.4453125 244.167911,74.0869013 247.273438,82 C249.343788,87.2753991 247.709674,95.2434981 242.371094,105.904297 L247.273438,125.441406 L272.478516,140.628906 L286.609375,189.212891 L286.609375,236.083984 L286.609375,249.751953 L169.685547,249.751953 Z" id="Path-7" stroke="#C71D3D" stroke-width="3" fill="#FFFFFF"></path>
+        <polyline id="Path-8" stroke="#C71D3D" stroke-width="3" points="272.685547 244.882812 270.15625 216.996094 270.15625 177.720703"></polyline>
+        <polyline id="Path-9" stroke="#C71D3D" stroke-width="3" points="193.025391 249 193.025391 225.525391 198.597656 174.271484"></polyline>
+        <path d="M221.449219,53.7246094 C224.124893,50.183219 225.172419,44.2737138 224.591797,35.9960937 C223.720864,23.5796637 218.654297,28.2216797 218.654297,13.8789062" id="Path" stroke="#C71D3D" stroke-width="2"></path>
+        <path d="M234.453125,53.5917969 C237.217815,51.1908115 237.858765,45.9831292 236.375977,37.96875 C234.151793,25.9471812 228.042969,25.3159786 228.042969,18.9453125 C228.042969,14.6982018 230.179688,10.5471601 234.453125,6.4921875" id="Path-10" stroke="#C71D3D" stroke-width="2"></path>
+        <path d="M245.666016,53.2617188 C246.992001,47.8403255 246.992001,41.1736588 245.666016,33.2617188 C244.340031,25.3497787 242.337427,20.0672266 239.658203,17.4140625" id="Path-11" stroke="#C71D3D" stroke-width="2"></path>
+    </g>
+</svg>

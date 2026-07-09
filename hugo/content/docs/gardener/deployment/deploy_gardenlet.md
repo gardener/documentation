@@ -1,0 +1,38 @@
+---
+github_repo: 'https://github.com/gardener/gardener'
+github_subdir: docs/deployment
+params:
+  github_branch: master
+path_base_for_github_subdir:
+  from: content/docs/gardener/deployment/deploy_gardenlet.md
+  to: deploy_gardenlet.md
+title: Deploy Gardenlet
+prev: false
+next: false
+managed: true
+---
+
+# Deploying Gardenlets
+
+Gardenlets act as decentralized agents to manage the shoot clusters of a seed cluster.
+
+## Procedure
+
+After you have deployed the Gardener control plane, you need one or more seed clusters in order to be able to create shoot clusters.
+
+You can either register an existing cluster as "seed" (this could also be the cluster in which the control plane runs), or you can create new clusters (typically shoots, i.e., this approach registers at least one first initial seed) and then register them as "seeds".
+
+The following sections describe the scenarios.
+
+### Register A First Seed Cluster
+
+If you have not registered a seed cluster yet (thus, you need to deploy a first, so-called "unmanaged seed"), your approach depends on how you deployed the Gardener control plane.
+
+#### Gardener Control Plane Deployed Via [`gardener-operator`](/docs/gardener/concepts/operator/)
+
+1. If you want to register the same cluster in which `gardener-operator` runs, or if you want to register another cluster that is reachable (network-wise) for `gardener-operator`, you can follow [Deploy gardenlet via `gardener-operator`](/docs/gardener/deployment/deploy_gardenlet_via_operator/).
+1. If you want to register a cluster that is not reachable (network-wise) (e.g., because it runs behind a firewall), you can follow [Deploy a gardenlet Manually](/docs/gardener/deployment/deploy_gardenlet_manually/).
+
+### Register Further Seed Clusters
+
+If you already have a seed cluster, and you want to deploy further seed clusters (so-called "managed seeds"), you can follow [Deploy a gardenlet Automatically](/docs/gardener/deployment/deploy_gardenlet_automatically/).

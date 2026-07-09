@@ -1,0 +1,47 @@
+---
+github_repo: 'https://github.com/gardener/documentation'
+github_subdir: hugo/content/docs/getting-started/observability
+params:
+  github_branch: master
+path_base_for_github_subdir:
+  from: content/docs/getting-started/observability/alerts.md
+  to: alerts.md
+title: Alerts
+weight: 2
+prev: false
+next: false
+local: true
+---
+
+# Alerts
+
+## Overview
+
+In this overview, we want to present two ways to receive alerts for control plane and Gardener managed system-components:
+
+- Predefined Gardener alerts
+- Custom alerts
+
+### Predefined Control Plane Alerts
+
+In the shoot spec it is possible to configure `emailReceivers`. On this email address you will automatically receive email notifications for predefined alerts of your control plane. Such alerts are deployed in the shoot Prometheus and have visibility `owner` or `all`. For more alert details, shoot owners can use this visibility to find these alerts in their shoot Prometheus UI.
+
+```yaml
+spec:
+  monitoring:
+    alerting:
+      emailReceivers:
+      - john.doe@example.com
+```
+
+For more information, see [Alerting](/docs/gardener/monitoring/alerting/).
+
+### Custom Alerts – Federation
+
+If you need more customization for alerts for control plane metrics, you have the option to deploy your own Prometheus into your shoot cluster.
+
+Then you can use federation, which is a Prometheus feature, to forward the metrics from the Gardener managed Prometheus to your custom deployed Prometheus. Since as a shoot owner you do not have access to the control plane pods, this is the only way to get those metrics.
+
+The credentials and endpoint for the Gardener managed Prometheus are exposed over the Gardener dashboard or programmatically in the garden project as a secret (`<shoot-name>.monitoring`).
+
+![custom-alerts](/docs/getting-started/observability/images/custom-alerts.webp)

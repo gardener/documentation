@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="660px" height="253px" viewBox="0 0 660 253" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>teaser</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-4.5%" y="-5.2%" width="109.0%" height="110.3%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <filter x="-3.9%" y="-406.0%" width="107.9%" height="911.9%" filterUnits="objectBoundingBox" id="filter-2">
+            <feGaussianBlur stdDeviation="1.35323661" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="teaser" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" fill="#009F76" x="0" y="0" width="673" height="293"></rect>
+        <g id="star" filter="url(#filter-1)" transform="translate(0.000000, 5.000000)">
+            <polygon id="outline" fill="#D0021B" points="127.651265 178.054416 70.4976247 232 77.0252462 166.99505 0 170.804844 43.7993434 118.580519 10.0062697 73.0904838 63.7021876 82.5272609 21.1861629 0 112.327338 56.2040522 127.651265 5.49542206 154.442356 56.2040522 232.443824 5.49542206 191.720953 73.0904838 257.987139 69.4615866 211.138822 109.716581 267 140.183968 205.284931 140.183968 257.987139 195.708288 176.482961 166.99505 164.252694 224.215961"></polygon>
+            <polygon id="inner" fill="#FD7F00" points="126.899414 167.128906 80.1941644 213.495117 84 158.583008 16.9628906 163.075763 53.3183594 118.24707 25.4326172 82.7 80.1941644 90.6068876 37.6777344 18.5732422 115.226562 66.8935547 128.222656 19.9130859 150.286133 70.6375569 214.770508 24.0615234 177.047313 83.4479532 239.482422 76 191.737985 111.233268 234 134.346459 187.309199 134.346459 227.181281 176.468356 169.3125 156 159.647461 208.022461"></polygon>
+        </g>
+        <g id="terminal" transform="translate(82.000000, 106.000000)">
+            <rect id="Rectangle-2" stroke="#192432" fill="#353854" x="0.5" y="0.5" width="124" height="79" rx="21"></rect>
+            <rect id="Rectangle" stroke="#009F76" x="106.5" y="3.5" width="3" height="3"></rect>
+            <path d="M102.6875,5 L98.3125,5" id="Line" stroke="#009F76" stroke-linecap="square"></path>
+            <path d="M115.666667,4.3 L112.333333,6.7" id="Line" stroke="#009F76" stroke-linecap="square"></path>
+            <path d="M115.666667,6.7 L112.333333,4.3" id="Line" stroke="#009F76" stroke-linecap="square"></path>
+            <polyline id="Line-2" stroke="#009F76" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="17 56 25 61.5 17 67"></polyline>
+            <path d="M27.2105263,68.4166667 L34.7894737,68.4166667" id="Line-3" stroke="#009F76" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <polygon id="Triangle" fill="#009F76" filter="url(#filter-2)" points="64.5 13 116 12 13 12"></polygon>
+        </g>
+    </g>
+</svg>
