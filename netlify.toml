@@ -1,3 +1,7 @@
+[build]
+    command = "make ci-build"
+    publish = ".vitepress/dist"
+
 [[headers]]
     for = "/*"
     [headers.values]

@@ -2,20 +2,15 @@
 .idea
 .worktrees
 worktrees
-hugo/public
 node_modules
 hugo/resources/_gen
 hugo/.forestry
 .DS_Store
 *.yaml
 
-hugo/**
-
-!.github/**/*.yaml
 !.docforge/**/*.yaml
 !pnpm-lock.yaml
 !pnpm-workspace.yaml
-content
 .vitepress/theme/utils/debug/**
 
 ### Start: https://github.com/github/gitignore/blob/main/Node.gitignore ###

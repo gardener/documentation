@@ -1,0 +1,90 @@
+name: Aggregate Documentation Content
+
+on:
+  schedule:
+    - cron: '0 4 * * 1-5'
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+concurrency:
+  group: aggregate-content
+  cancel-in-progress: false
+
+jobs:
+  aggregate:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+      pull-requests: read
+    steps:
+      - name: Federated GitHub token
+        uses: gardener/cc-utils/.github/actions/github-auth@v1
+        id: app-token
+        with:
+          token-server: ${{ vars.FEDERATED_GITHUB_ACCESS_TOKEN_SERVER }}
+          repositories: ${{ github.event.repository.name }}
+          permissions: |
+            contents: write
+            pull-requests: write
+
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          fetch-depth: 0
+          persist-credentials: true
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install deps
+        run: npm ci
+
+      # Docforge primarily reads via raw.githubusercontent.com which does not
+      # consume GitHub API rate limits. The default GITHUB_TOKEN authenticates
+      # the smaller number of metadata API calls.
+      - name: Aggregate (docforge)
+        env:
+          DOCFORGE_CONFIG: .docforge/config.yaml
+          GITHUB_OAUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: make docforge-ci
+
+      - name: Post-process
+        run: make post-process
+
+      - name: Verify build
+        id: build
+        run: make build
+        continue-on-error: true
+
+      - name: Push on success
+        if: steps.build.outcome == 'success'
+        run: |
+          git config user.name  "federated-github-access[bot]"
+          git config user.email "248678271+federated-github-access[bot]@users.noreply.github.com"
+          git add hugo/content/
+          if git diff --cached --quiet; then
+            echo "No content changes"
+            exit 0
+          fi
+          git commit -m "chore(content): aggregate docs $(date -u +%Y-%m-%d)"
+          git push origin HEAD:${{ github.ref_name }}
+
+      - name: Open PR on failure
+        if: steps.build.outcome == 'failure'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          branch: bot/content-aggregation-failure
+          title: "🚨 Content aggregation build failed (${{ github.run_started_at }})"
+          body: |
+            Daily content aggregation produced a tree that fails `make build`.
+
+            **Action required:** review the diff, fix the broken upstream source(s),
+            then close this PR (next nightly run will pick up the fix).
+          commit-message: "chore(content): aggregation with build failure"
+          add-paths: hugo/content/

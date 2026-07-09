@@ -158,12 +158,17 @@ post-processing-part-index:
 post-processing-part-3:
 	node post-processing/part-3.js --update-report-link --process-api-html
 
+.PHONY: post-processing-part-managed
+post-processing-part-managed:
+	node post-processing/part-managed.js ./hugo/content
+
 .PHONY: post-process
 post-process: ## Run post-processing scripts
 	@$(MAKE) post-processing-part-1
 	@$(MAKE) post-processing-part-2
 	@$(MAKE) post-processing-part-index
 	@$(MAKE) post-processing-part-3
+	@$(MAKE) post-processing-part-managed
 
 .PHONY: build
 build: ## Build the documentation site
@@ -176,7 +181,18 @@ docforge-ci: docforge-download ## Run docforge in CI mode (non-interactive)
 	./bin/docforge
 
 .PHONY: ci-build
-ci-build: docforge-ci ci-install post-process build ## Run all steps for building in CI
+ci-build: ## Build for CI/Netlify: skip aggregation if hugo/content/ is already committed, otherwise run the full pipeline
+	@if [ -d hugo/content ]; then \
+		echo "hugo/content/ found — using committed tree, skipping docforge + post-process"; \
+		$(MAKE) ci-install; \
+		$(MAKE) build; \
+	else \
+		echo "hugo/content/ missing — running full aggregation pipeline"; \
+		$(MAKE) docforge-ci; \
+		$(MAKE) ci-install; \
+		$(MAKE) post-process; \
+		$(MAKE) build; \
+	fi
 
 .PHONY: vale-install
 vale-install: ## Install Vale binary if not already present
