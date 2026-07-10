@@ -13,7 +13,7 @@ tags:
 aliases: ["/blog/2026/07/08/gardener-landscape-kit-v020-gitops-native-landscape-management"]
 ---
 
-Managing a Gardener landscape involves deploying and keeping in sync a large collection of components — the Gardener core, extensions, provider integrations, and their configurations. Until now, each operator had to solve this problem individually. The Gardener Landscape Kit (GLK), introduced with [GAP-49](https://github.com/gardener/gardener/blob/master/docs/proposals/49-gardener-landscape-kit.md), aims to close that gap by providing an opinionated, automation-friendly toolkit for bootstrapping and maintaining Gardener landscapes.
+Managing a Gardener landscape involves deploying and keeping in sync a large collection of components — the Gardener core components, provider, network, OS and general extensions, and their configurations. Until now, each operator had to solve this problem individually. The Gardener Landscape Kit (GLK), proposed with [GEP-49](https://github.com/gardener/gardener/blob/master/docs/proposals/49-gardener-landscape-kit.md), aims to close that gap by providing an opinionated, but extensible and customizable toolkit for bootstrapping and maintaining Gardener landscapes.
 
 With v0.2.0, GLK has reached a set of milestones worth sharing. This post walks through what's new and how it works in practice.
 
@@ -36,7 +36,7 @@ v0.2.0 introduces a three-level inheritance chain: `landscape` → `base` → bu
 
 ## Repositories Configuration
 
-The `git` config key has been replaced with `repositories`. Paths within each repository are now specified relative to that repository's root, and the `generate` commands take the repository's root directory as the target. This makes multi-repository setups (where `base` and each landscape live in separate repos) and mono-repository setups (everything in one repo) equally straightforward to configure.
+Paths within each repository are specified relative to that repository's root, and the `generate` commands take the repository's root directory as the target. This makes multi-repository setups (where `base` and each landscape live in separate repos) and mono-repository setups (everything in one repo) equally straightforward to configure.
 
 ## More Built-In Extensions
 
@@ -52,7 +52,7 @@ Operators using any of these extensions no longer need to maintain their own com
 
 ## Day-Two Operations via GitHub Actions
 
-Bootstrapping a landscape once is useful. Keeping it current over time is the harder problem. GLK ships a GitHub Actions workflow that runs `generate` automatically whenever you open a pull request against your landscape repository. Any change you commit triggers a re-generation, and the resulting diff is added to the same PR. This gives operators a review checkpoint: inspect what GLK changed, merge if it looks right.
+Bootstrapping a landscape once is useful. Keeping it current over time is the harder problem. GLK ships a GitHub Actions workflow that runs GLK commands like `generate` and `resolve` automatically whenever you open a pull request against your landscape repository. Any change you commit triggers a re-generation, and the resulting diff is added to the same PR. This gives operators a review checkpoint: inspect what GLK changed, merge if it looks right.
 
 Custom components — extensions that aren't part of the upstream catalog — are fully supported alongside built-in ones. GLK will leave your custom directories untouched on re-generation while still resolving version information from OCM descriptors for those components if you supply them.
 
@@ -62,14 +62,14 @@ The team is actively working on:
 
 - **Migration logic** — version-aware migration steps embedded in GLK, so that upgrading Gardener or an extension can automatically apply the necessary API or manifest changes across your landscape repositories.
 - **`Gardenlet` and `ManagedSeed` resource generation** — currently operators still have to create these manually after bootstrapping; that gap will be closed.
-- **Qualified image vector** — a community-verified record of component version combinations that have been tested together at scale on production landscapes, contributed back to the GLK repository so everyone can benefit from that validation.
+- **Qualified image vector** — a community-verified record of component version combinations that have been tested together at scale on a production landscape, contributed back to the GLK repository so everyone can benefit from that validation.
 
 ## Getting Started
 
 > [!WARNING]
 > GLK is under active development. Breaking changes occur frequently. It is not yet ready for production use.
 
-Install the `glk` binary for your target release and point it at a `components.yaml`:
+Install the `glk` binary for your target release and point it at a `components.yaml` (download from https://github.com/gardener/gardener-landscape-kit):
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/gardener/gardener-landscape-kit/HEAD/install.sh)" -- \
