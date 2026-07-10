@@ -9,7 +9,7 @@ These are guidelines, not rules. Use your best judgment, and feel free to propos
 
 * [Formatting of Inline Elements](#formatting-of-inline-elements)
 * [Headings](#headings)
-* [Calls to action](#calls-to-action)
+* [Calls to Action](#calls-to-action)
 * [Code Snippet Formatting](#code-snippet-formatting)
 * [Related Links](#related-links)
 
@@ -120,9 +120,12 @@ Another thing to keep in mind is that markdown links do not work in certain [sho
 * Use H3 for any sub-section in the main sections. (`### H3 Title`)
 * Avoid using H4-H6. Try moving the additional information to a new topic instead.
 
-## Calls to action
+## Calls to Action
 
 Use sentence case for call-to-action buttons and links (such as "Learn more", "Edit this page", "Join the group"). Only the first word and proper nouns are capitalized.
+
+> [!NOTE]
+> If a call to action appears inside a heading, use title case instead of sentence case. See [Creating Titles and Headings](./style-guide/_index.md#creating-titles-and-headings).
 
 |  Do  | Don't |
 |:---|:---|
