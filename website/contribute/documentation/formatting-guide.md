@@ -59,7 +59,7 @@ Use **bold** to emphasize something or to introduce a new term.
 
 ### Technical Names
 
-Use backticks (\`) for filenames, technical componentes, directories, and paths.
+Use backticks (\`) for filenames, technical components, directories, and paths.
 
 |  Do  | Don't |
 |:---|:---|
@@ -108,8 +108,8 @@ Use descriptive link text that tells the reader where the link goes. Use relativ
 |  Do  | Don't |
 |:---|:---|
 | Use a descriptor of the link's destination: "For more information, visit [Gardener's website](#links-and-references)." | Use a generic placeholder: "For more information, go [here](#links-and-references)." |
-| Use relative links when linking to content in the same repository: `[Style Guide](../style-guide/_index.md)`| Use absolute links when linking to content in the same repository: `[Style Guide](https://github.com/gardener/documentation/blob/master/website/documentation/contribute/documentation/style-guide/_index.md)` |
-| Use GitHub links for absolute links to documentation content: `[Gardener API Server](https://github.com/gardener/gardener/blob/master/docs/usage/shoot_access.md)` | Use website links for documentation content: `[Gardener API Server](https://gardener.cloud/docs/gardener/usage/shoot_access/)` |
+| When linking to **content in the same repository**, use **relative links**: `[Style Guide](../style-guide/_index.md)`| Use absolute links when linking to content in the same repository: `[Style Guide](https://github.com/gardener/documentation/blob/master/website/documentation/contribute/documentation/style-guide/_index.md)` |
+| When linking to **content pulled from a different repository**, use **GitHub links**: `[Gardener API Server](https://github.com/gardener/gardener/blob/master/docs/usage/shoot_access.md)` | Use website links for documentation content: `[Gardener API Server](https://gardener.cloud/docs/gardener/usage/shoot_access/)` |
 
 Another thing to keep in mind is that markdown links do not work in certain [shortcodes](./shortcodes.md) (e.g., mermaid). To circumvent this problem, you can use HTML links.
 
