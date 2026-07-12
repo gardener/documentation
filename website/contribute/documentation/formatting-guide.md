@@ -8,6 +8,8 @@ This page gives writing formatting guidelines for the Gardener documentation. Fo
 These are guidelines, not rules. Use your best judgment, and feel free to propose changes to this document in a pull request.
 
 * [Formatting of Inline Elements](#formatting-of-inline-elements)
+* [Headings](#headings)
+* [Calls to Action](#calls-to-action)
 * [Code Snippet Formatting](#code-snippet-formatting)
 * [Related Links](#related-links)
 
@@ -22,7 +24,6 @@ These are guidelines, not rules. Use your best judgment, and feel free to propos
 | [Inline Code and Inline Commands](#inline-code-and-inline-commands)| `code` | <code>For declarative management, use \`kubectl apply\`.</code> |
 | [Object Field Names and Field Values](#object-field-names-and-field-values)|`code` | <code>Set the value of \`image\` to \`nginx:1.8\`.</code> |
 | [Links and References](#links-and-references) | [link]() | `Visit the [Gardener website](https://gardener.cloud/)` |
-| [Headers](#headers) | various | `# API Server` |
 
 ### API Objects and Technical Components
 
@@ -58,7 +59,7 @@ Use **bold** to emphasize something or to introduce a new term.
 
 ### Technical Names
 
-Use backticks (\`) for filenames, technical componentes, directories, and paths.
+Use backticks (\`) for filenames, technical components, directories, and paths.
 
 |  Do  | Don't |
 |:---|:---|
@@ -102,20 +103,34 @@ Use backticks (\`) for field names, and field values.
 
 ### Links and References
 
+Use descriptive link text that tells the reader where the link goes. Use relative links for content within the same repository.
+
 |  Do  | Don't |
 |:---|:---|
 | Use a descriptor of the link's destination: "For more information, visit [Gardener's website](#links-and-references)." | Use a generic placeholder: "For more information, go [here](#links-and-references)." |
-| Use relative links when linking to content in the same repository: `[Style Guide](../style-guide/_index.md)`| Use absolute links when linking to content in the same repository: `[Style Guide](https://github.com/gardener/documentation/blob/master/website/documentation/contribute/documentation/style-guide/_index.md)` |
-| Use GitHub links for absolute links to documentation content: `[Gardener API Server](https://github.com/gardener/gardener/blob/master/docs/usage/shoot_access.md)` | Use website links for documentation content: `[Gardener API Server](https://gardener.cloud/docs/gardener/usage/shoot_access/)` |
+| When linking to **content in the same repository**, use **relative links**: `[Style Guide](../style-guide/_index.md)`| Use absolute links when linking to content in the same repository: `[Style Guide](https://github.com/gardener/documentation/blob/master/website/documentation/contribute/documentation/style-guide/_index.md)` |
+| When linking to **content pulled from a different repository**, use **GitHub links**: `[Gardener API Server](https://github.com/gardener/gardener/blob/master/docs/usage/shoot_access.md)` | Use website links for documentation content: `[Gardener API Server](https://gardener.cloud/docs/gardener/usage/shoot_access/)` |
 
 Another thing to keep in mind is that markdown links do not work in certain [shortcodes](./shortcodes.md) (e.g., mermaid). To circumvent this problem, you can use HTML links.
 
-### Headers
+## Headings
 
 * Use H1 for the title of the topic. (`# H1 Title`)
 * Use H2 for each main section. (`## H2 Title`)
 * Use H3 for any sub-section in the main sections. (`### H3 Title`)
 * Avoid using H4-H6. Try moving the additional information to a new topic instead.
+
+## Calls to Action
+
+Use sentence case for call-to-action buttons and links (such as "Learn more", "Edit this page", "Join the group"). Only the first word and proper nouns are capitalized.
+
+> [!NOTE]
+> If a call to action appears inside a heading, use title case instead of sentence case. See [Creating Titles and Headings](./style-guide/_index.md#creating-titles-and-headings).
+
+|  Do  | Don't |
+|:---|:---|
+| Learn more | Learn More |
+| Edit this page | Edit This Page |
 
 ## Code Snippet Formatting
 

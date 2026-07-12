@@ -18,7 +18,7 @@ These are guidelines, not rules. Use your best judgment, and feel free to propos
 - [Language and Grammar](#language-and-grammar)
   - [Language](#language)
   - [Writing Style](#writing-style)
-  - [Creating Titles and Headers](#creating-titles-and-headers)
+  - [Creating Titles and Headings](#creating-titles-and-headings)
 - [Related Links](#related-links)
 
 ## Structure
@@ -92,9 +92,9 @@ There are a number of [predefined](https://gohugo.io/content-management/front-ma
 
 - `aliases` is an array of strings that contain the old paths to the topic. Useful in case you need to rename or change the location of a topic, but want to keep any existing bookmarks.
 
-While this section will be automatically generated if your topic has a title header, adding more detailed information helps other users, developers, and technical writers better sort, classify and understand the topic.
+While this section will be automatically generated if your topic has a title heading, adding more detailed information helps other users, developers, and technical writers better sort, classify and understand the topic.
 
-By using a metadata section you can also skip adding a title header or overwrite it in the navigation section.
+By using a metadata section you can also skip adding a title heading or overwrite it in the navigation section.
 
 #### Blogs
 
@@ -143,10 +143,10 @@ If you want to add an image to your topic, it is recommended to follow the guide
 - Be friendly and refer to the person reading your content as "you", instead of standard terms such as "user"
 - Use an active voice - make it clear who is performing the action
 
-### Creating Titles and Headers
+### Creating Titles and Headings
 
-- Use [title case](https://titlecaseconverter.com/words-to-capitalize/) when creating titles or headers
-- Avoid adding additional formatting to the title or header
+- Use [title case](https://titlecaseconverter.com/words-to-capitalize/) when creating titles or headings
+- Avoid adding additional formatting to the title or headings
 - Concept and reference topic titles should be simple and succinct
 - Task and tutorial topic titles begin with a verb
 
