@@ -51,7 +51,7 @@ With the adoption of `Vertical Pod Autoscaler` [1.6.0](https://github.com/kubern
 
 > When deployed in a `Seed` cluster, the *mutating* webhook targets `vertical pod autoscaler` resources **outside** the `kube-system` and `kubernetes-dashboard` namespaces.
 
-With the adoption of `Vertical Pod Autoscaler` [1.6.0](https://github.com/kubernetes/autoscaler/releases/tag/vertical-pod-autoscaler-1.6.0), the `InPlaceOrRecreate` feature gate got promoted to *GA* and **cannot** be disabled. Follow the [in-place resource updates](/docs/gardener/autoscaling/in-place-resource-updates/#seed) guide for more details about the Vertical Pod Autoscaler components setup.
+With the adoption of `Vertical Pod Autoscaler` [1.6.0](https://github.com/kubernetes/autoscaler/releases/tag/vertical-pod-autoscaler-1.6.0), the `InPlaceOrRecreate` feature gate got promoted to *GA* and **cannot** be disabled.
 
 > [!NOTE]
 > If you are using a VPA not managed by gardenlet (i.e., Seeds's `.spec.settings.verticalPodAutoscaler.enabled` is set to `false`), ensure that your VPA installation supports in-place resource updates.

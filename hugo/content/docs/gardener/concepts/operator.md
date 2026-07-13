@@ -985,11 +985,6 @@ hack/usage/generate-kubeconfig.sh virtual-garden > /tmp/virtual-garden-kubeconfi
 kubectl --kubeconfig /tmp/virtual-garden-kubeconfig get namespaces
 ```
 
-### Creating Seeds and Shoots
-
-You can also create Seeds and Shoots from your local development setup.
-Please see [here](/docs/gardener/deployment/getting_started_locally/#alternative-way-to-set-up-garden-and-seed-leveraging-gardener-operator) for details.
-
 ### Deleting the `Garden`
 
 ```shell

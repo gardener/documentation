@@ -483,4 +483,4 @@ Due to the vast amount of configuration options it is highly recommended to spen
 
 In this example, the runtime cluster serves two purposes - it hosts the virtual Garden cluster and runs a `gardenlet` which registers the runtime cluster itself as a seed with the virtual Garden cluster. This first seed is reserved to host the control planes of "infrastructure" `Shoot`s only. Those `Shoot`s will be turned into seeds using the `ManagedSeed` resource and allow for proper scaling.
 
-To get started with Gardener, visit our [landing page](https://gardener.cloud) and try the [demo environment](https://demo.gardener.cloud/).
+To get started with Gardener, visit our [landing page](https://gardener.cloud).

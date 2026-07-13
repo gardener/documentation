@@ -57,8 +57,8 @@ github_subdir: hugo/content
 hero:
   actions:
     - link: /docs/getting-started/podrick-and-the-infinite-garden.md
-      text: Learn More with Podrick
-      theme: brand
+      text: Learn more with Podrick
+      theme: alt
   image:
     alt: Gardener
     src: /gardener-logo.svg

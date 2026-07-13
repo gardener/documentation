@@ -21,7 +21,7 @@ This document describes which [Kubernetes `NetworkPolicy`s](https://kubernetes.i
 
 *(via `gardener-operator` and `gardener-resource-manager`)*
 
-The `gardener-operator` runs a [`NetworkPolicy` controller](/docs/gardener/concepts/operator/#networkpolicy-controller-registrar) which is responsible for the following namespaces:
+The `gardener-operator` runs a [`NetworkPolicy` controller](/docs/gardener/concepts/gardenlet/#networkpolicy-controller) which is responsible for the following namespaces:
 
 - `garden`
 - `istio-system`

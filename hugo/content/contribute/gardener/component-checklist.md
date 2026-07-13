@@ -105,7 +105,7 @@ This document provides a checklist for them that you can walk through.
 
 1. **Use shoot access tokens instead of a client certificates** ([example](https://github.com/gardener/gardener/blob/b0de7db96ad436fe32c25daae5e8cb552dac351f/pkg/component/kubescheduler/kube_scheduler.go#L234-L236))
    
-   For components that need to talk to a target cluster different from their runtime cluster (e.g., running in seed cluster but talking to shoot) the `gardener-resource-manager`'s [TokenRequestor](/docs/gardener/concepts/resource-manager/#tokenrequestor) should be used to manage a so-called "shoot access token".
+   For components that need to talk to a target cluster different from their runtime cluster (e.g., running in seed cluster but talking to shoot) the `gardener-resource-manager`'s [TokenRequestor](/docs/gardener/concepts/resource-manager/#tokenrequestor-controller) should be used to manage a so-called "shoot access token".
 
 1. **Define RBAC roles with minimal privileges** ([example](https://github.com/gardener/gardener/blob/b0de7db96ad436fe32c25daae5e8cb552dac351f/pkg/component/metricsserver/metrics_server.go#L153-L223))
    
@@ -227,7 +227,7 @@ This document provides a checklist for them that you can walk through.
    
    [`gardener-operators`'s](/docs/gardener/concepts/operator/#controllers) and [`gardenlet`'s](/docs/gardener/concepts/gardenlet/#controllers) care controllers regularly check the health status of components relevant to the respective cluster (garden/seed/shoot).
    For shoot control plane components, you need to enhance the lists of components to make sure your component is checked, see example above.
-   For components deployed via `ManagedResource`, please consult the respective care controller documentation for more information ([garden](/docs/gardener/concepts/operator/#care-reconciler), [seed](/docs/gardener/concepts/gardenlet/#-care--reconciler-1), [shoot](/docs/gardener/concepts/gardenlet/#-care--reconciler-2)).
+   For components deployed via `ManagedResource`, please consult the respective care controller documentation for more information ([garden](/docs/gardener/concepts/operator/#care-reconciler), [seed](/docs/gardener/concepts/gardenlet/#care-reconciler-1), [shoot](/docs/gardener/concepts/gardenlet/#care-reconciler-2)).
 
 1. **Configure automatic restarts in shoot maintenance time window** ([example 1](https://github.com/gardener/gardener/blob/b0de7db96ad436fe32c25daae5e8cb552dac351f/pkg/component/kubescheduler/kube_scheduler.go#L250), [example 2](https://github.com/gardener/gardener/blob/6a0fea86850ffec8937d1956bdf1a8ca6d074f3b/pkg/operation/botanist/coredns.go#L90-L107))
    
