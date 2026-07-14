@@ -280,6 +280,6 @@ References:
 [^14]: [OTel journald receiver](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/journaldreceiver/README.md)
 [^15]: [OTel filelog receiver](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/filelogreceiver/README.md)
 [^16]: [Fluent-Bit otel processor](https://docs.fluentbit.io/manual/pipeline/processors/opentelemetry-envelope)
-[^17]: [VictoriaLogs Benchmarks](https://github.com/VictoriaMetrics/VictoriaMetrics/blob/master/deployment/logs-benchmark/results/loki-grafana-dashboard.png)
+[^17]: [VictoriaLogs Benchmarks](https://github.com/VictoriaMetrics/VictoriaLogs/blob/master/deployment/logs-benchmark/results/loki-grafana-dashboard.png)
 [^18]: [VictoriaLogs Roadmap](https://docs.victoriametrics.com/victorialogs/roadmap/)
 [^19]: [GitHub Perses](https://github.com/perses/perses)
