@@ -18,7 +18,7 @@ managed: true
 
 - [Creating/Deleting machines (VM)](#creatingdeleting-machines-vm)
   - [Setting up your usage environment](#setting-up-your-usage-environment)
-  - [Important :](#important)
+  - [Important :warning:](#important-warning)
   - [Creating machine](#creating-machine)
   - [Inspect status of machine](#inspect-status-of-machine)
   - [Delete machine](#delete-machine)
@@ -28,7 +28,7 @@ managed: true
 
 * Follow the [steps described here](/docs/other-components/machine-controller-manager/prerequisite/)
 
-## Important :
+## Important :warning:
 
 > Make sure that the `kubernetes/machine_objects/machine.yaml` points to the same class name as the `kubernetes/machine_classes/aws-machine-class.yaml`.
 
