@@ -85,13 +85,13 @@ Once your PR is open:
 
 ### 🗣️ Participation
 
-- Those who wish to **actively challenge or discuss** the proposal can **request an invitation** from any committee member.
+- Those who wish to **actively challenge or discuss** the proposal can **find the registration/join link** for the meeting in the [public Gardener calendar](https://zoom-lfx.platform.linuxfoundation.org/meetings/gardener?view=month).
 - Others are encouraged to **watch the recording** instead of attending live.
 
 ### 📑 Meeting Process
 
 TSC meetings are held in a **recurring weekly slot: Thursdays, 10:00–11:00 Europe/Berlin**.
-The meeting is listed in the [public Gardener calendar](https://zoom-lfx.platform.linuxfoundation.org/meetings/gardener?view=month), where you can also find the registration/join link.
+The meeting is listed in the [public Gardener calendar](https://zoom-lfx.platform.linuxfoundation.org/meetings/gardener?view=month).
 If no proposal is scheduled for a given Thursday, that week's meeting is usually canceled.
 
 - Attendees are expected to have **read the proposal in advance and come prepared**.

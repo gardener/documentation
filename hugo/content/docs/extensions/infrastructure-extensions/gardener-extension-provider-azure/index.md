@@ -66,7 +66,7 @@ Static code checks and tests can be executed by running `make verify`. We are us
 
 Feedback and contributions are always welcome!
 
-Please report bugs or suggestions as [GitHub issues](https://github.com/gardener/gardener-extension-provider-azure/issues) or reach out on [Slack](https://gardener-cloud.slack.com/) (join the workspace [here](https://gardener.cloud/community/community-bio/)).
+Please report bugs or suggestions as [GitHub issues](https://github.com/gardener/gardener-extension-provider-azure/issues) or reach out on [Slack](https://gardener-cloud.slack.com/) (join the workspace [here](https://gardener.cloud/community/#get-connected)).
 
 ## Learn more!
 

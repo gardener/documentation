@@ -202,7 +202,7 @@ spec:
             minAllowed:
               memory: 128Mi
           updatePolicy:
-            updateMode: Recreate
+            updateMode: InPlaceOrRecreate
       values:
         replicaCount: 3
         resources:
