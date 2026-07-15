@@ -5,4 +5,3 @@ structure:
     description: Commonly asked questions about Gardener
     persona: Developers
     weight: 80
-- fileTree: /website/documentation/faq

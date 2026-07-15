@@ -1,15 +1,9 @@
 structure:
   - file: _index.md
-    source: /website/contribute/_index.md
-
-  - dir: contribution-process
-    structure:
-    - fileTree: /website/contribute/contribution-process
 
   - dir: developer-starter-kit
     structure:
     - file: _index.md
-      source: /website/contribute/developer-starter-kit/_index.md
     - file: local_setup.md
       frontmatter:
         weight: 10
@@ -54,7 +48,6 @@ structure:
   - dir: gardener
     structure:
     - file: _index.md
-      source: /website/contribute/gardener/_index.md
     - dir: development
       structure:
       - fileTree: https://github.com/gardener/gardener/tree/master/docs/development
@@ -235,7 +228,3 @@ structure:
     - dir: development
       structure:
       - fileTree: https://github.com/gardener/dashboard/tree/master/docs/development
-
-  - dir: documentation
-    structure:
-    - fileTree: /website/contribute/documentation
