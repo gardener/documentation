@@ -153,6 +153,6 @@ dist
 
 
 # Allow getting-started-with-opentelemetry-on-gardener-shoot-cluster yaml resources
-!website/blog/2025/06/manifests/otel-collectors/*.yaml
-!website/blog/2025/06/manifests/otel-prometheus/*.yaml
-!website/blog/2025/06/manifests/otel-victorialogs/*.yaml
+!hugo/content/blog/2025/06/manifests/otel-collectors/*.yaml
+!hugo/content/blog/2025/06/manifests/otel-prometheus/*.yaml
+!hugo/content/blog/2025/06/manifests/otel-victorialogs/*.yaml

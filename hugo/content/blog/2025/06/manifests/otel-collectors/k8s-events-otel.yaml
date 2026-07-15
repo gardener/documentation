@@ -1,0 +1,118 @@
+---
+apiVersion: opentelemetry.io/v1beta1
+kind: OpenTelemetryCollector
+metadata:
+  name: k8s-events
+  namespace: kube-system
+spec:
+  managementState: "managed"
+  mode: statefulset
+  serviceAccount: k8s-events
+  resources:
+    requests:
+      memory: 32Mi
+      cpu: 5m
+    limits:
+      memory: 200Mi
+      cpu: 200m
+  env:
+    - name: PROMETHEUS_URL
+      value: "https://prometheus.prometheus.svc:8443"
+    - name: VICTORIA_LOGS_URL
+      value: "https://victorialogs-victoria-logs-single-server.victoria-logs.svc:8443"
+  volumes:
+    - name: certs
+      secret:
+        secretName: otel-collector-tls
+  volumeMounts:
+    - name: certs
+      mountPath: /etc/cert
+      readOnly: true
+  observability:
+    metrics:
+      disablePrometheusAnnotations: true
+  config:
+    receivers:
+      # Fetch Kubernetes events from the API server
+      k8s_events:
+        namespaces: []
+
+      # Collects cluster-level metrics and entity events from the Kubernetes API server
+      # https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/k8sclusterreceiver
+      k8s_cluster:
+        node_conditions_to_report: [Ready, MemoryPressure]
+        allocatable_types_to_report: [cpu, memory, storage]
+        resource_attributes:
+          container.id:
+            enabled: false
+
+    processors:
+      memory_limiter:
+        check_interval: 1s
+        limit_percentage: 80
+        spike_limit_percentage: 20
+
+      batch:
+        timeout: 5s
+        send_batch_size: 1000
+
+      resource:
+        attributes:
+          - key: collector.name
+            value: k8s-events
+            action: upsert
+
+    exporters:
+      otlphttp/metrics:
+        metrics_endpoint: "${env:PROMETHEUS_URL}/api/v1/otlp/v1/metrics"
+        tls:
+          insecure: false # Ensure server certificate is validated against the CA
+          ca_file: /etc/cert/ca.crt
+          cert_file: /etc/cert/tls.crt
+          key_file: /etc/cert/tls.key
+
+      otlphttp/logs:
+        logs_endpoint: "${env:VICTORIA_LOGS_URL}/insert/opentelemetry/v1/logs"
+        headers:
+          VL-Stream-Fields: "k8s.event.reason,k8s.node.name,k8s.namespace.name,k8s.object.name,k8s.pods.name,k8s.container.name,severity"
+        tls:
+          insecure: false # Ensure server certificate is validated against the CA
+          ca_file: /etc/cert/ca.crt
+          cert_file: /etc/cert/tls.crt
+          key_file: /etc/cert/tls.key
+
+    service:
+      pipelines:
+        logs:
+          receivers: [k8s_events]
+          processors: [memory_limiter, resource, batch]
+          exporters: [otlphttp/logs]
+        metrics:
+          receivers: [k8s_cluster]
+          processors: [memory_limiter, resource, batch]
+          exporters: [otlphttp/metrics]
+
+      # Configure the collector own telemetry
+      telemetry:
+        # Emit collector logs to stdout
+        logs:
+          level: info
+          encoding: console
+          output_paths: [stdout]
+          error_output_paths: [stderr]
+        # Push collector internal metrics to Prometheus
+        metrics:
+          level: detailed
+          readers:
+            - # push metrics to Prometheus backend
+              periodic:
+                interval: 30000
+                timeout: 10000
+                exporter:
+                  otlp:
+                    protocol: http/protobuf
+                    endpoint: "${env:PROMETHEUS_URL}/api/v1/otlp/v1/metrics"
+                    insecure: false # Ensure server certificate is validated against the CA
+                    certificate: /etc/cert/ca.crt
+                    client_certificate: /etc/cert/tls.crt
+                    client_key: /etc/cert/tls.key

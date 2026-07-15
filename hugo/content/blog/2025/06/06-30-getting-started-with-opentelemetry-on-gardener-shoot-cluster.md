@@ -124,13 +124,13 @@ Setting up the backends is a straightforward process. We will use plain resource
 
 Here is the complete list of manifests for deploying a single prometheus instance with the `OTLP` ingestion endpoint and a `kube-rbac-proxy` sidecar for mTLS authentication and authorization:
 
-- [Prometheus Certificate](https://github.com/gardener/documentation/blob/master/website/blog/2025/06/manifests/otel-prometheus/certificate.yaml)
+- [Prometheus Certificate](https://github.com/gardener/documentation/blob/master/hugo/content/blog/2025/06/manifests/otel-prometheus/certificate.yaml)
   That is the serving certificate of the `kube-rbac-proxy` sidecar. The OpenTelemetry collector needs to trust the signing CA, hence we use the same `Issuer` we created earlier.
-- [Prometheus](https://github.com/gardener/documentation/blob/master/website/blog/2025/06/manifests/otel-prometheus/prometheus.yaml)
+- [Prometheus](https://github.com/gardener/documentation/blob/master/hugo/content/blog/2025/06/manifests/otel-prometheus/prometheus.yaml)
   The prometheus needs to be configured to allow `OTLP` ingestion endpoint: [`--web.enable-OTLP-receiver`](https://prometheus.io/docs/guides/opentelemetry/#enable-the-OTLP-receiver). That allows the OpenTelemetry collector to push metrics to the Prometheus instance (via the `kube-rbac-proxy` sidecar).
-- [Prometheus Configuration](https://github.com/gardener/documentation/blob/master/website/blog/2025/06/manifests/otel-prometheus/prometheus-config.yml)
+- [Prometheus Configuration](https://github.com/gardener/documentation/blob/master/hugo/content/blog/2025/06/manifests/otel-prometheus/prometheus-config.yml)
   In Prometheus' case, the `OpenTelemetry` resource attributes usually set by the collectors can be used to determine labels for the metrics. This is illustrated in the collector's `prometheus` receiver configuration. A common and unified set of labels across all metrics collected by the OpenTelemetry collector is a fundamental requirement for sharing and understanding the data across different teams and systems. This common set is defined by the [OpenTelemetry Semantic Conventions](https://opentelemetry.io/docs/specs/semconv/) specification. For example ,`k8s.pod.name`, `k8s.namespace.name`, `k8s.node.name`, etc. are some of the common labels that can be used to identify the source of the observability signals. Those are also common across the different types of telemetry data (traces, metrics, logs), serving correlation and analysis use cases.
-- [mTLS Proxy rbac](https://github.com/gardener/documentation/blob/master/website/blog/2025/06/manifests/otel-prometheus/mtls-rbac.yaml)
+- [mTLS Proxy rbac](https://github.com/gardener/documentation/blob/master/hugo/content/blog/2025/06/manifests/otel-prometheus/mtls-rbac.yaml)
   This example defines a `Role` allowing requests to the prometheus backend to pass the kube-rbac-proxy.
   
   ```yaml
@@ -150,7 +150,7 @@ Here is the complete list of manifests for deploying a single prometheus instanc
     name: client
   ```
 
-- [mTLS Proxy resource-attributes](https://github.com/gardener/documentation/blob/master/website/blog/2025/06/manifests/otel-prometheus/mtls-ra.yml)
+- [mTLS Proxy resource-attributes](https://github.com/gardener/documentation/blob/master/hugo/content/blog/2025/06/manifests/otel-prometheus/mtls-ra.yml)
   `kube-rbac-proxy` creates Kubernetes `SubjectAccessReview` to determine if the request is allowed to pass. The `SubjectAccessReview` is created with the `resourceAttributes` set to the upstream service, in this case the Prometheus service.
 
 ### Setting Up victoria-logs (Logs Backend)
@@ -159,13 +159,13 @@ In our example, we will use [victoria-logs](https://docs.victoriametrics.com/vic
 
 Here is the complete manifests for deploying a single `victoria-logs` instance with the `OTLP` ingestion endpoint enabled and `kube-rbac-proxy` sidecar for mTLS authentication and authorization, using the upstream helm chart:
 
-- [Victoria-Logs Certificate](https://github.com/gardener/documentation/blob/master/website/blog/2025/06/manifests/otel-victorialogs/certificate.yaml)
+- [Victoria-Logs Certificate](https://github.com/gardener/documentation/blob/master/hugo/content/blog/2025/06/manifests/otel-victorialogs/certificate.yaml)
   That is the serving certificate of the `kube-rbac-proxy` sidecar. The OpenTelemetry collector needs to trust the signing CA hence we use the same `Issuer` we created earlier.
-- [Victoria-Logs chart values](https://github.com/gardener/documentation/blob/master/website/blog/2025/06/manifests/otel-victorialogs/values.yaml)
+- [Victoria-Logs chart values](https://github.com/gardener/documentation/blob/master/hugo/content/blog/2025/06/manifests/otel-victorialogs/values.yaml)
   The certificate secret shall be mounted in the VictoriaLogs pod as a volume, as it is referenced by the `kube-rbac-proxy` sidecar.
-- [Victoria-Logs mTLS Proxy rbac](https://github.com/gardener/documentation/blob/master/website/blog/2025/06/manifests/otel-victorialogs/mtls-rbac.yaml)
+- [Victoria-Logs mTLS Proxy rbac](https://github.com/gardener/documentation/blob/master/hugo/content/blog/2025/06/manifests/otel-victorialogs/mtls-rbac.yaml)
   There is no fundamental difference compared to how we configured the Prometheus mTLS proxy. The `Role` allows requests to the VictoriaLogs backend to pass the kube-rbac-proxy.
-- [Victoria-Logs mTLS Proxy resource-attributes](https://github.com/gardener/documentation/blob/master/website/blog/2025/06/manifests/otel-victorialogs/mtls-ra.yml)
+- [Victoria-Logs mTLS Proxy resource-attributes](https://github.com/gardener/documentation/blob/master/hugo/content/blog/2025/06/manifests/otel-victorialogs/mtls-ra.yml)
 
 By now we shall have a working Prometheus and victoria-logs backends, both secured with mTLS and ready to accept telemetry data from the OpenTelemetry collector.
 
@@ -173,7 +173,7 @@ By now we shall have a working Prometheus and victoria-logs backends, both secur
 
 We are going to deploy two OpenTelemetry collectors: `k8s-events` and `shoot-metrics`. Both collectors will emit their own telemetry data in addition to the data collected from the respective receivers.
 
-#### [k8s-events](https://github.com/gardener/documentation/blob/master/website/blog/2025/06/manifests/otel-collectors/k8s-events-otel.yaml) collector
+#### [k8s-events](https://github.com/gardener/documentation/blob/master/hugo/content/blog/2025/06/manifests/otel-collectors/k8s-events-otel.yaml) collector
 
 In this example, we use 2 receivers:
 
@@ -229,9 +229,9 @@ service:
 
 The majority of the samples use an prometheus receiver to scrape the collector metrics endpoint, however that is not a clean solution because it puts the metrics via the pipeline, thus consuming resources and potentially causing performance issues. Instead, we use the `periodic` reader to push the metrics directly to the Prometheus backend.
 
-Since the `k8s-events` collector obtains telemetry data from the kube-apiserver, it requires a corresponding set of permissions defined at [k8s-events rbac](https://github.com/gardener/documentation/blob/master/website/blog/2025/06/manifests/otel-collectors/k8s-events-rbac.yaml) manifests.
+Since the `k8s-events` collector obtains telemetry data from the kube-apiserver, it requires a corresponding set of permissions defined at [k8s-events rbac](https://github.com/gardener/documentation/blob/master/hugo/content/blog/2025/06/manifests/otel-collectors/k8s-events-rbac.yaml) manifests.
 
-#### [shoot-metrics](https://github.com/gardener/documentation/blob/master/website/blog/2025/06/manifests/otel-collectors/shoot-metrics-otel.yaml) collector
+#### [shoot-metrics](https://github.com/gardener/documentation/blob/master/hugo/content/blog/2025/06/manifests/otel-collectors/shoot-metrics-otel.yaml) collector
 
 In this example, we have a single receiver:
 
@@ -301,7 +301,7 @@ transform/metrics:
 Here is a visualization of `container_network_transmit_bytes_total` metric collected from the `cadvisor` endpoint of the `kubelet` service, showing the network traffic in bytes transmitted by the `vpn-shoot` containers.
 ![otel-prometheus](/blog/2025/06/images/otel-prometheus.webp)
 
-Similarly to the `k8s-events` collector, the `shoot-metrics` collector also emits its own telemetry data, including metrics and logs. The collector is configured to push its own metrics to the Prometheus backend using the `periodic` reader, avoiding the need for a separate Prometheus scrape configuration. It requires a corresponding set of permissions defined at [shoot-metrics rbac](https://github.com/gardener/documentation/blob/master/website/blog/2025/06/manifests/otel-collectors/shoot-metrics-rbac.yaml) manifest.
+Similarly to the `k8s-events` collector, the `shoot-metrics` collector also emits its own telemetry data, including metrics and logs. The collector is configured to push its own metrics to the Prometheus backend using the `periodic` reader, avoiding the need for a separate Prometheus scrape configuration. It requires a corresponding set of permissions defined at [shoot-metrics rbac](https://github.com/gardener/documentation/blob/master/hugo/content/blog/2025/06/manifests/otel-collectors/shoot-metrics-rbac.yaml) manifest.
 
 ## Summary
 
@@ -311,19 +311,19 @@ We hope this guide will inspire you to get started with OpenTelemetry on a Garde
 
 ## Manifests List
 
-- [Prometheus certificate](https://github.com/gardener/documentation/blob/master/website/blog/2025/06/manifests/otel-prometheus/certificate.yaml)
-- [Prometheus workload](https://github.com/gardener/documentation/blob/master/website/blog/2025/06/manifests/otel-prometheus/prometheus.yaml)
-- [Prometheus configuration](https://github.com/gardener/documentation/blob/master/website/blog/2025/06/manifests/otel-prometheus/prometheus-config.yml)
-- [Prometheus mTLS proxy rbac](https://github.com/gardener/documentation/blob/master/website/blog/2025/06/manifests/otel-prometheus/mtls-rbac.yaml)
-- [Prometheus mTLS proxy resource-attributes](https://github.com/gardener/documentation/blob/master/website/blog/2025/06/manifests/otel-prometheus/mtls-ra.yml)
+- [Prometheus certificate](https://github.com/gardener/documentation/blob/master/hugo/content/blog/2025/06/manifests/otel-prometheus/certificate.yaml)
+- [Prometheus workload](https://github.com/gardener/documentation/blob/master/hugo/content/blog/2025/06/manifests/otel-prometheus/prometheus.yaml)
+- [Prometheus configuration](https://github.com/gardener/documentation/blob/master/hugo/content/blog/2025/06/manifests/otel-prometheus/prometheus-config.yml)
+- [Prometheus mTLS proxy rbac](https://github.com/gardener/documentation/blob/master/hugo/content/blog/2025/06/manifests/otel-prometheus/mtls-rbac.yaml)
+- [Prometheus mTLS proxy resource-attributes](https://github.com/gardener/documentation/blob/master/hugo/content/blog/2025/06/manifests/otel-prometheus/mtls-ra.yml)
 
-- [Victoria-Logs certificate](https://github.com/gardener/documentation/blob/master/website/blog/2025/06/manifests/otel-victorialogs/certificate.yaml)
-- [Victoria-Logs helm chart values](https://github.com/gardener/documentation/blob/master/website/blog/2025/06/manifests/otel-victorialogs/values.yaml)
-- [Victoria-Logs mTLS proxy rbac](https://github.com/gardener/documentation/blob/master/website/blog/2025/06/manifests/otel-victorialogs/mtls-rbac.yaml)
-- [Victoria-Logs mTLS proxy resource-attributes](https://github.com/gardener/documentation/blob/master/website/blog/2025/06/manifests/otel-victorialogs/mtls-ra.yml)
+- [Victoria-Logs certificate](https://github.com/gardener/documentation/blob/master/hugo/content/blog/2025/06/manifests/otel-victorialogs/certificate.yaml)
+- [Victoria-Logs helm chart values](https://github.com/gardener/documentation/blob/master/hugo/content/blog/2025/06/manifests/otel-victorialogs/values.yaml)
+- [Victoria-Logs mTLS proxy rbac](https://github.com/gardener/documentation/blob/master/hugo/content/blog/2025/06/manifests/otel-victorialogs/mtls-rbac.yaml)
+- [Victoria-Logs mTLS proxy resource-attributes](https://github.com/gardener/documentation/blob/master/hugo/content/blog/2025/06/manifests/otel-victorialogs/mtls-ra.yml)
 
-- [OpenTelemetry collectors client certificate](https://github.com/gardener/documentation/blob/master/website/blog/2025/06/manifests/otel-collectors/otel-certificate.yaml)
-- [K8S-Events collector](https://github.com/gardener/documentation/blob/master/website/blog/2025/06/manifests/otel-collectors/k8s-events-otel.yaml)
-- [K8S-Events rbac](https://github.com/gardener/documentation/blob/master/website/blog/2025/06/manifests/otel-collectors/k8s-events-rbac.yaml)
-- [Shoot-Metrics collector](https://github.com/gardener/documentation/blob/master/website/blog/2025/06/manifests/otel-collectors/shoot-metrics-otel.yaml)
-- [Shoot-Metrics rbac](https://github.com/gardener/documentation/blob/master/website/blog/2025/06/manifests/otel-collectors/shoot-metrics-rbac.yaml)
+- [OpenTelemetry collectors client certificate](https://github.com/gardener/documentation/blob/master/hugo/content/blog/2025/06/manifests/otel-collectors/otel-certificate.yaml)
+- [K8S-Events collector](https://github.com/gardener/documentation/blob/master/hugo/content/blog/2025/06/manifests/otel-collectors/k8s-events-otel.yaml)
+- [K8S-Events rbac](https://github.com/gardener/documentation/blob/master/hugo/content/blog/2025/06/manifests/otel-collectors/k8s-events-rbac.yaml)
+- [Shoot-Metrics collector](https://github.com/gardener/documentation/blob/master/hugo/content/blog/2025/06/manifests/otel-collectors/shoot-metrics-otel.yaml)
+- [Shoot-Metrics rbac](https://github.com/gardener/documentation/blob/master/hugo/content/blog/2025/06/manifests/otel-collectors/shoot-metrics-rbac.yaml)
