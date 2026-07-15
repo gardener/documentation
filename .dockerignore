@@ -1,12 +1,8 @@
 *
-!.docforge/
 !.vitepress/
 .vitepress/cache/
 .vitepress/dist/
-!images/
-!post-processing/
-!website/
-!Makefile
+!hugo/content/
 !package*.json
 !pnpm-lock.yaml
 !pnpm-workspace.yaml
