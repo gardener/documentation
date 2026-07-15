@@ -107,7 +107,7 @@ ci-install: ## Install npm dependencies with frozen lockfile for CI
 	pnpm install --frozen-lockfile
 
 
-OPTIMIZE_DIR ?= website
+OPTIMIZE_DIR ?= hugo/content/public
 OPTIMIZE_MIN_KB ?= 200
 OPTIMIZE_SKIP ?= favicon.png,favicon-16x16.png,favicon-32x32.png,favicon-96x96.png,apple-touch-icon.png,web-app-manifest-192x192.png,web-app-manifest-512x512.png,2025-07.png,og-gardener.png
 
@@ -225,10 +225,9 @@ vale-install: ## Install Vale binary if not already present
 	fi
 
 .PHONY: vale-run
-vale-run: ## Lint changed website markdown files with Vale
-	@CHANGED=$$(git diff --name-only --diff-filter=d HEAD -- 'website/**/*.md' | \
-		grep -v '^website/about/legal-disclosure\.md' | \
-		grep -v '^website/archived/'); \
+vale-run: ## Lint changed content markdown files with Vale
+	@CHANGED=$$(git diff --name-only --diff-filter=d HEAD -- 'hugo/content/**/*.md' | \
+		grep -v '^hugo/content/about/legal-disclosure\.md'); \
 	if [ -n "$$CHANGED" ]; then \
 		bin/vale $$CHANGED; \
 	else \
@@ -236,4 +235,4 @@ vale-run: ## Lint changed website markdown files with Vale
 	fi
 
 .PHONY: vale
-vale: vale-install vale-run ## Install Vale and lint changed website markdown files
+vale: vale-install vale-run ## Install Vale and lint changed content markdown files

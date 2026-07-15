@@ -400,7 +400,7 @@ function getHeadConfig(){
       'meta',
       {
         property: 'og:image',
-        content: 'https://raw.githubusercontent.com/gardener/documentation/refs/heads/master/website/public/og-gardener.png'
+        content: 'https://raw.githubusercontent.com/gardener/documentation/refs/heads/master/hugo/content/public/og-gardener.webp'
       }
     ],
     ['meta', {property: 'og:url', content: 'https://gardener.cloud/'}],

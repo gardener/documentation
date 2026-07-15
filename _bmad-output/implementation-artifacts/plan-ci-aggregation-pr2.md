@@ -72,7 +72,9 @@ Spec nannte nur `website.yaml` + `contribute.yaml`. Real betroffen sind 8 Manife
 ```
 content: 'https://raw.githubusercontent.com/gardener/documentation/refs/heads/master/website/public/og-gardener.png'
 ```
-→ Ziel: `.../refs/heads/master/hugo/content/public/og-gardener.png`
+→ Ziel: `.../refs/heads/master/hugo/content/public/og-gardener.webp`
+
+Befund 2026-07-15: die Datei heisst real `og-gardener.webp` (der Asset-Optimizer hat die PNG konvertiert), die URL zeigte aber auf `.png`. Damit war die og-image-URL bereits VOR PR 2 kaputt (404). PR 2 korrigiert Pfad UND Endung. Asset `og-gardener.webp` liegt committed auf master (`7191f347`), URL loest nach Merge auf.
 
 `srcDir` = `hugo/content` (config.mts:15), also `publicDir` = `hugo/content/public/`. Bestaetigt.
 
@@ -109,7 +111,7 @@ Reihenfolge so gewaehlt, dass `website/`-Loeschung ZULETZT kommt, nach allen Ref
 ### Phase 2 — Referenzen umbiegen (vor Loeschung)
 - [ ] `.vitepress/config.mts:403` og-image URL → `hugo/content/public/`.
 - [ ] `.github/workflows/vale.yml`: `paths:` (Z7) + `files:` (Z32) → `hugo/content/`.
-- [ ] `Makefile`: `vale-run` git-diff Pfad (Z229) + grep-Filter (Z230-231) → `hugo/content/`; `OPTIMIZE_DIR ?= website` (Z110) → `hugo/content`.
+- [ ] `Makefile`: `vale-run` git-diff Pfad (Z229) + grep-Filter (Z230-231) → `hugo/content/`; `OPTIMIZE_DIR ?= website` (Z110) → `hugo/content/public` (NICHT `hugo/content`: der Optimizer scannt rekursiv, `hugo/content` wuerde 231 managed Upstream-PNGs erfassen, die der naechste Run ueberschreibt; `public/` = 17 lokale Site-Assets, Pendant zum heutigen `website/public`).
 - [ ] `README.md`: "Editing content" um `local`/`managed`-Konvention + Upstream-Workflow erweitern.
 
 ### Phase 3 — Manifest-Cleanup
