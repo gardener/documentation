@@ -1,7 +1,0 @@
-authorization:
-  resourceAttributes:
-    apiGroup: authorization.kubernetes.io
-    apiVersion: v1alpha1
-    resource: observabilityapps
-    subresource: prometheus
-    namespace: prometheus
