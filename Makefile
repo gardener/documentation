@@ -107,7 +107,7 @@ ci-install: ## Install npm dependencies with frozen lockfile for CI
 	pnpm install --frozen-lockfile
 
 
-OPTIMIZE_DIR ?= website
+OPTIMIZE_DIR ?= hugo/content/public
 OPTIMIZE_MIN_KB ?= 200
 OPTIMIZE_SKIP ?= favicon.png,favicon-16x16.png,favicon-32x32.png,favicon-96x96.png,apple-touch-icon.png,web-app-manifest-192x192.png,web-app-manifest-512x512.png,2025-07.png,og-gardener.png
 
@@ -128,17 +128,12 @@ optimize-assets-write: ## Convert large PNG images to WebP and update references
 
 .PHONY: dev
 dev:
+	@$(MAKE) install
 	pnpm exec vitepress dev
 
 .PHONY: local-preview
-local-preview: ## Full local preview: clean hugo dir, run docforge, post-process, build, and preview
-	@if [ -d "hugo" ]; then \
-		echo "Removing existing hugo directory..."; \
-		rm -rf hugo; \
-	fi
-	@$(MAKE) docforge-ci
+local-preview:
 	@$(MAKE) install
-	@$(MAKE) post-process
 	@$(MAKE) build
 	pnpm exec vitepress preview
 
@@ -181,18 +176,9 @@ docforge-ci: docforge-download ## Run docforge in CI mode (non-interactive)
 	./bin/docforge
 
 .PHONY: ci-build
-ci-build: ## Build for CI/Netlify: skip aggregation if hugo/content/ is already committed, otherwise run the full pipeline
-	@if [ -d hugo/content ]; then \
-		echo "hugo/content/ found — using committed tree, skipping docforge + post-process"; \
-		$(MAKE) ci-install; \
-		$(MAKE) build; \
-	else \
-		echo "hugo/content/ missing — running full aggregation pipeline"; \
-		$(MAKE) docforge-ci; \
-		$(MAKE) ci-install; \
-		$(MAKE) post-process; \
-		$(MAKE) build; \
-	fi
+ci-build:
+	$(MAKE) ci-install; \
+	$(MAKE) build; \
 
 .PHONY: vale-install
 vale-install: ## Install Vale binary if not already present
@@ -225,10 +211,9 @@ vale-install: ## Install Vale binary if not already present
 	fi
 
 .PHONY: vale-run
-vale-run: ## Lint changed website markdown files with Vale
-	@CHANGED=$$(git diff --name-only --diff-filter=d HEAD -- 'website/**/*.md' | \
-		grep -v '^website/about/legal-disclosure\.md' | \
-		grep -v '^website/archived/'); \
+vale-run: ## Lint changed content markdown files with Vale
+	@CHANGED=$$(git diff --name-only --diff-filter=d HEAD -- 'hugo/content/**/*.md' | \
+		grep -v '^hugo/content/about/legal-disclosure\.md'); \
 	if [ -n "$$CHANGED" ]; then \
 		bin/vale $$CHANGED; \
 	else \
@@ -236,4 +221,4 @@ vale-run: ## Lint changed website markdown files with Vale
 	fi
 
 .PHONY: vale
-vale: vale-install vale-run ## Install Vale and lint changed website markdown files
+vale: vale-install vale-run ## Install Vale and lint changed content markdown files

@@ -4,7 +4,7 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
     paths:
-      - 'website/**/*.md'
+      - 'hugo/content/**/*.md'
   workflow_dispatch:
 
 concurrency:
@@ -29,7 +29,7 @@ jobs:
       - name: Vale
         uses: vale-cli/vale-action@d89dee975228ae261d22c15adcd03578634d429c # v2.1.1
         with:
-          files: website/
+          files: hugo/content/
           vale_flags: "--minAlertLevel=warning"
           reporter: github-pr-review
           fail_on_error: true

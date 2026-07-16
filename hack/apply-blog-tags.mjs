@@ -2,7 +2,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import yaml from 'js-yaml'
 
-const BLOG_ROOT = path.resolve('website/blog')
+const BLOG_ROOT = path.resolve('hugo/content/blog')
 const DRY_RUN = process.argv.includes('--dry-run')
 
 const CONTENT_TYPE_TAGS = [

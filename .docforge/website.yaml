@@ -1,33 +1,7 @@
 structure:
-- dir: adopter
-  structure:
-  - manifest: ./adopters/adopters.yaml
-- dir: blog
-  structure:
-  - fileTree: /website/blog
-- dir: community
-  structure:
-  - fileTree: /website/community
-    excludeFiles:
-    - steering/assets
 - dir: docs
   structure:
   - manifest: ./documentation/documentation.yaml
 - dir: contribute
   structure:
   - manifest: ./contribute.yaml
-- dir: about
-  structure:
-  - fileTree: /website/about
-
-### /html
-- dir: html
-  structure:
-  - file: /website/documentation/security-and-compliance/hardened-shoot-report/hardened_shoots_report.md
-
-- dir: public
-  structure:
-    - fileTree: ../website/public
-    - file: hardend_shoots_report.html
-      source: /website/documentation/security-and-compliance/hardened-shoot-report/hardened_shoots_report.md
-- file: ../website/index.md

@@ -2,6 +2,9 @@
   "name": "documentation",
   "type": "module",
   "packageManager": "pnpm@11.5.1",
+  "engines": {
+    "node": ">=24"
+  },
   "dependencies": {
     "@braintree/sanitize-url": "7.1.2",
     "cytoscape": "3.33.4",

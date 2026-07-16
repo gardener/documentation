@@ -1,14 +1,12 @@
 *
-!.docforge/
 !.vitepress/
 .vitepress/cache/
 .vitepress/dist/
-!images/
-!post-processing/
-!website/
-!Makefile
+!hugo/content/
 !package*.json
 !pnpm-lock.yaml
 !pnpm-workspace.yaml
 !.npmrc
 !tsconfig.json
+# git wird fuer VitePress lastUpdated (git log pro Seite) benoetigt
+!.git/

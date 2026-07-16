@@ -64,27 +64,8 @@ export default withMermaid(defineConfig({
 
     return id;
   },
-  srcExclude: [
-    '**/archived/**',
-    // Custom template tag is used, check for alternative
-    '**/community-bio.md', //Ignore for now
-    // Generated api reference which uses <> so indicate consumer input, CAPS could be used instead or escape via code block ``,
-    //'**/api-reference/extensions.md',
-    //'**/api-reference/operator.md',
-    //'**/api-reference/seedmanagement.md',
-    //'**/api-reference/core-v1.md',
-    //'**/api-reference/core.md',
-    //'**/etcd-druid/api-reference.md',
-    //'**/machine-controller-manager/documents/apis.md',
-    // Custom template tag is used instead of normal markdown alert or github alert
-    // https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts
-    //'**/tutorials/tutorial-custom-domain-with-istio.md',
-    //'**/security-and-compliance/report.md',
-      '**/html/**',
-      `**/extensions/others/gardener-extension-registry-cache/getting-started-remotely.md`
-  ],
   lastUpdated: true,
-  ignoreDeadLinks: true, //ToDo enable after migration
+  ignoreDeadLinks: true, //ToDo enable
   title: "Gardener",
   description: "A Managed Kubernetes Service Done Right",
   head: getHeadConfig() as any,
@@ -98,6 +79,7 @@ export default withMermaid(defineConfig({
       term: 'shell',
       b: 'shell',
       terminaloutput: 'shell',
+      conf: 'shell'
     },
     /* Disable interpolation of inline code by Vue. Based on: https://github.com/vuejs/vitepress/discussions/3724#discussioncomment-8963669 */
     config(md: any) {
@@ -340,7 +322,7 @@ function getViteConfig(basePath: string, srcDir: string) {
       createAliasRedirectDevPlugin(srcDir, basePath),
     ],
     build:{
-      chunkSizeWarningLimit: 5000,
+      chunkSizeWarningLimit: 10000,
     },
     optimizeDeps: {
       include: ['dayjs'],
@@ -400,7 +382,7 @@ function getHeadConfig(){
       'meta',
       {
         property: 'og:image',
-        content: 'https://raw.githubusercontent.com/gardener/documentation/refs/heads/master/website/public/og-gardener.png'
+        content: 'https://raw.githubusercontent.com/gardener/documentation/refs/heads/master/hugo/content/public/og-gardener.webp'
       }
     ],
     ['meta', {property: 'og:url', content: 'https://gardener.cloud/'}],
