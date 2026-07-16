@@ -26,29 +26,29 @@ A GEP provides sufficient context, motivation, and a concrete ask or decision re
 
 | Date | GEP | Title |
 | --- | --- | --- |
-| 2026-07-23 | [GEP-0068](https://github.com/gardener/documentation/blob/master/website/community/steering/0068-gateway-api-extension-for-gardener-shoot-clusters) | Gateway API Extension for Gardener Shoot Clusters |
-| 2026-07-30 | [GEP-0063](https://github.com/gardener/documentation/blob/master/website/community/steering/0063-diki-extension) | Diki Extension |
-| 2026-08-27 | [GEP-0066](https://github.com/gardener/documentation/blob/master/website/community/steering/0066-make-shoot-domains-mutable) | Make Shoot Domains Mutable |
+| 2026-07-23 | [GEP-0068](/community/steering/0068-gateway-api-extension-for-gardener-shoot-clusters/) | Gateway API Extension for Gardener Shoot Clusters |
+| 2026-07-30 | [GEP-0063](/community/steering/0063-diki-extension/) | Diki Extension |
+| 2026-08-27 | [GEP-0066](/community/steering/0066-make-shoot-domains-mutable/) | Make Shoot Domains Mutable |
 
-*(Sessions take place Thursdays, 10:00–11:00 Europe/Berlin — see [Meeting Process](#-meeting-process) for details.)*
+*(Sessions take place Thursdays, 10:00–11:00 Europe/Berlin — see [Meeting Process](#📑-meeting-process) for details.)*
 
 <details>
 <summary><strong>Past Sessions</strong></summary>
 
 | Date | GEP | Title |
 | --- | --- | --- |
-| 2026-07-16 | [GEP-0043](https://github.com/gardener/documentation/blob/master/website/community/steering/0043-spegel-support-in-registry-cache) | Spegel Support in Registry Cache Extension (Round 2) |
-| 2026-04-20 | [GEP-0057](https://github.com/gardener/documentation/blob/master/website/community/steering/0057-traefik-extension) | Replace Nginx Ingress Shoot Addon with Traefik Extension |
-| 2026-04-16 | [GEP-0039](https://github.com/gardener/documentation/blob/master/website/community/steering/0039-live-control-plane-migration) | Live Control Plane Migration (Round 2) |
-| 2026-03-25 | [GEP-0049](https://github.com/gardener/documentation/blob/master/website/community/steering/0049-gardener-landscape-kit) | Gardener Landscape Kit |
-| 2026-02-24 | [GEP-0041](https://github.com/gardener/documentation/blob/master/website/community/steering/0041-slo-monitoring) | SLO Monitoring ¹ |
-| 2026-02-17 | [GEP-0043](https://github.com/gardener/documentation/blob/master/website/community/steering/0043-spegel-support-in-registry-cache) | Spegel Support in Registry Cache Extension (Round 1) |
-| 2026-02-09 | [GEP-0039](https://github.com/gardener/documentation/blob/master/website/community/steering/0039-live-control-plane-migration) | Live Control Plane Migration (Round 1) |
-| 2026-02-04 | [GEP-0038](https://github.com/gardener/documentation/blob/master/website/community/steering/0038-autoscaling-persistentvolumeclaims) | Autoscaling PersistentVolumeClaims (Round 2) |
-| 2026-02-03 | [GEP-0038](https://github.com/gardener/documentation/blob/master/website/community/steering/0038-autoscaling-persistentvolumeclaims) | Autoscaling PersistentVolumeClaims (Round 1) |
-| 2026-01-19 | [GEP-0036](https://github.com/gardener/documentation/blob/master/website/community/steering/0036-self-hosted-shoot-exposure) | Self-Hosted Shoot Exposure |
-| 2025-03-20 | [GEP-0034](https://github.com/gardener/documentation/blob/master/website/community/steering/0034-observability-2.0) | Observability 2.0 |
-| 2025-03-17 | [GEP-0037](https://github.com/gardener/documentation/blob/master/website/community/steering/0037-scaling-advisor) | Scaling Advisor ¹ |
+| 2026-07-16 | [GEP-0043](/community/steering/0043-spegel-support-in-registry-cache/) | Spegel Support in Registry Cache Extension (Round 2) |
+| 2026-04-20 | [GEP-0057](/community/steering/0057-traefik-extension/) | Replace Nginx Ingress Shoot Addon with Traefik Extension |
+| 2026-04-16 | [GEP-0039](/community/steering/0039-live-control-plane-migration/) | Live Control Plane Migration (Round 2) |
+| 2026-03-25 | [GEP-0049](/community/steering/0049-gardener-landscape-kit/) | Gardener Landscape Kit |
+| 2026-02-24 | [GEP-0041](/community/steering/0041-slo-monitoring/) | SLO Monitoring ¹ |
+| 2026-02-17 | [GEP-0043](/community/steering/0043-spegel-support-in-registry-cache/) | Spegel Support in Registry Cache Extension (Round 1) |
+| 2026-02-09 | [GEP-0039](/community/steering/0039-live-control-plane-migration/) | Live Control Plane Migration (Round 1) |
+| 2026-02-04 | [GEP-0038](/community/steering/0038-autoscaling-persistentvolumeclaims/) | Autoscaling PersistentVolumeClaims (Round 2) |
+| 2026-02-03 | [GEP-0038](/community/steering/0038-autoscaling-persistentvolumeclaims/) | Autoscaling PersistentVolumeClaims (Round 1) |
+| 2026-01-19 | [GEP-0036](/community/steering/0036-self-hosted-shoot-exposure/) | Self-Hosted Shoot Exposure |
+| 2025-03-20 | [GEP-0034](/community/steering/0034-observability-2.0/) | Observability 2.0 |
+| 2025-03-17 | [GEP-0037](/community/steering/0037-scaling-advisor/) | Scaling Advisor ¹ |
 
 ¹ Part of the discontinued Product Steering track.
 
