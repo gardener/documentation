@@ -6,7 +6,20 @@ Ready to jump in? Follow these steps to get the Gardener documentation running l
 
 ### Prerequisites
 
+**For the Docker-based preview (recommended):**
+
 * [Docker](https://www.docker.com/) installed and running.
+
+**For local development (`make dev`, `make local-preview`):**
+
+* [Node.js](https://nodejs.org/) v24 (matches the version used in CI and the Docker image).
+* [pnpm](https://pnpm.io/) — enable it via Corepack (bundled with Node):
+
+  ```shell
+  corepack enable
+  ```
+
+  Corepack picks up the pinned pnpm version from `package.json` automatically.
 
 ### Steps
 
