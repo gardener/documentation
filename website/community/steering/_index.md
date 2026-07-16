@@ -20,7 +20,7 @@ A GEP provides sufficient context, motivation, and a concrete ask or decision re
 | 2026-07-30 | [GEP-0063](./0063-diki-extension.md) | Diki Extension |
 | 2026-08-27 | [GEP-0066](./0066-make-shoot-domains-mutable.md) | Make Shoot Domains Mutable |
 
-*(Sessions take place Thursdays, 10:00–11:00 Europe/Berlin — see [Meeting Process](#-meeting-process) for details.)*
+*(Sessions take place Thursdays, 10:00–11:00 Europe/Berlin — see [Meeting Process](#📑-meeting-process) for details.)*
 
 <details>
 <summary><strong>Past Sessions</strong></summary>
