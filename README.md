@@ -18,10 +18,6 @@ make docker-preview
 
 2. Visit [http://localhost:5173](http://localhost:5173) in your browser! 🎉
 
-The aggregated content tree is committed to the repository, so the local
-preview builds directly from it. No GitHub token or content aggregation step
-is needed.
-
 ## 📚 Understanding the Documentation Structure
 
 The Gardener documentation uses a **distributed documentation model** where content is gathered from multiple repositories into `hugo/content/` by a scheduled CI job (docforge). The aggregated tree is committed to `master`, so local builds and PRs work against `hugo/content/` directly without running docforge.
@@ -83,6 +79,7 @@ To modify these, submit changes to their respective repositories.
 
 ### Documentation Development
 
-- `make dev` - Start the development server with live reloading (port 5173)
-- `make docker-preview` - Build and run the preview in a Docker container (port 5173)
+- `make dev` - Start the development server with live reloading
+- `make docker-preview` - Build and run the preview in a Docker container
+- `make local-preview` - Build and run the preview locally
 
