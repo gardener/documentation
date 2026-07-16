@@ -16,9 +16,9 @@ A GEP provides sufficient context, motivation, and a concrete ask or decision re
 
 | Date | GEP | Title |
 |------|-----|-------|
-| 2026-07-23 | [GEP-0068](0068-gateway-api-extension-for-gardener-shoot-clusters) | Gateway API Extension for Gardener Shoot Clusters |
-| 2026-07-30 | [GEP-0063](0063-diki-extension) | Diki Extension |
-| 2026-08-27 | [GEP-0066](0066-make-shoot-domains-mutable) | Make Shoot Domains Mutable |
+| 2026-07-23 | [GEP-0068](./0068-gateway-api-extension-for-gardener-shoot-clusters.md) | Gateway API Extension for Gardener Shoot Clusters |
+| 2026-07-30 | [GEP-0063](./0063-diki-extension.md) | Diki Extension |
+| 2026-08-27 | [GEP-0066](./0066-make-shoot-domains-mutable.md) | Make Shoot Domains Mutable |
 
 *(Sessions take place Thursdays, 10:00–11:00 Europe/Berlin — see [Meeting Process](#-meeting-process) for details.)*
 
@@ -27,18 +27,18 @@ A GEP provides sufficient context, motivation, and a concrete ask or decision re
 
 | Date | GEP | Title |
 |------|-----|-------|
-| 2026-07-16 | [GEP-0043](0043-spegel-support-in-registry-cache) | Spegel Support in Registry Cache Extension (Round 2) |
-| 2026-04-20 | [GEP-0057](0057-traefik-extension) | Replace Nginx Ingress Shoot Addon with Traefik Extension |
-| 2026-04-16 | [GEP-0039](0039-live-control-plane-migration) | Live Control Plane Migration (Round 2) |
-| 2026-03-25 | [GEP-0049](0049-gardener-landscape-kit) | Gardener Landscape Kit |
-| 2026-02-24 | [GEP-0041](0041-slo-monitoring) | SLO Monitoring ¹ |
-| 2026-02-17 | [GEP-0043](0043-spegel-support-in-registry-cache) | Spegel Support in Registry Cache Extension (Round 1) |
-| 2026-02-09 | [GEP-0039](0039-live-control-plane-migration) | Live Control Plane Migration (Round 1) |
-| 2026-02-04 | [GEP-0038](0038-autoscaling-persistentvolumeclaims) | Autoscaling PersistentVolumeClaims (Round 2) |
-| 2026-02-03 | [GEP-0038](0038-autoscaling-persistentvolumeclaims) | Autoscaling PersistentVolumeClaims (Round 1) |
-| 2026-01-19 | [GEP-0036](0036-self-hosted-shoot-exposure) | Self-Hosted Shoot Exposure |
-| 2025-03-20 | [GEP-0034](0034-observability-2.0) | Observability 2.0 |
-| 2025-03-17 | [GEP-0037](0037-scaling-advisor) | Scaling Advisor ¹ |
+| 2026-07-16 | [GEP-0043](./0043-spegel-support-in-registry-cache.md) | Spegel Support in Registry Cache Extension (Round 2) |
+| 2026-04-20 | [GEP-0057](./0057-traefik-extension.md) | Replace Nginx Ingress Shoot Addon with Traefik Extension |
+| 2026-04-16 | [GEP-0039](./0039-live-control-plane-migration.md) | Live Control Plane Migration (Round 2) |
+| 2026-03-25 | [GEP-0049](./0049-gardener-landscape-kit.md) | Gardener Landscape Kit |
+| 2026-02-24 | [GEP-0041](./0041-slo-monitoring.md) | SLO Monitoring ¹ |
+| 2026-02-17 | [GEP-0043](./0043-spegel-support-in-registry-cache.md) | Spegel Support in Registry Cache Extension (Round 1) |
+| 2026-02-09 | [GEP-0039](./0039-live-control-plane-migration.md) | Live Control Plane Migration (Round 1) |
+| 2026-02-04 | [GEP-0038](./0038-autoscaling-persistentvolumeclaims.md) | Autoscaling PersistentVolumeClaims (Round 2) |
+| 2026-02-03 | [GEP-0038](./0038-autoscaling-persistentvolumeclaims.md) | Autoscaling PersistentVolumeClaims (Round 1) |
+| 2026-01-19 | [GEP-0036](./0036-self-hosted-shoot-exposure.md) | Self-Hosted Shoot Exposure |
+| 2025-03-20 | [GEP-0034](./0034-observability-2.0.md) | Observability 2.0 |
+| 2025-03-17 | [GEP-0037](./0037-scaling-advisor.md) | Scaling Advisor ¹ |
 
 ¹ Part of the discontinued Product Steering track.
 
