@@ -128,17 +128,12 @@ optimize-assets-write: ## Convert large PNG images to WebP and update references
 
 .PHONY: dev
 dev:
+	@$(MAKE) install
 	pnpm exec vitepress dev
 
 .PHONY: local-preview
-local-preview: ## Full local preview: clean hugo dir, run docforge, post-process, build, and preview
-	@if [ -d "hugo" ]; then \
-		echo "Removing existing hugo directory..."; \
-		rm -rf hugo; \
-	fi
-	@$(MAKE) docforge-ci
+local-preview:
 	@$(MAKE) install
-	@$(MAKE) post-process
 	@$(MAKE) build
 	pnpm exec vitepress preview
 
@@ -181,18 +176,9 @@ docforge-ci: docforge-download ## Run docforge in CI mode (non-interactive)
 	./bin/docforge
 
 .PHONY: ci-build
-ci-build: ## Build for CI/Netlify: skip aggregation if hugo/content/ is already committed, otherwise run the full pipeline
-	@if [ -d hugo/content ]; then \
-		echo "hugo/content/ found — using committed tree, skipping docforge + post-process"; \
-		$(MAKE) ci-install; \
-		$(MAKE) build; \
-	else \
-		echo "hugo/content/ missing — running full aggregation pipeline"; \
-		$(MAKE) docforge-ci; \
-		$(MAKE) ci-install; \
-		$(MAKE) post-process; \
-		$(MAKE) build; \
-	fi
+ci-build:
+	$(MAKE) ci-install; \
+	$(MAKE) build; \
 
 .PHONY: vale-install
 vale-install: ## Install Vale binary if not already present

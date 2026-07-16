@@ -8,3 +8,5 @@
 !pnpm-workspace.yaml
 !.npmrc
 !tsconfig.json
+# git wird fuer VitePress lastUpdated (git log pro Seite) benoetigt
+!.git/
