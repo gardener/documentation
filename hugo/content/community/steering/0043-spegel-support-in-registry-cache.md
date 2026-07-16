@@ -18,5 +18,21 @@ local: true
 - 📖 **GEP Link:** https://github.com/gardener/enhancements/pull/44
 - ✍🏻 **Author(s):** [@dimitar-kostadinov](https://github.com/dimitar-kostadinov) (Dimitar Kostadinov)
 - 🗓️ **Presentations:** 2026-02-17, 15:00 - 16:00 Europe/Berlin; 2026-07-16, 10:00 - 11:00 Europe/Berlin
-- 🎥 **Recording:** https://youtu.be/5kDSlmE5c8k
+- 🎥 **Recordings:** https://youtu.be/5kDSlmE5c8k (2026-02-17), https://youtu.be/pB0TX6pd5hA (2026-07-16)
 - 👨‍⚖️ **Decisions:**
+  - Approved the `systemd` unit approach (over the `DaemonSet` approach) for running Spegel in the `registry-cache` extension, based on the evaluation of all four POC branches.
+  - Agreed to merge the GEP PR by end of the week, with Dimitar Kostadinov to first resolve addressed review comments and remaining participants to flag any final changes by end of day.
+- 💬 **Key Discussion Points:**
+  - The `DaemonSet` approach was found to be unable to cache most images in the `kube-system` namespace during node bootstrapping, as Spegel cannot be available before `kube-proxy`, `coredns`, and the service network are set up; the `systemd` unit approach avoids this limitation.
+  - Embedding the Spegel binary directly into the machine image would cover all images (including those pulled by Gardener Node Agent) but is not a feasible option in the near term because Gardener does not control machine images.
+  - The "200 MB overhead per node" figure refers to the cumulative size of images that cannot be served from the Spegel registry when using the `DaemonSet` approach during bootstrapping, not a per-image size limit.
+  - Spegel injects itself as the first entry in `containerd`'s `hosts.toml` files, requiring changes in the `registry-cache` extension and the `image-rewriter` extension to respect this ordering; a documented implicit priority order (Spegel → `registry-cache` → `image-rewriter` → upstream) was discussed.
+  - The `discard_unpacked_layers` `containerd` setting being forced to `false` by Spegel could increase root disk usage on nodes not using Gardenlinux or SuSE; operators were advised to document this and recommend larger root disks or a gradual, feature-gated global enablement strategy.
+  - The Spegel bootstrapper component runs in the shoot control plane, is exposed via Istio, and contacts nodes only during bootstrapping (plus rare runtime cases), so continuous load on Istio is not a concern.
+  - Monitoring metrics (hit/miss rate, bytes pulled, advertised image layers per upstream) and a Grafana dashboard are already implemented in the POC, giving operators visibility into cache effectiveness.
+- ➡️ **Next Steps:**
+  - Dimitar Kostadinov to resolve all addressed review comments on the GEP PR before merging.
+  - All reviewers to flag any remaining final comments on the GEP PR by end of day so the PR can be merged by end of the week.
+  - Dimitar Kostadinov to adapt the `registry-cache` extension and the `image-rewriter` extension to respect Spegel's first-entry injection in `hosts.toml`.
+  - Dimitar Kostadinov to document the `discard_unpacked_layers` impact and operator recommendations (e.g., larger root disks) in the Spegel extension documentation.
+  - Dimitar Kostadinov to continue refining and testing the zone-aware image pool contribution to the upstream Spegel project before opening a PR.
