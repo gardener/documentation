@@ -5,7 +5,6 @@ on:
     types: [opened, synchronize, reopened]
     paths:
       - 'hugo/content/**/*.md'
-  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
