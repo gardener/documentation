@@ -156,3 +156,6 @@ dist
 !hugo/content/blog/2025/06/manifests/otel-collectors/*.yaml
 !hugo/content/blog/2025/06/manifests/otel-prometheus/*.yaml
 !hugo/content/blog/2025/06/manifests/otel-victorialogs/*.yaml
+
+
+/.vitepress/alias-redirects.txt

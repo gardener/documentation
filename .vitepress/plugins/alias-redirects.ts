@@ -153,9 +153,15 @@ async function collectMarkdownFiles(rootDir: string): Promise<string[]> {
   return results
 }
 
-async function collectAliasEntries(srcDir: string, basePath: string): Promise<Map<string, AliasEntry>> {
+export type AliasCollectionResult = {
+  redirects: Map<string, AliasEntry>
+  warnings: string[]
+}
+
+async function collectAliasEntries(srcDir: string, basePath: string): Promise<AliasCollectionResult> {
   const markdownFiles = await collectMarkdownFiles(srcDir)
   const redirects = new Map<string, AliasEntry>()
+  const warnings: string[] = []
   const canonicalRoutes = new Set(
     markdownFiles.map((markdownFile) => {
       const sourcePath = path.relative(srcDir, markdownFile).replace(/\\/g, '/')
@@ -187,14 +193,14 @@ async function collectAliasEntries(srcDir: string, basePath: string): Promise<Ma
 
         if (canonicalRoutes.has(normalizedAlias)) {
           if (normalizedAlias !== routePath) {
-            console.warn(`[aliases] Skipping alias "${normalizedAlias}" in "${sourcePath}" because it matches an existing page route.`)
+            warnings.push(`Skipping alias "${normalizedAlias}" in "${sourcePath}" because it matches an existing page route.`)
           }
           continue
         }
 
         const existing = redirects.get(normalizedAlias)
         if (existing && existing.targetPath !== targetPath) {
-          console.warn(`[aliases] Skipping duplicate alias "${normalizedAlias}" in "${sourcePath}". Already mapped to "${existing.targetPath}" by "${existing.sourcePath}".`)
+          warnings.push(`Skipping duplicate alias "${normalizedAlias}" in "${sourcePath}". Already mapped to "${existing.targetPath}" by "${existing.sourcePath}".`)
           continue
         }
 
@@ -206,12 +212,12 @@ async function collectAliasEntries(srcDir: string, basePath: string): Promise<Ma
     }
   }
 
-  return redirects
+  return { redirects, warnings }
 }
 
 export async function generateAliasRedirects(siteConfig: SiteConfig): Promise<void> {
   const basePath = typeof siteConfig.site.base === 'string' ? siteConfig.site.base : '/'
-  const redirects = await collectAliasEntries(siteConfig.srcDir, basePath)
+  const { redirects, warnings } = await collectAliasEntries(siteConfig.srcDir, basePath)
 
   const writtenAliases: { aliasPath: string; redirect: AliasEntry }[] = []
 
@@ -229,13 +235,38 @@ export async function generateAliasRedirects(siteConfig: SiteConfig): Promise<vo
     writtenAliases.push({ aliasPath, redirect })
   }
 
-  if (writtenAliases.length > 0) {
-    writtenAliases.sort((a, b) => a.aliasPath.localeCompare(b.aliasPath))
-    for (const { aliasPath, redirect } of writtenAliases) {
-      console.info(`[aliases]   ${aliasPath} -> ${redirect.targetPath}`)
+  writtenAliases.sort((a, b) => a.aliasPath.localeCompare(b.aliasPath))
+
+  const reportFilePath = path.join(path.dirname(siteConfig.outDir), 'alias-redirects.txt')
+  const reportBody = buildAliasReport(writtenAliases, warnings)
+  await fs.mkdir(path.dirname(reportFilePath), { recursive: true })
+  await fs.writeFile(reportFilePath, reportBody, 'utf8')
+
+  const warningSuffix = warnings.length > 0 ? `, ${warnings.length} übersprungen` : ''
+  console.info(`[aliases] ${writtenAliases.length} Redirects erzeugt${warningSuffix}. Volle Liste: ${reportFilePath}`)
+}
+
+function buildAliasReport(
+  writtenAliases: { aliasPath: string; redirect: AliasEntry }[],
+  warnings: string[],
+): string {
+  const lines: string[] = []
+
+  lines.push(`# Alias redirects (${writtenAliases.length})`)
+  for (const { aliasPath, redirect } of writtenAliases) {
+    lines.push(`${aliasPath} -> ${redirect.targetPath}`)
+  }
+
+  if (warnings.length > 0) {
+    lines.push('')
+    lines.push(`# Warnings (${warnings.length})`)
+    for (const warning of warnings) {
+      lines.push(warning)
     }
   }
-  console.info(`[aliases] Generated ${writtenAliases.length} alias redirect files.`)
+
+  lines.push('')
+  return lines.join('\n')
 }
 
 function stripBasePath(pathname: string, basePath: string): string | null {
@@ -263,10 +294,12 @@ export function createAliasRedirectDevPlugin(srcDir: string, basePath: string) {
 
   const loadAliases = () => {
     if (!cachedAliases) {
-      cachedAliases = collectAliasEntries(srcDir, basePath).catch((error) => {
-        cachedAliases = null
-        throw error
-      })
+      cachedAliases = collectAliasEntries(srcDir, basePath)
+        .then((result) => result.redirects)
+        .catch((error) => {
+          cachedAliases = null
+          throw error
+        })
     }
 
     return cachedAliases
@@ -330,13 +363,7 @@ export function createAliasRedirectDevPlugin(srcDir: string, basePath: string) {
 
       void loadAliases()
         .then((aliases) => {
-          if (aliases.size > 0) {
-            const sortedAliases = [...aliases.entries()].sort(([a], [b]) => a.localeCompare(b))
-            for (const [aliasPath, redirect] of sortedAliases) {
-              console.info(`[aliases]   ${aliasPath} -> ${redirect.targetPath}`)
-            }
-          }
-          console.info(`[aliases] Loaded ${aliases.size} aliases for dev redirects.`)
+          console.info(`[aliases] ${aliases.size} Redirects geladen.`)
         })
         .catch((error) => {
           const message = error instanceof Error ? error.message : String(error)
