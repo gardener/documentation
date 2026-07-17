@@ -12,7 +12,7 @@ path_base_for_github_subdir:
   from: content/docs/guides/applications/app-ci-cd.md
   to: app-ci-cd.md
 scope: app-developer
-title: Kubernetes Application CI/CD using Structured Authentication
+title: "Kubernetes Application CI/CD using Structured Authentication"
 prev: false
 next: false
 local: true

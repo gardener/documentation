@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/getting-started/ca-components.md
   to: ca-components.md
-title: Control Plane Components
+title: "Control Plane Components"
 weight: 5
 prev: false
 next: false

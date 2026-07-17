@@ -15,7 +15,7 @@ path_base_for_github_subdir:
 reviewer: Tieyan Fu
 scope: app-developer
 status: Reviewed
-title: How to Debug a Pod
+title: "How to Debug a Pod"
 prev: false
 next: false
 local: true

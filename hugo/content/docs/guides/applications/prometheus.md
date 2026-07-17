@@ -12,7 +12,7 @@ path_base_for_github_subdir:
   from: content/docs/guides/applications/prometheus.md
   to: prometheus.md
 scope: app-developer
-title: Using Prometheus and Grafana to Monitor K8s
+title: "Using Prometheus and Grafana to Monitor K8s"
 prev: false
 next: false
 local: true

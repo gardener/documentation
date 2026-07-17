@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/faq/automatic-migrate.md
   to: automatic-migrate.md
-title: Can you migrate the content of one cluster to another cluster?
+title: "Can you migrate the content of one cluster to another cluster?"
 prev: false
 next: false
 local: true

@@ -10,7 +10,7 @@ path_base_for_github_subdir:
   from: content/docs/guides/applications/service-cache-control.md
   to: service-cache-control.md
 scope: app-developer
-title: Out-Dated HTML and JS Files Delivered
+title: "Out-Dated HTML and JS Files Delivered"
 prev: false
 next: false
 local: true

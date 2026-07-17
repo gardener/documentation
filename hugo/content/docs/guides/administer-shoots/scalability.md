@@ -12,7 +12,7 @@ path_base_for_github_subdir:
   to: scalability.md
 publishdate: '2023-05-23'
 scope: Users
-title: Scalability of Gardener Managed Kubernetes Clusters
+title: "Scalability of Gardener Managed Kubernetes Clusters"
 prev: false
 next: false
 local: true

@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/html/hardened_shoots_report.md
   to: hardened_shoots_report.md
-title: Hardened Shoots Report
+title: "Hardened Shoots Report"
 prev: false
 next: false
 local: true

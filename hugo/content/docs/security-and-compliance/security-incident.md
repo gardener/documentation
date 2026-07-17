@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/security-and-compliance/security-incident.md
   to: security-incident.md
-title: Reporting a Security Incident
+title: "Reporting a Security Incident"
 prev: false
 next: false
 local: true

@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/guides/administer-shoots/tailscale.md
   to: tailscale.md
-title: Tailscale
+title: "Tailscale"
 prev: false
 next: false
 local: true

@@ -8,7 +8,7 @@ params:
 path_base_for_github_subdir:
   from: content/contribute/documentation/markup.md
   to: markup.md
-title: Markdown
+title: "Markdown"
 prev: false
 next: false
 local: true

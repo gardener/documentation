@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/faq/privileged-containers.md
   to: privileged-containers.md
-title: Can you run privileged containers?
+title: "Can you run privileged containers?"
 prev: false
 next: false
 local: true

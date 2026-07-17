@@ -8,7 +8,7 @@ params:
 path_base_for_github_subdir:
   from: content/contribute/documentation/formatting-guide.md
   to: formatting-guide.md
-title: Formatting Guide
+title: "Formatting Guide"
 prev: false
 next: false
 local: true

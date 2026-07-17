@@ -9,7 +9,7 @@ path_base_for_github_subdir:
   from: content/docs/guides/administer-shoots/create-delete-shoot.md
   to: create-delete-shoot.md
 scope: operator
-title: Create / Delete a Shoot Cluster
+title: "Create / Delete a Shoot Cluster"
 prev: false
 next: false
 local: true

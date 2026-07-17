@@ -9,7 +9,7 @@ params:
 path_base_for_github_subdir:
   from: content/contribute/contribution-process/roles.md
   to: roles.md
-title: Community Roles
+title: "Community Roles"
 weight: 30
 prev: false
 next: false

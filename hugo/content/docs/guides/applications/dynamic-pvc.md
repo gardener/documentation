@@ -10,7 +10,7 @@ path_base_for_github_subdir:
   from: content/docs/guides/applications/dynamic-pvc.md
   to: dynamic-pvc.md
 scope: app-developer
-title: Dynamic Volume Provisioning
+title: "Dynamic Volume Provisioning"
 prev: false
 next: false
 local: true

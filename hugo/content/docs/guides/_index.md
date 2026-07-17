@@ -8,7 +8,7 @@ path_base_for_github_subdir:
   from: content/docs/guides/_index.md
   to: _index.md
 persona: Developers
-title: Guides
+title: "Guides"
 weight: 20
 prev: false
 next: false

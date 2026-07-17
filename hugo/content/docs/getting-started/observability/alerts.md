@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/getting-started/observability/alerts.md
   to: alerts.md
-title: Alerts
+title: "Alerts"
 weight: 2
 prev: false
 next: false

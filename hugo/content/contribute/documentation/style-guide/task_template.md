@@ -10,7 +10,7 @@ params:
 path_base_for_github_subdir:
   from: content/contribute/documentation/style-guide/task_template.md
   to: task_template.md
-title: Task Template
+title: "Task Template"
 prev: false
 next: false
 local: true

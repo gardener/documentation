@@ -10,7 +10,7 @@ path_base_for_github_subdir:
   from: content/docs/guides/applications/image-pull-policy.md
   to: image-pull-policy.md
 scope: app-developer
-title: Container Image Not Updating
+title: "Container Image Not Updating"
 prev: false
 next: false
 local: true

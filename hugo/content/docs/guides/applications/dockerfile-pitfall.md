@@ -12,7 +12,7 @@ path_base_for_github_subdir:
   to: dockerfile-pitfall.md
 reviewer: Tieyan Fu
 scope: app-developer
-title: Dockerfile Pitfalls
+title: "Dockerfile Pitfalls"
 prev: false
 next: false
 local: true

@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/getting-started/observability/shoot-status.md
   to: shoot-status.md
-title: Shoot Status
+title: "Shoot Status"
 weight: 3
 prev: false
 next: false

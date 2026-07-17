@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/getting-started/features/hibernation.md
   to: hibernation.md
-title: Hibernation
+title: "Hibernation"
 weight: 1
 prev: false
 next: false

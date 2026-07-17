@@ -7,7 +7,7 @@ path_base_for_github_subdir:
   from: content/contribute/contribution-process/_index.md
   to: _index.md
 persona: Developers
-title: Contribution Process
+title: "Contribution Process"
 url: /contribute/contribution-process/
 weight: 10
 prev: false

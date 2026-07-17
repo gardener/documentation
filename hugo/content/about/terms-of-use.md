@@ -8,7 +8,7 @@ params:
 path_base_for_github_subdir:
   from: content/about/terms-of-use.md
   to: terms-of-use.md
-title: Terms Of Use
+title: "Terms Of Use"
 prev: false
 next: false
 local: true

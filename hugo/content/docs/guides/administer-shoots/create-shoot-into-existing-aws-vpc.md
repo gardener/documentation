@@ -9,7 +9,7 @@ path_base_for_github_subdir:
   from: content/docs/guides/administer-shoots/create-shoot-into-existing-aws-vpc.md
   to: create-shoot-into-existing-aws-vpc.md
 scope: app-developer
-title: Create a Shoot Cluster Into an Existing AWS VPC
+title: "Create a Shoot Cluster Into an Existing AWS VPC"
 prev: false
 next: false
 local: true

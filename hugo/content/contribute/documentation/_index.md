@@ -9,7 +9,7 @@ params:
 path_base_for_github_subdir:
   from: content/contribute/documentation/_index.md
   to: _index.md
-title: Documentation
+title: "Documentation"
 url: /contribute/documentation/
 weight: 70
 prev: false

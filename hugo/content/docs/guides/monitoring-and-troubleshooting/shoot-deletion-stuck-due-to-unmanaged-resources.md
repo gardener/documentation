@@ -11,7 +11,7 @@ path_base_for_github_subdir:
     content/docs/guides/monitoring-and-troubleshooting/shoot-deletion-stuck-due-to-unmanaged-resources.md
   to: shoot-deletion-stuck-due-to-unmanaged-resources.md
 scope: app-developer
-title: Shoot Deletion Stuck Due to Unmanaged Resources
+title: "Shoot Deletion Stuck Due to Unmanaged Resources"
 prev: false
 next: false
 local: true

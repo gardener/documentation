@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/getting-started/features/dns-management.md
   to: dns-management.md
-title: External DNS Management
+title: "External DNS Management"
 weight: 4
 prev: false
 next: false

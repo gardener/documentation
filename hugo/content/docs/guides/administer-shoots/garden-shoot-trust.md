@@ -13,7 +13,7 @@ path_base_for_github_subdir:
   from: content/docs/guides/administer-shoots/garden-shoot-trust.md
   to: garden-shoot-trust.md
 scope: operator
-title: Enabling Trust Between Shoot and Garden Clusters
+title: "Enabling Trust Between Shoot and Garden Clusters"
 prev: false
 next: false
 local: true

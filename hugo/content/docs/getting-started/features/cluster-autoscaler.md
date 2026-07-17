@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/getting-started/features/cluster-autoscaler.md
   to: cluster-autoscaler.md
-title: Cluster Autoscaler
+title: "Cluster Autoscaler"
 weight: 7
 prev: false
 next: false

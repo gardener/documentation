@@ -9,7 +9,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/resources/videos/livecheck-readiness.md
   to: livecheck-readiness.md
-title: Readiness != Liveness
+title: "Readiness != Liveness"
 video_id: mxEvAPQRwhw
 weight: 50
 prev: false

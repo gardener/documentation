@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/faq/backup.md
   to: backup.md
-title: Can you backup your Kubernetes cluster resources?
+title: "Can you backup your Kubernetes cluster resources?"
 prev: false
 next: false
 local: true

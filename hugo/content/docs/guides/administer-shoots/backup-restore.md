@@ -16,7 +16,7 @@ path_base_for_github_subdir:
   to: backup-restore.md
 publishdate: '2020-01-01'
 scope: app-developer
-title: Backup and Restore of Kubernetes Objects
+title: "Backup and Restore of Kubernetes Objects"
 prev: false
 next: false
 local: true

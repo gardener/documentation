@@ -10,7 +10,7 @@ path_base_for_github_subdir:
   from: content/docs/guides/applications/network-isolation.md
   to: network-isolation.md
 scope: app-developer
-title: Namespace Isolation
+title: "Namespace Isolation"
 prev: false
 next: false
 local: true

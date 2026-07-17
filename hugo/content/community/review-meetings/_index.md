@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/community/review-meetings/_index.md
   to: _index.md
-title: Review Meetings
+title: "Review Meetings"
 weight: 10
 prev: false
 next: false

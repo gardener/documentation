@@ -7,7 +7,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/guides/applications/_index.md
   to: _index.md
-title: Applications
+title: "Applications"
 weight: 50
 prev: false
 next: false

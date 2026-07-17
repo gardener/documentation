@@ -10,7 +10,7 @@ path_base_for_github_subdir:
   from: content/docs/guides/monitoring-and-troubleshooting/shell-to-node.md
   to: shell-to-node.md
 scope: operator
-title: Get a Shell to a Gardener Shoot Worker Node
+title: "Get a Shell to a Gardener Shoot Worker Node"
 prev: false
 next: false
 local: true

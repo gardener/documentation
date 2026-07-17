@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/faq/reporting-security-incident.md
   to: reporting-security-incident.md
-title: How can you report a security incident?
+title: "How can you report a security incident?"
 prev: false
 next: false
 local: true

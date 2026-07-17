@@ -8,7 +8,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/faq/kubernetes-upgrade.md
   to: kubernetes-upgrade.md
-title: Upgrading Kubernetes Versions
+title: "Upgrading Kubernetes Versions"
 prev: false
 next: false
 local: true

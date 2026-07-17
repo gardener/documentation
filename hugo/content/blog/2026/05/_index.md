@@ -7,7 +7,7 @@ params:
 path_base_for_github_subdir:
   from: content/blog/2026/05/_index.md
   to: _index.md
-title: May
+title: "May"
 local: true
 ---
 

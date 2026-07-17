@@ -10,7 +10,7 @@ params:
 path_base_for_github_subdir:
   from: content/contribute/documentation/style-guide/concept_template.md
   to: concept_template.md
-title: Concept Template
+title: "Concept Template"
 prev: false
 next: false
 local: true

@@ -10,7 +10,7 @@ path_base_for_github_subdir:
   from: content/docs/guides/monitoring-and-troubleshooting/tail-logfile.md
   to: tail-logfile.md
 scope: app-developer
-title: tail -f /var/log/my-application.log
+title: "tail -f /var/log/my-application.log"
 prev: false
 next: false
 local: true

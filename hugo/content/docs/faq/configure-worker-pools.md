@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/faq/configure-worker-pools.md
   to: configure-worker-pools.md
-title: How do you configure Multi-AZ worker pools for different extensions?
+title: "How do you configure Multi-AZ worker pools for different extensions?"
 prev: false
 next: false
 local: true

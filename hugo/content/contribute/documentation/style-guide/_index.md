@@ -9,7 +9,7 @@ params:
 path_base_for_github_subdir:
   from: content/contribute/documentation/style-guide/_index.md
   to: _index.md
-title: Style Guide
+title: "Style Guide"
 prev: false
 next: false
 local: true

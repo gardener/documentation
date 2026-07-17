@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/getting-started/observability/components.md
   to: components.md
-title: Components
+title: "Components"
 weight: 1
 prev: false
 next: false

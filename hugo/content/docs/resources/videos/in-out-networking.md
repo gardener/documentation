@@ -12,7 +12,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/resources/videos/in-out-networking.md
   to: in-out-networking.md
-title: The Ins and Outs of Networking
+title: "The Ins and Outs of Networking"
 video_id: y2bhV81MfKQ
 weight: 60
 prev: false

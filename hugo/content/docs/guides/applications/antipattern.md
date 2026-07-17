@@ -12,7 +12,7 @@ path_base_for_github_subdir:
   to: antipattern.md
 reviewer: Tieyan Fu
 scope: app-developer
-title: Kubernetes Antipatterns
+title: "Kubernetes Antipatterns"
 prev: false
 next: false
 local: true

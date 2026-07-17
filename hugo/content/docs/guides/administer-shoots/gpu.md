@@ -7,7 +7,7 @@ github_repo: 'https://github.com/gardener/documentation'
 github_subdir: hugo/content/docs/guides/administer-shoots
 level: intermediate
 linkTitle: AI/ML Workloads on GPU Clusters
-newsSubtitle: Setting up a GPU Enabled Cluster for AI/ML Workloads
+newsSubtitle: "Setting up a GPU Enabled Cluster for AI/ML Workloads"
 params:
   github_branch: master
 path_base_for_github_subdir:

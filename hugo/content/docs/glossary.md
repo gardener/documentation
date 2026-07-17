@@ -8,7 +8,7 @@ path_base_for_github_subdir:
   from: content/docs/glossary.md
   to: glossary.md
 persona: Users
-title: Glossary
+title: "Glossary"
 weight: 90
 prev: false
 next: false

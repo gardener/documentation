@@ -8,7 +8,7 @@ params:
 path_base_for_github_subdir:
   from: content/about/privacy.md
   to: privacy.md
-title: Privacy
+title: "Privacy"
 prev: false
 next: false
 local: true

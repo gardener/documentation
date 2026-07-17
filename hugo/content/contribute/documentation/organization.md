@@ -8,7 +8,7 @@ params:
 path_base_for_github_subdir:
   from: content/contribute/documentation/organization.md
   to: organization.md
-title: Organization
+title: "Organization"
 prev: false
 next: false
 local: true

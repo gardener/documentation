@@ -10,7 +10,7 @@ params:
 path_base_for_github_subdir:
   from: content/contribute/documentation/style-guide/reference_template.md
   to: reference_template.md
-title: Reference Template
+title: "Reference Template"
 prev: false
 next: false
 local: true

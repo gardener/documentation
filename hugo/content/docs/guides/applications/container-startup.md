@@ -10,7 +10,7 @@ path_base_for_github_subdir:
   from: content/docs/guides/applications/container-startup.md
   to: container-startup.md
 scope: app-developer
-title: Orchestration of Container Startup
+title: "Orchestration of Container Startup"
 prev: false
 next: false
 local: true

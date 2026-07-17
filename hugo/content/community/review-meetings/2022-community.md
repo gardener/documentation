@@ -7,7 +7,7 @@ params:
 path_base_for_github_subdir:
   from: content/community/review-meetings/2022-community.md
   to: 2022-community.md
-title: 2022 (Community Meetings)
+title: "2022 (Community Meetings)"
 weight: -2021
 prev: false
 next: false

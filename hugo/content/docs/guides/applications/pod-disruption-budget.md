@@ -12,7 +12,7 @@ path_base_for_github_subdir:
   to: pod-disruption-budget.md
 publishdate: '2022-06-21'
 scope: app-developer
-title: Specifying a Disruption Budget for Kubernetes Controllers
+title: "Specifying a Disruption Budget for Kubernetes Controllers"
 prev: false
 next: false
 local: true

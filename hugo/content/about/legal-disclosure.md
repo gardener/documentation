@@ -8,7 +8,7 @@ params:
 path_base_for_github_subdir:
   from: content/about/legal-disclosure.md
   to: legal-disclosure.md
-title: Legal Disclosure
+title: "Legal Disclosure"
 prev: false
 next: false
 local: true

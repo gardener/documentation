@@ -10,7 +10,7 @@ path_base_for_github_subdir:
   from: content/docs/guides/administer-shoots/maintain-shoot.md
   to: maintain-shoot.md
 scope: operator
-title: Shoot Cluster Maintenance
+title: "Shoot Cluster Maintenance"
 prev: false
 next: false
 local: true

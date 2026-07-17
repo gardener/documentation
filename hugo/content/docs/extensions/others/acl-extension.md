@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/extensions/others/acl-extension.md
   to: acl-extension.md
-title: Access Control List Extension
+title: "Access Control List Extension"
 prev: false
 next: false
 local: true

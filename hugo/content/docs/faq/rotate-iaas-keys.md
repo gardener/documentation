@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/faq/rotate-iaas-keys.md
   to: rotate-iaas-keys.md
-title: How do you rotate IaaS keys for a running cluster?
+title: "How do you rotate IaaS keys for a running cluster?"
 prev: false
 next: false
 local: true

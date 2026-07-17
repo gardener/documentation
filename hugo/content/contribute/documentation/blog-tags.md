@@ -8,7 +8,7 @@ params:
 path_base_for_github_subdir:
   from: content/contribute/documentation/blog-tags.md
   to: blog-tags.md
-title: Blog Tags Reference
+title: "Blog Tags Reference"
 prev: false
 next: false
 local: true

@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/community/hackathons/_index.md
   to: _index.md
-title: Hackathons
+title: "Hackathons"
 weight: 30
 prev: false
 next: false

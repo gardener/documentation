@@ -7,7 +7,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/extensions/others/_index.md
   to: _index.md
-title: Others
+title: "Others"
 weight: 50
 prev: false
 next: false

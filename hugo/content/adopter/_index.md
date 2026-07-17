@@ -8,7 +8,7 @@ params:
 path_base_for_github_subdir:
   from: content/adopter/_index.md
   to: _index.md
-title: Adopters
+title: "Adopters"
 url: /adopter
 prev: false
 next: false

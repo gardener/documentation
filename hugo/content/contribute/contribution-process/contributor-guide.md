@@ -10,7 +10,7 @@ path_base_for_github_subdir:
   from: content/contribute/contribution-process/contributor-guide.md
   to: contributor-guide.md
 persona: Developers
-title: Contributor Guide
+title: "Contributor Guide"
 weight: 10
 prev: false
 next: false

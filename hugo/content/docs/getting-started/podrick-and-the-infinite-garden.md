@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/getting-started/podrick-and-the-infinite-garden.md
   to: podrick-and-the-infinite-garden.md
-title: Podrick and the Infinite Garden
+title: "Podrick and the Infinite Garden"
 weight: 0
 prev: false
 next: false

@@ -14,7 +14,7 @@ path_base_for_github_subdir:
   to: bash-tips.md
 publishdate: '2019-01-01'
 scope: app-developer
-title: Fun with kubectl Aliases
+title: "Fun with kubectl Aliases"
 prev: false
 next: false
 local: true

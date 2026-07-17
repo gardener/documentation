@@ -7,7 +7,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/guides/monitoring-and-troubleshooting/_index.md
   to: _index.md
-title: Monitor and Troubleshoot
+title: "Monitor and Troubleshoot"
 weight: 40
 prev: false
 next: false

@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/faq/dns-config.md
   to: dns-config.md
-title: What are the meanings of different DNS configuration options?
+title: "What are the meanings of different DNS configuration options?"
 prev: false
 next: false
 local: true

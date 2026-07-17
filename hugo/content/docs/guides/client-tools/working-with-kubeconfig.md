@@ -9,7 +9,7 @@ path_base_for_github_subdir:
   from: content/docs/guides/client-tools/working-with-kubeconfig.md
   to: working-with-kubeconfig.md
 scope: app-developer
-title: Organizing Access Using kubeconfig Files
+title: "Organizing Access Using kubeconfig Files"
 prev: false
 next: false
 local: true

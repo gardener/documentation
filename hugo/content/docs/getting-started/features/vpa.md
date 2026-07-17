@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/getting-started/features/vpa.md
   to: vpa.md
-title: Vertical Pod Autoscaler
+title: "Vertical Pod Autoscaler"
 weight: 6
 prev: false
 next: false

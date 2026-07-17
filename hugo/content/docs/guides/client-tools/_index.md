@@ -7,7 +7,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/guides/client-tools/_index.md
   to: _index.md
-title: Set Up Client Tools
+title: "Set Up Client Tools"
 weight: 10
 prev: false
 next: false

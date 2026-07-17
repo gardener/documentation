@@ -9,7 +9,7 @@ params:
 path_base_for_github_subdir:
   from: content/contribute/documentation/images.md
   to: images.md
-title: Working with Images
+title: "Working with Images"
 weight: 15
 prev: false
 next: false

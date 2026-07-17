@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/community/_index.md
   to: _index.md
-title: Community
+title: "Community"
 url: /community
 prev: false
 next: false

@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/getting-started/features/certificate-management.md
   to: certificate-management.md
-title: Certificate Management
+title: "Certificate Management"
 weight: 5
 prev: false
 next: false

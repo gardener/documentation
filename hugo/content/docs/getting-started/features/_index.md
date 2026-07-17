@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/getting-started/features/_index.md
   to: _index.md
-title: Features
+title: "Features"
 weight: 8
 prev: false
 next: false

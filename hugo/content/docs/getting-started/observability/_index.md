@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/getting-started/observability/_index.md
   to: _index.md
-title: Observability
+title: "Observability"
 weight: 7
 prev: false
 next: false

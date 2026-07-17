@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/getting-started/architecture.md
   to: architecture.md
-title: Architecture
+title: "Architecture"
 weight: 2
 prev: false
 next: false

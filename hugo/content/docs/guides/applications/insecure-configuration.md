@@ -10,7 +10,7 @@ path_base_for_github_subdir:
   from: content/docs/guides/applications/insecure-configuration.md
   to: insecure-configuration.md
 scope: operator
-title: Auditing Kubernetes for Secure Setup
+title: "Auditing Kubernetes for Secure Setup"
 prev: false
 next: false
 local: true

@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/faq/reconciliation-impact.md
   to: reconciliation-impact.md
-title: Reconciliation
+title: "Reconciliation"
 prev: false
 next: false
 local: true

@@ -9,7 +9,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/resources/videos/_index.md
   to: _index.md
-title: Videos
+title: "Videos"
 weight: 20
 prev: false
 next: false

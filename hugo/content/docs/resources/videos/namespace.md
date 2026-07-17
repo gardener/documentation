@@ -9,7 +9,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/resources/videos/namespace.md
   to: namespace.md
-title: Organizing with Namespaces
+title: "Organizing with Namespaces"
 video_id: xpnZX3if9Tc
 weight: 40
 prev: false

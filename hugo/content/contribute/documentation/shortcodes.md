@@ -8,7 +8,7 @@ params:
 path_base_for_github_subdir:
   from: content/contribute/documentation/shortcodes.md
   to: shortcodes.md
-title: Shortcodes
+title: "Shortcodes"
 prev: false
 next: false
 local: true

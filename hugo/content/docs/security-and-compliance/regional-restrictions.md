@@ -14,7 +14,7 @@ path_base_for_github_subdir:
 publishdate: '2023-11-22'
 tags:
   - task
-title: Regional Restrictions
+title: "Regional Restrictions"
 weight: 40
 prev: false
 next: false

@@ -11,7 +11,7 @@ path_base_for_github_subdir:
   from: content/docs/guides/applications/knative-install.md
   to: knative-install.md
 scope: app-developer
-title: Install Knative in Gardener Clusters
+title: "Install Knative in Gardener Clusters"
 prev: false
 next: false
 local: true

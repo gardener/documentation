@@ -9,7 +9,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/resources/videos/why-kubernetes.md
   to: why-kubernetes.md
-title: Why Kubernetes
+title: "Why Kubernetes"
 video_id: N6r-9ZzFgzw
 weight: 10
 prev: false

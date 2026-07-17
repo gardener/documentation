@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/community/steering/_index.md
   to: _index.md
-title: Project Steering
+title: "Project Steering"
 weight: 20
 prev: false
 next: false

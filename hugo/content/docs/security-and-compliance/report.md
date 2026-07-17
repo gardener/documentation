@@ -10,7 +10,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/security-and-compliance/report.md
   to: report.md
-title: Gardener Compliance Report
+title: "Gardener Compliance Report"
 weight: 30
 prev: false
 next: false

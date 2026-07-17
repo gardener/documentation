@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/faq/clusterhealthz.md
   to: clusterhealthz.md
-title: How can you get the status of a shoot API server?
+title: "How can you get the status of a shoot API server?"
 prev: false
 next: false
 local: true

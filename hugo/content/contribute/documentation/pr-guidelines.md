@@ -9,7 +9,7 @@ params:
 path_base_for_github_subdir:
   from: content/contribute/documentation/pr-guidelines.md
   to: pr-guidelines.md
-title: Pull Request Creation Guidelines
+title: "Pull Request Creation Guidelines"
 prev: false
 next: false
 local: true

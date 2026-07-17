@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/getting-started/project.md
   to: project.md
-title: Gardener Projects
+title: "Gardener Projects"
 weight: 3
 prev: false
 next: false

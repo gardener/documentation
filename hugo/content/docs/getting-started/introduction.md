@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/getting-started/introduction.md
   to: introduction.md
-title: Introduction to Gardener
+title: "Introduction to Gardener"
 weight: 1
 prev: false
 next: false

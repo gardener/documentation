@@ -378,4 +378,4 @@ To get the `kubeconfig` for a shoot cluster in Gardener from the command line, u
 ## Related Links
 
 - [Automating Project Resource Management](/docs/dashboard/automated-resource-management/)
-- [Authenticating with an Identity Provider](/docs/guides/administer-shoots/oidc-login/).
+- [Authenticating with an Identity Provider](https://github.com/gardener/documentation/blob/master/website/documentation/guides/administer-shoots/oidc-login.md).

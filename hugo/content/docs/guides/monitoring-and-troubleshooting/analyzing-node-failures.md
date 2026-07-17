@@ -15,7 +15,7 @@ path_base_for_github_subdir:
     content/docs/guides/monitoring-and-troubleshooting/analyzing-node-failures.md
   to: analyzing-node-failures.md
 scope: operator
-title: Analyzing Node Removal and Failures
+title: "Analyzing Node Removal and Failures"
 prev: false
 next: false
 local: true

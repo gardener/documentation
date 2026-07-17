@@ -15,7 +15,7 @@ path_base_for_github_subdir:
 publishdate: '2023-10-10'
 tags:
   - task
-title: Kubernetes Cluster Hardening Procedure
+title: "Kubernetes Cluster Hardening Procedure"
 weight: 10
 prev: false
 next: false

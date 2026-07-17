@@ -8,7 +8,7 @@ path_base_for_github_subdir:
   from: content/docs/getting-started/_index.md
   to: _index.md
 persona: Users
-title: Getting Started
+title: "Getting Started"
 weight: 10
 prev: false
 next: false

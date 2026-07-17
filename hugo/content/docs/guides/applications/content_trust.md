@@ -10,7 +10,7 @@ path_base_for_github_subdir:
   from: content/docs/guides/applications/content_trust.md
   to: content_trust.md
 scope: app-developer
-title: Integrity and Immutability
+title: "Integrity and Immutability"
 prev: false
 next: false
 local: true

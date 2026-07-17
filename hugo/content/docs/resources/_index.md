@@ -10,7 +10,7 @@ path_base_for_github_subdir:
   from: content/docs/resources/_index.md
   to: _index.md
 persona: Developers
-title: Resources
+title: "Resources"
 weight: 100
 prev: false
 next: false

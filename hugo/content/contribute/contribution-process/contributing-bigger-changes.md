@@ -10,7 +10,7 @@ path_base_for_github_subdir:
   from: content/contribute/contribution-process/contributing-bigger-changes.md
   to: contributing-bigger-changes.md
 sidebar: true
-title: Contributing Bigger Changes
+title: "Contributing Bigger Changes"
 weight: 20
 prev: false
 next: false

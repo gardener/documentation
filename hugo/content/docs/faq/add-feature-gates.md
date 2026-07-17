@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/faq/add-feature-gates.md
   to: add-feature-gates.md
-title: How do you add K8S feature gates to a shoot cluster?
+title: "How do you add K8S feature gates to a shoot cluster?"
 prev: false
 next: false
 local: true

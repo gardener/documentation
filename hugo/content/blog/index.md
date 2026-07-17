@@ -12,7 +12,7 @@ path_base_for_github_subdir:
   to: index.md
 prev: false
 sidebar: false
-title: Blog
+title: "Blog"
 local: true
 ---
 

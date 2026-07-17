@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/getting-started/features/credential-rotation.md
   to: credential-rotation.md
-title: Credential Rotation
+title: "Credential Rotation"
 weight: 3
 prev: false
 next: false

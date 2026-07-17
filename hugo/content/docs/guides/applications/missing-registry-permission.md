@@ -12,7 +12,7 @@ path_base_for_github_subdir:
   to: missing-registry-permission.md
 reviewer: Tieyan Fu
 scope: app-developer
-title: Container Image Not Pulled
+title: "Container Image Not Pulled"
 prev: false
 next: false
 local: true

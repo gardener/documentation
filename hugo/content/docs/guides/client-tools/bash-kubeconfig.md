@@ -13,7 +13,7 @@ path_base_for_github_subdir:
 reviewer: Tieyan Fu
 scope: app-developer
 status: Reviewed
-title: Kubeconfig Context as bash Prompt
+title: "Kubeconfig Context as bash Prompt"
 prev: false
 next: false
 local: true

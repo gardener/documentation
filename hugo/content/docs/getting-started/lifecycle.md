@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/getting-started/lifecycle.md
   to: lifecycle.md
-title: Shoot Lifecycle
+title: "Shoot Lifecycle"
 weight: 6
 prev: false
 next: false

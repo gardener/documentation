@@ -9,7 +9,7 @@ path_base_for_github_subdir:
   from: content/docs/guides/applications/secure-seccomp.md
   to: secure-seccomp.md
 scope: operator
-title: Custom Seccomp Profile
+title: "Custom Seccomp Profile"
 prev: false
 next: false
 local: true

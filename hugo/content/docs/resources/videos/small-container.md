@@ -9,7 +9,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/resources/videos/small-container.md
   to: small-container.md
-title: Building Small Containers
+title: "Building Small Containers"
 video_id: wGz_cbtCiEA
 weight: 30
 prev: false

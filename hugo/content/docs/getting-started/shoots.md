@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/getting-started/shoots.md
   to: shoots.md
-title: Gardener Shoots
+title: "Gardener Shoots"
 weight: 4
 prev: false
 next: false

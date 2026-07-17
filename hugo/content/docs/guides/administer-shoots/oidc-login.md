@@ -12,7 +12,7 @@ path_base_for_github_subdir:
   to: oidc-login.md
 publishdate: '2020-12-01'
 scope: operator
-title: Authenticating with an Identity Provider
+title: "Authenticating with an Identity Provider"
 prev: false
 next: false
 local: true
