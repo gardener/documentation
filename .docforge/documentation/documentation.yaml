@@ -1,5 +1,4 @@
 structure:
-  - file: _index.md
   - dir: guides
     structure:
     - manifest: ./guides.yaml

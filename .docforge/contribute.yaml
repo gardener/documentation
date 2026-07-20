@@ -1,9 +1,6 @@
 structure:
-  - file: _index.md
-
   - dir: developer-starter-kit
     structure:
-    - file: _index.md
     - file: local_setup.md
       frontmatter:
         weight: 10
@@ -47,7 +44,6 @@ structure:
 
   - dir: gardener
     structure:
-    - file: _index.md
     - dir: development
       structure:
       - fileTree: https://github.com/gardener/gardener/tree/master/docs/development
