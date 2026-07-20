@@ -1,5 +1,4 @@
 structure:
-- file: _index.md
 - dir: machine-controller-manager
   structure:
   - file: _index.md
