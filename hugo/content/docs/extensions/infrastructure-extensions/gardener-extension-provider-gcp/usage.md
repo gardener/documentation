@@ -76,7 +76,7 @@ Users can choose to trust Gardener's Workload Identity Issuer and eliminate the 
 As a first step users should configure [Workload Identity Federation](https://cloud.google.com/iam/docs/workload-identity-federation-with-kubernetes#kubernetes) with Gardener's Workload Identity Issuer.
 
 > [!TIP]
-> You can retrieve Gardener's Workload Identity Issuer URL directly from the Garden cluster by reading the contents of the [Gardener Info ConfigMap](https://gardener.cloud/docs/gardener/gardener/gardener_info_configmap/).
+> You can retrieve Gardener's Workload Identity Issuer URL directly from the Garden cluster by reading the contents of the [Gardener Info ConfigMap](/docs/gardener/configmap/).
 > ```bash
 > kubectl -n gardener-system-public get configmap gardener-info -o yaml
 > ```
