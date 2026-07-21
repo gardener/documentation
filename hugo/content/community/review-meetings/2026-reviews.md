@@ -24,6 +24,29 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2026/07/22 - [v1.147](https://github.com/gardener/gardener/releases/tag/v1.147.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@AleksandarSavchev](https://github.com/AleksandarSavchev) | `5m` | 🔒 `diki`: New `config {merge,validate}` Commands | [diki#705](https://github.com/gardener/diki/pull/705), [diki#725](https://github.com/gardener/diki/pull/725) |
+| [@thiyyakat](https://github.com/thiyyakat) | `10m` | 🛡️ Machine Preservation on Failure | [#15277](https://github.com/gardener/gardener/pull/15277) |
+| [@ialidzhikov](https://github.com/ialidzhikov) | `5m` | 🔍 `gardenadm discover` Split Into `{new,existing}` Subcommands | [#15145](https://github.com/gardener/gardener/pull/15145) |
+| [@ishan16696](https://github.com/ishan16696) | `10m` | 🗄️ Daily ETCD Defragmentation Schedule | [etcd-druid#1374](https://github.com/gardener/etcd-druid/pull/1374), [#15125](https://github.com/gardener/gardener/pull/15125), [#15190](https://github.com/gardener/gardener/pull/15190) |
+| [@jamand](https://github.com/jamand) | `5m` | 🖥️ `gardenctl` Viewer Kubeconfig via `--access-level` Flag | [gardenctl-v2#735](https://github.com/gardener/gardenctl-v2/pull/735)|
+| [@oliver-goetz](https://github.com/oliver-goetz) | `10m` | 📎 Resource References In `Extension`s and `ControllerDeployment`s | [#14979](https://github.com/gardener/gardener/pull/14979) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- 🪓 [OPERATOR] Operators must ensure that the deployed provider extensions enable their `BackupEntry` controllers before upgrading to this version. See e.g. [gardener-extension-provider-gcp#1423](https://github.com/gardener/gardener-extension-provider-gcp/pull/1423) for how to adapt an extension. If the provider extensions are not yet adapted, either upgrade them first or explicitly disable the `BackupEntryForGarden` feature gate. [#15220](https://github.com/gardener/gardener/pull/15220)
+- 🐛 [OPERATOR] A regression which could lead to HTTP 401 errors for clients using client-certificates to authenticate at kube-apiservers when L7 load-balancing is active has been fixed. [#15288](https://github.com/gardener/gardener/pull/15288)
+- 🐛 [USER] The `ingress-gce` pod is now rolled when the shoot's `cloudprovider` secret changes, so GCP LoadBalancer services no longer fail with `Invalid JWT Signature` after a service account key rotation. [gardener-extension-provider-gcp#1454](https://github.com/gardener/gardener-extension-provider-gcp/pull/1454)
+
+<hr />
+
 ### 2026/07/08 - [v1.146](https://github.com/gardener/gardener/releases/tag/v1.146.0) Release
 
 [📽️ Recording](https://youtu.be/b82zsHo-PIc)
