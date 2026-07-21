@@ -7,7 +7,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/other-components/_index.md
   to: _index.md
-title: Other Components
+title: "Other Components"
 weight: 50
 prev: false
 next: false
