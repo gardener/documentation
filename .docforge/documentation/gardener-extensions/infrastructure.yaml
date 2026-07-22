@@ -53,6 +53,20 @@ structure:
   - fileTree: https://github.com/gardener/gardener-extension-provider-openstack/tree/master/docs
     excludeFiles:
       - "development/"
+- dir: gardener-extension-provider-ironcore
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: Provider IronCore
+      description: Gardener extension controller for the IronCore cloud provider
+    source: https://github.com/ironcore-dev/gardener-extension-provider-ironcore/blob/main/README.md
+  - fileTree: https://github.com/ironcore-dev/gardener-extension-provider-ironcore/tree/main/docs
+    excludeFiles:
+      - "development/"
+- dir: gardener-extension-provider-metal
+  structure:
+  - file: _index.md
+    source: /hugo/content/docs/extensions/infrastructure-extensions/gardener-extension-provider-metal/_index.md
 - dir: gardener-extension-provider-stackit
   structure:
   - file: _index.md
