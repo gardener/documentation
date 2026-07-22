@@ -19,6 +19,17 @@ The [`core.gardener.cloud/v1beta1.Shoot` resource](https://github.com/gardener/g
 
 In this document we describe how this configuration looks like and under which circumstances your attention may be required.
 
+## Disabled OS services
+
+During node provisioning, this extension disables and removes the following Flatcar/CoreOS components, as they are not needed in a Gardener-managed cluster:
+
+- **Docker**: Only `containerd` is used as the container runtime. The Flatcar docker sysext image is removed by linking `/etc/extensions/docker-flatcar.raw` to `/dev/null`, so it is not loaded at boot.
+- **update-engine**: Automatic OS updates are not desired, since node updates are managed by Gardener (e.g. via machine image version updates). The unit is masked by linking `/etc/systemd/system/update-engine.service` to `/dev/null`.
+- **locksmithd**: The reboot manager for update-engine is not needed without automatic OS updates. The unit is masked by linking `/etc/systemd/system/locksmithd.service` to `/dev/null`.
+- **systemd-sysupdate**: The newer systemd-based update mechanism would periodically check for updates and even reboot the node automatically. Both `systemd-sysupdate.timer` and `systemd-sysupdate-reboot.timer` are masked by linking them to `/dev/null` under `/etc/systemd/system/`.
+
+Note that simply disabling these units would not be sufficient: Flatcar ships vendor "wants" symlinks under the read-only `/usr/lib/systemd/system` hierarchy, which pull the units in on every boot regardless of their enablement state. Masking via `/etc` (which takes precedence over `/usr`) is reboot-safe.
+
 ## AWS VPC settings for CoreOS workers
 
 Gardener allows you to create CoreOS based worker nodes by:

@@ -9,7 +9,7 @@ path_base_for_github_subdir:
   from: content/docs/_index.md
   to: _index.md
 redirectUrl: /documentation/home
-title: Docs
+title: "Docs"
 prev: false
 next: false
 local: true

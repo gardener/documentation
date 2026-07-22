@@ -9,7 +9,7 @@ path_base_for_github_subdir:
   from: content/contribute/_index.md
   to: _index.md
 persona: Developers
-title: Contribute
+title: "Contribute"
 weight: 110
 prev: false
 next: false

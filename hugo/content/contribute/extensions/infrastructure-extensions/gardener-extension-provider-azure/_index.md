@@ -39,6 +39,7 @@ This extension controller supports the following Kubernetes versions:
 
 | Version | Support | Conformance test results |
 | --- | --- | --- |
+| Kubernetes 1.36 | 1.36.0+ | N/A |
 | Kubernetes 1.35 | 1.35.0+ | [![Gardener v1.35 Conformance Tests](https://testgrid.k8s.io/q/summary/conformance-gardener/Gardener,%20v1.35%20Azure/tests_status?style=svg)](https://testgrid.k8s.io/conformance-gardener#Gardener,%20v1.35%20Azure) |
 | Kubernetes 1.34 | 1.34.0+ | [![Gardener v1.34 Conformance Tests](https://testgrid.k8s.io/q/summary/conformance-gardener/Gardener,%20v1.34%20Azure/tests_status?style=svg)](https://testgrid.k8s.io/conformance-gardener#Gardener,%20v1.34%20Azure) |
 | Kubernetes 1.33 | 1.33.0+ | [![Gardener v1.33 Conformance Tests](https://testgrid.k8s.io/q/summary/conformance-gardener/Gardener,%20v1.33%20Azure/tests_status?style=svg)](https://testgrid.k8s.io/conformance-gardener#Gardener,%20v1.33%20Azure) |

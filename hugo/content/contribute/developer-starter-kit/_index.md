@@ -7,7 +7,7 @@ params:
 path_base_for_github_subdir:
   from: content/contribute/developer-starter-kit/_index.md
   to: _index.md
-title: Developer Starter Kit
+title: "Developer Starter Kit"
 weight: 20
 prev: false
 next: false

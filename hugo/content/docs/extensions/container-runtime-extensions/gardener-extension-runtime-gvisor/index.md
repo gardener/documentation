@@ -96,6 +96,55 @@ spec:
         worker.gardener.cloud/pool: worker-xyz
 ```
 
+## Testing a Custom Installation Image
+
+The `gardener-extension-runtime-gvisor-installation` image bundles the gVisor binaries (e.g. `runsc`) and is responsible for installing them on the nodes. During development, you may want to test a custom build of this image — for example, to validate a new gVisor version before it is officially released. This can be done by combining two configuration points:
+
+**1. Operator configuration (`testRepository`)**
+
+Set `gvisorInstallation.testRepository` in the Helm values for the extension controller deployment to the container image repository (without tag) that holds your test image(s):
+
+```yaml
+apiVersion: operator.gardener.cloud/v1alpha1
+kind: Extension
+metadata:
+  name: runtime-gvisor
+spec:
+  deployment:
+    extension:
+      values:
+        gvisorInstallation:
+          testRepository: "my.registry.example.com/gardener/extensions/runtime-gvisor-installation"
+```
+
+> **Note:** You may use the make target `docker-image-installation` to build such an image. It needs to be tagged and pushed to the repository afterward.
+
+**2. Shoot providerConfig (`testImageTag`)**
+
+Set `testImageTag` in the shoot's gVisor `providerConfig` to the tag of the image you want to test:
+
+```yaml
+kind: Shoot
+apiVersion: core.gardener.cloud/v1beta1
+spec:
+  provider:
+    workers:
+    - cri:
+        name: containerd
+        containerRuntimes:
+        - type: gvisor
+          providerConfig:
+            apiVersion: gvisor.runtime.extensions.config.gardener.cloud/v1alpha1
+            kind: GVisorConfiguration
+            testImageTag: "my-test-tag"
+```
+
+When both values are set, the controller will use `<testRepository>:<testImageTag>` as the installation image instead of the default production image. If either value is absent, the standard image from the image vector is used.
+
+> **Note:** This mechanism is intended for development and testing only. It has no effect unless `gvisorInstallation.testRepository` is explicitly configured by the operator.
+
+---
+
 ## NVProxy Usage
 
 gVisor can be used with NVIDIA GPUs. To enable this, the `nvproxy` config flag must be set in the gVisor providerConfig of the shoot:

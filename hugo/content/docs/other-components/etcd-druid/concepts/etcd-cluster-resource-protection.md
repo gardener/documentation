@@ -21,7 +21,7 @@ managed: true
 
 ## Configure Etcd Components Webhook
 
-Prerequisite to enable the validation webhook is to [configure the Webhook Server](/docs/other-components/etcd-druid/deployment/configure-etcd-druid/#webhook-server). Additionally you need to enable the `Etcd Components` validating webhook and optionally configure other options. You can look at all the options [here](/docs/other-components/etcd-druid/deployment/configure-etcd-druid/#etcd-components-webhook).
+Prerequisite to enable the validation webhook is to [configure the Webhook Server](/docs/other-components/etcd-druid/deployment/configure-etcd-druid/#webhook-server-deprecated). Additionally you need to enable the `Etcd Components` validating webhook and optionally configure other options. You can look at all the options [here](/docs/other-components/etcd-druid/deployment/configure-etcd-druid/#etcd-components-webhook-deprecated).
 
 ## What is allowed?
 
