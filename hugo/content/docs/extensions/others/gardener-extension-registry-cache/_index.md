@@ -19,7 +19,6 @@ managed: true
 
 [![REUSE status](https://api.reuse.software/badge/github.com/gardener/gardener-extension-registry-cache)](https://api.reuse.software/info/github.com/gardener/gardener-extension-registry-cache)
 [![CI Build status](https://github.com/gardener/gardener-extension-registry-cache/actions/workflows/non-release.yaml/badge.svg)](https://github.com/gardener/gardener-extension-registry-cache/actions/workflows/non-release.yaml)
-[![Go Report Card](https://goreportcard.com/badge/github.com/gardener/gardener-extension-registry-cache)](https://goreportcard.com/report/github.com/gardener/gardener-extension-registry-cache)
 
 Gardener extension controller which deploys pull-through caches for container registries.
 
