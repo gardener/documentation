@@ -66,7 +66,7 @@ structure:
 - dir: gardener-extension-provider-metal
   structure:
   - file: _index.md
-    source: /hugo/content/docs/extensions/infrastructure-extensions/gardener-extension-provider-metal/_index.md
+    source: /hugo/content/docs/extensions/infrastructure-extensions/gardener-extension-provider-metal/index.md
 - dir: gardener-extension-provider-stackit
   structure:
   - file: _index.md

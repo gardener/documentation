@@ -7,12 +7,12 @@ params:
   github_branch: master
 path_base_for_github_subdir:
   from: >-
-    content/docs/extensions/infrastructure-extensions/gardener-extension-provider-metal/_index.md
-  to: _index.md
+    content/docs/extensions/infrastructure-extensions/gardener-extension-provider-metal/index.md
+  to: index.md
 title: Provider metal-stack
 prev: false
 next: false
-managed: true
+local: true
 ---
 
 # Gardener Extension Provider metal-stack
