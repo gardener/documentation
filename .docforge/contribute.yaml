@@ -127,6 +127,16 @@ structure:
         - dir: development
           structure:
           - fileTree: https://github.com/gardener/gardener-extension-provider-openstack/tree/master/docs/development
+      - dir: gardener-extension-provider-ironcore
+        structure:
+        - file: _index.md
+          frontmatter:
+            title: Provider IronCore
+            description: Developer documentation for the IronCore cloud provider extension
+          source: https://github.com/ironcore-dev/gardener-extension-provider-ironcore/blob/main/README.md
+        - dir: development
+          structure:
+          - fileTree: https://github.com/ironcore-dev/gardener-extension-provider-ironcore/tree/main/docs/development
     - dir: gardener-extension-shoot-dns-service
       structure:
       - file: _index.md
