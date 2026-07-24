@@ -38,7 +38,7 @@ which is mounted as a volume in the pod. This `ConfigMap` is updated by the NWPD
 nodes and pods in the kube-system namespace. As soon as a kubelet discovers these changes, the agents see them as a file change.
 
 The results of the checks are stored locally on the node filesystem for later inspection with the `nwpdcli` command line tool.
-Additionally they are also exposed as metrics for scrapping by Prometheus.
+Additionally they are also exposed as metrics for scraping by Prometheus.
 By enabling the `K8s exporter`, the agents periodically patch the node conditions `ClusterNetworkProblem` and `HostNetworkProblem` in
 the status of the node resources. If checks are failing, a summarising event is created too.
 The `K8s exporter` is the only part of the agent which talks to the kube-apiserver.
@@ -56,7 +56,7 @@ To get started, the Network Problem Detector is deployed without integration wit
 
 *Side remark:*
 
-This is the fastest way to get started with NWPD. In a productive environment, you may prefer to scrap the check results
+This is the fastest way to get started with NWPD. In a productive environment, you may prefer to scrape the check results
 using [Prometheus](https://prometheus.io/) from metrics HTTP endpoints
 exposed by the agent pods. You may still follow this stand-alone installation, but
 you will need additional configuration on the Prometheus side which is not covered here.
