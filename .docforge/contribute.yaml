@@ -167,6 +167,16 @@ structure:
       - dir: development
         structure:
         - fileTree: https://github.com/gardener/gardener-extension-auditing/tree/main/docs/development
+    - dir: gardener-extension-shoot-traefik
+      structure:
+      - file: _index.md
+        frontmatter:
+          title: Traefik Ingress
+          description: Developer documentation for the Traefik ingress extension
+        source: https://github.com/gardener/gardener-extension-shoot-traefik/blob/main/README.md
+      - dir: development
+        structure:
+        - fileTree: https://github.com/gardener/gardener-extension-shoot-traefik/tree/main/docs/development
 
   - dir: other-components
     structure:
