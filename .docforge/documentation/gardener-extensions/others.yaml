@@ -73,6 +73,16 @@ structure:
   - fileTree: https://github.com/gardener/gardener-extension-shoot-rsyslog-relp/tree/main/docs
     excludeFiles:
       - "development/"
+- dir: gardener-extension-shoot-traefik
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: Traefik Ingress
+      description: Gardener extension controller which deploys the Traefik ingress controller for shoot clusters.
+    source: https://github.com/gardener/gardener-extension-shoot-traefik/blob/main/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-shoot-traefik/tree/main/docs
+    excludeFiles:
+      - "development/"
 - dir: gardener-extension-auditing
   structure:
   - file: _index.md
