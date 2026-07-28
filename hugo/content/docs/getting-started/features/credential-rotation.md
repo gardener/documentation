@@ -16,23 +16,26 @@ local: true
 ## Overview
 
 Gardener deals with two distinct classes of credentials for Shoot clusters. They differ in scope, ownership, and how they are rotated:
+- **Gardener project secrets** - owned and managed by the project owner/admin (Gardener service user). They are used by Gardener service to authenticate to cloud provider APIs and manage cloud resources required for the shoots. Rotation of the project secrets is controlled by the project owner/admin and happens via the Gardener API or via Gardener Dashboard.
+- **Shoot cluster secrets** - created automatically when the shoot cluster is created and used for the cluster processes. Shoot cluster credentials rotation is responsibility of the project owner/admin and is performed for most of the credentials in two steps. You can find more details below.
 
-| Class | Examples | Scope | Who rotates |
-|---|---|---|---|
-| **Infrastructure credentials** | Cloud provider keys (AWS, Azure, GCP, OpenStack) | Project-scoped — shared across Shoots via `CredentialsBinding` | You |
-| **Shoot credentials** | CAs, SSH key pair, ETCD encryption key, ServiceAccount signing key, observability passwords | Per-Shoot — generated and managed by Gardener | You, via `kubectl annotate` operations on the Shoot |
+## Gardener Project Secrets (Infrastructure Credentials)
 
-Infrastructure credentials are **not** part of the Shoot itself — they are `Secret`s in the garden cluster's project namespace, referenced by Shoots via a `CredentialsBinding`. Shoot credentials are generated per Shoot by Gardener and rotate through well-defined phases.
+![user-provided-keys](./images/user-provided-keys.webp)
 
-For step-by-step instructions, go directly to the relevant section in the [Credentials Rotation for Shoot Clusters](https://github.com/gardener/gardener/blob/master/docs/usage/shoot-operations/shoot_credentials_rotation.md) documentation:
-- [Infrastructure credentials](https://github.com/gardener/gardener/blob/master/docs/usage/shoot-operations/shoot_credentials_rotation.md#infrastructure-credentials-project-scoped) (cloud provider keys)
-- [Shoot credentials](https://github.com/gardener/gardener/blob/master/docs/usage/shoot-operations/shoot_credentials_rotation.md#shoot-credentials-gardener-managed) (CAs, SSH, ETCD, etc.)
+Gardener project secrets are cloud provider keys you supply to Gardener so it can manage your cluster's infrastructure (networks, VMs, disks, load balancers).
+These keys are stored in a `Secret` in the garden cluster's project namespace and referenced by your Shoot via a `CredentialsBinding`. A single `Secret` can be shared across multiple Shoots.
 
-## Two-Phase Rotation Model
+When you rotate these credentials, you update the `Secret` with new keys, wait for all Shoots referencing that `Secret` to reconcile successfully, and only then deactivate the old keys in your cloud provider account.
+
+> [!NOTE]
+> It is not possible to move a Shoot to a different infrastructure account.
+
+## Shoot Cluster Credentials Rotation
 
 For Gardener-managed credentials, rotation happens in two phases where possible.
 
-![rotation-phases](/docs/getting-started/features/images/rotation-phases.webp)
+![rotation-phases](./images/rotation-phases.webp)
 
 In the **Preparing phase**, new credentials are created alongside the old ones — both sets are valid simultaneously.
 This gives you time to update any API clients, kubeconfigs, or tooling that depend on the old credentials before they are invalidated.
@@ -58,16 +61,8 @@ Certificate authorities and the ServiceAccount signing key require user action b
 
 For configuration details, see [Automatic Credentials Rotation](https://github.com/gardener/gardener/blob/master/docs/usage/shoot/shoot_maintenance.md#automatic-credentials-rotation).
 
-## Infrastructure Credentials
+## Additional Details
 
-![user-provided-keys](/docs/getting-started/features/images/user-provided-keys.webp)
-
-Infrastructure credentials are cloud provider keys you supply to Gardener so it can manage your cluster's infrastructure (networks, VMs, disks, load balancers).
-These keys are stored in a `Secret` in the garden cluster's project namespace and referenced by your Shoot via a `CredentialsBinding`. A single `Secret` can be shared across multiple Shoots.
-
-When you rotate these credentials, you update the `Secret` with new keys, wait for all Shoots referencing that `Secret` to reconcile successfully, and only then deactivate the old keys in your cloud provider account.
-
-> [!NOTE]
-> It is not possible to move a Shoot to a different infrastructure account.
-
-For the full rotation procedure, see [Infrastructure Credentials (Project-Scoped)](https://github.com/gardener/gardener/blob/master/docs/usage/shoot-operations/shoot_credentials_rotation.md#infrastructure-credentials-project-scoped) in the Credentials Rotation guide.
+For step-by-step instructions, go directly to the relevant section in the Credentials Rotation for Shoot Clusters documentation:
+- [Infrastructure credentials](https://github.com/gardener/gardener/blob/master/docs/usage/shoot-operations/shoot_credentials_rotation.md#infrastructure-credentials-project-scoped) (cloud provider keys)
+- [Shoot credentials](https://github.com/gardener/gardener/blob/master/docs/usage/shoot-operations/shoot_credentials_rotation.md#shoot-credentials-gardener-managed) (CAs, SSH, ETCD, etc.)
