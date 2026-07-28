@@ -24,6 +24,24 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2026/07/29 - Kubernetes v1.36 Special Edition
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+_Presenters:_ [@tobschli](https://github.com/tobschli), [@ary1992](https://github.com/ary1992)
+
+| Duration | Topic                                                        | Reference(s)                                                     |
+| -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| `15m` | 🎓 Graduation Ceremony<br><small>_Graduated to GA_</small> | [KEP-127](https://kep.k8s.io/127), [KEP-2258](https://kep.k8s.io/2258), [KEP-2862](https://kep.k8s.io/2862), [KEP-3962](https://kep.k8s.io/3962), [KEP-4639](https://kep.k8s.io/4639), [KEP-4876](https://kep.k8s.io/4876), [KEP-5073](https://kep.k8s.io/5073) |
+| `10m` | 🌸 Beta Bloom<br><small>_Alpha -> Beta Promotions_</small> | [KEP-3104](https://kep.k8s.io/3104), [KEP-4827](https://kep.k8s.io/4827), [KEP-4828](https://kep.k8s.io/4828), [KEP-5284](https://kep.k8s.io/5284), [KEP-5311](https://kep.k8s.io/5311), [KEP-5328](https://kep.k8s.io/5328) |
+| `20m` | 🗞️ Fresh Off The Press<br><small>_New Alpha Features_</small> | [KEP-5793](https://kep.k8s.io/5793), [KEP-5491](https://kep.k8s.io/5491), [KEP-5517](https://kep.k8s.io/5517), [KEP-5677](https://kep.k8s.io/5677), [KEP-5729](https://kep.k8s.io/5729), [KEP-5541](https://kep.k8s.io/5541), [KEP-5732](https://kep.k8s.io/5732), [KEP-5710](https://kep.k8s.io/5710), [KEP-5547](https://kep.k8s.io/5547), [KEP-5526](https://kep.k8s.io/5526), [KEP-5866](https://kep.k8s.io/5866), [KEP-5808](https://kep.k8s.io/5808), [KEP-5825](https://kep.k8s.io/5825), [KEP-5366](https://kep.k8s.io/5366), [KEP-5365](https://kep.k8s.io/5365), [KEP-5304](https://kep.k8s.io/5304) |
+| `5m` | 🧼 Security, Deprecations & Removals | [KEP-4858](https://kep.k8s.io/4858), [KEP-5707](https://kep.k8s.io/5707), [KEP-5040](https://kep.k8s.io/5040), [KEP-2702](https://kep.k8s.io/2702), [KEP-5832](https://kep.k8s.io/5832) |
+| `5m` | 🪴 What's Changing In Gardener | [#14924](https://github.com/gardener/gardener/issues/14924) |
+
+<hr />
+
 ### 2026/07/22 - [v1.147](https://github.com/gardener/gardener/releases/tag/v1.147.0) Release
 
 [📽️ Recording](https://youtu.be/Xs5TbQjLBKY)
