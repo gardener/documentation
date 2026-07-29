@@ -1,17 +1,21 @@
 ---
-title: "Machine Preservation on Failure in Gardener"
-linkTitle: "Machine Preservation on Failure in Gardener"
-newsSubtitle: July 23, 2026
-publishdate: 2026-07-23
+title: Machine Preservation on Failure in Gardener
+linkTitle: Machine Preservation on Failure in Gardener
+newsSubtitle: 'July 23, 2026'
+publishdate: 2026-07-23T00:00:00.000Z
 authors:
-- avatar: https://avatars.githubusercontent.com/thiyyakat
-  login: thiyyakat
+  - avatar: 'https://avatars.githubusercontent.com/thiyyakat'
+    login: thiyyakat
 tags:
-- feature-announcement
-- node-management
-- autoscaling
-aliases: ["/blog/2026/07/23/machine-preservation-on-failure-in-gardener"]
+  - feature-announcement
+  - node-management
+  - autoscaling
+aliases:
+  - /blog/2026/07/23/machine-preservation-on-failure-in-gardener
+managed: true
 ---
+
+# Machine Preservation on Failure in Gardener
 
 When a node fails in a Kubernetes cluster, the normal response is immediate replacement: Machine Controller Manager (MCM) terminates the failed machine and creates a new one. This is the right default for self-healing clusters, but it leaves operators with a narrow window — or none at all — to investigate what went wrong.
 

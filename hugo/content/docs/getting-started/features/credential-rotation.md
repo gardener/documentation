@@ -13,6 +13,8 @@ next: false
 local: true
 ---
 
+# Credential Rotation
+
 ## Overview
 
 Gardener deals with two distinct classes of credentials for Shoot clusters. They differ in scope, ownership, and how they are rotated:
