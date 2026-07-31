@@ -23,7 +23,7 @@ In this document we describe how this configuration looks like and under which c
 
 During node provisioning, this extension disables and removes the following Flatcar/CoreOS components, as they are not needed in a Gardener-managed cluster:
 
-- **Docker**: Only `containerd` is used as the container runtime. The Flatcar docker sysext image is removed by linking `/etc/extensions/docker-flatcar.raw` to `/dev/null`, so it is not loaded at boot.
+- **Docker**: Only `containerd` is used as the container runtime. The Flatcar docker sysext image is removed by linking `/etc/extensions/docker-flatcar.raw` to `/dev/null`, so it is not loaded at boot. Docker can be enabled by setting `EnableDocker` to true in the extension config or the shoot `providerConfig` of the image.
 - **update-engine**: Automatic OS updates are not desired, since node updates are managed by Gardener (e.g. via machine image version updates). The unit is masked by linking `/etc/systemd/system/update-engine.service` to `/dev/null`.
 - **locksmithd**: The reboot manager for update-engine is not needed without automatic OS updates. The unit is masked by linking `/etc/systemd/system/locksmithd.service` to `/dev/null`.
 - **systemd-sysupdate**: The newer systemd-based update mechanism would periodically check for updates and even reboot the node automatically. Both `systemd-sysupdate.timer` and `systemd-sysupdate-reboot.timer` are masked by linking them to `/dev/null` under `/etc/systemd/system/`.

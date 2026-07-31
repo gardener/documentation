@@ -26,7 +26,6 @@ A GEP provides sufficient context, motivation, and a concrete ask or decision re
 
 | Date | GEP | Title |
 | --- | --- | --- |
-| 2026-07-30 | [GEP-0063](/community/steering/0063-diki-extension/) | Diki Extension |
 | 2026-08-27 | [GEP-0066](/community/steering/0066-make-shoot-domains-mutable/) | Make Shoot Domains Mutable |
 
 *(Sessions take place Thursdays, 10:00–11:00 Europe/Berlin — see [Meeting Process](#📑-meeting-process) for details.)*
@@ -36,6 +35,7 @@ A GEP provides sufficient context, motivation, and a concrete ask or decision re
 
 | Date | GEP | Title |
 | --- | --- | --- |
+| 2026-07-30 | [GEP-0063](0063-diki-extension) | Diki extension |
 | 2026-07-23 | [GEP-0068](0068-gateway-api-extension-for-gardener-shoot-clusters) | Gateway API Extension for Gardener Shoot Clusters |
 | 2026-07-16 | [GEP-0043](/community/steering/0043-spegel-support-in-registry-cache/) | Spegel Support in Registry Cache Extension (Round 2) |
 | 2026-04-20 | [GEP-0057](/community/steering/0057-traefik-extension/) | Replace Nginx Ingress Shoot Addon with Traefik Extension |

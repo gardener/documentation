@@ -477,7 +477,8 @@ dataVolumes:
 #      id: /Subscriptions/2ebd38b6-270b-48a2-8e0b-2077106dc615/Providers/Microsoft.Compute/Locations/westeurope/Publishers/sap/ArtifactTypes/VMImage/Offers/gardenlinux/Skus/greatest/Versions/1443.10.0
 #      urn: sap:gardenlinux:greatest:1443.10.0
 volume:
-  cachingType: ReadWrite
+  caching: ReadWrite
+  diskControllerType: NVMe
 ```
 
 The `.nodeTemplate` is used to specify resource information of the machine during runtime. This then helps in Scale-from-Zero.
@@ -505,6 +506,11 @@ The `.volume` field is used to add provider specific configurations for a osDisk
 The OS disk is the disk that contains the operating system and is mounted as `/` in the machine.
 You can configure the host caching type by specifying `.volume.caching` in the workerConfig.
 The default value is `None`, current supported values are `None`, `ReadOnly`, `ReadWrite`.
+You can configure the disk controller type by specifying `.volume.diskControllerType` in the workerConfig.
+Current supported values are `SCSI` and `NVMe`.
+If omitted, Azure chooses the default disk controller type based on the VM size and image capabilities.
+
+> **Note:** `diskControllerType` requires a Generation 2 (Gen2) VM image. Azure will reject the VM creation with an `InvalidParameter` error if the image is not Gen2. In the cloud profile, Gen2 image versions are identified by the `-gen2` suffix (e.g. `2150.4.0-gen2`). Ensure the worker pool's `machineImage.version` references a Gen2 image when setting `diskControllerType`.
 
 ## Example `Shoot` manifest (non-zoned)
 
