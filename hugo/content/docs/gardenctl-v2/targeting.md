@@ -55,8 +55,11 @@ gardenctl target --garden landscape-dev --project my-project --shoot my-shoot --
 ```
 
 The target flags can be used with other commands as well. If used with other commands than target, they will
-not modify the current target though. In these cases the current target will be overwritten with the provided target values for
-the command execution.
+not modify the current target though. In these cases the flags describe the target selector for only that
+command execution. Persisted target values fill missing context before the first provided selector level, but
+values below that level are not inherited. For example, `--shoot my-shoot` keeps the current garden and
+project or seed selector, while `--garden landscape-dev --shoot my-shoot` starts at garden scope and does not
+inherit the persisted project or seed.
 
 ## Patterns
 

@@ -440,7 +440,9 @@ When bringing your own infrastructure, the user provides a single security group
 
 1. **MCM is the sole consumer**: The security group flows from `InfrastructureStatus` -> Worker controller -> `MachineClass.providerSpec.networkInterfaces[].securityGroupIDs` -> MCM -> `RunInstances` API. It is attached to the EC2 instance's primary network interface at launch.
 
-1. **The CCM does NOT manage SG rules**: Gardener configures `DisableSecurityGroupIngress=true` in the CCM's cloud-provider-config. This disables the CCM's `updateInstanceSecurityGroupForNLBTraffic` and `updateInstanceSecurityGroupsForLoadBalancer` functions, which would otherwise dynamically add per-Service ingress rules (client traffic, health checks, MTU discovery) to worker instance security groups at runtime. With this flag enabled, **neither Gardener nor the CCM will ever modify security group rules after initial creation** — the user's BYO security group must already contain all required rules, including NodePort ingress for NLB traffic and health checks.
+1. **The CCM does NOT manage SG rules**: Gardener configures `DisableSecurityGroupIngress=true` in the CCM's cloud-provider-config. This disables the CCM's `updateInstanceSecurityGroupsForNLB` and `updateInstanceSecurityGroupsForLoadBalancer` functions, which would otherwise dynamically add per-Service ingress rules (client traffic, health checks, MTU discovery) to worker instance security groups at runtime. With this flag enabled, **neither Gardener nor the CCM will ever modify security group rules after initial creation** — the user's BYO security group must already contain all required rules, including NodePort ingress for NLB traffic and health checks.
+   
+   Gardener also leaves `NLBSecurityGroupMode` unset in the CCM cloud-provider-config, which means it defaults to the "unmanaged" mode: the CCM does not attach any security group to the NLB itself, and does not program per-Service rules on any SG.
 
 1. **No standard tag convention exists**: Unlike subnets (which have well-defined `kubernetes.io/role/*` tags), there is no standard tag for "this is the nodes security group." EKS also requires explicit SG specification for node groups.
 
@@ -465,13 +467,13 @@ When providing `nodesSecurityGroupID`, the security group **must** include at mi
 | Direction | Protocol | Ports | Source/Dest | Purpose |
 | --- | --- | --- | --- | --- |
 | Ingress | All | All | Self (same SG) | Pod-to-pod, node-to-node |
-| Ingress | TCP | 30000-32767 | 0.0.0.0/0 or LB subnet CIDRs | NodePort services (NLB client traffic + health checks) |
-| Ingress | UDP | 30000-32767 | 0.0.0.0/0 or LB subnet CIDRs | NodePort services (NLB client traffic) |
+| Ingress | TCP | 30000-32767 | 0.0.0.0/0 (or your LB subnet CIDRs) | NodePort services (NLB client traffic + health checks) |
+| Ingress | UDP | 30000-32767 | 0.0.0.0/0 (or your LB subnet CIDRs) | NodePort services (NLB client traffic) |
 | Egress | All | All | 0.0.0.0/0 | Outbound connectivity |
 
 Additional rules for EFS (TCP 2049 from worker subnet CIDRs) if using the CSI EFS driver.
 
-> **NodePort note:** Because `DisableSecurityGroupIngress=true` is set, the CCM will **not** dynamically add per-NLB ingress rules (client traffic, health checks, ICMP MTU discovery) to the instance security group at runtime — unlike the default upstream behavior where the CCM's `updateInstanceSecurityGroupForNLBTraffic` function manages these rules automatically. The user must pre-provision NodePort ingress rules. Using `0.0.0.0/0` is the simplest option; for tighter security, use the CIDR ranges of the subnets where NLBs are placed (NLB health checks originate from the NLB's subnet IPs).
+> **NodePort note:** Because `DisableSecurityGroupIngress=true` is set, the CCM will **not** dynamically add per-NLB ingress rules (client traffic, health checks, ICMP MTU discovery) to the instance security group at runtime — unlike the default upstream behavior where the CCM's `updateInstanceSecurityGroupsForNLB` function manages these rules automatically. The user must pre-provision NodePort ingress rules. Using `0.0.0.0/0` is the simplest option; for tighter security, use the CIDR ranges of the subnets where NLBs are placed (NLB health checks originate from the NLB's subnet IPs). Note that this tighter option applies only when the user provides their own security group (`nodesSecurityGroupID`) — when Gardener manages the SG it uses `0.0.0.0/0` for NodePort ingress.
 
 > **Egress note:** The `0.0.0.0/0` egress rule is the simplest configuration. For private clusters with strict egress policies, the minimum required destinations are: the Kubernetes API server endpoint, container registries (for image pulls), and AWS APIs (EC2, ELB, STS, S3). These can be reached via VPC endpoints or specific CIDR allowlists instead of a blanket egress rule.
 
@@ -778,7 +780,21 @@ If `workersSubnetID` is provided, the extension will discover the IPv6 CIDR bloc
 
 ### What happens if LB subnets are not tagged?
 
-If no `publicSubnetID`/`internalSubnetID` are provided and no subnets are pre-tagged, the CCM/LBC will not find subnets for load balancers. NLB/CLB Services will fail to provision. The CCM service controller may be disabled entirely if no tagged subnets are discovered during infrastructure reconciliation. Using explicit IDs is recommended — Gardener handles all tagging automatically.
+If no `publicSubnetID`/`internalSubnetID` are provided and no subnets are pre-tagged, the CCM/LBC will not find subnets for load balancers. NLB/CLB Services will fail to provision. The CCM service controller will be disabled entirely if no tagged subnets are discovered during infrastructure reconciliation.
+
+### Can I use pre-tagged subnets without specifying publicSubnetID/internalSubnetID?
+
+Yes. If your subnets already have **both** of the following tags, Gardener will discover them automatically during infrastructure reconciliation:
+
+1. The role tag: `kubernetes.io/role/elb=1` (for public) or `kubernetes.io/role/internal-elb=1` (for internal)
+1. The cluster tag: `kubernetes.io/cluster/<shoot-namespace>=shared` (or `owned`)
+
+Gardener discovers these subnets and includes them in the infrastructure status so the CCM and AWS Load Balancer Controller can use them. No explicit `publicSubnetID`/`internalSubnetID` is required in the zone config.
+
+However, using explicit IDs is recommended because:
+- Gardener handles all tagging automatically (including the cluster tag)
+- Ambiguity detection prevents multiple subnets per AZ from causing fragile CCM behavior
+- The configuration is declarative and visible in the shoot spec
 
 ### Does `nodesSecurityGroupID` replace Gardener's SG or add to it?
 

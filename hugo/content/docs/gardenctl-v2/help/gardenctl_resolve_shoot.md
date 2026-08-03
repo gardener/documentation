@@ -23,7 +23,7 @@ Resolve shoot for the current target
 Resolve shoot for the current target.
 This command is particularly useful when you need to understand which shoot the current target translates to, regardless of whether a seed or a shoot is targeted.
 It fetches and displays information about its associated garden, project, seed, and shoot, including any access restrictions in place.
-A garden and either a seed or shoot must be specified, either from a previously saved target or directly via target flags. Target flags temporarily override the saved target for the current command run.
+A garden and either a seed or shoot must be specified, either from a previously saved target or directly via target flags. Target flags describe a selector path for the current command run. Persisted target values fill missing context before the first provided selector level, but values below that level are not inherited.
 
 ```
 gardenctl resolve shoot [flags]

@@ -142,6 +142,32 @@ spec:
 ...
 ```
 
+## HTTP Entrypoint
+
+The `httpEntrypoint` field controls how the Traefik `LoadBalancer` Service handles plain HTTP (port `80`). Defaults to `Enabled`.
+
+| Value | Service port 80 | Behavior |
+| --- | --- | --- |
+| `Enabled` *(default)* | exposed | Plain HTTP is served as-is. Matches the behavior of the retired nginx-ingress addon. |
+| `Redirect` | exposed | All HTTP requests are permanently (301) redirected to HTTPS. Port 80 stays open so the LoadBalancer can accept the request it redirects. |
+| `Disabled` | not exposed | The Service listens on HTTPS (`443`) only. |
+
+The HTTPS entrypoint (`websecure`, port `443`) is always exposed, and the in-cluster `/ping` health endpoint keeps working in all modes.
+
+```yaml
+kind: Shoot
+...
+spec:
+  extensions:
+    - type: shoot-traefik
+      providerConfig:
+        apiVersion: traefik.extensions.gardener.cloud/v1alpha1
+        kind: TraefikConfig
+        spec:
+          httpEntrypoint: Redirect
+...
+```
+
 ## Configuration Reference
 
 All fields live under `providerConfig.spec` (`apiVersion: traefik.extensions.gardener.cloud/v1alpha1`, `kind: TraefikConfig`).
@@ -152,6 +178,7 @@ All fields live under `providerConfig.spec` (`apiVersion: traefik.extensions.gar
 | `replicas` | int32 | `2` | Number of Traefik pods in the shoot. |
 | `logLevel` | string | `Info` | Traefik log verbosity. One of `Debug`, `Info`, `Warn`, `Error`, `Fatal`, `Panic`. |
 | `dashboard` | bool | `false` | Enables the Traefik dashboard on port `9000`. Not recommended for production-like clusters. |
+| `httpEntrypoint` | string | `Enabled` | Controls the LoadBalancer HTTP (port `80`) behavior. One of `Enabled` (serve HTTP), `Redirect` (301 HTTP→HTTPS), or `Disabled` (no port 80). |
 
 ## Further Reading
 
