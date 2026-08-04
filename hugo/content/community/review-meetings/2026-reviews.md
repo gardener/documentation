@@ -24,6 +24,28 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2026/08/05 - [v1.148](https://github.com/gardener/gardener/releases/tag/v1.148.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@iypetrov](https://github.com/iypetrov) | `5m` | 📡 `sd_notify` Integration for OTel Collector | [opentelemetry-collector#26](https://github.com/gardener/opentelemetry-collector/issues/26) |
+| [@vicwicker](https://github.com/vicwicker) | `10m` | 🛡️ Global Observability Ingress Secret Rotation | [#15284](https://github.com/gardener/gardener/pull/15284) |
+| [@Kostov6](https://github.com/Kostov6) | `5m` | 🔖 Multiple `volumePolicies` Support in `pvc-autoscaler` | [pvc-autoscaler#244](https://github.com/gardener/pvc-autoscaler/pull/244) |
+| [@tobschli](https://github.com/tobschli) | `10m` | 🔑 Self-Hosted `Shoot` on OpenStack | [#15270](https://github.com/gardener/gardener/pull/15270) |
+| [@marc1404](https://github.com/marc1404) | `5m` | ⏱️ Jittered `containerd` Logrotate Timer | [#15161](https://github.com/gardener/gardener/pull/15161), [#15376](https://github.com/gardener/gardener/pull/15376) [#15384](https://github.com/gardener/gardener/pull/15384) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- 🪓 [OPERATOR] OIDC providers that do not support PKCE must explicitly configure `usePKCE: false` under `global.dashboard.oidc` when using the Helm chart. [dashboard#3112](https://github.com/gardener/dashboard/pull/3112)
+- 🐛 [USER] Fix malformed registry cache endpoint URLs when the registry cache Service in the Shoot contains an IPv6 clusterIP. IPv6 cluster IPs are now correctly wrapped in square brackets (e.g. `https://[2a05:d018:197f:7e06::1]:5000`) [registry-cache#591](https://github.com/gardener/gardener-extension-registry-cache/pull/591)
+- 🐛 [USER] Certificates issued by CA issuers now include the common name in the subject alternative names (SANs), matching the behavior of the ACME issuer. This fixes certificates that specify only `commonName` (and no `dnsNames`) being rejected by clients that validate the hostname against SANs only. [cert-management#775](https://github.com/gardener/cert-management/pull/775)
+
+<hr />
+
 ### 2026/07/29 - Kubernetes v1.36 Special Edition
 
 [📽️ Recording](https://youtu.be/CvJHvJlWFJ4)
