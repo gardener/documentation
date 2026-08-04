@@ -35,7 +35,7 @@ Check back regularly for updates and upcoming topics!
 | [@iypetrov](https://github.com/iypetrov) | `5m` | 📡 `sd_notify` Integration for OTel Collector | [opentelemetry-collector#26](https://github.com/gardener/opentelemetry-collector/issues/26) |
 | [@vicwicker](https://github.com/vicwicker) | `10m` | 🛡️ Global Observability Ingress Secret Rotation | [#15284](https://github.com/gardener/gardener/pull/15284) |
 | [@Kostov6](https://github.com/Kostov6) | `5m` | 🔖 Multiple `volumePolicies` Support in `pvc-autoscaler` | [pvc-autoscaler#244](https://github.com/gardener/pvc-autoscaler/pull/244) |
-| [@tobschli](https://github.com/tobschli) | `10m` | 🔑 Self-Hosted `Shoot` on OpenStack | [#15270](https://github.com/gardener/gardener/pull/15270) |
+| [@tobschli](https://github.com/tobschli) | `10m` | 🔑 Self-Hosted `Shoot` on OpenStack | [#15270](https://github.com/gardener/gardener/pull/15270), [#15369](https://github.com/gardener/gardener/pull/15369), [machine-controller-manager-provider-openstack#405](https://github.com/gardener/machine-controller-manager-provider-openstack/pull/405), [provider-openstack#1401](https://github.com/gardener/gardener-extension-provider-openstack/pull/1401) |
 | [@marc1404](https://github.com/marc1404) | `5m` | ⏱️ Jittered `containerd` Logrotate Timer | [#15161](https://github.com/gardener/gardener/pull/15161), [#15376](https://github.com/gardener/gardener/pull/15376) [#15384](https://github.com/gardener/gardener/pull/15384) |
 
 #### No Demo, But Still Worth Celebrating 🎉
