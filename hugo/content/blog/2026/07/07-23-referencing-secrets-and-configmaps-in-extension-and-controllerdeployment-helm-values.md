@@ -1,17 +1,25 @@
 ---
-title: "Referencing Secrets and ConfigMaps in Extension and ControllerDeployment Helm Values"
-linkTitle: "Referencing Secrets and ConfigMaps in Extension and ControllerDeployment Helm Values"
-newsSubtitle: July 23, 2026
-publishdate: 2026-07-23
+aliases:
+  - /blog/2026/07/23/referencing-secrets-and-configmaps-in-extension-and-controllerdeployment-helm-values
 authors:
-- avatar: https://avatars.githubusercontent.com/oliver-goetz
-  login: oliver-goetz
-  name: Oliver Götz
+  - avatar: 'https://avatars.githubusercontent.com/oliver-goetz'
+    login: oliver-goetz
+    name: Oliver Götz
+github_repo: 'https://github.com/gardener/documentation'
+github_subdir: hugo/content/blog/2026/07
+linkTitle: 'Referencing Secrets and ConfigMaps in Extension and ControllerDeployment Helm Values'
+newsSubtitle: 'July 23, 2026'
+params:
+  github_branch: master
+path_base_for_github_subdir:
+  from: content/blog/2026/07/07-23-referencing-secrets-and-configmaps-in-extension-and-controllerdeployment-helm-values.md
+  to: 07-23-referencing-secrets-and-configmaps-in-extension-and-controllerdeployment-helm-values.md
+publishdate: '2026-07-23'
 tags:
-- feature-announcement
-- extensions
-- helm
-aliases: ["/blog/2026/07/23/referencing-secrets-and-configmaps-in-extension-and-controllerdeployment-helm-values"]
+  - feature-announcement
+  - extensions
+  - helm
+title: 'Referencing Secrets and ConfigMaps in Extension and ControllerDeployment Helm Values'
 ---
 
 Gardener extensions and controller deployments are configured via Helm values embedded directly in `Extension` (`operator.gardener.cloud`) and `ControllerDeployment` (`core.gardener.cloud`) objects. Until now, this meant sensitive data — credentials, certificates, environment-specific configuration — had to be stored inline in these objects. That created friction: the objects are not encrypted at rest in the runtime cluster, external secret management systems had to update the extension object itself, and credential rotation could conflict with extension version management since both touch the same object.
