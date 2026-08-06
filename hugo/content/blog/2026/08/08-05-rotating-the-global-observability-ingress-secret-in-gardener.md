@@ -12,9 +12,10 @@ tags:
 - security
 - observability
 aliases: ["/blog/2026/08/05/rotating-the-global-observability-ingress-secret-in-gardener"]
+local: true
 ---
 
-Gardener uses a shared secret to authenticate federation traffic between the aggregate Prometheus instances on each seed and the central Garden Prometheus. Until v1.148, this *global observability ingress secret* could not be rotated as part of the standard credential rotation mechanism. That gap is now closed.
+Gardener uses a shared secret to authenticate federation traffic between the aggregate Prometheus instances on each seed and the garden Prometheus in the runtime cluster. Until v1.148, this *global observability ingress secret* could not be rotated as part of the standard credential rotation mechanism. That gap is now closed.
 
 ## Background
 
@@ -23,7 +24,7 @@ Operators can provide their own global observability ingress secret via Gardener
 The global observability ingress secret is used by:
 
 - The **gardenlet** on each seed, which picks it up from the virtual cluster and configures basic authentication on the aggregate Prometheus ingress.
-- The **gardener-operator**, which reads it from the virtual cluster and stores a copy in the runtime cluster so the Garden Prometheus knows which credentials to use.
+- The **gardener-operator**, which reads it from the virtual cluster and stores a copy in the runtime cluster so the garden Prometheus knows which credentials to use.
 
 Prior to v1.148, the secret was owned and created by the **gardener-controller-manager (GCM)** in the virtual cluster. Everyone else read it from there. This ownership model made rotation difficult: the `Garden` resource's credential rotation annotation is handled by gardener-operator, not GCM, so there was no clean path to propagate a rotation signal across component boundaries.
 
@@ -43,7 +44,7 @@ Because gardener-operator now owns the secret, annotating the `Garden` resource 
 Upgrading from v1.147 to v1.148 does not change the secret value. The migration path works as follows:
 
 - On first reconciliation after the upgrade, gardener-operator reads the existing secret from the virtual cluster (still managed by GCM at that point) and stores it in the runtime cluster under its own ownership.
-- The GCM-managed copy in the virtual cluster is eventually cleaned up over the next three Gardener versions.
+- The GCM-managed secret in the virtual cluster is cleaned up, leaving only the copy mirrored by the gardener-operator.
 - Federation continues to work without interruption — no rotation is triggered automatically.
 
 The first time the `Garden` resource is annotated for observability credential rotation after the upgrade, the new code path takes over and issues fresh credentials.
@@ -54,10 +55,10 @@ To rotate the global observability ingress secret manually:
 
 ```bash
 kubectl annotate garden local \
-  credentials.gardener.cloud/rotate-observability-credentials=start
+  gardener.cloud/operation=rotate-observability-credentials
 ```
 
-After the `Garden` resource reconciles, the old password is invalidated and the new secret name (with an updated suffix) is active across all seeds.
+After the `Garden` resource reconciles, the old password is invalidated and the new secret becomes active across all seeds.
 
 ## Source Material
 
