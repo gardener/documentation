@@ -15,8 +15,7 @@ local: true
 
 # Hackathons
 
-Project Gardener is an essential component of [ApeiroRA](https://apeirora.eu), part of the European IPCEI-CIS [initiative](https://www.bmwk.de/Redaktion/EN/Artikel/Industry/ipcei-cis.html).
-The community building in open-source is actively encouraged by the EU Commission with the [Open source software strategy](https://commission.europa.eu/about-european-commission/departments-and-executive-agencies/digital-services/open-source-software-strategy_en).
+Project Gardener has been donated to the [NeoNephos Foundation](https://neonephos.org), a Linux Foundation initiative dedicated to advancing open-source projects aligned with the European [IPCEI-CIS](https://www.bmwk.de/Redaktion/EN/Artikel/Industry/ipcei-cis.html) initiative under neutral governance.
 
 This repository is meant to collect information, input, output, etc. related to Gardener Hackathons.
 If you feel like you can contribute something, you are encouraged to file a PR.
