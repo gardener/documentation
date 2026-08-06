@@ -145,6 +145,12 @@ If it's visible, operators should be aware that the annotated resources may dive
 This constraint indicates that one or more machines in `Failed` phase are currently being preserved (i.e., not terminated) to allow for debugging and analysis. The constraint is not added to `.status.constraints` when no failed machines are currently preserved.
 See [Machine Preservation](/docs/gardener/shoot/shoot_machine_preservation/) for more details.
 
+**`AutomaticCredentialsRotationPossible`**:
+
+This optional constraint indicates whether an overdue automatic ETCD encryption key rotation can run during the next maintenance window.
+The constraint is omitted when automatic rotation is not required or can run. It is added with status `False` when the next maintenance window is affected by hibernation, because ETCD encryption key rotation requires a running ETCD and `kube-apiserver`.
+If it is present, adjust the maintenance window or hibernation schedule so that maintenance runs while the Shoot is awake. See [ETCD Encryption Key](/docs/gardener/shoot-operations/shoot_credentials_rotation/#etcd-encryption-key) for details.
+
 ### Last Operation
 
 The Shoot status holds information about the last operation that is performed on the Shoot. The last operation field reflects overall progress and the tasks that are currently being executed. Allowed operation types are `Create`, `Reconcile`, `Delete`, `Migrate`, and `Restore`. Allowed operation states are `Processing`, `Succeeded`, `Error`, `Failed`, `Pending`, and `Aborted`. An operation in `Error` state is an operation that will be retried for a configurable amount of time (`controllers.shoot.retryDuration` field in `GardenletConfiguration`, defaults to `12h`). If the operation cannot complete successfully for the configured retry duration, it will be marked as `Failed`. An operation in `Failed` state is an operation that won't be retried automatically (to retry such an operation, see [Retry Failed Reconciliation](/docs/gardener/shoot-operations/shoot_operations/#retry-failed-reconciliation)).
