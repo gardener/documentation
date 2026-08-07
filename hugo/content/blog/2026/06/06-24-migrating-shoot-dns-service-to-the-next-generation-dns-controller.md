@@ -13,6 +13,7 @@ tags:
 - networking
 - extensions
 aliases: ["/blog/2026/06/24/migrating-shoot-dns-service-to-the-next-generation-dns-controller"]
+local: true
 ---
 
 The `shoot-dns-service` extension manages DNS records for Shoot clusters — automatically creating entries for `Service`, `Ingress`, and `DNSEntry` resources. Until now, it relied on the [Gardener controller-manager library](https://github.com/gardener/controller-manager-library), a legacy framework that has been in maintenance mode for years. Keeping up with Kubernetes releases and adding new features required working around an increasingly unfamiliar codebase. The solution: a full rewrite using the standard [controller-runtime](https://github.com/kubernetes-sigs/controller-runtime) library.
