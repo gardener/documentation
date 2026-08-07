@@ -5387,6 +5387,18 @@ integer
 <p>Autoscaling contains auto-scaling configuration options for the kube-apiserver.</p>
 </td>
 </tr>
+<tr>
+<td>
+<code>tlsMinVersion</code></br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>TLSMinVersion is the minimum TLS version accepted by the kube-apiserver.<br />Supported values: VersionTLS12, VersionTLS13.</p>
+</td>
+</tr>
 
 </tbody>
 </table>
@@ -7947,7 +7959,7 @@ string
 </em>
 </td>
 <td>
-<p>Begin is the beginning of the time window in the format HHMMSS+ZONE, e.g. "220000+0100".<br />If not present, a random value will be computed.</p>
+<p>Begin is the beginning of the time window in the format HHMMSS±ZONE, e.g. "220000+0100" or "220000-0500".<br />If not present, a random value will be computed.</p>
 </td>
 </tr>
 <tr>
@@ -7958,7 +7970,7 @@ string
 </em>
 </td>
 <td>
-<p>End is the end of the time window in the format HHMMSS+ZONE, e.g. "220000+0100".<br />If not present, the value will be computed based on the "Begin" value.</p>
+<p>End is the end of the time window in the format HHMMSS±ZONE, e.g. "220000+0100" or "220000-0500".<br />If not present, the value will be computed based on the "Begin" value.</p>
 </td>
 </tr>
 
