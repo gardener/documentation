@@ -94,11 +94,11 @@ Approvers share the requirements and responsibilities of [reviewers](#reviewer),
 
 ## Documentation Maintainer
 
-Documentation Maintainers are deeply involved in the holistic maintenance, structure, and operation of the [Gardener documentation](https://gardener.cloud/).
+Documentation maintainers are deeply involved in the holistic maintenance, structure, and operation of the [Gardener documentation](https://gardener.cloud/).
 In addition to approver permissions on the [documentation repository](https://github.com/gardener/documentation), they hold approver permissions for the `/docs` folder of every project referenced in the [docforge manifest files](https://github.com/gardener/documentation/tree/master/.docforge), which [docforge](https://github.com/gardener/docforge) aggregates into the final documentation.
 This cross-repository permission ensures smooth documentation maintenance, comparable to setups where all documentation lives in one central repository rather than being colocated with the code.
 
-Documentation Maintainers share the requirements and responsibilities of [approvers](#approver), with additional expectations:
+Documentation maintainers share the requirements and responsibilities of [approvers](#approver), with additional expectations:
 
 **Requirements**
 - Approver role on the [documentation repository](https://github.com/gardener/documentation)
