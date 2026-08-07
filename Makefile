@@ -180,6 +180,14 @@ ci-build:
 	$(MAKE) ci-install; \
 	$(MAKE) build; \
 
+.PHONY: external-hugo-refresh
+external-hugo-refresh:
+	@echo "Refreshing md files from external repositories, defined in .docforge/ dir."; \
+	@echo "USE THIS ONLY FOR TESTING OF MANIFEST CHANGES"; \
+    $(MAKE) docforge-ci; \
+    $(MAKE) post-process; \
+
+
 .PHONY: vale-install
 vale-install: ## Install Vale binary if not already present
 	@if [ -x bin/vale ]; then \

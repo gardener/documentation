@@ -88,6 +88,10 @@ Gardener documentation pulls content from multiple repositories. Key remote sour
 
 To modify these, submit changes to their respective repositories.
 
+Changes in the docforge manifests (`.docforge/*.yaml`) can be locally tested by running `make external-hugo-refresh` to pull the latest content from upstream repositories.
+This is only meant for testing!
+
+
 ## 🔧 Available Commands
 
 ### Documentation Development
