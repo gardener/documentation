@@ -92,26 +92,6 @@ Approvers share the requirements and responsibilities of [reviewers](#reviewer),
 **How to become an approver**
 - Obtain sponsorship from a quorum of approvers of the target repository; nomination is initiated by one or more existing approvers through a new PR, which must receive positive reviews from the quorum.
 
-## Documentation Maintainer
-
-Documentation Maintainers are deeply involved in the holistic maintenance, structure, and operation of the [Gardener documentation](https://gardener.cloud/).
-In addition to approver permissions on the [documentation repository](https://github.com/gardener/documentation), they hold approver permissions for the `/docs` folder of every project referenced in the [docforge manifest files](https://github.com/gardener/documentation/tree/master/.docforge), which [docforge](https://github.com/gardener/docforge) aggregates into the final documentation.
-This cross-repository permission ensures smooth documentation maintenance, comparable to setups where all documentation lives in one central repository rather than being colocated with the code.
-
-Documentation Maintainers share the requirements and responsibilities of [approvers](#approver), with additional expectations:
-
-**Requirements**
-- Approver role on the [documentation repository](https://github.com/gardener/documentation)
-- Broad understanding of the Gardener documentation structure and the docforge aggregation process
-
-**Responsibilities**
-- Maintain the overall structure, presentation, and operation of the aggregated documentation
-- Limit changes in repositories other than the documentation repository to organizational or technical adjustments (fixing syntax, restructuring folders, adapting presentation, improving wording, etc.)
-- Never alter the underlying meaning of content in other repositories without prior approval from an [approver](#approver) of that repository
-
-**How to become a documentation maintainer**
-- Obtain sponsorship from a quorum of approvers of the [documentation repository](https://github.com/gardener/documentation); nomination is initiated by one or more existing approvers or documentation maintainers through a new PR.
-
 ## Adjustment of Membership Status
 
 Approvers periodically review the contents of the [`OWNERS`](https://docs.prow.k8s.io/docs/components/plugins/approve/approvers/#overview) and [`OWNERS_ALIASES`](https://docs.prow.k8s.io/docs/components/plugins/approve/approvers/#overview) files to ensure accuracy. If a reviewer or approver becomes inactive or does not fulfill the defined requirements and responsibilities, their status may be adjusted or removed. These decisions are made on a case-by-case basis and require agreement from a quorum of approvers.
