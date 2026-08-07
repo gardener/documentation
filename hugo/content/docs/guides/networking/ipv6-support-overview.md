@@ -138,7 +138,7 @@ Alibaba Cloud supports dual-stack ingress. Full dual-stack and IPv6-only are not
 
 ### Migration
 
-Add `dualStack.enabled: true` to `InfrastructureConfig` and add `IPv6` to `spec.networking.ipFamilies`. The infrastructure will be reconciled to enable IPv6 on the VPC and assign `/64` CIDRs to each zone's VSwitch.
+Add `dualStack.enabled: true` to `InfrastructureConfig`. The infrastructure will be reconciled to enable IPv6 on the VPC and assign `/64` CIDRs to each zone's VSwitch.
 
 ### Load Balancers
 
@@ -154,6 +154,8 @@ metadata:
 spec:
   loadBalancerClass: alibabacloud.com/nlb
 ```
+
+By default, IPv6 addresses of dual-stack services created by the Alibaba Cloud CCM only support internal access. To enable external internet access via IPv6, add the following annotation to your `Service` manifest: `service.beta.kubernetes.io/alibaba-cloud-loadbalancer-ipv6-address-type: internet`.
 
 Alibaba Cloud NLB requires at least two VSwitches in different zones — this is a platform constraint, not specific to dual-stack. The VSwitch IDs can be found in the shoot's `InfrastructureStatus`.
 
