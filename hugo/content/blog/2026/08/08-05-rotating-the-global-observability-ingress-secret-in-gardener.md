@@ -1,19 +1,29 @@
 ---
-title: "Rotating the Global Observability Ingress Secret in Gardener"
-linkTitle: "Rotating the Global Observability Ingress Secret in Gardener"
-newsSubtitle: August 05, 2026
-publishdate: 2026-08-05
+title: Rotating the Global Observability Ingress Secret in Gardener
+linkTitle: Rotating the Global Observability Ingress Secret in Gardener
+newsSubtitle: 'August 05, 2026'
+publishdate: 2026-08-05T00:00:00.000Z
 authors:
-- avatar: https://avatars.githubusercontent.com/vicwicker
-  login: vicwicker
-  name: Victor Herrero Otal
+  - avatar: 'https://avatars.githubusercontent.com/vicwicker'
+    login: vicwicker
+    name: Victor Herrero Otal
 tags:
-- feature-announcement
-- security
-- observability
-aliases: ["/blog/2026/08/05/rotating-the-global-observability-ingress-secret-in-gardener"]
+  - feature-announcement
+  - security
+  - observability
+aliases:
+  - >-
+    /blog/2026/08/05/rotating-the-global-observability-ingress-secret-in-gardener
 local: true
+github_repo: 'https://github.com/gardener/documentation'
+github_subdir: hugo/content/blog/2026/08
+path_base_for_github_subdir:
+  from: >-
+    content/blog/2026/08/08-05-rotating-the-global-observability-ingress-secret-in-gardener.md
+  to: 08-05-rotating-the-global-observability-ingress-secret-in-gardener.md
 ---
+
+# Rotating the Global Observability Ingress Secret in Gardener
 
 Gardener uses a shared secret to authenticate federation traffic between the aggregate Prometheus instances on each seed and the garden Prometheus in the runtime cluster. Until v1.148, this *global observability ingress secret* could not be rotated as part of the standard credential rotation mechanism. That gap is now closed.
 
