@@ -13,6 +13,7 @@ authors:
   - high-availability
   - networking
 aliases: ["/blog/2026/01/28/enhancing-vpn-high-availability-with-round-robin-bonding-mode"]
+local: true
 ---
 
 Gardener's High Availability (HA) VPN setup is designed to ensure a stable and reliable connection between the shoot cluster's control plane and its worker nodes. By default, this setup operates in an `active-backup` mode, where one VPN tunnel is active while the other remains on standby. However, certain network degradation scenarios, such as packet loss on the primary connection, could lead to disruptions without triggering a failover to the backup tunnel.
