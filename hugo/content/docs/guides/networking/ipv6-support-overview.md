@@ -1,13 +1,27 @@
 ---
 title: IPv6 Support Overview by Infrastructure
-description: Overview of IPv6 and dual-stack networking support across all Gardener-supported infrastructures
+description: >-
+  Overview of IPv6 and dual-stack networking support across all
+  Gardener-supported infrastructures
 weight: 5
 level: intermediate
 category: Networking
 scope: operator
-tags: ["networking", "ipv6", "dual-stack"]
+tags:
+  - networking
+  - ipv6
+  - dual-stack
 local: true
+prev: false
+next: false
+github_repo: 'https://github.com/gardener/documentation'
+github_subdir: hugo/content/docs/guides/networking
+path_base_for_github_subdir:
+  from: content/docs/guides/networking/ipv6-support-overview.md
+  to: ipv6-support-overview.md
 ---
+
+# IPv6 Support Overview by Infrastructure
 
 ## Summary
 

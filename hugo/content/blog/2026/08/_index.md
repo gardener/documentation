@@ -1,5 +1,5 @@
 ---
-title: August
+title: "August"
 aggregate: true
 local: true
 github_repo: 'https://github.com/gardener/documentation'
