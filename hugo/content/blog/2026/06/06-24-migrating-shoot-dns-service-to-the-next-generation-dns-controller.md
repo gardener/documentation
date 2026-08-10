@@ -1,20 +1,30 @@
 ---
-title: "Migrating shoot-dns-service to the Next-Generation DNS Controller"
-linkTitle: "Migrating shoot-dns-service to the Next-Generation DNS Controller"
-newsSubtitle: June 24, 2026
-publishdate: 2026-06-24
+title: Migrating shoot-dns-service to the Next-Generation DNS Controller
+linkTitle: Migrating shoot-dns-service to the Next-Generation DNS Controller
+newsSubtitle: 'June 24, 2026'
+publishdate: 2026-06-24T00:00:00.000Z
 authors:
-- avatar: https://avatars.githubusercontent.com/MartinWeindel
-  email: martin.weindel@sap.com
-  login: MartinWeindel
-  name: Martin Weindel
+  - avatar: 'https://avatars.githubusercontent.com/MartinWeindel'
+    email: martin.weindel@sap.com
+    login: MartinWeindel
+    name: Martin Weindel
 tags:
-- feature-announcement
-- networking
-- extensions
-aliases: ["/blog/2026/06/24/migrating-shoot-dns-service-to-the-next-generation-dns-controller"]
+  - feature-announcement
+  - networking
+  - extensions
+aliases:
+  - >-
+    /blog/2026/06/24/migrating-shoot-dns-service-to-the-next-generation-dns-controller
 local: true
+github_repo: 'https://github.com/gardener/documentation'
+github_subdir: hugo/content/blog/2026/06
+path_base_for_github_subdir:
+  from: >-
+    content/blog/2026/06/06-24-migrating-shoot-dns-service-to-the-next-generation-dns-controller.md
+  to: 06-24-migrating-shoot-dns-service-to-the-next-generation-dns-controller.md
 ---
+
+# Migrating shoot-dns-service to the Next-Generation DNS Controller
 
 The `shoot-dns-service` extension manages DNS records for Shoot clusters — automatically creating entries for `Service`, `Ingress`, and `DNSEntry` resources. Until now, it relied on the [Gardener controller-manager library](https://github.com/gardener/controller-manager-library), a legacy framework that has been in maintenance mode for years. Keeping up with Kubernetes releases and adding new features required working around an increasingly unfamiliar codebase. The solution: a full rewrite using the standard [controller-runtime](https://github.com/kubernetes-sigs/controller-runtime) library.
 

@@ -1,5 +1,5 @@
 ---
-title: IPv6 Support Overview by Infrastructure
+title: "IPv6 Support Overview by Infrastructure"
 description: >-
   Overview of IPv6 and dual-stack networking support across all
   Gardener-supported infrastructures
