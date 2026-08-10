@@ -40,17 +40,25 @@ A hard cutover would be too risky for production Gardener installations managing
 
 ### Which setting wins
 
-The mechanisms combine according to the following precedence, from highest to lowest:
+The precedence rules differ depending on whether the global flag is enabled.
+
+**When `--use-next-generation-controller` is enabled globally:**
+
+| Priority | Setting | Effect |
+| --- | --- | --- |
+| 1 | Per-Shoot `useNextGenerationController: false` | Explicitly opts that Shoot out of the new controller. |
+| 2 | Global flag `--use-next-generation-controller` | Enables the new controller for all Shoots on all Seeds; Seed labels are ignored entirely. |
+
+**When the global flag is disabled (per-Seed / per-Shoot rollout):**
 
 | Priority | Setting | Effect |
 | --- | --- | --- |
 | 1 | Seed label `force-true` / `force-false` | Pins the controller for all Shoots on the Seed; per-Shoot config is ignored. |
-| 2 | Per-Shoot `useNextGenerationController` | An explicit `true`/`false` in the Shoot manifest overrides the global default and the non-force Seed label. |
-| 3 | Global flag `--use-next-generation-controller` | Enables the new controller for all Shoots and ignores Seed labels; only an explicit per-Shoot `false` overrides it. |
-| 4 | Seed label `true` / `false` | Sets the Seed-wide default when neither a global flag nor a per-Shoot value applies. |
-| 5 | Built-in default | The legacy controller is used when nothing above selects the new one. |
+| 2 | Per-Shoot `useNextGenerationController` | An explicit `true` or `false` in the Shoot manifest overrides the non-force Seed label. |
+| 3 | Seed label `true` / `false` | Sets the Seed-wide default when no per-Shoot value is present. |
+| 4 | Built-in default | The legacy controller is used when nothing above selects the new one. |
 
-Note that the global flag and the Seed labels are mutually exclusive in practice: enabling the global flag ignores Seed labels entirely, so operators should rely on one or the other rather than both. With this ordering, operators can always predict which controller a given Shoot selects.
+Because enabling the global flag ignores all Seed labels, operators should rely on one approach or the other — not both. With this ordering, operators can always predict which controller a given Shoot selects.
 
 Importantly, the migration is fully reversible. Reverting the opt-in flag and triggering a Shoot reconciliation restores the previous state — useful if an unforeseen issue surfaces during rollout.
 
