@@ -34,9 +34,23 @@ The one exception: private zones (unreachable from the seed) and routing-policy 
 
 A hard cutover would be too risky for production Gardener installations managing hundreds or thousands of Shoots. Instead, three granular opt-in mechanisms are available:
 
-1. **Per Shoot** — set `useNextGenerationController: true` in the extension's `providerConfig` within the Shoot manifest.
-2. **Per Seed** — label the Seed with `service.dns.extensions.gardener.cloud/use-next-generation-controller=true`. All Shoots on that Seed then default to the new controller, with per-Shoot opt-out available by setting the field to `false`.
-3. **Globally** — set the `--use-next-generation-controller` flag on the extension deployment to enable the new controller for all Shoots across all Seeds.
+1. **Per Shoot** — set `useNextGenerationController: true` (or `false`) in the extension's `providerConfig` within the Shoot manifest.
+2. **Per Seed** — label the Seed with `service.dns.extensions.gardener.cloud/use-next-generation-controller`. The label accepts four values: `true` and `false` set the default for all Shoots on that Seed while still allowing a per-Shoot override, whereas `force-true` and `force-false` pin the choice and cannot be overridden per Shoot.
+3. **Globally** — set the `--use-next-generation-controller` flag on the extension deployment to enable the new controller for all Shoots across all Seeds. When this flag is enabled, Seed labels are ignored, but an explicit per-Shoot `useNextGenerationController: false` still opts that Shoot out.
+
+### Which setting wins
+
+The mechanisms combine according to the following precedence, from highest to lowest:
+
+| Priority | Setting | Effect |
+| --- | --- | --- |
+| 1 | Seed label `force-true` / `force-false` | Pins the controller for all Shoots on the Seed; per-Shoot config is ignored. |
+| 2 | Per-Shoot `useNextGenerationController` | An explicit `true`/`false` in the Shoot manifest overrides the global default and the non-force Seed label. |
+| 3 | Global flag `--use-next-generation-controller` | Enables the new controller for all Shoots and ignores Seed labels; only an explicit per-Shoot `false` overrides it. |
+| 4 | Seed label `true` / `false` | Sets the Seed-wide default when neither a global flag nor a per-Shoot value applies. |
+| 5 | Built-in default | The legacy controller is used when nothing above selects the new one. |
+
+Note that the global flag and the Seed labels are mutually exclusive in practice: enabling the global flag ignores Seed labels entirely, so operators should rely on one or the other rather than both. With this ordering, operators can always predict which controller a given Shoot selects.
 
 Importantly, the migration is fully reversible. Reverting the opt-in flag and triggering a Shoot reconciliation restores the previous state — useful if an unforeseen issue surfaces during rollout.
 
@@ -47,6 +61,8 @@ Old and new controller instances can coexist on the same Seed, enabling a phased
 For Shoot users, nothing changes. DNS annotations on `Service` and `Ingress` objects remain the same; `DNSEntry` resources behave identically. The underlying controller is swapped transparently.
 
 For operators, the deployment footprint shrinks: the new architecture removes the seed-level shared DNS controller instance and any DNS proxy layers that existed purely to reduce provider API read traffic. Those optimizations are no longer needed now that the controller uses authoritative DNS queries instead.
+
+To check whether a given Shoot actually runs the next-generation controller, inspect its `shoot-dns-service` extension resource in the Shoot's control plane (its Seed namespace): when the new controller is active, it carries the annotation `service.dns.extensions.gardener.cloud/use-next-generation-controller: "true"`.
 
 ## Getting Started
 
