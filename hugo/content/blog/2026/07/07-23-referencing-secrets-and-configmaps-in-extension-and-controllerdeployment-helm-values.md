@@ -23,6 +23,8 @@ title: 'Referencing Secrets and ConfigMaps in Extension and ControllerDeployment
 local: true
 ---
 
+# Referencing Secrets and ConfigMaps in Extension and ControllerDeployment Helm Values
+
 Gardener extensions and controller deployments are configured via Helm values embedded directly in `Extension` (`operator.gardener.cloud`) and `ControllerDeployment` (`core.gardener.cloud`) objects. Until now, this meant sensitive data — credentials, certificates, environment-specific configuration — had to be stored inline in these objects. That created friction: the objects are not encrypted at rest in the runtime cluster, external secret management systems had to update the extension object itself, and credential rotation could conflict with extension version management since both touch the same object.
 
 Gardener v1.147 introduces a `resources` field on both object types, allowing you to reference `Secret`s and `ConfigMap`s from the `garden` namespace and template their values into the Helm chart via Go template expressions.

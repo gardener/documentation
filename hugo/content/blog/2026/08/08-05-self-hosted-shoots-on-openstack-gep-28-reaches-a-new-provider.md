@@ -1,19 +1,29 @@
 ---
-title: "Self-Hosted Shoots on OpenStack: GEP-28 Reaches a New Provider"
-linkTitle: "Self-Hosted Shoots on OpenStack: GEP-28 Reaches a New Provider"
-newsSubtitle: August 05, 2026
-publishdate: 2026-08-05
+title: 'Self-Hosted Shoots on OpenStack: GEP-28 Reaches a New Provider'
+linkTitle: 'Self-Hosted Shoots on OpenStack: GEP-28 Reaches a New Provider'
+newsSubtitle: 'August 05, 2026'
+publishdate: 2026-08-05T00:00:00.000Z
 authors:
-- avatar: https://avatars.githubusercontent.com/tobschli
-  login: tobschli
-  name: Tobias Schlicht
+  - avatar: 'https://avatars.githubusercontent.com/tobschli'
+    login: tobschli
+    name: Tobias Schlicht
 tags:
-- feature-announcement
-- self-hosted-shoots
-- openstack
-aliases: ["/blog/2026/08/05/self-hosted-shoots-on-openstack-gep-28-reaches-a-new-provider"]
+  - feature-announcement
+  - self-hosted-shoots
+  - openstack
+aliases:
+  - >-
+    /blog/2026/08/05/self-hosted-shoots-on-openstack-gep-28-reaches-a-new-provider
 local: true
+github_repo: 'https://github.com/gardener/documentation'
+github_subdir: hugo/content/blog/2026/08
+path_base_for_github_subdir:
+  from: >-
+    content/blog/2026/08/08-05-self-hosted-shoots-on-openstack-gep-28-reaches-a-new-provider.md
+  to: 08-05-self-hosted-shoots-on-openstack-gep-28-reaches-a-new-provider.md
 ---
+
+# Self-Hosted Shoots on OpenStack: GEP-28 Reaches a New Provider
 
 [GEP-28](https://github.com/gardener/gardener/blob/master/docs/proposals/28-self-hosted-shoot-clusters.md) describes Gardener's model for self-hosted shoot clusters — shoot clusters whose control planes run not in a dedicated seed, but on the shoot's own infrastructure. The reference implementation targets local KinD-based setups, but the goal was always broader provider coverage. With v1.148, self-hosted shoots now work on OpenStack.
 
