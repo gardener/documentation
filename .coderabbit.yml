@@ -1,4 +1,4 @@
 # .coderabbit.yml
 reviews:
   path_filters:
-    - "!website/**"
+    - "!hugo/content/**"
