@@ -1,20 +1,30 @@
 ---
-title: "Enhancing VPN High Availability with Round-Robin Bonding Mode"
-linkTitle: "Enhancing VPN High Availability with Round-Robin Bonding Mode"
-newsSubtitle: January 28, 2026
-publishdate: 2026-01-28
+title: Enhancing VPN High Availability with Round-Robin Bonding Mode
+linkTitle: Enhancing VPN High Availability with Round-Robin Bonding Mode
+newsSubtitle: 'January 28, 2026'
+publishdate: 2026-01-28T00:00:00.000Z
 authors:
-- avatar: https://avatars.githubusercontent.com/domdom82
-  email: Dominik.Froehlich@sap.com
-  login: domdom82
-  name: Dominik Froehlich
-  tags:
-  - feature-announcement
-  - high-availability
-  - networking
-aliases: ["/blog/2026/01/28/enhancing-vpn-high-availability-with-round-robin-bonding-mode"]
+  - avatar: 'https://avatars.githubusercontent.com/domdom82'
+    email: Dominik.Froehlich@sap.com
+    login: domdom82
+    name: Dominik Froehlich
+    tags:
+      - feature-announcement
+      - high-availability
+      - networking
+aliases:
+  - >-
+    /blog/2026/01/28/enhancing-vpn-high-availability-with-round-robin-bonding-mode
 local: true
+github_repo: 'https://github.com/gardener/documentation'
+github_subdir: hugo/content/blog/2026/01
+path_base_for_github_subdir:
+  from: >-
+    content/blog/2026/01/01-28-enhancing-vpn-high-availability-with-round-robin-bonding-mode.md
+  to: 01-28-enhancing-vpn-high-availability-with-round-robin-bonding-mode.md
 ---
+
+# Enhancing VPN High Availability with Round-Robin Bonding Mode
 
 Gardener's High Availability (HA) VPN setup is designed to ensure a stable and reliable connection between the shoot cluster's control plane and its worker nodes. By default, this setup operates in an `active-backup` mode, where one VPN tunnel is active while the other remains on standby. However, certain network degradation scenarios, such as packet loss on the primary connection, could lead to disruptions without triggering a failover to the backup tunnel.
 
