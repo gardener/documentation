@@ -21,8 +21,10 @@ local: true
 This document describes documentation-specific contribution roles within the Gardener community.
 The [general community roles](/contribute/contribution-process/roles/) are tailored to code repositories. Documentation roles have their own requirements and responsibilities because maintaining the aggregated documentation across the different repositories requires editorial and structural expertise.
 
-> [!NOTE]
-> Documentation roles are defined in the [`OWNERS_ALIASES`](https://github.com/gardener/documentation/blob/master/OWNERS_ALIASES) file of the [documentation repository](https://github.com/gardener/documentation).
+## Documentation Members
+
+Documentation members are the same as Gardener community members .
+To learn more about the general membership requirements and responsibilities, please refer to the [members section](/contribute/contribution-process/roles/#member).
 
 ## Documentation Reviewer
 
@@ -30,12 +32,10 @@ Documentation reviewers are responsible for assessing the quality, clarity, and 
 They are granted the privilege to `/lgtm` pull requests on the [documentation repository](https://github.com/gardener/documentation).
 Reviewers are technically defined in the [`OWNERS_ALIASES`](https://github.com/gardener/documentation/blob/master/OWNERS_ALIASES) file of the documentation repository.
 
-Unlike [reviewers](/contribute/contribution-process/roles/#reviewer), documentation reviewers do not require professional expertise in a specific Gardener topic area, but should have a solid understanding of the documentation structure and editorial conventions.
-
 **Requirements**
 - Member of the Gardener org
-- Solid understanding of the Gardener documentation structure and the docforge aggregation process
-- Familiarity with the documentation tooling, i.e., [docforge](https://github.com/gardener/docforge) aggregation, the [VitePress](https://vitepress.dev/) site generator, Markdown, and the local build, post-processing, and preview workflow
+- Solid understanding of the Gardener documentation structure.
+- Familiarity with the documentation tooling, i.e., [Docforge](https://github.com/gardener/docforge) aggregation, the [VitePress](https://vitepress.dev/) site generator, Markdown, and the local build, post-processing, and preview workflow
 - Enabled GitHub notifications for PR invites and documentation issues
 
 **Responsibilities**
@@ -51,12 +51,9 @@ Unlike [reviewers](/contribute/contribution-process/roles/#reviewer), documentat
 ## Documentation Approver
 
 Documentation approvers are deeply involved in the holistic maintenance, structure, and operation of the [Gardener documentation](https://gardener.cloud/).
-In addition to approver permissions on the [documentation repository](https://github.com/gardener/documentation), they hold approver permissions for the `/docs` folder of every project referenced in the [docforge manifest files](https://github.com/gardener/documentation/tree/master/.docforge), which [docforge](https://github.com/gardener/docforge) aggregates into the final documentation.
+In addition to approver permissions on the [documentation repository](https://github.com/gardener/documentation), they hold approver permissions for the `/docs` folder of every project referenced in the [Docforge manifest files](https://github.com/gardener/documentation/tree/master/.docforge), which [Docforge](https://github.com/gardener/docforge) aggregates into the final documentation.
 This cross-repository permission ensures smooth documentation maintenance, comparable to setups where all documentation lives in one central repository rather than being colocated with the code.
 They are granted the privilege to approve pull requests by using the `/approve` comment.
-
-Unlike [approvers](/contribute/contribution-process/roles/#approver), documentation approvers do not require deep technical expertise across the various components, but should still have a solid understanding of Gardener.
-Documentation approvers share the requirements and responsibilities of [documentation reviewers](#documentation-reviewer), with additional expectations:
 
 **Requirements**
 - Deep understanding of the Gardener documentation lifecycle
@@ -69,4 +66,4 @@ Documentation approvers share the requirements and responsibilities of [document
 
 **How to become a documentation approver**
 - Obtain sponsorship from a quorum of approvers of the [documentation repository](https://github.com/gardener/documentation). Nomination is initiated by one or more existing documentation approvers through a new PR.
-- Cross-repository access is granted by adding the `documentation-approvers` alias to the `/docs` `OWNERS` (or `OWNERS_ALIASES`) of each referenced repository, scoping the role to the documentation paths aggregated by docforge. An approver of the respective repository performs this change.
+- Cross-repository access is granted by adding the `documentation-approvers` alias to the `/docs` `OWNERS` (or `OWNERS_ALIASES`) of each referenced repository, scoping the role to the documentation paths aggregated by Docforge. An approver of the respective repository performs this change.
