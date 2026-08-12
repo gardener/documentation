@@ -3,13 +3,13 @@ aliases:
   - /docs/contribute/code/documentation-roles/
 github_repo: 'https://github.com/gardener/documentation'
 github_subdir: hugo/content/contribute/contribution-process
-outline: 2
 params:
   github_branch: master
 path_base_for_github_subdir:
   from: content/contribute/contribution-process/documentation-roles.md
   to: documentation-roles.md
 title: "Documentation Roles"
+outline: 2
 weight: 40
 prev: false
 next: false
@@ -46,7 +46,7 @@ Reviewers are technically defined in the [`OWNERS_ALIASES`](https://github.com/g
 **How to become a documentation reviewer**
 - Demonstrate the requirements through previous contributions (documentation changes, PR review participation, issue discussions).
 - Obtain sponsorship from at least two approvers of the [documentation repository](https://github.com/gardener/documentation).
-- Open a [membership request](https://github.com/gardener/org/issues/new?template=membership_role.yaml). If accepted, an approver creates a PR to update [`OWNERS_ALIASES`](https://github.com/gardener/documentation/blob/master/OWNERS_ALIASES) of the documentation repository.
+- Open a [documentation reviewer request](https://github.com/gardener/documentation/issues/new?template=documentation_reviewer_role.yaml). If accepted, an approver creates a PR to update [`OWNERS_ALIASES`](https://github.com/gardener/documentation/blob/master/OWNERS_ALIASES) of the documentation repository.
 
 ## Documentation Approver
 
@@ -65,5 +65,4 @@ They are granted the privilege to approve pull requests by using the `/approve` 
 - Never alter the underlying meaning of content in other repositories without prior approval from an [approver](/contribute/contribution-process/roles/#approver) of that repository
 
 **How to become a documentation approver**
-- Obtain sponsorship from a quorum of approvers of the [documentation repository](https://github.com/gardener/documentation). Nomination is initiated by one or more existing documentation approvers through a new PR.
-- Cross-repository access is granted by adding the `documentation-approvers` alias to the `/docs` `OWNERS` (or `OWNERS_ALIASES`) of each referenced repository, scoping the role to the documentation paths aggregated by Docforge. An approver of the respective repository performs this change.
+- Obtain sponsorship from a quorum of approvers of the target repository; nomination is initiated by one or more existing approvers through a new PR, which must receive positive reviews from the quorum.

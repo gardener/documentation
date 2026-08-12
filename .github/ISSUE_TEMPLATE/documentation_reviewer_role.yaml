@@ -1,0 +1,66 @@
+# Modifications Copyright SAP SE or an SAP affiliate company and Gardener contributors.
+name: Documentation Reviewer Role Request
+description: Request the documentation reviewer role
+labels: ["kind/task"]
+title: "Documentation reviewer role for <your-GH-handle>"
+body:
+- id: motivation
+  type: textarea
+  attributes:
+    label: "Motivation"
+    description: Describe the motivation of this request and your background shortly - we'd like to know you :-)
+- id: github
+  type: input
+  attributes:
+    label: GitHub Username
+    placeholder: e.g. @example_user
+  validations:
+    required: true
+- id: requirements
+  type: checkboxes
+  attributes:
+    label: Requirements
+    description: See [documentation roles](https://gardener.cloud/contribute/contribution-process/documentation-roles/#documentation-reviewer).
+    options:
+    - label: I've read the [Gardener contributor guide](https://gardener.cloud/contribute/contribution-process/contributor-guide/).
+      required: true
+    - label: I'm a member of the Gardener org.
+      required: true
+    - label: I have a solid understanding of the Gardener documentation structure.
+      required: true
+    - label: I'm familiar with the documentation tooling, i.e., [Docforge](https://github.com/gardener/docforge) aggregation, the [VitePress](https://vitepress.dev/) site generator, Markdown, and the local build, post-processing, and preview workflow.
+      required: true
+    - label: I have enabled GitHub notifications for PR invites and documentation issues.
+      required: true
+    - label: I verified my sponsors are approvers of the [documentation repository](https://github.com/gardener/documentation).
+      required: true
+    - label: I have spoken to my sponsors ahead of this application, and they have agreed to sponsor my application.
+      required: true
+    - label: I prepared and attached a record of contributions in this issue.
+      required: true
+- id: sponsor_1
+  type: input
+  attributes:
+    label: "Sponsor 1"
+    description: GitHub handle of your sponsor (approver of the documentation repository)
+    placeholder: e.g. @...
+  validations:
+    required: true
+- id: sponsor_2
+  type: input
+  attributes:
+    label: "Sponsor 2"
+    description: GitHub handle of your sponsor (approver of the documentation repository)
+    placeholder: e.g. @...
+  validations:
+    required: true
+- id: contributions
+  type: textarea
+  attributes:
+    label: List of contributions to the Gardener documentation
+    placeholder: |
+      - Documentation PRs authored / reviewed
+      - Documentation issues responded to
+      - Structural or editorial improvements
+  validations:
+    required: true
