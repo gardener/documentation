@@ -26,6 +26,9 @@ Various aspects and definitions were adopted from the [Kubernetes Community memb
 > Not every Gardener subproject (repository) may have applied the listed community roles yet.
 > If adopted, this document is linked in the repository's top-level `README.md` file.
 
+The roles described here are tailored to code repositories.
+For documentation-specific contribution roles, see [Documentation Roles](/contribute/contribution-process/documentation-roles/).
+
 ## Member
 
 Members are active contributors in the Gardener community. They can have issues and PRs assigned to them, and are granted the privilege to run pre-submit tests on their own and all other PRs.
