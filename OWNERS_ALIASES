@@ -12,6 +12,7 @@ aliases:
   - n-boshnakov
   - RadaBDimitrova
   - rfranzke
+  - VelmiraS
   documentation-approvers:
   - BoHristova
   - dimitar-kostadinov
@@ -23,6 +24,7 @@ aliases:
   - n-boshnakov
   - RadaBDimitrova
   - rfranzke
+  - VelmiraS
   gardener-technical-steering:
   - rfranzke
   - ScheererJ
