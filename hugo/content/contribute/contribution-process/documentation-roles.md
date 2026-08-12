@@ -29,7 +29,7 @@ To learn more about the general membership requirements and responsibilities, pl
 ## Documentation Reviewer
 
 Documentation reviewers are responsible for assessing the quality, clarity, and structural correctness of documentation contributions.
-They are granted the privilege to `/lgtm` pull requests on the [documentation repository](https://github.com/gardener/documentation).
+They are granted the privilege to use the `/lgtm` comment on pull requests in the [documentation repository](https://github.com/gardener/documentation).
 Reviewers are technically defined in the [`OWNERS_ALIASES`](https://github.com/gardener/documentation/blob/master/OWNERS_ALIASES) file of the documentation repository.
 
 **Requirements**
