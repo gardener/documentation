@@ -137,6 +137,16 @@ structure:
         - dir: development
           structure:
           - fileTree: https://github.com/ironcore-dev/gardener-extension-provider-ironcore/tree/main/docs/development
+      - dir: gardener-extension-provider-ironcore-metal
+        structure:
+        - file: _index.md
+          frontmatter:
+            title: Provider IronCore Metal
+            description: Developer documentation for the IronCore Metal API cloud provider extension
+          source: https://github.com/ironcore-dev/gardener-extension-provider-ironcore-metal/blob/main/README.md
+        - dir: development
+          structure:
+          - fileTree: https://github.com/ironcore-dev/gardener-extension-provider-ironcore-metal/tree/main/docs/development
     - dir: gardener-extension-shoot-dns-service
       structure:
       - file: _index.md
