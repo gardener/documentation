@@ -56,7 +56,7 @@ Each entry must be an object with a `name` key that identifies the vendor. The f
 | --- | --- |
 | `name` | Unique vendor identifier (required) |
 | `displayName` | Name displayed in the dashboard |
-| `weight` | Sorting weight. Lower values appear first. See default weights in `frontend/src/store/config.js` |
+| `weight` | Sorting weight. Lower values appear first. See the default weights in the built-in [infrastructure](https://github.com/gardener/dashboard/tree/master/frontend/src/data/vendors/infra), [DNS](https://github.com/gardener/dashboard/tree/master/frontend/src/data/vendors/dns), and [machine image](https://github.com/gardener/dashboard/tree/master/frontend/src/data/vendors/machineImage) vendor registries. |
 | `icon` | File name of the icon located in the `public/static/assets` folder. See [Logos and Icons](#logos-and-icons) for instructions on replacing assets |
 
 ## Colors
