@@ -12,7 +12,12 @@ tags:
   - autoscaling
 aliases:
   - /blog/2026/07/23/machine-preservation-on-failure-in-gardener
-managed: true
+local: true
+github_repo: 'https://github.com/gardener/documentation'
+github_subdir: hugo/content/blog/2026/07
+path_base_for_github_subdir:
+  from: content/blog/2026/07/07-23-machine-preservation-on-failure-in-gardener.md
+  to: 07-23-machine-preservation-on-failure-in-gardener.md
 ---
 
 # Machine Preservation on Failure in Gardener

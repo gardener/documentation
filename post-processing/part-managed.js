@@ -12,9 +12,10 @@ const LOCAL_PATH_ALLOWLIST = [/^_index\.md$/, /^index\.md$/];
 
 function seedClassification(fm, relativePath) {
   if (LOCAL_PATH_ALLOWLIST.some(re => re.test(relativePath))) return 'local';
-  if (typeof fm.github_repo === 'string'
+  // No github_repo means docforge never processed this file — it is native to this repo.
+  if (typeof fm.github_repo !== 'string') return 'local';
+  if (LOCAL_REPO_PATTERN.test(fm.github_repo)
       && typeof fm.github_subdir === 'string'
-      && LOCAL_REPO_PATTERN.test(fm.github_repo)
       && LOCAL_SUBDIR_PATTERN.test(fm.github_subdir)) {
     return 'local';
   }
