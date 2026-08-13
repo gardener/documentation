@@ -63,6 +63,7 @@ managed: true
 * [Shoot Cluster Limits](/docs/gardener/shoot/shoot_limits/)
 * [Shoot Maintenance](/docs/gardener/shoot/shoot_maintenance/)
 * [Shoot Cluster Purposes](/docs/gardener/shoot/shoot_purposes/)
+* [Control Plane Zone Pinning](/docs/gardener/shoot/shoot_control_plane_zone_pinning/)
 * [Shoot Scheduling Profiles](/docs/gardener/shoot/shoot_scheduling_profiles/)
 * [Shoot Status](/docs/gardener/shoot/shoot_status/)
 * [Supported CPU Architectures for Shoot Worker Nodes](/docs/gardener/shoot/shoot_supported_architectures/)
