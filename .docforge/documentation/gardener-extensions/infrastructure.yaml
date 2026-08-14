@@ -76,7 +76,10 @@ structure:
 - dir: gardener-extension-provider-metal
   structure:
   - file: _index.md
-    source: /hugo/content/docs/extensions/infrastructure-extensions/gardener-extension-provider-metal/index.md
+    frontmatter:
+      title: Provider metal-stack
+      description: Gardener extension controller for the metal-stack cloud provider
+    source: https://github.com/metal-stack/gardener-extension-provider-metal/blob/master/README.md
 - dir: gardener-extension-provider-stackit
   structure:
   - file: _index.md
