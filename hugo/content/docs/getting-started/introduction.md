@@ -23,17 +23,17 @@ Let's discuss the problem space first. Why does anyone need something like Garde
 
 The starting point is this rather simple question: Why would you want to run some software?
 
-Typically, software is run with a purpose and not just for the sake of running it. Whether it is a digital ledger, a company's inventory or a blog - software provides a service to its user.
+Typically, software is run with a purpose and not just for the sake of running it. Whether it is a digital ledger, a company's inventory or a blog — software provides a service to its user.
 
 Which brings us to the way this software is being consumed. Traditionally, software has been shipped on physical / digital media to the customer or end user. There, someone had to install, configure, and operate it. In recent times, the pattern has shifted. More and more solutions are operated by the vendor or a hosting partner and sold as a service ready to be used.
 
-But still, someone needs to install, configure, and maintain it - regardless of where it is installed. And of course, it will run forever once started and is generally resilient to any kind of failures.
+But still, someone needs to install, configure, and maintain it — regardless of where it is installed. And of course, it will run forever once started and is generally resilient to any kind of failures.
 
-For smaller installations things like maintenance, scaling, debugging or configuration can be done in a semi-automatic way. It's probably no fun and most importantly, only a limited amount of instances can be taken care of - similar to how one would take care of a pet.
+For smaller installations things like maintenance, scaling, debugging or configuration can be done in a semi-automatic way. It's probably no fun and most importantly, only a limited amount of instances can be taken care of — similar to how one would take care of a pet.
 
 But when hosting services at scale, there is no way someone can do all this manually at acceptable costs. So we need some vehicle to easily spin up new instances, do lifecycle operations, get some basic failure resilience, and more. How can we achieve that?
 
-## Solution Space 1 - Kubernetes
+## Solution Space 1 — Kubernetes
 
 Let's start solving some of the problems described earlier with Container technology and Kubernetes.
 
@@ -53,7 +53,7 @@ Kubernetes operates on the principle of "desired state". With it, you write a co
 
 Containers (famously brought to the mainstream as "Docker") and Kubernetes are the ingredients of a fundamental shift in IT. Similar to how the Operating System layer enabled the decoupling of software and hardware, container-related technologies provide an abstract interface to any kind of infrastructure platform for the next-generation of applications.
 
-## Solution Space 2 - Gardener
+## Solution Space 2 — Gardener
 
 ![operating-apps](/docs/getting-started/images/operating-apps.webp)
 
@@ -70,7 +70,7 @@ Essentially, it was a "make or buy" decision that led to the founding of Gardene
 
 Gardener allows to run Kubernetes clusters on various hyperscalers. It offers the same set of basic configuration options independent of the chosen infrastructure. This kind of harmonization supports any multi-vendor strategy while reducing adoption costs for the individual teams. Just imagine having to deal with multiple vendors all offering vastly different Kubernetes clusters.
 
-Of course, there are plenty more reasons - from acquiring operational knowledge to having influence on the developed features - that made the pendulum swing towards "make it".
+Of course, there are plenty more reasons — from acquiring operational knowledge to having influence on the developed features — that made the pendulum swing towards "make it".
 
 ## What exactly is Gardener?
 
@@ -82,7 +82,7 @@ A user may "desire" clusters with specific configuration on infrastructures such
 
 If you take this rather simplistic principle of reconciliation and add the feature-richness of Gardener to it, you end up with universal Kubernetes at scale.
 
-Whether you need fleet management at minimal TCO or to look for a highly customizable control plane - we have it all.
+Whether you need fleet management at minimal TCO or to look for a highly customizable control plane — we have it all.
 
 On top of that, Gardener-managed Kubernetes clusters fulfill the conformance standard set out by the CNCF and we submit our test results for certification.
 

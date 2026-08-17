@@ -332,7 +332,7 @@ The Botanist let out a sound that resembled a chuckle.
 * Updates like changing the Node pool size or Kubernetes version is done via the Shoot resource.
 * Shoot clusters are reconciled regularly and pick up upstream changes automatically.
 * Cluster operations like scaling or replacing a broken node happen automatically.
-* ETCD backups protect against infrastructure failures.
+* etcd backups protect against infrastructure failures.
 
 <img src="/docs/getting-started/images/podrick/icon_day2_operations.webp" style="width: 50%" alt="scrolls, the mechanical hummingbird, and the beehive representing day-2 operations">
 

@@ -21,25 +21,29 @@ local: true
 
 The core Observability components which Gardener offers out-of-the-box are:
 
-- Prometheus - for Metrics and Alerting
-- Vali - a Loki fork for Logging
-- Plutono - a Grafana fork for Dashboard visualization
+- Prometheus — for Metrics and Alerting
+- Vali — a Loki fork for Logging
+- Plutono — a Grafana fork for Dashboard visualization
 
-Both forks are done from the last version with an Apache license.
+Both forks were created from the last version under the Apache license.
 
 ### Control Plane Components on the Seed
 
 ![control-plane-components](/docs/getting-started/observability/images/control-plane-components.webp)
 
-Prometheus, Plutono, and Vali are all located in the seed cluster. They run next to the control plane of your cluster.
+Prometheus, Plutono, and Vali are all located in the seed cluster. They run in the same namespace as the control plane of your cluster.
 
 The next sections will explore those components in detail.
 
 > [!NOTE]
 > Gardener only provides monitoring for Gardener-deployed components. If you need logging or monitoring for your workload, then you need to deploy your own monitoring stack into your shoot cluster.
+>
+> ![data-flow-monitoring-3](/docs/getting-started/observability/images/data-flow-monitoring-3.webp)
 
 > [!NOTE]
 > Gardener only provides a monitoring stack if the cluster is not of `purpose: testing`. For more information, see [Shoot Cluster Purpose](/docs/gardener/shoot/shoot_purposes/).
+
+Logs or metrics are kept up to 14 days or when a configured space limit is reached.
 
 ### Logging into Plutono
 
@@ -70,15 +74,15 @@ Here is a picture with the `Kubernetes Control Plane Status` dashboard.
 
 ### Prometheus
 
-[Prometheus](https://prometheus.io/) is a monitoring system and a time series database. It can be queried using PromQL, the so called Prometheus Querying Language.
+[Prometheus](https://prometheus.io/) is a monitoring system and a time series database. It can be queried using the Prometheus Querying Language (PromQL).
 
 ![prometheus](/docs/getting-started/observability/images/prometheus.webp)
 
-This example query describes the current uptime status of the kube apiserver.
+This example query fetches the metrics for the current uptime status of the Kubernetes API server.
 
 #### Prometheus and Plutono
 
-Time series data from Prometheus can be made visible with Plutono. Here we see how the query above which describes the uptime of a Kubernetes cluster is visualized with a Plutono dashboard.
+Time series data from Prometheus can be visualized with Plutono. Here we see how the query above which describes the uptime of a Kubernetes cluster is integrated in a Plutono dashboard.
 
 ![prometheus-plutono](/docs/getting-started/observability/images/prometheus-plutono.webp)
 
@@ -109,7 +113,7 @@ Here are some examples of helpful queries:
 
 Choose `Help >` in order to see what options exist to filter the results.
 
-For more information on how to retrieve K8s events from the past, see [How to Access Logs](/docs/gardener/logging/#how-to-access-the-logs).
+For more information on how to retrieve Kubernetes events from the past, see [How to Access Logs](/docs/gardener/logging/#how-to-access-the-logs).
 
 ## Detailed View
 
@@ -117,7 +121,7 @@ For more information on how to retrieve K8s events from the past, see [How to Ac
 
 Our monitoring and logging solutions Vali and Prometheus both run next to the control plane of the shoot cluster.
 
-#### Data Flow - Logging
+#### Data Flow — Logging
 
 The following diagram allows a more detailed look at Vali and the data flow.
 
@@ -127,24 +131,18 @@ On the very left, we see Plutono as it displays the logs. Vali is aggregating th
 
 Valitail and Fluentbit send the logs to Vali, which in turn stores them.
 
-*Valitail*
+**Valitail**: Valitail is a systemd service that runs on each shoot cluster node. It scrapes kubelet, containerd, and kernel logs, as well as the logs of the pods in the kube-system namespace.
 
-Valitail is a systemd service that runs on each node. It scrapes kubelet, containerd, kernel logs, and the logs of the pods in the kube-system namespace.
+**Fluentbit**: Fluentbit runs as a daemonset on each seed node. It scrapes logs of the Kubernetes control plane components, like the API server or etcd. It also scrapes logs of the Gardener-deployed components which run next to the control plane of the cluster, like the machine-controller-manager or the cluster-autoscaler. Debugging these components, for example, can be helpful when finding out why certain worker groups got scaled up or why nodes were replaced.
 
-*Fluentbit*
-
-Fluentbit runs as a daemonset on each seed node. It scrapes logs of the kubernetes control plane components, like apiserver or etcd.
-
-It also scrapes logs of the Gardener deployed components which run next to the control plane of the cluster, like the machine-controller-manager or the cluster autoscaler. Debugging those components, for example, would be helpful when finding out why certain worker groups got scaled up or why nodes were replaced.
-
-#### Data Flow - Monitoring
+#### Data Flow — Monitoring
 
 Next to each shoot's control plane, we deploy an instance of Prometheus in the seed.
 
 Gardener uses [Prometheus](https://prometheus.io/) for storing and accessing shoot-related metrics and alerting.
 
 The diagram below shows the data flow of metrics.
-Plutono uses PromQL queries to query data from Prometheus. It then visualises those metrics in dashboards.
+Plutono uses PromQL queries to query data from Prometheus. It then visualizes those metrics in dashboards.
 Prometheus itself scrapes various targets for metrics, as seen in the diagram below by the arrows pointing to the Prometheus instance.
 
 ![data-flow-monitoring-1](/docs/getting-started/observability/images/data-flow-monitoring-1.webp)
@@ -155,25 +153,17 @@ Let us have a look what metrics we scrape for debugging purposes:
 
 cAdvisor is an open-source agent integrated into the kubelet binary that monitors resource usage and analyzes the performance of containers. It collects statistics about the CPU, memory, file, and network usage for all containers running on a given node. We use it to scrape data for all pods running in the kube-system namespace in the shoot cluster.
 
-**Hardware and kernel-related metrics**
+**Hardware- and kernel-related metrics**
 
-The [Prometheus Node Exporter](https://prometheus.io/docs/guides/node-exporter/) runs as a daemonset in the kube-system namespace of your shoot cluster. It exposes a wide variety of hardware and kernel-related metrics. Some of the metrics we scrape are, for example, the current usage of the filesystem (`node_filesystem_free_bytes`) or current CPU usage (`node_cpu_seconds_total`). Both can help you identify if nodes are running out of hardware resources, which could lead to your workload experiencing downtimes.
+The [Prometheus Node Exporter](https://prometheus.io/docs/guides/node-exporter/) runs as a daemonset in the kube-system namespace of your shoot cluster. It exposes a wide variety of hardware- and kernel-related metrics. Some of the metrics are, for example, the current usage of the filesystem (`node_filesystem_free_bytes`) or current CPU usage (`node_cpu_seconds_total`). Both can help you identify if nodes are running out of hardware resources, which could lead to your workload experiencing downtimes.
 
 **Control plane component specific metrics**
 
-The different control plane pods (for example, etcd, API server, and kube-controller-manager) emit metrics over the `/metrics` endpoint. This includes metrics like how long webhooks take, the request count of the apiserver and storage information, like how many and what kind of objects are stored in etcd.
+The different control plane pods (for example, etcd, API server, and kube-controller-manager) emit metrics over the `/metrics` endpoint. This includes metrics like how long webhooks take, the request count of the apiserver, and storage information, like how many and what kind of objects are stored in etcd.
 
 **Metrics about the state of Kubernetes objects**
 
-[kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) is a simple service that listens to the Kubernetes API server and generates metrics about the state of the objects. It is not concerned with metrics about the Kubernetes components, but rather it exposes metrics calculated from the status of Kubernetes objects (for example, resource requests or health of pods).
+[kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) is a simple service that listens to the Kubernetes API server and generates metrics about the state of the objects. It is not concerned with metrics about the Kubernetes components, but rather it exposes metrics calculated from the status of Kubernetes objects (for example, resource requests or health of pods). It only runs in the seed cluster.
 
-In the following image a few example metrics, which are exposed by the various components, are listed:
+In the following image a few example metrics that are exposed by the various components are listed:
 ![data-flow-monitoring-2](/docs/getting-started/observability/images/data-flow-monitoring-2.webp)
-
-We only store metrics for Gardener deployed components. Those include the Kubernetes control plane, Gardener managed system components (e.g., pods) in the kube-system namespace of the shoot cluster or systemd units on the nodes. We do not gather metrics for workload deployed in the shoot cluster. This is also shown in the picture below.
-
-This means that for any workload you deploy into your shoot cluster, you need to deploy monitoring and logging yourself.
-
-Logs or metrics are kept up to 14 days or when a configured space limit is reached.
-
-![data-flow-monitoring-3](/docs/getting-started/observability/images/data-flow-monitoring-3.webp)
