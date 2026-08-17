@@ -22,6 +22,7 @@ In this document we describe how this configuration looks like and under which c
 ## AWS VPC settings for Ubuntu workers
 
 Gardener allows you to create Ubuntu based worker nodes by:
+
 1. Using a Gardener managed VPC
 1. Reusing a VPC that already exists (VPC `id` specified in [InfrastructureConfig](/docs/extensions/infrastructure-extensions/gardener-extension-provider-aws/usage/#infrastructureconfig)]
 
