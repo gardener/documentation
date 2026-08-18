@@ -24,6 +24,25 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2026/08/19 - [v1.149](https://github.com/gardener/gardener/releases/tag/v1.149.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@hebelsan](https://github.com/hebelsan) | `10m` | ☁️ AWS: Better Support for BYO Infrastructure | [gardener-extension-provider-aws#1741](https://github.com/gardener/gardener-extension-provider-aws/pull/1741) |
+| [@shafeeqes](https://github.com/shafeeqes) | `10m` | 🔐 Custom Registry CA Bundle Support | [#15150](https://github.com/gardener/gardener/pull/15150) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- 🪓 [DEPENDENCY] The `github.com/gardener/gardener/pkg/utils/imagevector` functions `Read`, `ReadFile`, and `WithEnvOverride` now return an additional `*CABundle` value. Additionally, the `WithEnvOverride` function accepts a new `caBundle *CABundle` parameter. Extensions using these functions must update on their side accordingly. [#15150](https://github.com/gardener/gardener/pull/15150)
+- ❗️ [OPERATOR] The `DisableNginxIngressInGarden` and `DisableNginxIngressInSeed` feature gates have been promoted to beta. [#15325](https://github.com/gardener/gardener/pull/15325)
+- 🐛 [USER] Fixed a bug where the `deployInfrastructure` task annotation on a `Shoot` was incorrectly removed when the `Shoot` spec was changed by an external actor while the infrastructure was being reconciled, causing the Infrastructure extension to never pick up the new generation. [#15456](https://github.com/gardener/gardener/pull/15456)
+
+<hr />
+
 ### 2026/08/05 - [v1.148](https://github.com/gardener/gardener/releases/tag/v1.148.0) Release
 
 [📽️ Recording](https://youtu.be/X07luCqDtno)
