@@ -21,7 +21,7 @@ export function generateWeightSortedSidebar(config: VitePressSidebarOptions): an
 }
 
 /**
- * Recursively removes all _index.md entries from the sidebar
+ * Recursively removes section-root index.md entries from the sidebar
  */
 export function removeIndexEntries(sidebar: any): any {
   if (Array.isArray(sidebar)) {
@@ -41,8 +41,10 @@ export function removeIndexEntries(sidebar: any): any {
   if (filtered.items && Array.isArray(filtered.items)) {
     filtered.items = filtered.items
       .map((item: any) => {
-        // Filter out items that are _index entries
-        if (item.link && (item.link === '_index' || item.link.endsWith('/_index'))) {
+        // Filter out bare section-root index entries. After the _index.md → index.md
+        // rename, vitepress-sidebar folds index.md into the folder entry, so this
+        // rarely matches — kept as a guard against stray root-level index links.
+        if (item.link && (item.link === 'index' || item.link.endsWith('/index'))) {
           return null;
         }
         // Recursively process remaining items
@@ -117,17 +119,12 @@ export function getWeightForItem(item: any, base): number {
     return Number.MAX_SAFE_INTEGER; // Put invalid items at the end
   }
   
-  // If it's a directory with items, check for _index file
-  if (item.items && Array.isArray(item.items)) {
-    const indexItem = item.items.find((subItem: any) => 
-      subItem.link && (subItem.link === '_index' || subItem.link.endsWith('/_index'))
-    );
-    
-    if (indexItem) {
-      const weight = getWeightFromFile(indexItem.link, base);
-      if (weight !== null) {
-        return weight;
-      }
+  // Directory entries carry their own index.md link (useFolderLinkFromIndexFile),
+  // so read the folder weight from the directory item's own link.
+  if (item.items && Array.isArray(item.items) && item.link && typeof item.link === 'string') {
+    const weight = getWeightFromFile(item.link, base);
+    if (weight !== null) {
+      return weight;
     }
   }
   
@@ -150,16 +147,15 @@ export function getWeightFromFile(link: string, base?: string): number | null {
   try {
     // Construct the file path
     let filePath: string;
-    
-    if (link === '_index') {
-      // For root _index files
-      filePath = join(process.cwd(), 'hugo', 'content', base, '_index.md');
-    } else if (link.endsWith('/_index')) {
-      // For nested _index files
-      const relativePath = link.replace('/_index', '');
-      filePath = join(process.cwd(), 'hugo', 'content', base, relativePath, '_index.md');
+
+    if (link === 'index') {
+      // Section root index file
+      filePath = join(process.cwd(), 'hugo', 'content', base, 'index.md');
+    } else if (link.endsWith('/index.md')) {
+      // Folder link as produced by useFolderLinkFromIndexFile (e.g. "dashboard/index.md")
+      filePath = join(process.cwd(), 'hugo', 'content', base, link);
     } else {
-      // For regular files
+      // Regular leaf files
       filePath = join(process.cwd(), 'hugo', 'content', base, `${link}.md`);
     }
     
