@@ -1,20 +1,27 @@
 ---
 aside: false
 description: Contributor guides for code and documentation
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/contribute
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/contribute/index.md
-  to: index.md
 persona: Developers
 title: Contribute
 weight: 110
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Welcome to the Contributor page of Gardener
 

@@ -1,21 +1,28 @@
 ---
 category: Setup
 description: A walkthrough the steps for installing Knative in Gardener shoot clusters.
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/guides/applications
 index: 10
 level: intermediate
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/guides/applications/knative-install.md
-  to: knative-install.md
 scope: app-developer
-title: "Install Knative in Gardener Clusters"
+title: Install Knative in Gardener Clusters
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Install Knative in Gardener Clusters
 

@@ -2,10 +2,10 @@
 aliases:
   - /docs/gardener/
 persona: Users
-title: Security
+title: "Security"
 weight: 70
 prev: false
 next: false
-managed: true
+editLink: false
 ---
 

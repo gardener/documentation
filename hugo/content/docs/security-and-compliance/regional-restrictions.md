@@ -3,23 +3,30 @@ aliases:
   - /docs/guides/security-and-compliance/regional-restrictions/
 category: Security
 description: How Gardener supports regional restrictions
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/security-and-compliance
 level: advanced
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/security-and-compliance/regional-restrictions.md
-  to: regional-restrictions.md
 publishdate: '2023-11-22'
 tags:
   - task
-title: "Regional Restrictions"
+title: Regional Restrictions
 weight: 40
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Regional Restrictions
 

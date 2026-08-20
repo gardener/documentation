@@ -3,18 +3,25 @@ Description: Describes the contents of a concept topic
 Title: Concept Topic Structure
 aliases:
   - /docs/contribute/documentation/style-guide/concept_template/
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/contribute/documentation/style-guide
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/contribute/documentation/style-guide/concept_template.md
-  to: concept_template.md
-title: "Concept Template"
+title: Concept Template
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Concept Title
 (the topic title can also be placed in the frontmatter)

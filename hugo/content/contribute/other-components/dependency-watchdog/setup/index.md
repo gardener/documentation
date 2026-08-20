@@ -1,8 +1,8 @@
 ---
 persona: Developers
-title: Setup
+title: "Setup"
 prev: false
 next: false
-managed: true
+editLink: false
 ---
 

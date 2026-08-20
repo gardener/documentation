@@ -3,18 +3,25 @@ Description: Describes the contents of a reference topic
 Title: Reference Topic Structure
 aliases:
   - /docs/contribute/documentation/style-guide/reference_template/
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/contribute/documentation/style-guide
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/contribute/documentation/style-guide/reference_template.md
-  to: reference_template.md
-title: "Reference Template"
+title: Reference Template
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Topic Title
 (the topic title can also be placed in the frontmatter)

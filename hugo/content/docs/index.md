@@ -1,19 +1,26 @@
 ---
 aliases:
   - docs/
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/index.md
-  to: index.md
 redirectUrl: /documentation/home
 title: Docs
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Gardener Documentation
 

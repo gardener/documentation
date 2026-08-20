@@ -6,19 +6,10 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/marc1404'
     login: marc1404
     name: Marc Vornetran
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2025/06
 linkTitle: >-
   Taking Gardener to the Next Level: Highlights from the 7th Gardener Community
   Hackathon in Schelklingen
 newsSubtitle: 'June 17, 2025'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2025/06/06-17-taking-gardener-to-the-next-level-highlights-from-the-7th-gardener-community-hackathon-in-schelklingen.md
-  to: >-
-    06-17-taking-gardener-to-the-next-level-highlights-from-the-7th-gardener-community-hackathon-in-schelklingen.md
 publishdate: '2025-06-17'
 tags:
   - community-event
@@ -27,8 +18,22 @@ tags:
 title: >-
   Taking Gardener to the Next Level: Highlights from the 7th Gardener Community
   Hackathon in Schelklingen
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Taking Gardener to the Next Level: Highlights from the 7th Gardener Community Hackathon in Schelklingen
 

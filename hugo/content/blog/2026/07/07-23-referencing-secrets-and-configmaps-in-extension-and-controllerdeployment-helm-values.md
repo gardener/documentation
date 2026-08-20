@@ -1,27 +1,39 @@
 ---
 aliases:
-  - /blog/2026/07/23/referencing-secrets-and-configmaps-in-extension-and-controllerdeployment-helm-values
+  - >-
+    /blog/2026/07/23/referencing-secrets-and-configmaps-in-extension-and-controllerdeployment-helm-values
 authors:
   - avatar: 'https://avatars.githubusercontent.com/oliver-goetz'
     login: oliver-goetz
     name: Oliver Götz
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2026/07
-linkTitle: 'Referencing Secrets and ConfigMaps in Extension and ControllerDeployment Helm Values'
+linkTitle: >-
+  Referencing Secrets and ConfigMaps in Extension and ControllerDeployment Helm
+  Values
 newsSubtitle: 'July 23, 2026'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/blog/2026/07/07-23-referencing-secrets-and-configmaps-in-extension-and-controllerdeployment-helm-values.md
-  to: 07-23-referencing-secrets-and-configmaps-in-extension-and-controllerdeployment-helm-values.md
 publishdate: '2026-07-23'
 tags:
   - feature-announcement
   - extensions
   - helm
-title: 'Referencing Secrets and ConfigMaps in Extension and ControllerDeployment Helm Values'
-local: true
+title: >-
+  Referencing Secrets and ConfigMaps in Extension and ControllerDeployment Helm
+  Values
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Referencing Secrets and ConfigMaps in Extension and ControllerDeployment Helm Values
 

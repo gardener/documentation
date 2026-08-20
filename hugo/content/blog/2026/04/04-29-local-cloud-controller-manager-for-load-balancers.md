@@ -6,24 +6,30 @@ authors:
     email: timebertt@gmail.com
     login: timebertt
     name: Tim Ebert
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2026/04
 linkTitle: Local cloud-controller-manager for Load Balancers
 newsSubtitle: 'April 29, 2026'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2026/04/04-29-local-cloud-controller-manager-for-load-balancers.md
-  to: 04-29-local-cloud-controller-manager-for-load-balancers.md
 publishdate: '2026-04-29'
 tags:
   - extensions
   - feature-announcement
   - networking
 title: Local cloud-controller-manager for Load Balancers
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Local cloud-controller-manager for Load Balancers
 

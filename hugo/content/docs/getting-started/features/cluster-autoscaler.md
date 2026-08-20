@@ -1,17 +1,24 @@
 ---
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/getting-started/features
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/getting-started/features/cluster-autoscaler.md
-  to: cluster-autoscaler.md
-title: "Cluster Autoscaler"
+title: Cluster Autoscaler
 weight: 7
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Cluster Autoscaler
 

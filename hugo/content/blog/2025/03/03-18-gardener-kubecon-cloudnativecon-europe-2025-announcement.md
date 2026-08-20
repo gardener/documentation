@@ -5,16 +5,8 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/acumino'
     login: acumino
     name: Sonu Kumar Singh
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2025/03
 linkTitle: 'Gardener at KubeCon + CloudNativeCon Europe, London 2025'
 newsSubtitle: 'Mar 18, 2025'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2025/03/03-18-gardener-kubecon-cloudnativecon-europe-2025-announcement.md
-  to: 03-18-gardener-kubecon-cloudnativecon-europe-2025-announcement.md
 publishdate: '2025-03-18'
 tags:
   - community-event
@@ -25,8 +17,22 @@ tags:
   - provider-gcp
   - provider-openstack
 title: 'Gardener at KubeCon + CloudNativeCon Europe, London 2025'
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Gardener at KubeCon + CloudNativeCon Europe, London 2025
 

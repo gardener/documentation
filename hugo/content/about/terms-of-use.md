@@ -1,18 +1,25 @@
 ---
 editLink: false
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/about
 outline: deep
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/about/terms-of-use.md
-  to: terms-of-use.md
-title: "Terms Of Use"
+title: Terms Of Use
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Terms of Use
 

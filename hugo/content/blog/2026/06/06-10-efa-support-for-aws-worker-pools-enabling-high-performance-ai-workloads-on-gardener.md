@@ -6,19 +6,10 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/shreyas-s-rao'
     login: shreyas-s-rao
     name: Shreyas Rao
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2026/06
 linkTitle: >-
   EFA Support for AWS Worker Pools: Enabling High-Performance AI Workloads on
   Gardener
 newsSubtitle: 'June 10, 2026'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2026/06/06-10-efa-support-for-aws-worker-pools-enabling-high-performance-ai-workloads-on-gardener.md
-  to: >-
-    06-10-efa-support-for-aws-worker-pools-enabling-high-performance-ai-workloads-on-gardener.md
 publishdate: '2026-06-10'
 tags:
   - feature-announcement
@@ -30,8 +21,22 @@ tags:
 title: >-
   EFA Support for AWS Worker Pools: Enabling High-Performance AI Workloads on
   Gardener
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # EFA Support for AWS Worker Pools: Enabling High-Performance AI Workloads on Gardener
 

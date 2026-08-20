@@ -5,16 +5,8 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/u/40451181'
     login: timuthy
     name: Tim Usner
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2024/10
 linkTitle: Gardener at KubeCon + CloudNativeCon North America 2024
 newsSubtitle: 'Oct 24, 2024'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2024/10/10-24-gardener-kubecon-cloudnativecon-na-2024-announcement.md
-  to: 10-24-gardener-kubecon-cloudnativecon-na-2024-announcement.md
 publishdate: '2024-10-24'
 tags:
   - community-event
@@ -22,8 +14,22 @@ tags:
   - provider-aws
   - provider-azure
 title: Gardener at KubeCon + CloudNativeCon North America 2024
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Gardener at KubeCon + CloudNativeCon North America 2024
 

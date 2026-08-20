@@ -6,17 +6,8 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/domdom82'
     login: domdom82
     name: Dominik Froehlich
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2025/07
 linkTitle: 'Enhanced Network Flexibility: CIDR Overlap Now Supported for HA Shoots'
 newsSubtitle: 'July 30, 2025'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2025/07/07-30-enhanced-network-flexibility-cidr-overlap-now-supported-for-ha-shoots.md
-  to: >-
-    07-30-enhanced-network-flexibility-cidr-overlap-now-supported-for-ha-shoots.md
 publishdate: '2025-07-30'
 tags:
   - feature-announcement
@@ -25,8 +16,22 @@ tags:
   - extensions
   - apeiro
 title: 'Enhanced Network Flexibility: CIDR Overlap Now Supported for HA Shoots'
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Enhanced Network Flexibility: CIDR Overlap Now Supported for HA Shoots
 

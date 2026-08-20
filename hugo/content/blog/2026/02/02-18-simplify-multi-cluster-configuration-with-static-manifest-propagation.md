@@ -6,17 +6,8 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/rfranzke'
     login: rfranzke
     name: Rafael Franzke
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2026/02
 linkTitle: Simplify Multi-Cluster Configuration with Static Manifest Propagation
 newsSubtitle: 'February 18, 2026'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2026/02/02-18-simplify-multi-cluster-configuration-with-static-manifest-propagation.md
-  to: >-
-    02-18-simplify-multi-cluster-configuration-with-static-manifest-propagation.md
 publishdate: '2026-02-18'
 tags:
   - technical-deep-dive
@@ -25,8 +16,22 @@ tags:
   - extensions
   - apeiro
 title: Simplify Multi-Cluster Configuration with Static Manifest Propagation
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Simplify Multi-Cluster Configuration with Static Manifest Propagation
 

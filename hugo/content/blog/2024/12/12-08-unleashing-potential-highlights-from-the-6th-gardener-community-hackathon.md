@@ -5,17 +5,8 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/u/19169361'
     login: rfranzke
     name: Rafael Franzke
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2024/12
 linkTitle: 'Unleashing Potential: Highlights from the 6th Gardener Community Hackathon'
 newsSubtitle: 'December 08, 2024'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2024/12/12-08-unleashing-potential-highlights-from-the-6th-gardener-community-hackathon.md
-  to: >-
-    12-08-unleashing-potential-highlights-from-the-6th-gardener-community-hackathon.md
 publishdate: '2024-12-08'
 tags:
   - feature-announcement
@@ -23,8 +14,22 @@ tags:
   - networking
   - hackathon
 title: 'Unleashing Potential: Highlights from the 6th Gardener Community Hackathon'
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Unleashing Potential: Highlights from the 6th Gardener Community Hackathon
 

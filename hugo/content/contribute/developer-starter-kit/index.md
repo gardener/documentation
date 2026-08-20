@@ -1,18 +1,25 @@
 ---
 description: Developer documentation for getting started with local Gardener development
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/contribute/developer-starter-kit
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/contribute/developer-starter-kit/index.md
-  to: index.md
 title: Developer Starter Kit
 weight: 20
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Developer Starter Kit
 

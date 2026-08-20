@@ -5,15 +5,8 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/ScheererJ'
     login: ScheererJ
     name: Johannes Scheerer
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2025/09
 linkTitle: A Deep Dive into Gardener's IPv6 Journey
 newsSubtitle: 'September 5, 2025'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/blog/2025/09/09-05-ipv6-update.md
-  to: 09-05-ipv6-update.md
 publishdate: '2025-09-05'
 tags:
   - technical-deep-dive
@@ -21,8 +14,22 @@ tags:
   - extensions
   - apeiro
 title: A Deep Dive into Gardener's IPv6 Journey
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # A Deep Dive into Gardener's IPv6 Journey
 

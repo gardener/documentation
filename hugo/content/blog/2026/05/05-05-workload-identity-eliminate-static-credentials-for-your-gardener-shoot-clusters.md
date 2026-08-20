@@ -7,19 +7,10 @@ authors:
     email: vladimir.nachev@sap.com
     login: vpnachev
     name: Vladimir Nachev
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2026/05
 linkTitle: >-
   Workload Identity: Eliminate Static Credentials for Your Gardener Shoot
   Clusters
 newsSubtitle: 'May 05, 2026'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2026/05/05-05-workload-identity-eliminate-static-credentials-for-your-gardener-shoot-clusters.md
-  to: >-
-    05-05-workload-identity-eliminate-static-credentials-for-your-gardener-shoot-clusters.md
 publishdate: '2026-05-05'
 tags:
   - milestone
@@ -32,8 +23,22 @@ tags:
 title: >-
   Workload Identity: Eliminate Static Credentials for Your Gardener Shoot
   Clusters
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Workload Identity: Eliminate Static Credentials for Your Gardener Shoot Clusters
 

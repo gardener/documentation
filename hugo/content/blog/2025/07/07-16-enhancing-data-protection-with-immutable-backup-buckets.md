@@ -5,16 +5,8 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/ishan16696'
     login: ishan16696
     name: Ishan Tyagi
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2025/07
 linkTitle: Enhancing Data Protection with Immutable Backup Buckets
 newsSubtitle: 'July 16, 2025'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2025/07/07-16-enhancing-data-protection-with-immutable-backup-buckets.md
-  to: 07-16-enhancing-data-protection-with-immutable-backup-buckets.md
 publishdate: '2025-07-16'
 tags:
   - feature-announcement
@@ -23,8 +15,22 @@ tags:
   - etcd
   - extensions
 title: Enhancing Data Protection with Immutable Backup Buckets
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Enhancing Data Protection with Immutable Backup Buckets
 

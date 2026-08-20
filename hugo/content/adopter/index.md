@@ -1,19 +1,26 @@
 ---
 aside: false
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/adopter
 outline: false
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/adopter/index.md
-  to: index.md
 title: Adopters
 url: /adopter
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # See who is using Gardener
 ## Gardener adopters in production environments that have publicly shared details of their usage.

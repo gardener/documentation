@@ -5,15 +5,8 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/u/4974203'
     login: vlerenc
     name: Vedran Lerenc
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2023/03
 linkTitle: High Availability and Zone Outage Toleration
 newsSubtitle: 'March 27, 2023'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/blog/2023/03/03-27-high-availability-and-zone-outage-toleration.md
-  to: 03-27-high-availability-and-zone-outage-toleration.md
 publishdate: '2023-03-27'
 tags:
   - technical-deep-dive
@@ -21,8 +14,22 @@ tags:
   - high-availability
   - storage
 title: High Availability and Zone Outage Toleration
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # High Availability and Zone Outage Toleration
 

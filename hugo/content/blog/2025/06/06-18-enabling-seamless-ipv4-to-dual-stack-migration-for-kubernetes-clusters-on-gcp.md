@@ -6,17 +6,8 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/DockToFuture'
     login: DockToFuture
     name: Sebastian Stauch
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2025/06
 linkTitle: Enabling Seamless IPv4 to Dual-Stack Migration for Kubernetes Clusters on GCP
 newsSubtitle: 'June 25, 2025'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2025/06/06-18-enabling-seamless-ipv4-to-dual-stack-migration-for-kubernetes-clusters-on-gcp.md
-  to: >-
-    06-18-enabling-seamless-ipv4-to-dual-stack-migration-for-kubernetes-clusters-on-gcp.md
 publishdate: '2025-06-25'
 tags:
   - technical-deep-dive
@@ -25,8 +16,22 @@ tags:
   - provider-gcp
   - apeiro
 title: Enabling Seamless IPv4 to Dual-Stack Migration for Kubernetes Clusters on GCP
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Enabling Seamless IPv4 to Dual-Stack Migration for Kubernetes Clusters on GCP
 

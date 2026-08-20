@@ -5,17 +5,10 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/marc1404'
     login: marc1404
     name: Marc Vornetran
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2026/05
 linkTitle: >-
   Hack The Garden May 2026: Self-Hosted Shoots, Disaster Recovery, and a
   Modernized VPN
 newsSubtitle: 'May 13, 2026'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/blog/2026/05/05-13-hack-the-garden-may-2026-wrap-up.md
-  to: 05-13-hack-the-garden-may-2026-wrap-up.md
 publishdate: '2026-05-13'
 tags:
   - community-event
@@ -24,8 +17,22 @@ tags:
 title: >-
   Hack The Garden May 2026: Self-Hosted Shoots, Disaster Recovery, and a
   Modernized VPN
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Hack The Garden May 2026: Self-Hosted Shoots, Disaster Recovery, and a Modernized VPN
 

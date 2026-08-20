@@ -5,23 +5,30 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/u/79797969?v=4'
     login: Shreyas-s14
     name: Shreyas S
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2026/04
 linkTitle: etcd 3.4 to 3.5 Upgrade Path in etcd-druid
 newsSubtitle: 'April 29, 2026'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/blog/2026/04/04-29-etcd-34-to-35-upgrade-path-in-etcd-druid.md
-  to: 04-29-etcd-34-to-35-upgrade-path-in-etcd-druid.md
 publishdate: '2026-04-29'
 tags:
   - etcd
   - high-availability
   - feature-announcement
 title: etcd 3.4 to 3.5 Upgrade Path in etcd-druid
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # etcd 3.4 to 3.5 Upgrade Path in etcd-druid
 
