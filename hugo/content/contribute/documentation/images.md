@@ -2,19 +2,26 @@
 aliases:
   - /docs/guides/contributors/content/images
   - /docs/contribute/documentation/images/
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/contribute/documentation
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/contribute/documentation/images.md
-  to: images.md
-title: "Working with Images"
+title: Working with Images
 weight: 15
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Working with Images
 

@@ -5,23 +5,29 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/timebertt'
     login: timebertt
     name: Tim Ebert
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2025/06
 linkTitle: Introducing `gardenadm bootstrap` for Autonomous Shoots
 newsSubtitle: 'June 25, 2025'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2025/06/06-25-introducing-gardenadm-bootstrap-for-autonomous-shoots.md
-  to: 06-25-introducing-gardenadm-bootstrap-for-autonomous-shoots.md
 publishdate: '2025-06-25'
 tags:
   - feature-announcement
   - node-management
 title: Introducing `gardenadm bootstrap` for Autonomous Shoots
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Introducing `gardenadm bootstrap` for Autonomous Shoots
 

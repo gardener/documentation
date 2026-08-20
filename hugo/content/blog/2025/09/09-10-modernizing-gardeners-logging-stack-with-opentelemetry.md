@@ -5,16 +5,8 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/rrhubenov'
     login: rrhubenov
     name: Radoslav Hubenov
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2025/09
 linkTitle: Modernizing Gardener's Logging Stack with OpenTelemetry
 newsSubtitle: 'September 10, 2025'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2025/09/09-10-modernizing-gardeners-logging-stack-with-opentelemetry.md
-  to: 09-10-modernizing-gardeners-logging-stack-with-opentelemetry.md
 publishdate: '2025-09-10'
 tags:
   - technical-deep-dive
@@ -22,8 +14,22 @@ tags:
   - storage
   - apeiro
 title: Modernizing Gardener's Logging Stack with OpenTelemetry
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Modernizing Gardener's Logging Stack with OpenTelemetry
 

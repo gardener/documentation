@@ -6,19 +6,10 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/DockToFuture'
     login: DockToFuture
     name: Sebastian Stauch
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2025/10
 linkTitle: >-
   Unifying DNS Behavior: Custom CoreDNS Configurations Now Supported in
   node-local-dns
 newsSubtitle: 'October 27, 2025'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2025/10/10-27-unifying-dns-behavior-custom-coredns-configurations-now-supported-in-node-local-dns.md
-  to: >-
-    10-27-unifying-dns-behavior-custom-coredns-configurations-now-supported-in-node-local-dns.md
 publishdate: '2025-10-27'
 tags:
   - technical-deep-dive
@@ -27,8 +18,22 @@ tags:
 title: >-
   Unifying DNS Behavior: Custom CoreDNS Configurations Now Supported in
   node-local-dns
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Unifying DNS Behavior: Custom CoreDNS Configurations Now Supported in node-local-dns
 

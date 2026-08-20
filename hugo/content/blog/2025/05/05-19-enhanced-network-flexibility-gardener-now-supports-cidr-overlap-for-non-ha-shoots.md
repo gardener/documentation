@@ -6,19 +6,10 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/domdom82'
     login: domdom82
     name: Dominik Froehlich
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2025/05
 linkTitle: >-
   Enhanced Network Flexibility: Gardener Now Supports CIDR Overlap for Non-HA
   Shoots
 newsSubtitle: 'May 19, 2025'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2025/05/05-19-enhanced-network-flexibility-gardener-now-supports-cidr-overlap-for-non-ha-shoots.md
-  to: >-
-    05-19-enhanced-network-flexibility-gardener-now-supports-cidr-overlap-for-non-ha-shoots.md
 publishdate: '2025-05-19'
 tags:
   - feature-announcement
@@ -28,8 +19,22 @@ tags:
 title: >-
   Enhanced Network Flexibility: Gardener Now Supports CIDR Overlap for Non-HA
   Shoots
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Enhanced Network Flexibility: Gardener Now Supports CIDR Overlap for Non-HA Shoots
 

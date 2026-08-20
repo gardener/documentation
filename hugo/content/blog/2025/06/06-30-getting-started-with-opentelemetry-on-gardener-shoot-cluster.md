@@ -6,16 +6,8 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/nickytd'
     login: nickytd
     name: Niki Dokovski
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2025/06
 linkTitle: Getting started with OpenTelemetry on a Gardener shoot cluster
 newsSubtitle: 'June 30, 2025'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2025/06/06-30-getting-started-with-opentelemetry-on-gardener-shoot-cluster.md
-  to: 06-30-getting-started-with-opentelemetry-on-gardener-shoot-cluster.md
 publishdate: '2025-06-30'
 tags:
   - tutorial
@@ -23,8 +15,22 @@ tags:
   - observability
   - apeiro
 title: Getting Started with OpenTelemetry on a Gardener Shoot Cluster
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Getting Started with OpenTelemetry on a Gardener Shoot Cluster
 

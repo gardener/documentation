@@ -5,21 +5,28 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/hown3d'
     login: hown3d
     name: Lukas Hoehl
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2025/10
 linkTitle: Unifying HTTP Proxy Infrastructure in Gardener
 newsSubtitle: 'October 22, 2025'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/blog/2025/10/10-22-useunifiedhttpproxy-feature-gate.md
-  to: 10-22-useunifiedhttpproxy-feature-gate.md
 publishdate: '2025-10-22'
 tags:
   - technical-deep-dive
 title: Unifying HTTP Proxy Infrastructure in Gardener
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Unifying HTTP Proxy Infrastructure in Gardener
 

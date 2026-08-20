@@ -5,17 +5,8 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/u/9372594'
     login: ialidzhikov
     name: Ismail Alidzhikov
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2024/04
 linkTitle: 'Gardener''s Registry Cache Extension: Another Cost Saving Win and More'
 newsSubtitle: 'April 22, 2024'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2024/04/04-22-gardener's-registry-cache-extension-another-cost-saving-win-and-more.md
-  to: >-
-    04-22-gardener's-registry-cache-extension-another-cost-saving-win-and-more.md
 publishdate: '2024-04-22'
 tags:
   - technical-deep-dive
@@ -25,8 +16,22 @@ tags:
   - node-management
   - extensions
 title: 'Gardener''s Registry Cache Extension: Another Cost Saving Win and More'
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Gardener''s Registry Cache Extension: Another Cost Saving Win and More
 

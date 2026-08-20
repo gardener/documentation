@@ -5,22 +5,29 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/vitanovs'
     login: vitanovs
     name: Stoyan Vitanov
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2026/05
 linkTitle: Adoption of In-Place Pod Resource Updates in Gardener
 newsSubtitle: 'May 19, 2026'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/blog/2026/05/05-19-in-place-pod-resource-updates.md
-  to: 05-19-in-place-pod-resource-updates.md
 publishdate: '2026-05-19'
 tags:
   - autoscaling
   - vpa
 title: Adoption of In-Place Pod Resource Updates in Gardener
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Adoption of In-Place Pod Resource Updates in Gardener
 

@@ -1,18 +1,25 @@
 ---
 aliases:
   - /docs/contribute/documentation/adding-existing-documentation/
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/contribute/documentation
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/contribute/documentation/adding-existing-documentation.md
-  to: adding-existing-documentation.md
-title: "Adding Already Existing Documentation"
+title: Adding Already Existing Documentation
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Adding Already Existing Documentation
 

@@ -1,20 +1,27 @@
 ---
 category: Operation
 description: Understanding and configuring Gardener's Day-2 operations for Shoot clusters.
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/guides/administer-shoots
 level: advanced
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/guides/administer-shoots/maintain-shoot.md
-  to: maintain-shoot.md
 scope: operator
-title: "Shoot Cluster Maintenance"
+title: Shoot Cluster Maintenance
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Shoot Cluster Maintenance
 

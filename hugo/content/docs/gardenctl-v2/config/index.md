@@ -1,7 +1,7 @@
 ---
-title: Config
+title: "Config"
 prev: false
 next: false
-managed: true
+editLink: false
 ---
 

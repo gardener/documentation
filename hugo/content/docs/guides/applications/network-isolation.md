@@ -1,20 +1,27 @@
 ---
 category: Networking
 description: Deny all traffic from other namespaces
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/guides/applications
 level: advanced
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/guides/applications/network-isolation.md
-  to: network-isolation.md
 scope: app-developer
-title: "Namespace Isolation"
+title: Namespace Isolation
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Namespace Isolation
 

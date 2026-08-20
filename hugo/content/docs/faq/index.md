@@ -1,9 +1,9 @@
 ---
 description: Commonly asked questions about Gardener
-title: FAQ
+title: "FAQ"
 weight: 80
 prev: false
 next: false
-managed: true
+editLink: false
 ---
 

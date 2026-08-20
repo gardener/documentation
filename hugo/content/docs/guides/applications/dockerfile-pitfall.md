@@ -1,22 +1,29 @@
 ---
 category: Fails
 description: Common Dockerfile pitfalls
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/guides/applications
 last_reviewed: 22.06.2018
 level: beginner
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/guides/applications/dockerfile-pitfall.md
-  to: dockerfile-pitfall.md
 reviewer: Tieyan Fu
 scope: app-developer
-title: "Dockerfile Pitfalls"
+title: Dockerfile Pitfalls
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Dockerfile Pitfalls
 

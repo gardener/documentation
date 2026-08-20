@@ -5,22 +5,29 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/petersutter'
     login: petersutter
     name: Peter Sutter
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2026/05
 linkTitle: Gardener Dashboard 1.84.0
 newsSubtitle: 'May 11, 2026'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/blog/2026/05/05-11-gardener-dashboard-1840.md
-  to: 05-11-gardener-dashboard-1840.md
 publishdate: '2026-05-11'
 tags:
   - dashboard
   - release-notes
 title: Gardener Dashboard 1.84.0
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Gardener Dashboard 1.84.0
 

@@ -9,25 +9,30 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/rrhubenov'
     login: rrhubenov
     name: Rado Hubenov
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2025/06
 linkTitle: Gardener Enhances Observability with OpenTelemetry Integration for Logging
 newsSubtitle: 'June 18, 2025'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2025/06/06-18-gardener-enhances-observability-with-opentelemetry-integration-for-logging.md
-  to: >-
-    06-18-gardener-enhances-observability-with-opentelemetry-integration-for-logging.md
 publishdate: '2025-06-18'
 tags:
   - technical-deep-dive
   - observability
   - apeiro
 title: Gardener Enhances Observability with OpenTelemetry Integration for Logging
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Gardener Enhances Observability with OpenTelemetry Integration for Logging
 

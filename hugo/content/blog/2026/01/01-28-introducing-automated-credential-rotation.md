@@ -5,15 +5,8 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/AleksandarSavchev'
     login: AleksandarSavchev
     name: Aleksandar Savchev
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2026/01
 linkTitle: Introducing Automated Credential Rotation
 newsSubtitle: 'January 28, 2026'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/blog/2026/01/01-28-introducing-automated-credential-rotation.md
-  to: 01-28-introducing-automated-credential-rotation.md
 publishdate: '2026-01-28'
 tags:
   - feature-announcement
@@ -24,8 +17,22 @@ tags:
   - etcd
   - apeiro
 title: Introducing Automated Credential Rotation
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Introducing Automated Credential Rotation
 

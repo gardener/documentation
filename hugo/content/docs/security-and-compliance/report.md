@@ -3,19 +3,26 @@ category: Compliance
 description: >-
   The latest compliance report generated against security hardened shoot
   clusters
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/security-and-compliance
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/security-and-compliance/report.md
-  to: report.md
-title: "Gardener Compliance Report"
+title: Gardener Compliance Report
 weight: 30
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Gardener Compliance Report
 

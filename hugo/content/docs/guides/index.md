@@ -1,19 +1,26 @@
 ---
 description: Walkthroughs of common activities
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/guides
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/guides/index.md
-  to: index.md
 persona: Developers
 title: Guides
 weight: 20
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Guides
 

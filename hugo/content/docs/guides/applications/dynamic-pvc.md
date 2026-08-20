@@ -1,20 +1,27 @@
 ---
 category: Getting Started
 description: Running a Postgres database on Kubernetes
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/guides/applications
 level: beginner
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/guides/applications/dynamic-pvc.md
-  to: dynamic-pvc.md
 scope: app-developer
-title: "Dynamic Volume Provisioning"
+title: Dynamic Volume Provisioning
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Dynamic Volume Provisioning
 

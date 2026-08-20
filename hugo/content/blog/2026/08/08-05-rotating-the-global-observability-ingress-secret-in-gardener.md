@@ -14,14 +14,22 @@ tags:
 aliases:
   - >-
     /blog/2026/08/05/rotating-the-global-observability-ingress-secret-in-gardener
-local: true
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2026/08
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2026/08/08-05-rotating-the-global-observability-ingress-secret-in-gardener.md
-  to: 08-05-rotating-the-global-observability-ingress-secret-in-gardener.md
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Rotating the Global Observability Ingress Secret in Gardener
 

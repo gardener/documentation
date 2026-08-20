@@ -3,20 +3,27 @@ category: Getting Started
 description: >-
   How to redeploy your application on push to GitHub using OpenID Connect (OIDC)
   and Structured Authentication in Gardener
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/guides/applications
 level: intermediate
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/guides/applications/app-ci-cd.md
-  to: app-ci-cd.md
 scope: app-developer
-title: "Kubernetes Application CI/CD using Structured Authentication"
+title: Kubernetes Application CI/CD using Structured Authentication
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Kubernetes Application CI/CD using Structured Authentication
 

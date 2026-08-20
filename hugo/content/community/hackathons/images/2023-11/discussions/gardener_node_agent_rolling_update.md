@@ -1,18 +1,24 @@
 ---
 exclude: true
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/community/hackathons/images/2023-11/discussions
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/community/hackathons/images/2023-11/discussions/gardener_node_agent_rolling_update.md
-  to: gardener_node_agent_rolling_update.md
 title: Gardener Node Agent Rolling Update
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Would it make sense to have a rolling update of the gardener-node-agent?
 

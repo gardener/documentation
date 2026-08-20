@@ -1,16 +1,23 @@
 ---
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/faq
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/faq/backup.md
-  to: backup.md
-title: "Can you backup your Kubernetes cluster resources?"
+title: Can you backup your Kubernetes cluster resources?
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Can you backup your Kubernetes cluster resources?
 

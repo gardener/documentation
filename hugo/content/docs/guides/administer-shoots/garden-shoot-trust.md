@@ -3,21 +3,28 @@ category: Security
 description: >-
   Set up OIDC-based trust so shoot service accounts can authenticate directly
   with the garden cluster
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/guides/administer-shoots
 index: 40
 level: intermediate
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/guides/administer-shoots/garden-shoot-trust.md
-  to: garden-shoot-trust.md
 scope: operator
-title: "Enabling Trust Between Shoot and Garden Clusters"
+title: Enabling Trust Between Shoot and Garden Clusters
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Enabling Trust Between Shoot and Garden Clusters
 

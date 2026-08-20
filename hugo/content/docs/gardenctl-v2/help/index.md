@@ -1,8 +1,8 @@
 ---
 description: Various gardenctl commands and how to use them
-title: Help
+title: "Help"
 prev: false
 next: false
-managed: true
+editLink: false
 ---
 

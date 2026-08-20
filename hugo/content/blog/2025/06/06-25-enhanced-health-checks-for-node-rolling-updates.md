@@ -5,23 +5,29 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/RadaBDimitrova'
     login: RadaBDimitrova
     name: Rada Dimitrova
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2025/06
 linkTitle: Enhanced Health Checks for Node Rolling Updates
 newsSubtitle: 'June 25, 2025'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2025/06/06-25-enhanced-health-checks-for-node-rolling-updates.md
-  to: 06-25-enhanced-health-checks-for-node-rolling-updates.md
 publishdate: '2025-06-25'
 tags:
   - feature-announcement
   - node-management
 title: Enhanced Health Checks for Node Rolling Updates
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Enhanced Health Checks for Node Rolling Updates
 

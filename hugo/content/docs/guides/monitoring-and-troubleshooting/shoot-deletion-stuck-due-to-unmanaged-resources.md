@@ -1,21 +1,27 @@
 ---
 category: Debugging
 description: 'Identifying, managing, and cleaning up unmanaged resources'
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/guides/monitoring-and-troubleshooting
 level: intermediate
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/docs/guides/monitoring-and-troubleshooting/shoot-deletion-stuck-due-to-unmanaged-resources.md
-  to: shoot-deletion-stuck-due-to-unmanaged-resources.md
 scope: app-developer
-title: "Shoot Deletion Stuck Due to Unmanaged Resources"
+title: Shoot Deletion Stuck Due to Unmanaged Resources
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Shoot Deletion Stuck Due to Unmanaged Resources
 

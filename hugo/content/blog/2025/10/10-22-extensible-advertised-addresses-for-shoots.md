@@ -6,15 +6,8 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/dnaeon'
     login: dnaeon
     name: Marin Atanasov Nikolov
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2025/10
 linkTitle: Enhanced Endpoint Discovery with Extensible Advertised Addresses
 newsSubtitle: 'October 22, 2025'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/blog/2025/10/10-22-extensible-advertised-addresses-for-shoots.md
-  to: 10-22-extensible-advertised-addresses-for-shoots.md
 publishdate: '2025-10-22'
 tags:
   - feature-announcement
@@ -23,8 +16,22 @@ tags:
   - extensions
   - apeiro
 title: Enhanced Endpoint Discovery with Extensible Advertised Addresses
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Enhanced Endpoint Discovery with Extensible Advertised Addresses
 

@@ -5,20 +5,27 @@ description: >-
   applications to Container Engine, networking in Container Engine, use of
   overlays, segmenting traffic between pods and services, and the variety of
   options available to you.
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/resources/videos
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/resources/videos/in-out-networking.md
-  to: in-out-networking.md
-title: "The Ins and Outs of Networking"
+title: The Ins and Outs of Networking
 video_id: y2bhV81MfKQ
 weight: 60
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # The Ins and Outs of Networking
 

@@ -15,14 +15,22 @@ tags:
 aliases:
   - >-
     /blog/2026/06/24/migrating-shoot-dns-service-to-the-next-generation-dns-controller
-local: true
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2026/06
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2026/06/06-24-migrating-shoot-dns-service-to-the-next-generation-dns-controller.md
-  to: 06-24-migrating-shoot-dns-service-to-the-next-generation-dns-controller.md
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Migrating shoot-dns-service to the Next-Generation DNS Controller
 

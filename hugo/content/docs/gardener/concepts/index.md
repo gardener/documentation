@@ -1,9 +1,9 @@
 ---
 persona: Operators
-title: Concepts
+title: "Concepts"
 weight: 20
 prev: false
 next: false
-managed: true
+editLink: false
 ---
 

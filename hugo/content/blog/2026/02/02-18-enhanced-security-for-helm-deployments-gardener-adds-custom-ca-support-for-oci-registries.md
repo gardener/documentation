@@ -6,19 +6,10 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/shafeeqes'
     login: shafeeqes
     name: Shafeeque E S
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2026/02
 linkTitle: >-
   Enhanced Security for Helm Deployments: Gardener Adds Custom CA Support for
   OCI Registries
 newsSubtitle: 'February 18, 2026'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2026/02/02-18-enhanced-security-for-helm-deployments-gardener-adds-custom-ca-support-for-oci-registries.md
-  to: >-
-    02-18-enhanced-security-for-helm-deployments-gardener-adds-custom-ca-support-for-oci-registries.md
 publishdate: '2026-02-18'
 tags:
   - feature-announcement
@@ -29,8 +20,22 @@ tags:
 title: >-
   Enhanced Security for Helm Deployments: Gardener Adds Custom CA Support for
   OCI Registries
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Enhanced Security for Helm Deployments: Gardener Adds Custom CA Support for OCI Registries
 

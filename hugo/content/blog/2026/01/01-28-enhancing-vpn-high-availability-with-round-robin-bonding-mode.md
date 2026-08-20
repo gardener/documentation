@@ -15,14 +15,22 @@ authors:
 aliases:
   - >-
     /blog/2026/01/28/enhancing-vpn-high-availability-with-round-robin-bonding-mode
-local: true
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2026/01
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2026/01/01-28-enhancing-vpn-high-availability-with-round-robin-bonding-mode.md
-  to: 01-28-enhancing-vpn-high-availability-with-round-robin-bonding-mode.md
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Enhancing VPN High Availability with Round-Robin Bonding Mode
 

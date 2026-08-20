@@ -6,23 +6,29 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/timuthy'
     login: timuthy
     name: Tim Usner
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2026/07
 linkTitle: 'Gardener Landscape Kit v0.2.0: GitOps-Native Landscape Management'
 newsSubtitle: 'July 08, 2026'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2026/07/07-08-gardener-landscape-kit-v020-gitops-native-landscape-management.md
-  to: 07-08-gardener-landscape-kit-v020-gitops-native-landscape-management.md
 publishdate: '2026-07-08'
 tags:
   - feature-announcement
   - extensions
 title: 'Gardener Landscape Kit v0.2.0: GitOps-Native Landscape Management'
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Gardener Landscape Kit v0.2.0: GitOps-Native Landscape Management
 

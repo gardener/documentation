@@ -2,18 +2,25 @@
 Title: Style Guide
 aliases:
   - /docs/contribute/documentation/style-guide/
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/contribute/documentation/style-guide
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/contribute/documentation/style-guide/index.md
-  to: index.md
 title: Style Guide
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 This page gives writing style guidelines for the Gardener documentation. For formatting guidelines, see the [Formatting Guide](/contribute/documentation/formatting-guide/).
 
