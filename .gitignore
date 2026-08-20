@@ -159,3 +159,6 @@ dist
 
 
 /.vitepress/alias-redirects.txt
+
+# Local Netlify folder
+.netlify

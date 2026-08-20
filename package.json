@@ -2,6 +2,9 @@
   "name": "documentation",
   "type": "module",
   "packageManager": "pnpm@11.5.1",
+  "scripts": {
+    "test": "node --test post-processing/lib/*.test.js"
+  },
   "engines": {
     "node": ">=24"
   },
