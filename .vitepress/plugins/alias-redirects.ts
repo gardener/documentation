@@ -242,8 +242,8 @@ export async function generateAliasRedirects(siteConfig: SiteConfig): Promise<vo
   await fs.mkdir(path.dirname(reportFilePath), { recursive: true })
   await fs.writeFile(reportFilePath, reportBody, 'utf8')
 
-  const warningSuffix = warnings.length > 0 ? `, ${warnings.length} übersprungen` : ''
-  console.info(`[aliases] ${writtenAliases.length} Redirects erzeugt${warningSuffix}. Volle Liste: ${reportFilePath}`)
+  const warningSuffix = warnings.length > 0 ? `, ${warnings.length} skipped` : ''
+  console.info(`[aliases] ${writtenAliases.length} redirects generated${warningSuffix}. Full list: ${reportFilePath}`)
 }
 
 function buildAliasReport(
@@ -363,7 +363,7 @@ export function createAliasRedirectDevPlugin(srcDir: string, basePath: string) {
 
       void loadAliases()
         .then((aliases) => {
-          console.info(`[aliases] ${aliases.size} Redirects geladen.`)
+          console.info(`[aliases] ${aliases.size} redirects loaded.`)
         })
         .catch((error) => {
           const message = error instanceof Error ? error.message : String(error)
