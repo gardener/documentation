@@ -1,6 +1,6 @@
 import { promises as fs } from "fs";
 import path from "path";
-import matter from 'gray-matter';
+import { read, write } from './lib/frontmatter.js';
 
 
 // Base path configuration - can be overridden by command line argument
@@ -380,13 +380,12 @@ async function addNavigationFrontmatter(basePath) {
 
     async function processMarkdownFile(filePath) {
         try {
-            const content = await fs.readFile(filePath, 'utf-8');
-            const parsed = matter(content);
-            
+            const parsed = read(filePath);
+
             // Check if prev and next are already set
             const hasPrev = parsed.data.hasOwnProperty('prev');
             const hasNext = parsed.data.hasOwnProperty('next');
-            
+
             if (!hasPrev || !hasNext) {
                 // Add prev: false and next: false to frontmatter
                 if (!hasPrev) {
@@ -395,10 +394,9 @@ async function addNavigationFrontmatter(basePath) {
                 if (!hasNext) {
                     parsed.data.next = false;
                 }
-                
-                // Reconstruct the file with updated frontmatter
-                const updatedContent = matter.stringify(parsed.content, parsed.data);
-                await fs.writeFile(filePath, updatedContent, 'utf-8');
+
+                // A-guard writes only on an actual byte change
+                write(filePath, parsed.content, parsed.data);
                 
                 const addedFields = [];
                 if (!hasPrev) addedFields.push('prev: false');

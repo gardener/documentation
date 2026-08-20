@@ -1,6 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path';
-import matter from 'gray-matter';
+import { read, write } from './lib/frontmatter.js';
 
 // Base path configuration - can be overridden by command line argument
 const BASE_PATH = './hugo/content/';
@@ -122,9 +122,8 @@ async function processApiHtml(basePath) {
 
     async function processApiFile(filePath) {
         try {
-            const content = await fs.readFile(filePath, 'utf-8');
-            const parsed = matter(content);
-            
+            const parsed = read(filePath);
+
             // Check if file already has script setup
             if (parsed.content.includes('<script setup>')) {
                 return {
@@ -189,9 +188,8 @@ const apiHtml = \`${escapedHtmlContent}\`;
             // Add the Vue template
             newContent += '<div v-html="apiHtml"></div>';
             
-            // Reconstruct the file with updated content
-            const updatedContent = matter.stringify(newContent, parsed.data);
-            await fs.writeFile(filePath, updatedContent, 'utf-8');
+            // Reconstruct the file with updated content (A-Guard schreibt nur bei Änderung)
+            write(filePath, newContent, parsed.data);
             
             return {
                 file: filePath,
