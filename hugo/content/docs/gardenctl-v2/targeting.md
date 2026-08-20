@@ -17,7 +17,7 @@ managed: true
 You can set a target to use it in subsequent commands.
 
 The target has a hierarchical structure that looks like this:
-```
+```text
 garden
 ├── project 
 │   └── shoot
@@ -29,7 +29,7 @@ You can show the current target with `gardenctl target view`.
 ## Arguments
 
 Set the target by setting the values in sequence.
-```
+```bash
 # target garden
 gardenctl target garden landscape-dev
 
@@ -40,13 +40,13 @@ gardenctl target project my-project
 gardenctl target shoot my-shoot
 
 # target control plane of my-shoot
-#gardenctl target control-plane
+gardenctl target control-plane
 ```
 
 ## Flags
 
 You can also use target flags to modify the target. Using flags, you can set the target with one command.
-```
+```bash
 # target shoot
 gardenctl target --garden landscape-dev --project my-project --shoot my-shoot
 
@@ -67,13 +67,21 @@ You can define patterns for each garden in the `gardenctl` configuration. Each p
 target clusters with custom patterns. This allows you define individual patterns, e.g. to target clusters via
 domains.
 
-For example,the following pattern allows you to target clusters using a dashboard domain:
-```
+For example, the following pattern allows you to target clusters using a dashboard domain:
+```text
 https://dashboard\.gardener\.cloud/namespace/(?P<namespace>[^/]+)/shoots/(?P<shoot>[^/]+)
 ```
 The following command would then target the shoot `my-cluster` in the project with namespace `garden-my-project` for the garden where this pattern is defined in the configuration:
-```
+```bash
 gardenctl target https://dashboard.gardener.cloud/namespace/garden-my-project/shoots/my-cluster
+```
+
+A seed can be targeted the same way with a `(?P<seed>...)` capturing group:
+```text
+https://dashboard\.gardener\.cloud/seeds/(?P<seed>[^/]+)
+```
+```bash
+gardenctl target https://dashboard.gardener.cloud/seeds/seed-02
 ```
 
 If a target is not complete, e.g. if the project is missing, it may be completed automatically. However, this is only

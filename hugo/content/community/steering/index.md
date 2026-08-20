@@ -109,7 +109,6 @@ Once your PR is open:
 - The proposal is first **reviewed asynchronously** by the committee via the Pull Request:
   - Steering committee members review the document and leave questions or comments **directly in the PR review**.
   - The goal of this phase is to clarify open questions and address smaller issues before the meeting.
-  - If the proposal touches security-related topics a [threat modeling](https://owasp.org/www-community/Threat_Modeling) may need to be conducted. The decision whether this is required is at the discretion of the TSC.
 - Once feedback from a **majority of the committee** (typically 3 out of 4 members) has been provided, a steering meeting is scheduled.
   - A [TSC meeting](#-meeting-process) is picked from the **recurring Thursday slot** (10:00–11:00 Europe/Berlin), usually about **two weeks out** to allow for review ping-pong and for incorporating feedback into the document.
 - The meeting will be **announced** to the community via our [`#gardener`](https://gardener-cloud.slack.com/archives/C045DSWJZB9) Slack channel and in the public meeting agenda. If no proposal is scheduled for a given Thursday, the meeting for that week is **canceled**.

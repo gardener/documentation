@@ -40,7 +40,7 @@ CLUSTER_IDENTITY=$(kubectl -n kube-system get configmap cluster-identity -ojsonp
 gardenctl config set-garden $CLUSTER_IDENTITY --kubeconfig $KUBECONFIG
 
 # configure my-garden with a context and patterns
-gardenctl config set-garden my-garden --context garden-context --pattern "^(?:landscape-dev/)?shoot--(?P<project>.+)--(?P<shoot>.+)$" --pattern "https://dashboard\.gardener\.cloud/namespace/(?P<namespace>[^/]+)/shoots/(?P<shoot>[^/]+)"
+gardenctl config set-garden my-garden --context garden-context --pattern "^(?:landscape-dev/)?shoot--(?P<project>.+)--(?P<shoot>.+)$" --pattern "https://dashboard\.gardener\.cloud/namespace/(?P<namespace>[^/]+)/shoots/(?P<shoot>[^/]+)" --pattern "https://dashboard\.gardener\.cloud/seeds/(?P<seed>[^/]+)"
 
 # configure prd-garden so shoot kubeconfigs default to read-only viewer access (seed access stays at admin)
 gardenctl config set-garden prd-garden --default-shoot-access-level viewer
@@ -57,7 +57,7 @@ gardenctl config set-garden prd-garden --default-shoot-access-level viewer
       --kubeconfig string                   path to kubeconfig file for this garden cluster
       --pattern stringArray                 define regex match patterns for this garden for custom input formats for targeting.
                                             Use named capturing groups to match target values.
-                                            Supported capturing groups: project, namespace, shoot.
+                                            Supported capturing groups: project, namespace, shoot, seed.
                                             Note that if you set this flag it will overwrite the pattern list in the config file.
                                             You may specify any number of extra patterns.
 ```
