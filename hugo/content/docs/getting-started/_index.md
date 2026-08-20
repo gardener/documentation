@@ -17,4 +17,4 @@ local: true
 
 Welcome to the Gardener Getting Started section! Here you will be able to get accustomed to the way Gardener functions and learn how its components work together in order to seamlessly run Kubernetes clusters on various hyperscalers.
 
-The following topics aim to be useful to both complete beginners and those already familiar with Gardener. The content is structured, with [Introduction](/docs/getting-started/introduction/) serving as the starting point. If you're feeling confident in your knowledge, feel free to skip to a topic you're more interested in.
+The following topics aim to be useful to both complete beginners and those already familiar with Gardener. The content is structured with [Introduction](/docs/getting-started/introduction/) serving as the starting point. If you're feeling confident in your knowledge, feel free to skip to a topic you're more interested in.

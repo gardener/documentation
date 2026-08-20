@@ -133,7 +133,7 @@ Valitail and Fluentbit send the logs to Vali, which in turn stores them.
 
 **Valitail**: Valitail is a systemd service that runs on each shoot cluster node. It scrapes kubelet, containerd, and kernel logs, as well as the logs of the pods in the kube-system namespace.
 
-**Fluentbit**: Fluentbit runs as a daemonset on each seed node. It scrapes logs of the Kubernetes control plane components, like the API server or etcd. It also scrapes logs of the Gardener-deployed components which run next to the control plane of the cluster, like the machine-controller-manager or the cluster-autoscaler. Debugging these components, for example, can be helpful when finding out why certain worker groups got scaled up or why nodes were replaced.
+**Fluentbit**: Fluentbit runs as a daemonset on each seed node. It scrapes logs of the Kubernetes control plane components, like the API server or etcd. It also scrapes logs of the Gardener-deployed components which run next to the control plane of the cluster, like the Machine Controller Manager or Cluster Autoscaler. Debugging these components, for example, can be helpful when finding out why certain worker groups got scaled up or why nodes were replaced.
 
 #### Data Flow — Monitoring
 
@@ -165,5 +165,5 @@ The different control plane pods (for example, etcd, API server, and kube-contro
 
 [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) is a simple service that listens to the Kubernetes API server and generates metrics about the state of the objects. It is not concerned with metrics about the Kubernetes components, but rather it exposes metrics calculated from the status of Kubernetes objects (for example, resource requests or health of pods). It only runs in the seed cluster.
 
-In the following image a few example metrics that are exposed by the various components are listed:
+The following image shows a few example metrics that are exposed by the various components:
 ![data-flow-monitoring-2](/docs/getting-started/observability/images/data-flow-monitoring-2.webp)

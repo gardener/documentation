@@ -45,4 +45,4 @@ For the above to work, a DNS provider is needed. This is managed via the DNSProv
 
 In addition, a shoot can reference credentials to a DNS provider. These can be used to manage custom domains.
 
-Please have a look at the [extension documentation](/docs/guides/networking/DNS-extension/) for further details.
+Please have a look at the [documentation for the Gardener DNS extension](/docs/guides/networking/DNS-extension/) for further details.

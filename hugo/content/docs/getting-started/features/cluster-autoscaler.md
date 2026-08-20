@@ -30,7 +30,7 @@ The cluster autoscaler respects the limits (min/max) of any worker pool in a sho
 
 ![priority-scaling](/docs/getting-started/features/images/priority-scaling.gif)
 
-For clusters with more than one  node pool, the cluster autoscaler has to decide which group to scale up. By default, it randomly picks from the available and applicable groups. However, this behavior is customizable by the use of so-called expanders.
+For clusters with more than one node pool, the cluster autoscaler has to decide which group to scale up. By default, it selects the node group that will have the lowest idle CPU after scaling up. In a tie, it selects the group with the least unused memory.
 
 This section will focus on the priority based expander.
 

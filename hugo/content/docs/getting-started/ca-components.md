@@ -79,7 +79,7 @@ The [Cloud Controller Manager](https://kubernetes.io/docs/concepts/architecture/
 
 The CSI driver is the storage subsystem of Kubernetes. It provisions and manages anything related to persistence.
 
-The cluster-autoscaler adds or removes nodes based on current pressure on the cluster resources. The vertical pod autoscaler (VPA) changes resource limits of pods on demand.
+The cluster autoscaler adds or removes nodes based on current pressure on the cluster resources. The vertical pod autoscaler (VPA) changes resource limits of pods on demand.
 
 ## Gardener-Specific Components
 
