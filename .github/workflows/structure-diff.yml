@@ -1,0 +1,108 @@
+name: Structure Diff
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+concurrency:
+  group: structure-diff-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  diff:
+    name: sitemap structure vs master
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          fetch-depth: 0 # merge-base + master worktree need full history
+          persist-credentials: false
+
+      - name: Enable corepack
+        run: corepack enable
+
+      - name: Setup Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Run structure diff
+        id: diff
+        env:
+          DIFF_OUT_FILE: ${{ runner.temp }}/structure-diff.txt
+          DIFF_META_FILE: ${{ runner.temp }}/structure-diff.meta
+        run: make diff-structure-master
+
+      - name: Export counts
+        id: meta
+        run: cat "${{ runner.temp }}/structure-diff.meta" >> "$GITHUB_OUTPUT"
+
+      - name: Write step summary
+        if: always()
+        run: |
+          {
+            echo '## Sitemap structure diff vs master'
+            echo ''
+            echo '```'
+            cat "${{ runner.temp }}/structure-diff.txt"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload full diff artifact
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: structure-diff
+          path: |
+            /tmp/diff-structure/baseline.txt
+            /tmp/diff-structure/after.txt
+            ${{ runner.temp }}/structure-diff.txt
+          if-no-files-found: warn
+
+      - name: Build sticky comment body
+        if: always()
+        env:
+          ADDED: ${{ steps.meta.outputs.added }}
+          REMOVED: ${{ steps.meta.outputs.removed }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          DIFF_FILE: ${{ runner.temp }}/structure-diff.txt
+        run: |
+          body="${{ runner.temp }}/comment-body.md"
+          {
+            echo "### Sitemap structure diff vs \`master\`"
+            echo ""
+            echo "| | count |"
+            echo "|---|---|"
+            echo "| ➕ added pages | ${ADDED:-?} |"
+            echo "| ➖ removed pages | ${REMOVED:-?} |"
+            echo ""
+            echo "First entries (full diff in the [run summary & artifact](${RUN_URL})):"
+            echo ""
+            echo '```'
+            # Print ADDED/REMOVED headers and their +/- URL lines, capped at 20
+            # entries per section. Trailer lines (===, NOTE, RESULT) are dropped.
+            awk '
+              /^ADDED/   { print; sec=1; c=0; next }
+              /^REMOVED/ { print; sec=2; c=0; next }
+              /^  \(none\)/ { print; next }
+              /^  [+-] / { if (c < 20) print; else if (c == 20) print "  ... (truncated, see artifact)"; c++; next }
+            ' "$DIFF_FILE" || true
+            echo '```'
+            echo ""
+            echo "A rename appears as one removed (old path) + one added (new path)."
+          } > "$body"
+          echo "path=$body" >> "$GITHUB_OUTPUT"
+        id: comment
+
+      - name: Sticky PR comment
+        if: always()
+        uses: marocchino/sticky-pull-request-comment@5770ad5eb8f42dd2c4f34da00c94c5381e49af88 # v3.0.5
+        with:
+          header: structure-diff
+          path: ${{ steps.comment.outputs.path }}
