@@ -63,3 +63,37 @@ test('processes multiple references', () => {
   const out = lowercaseImageRefs(input);
   assert.equal(out, '![a](/x/overlay-network.drawio.png) and ![b](/x/no-overlay-network.drawio.png)');
 });
+
+// 8. Lowercases filename in an HTML <img src="..."> tag (double quotes).
+test('lowercases filename in HTML img tag with double quotes', () => {
+  const input = '<img src="/docs/proposals/assets/07-OnDelete-StateDiagram.png" alt="x" width="700">';
+  const out = lowercaseImageRefs(input);
+  assert.equal(out, '<img src="/docs/proposals/assets/07-ondelete-statediagram.png" alt="x" width="700">');
+});
+
+// 9. Lowercases filename in an HTML <img src='...'> tag (single quotes).
+test('lowercases filename in HTML img tag with single quotes', () => {
+  const input = "<img src='/docs/assets/MyDiagram.svg'>";
+  const out = lowercaseImageRefs(input);
+  assert.equal(out, "<img src='/docs/assets/mydiagram.svg'>");
+});
+
+// 10. HTML img: leaves directory segments and external URLs untouched.
+test('HTML img preserves directories and skips external URLs', () => {
+  const input = [
+    '<img src="/docs/MyDir/SubDir/Image.png">',
+    '<img src="https://example.com/assets/Logo.png">',
+  ].join('\n');
+  const out = lowercaseImageRefs(input);
+  assert.equal(out, [
+    '<img src="/docs/MyDir/SubDir/image.png">',
+    '<img src="https://example.com/assets/Logo.png">',
+  ].join('\n'));
+});
+
+// 11. HTML img already lowercase is a no-op (idempotency).
+test('HTML img already lowercase is a no-op', () => {
+  const input = '<img src="/docs/assets/diagram.png" width="500">';
+  const out = lowercaseImageRefs(input);
+  assert.equal(out, input);
+});
