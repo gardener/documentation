@@ -27,8 +27,7 @@ Before contributing to Gardener, please review and complete the following requir
 
 ### Code of Conduct
 
-All members of the Gardener community must abide by the
-[Contributor Covenant](https://www.contributor-covenant.org/version/2/1/code_of_conduct/).
+All members of the Gardener community must abide by the [Linux Foundation Europe's Code of Conduct](https://linuxfoundation.eu/policies/code-of-conduct).
 Only by respecting each other can we develop a productive, collaborative community.
 Please report abusive, harassing, or unacceptable behavior to [gardener.opensource@sap.com](mailto:gardener.opensource@sap.com) and/or a Gardener project maintainer.
 
