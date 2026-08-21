@@ -29,7 +29,7 @@ Before contributing to Gardener, please review and complete the following requir
 
 All members of the Gardener community must abide by the [Linux Foundation Europe's Code of Conduct](https://linuxfoundation.eu/policies/code-of-conduct).
 Only by respecting each other can we develop a productive, collaborative community.
-Please report abusive, harassing, or unacceptable behavior to [gardener.opensource@sap.com](mailto:gardener.opensource@sap.com) and/or a Gardener project maintainer.
+Please report abusive, harassing, or unacceptable behavior to [gardener-tsc@lists.neonephos.org](mailto:gardener-tsc@lists.neonephos.org) and/or a Gardener project maintainer.
 
 ### Developer Certificate of Origin
 
