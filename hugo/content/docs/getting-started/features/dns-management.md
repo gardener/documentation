@@ -25,7 +25,7 @@ Essentially, some sort of automation for DNS management is missing.
 
 From a user's perspective, it is desirable to work with already known resources and concepts. Hence, the DNS management offered by Gardener plugs seamlessly into Kubernetes resources and you do not need to "leave" the context of the shoot cluster.
 
-To request a DNS record creation / update, a Service or Ingress resource is annotated accordingly. The shoot-dns-service extension will (if configured) will pick up the request and create a DNSEntry resource + reconcile it to have an actual DNS record created at a configured DNS provider. Gardener supports the following providers:
+To request a DNS record creation/update, a Service or Ingress resource is annotated accordingly. The shoot-dns-service extension (if configured) will pick up the request, create a DNSEntry resource, and reconcile it to have an actual DNS record created at a configured DNS provider. Gardener supports the following providers:
 
 - aws-route53
 - azure-dns
@@ -39,10 +39,10 @@ For more information, see [DNS Names](/docs/guides/networking/DNS-extension/).
 
 ## DNS Provider
 
-For the above to work, we need some ingredients. Primarily, this is implemented via a so-called DNSProvider. Every shoot has a default provider that is used to set up the API server's public DNS record. It can be used to request sub-domains as well.
+For the above to work, a DNS provider is needed. This is managed via the DNSProvider resource. Every shoot has a default provider that is used to set up the API server's public DNS record. It can be used to request subdomains as well.
 
 ![](/docs/getting-started/features/images/dns-provider.webp)
 
-In addition, a shoot can reference credentials to a DNS provider. Those can be used to manage custom domains.
+In addition, a shoot can reference credentials to a DNS provider. These can be used to manage custom domains.
 
-Please have a look at the [documentation](/docs/guides/networking/DNS-extension/) for further details.
+Please have a look at the [documentation for the Gardener DNS extension](/docs/guides/networking/DNS-extension/) for further details.
