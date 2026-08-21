@@ -1,6 +1,8 @@
 import { promises as fs } from "fs";
 import path from "path";
-import matter from 'gray-matter';
+import { stringify } from './lib/frontmatter.js';
+import { lowercaseImageRefs } from './lib/image-refs.js';
+import { splitLeadingBanner } from './lib/banner.js';
 
 
 // Base path configuration - can be overridden by command line argument
@@ -14,11 +16,6 @@ async function main() {
     try {
         if (process.argv.includes('--rename-images') || process.argv.includes('-r')) {
             await renameImagesToLowercase(BASE_PATH);
-        }
-
-        // Added to prevent errors when reading the title form website/blog/2025/_index.md files where the title could be a number
-        if (process.argv.includes('--fix-titles') || process.argv.includes('-t')) {
-            await fixFrontmatterTitles(BASE_PATH);
         }
 
         if (process.argv.includes('--add-h1-title') || process.argv.includes('-m')) {
@@ -43,8 +40,6 @@ async function main() {
             !process.argv.includes('-m') &&
             !process.argv.includes('--youtube') &&
             !process.argv.includes('-y') &&
-            !process.argv.includes('--fix-titles') &&
-            !process.argv.includes('-t') &&
             !process.argv.includes('--add-missing-index') &&
             !process.argv.includes('-i')) {
             // If no specific action is specified, show usage
@@ -52,8 +47,7 @@ async function main() {
             console.log('--rename-images, -r      : Rename image files to lowercase');
             console.log('--add-h1-title, -m       : Add H1 headings to markdown files');
             console.log('--youtube, -y            : Replace YouTube shortcodes with VitePress components');
-            console.log('--fix-titles, -t         : Wrap frontmatter titles in quotes');
-            console.log(`\nExample: node post-processing.js --add-h1-title --youtube --fix-titles`);
+            console.log(`\nExample: node post-processing.js --add-h1-title --youtube`);
         }
     } catch (err) {
         console.error('Error:', err);
@@ -123,7 +117,13 @@ async function addH1ToMarkdownFiles(basePath){
             }
 
             const frontmatter = content.substring(0, frontmatterEndIndex + 3);
-            let contentAfterFrontmatter = content.substring(frontmatterEndIndex + 3).trimStart();
+            const afterFrontmatter = content.substring(frontmatterEndIndex + 3).trimStart();
+
+            // The banner is a pure comment block and must not disturb the H1
+            // analysis. Split it off, work on the rest, prepend it again later.
+            const { banner, rest } = splitLeadingBanner(afterFrontmatter);
+            const bannerPrefix = banner ? `${banner}\n\n` : '';
+            let contentAfterFrontmatter = rest;
 
             // Extract title from frontmatter - be more specific to avoid matching other fields
             const titleMatch = frontmatter.match(/^title:\s*["']?(.*?)["']?\s*$/m);
@@ -152,7 +152,7 @@ async function addH1ToMarkdownFiles(basePath){
             if (h2Match && h2Match[3].trim() === title.trim()) {
                 // Replace the H2 with H1, preserving the content structure
                 const afterH2Title = contentAfterFrontmatter.substring(h2Match.index + h2Match[0].length);
-                const newContent = `${frontmatter}\n\n# ${title}\n${afterH2Title}`;
+                const newContent = `${frontmatter}\n\n${bannerPrefix}# ${title}\n${afterH2Title}`;
                 await fs.writeFile(filePath, newContent, 'utf-8');
                 return {
                     file: filePath,
@@ -163,7 +163,7 @@ async function addH1ToMarkdownFiles(basePath){
             }
 
             // If no H1 heading and title exists in frontmatter, add H1
-            const newContent = `${frontmatter}\n\n# ${title}\n\n${contentAfterFrontmatter}`;
+            const newContent = `${frontmatter}\n\n${bannerPrefix}# ${title}\n\n${contentAfterFrontmatter}`;
             await fs.writeFile(filePath, newContent, 'utf-8');
             return {
                 file: filePath,
@@ -308,24 +308,20 @@ async function renameImagesToLowercase(basePath){
 
             const successCount = renameResults.filter(r => r.success).length;
             console.log(`\nRename summary: ${successCount} of ${matchingFiles.length} files renamed successfully.`);
-
-            // Update markdown references to match the renamed filenames
-            const renames = renameResults
-                .filter(r => r.success)
-                .map(r => ({
-                    original: path.basename(r.original),
-                    lowercase: path.basename(r.renamed)
-                }));
-            if (renames.length > 0) {
-                await updateMarkdownReferences(basePath, renames);
-            }
         } else {
             console.log('\nTo rename these files to lowercase, run the script with the --rename or -r flag:');
             console.log(`node post-processing.js ${basePath} --rename`);
         }
     }
 
-    async function updateMarkdownReferences(dir, renames) {
+    // Reference normalization always runs, decoupled from the physical rename.
+    // docforge may re-emit camelCase references on every run while the asset
+    // file is already lowercase. In that case findFiles() finds no file to
+    // rename, but the reference would stay camelCase and point nowhere.
+    // Therefore lowercase all MD image references independently here.
+    await normalizeImageReferences(basePath);
+
+    async function normalizeImageReferences(dir) {
         async function findMarkdownFiles(directory) {
             let found = [];
             const entries = await fs.readdir(directory);
@@ -347,21 +343,15 @@ async function renameImagesToLowercase(basePath){
         let updatedFiles = 0;
 
         for (const mdFile of mdFiles) {
-            let content = await fs.readFile(mdFile, 'utf-8');
-            let modified = false;
-            for (const { original, lowercase } of renames) {
-                if (content.includes(original)) {
-                    content = content.replaceAll(original, lowercase);
-                    modified = true;
-                }
-            }
-            if (modified) {
-                await fs.writeFile(mdFile, content, 'utf-8');
+            const content = await fs.readFile(mdFile, 'utf-8');
+            const normalized = lowercaseImageRefs(content);
+            if (normalized !== content) {
+                await fs.writeFile(mdFile, normalized, 'utf-8');
                 updatedFiles++;
             }
         }
 
-        console.log(`\nReference update summary: updated references in ${updatedFiles} markdown file(s).`);
+        console.log(`\nImage reference normalization: updated ${updatedFiles} markdown file(s).`);
     }
 }
 
@@ -477,143 +467,6 @@ async function replaceYouTubeShortcodes(basePath) {
     }
 }
 
-async function fixFrontmatterTitles(basePath) {
-    async function findMarkdownFiles(directory) {
-        let foundFiles = [];
-
-        try {
-            const files = await fs.readdir(directory);
-
-            for (const file of files) {
-                const fullPath = path.join(directory, file);
-
-                try {
-                    const stats = await fs.stat(fullPath);
-
-                    if (stats.isDirectory()) {
-                        // Skip ignored directories
-                        if (IGNORE_DIRS.includes(file)) {
-                            continue;
-                        }
-                        // Recursively search subdirectories
-                        const nestedFiles = await findMarkdownFiles(fullPath);
-                        foundFiles = foundFiles.concat(nestedFiles);
-                    } else if (stats.isFile() && file.endsWith('.md')) {
-                        foundFiles.push(fullPath);
-                    }
-                } catch (err) {
-                    console.error(`Error accessing ${fullPath}: ${err.message}`);
-                }
-            }
-        } catch (err) {
-            console.error(`Error reading directory ${directory}: ${err.message}`);
-        }
-
-        return foundFiles;
-    }
-
-    async function processMarkdownFile(filePath) {
-        try {
-            const content = await fs.readFile(filePath, 'utf-8');
-
-            // Check if file has frontmatter
-            if (!content.startsWith('---')) {
-                return {
-                    file: filePath,
-                    modified: false,
-                    reason: 'No frontmatter found'
-                };
-            }
-
-            // Find the end of frontmatter
-            const frontmatterEndIndex = content.indexOf('---', 3);
-            if (frontmatterEndIndex === -1) {
-                return {
-                    file: filePath,
-                    modified: false,
-                    reason: 'Invalid frontmatter format'
-                };
-            }
-
-            const frontmatter = content.substring(0, frontmatterEndIndex + 3);
-            const contentAfterFrontmatter = content.substring(frontmatterEndIndex + 3);
-
-            // Check if title is already quoted
-            const titleMatch = frontmatter.match(/title:\s*["']?(.*?)["']?\s*(\n|$)/);
-            if (!titleMatch) {
-                return {
-                    file: filePath,
-                    modified: false,
-                    reason: 'No title found in frontmatter'
-                };
-            }
-
-            const titleValue = titleMatch[1];
-            const fullTitleLine = titleMatch[0];
-            
-            // Check if title is already quoted
-            if (frontmatter.match(/title:\s*["'].*?["']\s*(\n|$)/)) {
-                return {
-                    file: filePath,
-                    modified: false,
-                    reason: 'Title already quoted'
-                };
-            }
-
-            // Wrap title in quotes, ensuring proper newline formatting
-            const newTitleLine = `title: "${titleValue}"`;
-            
-            // Replace the title line, ensuring proper spacing
-            let newFrontmatter;
-            if (fullTitleLine.endsWith('\n')) {
-                // Title already has newline, just replace it
-                newFrontmatter = frontmatter.replace(fullTitleLine, newTitleLine + '\n');
-            } else {
-                // Title doesn't have newline (likely last field), add one
-                newFrontmatter = frontmatter.replace(fullTitleLine, newTitleLine + '\n');
-            }
-            
-            const newContent = newFrontmatter + contentAfterFrontmatter;
-
-            await fs.writeFile(filePath, newContent, 'utf-8');
-            
-            return {
-                file: filePath,
-                modified: true,
-                title: titleValue
-            };
-        } catch (err) {
-            console.error(`Error processing ${filePath}: ${err.message}`);
-            return {
-                file: filePath,
-                modified: false,
-                reason: err.message
-            };
-        }
-    }
-
-    console.log(`Searching for markdown files in: ${basePath}`);
-    const markdownFiles = await findMarkdownFiles(basePath);
-    console.log(`\nFound ${markdownFiles.length} markdown files`);
-
-    if (markdownFiles.length > 0) {
-        console.log('\nProcessing markdown files to fix frontmatter titles...');
-        const results = [];
-
-        for (const file of markdownFiles) {
-            const result = await processMarkdownFile(file);
-            results.push(result);
-
-            if (result.modified) {
-                console.log(`- Fixed title in: ${path.basename(file)} (Title: "${result.title}")`);
-            }
-        }
-
-        const modifiedCount = results.filter(r => r.modified).length;
-        console.log(`\nSummary: Fixed titles in ${modifiedCount} of ${markdownFiles.length} files.`);
-    }
-}
-
 async function fixNetworkProblemDetectorDoc() {
     const filePath = 'hugo/content/docs/other-components/network-problem-detector/_index.md';
     
@@ -719,7 +572,7 @@ async function addMissingIndexFiles(basePath) {
                 generated_by: "post-processing/part-3.js addMissingIndexFiles function"
             };
 
-            const content = matter.stringify('', frontmatter);
+            const content = stringify('', frontmatter);
             const indexPath = path.join(directory, '_index.md');
             
             await fs.writeFile(indexPath, content, 'utf-8');

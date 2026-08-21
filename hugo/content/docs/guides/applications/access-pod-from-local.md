@@ -1,22 +1,29 @@
 ---
 category: Debugging
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/guides/applications
 last_reviewed: 30.05.2018
 level: beginner
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/guides/applications/access-pod-from-local.md
-  to: access-pod-from-local.md
 reviewer: Tieyan Fu
 scope: app-developer
 status: Reviewed
-title: "Access a Port of a Pod Locally"
+title: Access a Port of a Pod Locally
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Access a Port of a Pod Locally
 

@@ -1,17 +1,24 @@
 ---
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/getting-started/features
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/getting-started/features/credential-rotation.md
-  to: credential-rotation.md
-title: "Credential Rotation"
+title: Credential Rotation
 weight: 3
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Credential Rotation
 

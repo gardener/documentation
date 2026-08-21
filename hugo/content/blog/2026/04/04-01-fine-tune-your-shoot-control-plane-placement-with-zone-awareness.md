@@ -7,24 +7,30 @@ authors:
     email: rafael.franzke@sap.com
     login: rfranzke
     name: Rafael Franzke
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2026/04
 linkTitle: Fine-Tune Your Shoot Control Plane Placement with Zone Awareness
 newsSubtitle: 'April 01, 2026'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2026/04/04-01-fine-tune-your-shoot-control-plane-placement-with-zone-awareness.md
-  to: 04-01-fine-tune-your-shoot-control-plane-placement-with-zone-awareness.md
 publishdate: '2026-04-01'
 tags:
   - feature-announcement
   - high-availability
   - apeiro
 title: Fine-Tune Your Shoot Control Plane Placement with Zone Awareness
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Fine-Tune Your Shoot Control Plane Placement with Zone Awareness
 

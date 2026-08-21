@@ -1,16 +1,23 @@
 ---
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/faq
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/faq/clusterhealthz.md
-  to: clusterhealthz.md
-title: "How can you get the status of a shoot API server?"
+title: How can you get the status of a shoot API server?
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # How can you get the status of a shoot API server?
 

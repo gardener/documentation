@@ -1,16 +1,23 @@
 ---
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/security-and-compliance
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/security-and-compliance/security-incident.md
-  to: security-incident.md
-title: "Reporting a Security Incident"
+title: Reporting a Security Incident
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Reporting a Security Incident
 

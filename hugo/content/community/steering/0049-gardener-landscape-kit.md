@@ -1,16 +1,23 @@
 ---
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/community/steering
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/community/steering/0049-gardener-landscape-kit.md
-  to: 0049-gardener-landscape-kit.md
 title: 'GEP-0049: Gardener Landscape Kit'
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # GEP-0049: Gardener Landscape Kit
 

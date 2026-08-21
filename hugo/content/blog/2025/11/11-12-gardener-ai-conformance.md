@@ -5,22 +5,29 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/vlerenc'
     login: vlerenc
     name: Vedran Lerenc
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2025/11
 linkTitle: Gardener Achieves CNCF AI Conformance for Kubernetes
 newsSubtitle: 'November 12, 2025'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/blog/2025/11/11-12-gardener-ai-conformance.md
-  to: 11-12-gardener-ai-conformance.md
 publishdate: '2025-11-12'
 tags:
   - technical-deep-dive
   - apeiro
 title: Gardener Achieves CNCF AI Conformance for Kubernetes
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Gardener Achieves CNCF AI Conformance for Kubernetes
 

@@ -6,19 +6,10 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/shafeeqes'
     login: shafeeqes
     name: Shafeeque E S
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2025/05
 linkTitle: >-
   New in Gardener: Forceful Redeployment of gardenlets for Enhanced Operational
   Control
 newsSubtitle: 'May 21, 2025'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2025/05/05-21-new-in-gardener-forceful-redeployment-of-gardenlets-for-enhanced-operational-control.md
-  to: >-
-    05-21-new-in-gardener-forceful-redeployment-of-gardenlets-for-enhanced-operational-control.md
 publishdate: '2025-05-21'
 tags:
   - feature-announcement
@@ -28,8 +19,22 @@ tags:
 title: >-
   New in Gardener: Forceful Redeployment of gardenlets for Enhanced Operational
   Control
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # New in Gardener: Forceful Redeployment of gardenlets for Enhanced Operational Control
 

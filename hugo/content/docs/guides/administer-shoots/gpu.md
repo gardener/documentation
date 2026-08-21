@@ -3,23 +3,30 @@ authors:
   - login: vlerenc
 category: Setup
 description: Setting up a GPU Enabled Cluster for AI/ML Workloads
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/guides/administer-shoots
 level: intermediate
 linkTitle: AI/ML Workloads on GPU Clusters
-newsSubtitle: "Setting up a GPU Enabled Cluster for AI/ML Workloads"
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/guides/administer-shoots/gpu.md
-  to: gpu.md
+newsSubtitle: Setting up a GPU Enabled Cluster for AI/ML Workloads
 publishdate: '2025-10-26'
 scope: app-developer
 title: AI/ML Workloads on GPU Clusters
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # AI/ML Workloads on GPU Clusters
 

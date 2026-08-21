@@ -1,9 +1,9 @@
 ---
 persona: Operators
-title: Deployment
+title: "Deployment"
 weight: 40
 prev: false
 next: false
-managed: true
+editLink: false
 ---
 

@@ -1,19 +1,26 @@
 ---
 category: Security
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/guides/client-tools
 level: intermediate
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/guides/client-tools/working-with-kubeconfig.md
-  to: working-with-kubeconfig.md
 scope: app-developer
-title: "Organizing Access Using kubeconfig Files"
+title: Organizing Access Using kubeconfig Files
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Organizing Access Using kubeconfig Files
 

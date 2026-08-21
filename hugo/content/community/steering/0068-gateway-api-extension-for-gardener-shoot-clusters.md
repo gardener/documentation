@@ -1,17 +1,23 @@
 ---
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/community/steering
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/community/steering/0068-gateway-api-extension-for-gardener-shoot-clusters.md
-  to: 0068-gateway-api-extension-for-gardener-shoot-clusters.md
 title: 'GEP-0068: Gateway API Extension for Gardener Shoot Clusters'
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # GEP-0068: Gateway API Extension for Gardener Shoot Clusters
 

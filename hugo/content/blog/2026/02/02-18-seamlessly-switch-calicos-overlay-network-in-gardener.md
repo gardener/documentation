@@ -5,23 +5,29 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/DockToFuture'
     login: DockToFuture
     name: Sebastian Stauch
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2026/02
 linkTitle: Seamlessly Switch Calico's Overlay Network in Gardener
 newsSubtitle: 'February 18, 2026'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2026/02/02-18-seamlessly-switch-calicos-overlay-network-in-gardener.md
-  to: 02-18-seamlessly-switch-calicos-overlay-network-in-gardener.md
 publishdate: '2026-02-18'
 tags:
   - technical-deep-dive
   - networking
 title: Seamlessly Switch Calico's Overlay Network in Gardener
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Seamlessly Switch Calico's Overlay Network in Gardener
 

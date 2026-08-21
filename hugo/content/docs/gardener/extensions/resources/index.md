@@ -1,7 +1,7 @@
 ---
-title: Resources
+title: "Resources"
 prev: false
 next: false
-managed: true
+editLink: false
 ---
 

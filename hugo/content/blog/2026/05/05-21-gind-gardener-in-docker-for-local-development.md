@@ -6,21 +6,28 @@ authors:
     email: timebertt@gmail.com
     login: timebertt
     name: Tim Ebert
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2026/05
 linkTitle: 'GinD: Gardener-in-Docker for Local Development'
 newsSubtitle: 'May 21, 2026'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/blog/2026/05/05-21-gind-gardener-in-docker-for-local-development.md
-  to: 05-21-gind-gardener-in-docker-for-local-development.md
 publishdate: '2026-05-21'
 tags:
   - feature-announcement
 title: 'GinD: Gardener-in-Docker for Local Development'
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # GinD: Gardener-in-Docker for Local Development
 

@@ -2,10 +2,10 @@
 aliases:
   - /docs/gardener/
 persona: Users
-title: Shoot
+title: "Shoot"
 weight: 80
 prev: false
 next: false
-managed: true
+editLink: false
 ---
 

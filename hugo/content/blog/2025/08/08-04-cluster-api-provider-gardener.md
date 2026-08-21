@@ -8,17 +8,10 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/tobschli'
     login: tobschli
     name: Tobias Schlicht
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2025/08
 linkTitle: >-
   Announcing cluster-api-provider-gardener: Manage Gardener Clusters with
   Cluster API
 newsSubtitle: 'August 04, 2025'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/blog/2025/08/08-04-cluster-api-provider-gardener.md
-  to: 08-04-cluster-api-provider-gardener.md
 publishdate: '2025-08-04'
 tags:
   - feature-announcement
@@ -31,8 +24,22 @@ tags:
 title: >-
   Announcing cluster-api-provider-gardener: Manage Gardener Clusters with
   Cluster API
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Announcing cluster-api-provider-gardener: Manage Gardener Clusters with Cluster API
 

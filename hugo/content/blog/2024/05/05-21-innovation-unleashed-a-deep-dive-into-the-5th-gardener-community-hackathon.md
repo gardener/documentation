@@ -5,17 +5,8 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/u/19169361'
     login: rfranzke
     name: Rafael Franzke
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2024/05
 linkTitle: 'Innovation Unleashed: A Deep Dive into the 5th Gardener Community Hackathon'
 newsSubtitle: 'May 21, 2024'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2024/05/05-21-innovation-unleashed-a-deep-dive-into-the-5th-gardener-community-hackathon.md
-  to: >-
-    05-21-innovation-unleashed-a-deep-dive-into-the-5th-gardener-community-hackathon.md
 publishdate: '2024-05-21'
 tags:
   - technical-deep-dive
@@ -24,8 +15,22 @@ tags:
   - helm
   - hackathon
 title: 'Innovation Unleashed: A Deep Dive into the 5th Gardener Community Hackathon'
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Innovation Unleashed: A Deep Dive into the 5th Gardener Community Hackathon
 

@@ -6,19 +6,10 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/grolu'
     login: grolu
     name: Lukas Gross
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2025/05
 linkTitle: >-
   Gardener Dashboard 1.80: Streamlined Credentials, Enhanced Cluster Views, and
   Real-Time Updates
 newsSubtitle: 'May 19, 2025'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2025/05/05-19-gardener-dashboard-180-streamlined-credentials-enhanced-cluster-views-and-real-time-updates.md
-  to: >-
-    05-19-gardener-dashboard-180-streamlined-credentials-enhanced-cluster-views-and-real-time-updates.md
 publishdate: '2025-05-19'
 tags:
   - feature-announcement
@@ -29,8 +20,22 @@ tags:
 title: >-
   Gardener Dashboard 1.80: Streamlined Credentials, Enhanced Cluster Views, and
   Real-Time Updates
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Gardener Dashboard 1.80: Streamlined Credentials, Enhanced Cluster Views, and Real-Time Updates
 

@@ -9,9 +9,9 @@ for (const file of files) {
   try {
     const raw = await fs.readFile(file, 'utf8')
     const parsed = matter(raw)
-    if (parsed.data.managed === true) {
+    if (typeof parsed.data.github_repo === 'string') {
       const branch = parsed.data.params?.github_branch || 'master'
-      const upstream = parsed.data.github_repo && parsed.data.github_subdir
+      const upstream = parsed.data.github_subdir
         ? `${parsed.data.github_repo}/blob/${branch}/${parsed.data.github_subdir}`
         : '(unknown source)'
       violations.push({ file, upstream })

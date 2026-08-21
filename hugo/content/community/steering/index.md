@@ -1,17 +1,24 @@
 ---
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/community/steering
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/community/steering/index.md
-  to: index.md
 title: Project Steering
 weight: 20
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Project Steering
 

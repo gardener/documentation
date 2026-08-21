@@ -1,7 +1,7 @@
 ---
-title: Concepts
+title: "Concepts"
 prev: false
 next: false
-managed: true
+editLink: false
 ---
 

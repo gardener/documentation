@@ -5,7 +5,6 @@ import blogSidebar from './theme/blog-sidebar.ts'
 import {communitySidebar} from "./theme/community-sidebar.ts";
 import { contributeSidebar } from "./theme/contribute-sidebar.ts";
 import path from 'path'
-import { SearchResult } from 'minisearch'
 import { generateEnhancedDocsSidebar } from './theme/docs-sidebar.ts';
 import { hasMarkdownContent, getTaxonomyChildren } from './theme/utils/sidebar.ts';
 import { generateAliasRedirects, createAliasRedirectDevPlugin } from './plugins/alias-redirects';
@@ -237,14 +236,7 @@ function getSearchConfig() {
               page_synonyms: 3 // Synonyms/alternate terms
             },
             // Fields to search in
-            fields: ['title', 'text', 'headings', 'tags', 'categories', 'description', 'page_synonyms'],
-            // TODO(marc1404): Remove once `_index.md` files are renamed to `index.md`.
-            // Historically our source documentation files are using `_index.md` as the default name for index pages.
-            // Since migrating from Hugo to VitePress, we're using a post-processing step (post-processing/part-index.js) to copy and rename all `_index.md` files to `index.md`.
-            // This leads to duplicate search results since both `_index.md` and `index.md` are indexed by MiniSearch.
-            filter(result: SearchResult) {
-              return !result.id.includes('/_index');
-            },
+            fields: ['title', 'text', 'headings', 'tags', 'categories', 'description', 'page_synonyms']
           }
         }
       }
@@ -267,9 +259,25 @@ function getThemeConfig() {
           text: 'Edit this page',
           icon: 'vpi-square-pen',
           url: ({filePath, frontmatter}: {filePath: string, frontmatter: Record<string, any>}) => {
-            if (!frontmatter['github_repo'] || !frontmatter['github_subdir']) return undefined
-            const fileName = `${frontmatter?.path_base_for_github_subdir?.to ?? filePath.split("/").pop()}`
-            return `${frontmatter['github_repo']}/tree/master/${frontmatter['github_subdir']}/${fileName}`
+            // Empty aggregator pages opt out explicitly (see part-index.js).
+            if (frontmatter['editLink'] === false) return undefined
+            // Managed content points at its upstream source repo. This must stay
+            // byte-for-byte identical to buildUpstreamUrl() in
+            // post-processing/lib/upstream-url.js (the injected banner uses that).
+            // It cannot import it: VitePress serializes this function and re-evals
+            // it without module scope, so it must be self-contained. The shared
+            // test in upstream-url.test.js guards against the two drifting apart.
+            if (frontmatter['github_repo'] && frontmatter['github_subdir']) {
+              const to = frontmatter['path_base_for_github_subdir']?.to
+              const fileName = to || filePath.split('/').pop()
+              const branch = frontmatter['params']?.github_branch || 'master'
+              return [frontmatter['github_repo'], 'blob', branch, frontmatter['github_subdir'], fileName]
+                .map((s) => String(s).replace(/^\/+|\/+$/g, ''))
+                .join('/')
+            }
+            // Local content lives in gardener/documentation under hugo/content.
+            // filePath is relative to srcDir (hugo/content), e.g. "blog/2026/07/x.md".
+            return `https://github.com/gardener/documentation/tree/master/hugo/content/${filePath}`
           },
         },
         {

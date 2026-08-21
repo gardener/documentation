@@ -6,23 +6,28 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/plkokanov'
     login: plkokanov
     name: Plamen Kokanov
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2026/06
 linkTitle: 'GEP-0038: Autoscaling PersistentVolumeClaims with pvc-autoscaler v0.2.0'
 newsSubtitle: 'June 11, 2026'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2026/06/06-11-gep-0038-autoscaling-persistentvolumeclaims-with-pvc-autoscaler-v020.md
-  to: >-
-    06-11-gep-0038-autoscaling-persistentvolumeclaims-with-pvc-autoscaler-v020.md
 publishdate: '2026-06-11'
 tags:
   - feature-announcement
 title: 'GEP-0038: Autoscaling PersistentVolumeClaims with pvc-autoscaler v0.2.0'
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # GEP-0038: Autoscaling PersistentVolumeClaims with pvc-autoscaler v0.2.0
 

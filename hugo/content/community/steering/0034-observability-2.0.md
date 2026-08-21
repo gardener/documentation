@@ -1,16 +1,23 @@
 ---
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/community/steering
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/community/steering/0034-observability-2.0.md
-  to: 0034-observability-2.0.md
 title: 'GEP-0034: Observability 2.0'
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # GEP-0034: Observability 2.0
 

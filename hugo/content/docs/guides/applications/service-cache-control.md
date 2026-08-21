@@ -1,20 +1,27 @@
 ---
 category: Services
 description: Why is my application always outdated?
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/guides/applications
 level: intermediate
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/guides/applications/service-cache-control.md
-  to: service-cache-control.md
 scope: app-developer
-title: "Out-Dated HTML and JS Files Delivered"
+title: Out-Dated HTML and JS Files Delivered
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Out-Dated HTML and JS Files Delivered
 

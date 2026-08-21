@@ -6,16 +6,8 @@ authors:
     email: johannes.scheerer@sap.com
     login: ScheererJ
     name: Johannes Scheerer
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2026/04
 linkTitle: 'Ingress NGINX Retirement: How Gardener Migrated to Istio'
 newsSubtitle: 'April 29, 2026'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2026/04/04-29-ingress-nginx-retirement-how-gardener-migrated-to-istio.md
-  to: 04-29-ingress-nginx-retirement-how-gardener-migrated-to-istio.md
 publishdate: '2026-04-29'
 tags:
   - feature-announcement
@@ -23,8 +15,22 @@ tags:
   - networking
   - observability
 title: 'Ingress NGINX Retirement: How Gardener Migrated to Istio'
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Ingress NGINX Retirement: How Gardener Migrated to Istio
 

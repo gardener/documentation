@@ -2,20 +2,27 @@
 aliases:
   - /docs/resources/resources
 description: Interesting and useful content on Kubernetes
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/resources
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/resources/index.md
-  to: index.md
 persona: Developers
 title: Resources
 weight: 100
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 ## Overview
 

@@ -6,19 +6,10 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/ScheererJ'
     login: ScheererJ
     name: Johannes Scheerer
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2025/05
 linkTitle: >-
   Fine-Tuning kube-proxy Readiness: Ensuring Accurate Health Checks During Node
   Scale-Down
 newsSubtitle: 'May 21, 2025'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2025/05/05-21-fine-tuning-kube-proxy-readiness-ensuring-accurate-health-checks-during-node-scale-down.md
-  to: >-
-    05-21-fine-tuning-kube-proxy-readiness-ensuring-accurate-health-checks-during-node-scale-down.md
 publishdate: '2025-05-21'
 tags:
   - technical-deep-dive
@@ -29,8 +20,22 @@ tags:
 title: >-
   Fine-Tuning kube-proxy Readiness: Ensuring Accurate Health Checks During Node
   Scale-Down
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Fine-Tuning kube-proxy Readiness: Ensuring Accurate Health Checks During Node Scale-Down
 

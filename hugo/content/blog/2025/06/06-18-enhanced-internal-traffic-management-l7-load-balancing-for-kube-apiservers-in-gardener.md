@@ -6,19 +6,10 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/oliver-goetz'
     login: oliver-goetz
     name: Oliver Götz
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2025/06
 linkTitle: >-
   Enhanced Internal Traffic Management: L7 Load Balancing for kube-apiservers in
   Gardener
 newsSubtitle: 'June 18, 2025'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2025/06/06-18-enhanced-internal-traffic-management-l7-load-balancing-for-kube-apiservers-in-gardener.md
-  to: >-
-    06-18-enhanced-internal-traffic-management-l7-load-balancing-for-kube-apiservers-in-gardener.md
 publishdate: '2025-06-18'
 tags:
   - feature-announcement
@@ -27,8 +18,22 @@ tags:
 title: >-
   Enhanced Internal Traffic Management: L7 Load Balancing for kube-apiservers in
   Gardener
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Enhanced Internal Traffic Management: L7 Load Balancing for kube-apiservers in Gardener
 

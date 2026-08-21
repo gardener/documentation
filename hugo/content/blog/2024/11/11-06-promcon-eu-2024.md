@@ -8,22 +8,29 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/u/9338170'
     login: rickardsjp
     name: Jeremy Rickards
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2024/11
 linkTitle: PromCon EU 2024 Highlights
 newsSubtitle: 'November 06, 2024'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/blog/2024/11/11-06-promcon-eu-2024.md
-  to: 11-06-promcon-eu-2024.md
 publishdate: '2024-11-01'
 tags:
   - community-event
   - observability
 title: PromCon EU 2024 Highlights
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # PromCon EU 2024 Highlights
 

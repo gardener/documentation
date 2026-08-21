@@ -1,18 +1,25 @@
 ---
 aliases:
   - /docs/faq/automatic-upgrade/
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/faq
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/faq/kubernetes-upgrade.md
-  to: kubernetes-upgrade.md
-title: "Upgrading Kubernetes Versions"
+title: Upgrading Kubernetes Versions
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Upgrading Kubernetes Versions
 

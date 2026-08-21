@@ -1,20 +1,27 @@
 ---
 category: Debugging
 description: Describes the methods for getting shell access to worker nodes
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/guides/monitoring-and-troubleshooting
 level: advanced
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/guides/monitoring-and-troubleshooting/shell-to-node.md
-  to: shell-to-node.md
 scope: operator
-title: "Get a Shell to a Gardener Shoot Worker Node"
+title: Get a Shell to a Gardener Shoot Worker Node
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Get a Shell to a Gardener Shoot Worker Node
 

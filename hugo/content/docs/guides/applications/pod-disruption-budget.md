@@ -1,22 +1,29 @@
 ---
 category: Getting Started
 featured: true
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/guides/applications
 index: 10
 level: beginner
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/guides/applications/pod-disruption-budget.md
-  to: pod-disruption-budget.md
 publishdate: '2022-06-21'
 scope: app-developer
-title: "Specifying a Disruption Budget for Kubernetes Controllers"
+title: Specifying a Disruption Budget for Kubernetes Controllers
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Specifying a Disruption Budget for Kubernetes Controllers
 
