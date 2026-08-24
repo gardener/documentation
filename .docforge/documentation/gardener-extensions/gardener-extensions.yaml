@@ -4,7 +4,7 @@ structure:
   structure:
   - file: _index.md
     frontmatter:
-      title: Infrastructure Extensions
+      title: Infrastructure
       description: Gardener extension controllers for the different infrastructures
       weight: 10
   - manifest: ./infrastructure.yaml
@@ -12,7 +12,7 @@ structure:
   structure:
   - file: _index.md
     frontmatter:
-      title: Operating System Extensions
+      title: Operating System
       description: Gardener extension controllers for the supported operating systems
       weight: 20
   - manifest: ./operating-system.yaml
@@ -20,7 +20,7 @@ structure:
   structure:
   - file: _index.md
     frontmatter:
-      title: Network Extensions
+      title: Network
       description: Gardener extension controllers for the supported container network interfaces
       weight: 30
   - manifest: ./network.yaml
@@ -28,7 +28,7 @@ structure:
   structure:
   - file: _index.md
     frontmatter:
-      title: Container Runtime Extensions
+      title: Container Runtime
       description: Gardener extensions for the supported container runtime interfaces
       weight: 40
   - manifest: ./container-runtime.yaml
