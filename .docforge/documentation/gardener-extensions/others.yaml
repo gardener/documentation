@@ -1,15 +1,11 @@
 structure:
-- dir: gardener-extension-shoot-dns-service
+- dir: gardener-extension-audit
   structure:
   - file: _index.md
     frontmatter:
-      title: DNS Services
-      description: Gardener extension controller for DNS services for shoot clusters
-    source:  https://github.com/gardener/gardener-extension-shoot-dns-service/blob/master/README.md
-  - fileTree: https://github.com/gardener/gardener-extension-shoot-dns-service/tree/master/docs
-    excludeFiles:
-      - "usage/dns_names.md" # already included in ../guides.yaml, avoiding duplicates
-      - "development/"
+      title: Audit (metal-stack)
+      description: Gardener extension controller which deploys a fluent-bit based audit log forwarder for shoot clusters.
+    source: https://github.com/metal-stack/gardener-extension-audit/blob/main/README.md
 - dir: gardener-extension-shoot-cert-service
   structure:
   - file: _index.md
@@ -21,14 +17,25 @@ structure:
     excludeFiles:
       - "usage/request_cert.md" # already included in ../guides.yaml, avoiding duplicates
       - "usage/request_default_domain_cert.md" # already included in ../guides.yaml, avoiding duplicates
-- dir: gardener-extension-shoot-oidc-service
+- dir: gardener-extension-csi-driver-lvm
   structure:
   - file: _index.md
     frontmatter:
-      title: OpenID Connect Services
-      description: Gardener extension controller for OpenID Connect services for shoot clusters
-    source:  https://github.com/gardener/gardener-extension-shoot-oidc-service/blob/master/README.md
-  - fileTree: https://github.com/gardener/gardener-extension-shoot-oidc-service/tree/master/docs
+      title: CSI Driver LVM
+      description: Gardener extension controller which deploys the LVM CSI driver for shoot clusters.
+    source: https://github.com/metal-stack/gardener-extension-csi-driver-lvm/blob/main/README.md
+  - fileTree: https://github.com/metal-stack/gardener-extension-csi-driver-lvm/tree/main/docs
+- dir: gardener-extension-shoot-dns-service
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: DNS Services
+      description: Gardener extension controller for DNS services for shoot clusters
+    source:  https://github.com/gardener/gardener-extension-shoot-dns-service/blob/master/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-shoot-dns-service/tree/master/docs
+    excludeFiles:
+      - "usage/dns_names.md" # already included in ../guides.yaml, avoiding duplicates
+      - "development/"
 - dir: gardener-extension-shoot-networking-filter
   structure:
   - file: _index.md
@@ -37,74 +44,6 @@ structure:
       description: Gardener extension controller for egress filtering for shoot clusters
     source:  https://github.com/gardener/gardener-extension-shoot-networking-filter/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-shoot-networking-filter/tree/master/docs
-- dir: gardener-extension-shoot-networking-problemdetector
-  structure:
-  - file: _index.md
-    frontmatter:
-      title: Networking Problem Detector
-      description: Gardener extension for deploying network problem detector
-    source: https://github.com/gardener/gardener-extension-shoot-networking-problemdetector/blob/main/README.md
-  - fileTree: https://github.com/gardener/gardener-extension-shoot-networking-problemdetector/tree/main/docs
-- dir: gardener-extension-shoot-lakom-service
-  structure:
-  - file: _index.md
-    frontmatter:
-      title: Lakom Service
-      description: A k8s admission controller verifying pods are using signed images (cosign signatures) and a gardener extension to install it for shoots and seeds.
-    source: https://github.com/gardener/gardener-extension-shoot-lakom-service/blob/main/README.md
-  - fileTree: https://github.com/gardener/gardener-extension-shoot-lakom-service/tree/main/docs
-- dir: gardener-extension-registry-cache
-  structure:
-  - file: _index.md
-    frontmatter:
-      title: Registry Cache
-      description: Gardener extension controller which deploys pull-through caches for container registries.
-    source: https://github.com/gardener/gardener-extension-registry-cache/blob/main/README.md
-  - fileTree: https://github.com/gardener/gardener-extension-registry-cache/tree/main/docs
-    excludeFiles:
-      - "development/"
-- dir: gardener-extension-shoot-rsyslog-relp
-  structure:
-  - file: _index.md
-    frontmatter:
-      title: Node Audit Logging
-      description: Gardener extension controller which configures the rsyslog and auditd services installed on shoot nodes.
-    source: https://github.com/gardener/gardener-extension-shoot-rsyslog-relp/blob/main/README.md
-  - fileTree: https://github.com/gardener/gardener-extension-shoot-rsyslog-relp/tree/main/docs
-    excludeFiles:
-      - "development/"
-- dir: gardener-extension-shoot-traefik
-  structure:
-  - file: _index.md
-    frontmatter:
-      title: Traefik Ingress
-      description: Gardener extension controller which deploys the Traefik ingress controller for shoot clusters.
-    source: https://github.com/gardener/gardener-extension-shoot-traefik/blob/main/README.md
-  - fileTree: https://github.com/gardener/gardener-extension-shoot-traefik/tree/main/docs
-    excludeFiles:
-      - "development/"
-- dir: gardener-extension-auditing
-  structure:
-  - file: _index.md
-    frontmatter:
-      title: Kubernetes Auditing
-      description: Gardener extension controller which deploys an auditlog forwarder sending Kubernetes Audit Events to configured backends.
-    source: https://github.com/gardener/gardener-extension-auditing/blob/main/README.md
-  - fileTree: https://github.com/gardener/gardener-extension-auditing/tree/main/docs
-    excludeFiles:
-      - operations/configuration.md
-      - operations/event-format.md
-      - usage/configuration.md
-      - usage/event-format.md
-      - "development/"
-  - file: operations-configuration.md
-    source: https://github.com/gardener/gardener-extension-auditing/blob/main/docs/operations/configuration.md
-  - file: operations-event-format.md
-    source: https://github.com/gardener/gardener-extension-auditing/blob/main/docs/operations/event-format.md
-  - file: usage-configuration.md
-    source: https://github.com/gardener/gardener-extension-auditing/blob/main/docs/usage/configuration.md
-  - file: usage-event-format.md
-    source: https://github.com/gardener/gardener-extension-auditing/blob/main/docs/usage/event-format.md
 - dir: gardener-extension-shoot-falco-service
   structure:
   - file: _index.md
@@ -129,6 +68,54 @@ structure:
       title: Image Rewriter
       description: Gardener extension controller which rewrites container image references in shoot clusters.
     source: https://github.com/gardener/gardener-extension-image-rewriter/blob/master/README.md
+- dir: gardener-extension-auditing
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: Kubernetes Auditing
+      description: Gardener extension controller which deploys an auditlog forwarder sending Kubernetes Audit Events to configured backends.
+    source: https://github.com/gardener/gardener-extension-auditing/blob/main/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-auditing/tree/main/docs
+    excludeFiles:
+      - operations/configuration.md
+      - operations/event-format.md
+      - usage/configuration.md
+      - usage/event-format.md
+      - "development/"
+  - file: operations-configuration.md
+    source: https://github.com/gardener/gardener-extension-auditing/blob/main/docs/operations/configuration.md
+  - file: operations-event-format.md
+    source: https://github.com/gardener/gardener-extension-auditing/blob/main/docs/operations/event-format.md
+  - file: usage-configuration.md
+    source: https://github.com/gardener/gardener-extension-auditing/blob/main/docs/usage/configuration.md
+  - file: usage-event-format.md
+    source: https://github.com/gardener/gardener-extension-auditing/blob/main/docs/usage/event-format.md
+- dir: gardener-extension-shoot-lakom-service
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: Lakom Service
+      description: A k8s admission controller verifying pods are using signed images (cosign signatures) and a gardener extension to install it for shoots and seeds.
+    source: https://github.com/gardener/gardener-extension-shoot-lakom-service/blob/main/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-shoot-lakom-service/tree/main/docs
+- dir: gardener-extension-shoot-networking-problemdetector
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: Networking Problem Detector
+      description: Gardener extension for deploying network problem detector
+    source: https://github.com/gardener/gardener-extension-shoot-networking-problemdetector/blob/main/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-shoot-networking-problemdetector/tree/main/docs
+- dir: gardener-extension-shoot-rsyslog-relp
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: Node Audit Logging
+      description: Gardener extension controller which configures the rsyslog and auditd services installed on shoot nodes.
+    source: https://github.com/gardener/gardener-extension-shoot-rsyslog-relp/blob/main/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-shoot-rsyslog-relp/tree/main/docs
+    excludeFiles:
+      - "development/"
 - dir: oidc-apps-controller
   structure:
   - file: _index.md
@@ -136,28 +123,14 @@ structure:
       title: OIDC Apps Controller
       description: Controller that injects oauth2-proxy and kube-rbac-proxy sidecars for OIDC-protected applications in shoot clusters.
     source: https://github.com/gardener/oidc-apps-controller/blob/main/README.md
-- dir: gardener-extension-audit
+- dir: gardener-extension-shoot-oidc-service
   structure:
   - file: _index.md
     frontmatter:
-      title: Audit (metal-stack)
-      description: Gardener extension controller which deploys a fluent-bit based audit log forwarder for shoot clusters.
-    source: https://github.com/metal-stack/gardener-extension-audit/blob/main/README.md
-- dir: gardener-extension-csi-driver-lvm
-  structure:
-  - file: _index.md
-    frontmatter:
-      title: CSI Driver LVM
-      description: Gardener extension controller which deploys the LVM CSI driver for shoot clusters.
-    source: https://github.com/metal-stack/gardener-extension-csi-driver-lvm/blob/main/README.md
-  - fileTree: https://github.com/metal-stack/gardener-extension-csi-driver-lvm/tree/main/docs
-- dir: gardener-extension-backup-s3
-  structure:
-  - file: _index.md
-    frontmatter:
-      title: S3 Compatible Storage
-      description: Gardener extension controller for S3 compatible backup storage.
-    source: https://github.com/metal-stack/gardener-extension-backup-s3/blob/main/README.md
+      title: OpenID Connect Services
+      description: Gardener extension controller for OpenID Connect services for shoot clusters
+    source:  https://github.com/gardener/gardener-extension-shoot-oidc-service/blob/master/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-shoot-oidc-service/tree/master/docs
 - dir: gardener-extension-dns-powerdns
   structure:
   - file: _index.md
@@ -165,3 +138,30 @@ structure:
       title: PowerDNS
       description: Gardener extension controller for PowerDNS as a primary DNS provider.
     source: https://github.com/metal-stack/gardener-extension-dns-powerdns/blob/main/README.md
+- dir: gardener-extension-registry-cache
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: Registry Cache
+      description: Gardener extension controller which deploys pull-through caches for container registries.
+    source: https://github.com/gardener/gardener-extension-registry-cache/blob/main/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-registry-cache/tree/main/docs
+    excludeFiles:
+      - "development/"
+- dir: gardener-extension-backup-s3
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: S3 Compatible Storage
+      description: Gardener extension controller for S3 compatible backup storage.
+    source: https://github.com/metal-stack/gardener-extension-backup-s3/blob/main/README.md
+- dir: gardener-extension-shoot-traefik
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: Traefik Ingress
+      description: Gardener extension controller which deploys the Traefik ingress controller for shoot clusters.
+    source: https://github.com/gardener/gardener-extension-shoot-traefik/blob/main/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-shoot-traefik/tree/main/docs
+    excludeFiles:
+      - "development/"

@@ -1,4 +1,14 @@
 structure:
+- dir: gardener-extension-provider-alicloud
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: Provider Alibaba Cloud
+      description: Gardener extension controller for the Alibaba cloud provider
+    source:  https://github.com/gardener/gardener-extension-provider-alicloud/blob/master/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-provider-alicloud/tree/master/docs
+    excludeFiles:
+      - "development/"
 - dir: gardener-extension-provider-aws
   structure:
   - file: _index.md
@@ -11,6 +21,16 @@ structure:
       - "usage/dual-stack-ingress.md" # already included in ../guides.yaml, avoiding duplicates
       - "usage/ipv6.md" # already included in ../guides.yaml, avoiding duplicates
       - "development/"
+- dir: gardener-extension-provider-azure
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: Provider Azure
+      description: Gardener extension controller for the Azure cloud provider
+    source: https://github.com/gardener/gardener-extension-provider-azure/blob/master/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-provider-azure/tree/master/docs
+    excludeFiles:
+      - "development/"
 - dir: gardener-extension-provider-gcp
   structure:
   - file: _index.md
@@ -22,36 +42,6 @@ structure:
     excludeFiles:
       - "usage/ipv6.md" # already included in ../guides.yaml, avoiding duplicates
       - "proposals/datadisk-image-restore.md" # no added value in including proposals
-      - "development/"
-- dir: gardener-extension-provider-azure
-  structure:
-  - file: _index.md
-    frontmatter:
-      title: Provider Azure
-      description: Gardener extension controller for the Azure cloud provider
-    source: https://github.com/gardener/gardener-extension-provider-azure/blob/master/README.md
-  - fileTree: https://github.com/gardener/gardener-extension-provider-azure/tree/master/docs
-    excludeFiles:
-      - "development/"
-- dir: gardener-extension-provider-alicloud
-  structure:
-  - file: _index.md
-    frontmatter:
-      title: Provider Alibaba Cloud
-      description: Gardener extension controller for the Alibaba cloud provider
-    source:  https://github.com/gardener/gardener-extension-provider-alicloud/blob/master/README.md
-  - fileTree: https://github.com/gardener/gardener-extension-provider-alicloud/tree/master/docs
-    excludeFiles:
-      - "development/"
-- dir: gardener-extension-provider-openstack
-  structure:
-  - file: _index.md
-    frontmatter:
-      title: Provider OpenStack
-      description: Gardener extension controller for the OpenStack cloud provider
-    source:  https://github.com/gardener/gardener-extension-provider-openstack/blob/master/README.md
-  - fileTree: https://github.com/gardener/gardener-extension-provider-openstack/tree/master/docs
-    excludeFiles:
       - "development/"
 - dir: gardener-extension-provider-ironcore
   structure:
@@ -73,25 +63,6 @@ structure:
   - fileTree: https://github.com/ironcore-dev/gardener-extension-provider-ironcore-metal/tree/main/docs
     excludeFiles:
       - "development/"
-- dir: gardener-extension-provider-metal
-  structure:
-  - file: _index.md
-    frontmatter:
-      title: Provider metal-stack
-      description: Gardener extension controller for the metal-stack cloud provider
-    source: https://github.com/metal-stack/gardener-extension-provider-metal/blob/master/README.md
-- dir: gardener-extension-provider-stackit
-  structure:
-  - file: _index.md
-    frontmatter:
-      title: Provider STACKIT
-      description: Gardener extension controller for the STACKIT cloud provider
-    source:  https://github.com/stackitcloud/gardener-extension-provider-stackit/blob/main/README.md
-  - fileTree: https://github.com/stackitcloud/gardener-extension-provider-stackit/tree/main/docs
-    excludeFiles:
-      - "development.md" # not relevant for users
-      - "releases.md" # not relevant for users
-      - "testing.md" # not relevant for users
 - dir: gardener-extension-provider-kubevirt
   structure:
   - file: _index.md
@@ -104,6 +75,35 @@ structure:
       - "dev-setup.md"
       - "local-setup-admission.md"
       - "manifests/"
+- dir: gardener-extension-provider-metal
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: Provider metal-stack
+      description: Gardener extension controller for the metal-stack cloud provider
+    source: https://github.com/metal-stack/gardener-extension-provider-metal/blob/master/README.md
+- dir: gardener-extension-provider-openstack
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: Provider OpenStack
+      description: Gardener extension controller for the OpenStack cloud provider
+    source:  https://github.com/gardener/gardener-extension-provider-openstack/blob/master/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-provider-openstack/tree/master/docs
+    excludeFiles:
+      - "development/"
+- dir: gardener-extension-provider-stackit
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: Provider STACKIT
+      description: Gardener extension controller for the STACKIT cloud provider
+    source:  https://github.com/stackitcloud/gardener-extension-provider-stackit/blob/main/README.md
+  - fileTree: https://github.com/stackitcloud/gardener-extension-provider-stackit/tree/main/docs
+    excludeFiles:
+      - "development.md" # not relevant for users
+      - "releases.md" # not relevant for users
+      - "testing.md" # not relevant for users
 - dir: gardener-extension-provider-vsphere
   structure:
   - file: _index.md
