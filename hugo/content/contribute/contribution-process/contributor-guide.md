@@ -78,23 +78,8 @@ hooksPath = ~/git-hooks
 3. Create the file `~/git-hooks/prepare-commit-msg` and add:
 ```shell
 #!/bin/sh
-# Automatically append Signed-off-by trailer if not already present
-
-set -eu
-
-NAME="$(git config user.name)"
-EMAIL="$(git config user.email)"
-
-if [ -z "$NAME" ] || [ -z "$EMAIL" ]; then
-  echo "commit-msg: user.name or user.email not set in git config; skipping Signed-off-by" >&2
-  exit 0
-fi
-
-SIGNOFF="Signed-off-by: $NAME <$EMAIL>"
-
-if ! grep -qF "$SIGNOFF" "$1"; then
-  printf "\n%s\n" "$SIGNOFF" >> "$1"
-fi
+SOB=$(git var GIT_COMMITTER_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
+git interpret-trailers --in-place --trailer "$SOB" "$1"
 ```
 
 </details>
