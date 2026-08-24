@@ -13,9 +13,9 @@ const MANAGED_TEMPLATE = `${MARKER_MANAGED}
    ▀▀▀  ▀  ▀▀▀ ▀
 
    ┌────────────────────────────────────────────────┐
-   │  MANAGED FILE — aggregated from upstream.        │
+   │  MANAGED FILE — aggregated from upstream         │
    │                                                  │
-   │  Editing here is pointless: the nightly          │
+   │  Editing here is pointless: The nightly          │
    │  aggregation run overwrites this file.           │
    │                                                  │
    │  Open a PR against the source instead:           │
@@ -31,7 +31,7 @@ const LOCAL_BANNER = `${MARKER_LOCAL}
 
    ┌────────────────────────────────────────────────┐
    │  LOCAL FILE — maintained in gardener/            │
-   │  documentation.                                  │
+   │  documentation                                   │
    │                                                  │
    │  Go ahead and edit this file directly.           │
    │  Changes here are the source of truth.           │
