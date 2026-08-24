@@ -33,7 +33,71 @@ Please report abusive, harassing, or unacceptable behavior to [gardener-tsc@list
 
 ### Developer Certificate of Origin
 
-Contributors must accept a Developer Certificate of Origin (DCO) before submitting their first pull request. This happens in an automated fashion during the submission process. We use [the standard DCO text of the Linux Foundation](https://developercertificate.org/).
+Contributors sign off that they adhere to the [Developer Certificate of Origin (DCO)](https://developercertificate.org/) when making contributions to the project.
+This happens by adding a `Signed-off-by` line to commit messages.
+
+<details>
+<summary>Signing off commit messages</summary>
+
+A signed off commit message looks like this:
+```text
+This is my commit message
+
+Signed-off-by: Random J Developer <random@developer.example.org>
+```
+
+Make sure to configure your identity in the Git config:
+
+```shell
+git config --global user.name "Random J Developer"
+git config --global user.email "random@developer.example.org"
+```
+
+In your `~/.gitconfig` this looks like this:
+
+```text
+[user]
+  name = Random J Developer
+  email = random@developer.example.org
+```
+
+You can sign commits by adding `-s` to the `git commit` command:
+
+```shell
+git commit -s -m 'This is my commit message'
+```
+
+If you want to sign off all commits by default you could add a `prepare-commit-msg` Git hook:
+
+1. If not already present create a folder for your Git hooks. You can choose any path, e.g. `mkdir ~/git-hooks`
+2. Configure the hooks path in your `~/.gitconfig`
+```text
+[core]
+hooksPath = ~/git-hooks
+```
+3. Create the file `~/git-hooks/prepare-commit-msg` and add:
+```shell
+#!/bin/sh
+# Automatically append Signed-off-by trailer if not already present
+
+set -eu
+
+NAME="$(git config user.name)"
+EMAIL="$(git config user.email)"
+
+if [ -z "$NAME" ] || [ -z "$EMAIL" ]; then
+  echo "commit-msg: user.name or user.email not set in git config; skipping Signed-off-by" >&2
+  exit 0
+fi
+
+SIGNOFF="Signed-off-by: $NAME <$EMAIL>"
+
+if ! grep -qF "$SIGNOFF" "$1"; then
+  printf "\n%s\n" "$SIGNOFF" >> "$1"
+fi
+```
+
+</details>
 
 ### License
 
@@ -41,7 +105,6 @@ Your contributions to Gardener must be licensed properly:
 
 * Code contributions must be licensed under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0)
 * Documentation contributions must be licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/legalcode)
-* You need to sign the Contributor License Agreement. We are using *[CLA assistant](https://cla-assistant.io/)*, which provides a click-through workflow for accepting the CLA. For company contributors, the company also needs to sign a corporate license agreement.
 
 ## Contributing
 
