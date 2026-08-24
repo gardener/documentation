@@ -92,3 +92,25 @@ structure:
       - "development.md" # not relevant for users
       - "releases.md" # not relevant for users
       - "testing.md" # not relevant for users
+- dir: gardener-extension-provider-kubevirt
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: Provider KubeVirt
+      description: Gardener extension controller for the KubeVirt cloud provider
+    source: https://github.com/gardener/gardener-extension-provider-kubevirt/blob/master/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-provider-kubevirt/tree/master/docs
+    excludeFiles:
+      - "dev-setup.md"
+      - "local-setup-admission.md"
+      - "manifests/"
+- dir: gardener-extension-provider-vsphere
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: Provider vSphere
+      description: Gardener extension controller for the vSphere cloud provider
+    source: https://github.com/gardener/gardener-extension-provider-vsphere/blob/main/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-provider-vsphere/tree/main/docs
+    excludeFiles:
+      - "development/"
