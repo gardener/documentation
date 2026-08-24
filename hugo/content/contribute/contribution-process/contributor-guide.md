@@ -37,9 +37,9 @@ Contributors sign off that they adhere to the [Developer Certificate of Origin (
 This happens by adding a `Signed-off-by` line to commit messages.
 
 <details>
-<summary>Signing off commit messages</summary>
+<summary>Signing off on commits</summary>
 
-A signed off commit message looks like this:
+A signed-off commit message looks like this:
 ```text
 This is my commit message
 
@@ -61,13 +61,13 @@ In your `~/.gitconfig` this looks like this:
   email = random@developer.example.org
 ```
 
-You can sign commits by adding `-s` to the `git commit` command:
+You can sign off on commits by adding `-s` to the `git commit` command:
 
 ```shell
 git commit -s -m 'This is my commit message'
 ```
 
-If you want to sign off all commits by default you could add a `prepare-commit-msg` Git hook:
+If you want to sign off on every commit by default, you could add a `prepare-commit-msg` Git hook:
 
 1. If not already present create a folder for your Git hooks. You can choose any path, e.g. `mkdir ~/git-hooks`
 2. Configure the hooks path in your `~/.gitconfig`
