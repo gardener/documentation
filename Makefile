@@ -147,7 +147,7 @@ local-preview:
 
 .PHONY: post-processing-part-1
 post-processing-part-1:
-	node post-processing/part-1.js --rename-images --add-h1-title --youtube --fix-network-doc --add-missing-index
+	node post-processing/part-1.js --rename-images --add-h1-title --youtube --fix-network-doc
 
 .PHONY: post-processing-part-2
 post-processing-part-2:

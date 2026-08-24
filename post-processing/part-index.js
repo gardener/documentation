@@ -1,6 +1,71 @@
 import fs from 'fs';
 import path from 'path';
-import { read, write } from './lib/frontmatter.js';
+import { read, write, stringify } from './lib/frontmatter.js';
+
+const IGNORE_DIRS = ['node_modules', '.git', 'dist', 'build', 'images', 'assets', 'content', 'logo'];
+
+function generateTitleFromDirName(dirName) {
+  const spaced = dirName.replace(/-/g, ' ');
+  return spaced.charAt(0).toUpperCase() + spaced.slice(1);
+}
+
+// Creates an index.md stub in directories that hold more than one entry but no
+// own index page. docforge only emits _index.md, so a directory that already
+// has either index.md or _index.md owns its route and is left untouched.
+// The stub carries its final frontmatter inline: prev/next false (this step runs
+// after part-2's addNavigationFrontmatter, so the stub would otherwise miss it)
+// and editLink false (empty body, no source to edit, same as markEmptyAggregator).
+function addMissingIndexFiles(docsDir) {
+  let created = 0;
+
+  function traverse(directory) {
+    let entries;
+    try {
+      entries = fs.readdirSync(directory);
+    } catch (err) {
+      console.error(`Error reading directory ${directory}: ${err.message}`);
+      return;
+    }
+
+    if (entries.length > 1) {
+      const hasIndex = entries.includes('index.md');
+      const hasUnderscoreIndex = entries.includes('_index.md');
+      if (!hasIndex && !hasUnderscoreIndex) {
+        const title = generateTitleFromDirName(path.basename(directory));
+        const content = stringify('', {
+          title,
+          auto_generated: true,
+          generated_by: 'post-processing/part-index.js addMissingIndexFiles function',
+          prev: false,
+          next: false,
+          editLink: false,
+        });
+        const indexPath = path.join(directory, 'index.md');
+        try {
+          fs.writeFileSync(indexPath, content, 'utf-8');
+          created += 1;
+          console.log(`Created ${indexPath} (${entries.length} entries) - Title: "${title}"`);
+        } catch (err) {
+          console.error(`Error creating index.md in ${directory}: ${err.message}`);
+        }
+      }
+    }
+
+    for (const entry of entries) {
+      const fullPath = path.join(directory, entry);
+      try {
+        if (fs.statSync(fullPath).isDirectory() && !IGNORE_DIRS.includes(entry)) {
+          traverse(fullPath);
+        }
+      } catch (err) {
+        console.error(`Error accessing ${fullPath}: ${err.message}`);
+      }
+    }
+  }
+
+  traverse(docsDir);
+  return created;
+}
 
 function findIndexFiles(dir) {
   const results = [];
@@ -44,7 +109,7 @@ function main() {
   const targetDir = process.argv[2];
 
   if (!targetDir) {
-    console.error('Usage: node index.js <directory>');
+    console.error('Usage: node part-index.js <directory>');
     process.exit(1);
   }
 
@@ -54,6 +119,11 @@ function main() {
   }
 
   try {
+    // Stubs must be created before the rename so the collision guard below sees
+    // them as index.md and never clobbers them with a docforge _index.md.
+    const docsPath = path.join(targetDir, 'docs');
+    const createdStubs = fs.existsSync(docsPath) ? addMissingIndexFiles(docsPath) : 0;
+
     const indexFiles = findIndexFiles(targetDir);
 
     let renamed = 0;
@@ -79,6 +149,7 @@ function main() {
       }
     }
 
+    console.log(`Created ${createdStubs} index stubs`);
     console.log(`Processed ${indexFiles.length} files (${renamed} renamed, ${editLinkMarked} marked editLink:false)`);
   } catch (error) {
     console.error('Error:', error.message);
