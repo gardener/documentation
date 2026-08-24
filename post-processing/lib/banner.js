@@ -14,13 +14,17 @@ const MANAGED_TEMPLATE = `${MARKER_MANAGED}
 
    ┌────────────────────────────────────────────────┐
    │  MANAGED FILE — aggregated from upstream         │
-   │                                                  │
-   │  Editing here is pointless: The nightly          │
-   │  aggregation run overwrites this file.           │
-   │                                                  │
-   │  Open a PR against the source instead:           │
-   │  {upstreamUrl}                                   │
-   └────────────────────────────────────────────────┘
+   │                                                │
+   │  Editing here is pointless: The nightly        │
+   │  aggregation run overwrites this file.         │
+   │                                                │
+   │  Open a PR against the source instead: ─────┐  │
+   │                          ┌──┐    ┌──────────┘  │
+   │                          └──│────┘             │
+   │           ┌─────────────────┘                  │
+   └───────────│────────────────────────────────────┘
+               ▼               
+   {upstreamUrl}
 -->`;
 
 const LOCAL_BANNER = `${MARKER_LOCAL}
@@ -29,12 +33,12 @@ const LOCAL_BANNER = `${MARKER_LOCAL}
    █ █ █▀▄
    ▀▀▀ ▀ ▀
 
-   ┌────────────────────────────────────────────────┐
-   │  LOCAL FILE — maintained in gardener/            │
-   │  documentation                                   │
-   │                                                  │
-   │  Go ahead and edit this file directly.           │
-   │  Changes here are the source of truth.           │
+   ┌────────────────────────────────────────────────┐  
+   │  LOCAL FILE — maintained in gardener/          │
+   │  documentation                                │
+   │                                                │
+   │  Go ahead and edit this file directly.         │
+   │  Changes here are the source of truth.         │
    └────────────────────────────────────────────────┘
 -->`;
 
