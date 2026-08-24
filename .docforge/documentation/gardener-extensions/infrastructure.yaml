@@ -3,7 +3,7 @@ structure:
   structure:
   - file: _index.md
     frontmatter:
-      title: Provider Alibaba Cloud
+      title: Alibaba Cloud
       description: Gardener extension controller for the Alibaba cloud provider
     source:  https://github.com/gardener/gardener-extension-provider-alicloud/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-provider-alicloud/tree/master/docs
@@ -13,7 +13,7 @@ structure:
   structure:
   - file: _index.md
     frontmatter:
-      title: Provider AWS
+      title: AWS
       description: Gardener extension controller for the AWS cloud provider
     source:  https://github.com/gardener/gardener-extension-provider-aws/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-provider-aws/tree/master/docs
@@ -25,7 +25,7 @@ structure:
   structure:
   - file: _index.md
     frontmatter:
-      title: Provider Azure
+      title: Azure
       description: Gardener extension controller for the Azure cloud provider
     source: https://github.com/gardener/gardener-extension-provider-azure/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-provider-azure/tree/master/docs
@@ -35,7 +35,7 @@ structure:
   structure:
   - file: _index.md
     frontmatter:
-      title: Provider GCP
+      title: GCP
       description: Gardener extension controller for the GCP cloud provider
     source: https://github.com/gardener/gardener-extension-provider-gcp/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-provider-gcp/tree/master/docs
@@ -47,7 +47,7 @@ structure:
   structure:
   - file: _index.md
     frontmatter:
-      title: Provider IronCore
+      title: IronCore
       description: Gardener extension controller for the IronCore cloud provider
     source: https://github.com/ironcore-dev/gardener-extension-provider-ironcore/blob/main/README.md
   - fileTree: https://github.com/ironcore-dev/gardener-extension-provider-ironcore/tree/main/docs
@@ -57,7 +57,7 @@ structure:
   structure:
   - file: _index.md
     frontmatter:
-      title: Provider IronCore Metal
+      title: IronCore Metal
       description: Gardener extension controller for the IronCore Metal API cloud provider
     source: https://github.com/ironcore-dev/gardener-extension-provider-ironcore-metal/blob/main/README.md
   - fileTree: https://github.com/ironcore-dev/gardener-extension-provider-ironcore-metal/tree/main/docs
@@ -67,7 +67,7 @@ structure:
   structure:
   - file: _index.md
     frontmatter:
-      title: Provider KubeVirt
+      title: KubeVirt
       description: Gardener extension controller for the KubeVirt cloud provider
     source: https://github.com/gardener/gardener-extension-provider-kubevirt/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-provider-kubevirt/tree/master/docs
@@ -79,14 +79,14 @@ structure:
   structure:
   - file: _index.md
     frontmatter:
-      title: Provider metal-stack
+      title: metal-stack
       description: Gardener extension controller for the metal-stack cloud provider
     source: https://github.com/metal-stack/gardener-extension-provider-metal/blob/master/README.md
 - dir: gardener-extension-provider-openstack
   structure:
   - file: _index.md
     frontmatter:
-      title: Provider OpenStack
+      title: OpenStack
       description: Gardener extension controller for the OpenStack cloud provider
     source:  https://github.com/gardener/gardener-extension-provider-openstack/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-provider-openstack/tree/master/docs
@@ -96,7 +96,7 @@ structure:
   structure:
   - file: _index.md
     frontmatter:
-      title: Provider STACKIT
+      title: STACKIT
       description: Gardener extension controller for the STACKIT cloud provider
     source:  https://github.com/stackitcloud/gardener-extension-provider-stackit/blob/main/README.md
   - fileTree: https://github.com/stackitcloud/gardener-extension-provider-stackit/tree/main/docs
@@ -108,7 +108,7 @@ structure:
   structure:
   - file: _index.md
     frontmatter:
-      title: Provider vSphere
+      title: vSphere
       description: Gardener extension controller for the vSphere cloud provider
     source: https://github.com/gardener/gardener-extension-provider-vsphere/blob/main/README.md
   - fileTree: https://github.com/gardener/gardener-extension-provider-vsphere/tree/main/docs
