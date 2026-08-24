@@ -105,3 +105,63 @@ structure:
     source: https://github.com/gardener/gardener-extension-auditing/blob/main/docs/usage/configuration.md
   - file: usage-event-format.md
     source: https://github.com/gardener/gardener-extension-auditing/blob/main/docs/usage/event-format.md
+- dir: gardener-extension-shoot-falco-service
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: Falco
+      description: Gardener extension for deploying Falco runtime security monitoring for shoot clusters.
+    source: https://github.com/gardener/gardener-extension-shoot-falco-service/blob/main/README.md
+  - fileTree: https://github.com/gardener/gardener-extension-shoot-falco-service/tree/main/docs
+    excludeFiles:
+      - "README.md"
+- dir: gardener-extension-shoot-flux
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: Flux
+      description: Gardener extension for deploying Flux GitOps toolkit for shoot clusters.
+    source: https://github.com/stackitcloud/gardener-extension-shoot-flux/blob/main/README.md
+- dir: gardener-extension-image-rewriter
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: Image Rewriter
+      description: Gardener extension controller which rewrites container image references in shoot clusters.
+    source: https://github.com/gardener/gardener-extension-image-rewriter/blob/master/README.md
+- dir: oidc-apps-controller
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: OIDC Apps Controller
+      description: Controller that injects oauth2-proxy and kube-rbac-proxy sidecars for OIDC-protected applications in shoot clusters.
+    source: https://github.com/gardener/oidc-apps-controller/blob/main/README.md
+- dir: gardener-extension-audit
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: Audit (metal-stack)
+      description: Gardener extension controller which deploys a fluent-bit based audit log forwarder for shoot clusters.
+    source: https://github.com/metal-stack/gardener-extension-audit/blob/main/README.md
+- dir: gardener-extension-csi-driver-lvm
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: CSI Driver LVM
+      description: Gardener extension controller which deploys the LVM CSI driver for shoot clusters.
+    source: https://github.com/metal-stack/gardener-extension-csi-driver-lvm/blob/main/README.md
+  - fileTree: https://github.com/metal-stack/gardener-extension-csi-driver-lvm/tree/main/docs
+- dir: gardener-extension-backup-s3
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: S3 Compatible Storage
+      description: Gardener extension controller for S3 compatible backup storage.
+    source: https://github.com/metal-stack/gardener-extension-backup-s3/blob/main/README.md
+- dir: gardener-extension-dns-powerdns
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: PowerDNS
+      description: Gardener extension controller for PowerDNS as a primary DNS provider.
+    source: https://github.com/metal-stack/gardener-extension-dns-powerdns/blob/main/README.md
