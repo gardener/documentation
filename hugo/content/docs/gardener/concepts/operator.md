@@ -309,7 +309,7 @@ This section highlights the most prominent fields:
   `issuerURL` is the URL of the JWT issuer.
   `sessionLifetime` is the duration after which a session is terminated (i.e., after which a user is automatically logged out).
   `additionalScopes` allows to extend the list of scopes of the JWT token that are to be recognized.
-  `certificateAuthoritySecretRef` allows you to specify a secret containing a custom CA certificate for communicating with the OIDC issuer.  
+  `certificateAuthoritySecretRef` allows you to specify a secret containing a custom CA certificate for communicating with the OIDC issuer.
   You must reference a `Secret` in the `garden` namespace containing the client and, if applicable, the client secret for the dashboard:
   ```yaml
   apiVersion: v1
@@ -563,6 +563,14 @@ The following table explains which `ManagedResource`s are considered for which c
 | `RuntimeComponentsHealthy` | `.spec.class=seed` and `care.gardener.cloud/condition-type` label either unset, or set to `RuntimeComponentsHealthy` |
 | `VirtualComponentsHealthy` | `.spec.class` unset or `care.gardener.cloud/condition-type` label set to `VirtualComponentsHealthy` |
 | `ObservabilityComponentsHealthy` | `care.gardener.cloud/condition-type` label set to `ObservabilityComponentsHealthy` |
+
+##### Constraints
+
+The reconciler also computes the following constraint in `.status.constraints` of the `Garden`:
+
+| Constraint Type | Meaning when `status=True` | Meaning when `status=False` |
+| --- | --- | --- |
+| `ManagedResourcesHonored` | No `ManagedResource` in the garden's namespaces carries the `resources.gardener.cloud/ignore=true` annotation. | At least one `ManagedResource` is annotated with `resources.gardener.cloud/ignore=true`, disabling its reconciliation. |
 
 #### [`Reference` Reconciler](https://github.com/gardener/gardener/tree/master/pkg/operator/controller/garden/reference)
 

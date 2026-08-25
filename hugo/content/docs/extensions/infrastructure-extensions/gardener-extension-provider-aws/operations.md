@@ -104,7 +104,7 @@ spec:
     - version: 2135.6.0
       capabilityFlavors:
       - architecture: [amd64]
-      # otherCapability: [otherValue, ...] 
+      # otherCapability: [otherValue, ...]
       - architecture: [arm64]
       # otherCapability: [otherValue, ...]
   machineTypes:
@@ -356,12 +356,12 @@ The `gardener-extension-provider-aws` controller supports the following feature 
 
 | Feature Gate | Default | Description |
 | --- | --- | --- |
-| `MTUCustomizer` | `true` | Controls whether the `mtu-customizer` DaemonSet and its ConfigMap are deployed on the seed cluster. The DaemonSet sets the MTU of non-virtual network interfaces on seed nodes to `1460`. Disable this feature gate to prevent the DaemonSet from being deployed for all seeds managed by this controller. Note: per-shoot MTU customization on worker nodes is controlled separately via the `enableMTUCustomizer` field in `InfrastructureConfig`. |
+| `MTUCustomizer` | `false` | Controls whether the `mtu-customizer` DaemonSet and its ConfigMap are deployed on the seed cluster. The DaemonSet sets the MTU of non-virtual network interfaces on seed nodes to `1460`. Disable this feature gate to prevent the DaemonSet from being deployed for all seeds managed by this controller. Note: per-shoot MTU customization on worker nodes is controlled separately via the `enableMTUCustomizer` field in `InfrastructureConfig`. |
 
-Example Helm values to disable the feature gate:
+Example Helm values to enable the `mtu-customizer` deployment:
 
 ```yaml
 config:
   featureGates:
-    MTUCustomizer: false
+    MTUCustomizer: true
 ```

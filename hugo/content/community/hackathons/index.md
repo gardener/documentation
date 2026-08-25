@@ -24,7 +24,6 @@ If you feel like you can contribute something, you are encouraged to file a PR.
 
 | Date | Location | Organizer | Wrap Up |
 | :-- | :-- | :-- | :-- |
-| 09.11.2026 – 13.11.2026 | [Schlosshof Freizeitheim, Schelklingen](https://www.schlosshof-info.de/) | x-cellent | [Summary](/community/hackathons/2026-11/) |
 | 04.05.2026 – 08.05.2026 | [Schlosshof Freizeitheim, Schelklingen](https://www.schlosshof-info.de/) | x-cellent | [Summary](/community/hackathons/2026-05/) |
 | 16.03.2026 – 20.03.2026 | [SAP Center Sofia](https://maps.app.goo.gl/SPdvQ4F2p7Qqfx4p9) | SAP | [Summary](/community/hackathons/2026-03/) |
 | 08.12.2025 – 12.12.2025 | [SAP Center Walldorf](https://maps.app.goo.gl/L3Yv7jooK9kfsaxb9) | SAP | [Summary](/community/hackathons/2025-12/) |
@@ -38,7 +37,7 @@ If you feel like you can contribute something, you are encouraged to file a PR.
 | 26.09.2022 – 30.09.2022 | [Württemberger Haus, Hirschegg, Österreich](https://www.wuerttembergerhaus.de/) | SAP | [Summary](/community/hackathons/2022-09/) |
 | 02.11.2021 – 05.11.2021 | [Mesnerhof C, Steinberg am Rofan, Österreich](https://www.mesnerhof-c.at/) | x-cellent | [Summary](/community/hackathons/2021-11/) |
 
-A subsequent Hackathon is proposed to be held in spring 2027, but concrete dates are not decided yet.
+A subsequent Hackathon is proposed to be held in autumn 2026, but concrete dates are not decided yet.
 
 ## 🔍 What to Expect
 
