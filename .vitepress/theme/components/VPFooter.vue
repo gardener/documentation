@@ -27,7 +27,7 @@ Copied and adapted from: https://github.com/vuejs/vitepress/blob/828000099843c98
 -->
 
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useData } from "vitepress";
 import euSupportImg from '../assets/eu-support.png'
 import neonephosLogo from '../assets/neonephos_logo.svg'
@@ -36,50 +36,15 @@ import neonephosLogoDark from '../assets/neonephos_logo_dark.svg'
 const { isDark, site } = useData()
 // Site name, not the per-page title (which is "<Page> | <Site>" on inner pages).
 const projectName = computed(() => site.value.title || '<YOUR PROJECT NAME>')
-
-// The footer is full-width, but the sidebar is position:fixed and would
-// overlap it. We publish how much of the footer is currently visible so the
-// sidebar (see style.css) can lift its bottom edge by that amount.
-const footerEl = ref<HTMLElement | null>(null)
-let frame = 0
-
-function updateFooterOverlap() {
-  const el = footerEl.value
-  if (!el) return
-  const rect = el.getBoundingClientRect()
-  const visible = Math.max(0, window.innerHeight - rect.top)
-  document.documentElement.style.setProperty('--footer-visible-height', `${visible}px`)
-}
-
-function scheduleUpdate() {
-  cancelAnimationFrame(frame)
-  frame = requestAnimationFrame(updateFooterOverlap)
-}
-
-let resizeObserver: ResizeObserver | undefined
-
-onMounted(() => {
-  scheduleUpdate()
-  window.addEventListener('scroll', scheduleUpdate, { passive: true })
-  window.addEventListener('resize', scheduleUpdate)
-  if (footerEl.value) {
-    resizeObserver = new ResizeObserver(scheduleUpdate)
-    resizeObserver.observe(footerEl.value)
-  }
-})
-
-onUnmounted(() => {
-  cancelAnimationFrame(frame)
-  window.removeEventListener('scroll', scheduleUpdate)
-  window.removeEventListener('resize', scheduleUpdate)
-  resizeObserver?.disconnect()
-  document.documentElement.style.removeProperty('--footer-visible-height')
-})
+// Set on the client so the year stays correct without a rebuild; the SSR-built
+// HTML would otherwise freeze to the year the site was last deployed.
+const currentYear = ref(new Date().getFullYear())
+onMounted(() => { currentYear.value = new Date().getFullYear() })
 
 </script>
 
 <template>
-  <footer ref="footerEl" class="VPFooter">
+  <footer class="VPFooter">
     <div class="container">
       <!-- Row 1: Funding notice + NeoNephos logo -->
       <div class="footer-top">
@@ -121,7 +86,7 @@ onUnmounted(() => {
       <div class="footer-bottom">
         <div class="copyright">
           <p>
-            <strong>Copyright © The Linux Foundation Europe. All rights reserved.</strong>
+            <strong>Copyright ©  {{ currentYear }} The Linux Foundation Europe. All rights reserved.</strong>
             <a href="https://linuxfoundation.eu/en/policies" class="policies-link">View Policies</a>
           </p>
           <p>
@@ -147,6 +112,16 @@ onUnmounted(() => {
   border-top: 1px solid var(--vp-c-gutter);
   padding: 32px 24px;
   background-color: var(--vp-c-bg);
+}
+
+/* On desktop the sidebar is position:fixed (z-index 60) and would cover the
+   full-width footer at the bottom of the page. Lift the footer above it so
+   the sidebar scrolls behind the footer instead of overlapping it. On mobile
+   the sidebar is an overlay, so this rule must stay desktop-only. */
+@media (min-width: 960px) {
+  .VPFooter {
+    z-index: calc(var(--vp-z-index-sidebar) + 1);
+  }
 }
 
 .VPFooter :deep(a) {
