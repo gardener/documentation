@@ -53,6 +53,7 @@ structure:
     source: https://github.com/gardener/gardener-extension-shoot-falco-service/blob/main/README.md
   - fileTree: https://github.com/gardener/gardener-extension-shoot-falco-service/tree/main/docs
     excludeFiles:
+      - "FalcoExtension.md"
       - "README.md"
 - dir: gardener-extension-shoot-flux
   structure:
