@@ -149,3 +149,15 @@ img[src='/search.png'] {
     padding: 18px 12px;
   }
 }
+
+/* The footer is rendered full-width outside the content area (in the
+   layout-bottom slot). The sidebar is position:fixed with bottom:0, so it
+   would otherwise overlap the footer. --footer-visible-height is set by
+   VPFooter.vue to the height of the footer currently inside the viewport;
+   we lift the sidebar's bottom edge by that amount so it never covers the
+   footer. */
+@media (min-width: 960px) {
+  .VPSidebar {
+    bottom: var(--footer-visible-height, 0px) !important;
+  }
+}

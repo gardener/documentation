@@ -27,22 +27,59 @@ Copied and adapted from: https://github.com/vuejs/vitepress/blob/828000099843c98
 -->
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useSidebar } from 'vitepress/theme';
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { useData } from "vitepress";
 import euSupportImg from '../assets/eu-support.png'
 import neonephosLogo from '../assets/neonephos_logo.svg'
 import neonephosLogoDark from '../assets/neonephos_logo_dark.svg'
 
-const { hasSidebar } = useSidebar()
 const { isDark, site } = useData()
 // Site name, not the per-page title (which is "<Page> | <Site>" on inner pages).
 const projectName = computed(() => site.value.title || '<YOUR PROJECT NAME>')
 
+// The footer is full-width, but the sidebar is position:fixed and would
+// overlap it. We publish how much of the footer is currently visible so the
+// sidebar (see style.css) can lift its bottom edge by that amount.
+const footerEl = ref<HTMLElement | null>(null)
+let frame = 0
+
+function updateFooterOverlap() {
+  const el = footerEl.value
+  if (!el) return
+  const rect = el.getBoundingClientRect()
+  const visible = Math.max(0, window.innerHeight - rect.top)
+  document.documentElement.style.setProperty('--footer-visible-height', `${visible}px`)
+}
+
+function scheduleUpdate() {
+  cancelAnimationFrame(frame)
+  frame = requestAnimationFrame(updateFooterOverlap)
+}
+
+let resizeObserver: ResizeObserver | undefined
+
+onMounted(() => {
+  scheduleUpdate()
+  window.addEventListener('scroll', scheduleUpdate, { passive: true })
+  window.addEventListener('resize', scheduleUpdate)
+  if (footerEl.value) {
+    resizeObserver = new ResizeObserver(scheduleUpdate)
+    resizeObserver.observe(footerEl.value)
+  }
+})
+
+onUnmounted(() => {
+  cancelAnimationFrame(frame)
+  window.removeEventListener('scroll', scheduleUpdate)
+  window.removeEventListener('resize', scheduleUpdate)
+  resizeObserver?.disconnect()
+  document.documentElement.style.removeProperty('--footer-visible-height')
+})
+
 </script>
 
 <template>
-  <footer class="VPFooter" :class="{ 'has-sidebar': hasSidebar }">
+  <footer ref="footerEl" class="VPFooter">
     <div class="container">
       <!-- Row 1: Funding notice + NeoNephos logo -->
       <div class="footer-top">
@@ -125,14 +162,6 @@ const projectName = computed(() => site.value.title || '<YOUR PROJECT NAME>')
 @media (min-width: 768px) {
   .VPFooter {
     padding: 32px;
-  }
-}
-
-/* On pages with a sidebar, offset the footer so it sits within the
-   content column instead of running underneath the fixed sidebar. */
-@media (min-width: 960px) {
-  .VPFooter.has-sidebar {
-    margin-left: var(--vp-sidebar-width);
   }
 }
 
