@@ -27,20 +27,22 @@ Copied and adapted from: https://github.com/vuejs/vitepress/blob/828000099843c98
 -->
 
 <script setup lang="ts">
-import { useSidebar } from 'vitepress/theme';
-import { withBase, useData } from "vitepress";
+import { computed } from 'vue'
+import { useData } from "vitepress";
 import euSupportImg from '../assets/eu-support.png'
 import neonephosLogo from '../assets/neonephos_logo.svg'
 import neonephosLogoDark from '../assets/neonephos_logo_dark.svg'
 
-const { hasSidebar } = useSidebar()
-const { isDark, title, theme } = useData()
+const { isDark, title, frontmatter } = useData()
 const projectName = title || '<YOUR PROJECT NAME>'
+
+// Footer is only shown on the landing page (layout: home).
+const isLandingPage = computed(() => frontmatter.value.layout === 'home')
 
 </script>
 
 <template>
-  <footer class="VPFooter" :class="{ 'has-sidebar': hasSidebar }">
+  <footer v-if="isLandingPage" class="VPFooter">
     <div class="container">
       <!-- Row 1: Funding notice + NeoNephos logo -->
       <div class="footer-top">
@@ -82,12 +84,11 @@ const projectName = title || '<YOUR PROJECT NAME>'
       <div class="footer-bottom">
         <div class="copyright">
           <p>
-            <strong>Copyright © Linux Foundation Europe.</strong>
+            <strong>Copyright © The Linux Foundation Europe. All rights reserved.</strong>
+            <a href="https://linuxfoundation.eu/en/policies" class="policies-link">View Policies</a>
           </p>
           <p>
             {{ projectName }} is a project of the NeoNephos Foundation.
-            For applicable policies including privacy policy, terms of use and trademark usage guidelines, please see <a href="https://linuxfoundation.eu">https://linuxfoundation.eu</a>.
-            Linux is a registered trademark of Linus Torvalds.
           </p>
         </div>
         <div class="powered-by">
@@ -97,15 +98,6 @@ const projectName = title || '<YOUR PROJECT NAME>'
             <img v-else src="https://www.netlify.com/assets/badges/netlify-badge-dark.svg" alt="Deploys by Netlify" class="netlify-logo" />
           </a>
         </div>
-      </div>
-
-      <!-- Row 3: Legal links (always last) -->
-      <div class="footer-legal-links">
-        <a href="/about/terms-of-use">Terms of Use</a>
-        <span class="footer-legal-sep">|</span>
-        <a href="/about/privacy">Privacy Statement</a>
-        <span class="footer-legal-sep">|</span>
-        <a href="/about/legal-disclosure">Legal Disclosure</a>
       </div>
     </div>
   </footer>
@@ -118,10 +110,6 @@ const projectName = title || '<YOUR PROJECT NAME>'
   border-top: 1px solid var(--vp-c-gutter);
   padding: 32px 24px;
   background-color: var(--vp-c-bg);
-}
-
-.VPFooter.has-sidebar {
-  display: none;
 }
 
 .VPFooter :deep(a) {
@@ -218,6 +206,10 @@ const projectName = title || '<YOUR PROJECT NAME>'
   margin: 0;
 }
 
+.copyright .policies-link {
+  margin-left: 4px;
+}
+
 .powered-by {
   flex-shrink: 0;
   display: flex;
@@ -234,32 +226,6 @@ const projectName = title || '<YOUR PROJECT NAME>'
 .netlify-logo {
   display: block;
   height: 28px;
-}
-
-/* Row 3: Legal links */
-.footer-legal-links {
-  border-top: 1px solid var(--vp-c-divider);
-  margin-top: 24px;
-  padding-top: 16px;
-  font-size: 13px;
-  color: var(--vp-c-text-2);
-  text-align: center;
-}
-
-.footer-legal-links a {
-  color: var(--vp-c-text-2);
-  text-decoration: underline;
-  margin: 0 4px;
-  transition: color 0.2s;
-}
-
-.footer-legal-links a:hover {
-  color: var(--vp-c-brand-1);
-}
-
-.footer-legal-sep {
-  margin: 0 4px;
-  color: var(--vp-c-divider);
 }
 
 /* Responsive */
