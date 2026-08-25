@@ -28,21 +28,21 @@ Copied and adapted from: https://github.com/vuejs/vitepress/blob/828000099843c98
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useSidebar } from 'vitepress/theme';
 import { useData } from "vitepress";
 import euSupportImg from '../assets/eu-support.png'
 import neonephosLogo from '../assets/neonephos_logo.svg'
 import neonephosLogoDark from '../assets/neonephos_logo_dark.svg'
 
-const { isDark, title, frontmatter } = useData()
-const projectName = title || '<YOUR PROJECT NAME>'
-
-// Footer is only shown on the landing page (layout: home).
-const isLandingPage = computed(() => frontmatter.value.layout === 'home')
+const { hasSidebar } = useSidebar()
+const { isDark, site } = useData()
+// Site name, not the per-page title (which is "<Page> | <Site>" on inner pages).
+const projectName = computed(() => site.value.title || '<YOUR PROJECT NAME>')
 
 </script>
 
 <template>
-  <footer v-if="isLandingPage" class="VPFooter">
+  <footer class="VPFooter" :class="{ 'has-sidebar': hasSidebar }">
     <div class="container">
       <!-- Row 1: Funding notice + NeoNephos logo -->
       <div class="footer-top">
@@ -125,6 +125,14 @@ const isLandingPage = computed(() => frontmatter.value.layout === 'home')
 @media (min-width: 768px) {
   .VPFooter {
     padding: 32px;
+  }
+}
+
+/* On pages with a sidebar, offset the footer so it sits within the
+   content column instead of running underneath the fixed sidebar. */
+@media (min-width: 960px) {
+  .VPFooter.has-sidebar {
+    margin-left: var(--vp-sidebar-width);
   }
 }
 
