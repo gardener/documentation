@@ -21,7 +21,7 @@ structure:
   structure:
   - file: _index.md
     frontmatter:
-      title: CSI Driver LVM
+      title: csi-driver-lvm
       description: Gardener extension controller which deploys the LVM CSI driver for shoot clusters.
     source: https://github.com/metal-stack/gardener-extension-csi-driver-lvm/blob/main/README.md
   - fileTree: https://github.com/metal-stack/gardener-extension-csi-driver-lvm/tree/main/docs
