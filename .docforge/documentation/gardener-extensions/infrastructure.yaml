@@ -4,6 +4,7 @@ structure:
   - file: _index.md
     frontmatter:
       title: Alibaba Cloud
+      weight: 10
       description: Gardener extension controller for the Alibaba cloud provider
     source:  https://github.com/gardener/gardener-extension-provider-alicloud/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-provider-alicloud/tree/master/docs
@@ -14,6 +15,7 @@ structure:
   - file: _index.md
     frontmatter:
       title: AWS
+      weight: 20
       description: Gardener extension controller for the AWS cloud provider
     source:  https://github.com/gardener/gardener-extension-provider-aws/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-provider-aws/tree/master/docs
@@ -26,6 +28,7 @@ structure:
   - file: _index.md
     frontmatter:
       title: Azure
+      weight: 30
       description: Gardener extension controller for the Azure cloud provider
     source: https://github.com/gardener/gardener-extension-provider-azure/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-provider-azure/tree/master/docs
@@ -36,6 +39,7 @@ structure:
   - file: _index.md
     frontmatter:
       title: GCP
+      weight: 40
       description: Gardener extension controller for the GCP cloud provider
     source: https://github.com/gardener/gardener-extension-provider-gcp/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-provider-gcp/tree/master/docs
@@ -48,6 +52,7 @@ structure:
   - file: _index.md
     frontmatter:
       title: IronCore
+      weight: 50
       description: Gardener extension controller for the IronCore cloud provider
     source: https://github.com/ironcore-dev/gardener-extension-provider-ironcore/blob/main/README.md
   - fileTree: https://github.com/ironcore-dev/gardener-extension-provider-ironcore/tree/main/docs
@@ -58,6 +63,7 @@ structure:
   - file: _index.md
     frontmatter:
       title: IronCore Metal
+      weight: 60
       description: Gardener extension controller for the IronCore Metal API cloud provider
     source: https://github.com/ironcore-dev/gardener-extension-provider-ironcore-metal/blob/main/README.md
   - fileTree: https://github.com/ironcore-dev/gardener-extension-provider-ironcore-metal/tree/main/docs
@@ -68,6 +74,7 @@ structure:
   - file: _index.md
     frontmatter:
       title: KubeVirt
+      weight: 70
       description: Gardener extension controller for the KubeVirt cloud provider
     source: https://github.com/gardener/gardener-extension-provider-kubevirt/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-provider-kubevirt/tree/master/docs
@@ -80,6 +87,7 @@ structure:
   - file: _index.md
     frontmatter:
       title: metal-stack
+      weight: 80
       description: Gardener extension controller for the metal-stack cloud provider
     source: https://github.com/metal-stack/gardener-extension-provider-metal/blob/master/README.md
 - dir: gardener-extension-provider-openstack
@@ -87,6 +95,7 @@ structure:
   - file: _index.md
     frontmatter:
       title: OpenStack
+      weight: 90
       description: Gardener extension controller for the OpenStack cloud provider
     source:  https://github.com/gardener/gardener-extension-provider-openstack/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-provider-openstack/tree/master/docs
@@ -97,6 +106,7 @@ structure:
   - file: _index.md
     frontmatter:
       title: STACKIT
+      weight: 100
       description: Gardener extension controller for the STACKIT cloud provider
     source:  https://github.com/stackitcloud/gardener-extension-provider-stackit/blob/main/README.md
   - fileTree: https://github.com/stackitcloud/gardener-extension-provider-stackit/tree/main/docs
@@ -109,6 +119,7 @@ structure:
   - file: _index.md
     frontmatter:
       title: vSphere
+      weight: 110
       description: Gardener extension controller for the vSphere cloud provider
     source: https://github.com/gardener/gardener-extension-provider-vsphere/blob/main/README.md
   - fileTree: https://github.com/gardener/gardener-extension-provider-vsphere/tree/main/docs

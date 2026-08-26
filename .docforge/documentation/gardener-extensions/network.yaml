@@ -4,6 +4,7 @@ structure:
   - file: _index.md
     frontmatter:
       title: Calico
+      weight: 10
       description: Gardener extension controller for the Calico CNI network plugin
     source:  https://github.com/gardener/gardener-extension-networking-calico/blob/master/README.md
   - fileTree:  https://github.com/gardener/gardener-extension-networking-calico/tree/master/docs
@@ -12,6 +13,7 @@ structure:
   - file: _index.md
     frontmatter:
       title: Cilium
+      weight: 20
       description: Gardener extension controller for the Cilium CNI network plugin
     source:  https://github.com/gardener/gardener-extension-networking-cilium/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-networking-cilium/tree/master/docs
