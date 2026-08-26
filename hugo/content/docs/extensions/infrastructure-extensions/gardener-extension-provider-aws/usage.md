@@ -1065,6 +1065,33 @@ To have the CSI-driver configured to support the necessary features for [VolumeA
 
 For more information and examples, see [this markdown](https://github.com/kubernetes-sigs/aws-ebs-csi-driver/blob/master/docs/modify-volume.md#volume-modification) in the aws-ebs-csi-driver repository. Please take special note of the considerations mentioned.
 
+## Cleanup of out-of-band IAM role attachments on Shoot deletion
+
+During `Shoot` deletion, the extension deletes the nodes IAM role it created (`shoot--<project>--<name>-nodes`). AWS rejects the deletion of a role with `DeleteConflict` as long as any policy is still attached to it. The extension only removes the attachments it manages itself, so policies attached out-of-band — for example by account-governance or security-baseline automation, or manually by administrators — leave the infrastructure deletion permanently failing until an operator detaches them by hand.
+
+To let such deletions succeed without manual intervention, the shoot can be annotated with:
+
+```yaml
+aws.provider.extensions.gardener.cloud/force-detach-role-policies: "true"
+```
+
+With this annotation set, the infrastructure deletion flow cleans up all remaining attachments of the nodes IAM role right before deleting it:
+
+- all still-attached managed policies are **detached** (the policies themselves, and their attachments to any other role, are never touched),
+- remaining inline policies of the role are deleted (inline policies are owned by the role by definition),
+- remaining instance-profile associations of the role are removed.
+
+Every removed attachment is logged with its ARN/name for auditability. The cleanup only ever runs during deletion — attachments are never touched while the shoot exists — and only for the one role the extension created and is about to delete. As an additional safeguard, if the role's ARN is recorded in the infrastructure state, the cleanup refuses to act on a role whose ARN does not match (e.g. an identically named role of another Gardener installation sharing the same account).
+
+Since annotations (unlike `.spec`) can still be changed on a `Shoot` that is already marked for deletion, this annotation can also be applied to rescue a deletion that is already stuck on a `DeleteConflict` error — annotate the shoot and retry the operation:
+
+```bash
+kubectl -n <project-namespace> annotate shoot <name> aws.provider.extensions.gardener.cloud/force-detach-role-policies=true
+kubectl -n <project-namespace> annotate shoot <name> gardener.cloud/operation=retry
+```
+
+All required IAM actions (`iam:ListAttachedRolePolicies`, `iam:DetachRolePolicy`, `iam:ListRolePolicies`, `iam:ListInstanceProfilesForRole`, `iam:RemoveRoleFromInstanceProfile`) are already part of the policy documented in the [Permissions](#permissions) section.
+
 ## Kubernetes Versions per Worker Pool
 
 This extension supports `gardener/gardener`'s `WorkerPoolKubernetesVersion` feature gate, i.e., having [worker pools with overridden Kubernetes versions](https://github.com/gardener/gardener/blob/8a9c88866ec5fce59b5acf57d4227eeeb73669d7/example/90-shoot.yaml#L69-L70) since `gardener-extension-provider-aws@v1.34`.
