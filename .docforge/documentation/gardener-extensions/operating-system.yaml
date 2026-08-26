@@ -4,6 +4,7 @@ structure:
   - file: _index.md
     frontmatter:
       title: CoreOS/FlatCar
+      weight: 10
       description: Gardener extension controller for the CoreOS/FlatCar Container Linux operating system
     source:  https://github.com/gardener/gardener-extension-os-coreos/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-os-coreos/tree/master/docs
@@ -12,6 +13,7 @@ structure:
   - file: _index.md
     frontmatter:
       title: Debian/Ubuntu (metal-stack)
+      weight: 20
       description: Gardener extension controller for the Debian/Ubuntu operating system on metal-stack
     source: https://github.com/metal-stack/os-metal-extension/blob/master/README.md
 - dir: gardener-extension-os-gardenlinux
@@ -19,6 +21,7 @@ structure:
   - file: _index.md
     frontmatter:
       title: Garden Linux
+      weight: 30
       description: Gardener extension controller for the Garden Linux operating system
     source:  https://github.com/gardener/gardener-extension-os-gardenlinux/blob/master/README.md
 - dir: gardener-extension-os-suse-chost
@@ -26,6 +29,7 @@ structure:
   - file: _index.md
     frontmatter:
       title: SUSE CHost
+      weight: 40
       description: Gardener extension controller for the SUSE Container Host operating system (CHost)
     source:  https://github.com/gardener/gardener-extension-os-suse-chost/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-os-suse-chost/tree/master/docs
@@ -34,6 +38,7 @@ structure:
   - file: _index.md
     frontmatter:
       title: Ubuntu
+      weight: 50
       description: Gardener extension controller for the Ubuntu operating system
     source:  https://github.com/gardener/gardener-extension-os-ubuntu/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-os-ubuntu/tree/master/docs
