@@ -82,7 +82,7 @@ To trigger updates during the maintenance window automatically, Gardener offers 
 
 * *Forceful updates*: <br>In the maintenance window, Gardener compares the current version given in the shoot cluster specification with the version list in the `CloudProfile`. If the version has an expiration date and if the date is before the start of the maintenance window, Gardener starts an update to the highest version available in the `CloudProfile` that isn’t classified as `preview` version. The highest version in `CloudProfile` can’t have an expiration date. For Kubernetes versions, Gardener only updates to higher patch levels or consecutive minor versions.
 
-If you don’t want to wait for the next maintenance window, you can annotate the shoot cluster specification with `shoot.gardener.cloud/operation: maintain`. Gardener then checks immediately if there’s an auto-update or a forceful update needed.
+If you don’t want to wait for the next maintenance window, you can annotate the shoot cluster specification with `gardener.cloud/operation: maintain`. Gardener then checks immediately if there’s an auto-update or a forceful update needed.
 
 > [!NOTE]
 > Forceful version updates are executed even if the auto-update for the Kubernetes version(or the auto-update for the machine image version) is deactivated (set to `false`).
