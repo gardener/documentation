@@ -50,6 +50,9 @@ When writing a commit message or a PR title, consider the following guidelines:
   Fixed the super important issue
   ```
 
+  > [!IMPORTANT]
+  > All commits must have a `Signed-off-by` trailer from the author. For more information visit the [Git documentation](https://git-scm.com/docs/git-commit#Documentation/git-commit.txt--s).
+
 - Follow the [Formatting of Inline Elements guide](/contribute/documentation/formatting-guide/#formatting-of-inline-elements):
   
   Use
