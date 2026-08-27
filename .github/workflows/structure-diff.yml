@@ -10,7 +10,6 @@ concurrency:
 
 permissions:
   contents: read
-  pull-requests: write
 
 jobs:
   diff:
@@ -54,17 +53,6 @@ jobs:
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Upload full diff artifact
-        if: always()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
-        with:
-          name: structure-diff
-          path: |
-            /tmp/diff-structure/baseline.txt
-            /tmp/diff-structure/after.txt
-            ${{ runner.temp }}/structure-diff.txt
-          if-no-files-found: warn
-
       - name: Build sticky comment body
         if: always()
         env:
@@ -97,12 +85,28 @@ jobs:
             echo ""
             echo "A rename appears as one removed (old path) + one added (new path)."
           } > "$body"
-          echo "path=$body" >> "$GITHUB_OUTPUT"
-        id: comment
 
-      - name: Sticky PR comment
+      - name: Save PR number
         if: always()
-        uses: marocchino/sticky-pull-request-comment@5770ad5eb8f42dd2c4f34da00c94c5381e49af88 # v3.0.5
+        run: echo "${{ github.event.pull_request.number }}" > "${{ runner.temp }}/pr-number.txt"
+
+      - name: Upload comment payload
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
-          header: structure-diff
-          path: ${{ steps.comment.outputs.path }}
+          name: structure-diff-comment
+          path: |
+            ${{ runner.temp }}/comment-body.md
+            ${{ runner.temp }}/pr-number.txt
+          if-no-files-found: warn
+
+      - name: Upload full diff artifact
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: structure-diff
+          path: |
+            /tmp/diff-structure/baseline.txt
+            /tmp/diff-structure/after.txt
+            ${{ runner.temp }}/structure-diff.txt
+          if-no-files-found: warn

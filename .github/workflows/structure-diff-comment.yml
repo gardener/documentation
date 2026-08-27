@@ -1,0 +1,46 @@
+name: Structure Diff Comment
+
+# Runs in the base-repo context with write permissions, so it can comment on
+# PRs from forks (where the pull_request GITHUB_TOKEN is read-only).
+# It only reads the artifact produced by the Structure Diff workflow and never
+# checks out or executes PR/fork code.
+on:
+  workflow_run:
+    workflows: [Structure Diff]
+    types: [completed]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  comment:
+    name: post structure diff comment
+    runs-on: ubuntu-latest
+    if: github.event.workflow_run.event == 'pull_request'
+    steps:
+      - name: Download comment payload
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: structure-diff-comment
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: payload
+
+      - name: Read PR number
+        id: pr
+        run: |
+          number="$(cat payload/pr-number.txt)"
+          # Guard against anything but digits before using it as an issue number.
+          if ! [[ "$number" =~ ^[0-9]+$ ]]; then
+            echo "Invalid PR number: '$number'" >&2
+            exit 1
+          fi
+          echo "number=$number" >> "$GITHUB_OUTPUT"
+
+      - name: Sticky PR comment
+        uses: marocchino/sticky-pull-request-comment@5770ad5eb8f42dd2c4f34da00c94c5381e49af88 # v3.0.5
+        with:
+          header: structure-diff
+          number: ${{ steps.pr.outputs.number }}
+          path: payload/comment-body.md
