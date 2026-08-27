@@ -1,7 +1,7 @@
 ---
 aliases:
-  - /docs/contribute/documentation/pr-description
-  - /docs/contribute/documentation/pr-guidelines/
+  - /docs/contribute/code/pr-description
+  - /docs/contribute/code/pr-guidelines/
 title: Pull Request Creation Guidelines
 prev: false
 next: false
@@ -49,6 +49,9 @@ When writing a commit message or a PR title, consider the following guidelines:
   Added the super cool feature
   Fixed the super important issue
   ```
+
+  > [!IMPORTANT]
+  > All commits must have a `Signed-off-by` trailer from the author. For more information, visit the [Git documentation](https://git-scm.com/docs/git-commit#Documentation/git-commit.txt--s) and our [Contributor Guide](./contributor-guide/#developer-certificate-of-origin).
 
 - Follow the [Formatting of Inline Elements guide](/contribute/documentation/formatting-guide/#formatting-of-inline-elements):
   

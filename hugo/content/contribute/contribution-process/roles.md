@@ -42,7 +42,7 @@ Members are active contributors in the Gardener community. They can have issues 
 Technically, members are defined by their membership in the [Gardener GitHub org](https://github.com/gardener).
 
 **Requirements**
-- Demonstrate stake and long-term commitment in the Gardener project, e.g., through previous code contributions or company affiliation
+- Demonstrate stake and long-term commitment in the Gardener project, e.g., through previous code contributions or [NeoNephos membership](https://neonephos.org/members) affiliation
 - Maintained GitHub profile to make yourself known to other project maintainers
 - Enabled GitHub notifications for their ongoing PR reviews and issues
 
