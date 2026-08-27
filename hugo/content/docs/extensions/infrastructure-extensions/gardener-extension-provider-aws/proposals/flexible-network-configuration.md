@@ -16,8 +16,28 @@ status: implementable
 title: Flexible Network Configuration (BYOI)
 prev: false
 next: false
-managed: true
 ---
+<!-- BANNER:MANAGED -->
+<!--
+   █▀▀ ▀█▀ █▀█ █▀█
+   ▀▀█  █  █ █ █▀▀
+   ▀▀▀  ▀  ▀▀▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  MANAGED FILE — aggregated from upstream       │
+   │                                                │
+   │  Editing here is pointless: The nightly        │
+   │  aggregation run overwrites this file.         │
+   │                                                │
+   │  Open a PR against the source instead: ─────┐  │
+   │                          ┌──┐    ┌──────────┘  │
+   │                          └──│────┘             │
+   │           ┌─────────────────┘                  │
+   └───────────│────────────────────────────────────┘
+               ▼               
+   https://github.com/gardener/gardener-extension-provider-aws/blob/master/docs/proposals/flexible-network-configuration.md
+-->
+
 
 # Flexible Network Configuration - Bring Your Own Infrastructure (BYOI)
 

@@ -10,8 +10,28 @@ title: Getting Started Locally
 weight: 20
 prev: false
 next: false
-managed: true
 ---
+<!-- BANNER:MANAGED -->
+<!--
+   █▀▀ ▀█▀ █▀█ █▀█
+   ▀▀█  █  █ █ █▀▀
+   ▀▀▀  ▀  ▀▀▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  MANAGED FILE — aggregated from upstream       │
+   │                                                │
+   │  Editing here is pointless: The nightly        │
+   │  aggregation run overwrites this file.         │
+   │                                                │
+   │  Open a PR against the source instead: ─────┐  │
+   │                          ┌──┐    ┌──────────┘  │
+   │                          └──│────┘             │
+   │           ┌─────────────────┘                  │
+   └───────────│────────────────────────────────────┘
+               ▼               
+   https://github.com/gardener/gardener/blob/master/docs/deployment/getting_started_locally.md
+-->
+
 
 # Deploying Gardener Locally
 

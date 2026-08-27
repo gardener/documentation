@@ -11,8 +11,28 @@ persona: Users
 title: Gateway Api Gateways
 prev: false
 next: false
-managed: true
 ---
+<!-- BANNER:MANAGED -->
+<!--
+   █▀▀ ▀█▀ █▀█ █▀█
+   ▀▀█  █  █ █ █▀▀
+   ▀▀▀  ▀  ▀▀▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  MANAGED FILE — aggregated from upstream       │
+   │                                                │
+   │  Editing here is pointless: The nightly        │
+   │  aggregation run overwrites this file.         │
+   │                                                │
+   │  Open a PR against the source instead: ─────┐  │
+   │                          ┌──┐    ┌──────────┘  │
+   │                          └──│────┘             │
+   │           ┌─────────────────┘                  │
+   └───────────│────────────────────────────────────┘
+               ▼               
+   https://github.com/gardener/gardener-extension-shoot-dns-service/blob/master/docs/usage/tutorials/gateway-api-gateways.md
+-->
+
 
 # Using annotated Gateway API Gateway and/or HTTPRoutes as Source
 This tutorial describes how to use annotated Gateway API resources as source for DNSEntries with the Gardener shoot-dns-service extension.

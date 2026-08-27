@@ -11,8 +11,28 @@ persona: Users
 title: Shoot Overlay Network
 prev: false
 next: false
-managed: true
 ---
+<!-- BANNER:MANAGED -->
+<!--
+   █▀▀ ▀█▀ █▀█ █▀█
+   ▀▀█  █  █ █ █▀▀
+   ▀▀▀  ▀  ▀▀▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  MANAGED FILE — aggregated from upstream       │
+   │                                                │
+   │  Editing here is pointless: The nightly        │
+   │  aggregation run overwrites this file.         │
+   │                                                │
+   │  Open a PR against the source instead: ─────┐  │
+   │                          ┌──┐    ┌──────────┘  │
+   │                          └──│────┘             │
+   │           ┌─────────────────┘                  │
+   └───────────│────────────────────────────────────┘
+               ▼               
+   https://github.com/gardener/gardener-extension-networking-calico/blob/master/docs/usage/shoot_overlay_network.md
+-->
+
 
 # Enable / disable overlay network for shoots with Calico
 Gardener can be used with or without the overlay network.

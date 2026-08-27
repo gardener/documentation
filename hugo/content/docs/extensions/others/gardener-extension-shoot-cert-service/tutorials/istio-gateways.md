@@ -10,8 +10,28 @@ path_base_for_github_subdir:
 title: Istio Gateways
 prev: false
 next: false
-managed: true
 ---
+<!-- BANNER:MANAGED -->
+<!--
+   █▀▀ ▀█▀ █▀█ █▀█
+   ▀▀█  █  █ █ █▀▀
+   ▀▀▀  ▀  ▀▀▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  MANAGED FILE — aggregated from upstream       │
+   │                                                │
+   │  Editing here is pointless: The nightly        │
+   │  aggregation run overwrites this file.         │
+   │                                                │
+   │  Open a PR against the source instead: ─────┐  │
+   │                          ┌──┐    ┌──────────┘  │
+   │                          └──│────┘             │
+   │           ┌─────────────────┘                  │
+   └───────────│────────────────────────────────────┘
+               ▼               
+   https://github.com/gardener/gardener-extension-shoot-cert-service/blob/master/docs/tutorials/istio-gateways.md
+-->
+
 
 # Using annotated Istio Gateway and/or Istio Virtual Service as Source
 This tutorial describes how to use annotated Istio Gateway resources as source for `Certificate` resources.

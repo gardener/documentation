@@ -11,6 +11,27 @@ prev: false
 next: false
 managed: true
 ---
+<!-- BANNER:MANAGED -->
+<!--
+   █▀▀ ▀█▀ █▀█ █▀█
+   ▀▀█  █  █ █ █▀▀
+   ▀▀▀  ▀  ▀▀▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  MANAGED FILE — aggregated from upstream       │
+   │                                                │
+   │  Editing here is pointless: The nightly        │
+   │  aggregation run overwrites this file.         │
+   │                                                │
+   │  Open a PR against the source instead: ─────┐  │
+   │                          ┌──┐    ┌──────────┘  │
+   │                          └──│────┘             │
+   │           ┌─────────────────┘                  │
+   └───────────│────────────────────────────────────┘
+               ▼               
+   https://github.com/gardener/enhancements/blob/main/geps/0001-gardener-extensibility/README.md
+-->
+
 
 # GEP-0001: Gardener Extensibility and Extraction of Cloud-Specific/OS-Specific Knowledge ([#308](https://github.com/gardener/gardener/issues/308), [#262](https://github.com/gardener/gardener/issues/262))
 

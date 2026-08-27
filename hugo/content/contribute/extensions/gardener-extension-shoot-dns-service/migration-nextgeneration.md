@@ -11,8 +11,28 @@ persona: Developers
 title: Migration Nextgeneration
 prev: false
 next: false
-managed: true
 ---
+<!-- BANNER:MANAGED -->
+<!--
+   █▀▀ ▀█▀ █▀█ █▀█
+   ▀▀█  █  █ █ █▀▀
+   ▀▀▀  ▀  ▀▀▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  MANAGED FILE — aggregated from upstream       │
+   │                                                │
+   │  Editing here is pointless: The nightly        │
+   │  aggregation run overwrites this file.         │
+   │                                                │
+   │  Open a PR against the source instead: ─────┐  │
+   │                          ┌──┐    ┌──────────┘  │
+   │                          └──│────┘             │
+   │           ┌─────────────────┘                  │
+   └───────────│────────────────────────────────────┘
+               ▼               
+   https://github.com/gardener/gardener-extension-shoot-dns-service/blob/master/docs/development/migration-nextgeneration.md
+-->
+
 
 # Migration of `dns-controller-manager` to Next Generation
 This document outlines the steps taken to migrate to the next generation of `dns-controller-manager` from [external-dns-management](https://github.com/gardener/external-dns-management).

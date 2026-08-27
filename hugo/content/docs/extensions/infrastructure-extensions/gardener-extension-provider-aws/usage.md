@@ -11,8 +11,28 @@ persona: Users
 title: Usage
 prev: false
 next: false
-managed: true
 ---
+<!-- BANNER:MANAGED -->
+<!--
+   █▀▀ ▀█▀ █▀█ █▀█
+   ▀▀█  █  █ █ █▀▀
+   ▀▀▀  ▀  ▀▀▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  MANAGED FILE — aggregated from upstream       │
+   │                                                │
+   │  Editing here is pointless: The nightly        │
+   │  aggregation run overwrites this file.         │
+   │                                                │
+   │  Open a PR against the source instead: ─────┐  │
+   │                          ┌──┐    ┌──────────┘  │
+   │                          └──│────┘             │
+   │           ┌─────────────────┘                  │
+   └───────────│────────────────────────────────────┘
+               ▼               
+   https://github.com/gardener/gardener-extension-provider-aws/blob/master/docs/usage/usage.md
+-->
+
 
 # Using the AWS provider extension with Gardener as an end-user
 
@@ -375,6 +395,8 @@ Also, the AWS extension creates a dedicated NAT gateway for each zone.
 By default, it also creates a corresponding Elastic IP that it attaches to this NAT gateway and which is used for egress traffic.
 The `elasticIPAllocationID` field allows you to specify the ID of an existing Elastic IP allocation in case you want to bring your own.
 If provided, no new Elastic IP will be created and, instead, the Elastic IP specified by you will be used.
+Note that if you specify the allocation ID of an Elastic IP that was originally created by the AWS extension itself, no outage occurs since the NAT gateway already uses that IP.
+However, you take over ownership and the extension will no longer manage its lifecycle.
 
 > [!WARNING]
 > If you change this field for an already existing infrastructure then it will disrupt egress traffic while AWS applies this change.

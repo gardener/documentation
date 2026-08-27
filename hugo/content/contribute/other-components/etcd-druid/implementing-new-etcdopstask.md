@@ -11,8 +11,28 @@ persona: Developers
 title: Implementing New Etcdopstask
 prev: false
 next: false
-managed: true
 ---
+<!-- BANNER:MANAGED -->
+<!--
+   █▀▀ ▀█▀ █▀█ █▀█
+   ▀▀█  █  █ █ █▀▀
+   ▀▀▀  ▀  ▀▀▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  MANAGED FILE — aggregated from upstream       │
+   │                                                │
+   │  Editing here is pointless: The nightly        │
+   │  aggregation run overwrites this file.         │
+   │                                                │
+   │  Open a PR against the source instead: ─────┐  │
+   │                          ┌──┐    ┌──────────┘  │
+   │                          └──│────┘             │
+   │           ┌─────────────────┘                  │
+   └───────────│────────────────────────────────────┘
+               ▼               
+   https://github.com/gardener/etcd-druid/blob/master/docs/development/implementing-new-etcdopstask.md
+-->
+
 
 # Implementing a New EtcdOpsTask
 `EtcdOpsTask` is designed to be extensible, allowing developers to implement new task types as needed. This guide outlines the steps to create and integrate a new `EtcdOpsTask` type into the Etcd Druid operator.

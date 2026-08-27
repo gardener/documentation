@@ -1,27 +1,64 @@
 ---
-description: A druid for etcd management in Gardener
 github_repo: 'https://github.com/gardener/etcd-druid'
-github_subdir: .
+github_subdir: docs
 params:
   github_branch: master
 path_base_for_github_subdir:
-  from: content/docs/other-components/etcd-druid/_index.md
-  to: README.md
-title: etcd-druid
+  from: content/docs/other-components/etcd-druid/index.md
+  to: index.md
+title: Index
 prev: false
 next: false
-managed: true
 ---
+<!-- BANNER:MANAGED -->
+<!--
+   █▀▀ ▀█▀ █▀█ █▀█
+   ▀▀█  █  █ █ █▀▀
+   ▀▀▀  ▀  ▀▀▀ ▀
 
-<img src="/docs/other-components/etcd-druid/assets/logo/etcd-druid-with-tagline.png" style="width:120%"></img>
+   ┌────────────────────────────────────────────────┐
+   │  MANAGED FILE — aggregated from upstream       │
+   │                                                │
+   │  Editing here is pointless: The nightly        │
+   │  aggregation run overwrites this file.         │
+   │                                                │
+   │  Open a PR against the source instead: ─────┐  │
+   │                          ┌──┐    ┌──────────┘  │
+   │                          └──│────┘             │
+   │           ┌─────────────────┘                  │
+   └───────────│────────────────────────────────────┘
+               ▼               
+   https://github.com/gardener/etcd-druid/blob/master/docs/index.md
+-->
 
-[![REUSE status](https://api.reuse.software/badge/github.com/gardener/etcd-druid)](https://api.reuse.software/info/github.com/gardener/etcd-druid)
-[![Build](https://github.com/gardener/etcd-druid/actions/workflows/non-release.yaml/badge.svg)](https://github.com/gardener/etcd-druid/actions/workflows/non-release.yaml)
-[![Go Report Card](https://goreportcard.com/badge/github.com/gardener/etcd-druid)](https://goreportcard.com/report/github.com/gardener/etcd-druid)
-[![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](https://github.com/gardener/etcd-druid/blob/master/LICENSE)
-[![Release](https://img.shields.io/github/v/release/gardener/etcd-druid.svg?style=flat)](https://github.com/gardener/etcd-druid)
-[![Go Reference](https://pkg.go.dev/badge/github.com/gardener/etcd-druid.svg)](https://pkg.go.dev/github.com/gardener/etcd-druid)
-[![Docs](https://img.shields.io/badge/Docs-reference-orange)](https://gardener.github.io/etcd-druid/index.html)
+
+<style>
+  .md-content h1 { display: none; }
+</style>
+<p style="text-align: center;">
+<img src="/docs/other-components/etcd-druid/assets/logo/etcd-druid-with-tagline.png" style="width:120%" alt="etcd-druid-tagline">
+</p>
+
+<p style="text-align: center;">
+    <a href="https://api.reuse.software/info/github.com/gardener/etcd-druid">
+      <img alt="REUSE Status" src="https://api.reuse.software/badge/github.com/gardener/etcd-druid">
+    </a>
+    <a href="https://github.com/gardener/etcd-druid/actions/workflows/non-release.yaml">
+      <img alt="CI Build Status" src="https://github.com/gardener/etcd-druid/actions/workflows/non-release.yaml/badge.svg">
+    </a>
+    <a href="https://goreportcard.com/report/github.com/gardener/etcd-druid">
+      <img alt="Go Report Card" src="https://goreportcard.com/badge/github.com/gardener/etcd-druid">
+    </a>
+    <a href="https://github.com/gardener/etcd-druid/blob/master/LICENSE">
+      <img alt="License: Apache-2.0" src="https://img.shields.io/badge/License-Apache--2.0-blue.svg">
+    </a>
+    <a href="https://github.com/gardener/etcd-druid/releases">
+      <img alt="Release" src="https://img.shields.io/github/v/release/gardener/etcd-druid.svg?style=flat">
+    </a>
+    <a href="https://pkg.go.dev/github.com/gardener/etcd-druid">
+      <img alt="Go Reference" src="https://pkg.go.dev/badge/github.com/gardener/etcd-druid.svg">
+    </a>
+</p>
 
 `etcd-druid` is an [etcd](https://github.com/etcd-io/etcd) [operator](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/) which makes it easy to configure, provision, reconcile, monitor and delete etcd clusters. It enables management of etcd clusters through [declarative Kubernetes API model](https://github.com/gardener/etcd-druid/blob/master/api/core/v1alpha1/crds/druid.gardener.cloud_etcds.yaml).
 
@@ -35,7 +72,7 @@ In every etcd cluster managed by `etcd-druid`, each etcd member is a two contain
   - Restoration - In case of a DB corruption for a single-member cluster it helps in restoring from latest set of snapshots (full & delta).
   - Member control operations.
 
-`etcd-druid` additionally provides the following capabilities:
+`etcd-druid` additional provides the following capabilities:
 
 - Facilitates declarative scale-out of [etcd](https://github.com/etcd-io/etcd) clusters.
 - Provides protection against accidental deletion/mutation of resources provisioned as part of an etcd cluster.
@@ -48,9 +85,11 @@ In every etcd cluster managed by `etcd-druid`, each etcd member is a two contain
 
 If you are looking to try out druid then you can use a [Kind](https://kind.sigs.k8s.io/) cluster based setup.
 
-https://github.com/user-attachments/assets/cfe0d891-f709-4d7f-b975-4300c6de67e4
+<video controls>
+  <source src="https://github.com/user-attachments/assets/cfe0d891-f709-4d7f-b975-4300c6de67e4" type="video/mp4">
+</video>
 
-For detailed documentation, see our [docs](https://gardener.github.io/etcd-druid/index.html).
+For detailed documentation, see our `/docs` folder. Please find the [index](https://github.com/gardener/etcd-druid/blob/master/docs/README.md) here.
 
 ## Contributions
 

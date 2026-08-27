@@ -9,8 +9,28 @@ path_base_for_github_subdir:
 title: etcd Network Latency
 prev: false
 next: false
-managed: true
 ---
+<!-- BANNER:MANAGED -->
+<!--
+   █▀▀ ▀█▀ █▀█ █▀█
+   ▀▀█  █  █ █ █▀▀
+   ▀▀▀  ▀  ▀▀▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  MANAGED FILE — aggregated from upstream       │
+   │                                                │
+   │  Editing here is pointless: The nightly        │
+   │  aggregation run overwrites this file.         │
+   │                                                │
+   │  Open a PR against the source instead: ─────┐  │
+   │                          ┌──┐    ┌──────────┘  │
+   │                          └──│────┘             │
+   │           ┌─────────────────┘                  │
+   └───────────│────────────────────────────────────┘
+               ▼               
+   https://github.com/gardener/etcd-druid/blob/master/docs/benchmark/etcd-network-latency.md
+-->
+
 
 # Network Latency analysis: `sn-etcd-sz` vs  `mn-etcd-sz` vs `mn-etcd-mz`
 This page captures the etcd cluster latency analysis for below scenarios using the benchmark tool (build from [etcd benchmark tool](https://github.com/seshachalam-yv/etcd)).

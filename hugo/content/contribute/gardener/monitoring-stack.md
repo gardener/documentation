@@ -10,8 +10,28 @@ persona: Developers
 title: Monitoring Stack
 prev: false
 next: false
-managed: true
 ---
+<!-- BANNER:MANAGED -->
+<!--
+   █▀▀ ▀█▀ █▀█ █▀█
+   ▀▀█  █  █ █ █▀▀
+   ▀▀▀  ▀  ▀▀▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  MANAGED FILE — aggregated from upstream       │
+   │                                                │
+   │  Editing here is pointless: The nightly        │
+   │  aggregation run overwrites this file.         │
+   │                                                │
+   │  Open a PR against the source instead: ─────┐  │
+   │                          ┌──┐    ┌──────────┘  │
+   │                          └──│────┘             │
+   │           ┌─────────────────┘                  │
+   └───────────│────────────────────────────────────┘
+               ▼               
+   https://github.com/gardener/gardener/blob/master/docs/development/monitoring-stack.md
+-->
+
 
 # Extending the Monitoring Stack
 
@@ -84,7 +104,7 @@ The alert definitions are located in `charts/seed-monitoring/charts/core/charts/
 1. Adding alerts for a new component. In this case a new rule file with name scheme `example-component.rules.yaml` needs to be added.
 1. Add the new alert to `alertInhibitionGraph.dot`, add any required inhibition flows and render the new graph. To render the graph, run:
 ```bash
-dot -Tpng ./content/alertInhibitionGraph.dot -o ./content/alertinhibitiongraph.png
+dot -Tpng ./content/alertInhibitionGraph.dot -o ./content/alertInhibitionGraph.png
 ```
 1. Create a test for the new alert. See `Alert Tests`.
 
