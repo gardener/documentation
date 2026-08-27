@@ -181,6 +181,7 @@ loadBalancerClasses:
   purpose: private
   subnetID: internal-id
 # cloudControllerManager:
+#   internalLoadBalancer: true
 #   featureGates:
 #     SomeKubernetesFeature: true
 # storage:
@@ -205,6 +206,18 @@ The `loadBalancerClasses` field contains an optional list of load balancer class
 The `cloudControllerManager.featureGates` contains a map of explicitly enabled or disabled feature gates.
 For production usage it's not recommended to use this field at all as you can enable alpha features or disable beta/stable features, potentially impacting the cluster stability.
 If you don't want to configure anything for the `cloudControllerManager` simply omit the key in the YAML specification.
+
+The optional `cloudControllerManager.internalLoadBalancer` field controls
+whether Services of type `LoadBalancer` are provisioned as internal load
+balancers. When set to `true`, the OpenStack cloud-controller-manager
+configures all load balancers in the Shoot without floating IPs. Consequently,
+users cannot request externally accessible load balancers. The field defaults
+to `false`.
+
+The field can also be enabled for existing Shoots. Be aware that doing so may
+cause the OpenStack cloud-controller-manager to detach floating IPs from
+existing load balancers during reconciliation. Workloads relying on these
+floating IPs may consequently become unreachable from external networks.
 
 The optional `storage.csiManila.enabled` field is used to enable the deployment of the CSI Manila driver to support NFS persistent volumes.
 In this case, please ensure to set `networks.shareNetwork.enabled=true` in the `InfrastructureConfig`, too.

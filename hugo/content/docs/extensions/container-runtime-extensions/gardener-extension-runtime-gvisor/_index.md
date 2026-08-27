@@ -56,7 +56,7 @@ spec:
 gVisor can be configured with additional configuration flags by adding them to the `configFlags` field in the providerConfig.
 Right now the following flags are supported and all other flags are ignored:
 - `debug: "true"`: This enables debug logs for runsc. The logs are written to `/var/log/runsc/<containerd-id>/<command>-gvisor.log` on the node.
-- `net-raw: "true"`: This is required for some applications that need to use raw sockets, such as `traceroute`, or `istio` init conainers.
+- `net-raw: "true"`: This is required for some applications that need to use raw sockets, such as `traceroute`, or `istio` init containers.
 - `nvproxy: "true"`: Run GPU enabled containers in your gVisor sandbox. This flag is required for the NVIDIA GPU device plugin to work with gVisor.
 
 ```yaml

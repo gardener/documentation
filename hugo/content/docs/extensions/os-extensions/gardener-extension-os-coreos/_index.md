@@ -73,6 +73,18 @@ Please find more information regarding the extensibility concepts and a detailed
 
 ## How to start using or developing this extension controller locally
 
+### Skaffold
+
+You can use skaffold to deploy the extension into a remote cluster. Please ensure you are using Gardener Operator since skaffold uses `operator.gardener.cloud/Extension` objects.
+
+To deploy the extension with skaffold, run:
+
+```sh
+make extension-up
+```
+
+### Local
+
 You can run the controller locally on your machine by executing `make start`. Please make sure to have the kubeconfig to the cluster you want to connect to ready in the `./dev/kubeconfig` file.
 
 Static code checks and tests can be executed by running `make verify`. We are using Go modules for Golang package dependency management and [Ginkgo](https://github.com/onsi/ginkgo)/[Gomega](https://github.com/onsi/gomega) for testing.

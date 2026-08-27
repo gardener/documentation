@@ -255,7 +255,7 @@ You can find more information about the process and the steps required [here](ht
 
 > [!WARNING]
 > Please note that the dual-stack migration requires the IPv4-only cluster to run in native routing mode, i.e. pod overlay network needs to be disabled.
-> The default quota of routes per route table in AWS is 50. This restricts the cluster size to about 50 nodes. Therefore, please adapt (if necessary) the routes per route table limit in the Amazon Virtual Private Cloud quotas accordingly before switching to native routing. The maximum setting is currently 1000.
+> The default quota of routes per route table in AWS is 500. This restricts the cluster size to about 500 nodes. Therefore, please adapt (if necessary) the routes per route table limit in the Amazon Virtual Private Cloud quotas accordingly before switching to native routing. The maximum setting is currently 1000.
 
 ### Load Balancer Configuration
 
