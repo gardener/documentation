@@ -1,17 +1,24 @@
 ---
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/getting-started
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/getting-started/ca-components.md
-  to: ca-components.md
-title: "Control Plane Components"
+title: Control Plane Components
 weight: 5
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Control Plane Components
 

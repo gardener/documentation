@@ -1,22 +1,29 @@
 ---
 category: Security
 description: Use OpenID Connect to authenticate users to access shoot clusters
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/guides/administer-shoots
 index: 40
 level: advanced
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/guides/administer-shoots/oidc-login.md
-  to: oidc-login.md
 publishdate: '2020-12-01'
 scope: operator
-title: "Authenticating with an Identity Provider"
+title: Authenticating with an Identity Provider
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Authenticating with an Identity Provider
 

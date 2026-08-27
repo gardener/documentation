@@ -1,18 +1,25 @@
 ---
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/community/review-meetings
 outline: 3
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/community/review-meetings/2022-reviews.md
-  to: 2022-reviews.md
 title: '2022'
 weight: -2022
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Gardener Review Meetings (2022)
 

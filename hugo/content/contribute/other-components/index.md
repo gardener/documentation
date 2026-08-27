@@ -1,8 +1,8 @@
 ---
-title: Other Components
+title: "Other Components"
 weight: 50
 prev: false
 next: false
-managed: true
+editLink: false
 ---
 

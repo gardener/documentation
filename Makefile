@@ -131,6 +131,14 @@ dev:
 	@$(MAKE) install
 	pnpm exec vitepress dev
 
+.PHONY: full-refresh
+full-refresh: ## Refresh md files from external repos (.docforge/), post-process, then local preview
+	@echo "Refreshing md files from external repositories, defined in .docforge/ dir."
+	@echo "USE THIS ONLY FOR TESTING OF MANIFEST CHANGES"
+	@$(MAKE) docforge-ci
+	@$(MAKE) post-process
+	@$(MAKE) local-preview
+
 .PHONY: local-preview
 local-preview:
 	@$(MAKE) install
@@ -139,7 +147,7 @@ local-preview:
 
 .PHONY: post-processing-part-1
 post-processing-part-1:
-	node post-processing/part-1.js --rename-images --add-h1-title --youtube --fix-titles --fix-network-doc --add-missing-index
+	node post-processing/part-1.js --rename-images --add-h1-title --youtube --fix-network-doc
 
 .PHONY: post-processing-part-2
 post-processing-part-2:
@@ -149,21 +157,21 @@ post-processing-part-2:
 post-processing-part-index:
 	node post-processing/part-index.js ./hugo/content
 
+.PHONY: post-processing-part-banner
+post-processing-part-banner:
+	node post-processing/part-banner.js ./hugo/content
+
 .PHONY: post-processing-part-3
 post-processing-part-3:
 	node post-processing/part-3.js --update-report-link --process-api-html
-
-.PHONY: post-processing-part-managed
-post-processing-part-managed:
-	node post-processing/part-managed.js ./hugo/content
 
 .PHONY: post-process
 post-process: ## Run post-processing scripts
 	@$(MAKE) post-processing-part-1
 	@$(MAKE) post-processing-part-2
 	@$(MAKE) post-processing-part-index
+	@$(MAKE) post-processing-part-banner
 	@$(MAKE) post-processing-part-3
-	@$(MAKE) post-processing-part-managed
 
 .PHONY: build
 build: ## Build the documentation site
@@ -179,6 +187,20 @@ docforge-ci: docforge-download ## Run docforge in CI mode (non-interactive)
 ci-build:
 	$(MAKE) ci-install; \
 	$(MAKE) build; \
+
+.PHONY: ci-build-preview
+ci-build-preview: ## Netlify deploy-preview: full rebuild only if .docforge/ changed
+	@BASE="$${CACHED_COMMIT_REF:-origin/master}"; \
+	if ! git rev-parse --verify -q "$$BASE^{commit}" >/dev/null; then \
+		echo "Base ref '$$BASE' not resolvable (shallow clone?) -> full rebuild"; \
+		$(MAKE) ci-install docforge-ci post-process build; \
+	elif git diff --name-only "$$BASE...HEAD" | grep -q '^\.docforge/'; then \
+		echo "Manifest changed since $$BASE -> docforge + post-process + build"; \
+		$(MAKE) ci-install docforge-ci post-process build; \
+	else \
+		echo "No manifest change since $$BASE -> build only"; \
+		$(MAKE) ci-install build; \
+	fi
 
 .PHONY: vale-install
 vale-install: ## Install Vale binary if not already present
@@ -222,3 +244,19 @@ vale-run: ## Lint changed content markdown files with Vale
 
 .PHONY: vale
 vale: vale-install vale-run ## Install Vale and lint changed content markdown files
+
+.PHONY: diff-structure-master
+diff-structure-master: ## Compare sitemap structure of working tree vs origin/master (build only, no docforge/post-process)
+	scripts/diff-structure.sh master
+
+.PHONY: diff-structure-branch-origin
+diff-structure-branch-origin: ## Compare sitemap structure of working tree vs branch fork point (merge-base with master)
+	scripts/diff-structure.sh branch-origin
+
+.PHONY: diff-structure-snapshot
+diff-structure-snapshot: ## Capture current dist/sitemap.xml as baseline for a later working-tree diff
+	scripts/diff-structure.sh working --snapshot
+
+.PHONY: diff-structure-working
+diff-structure-working: ## Rebuild working tree and diff sitemap against the captured snapshot
+	scripts/diff-structure.sh working

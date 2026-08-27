@@ -5,15 +5,8 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/dimityrmirchev'
     login: dimityrmirchev
     name: Dimitar Mirchev
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2024/04
 linkTitle: SpinKube on Gardener - Serverless WASM on Kubernetes
 newsSubtitle: 'April 18, 2024'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/blog/2024/04/04-18-spinkube-gardener-shoot-cluster.md
-  to: 04-18-spinkube-gardener-shoot-cluster.md
 publishdate: '2024-04-18'
 tags:
   - technical-deep-dive
@@ -21,8 +14,22 @@ tags:
   - provider-aws
   - provider-azure
 title: SpinKube on Gardener - Serverless WASM on Kubernetes
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # SpinKube on Gardener - Serverless WASM on Kubernetes
 

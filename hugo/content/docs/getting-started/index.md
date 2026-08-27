@@ -1,19 +1,26 @@
 ---
 description: Gardener onboarding materials
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/getting-started
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/getting-started/index.md
-  to: index.md
 persona: Users
 title: Getting Started
 weight: 10
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 Welcome to the Gardener Getting Started section! Here you will be able to get accustomed to the way Gardener functions and learn how its components work together in order to seamlessly run Kubernetes clusters on various hyperscalers.
 

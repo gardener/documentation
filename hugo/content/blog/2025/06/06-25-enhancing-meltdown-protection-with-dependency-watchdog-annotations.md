@@ -6,24 +6,30 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/ashwani2k'
     login: ashwani2k
     name: Ashwani Kumar
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2025/06
 linkTitle: Enhancing Meltdown Protection with Dependency-Watchdog Annotations
 newsSubtitle: 'June 25, 2025'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2025/06/06-25-enhancing-meltdown-protection-with-dependency-watchdog-annotations.md
-  to: 06-25-enhancing-meltdown-protection-with-dependency-watchdog-annotations.md
 publishdate: '2025-06-25'
 tags:
   - feature-announcement
   - autoscaling
   - node-management
 title: Enhancing Meltdown Protection with Dependency-Watchdog Annotations
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Enhancing Meltdown Protection with Dependency-Watchdog Annotations
 

@@ -7,25 +7,30 @@ authors:
     email: sebastian.stauch@sap.com
     login: DockToFuture
     name: Sebastian Stauch
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2026/04
 linkTitle: Introducing the New Traefik Ingress Controller Extension for Gardener
 newsSubtitle: 'April 01, 2026'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2026/04/04-01-introducing-the-new-traefik-ingress-controller-extension-for-gardener.md
-  to: >-
-    04-01-introducing-the-new-traefik-ingress-controller-extension-for-gardener.md
 publishdate: '2026-04-01'
 tags:
   - feature-announcement
   - networking
   - extensions
 title: Introducing the New Traefik Ingress Controller Extension for Gardener
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Introducing the New Traefik Ingress Controller Extension for Gardener
 

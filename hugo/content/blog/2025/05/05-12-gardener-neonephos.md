@@ -5,17 +5,10 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/vlerenc'
     login: vlerenc
     name: Vedran Lerenc
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2025/05
 linkTitle: >-
   Gardener: Powering Enterprise Kubernetes at Scale and Europe's Sovereign Cloud
   Future
 newsSubtitle: 'May 12, 2025'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/blog/2025/05/05-12-gardener-neonephos.md
-  to: 05-12-gardener-neonephos.md
 publishdate: '2025-05-12'
 tags:
   - technical-deep-dive
@@ -23,8 +16,22 @@ tags:
 title: >-
   Gardener: Powering Enterprise Kubernetes at Scale and Europe's Sovereign Cloud
   Future
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Gardener: Powering Enterprise Kubernetes at Scale and Europe''s Sovereign Cloud Future
 

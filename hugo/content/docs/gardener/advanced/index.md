@@ -2,10 +2,10 @@
 aliases:
   - /docs/gardener/
 persona: Users
-title: Advanced
+title: "Advanced"
 weight: 10
 prev: false
 next: false
-managed: true
+editLink: false
 ---
 

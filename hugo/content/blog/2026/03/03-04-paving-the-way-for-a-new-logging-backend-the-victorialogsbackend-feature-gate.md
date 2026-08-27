@@ -6,19 +6,10 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/rrhubenov'
     login: rrhubenov
     name: rhubenov
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2026/03
 linkTitle: >-
   Paving the Way for a New Logging Backend: The `VictoriaLogsBackend` Feature
   Gate
 newsSubtitle: 'March 04, 2026'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2026/03/03-04-paving-the-way-for-a-new-logging-backend-the-victorialogsbackend-feature-gate.md
-  to: >-
-    03-04-paving-the-way-for-a-new-logging-backend-the-victorialogsbackend-feature-gate.md
 publishdate: '2026-03-04'
 tags:
   - feature-announcement
@@ -26,8 +17,22 @@ tags:
 title: >-
   Paving the Way for a New Logging Backend: The `VictoriaLogsBackend` Feature
   Gate
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Paving the Way for a New Logging Backend: The `VictoriaLogsBackend` Feature Gate
 

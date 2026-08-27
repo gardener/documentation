@@ -1,21 +1,28 @@
 ---
 aliases:
   - /docs/contribute/code/contributing-bigger-changes/
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/contribute/contribution-process
 menu: sln
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/contribute/contribution-process/contributing-bigger-changes.md
-  to: contributing-bigger-changes.md
 sidebar: true
-title: "Contributing Bigger Changes"
+title: Contributing Bigger Changes
 weight: 20
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Contributing Bigger Changes
 

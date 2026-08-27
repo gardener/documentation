@@ -5,23 +5,29 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/LucaBernstein'
     login: LucaBernstein
     name: Luca Bernstein
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2025/08
 linkTitle: New Emergency Brake for Gardener Shoot Reconciliations
 newsSubtitle: 'August 27, 2025'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2025/08/08-27-new-emergency-brake-for-gardener-shoot-reconciliations.md
-  to: 08-27-new-emergency-brake-for-gardener-shoot-reconciliations.md
 publishdate: '2025-08-27'
 tags:
   - technical-deep-dive
   - apeiro
 title: New Emergency Brake for Gardener Shoot Reconciliations
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # New Emergency Brake for Gardener Shoot Reconciliations
 

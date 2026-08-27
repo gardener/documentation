@@ -12,24 +12,30 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/acumino'
     login: acumino
     name: Sonu Kumar Singh
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2025/05
 linkTitle: 'Enhanced Node Management: Introducing In-Place Updates in Gardener'
 newsSubtitle: 'May 19, 2025'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2025/05/05-19-enhanced-node-management-introducing-in-place-updates-in-gardener.md
-  to: 05-19-enhanced-node-management-introducing-in-place-updates-in-gardener.md
 publishdate: '2025-05-19'
 tags:
   - feature-announcement
   - node-management
   - apeiro
 title: 'Enhanced Node Management: Introducing In-Place Updates in Gardener'
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Enhanced Node Management: Introducing In-Place Updates in Gardener
 

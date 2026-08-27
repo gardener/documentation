@@ -1,20 +1,27 @@
 ---
 category: Debugging
 description: Aggregate log files from different pods
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/guides/monitoring-and-troubleshooting
 level: intermediate
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/guides/monitoring-and-troubleshooting/tail-logfile.md
-  to: tail-logfile.md
 scope: app-developer
-title: "tail -f /var/log/my-application.log"
+title: tail -f /var/log/my-application.log
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # tail -f /var/log/my-application.log
 

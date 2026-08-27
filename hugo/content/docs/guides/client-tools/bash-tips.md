@@ -3,22 +3,29 @@ aliases:
   - /readmore/bash_tips
 category: kubectl
 description: Some bash tips that save you some time
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/guides/client-tools
 index: 40
 level: beginner
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/guides/client-tools/bash-tips.md
-  to: bash-tips.md
 publishdate: '2019-01-01'
 scope: app-developer
-title: "Fun with kubectl Aliases"
+title: Fun with kubectl Aliases
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Fun with kubectl Aliases
 

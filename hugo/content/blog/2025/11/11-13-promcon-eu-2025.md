@@ -8,23 +8,30 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/rickardsjp'
     login: rickardsjp
     name: Jeremy Rickards
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2025/11
 linkTitle: PromCon EU 2025 Highlights
 newsSubtitle: 'November 12, 2025'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/blog/2025/11/11-13-promcon-eu-2025.md
-  to: 11-13-promcon-eu-2025.md
 publishdate: '2025-11-12'
 tags:
   - community-event
   - observability
   - apeiro
 title: PromCon EU 2025 Highlights
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # PromCon EU 2025 Highlights
 

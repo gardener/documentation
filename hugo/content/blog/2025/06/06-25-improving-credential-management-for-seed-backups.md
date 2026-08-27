@@ -8,16 +8,8 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/vpnachev'
     login: vpnachev
     name: Vladimir Nachev
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2025/06
 linkTitle: Improving Credential Management for Seed Backups
 newsSubtitle: 'June 25, 2025'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2025/06/06-25-improving-credential-management-for-seed-backups.md
-  to: 06-25-improving-credential-management-for-seed-backups.md
 publishdate: '2025-06-25'
 tags:
   - technical-deep-dive
@@ -26,8 +18,22 @@ tags:
   - node-management
   - apeiro
 title: Improving Credential Management for Seed Backups
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Improving Credential Management for Seed Backups
 

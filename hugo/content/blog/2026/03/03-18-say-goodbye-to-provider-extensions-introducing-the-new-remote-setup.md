@@ -6,24 +6,30 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/oliver-goetz'
     login: oliver-goetz
     name: Oliver Götz
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2026/03
 linkTitle: 'Say Goodbye to `provider-extensions`: Introducing the New `remote` Setup'
 newsSubtitle: 'March 18, 2026'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2026/03/03-18-say-goodbye-to-provider-extensions-introducing-the-new-remote-setup.md
-  to: 03-18-say-goodbye-to-provider-extensions-introducing-the-new-remote-setup.md
 publishdate: '2026-03-18'
 tags:
   - feature-announcement
   - extensions
   - apeiro
 title: 'Say Goodbye to `provider-extensions`: Introducing the New `remote` Setup'
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Say Goodbye to `provider-extensions`: Introducing the New `remote` Setup
 

@@ -5,22 +5,29 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/u/19169361'
     login: rfranzke
     name: Rafael Franzke
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2024/04
 linkTitle: KubeCon / CloudNativeCon Europe 2024 Highlights
 newsSubtitle: 'April 05, 2024'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/blog/2024/04/04-05-kubecon-cloudnativecon-europe-2024-highlights.md
-  to: 04-05-kubecon-cloudnativecon-europe-2024-highlights.md
 publishdate: '2024-04-05'
 tags:
   - community-event
   - security
 title: KubeCon / CloudNativeCon Europe 2024 Highlights
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # KubeCon / CloudNativeCon Europe 2024 Highlights
 

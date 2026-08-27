@@ -40,7 +40,7 @@ jobs:
 
       - name: Check changed content files
         run: |
-          git diff --name-only --diff-filter=AM \
+          git diff --name-only --diff-filter=AM -z \
             "origin/${{ github.base_ref }}...HEAD" \
             -- 'hugo/content/**/*.md' \
-            | xargs -r node hack/check-managed.mjs
+            | xargs -0 -r node hack/check-managed.mjs

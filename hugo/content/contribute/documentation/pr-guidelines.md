@@ -2,18 +2,25 @@
 aliases:
   - /docs/contribute/documentation/pr-description
   - /docs/contribute/documentation/pr-guidelines/
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/contribute/documentation
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/contribute/documentation/pr-guidelines.md
-  to: pr-guidelines.md
-title: "Pull Request Creation Guidelines"
+title: Pull Request Creation Guidelines
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Pull Request Creation Guidelines
 

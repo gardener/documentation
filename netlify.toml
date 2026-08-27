@@ -2,6 +2,9 @@
     command = "make ci-build"
     publish = ".vitepress/dist"
 
+[context.deploy-preview]
+    command = "make ci-build-preview"
+
 [[headers]]
     for = "/*"
     [headers.values]

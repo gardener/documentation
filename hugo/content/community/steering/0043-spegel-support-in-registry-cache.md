@@ -1,16 +1,23 @@
 ---
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/community/steering
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/community/steering/0043-spegel-support-in-registry-cache.md
-  to: 0043-spegel-support-in-registry-cache.md
 title: 'GEP-0043: Spegel Support in Registry Cache Extension'
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # GEP-0043: Spegel Support in Registry Cache Extension
 

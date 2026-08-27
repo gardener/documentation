@@ -1,20 +1,27 @@
 ---
 category: Docker Registry
 description: Ensure that you always get the right image
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/guides/applications
 level: intermediate
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/guides/applications/content_trust.md
-  to: content_trust.md
 scope: app-developer
-title: "Integrity and Immutability"
+title: Integrity and Immutability
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Integrity and Immutability
 

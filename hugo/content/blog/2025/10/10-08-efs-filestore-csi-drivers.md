@@ -5,15 +5,8 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/hebelsan'
     login: hebelsan
     name: Alexander Hebel
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2025/10
 linkTitle: New Shared File Storage Options on AWS and GCP
 newsSubtitle: 'October 08, 2025'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/blog/2025/10/10-08-efs-filestore-csi-drivers.md
-  to: 10-08-efs-filestore-csi-drivers.md
 publishdate: '2025-10-08'
 tags:
   - technical-deep-dive
@@ -24,8 +17,22 @@ tags:
   - provider-aws
   - provider-gcp
 title: New Shared File Storage Options on AWS and GCP
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # New Shared File Storage Options on AWS and GCP
 

@@ -6,19 +6,10 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/rfranzke'
     login: rfranzke
     name: Rafael Franzke
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2025/05
 linkTitle: >-
   Streamlined Node Onboarding: Introducing `gardenadm token` and `gardenadm
   join`
 newsSubtitle: 'May 21, 2025'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2025/05/05-21-streamlined-node-onboarding-introducing-gardenadm-token-and-gardenadm-join.md
-  to: >-
-    05-21-streamlined-node-onboarding-introducing-gardenadm-token-and-gardenadm-join.md
 publishdate: '2025-05-21'
 tags:
   - feature-announcement
@@ -27,8 +18,22 @@ tags:
 title: >-
   Streamlined Node Onboarding: Introducing `gardenadm token` and `gardenadm
   join`
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Streamlined Node Onboarding: Introducing `gardenadm token` and `gardenadm join`
 

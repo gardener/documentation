@@ -1,17 +1,24 @@
 ---
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/getting-started/features
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/getting-started/features/certificate-management.md
-  to: certificate-management.md
-title: "Certificate Management"
+title: Certificate Management
 weight: 5
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Certificate Management
 

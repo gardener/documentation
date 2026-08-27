@@ -5,15 +5,8 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/dnaeon'
     login: dnaeon
     name: Marin Atanasov Nikolov
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2025/08
 linkTitle: Keeping Track of Your Cloud Resources with Gardener Inventory
 newsSubtitle: 'Aug 13, 2025'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/blog/2025/08/08-13-keeping-track-of-your-resources-with-inventory.md
-  to: 08-13-keeping-track-of-your-resources-with-inventory.md
 publishdate: '2025-08-13'
 tags:
   - technical-deep-dive
@@ -24,8 +17,22 @@ tags:
   - provider-openstack
   - apeiro
 title: Keeping Track of Your Cloud Resources with Gardener Inventory
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Keeping Track of Your Cloud Resources with Gardener Inventory
 

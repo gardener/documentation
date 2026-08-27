@@ -1,20 +1,27 @@
 ---
 category: Fails
 description: Updating images in your cluster during development
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/guides/applications
 level: intermediate
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/guides/applications/image-pull-policy.md
-  to: image-pull-policy.md
 scope: app-developer
-title: "Container Image Not Updating"
+title: Container Image Not Updating
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Container Image Not Updating
 

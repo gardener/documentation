@@ -5,15 +5,8 @@ authors:
   - avatar: 'https://avatars.githubusercontent.com/dimityrmirchev'
     login: dimityrmirchev
     name: Dimitar Mirchev
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2025/09
 linkTitle: Explicit Internal DNS Configuration for Seeds
 newsSubtitle: 'September 10, 2025'
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/blog/2025/09/09-10-explicit-internal-dns-configuration-for-seeds.md
-  to: 09-10-explicit-internal-dns-configuration-for-seeds.md
 publishdate: '2025-09-10'
 tags:
   - technical-deep-dive
@@ -21,8 +14,22 @@ tags:
   - networking
   - apeiro
 title: Explicit Internal DNS Configuration for Seeds
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Explicit Internal DNS Configuration for Seeds
 

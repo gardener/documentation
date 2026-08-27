@@ -5,22 +5,29 @@ category: Operation
 description: >-
   Details about backup and recovery of Kubernetes objects based on the open
   source tool [Velero](https://velero.io/).
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/guides/administer-shoots
 index: 500
 level: intermediate
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/guides/administer-shoots/backup-restore.md
-  to: backup-restore.md
 publishdate: '2020-01-01'
 scope: app-developer
-title: "Backup and Restore of Kubernetes Objects"
+title: Backup and Restore of Kubernetes Objects
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Backup and Restore of Kubernetes Objects
 

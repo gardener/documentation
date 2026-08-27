@@ -52,8 +52,6 @@ features:
       src: /highlights/gardener.svg
     link: /community/
     title: Community-Grown Innovation
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content
 hero:
   actions:
     - link: /docs/getting-started/podrick-and-the-infinite-garden.md
@@ -68,17 +66,26 @@ hero:
     installation
   text: A Managed Kubernetes Service Done Right
 layout: home
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/index.md
-  to: index.md
 title: Gardener
 titleTemplate: false
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 <script setup>
 import ThemedTeamMembers from '@components/ThemedTeamMembers.vue'

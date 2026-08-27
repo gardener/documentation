@@ -1,8 +1,8 @@
 ---
-title: Networking
+title: "Networking"
 weight: 30
 prev: false
 next: false
-managed: true
+editLink: false
 ---
 

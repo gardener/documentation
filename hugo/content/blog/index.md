@@ -1,20 +1,27 @@
 ---
 aside: false
 editLink: false
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog
 next: false
 outline: false
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/blog/index.md
-  to: index.md
 prev: false
 sidebar: false
-title: "Blog"
-local: true
+title: Blog
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 <script setup>
 import BlogIndex from '@components/BlogIndex.vue'

@@ -3,23 +3,30 @@ category: Debugging
 description: >-
   Your pod doesn't run as expected. Are there any log files? Where? How could I
   debug a pod?
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/docs/guides/monitoring-and-troubleshooting
 last_reviewed: 19.06.2018
 level: intermediate
-params:
-  github_branch: master
-path_base_for_github_subdir:
-  from: content/docs/guides/monitoring-and-troubleshooting/debug-a-pod.md
-  to: debug-a-pod.md
 reviewer: Tieyan Fu
 scope: app-developer
 status: Reviewed
-title: "How to Debug a Pod"
+title: How to Debug a Pod
 prev: false
 next: false
-local: true
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # How to Debug a Pod
 

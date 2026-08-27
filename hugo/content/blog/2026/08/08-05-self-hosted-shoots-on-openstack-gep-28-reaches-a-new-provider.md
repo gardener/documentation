@@ -14,14 +14,22 @@ tags:
 aliases:
   - >-
     /blog/2026/08/05/self-hosted-shoots-on-openstack-gep-28-reaches-a-new-provider
-local: true
-github_repo: 'https://github.com/gardener/documentation'
-github_subdir: hugo/content/blog/2026/08
-path_base_for_github_subdir:
-  from: >-
-    content/blog/2026/08/08-05-self-hosted-shoots-on-openstack-gep-28-reaches-a-new-provider.md
-  to: 08-05-self-hosted-shoots-on-openstack-gep-28-reaches-a-new-provider.md
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # Self-Hosted Shoots on OpenStack: GEP-28 Reaches a New Provider
 
