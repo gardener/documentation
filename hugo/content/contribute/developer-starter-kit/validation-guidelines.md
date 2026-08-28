@@ -7,7 +7,7 @@ path_base_for_github_subdir:
   from: content/contribute/developer-starter-kit/validation-guidelines.md
   to: validation-guidelines.md
 title: Validation Guidelines
-weight: 100
+weight: 110
 prev: false
 next: false
 ---

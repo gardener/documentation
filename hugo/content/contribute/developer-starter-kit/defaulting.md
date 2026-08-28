@@ -7,7 +7,7 @@ path_base_for_github_subdir:
   from: content/contribute/developer-starter-kit/defaulting.md
   to: defaulting.md
 title: Defaulting
-weight: 90
+weight: 100
 prev: false
 next: false
 ---
