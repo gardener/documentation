@@ -1,6 +1,4 @@
 ---
-aliases:
-  - /docs/contribute/code/github-repositories/
 title: "GitHub Repositories"
 prev: false
 next: false
