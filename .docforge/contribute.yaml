@@ -33,13 +33,18 @@ structure:
       frontmatter:
         weight: 80
       source: https://github.com/gardener/gardener/blob/master/docs/development/changing-the-api.md
+    - file: status.md
+      frontmatter:
+        title: Status Subresource
+        weight: 90
+      source: https://github.com/gardener/gardener/blob/master/docs/development/status.md
     - file: defaulting.md
       frontmatter:
-        weight: 90
+        weight: 100
       source: https://github.com/gardener/gardener/blob/master/docs/development/defaulting.md
     - file: validation-guidelines.md
       frontmatter:
-        weight: 100
+        weight: 110
       source: https://github.com/gardener/gardener/blob/master/docs/development/validation-guidelines.md
 
   - dir: gardener
@@ -56,6 +61,7 @@ structure:
         - validation-guidelines.md
         - ipv6.md
         - changing-the-api.md
+        - status.md
         - defaulting.md
         - kubernetes-clients.md
         - logging-guidelines.md
