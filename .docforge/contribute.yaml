@@ -35,6 +35,7 @@ structure:
       source: https://github.com/gardener/gardener/blob/master/docs/development/changing-the-api.md
     - file: status.md
       frontmatter:
+        title: Status Subresource
         weight: 90
       source: https://github.com/gardener/gardener/blob/master/docs/development/status.md
     - file: defaulting.md
