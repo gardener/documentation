@@ -42,6 +42,15 @@ structure:
     excludeFiles:
       - "usage/request_cert.md" # already included in ../guides.yaml, avoiding duplicates
       - "usage/request_default_domain_cert.md" # already included in ../guides.yaml, avoiding duplicates
+- dir: gardener-extension-provider-dns-cloudflare
+  structure:
+  - file: _index.md
+    frontmatter:
+      title: Cloudflare DNS
+      weight: 45
+      description: Gardener extension controller for Cloudflare as a DNS provider.
+    source: https://github.com/schrodit/gardener-extension-provider-dns-cloudflare/blob/main/README.md
+  - fileTree: https://github.com/schrodit/gardener-extension-provider-dns-cloudflare/tree/main/docs
 - dir: gardener-extension-csi-driver-lvm
   structure:
   - file: _index.md
