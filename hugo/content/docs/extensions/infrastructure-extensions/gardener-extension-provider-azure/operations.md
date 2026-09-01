@@ -70,7 +70,7 @@ The `machineCapabilities` feature allows you to:
 The capability system uses **automatic defaulting** from `.spec.machineCapabilities`:
 
 - **`.spec.machineCapabilities`**: Defines all available capability keys and their possible values (e.g., `architecture: [amd64, arm64]`, `azure-networking: [basic, accelerated]`)
-- Any capability **not explicitly specified** in `.spec.machineImages[].versions[].capabilityFlavors[].capabilities` or `.spec.machineTypes[].capabilities` automatically gets **all values** from `.spec.machineCapabilities`
+- Any capability **not explicitly specified** in `.spec.machineImages[].versions[].capabilityFlavors[]` or `.spec.machineTypes[].capabilities` automatically gets **all values** from `.spec.machineCapabilities`
 - If no capabilities are defined all will be defaulted.
 
 **Required Capability:**
