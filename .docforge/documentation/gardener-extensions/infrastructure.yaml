@@ -69,25 +69,12 @@ structure:
   - fileTree: https://github.com/ironcore-dev/gardener-extension-provider-ironcore-metal/tree/main/docs
     excludeFiles:
       - "development/"
-- dir: gardener-extension-provider-kubevirt
-  structure:
-  - file: _index.md
-    frontmatter:
-      title: KubeVirt
-      weight: 70
-      description: Gardener extension controller for the KubeVirt cloud provider
-    source: https://github.com/gardener/gardener-extension-provider-kubevirt/blob/master/README.md
-  - fileTree: https://github.com/gardener/gardener-extension-provider-kubevirt/tree/master/docs
-    excludeFiles:
-      - "dev-setup.md"
-      - "local-setup-admission.md"
-      - "manifests/"
 - dir: gardener-extension-provider-metal
   structure:
   - file: _index.md
     frontmatter:
       title: metal-stack
-      weight: 80
+      weight: 70
       description: Gardener extension controller for the metal-stack cloud provider
     source: https://github.com/metal-stack/gardener-extension-provider-metal/blob/master/README.md
 - dir: gardener-extension-provider-openstack
@@ -95,7 +82,7 @@ structure:
   - file: _index.md
     frontmatter:
       title: OpenStack
-      weight: 90
+      weight: 80
       description: Gardener extension controller for the OpenStack cloud provider
     source:  https://github.com/gardener/gardener-extension-provider-openstack/blob/master/README.md
   - fileTree: https://github.com/gardener/gardener-extension-provider-openstack/tree/master/docs
@@ -106,7 +93,7 @@ structure:
   - file: _index.md
     frontmatter:
       title: STACKIT
-      weight: 100
+      weight: 90
       description: Gardener extension controller for the STACKIT cloud provider
     source:  https://github.com/stackitcloud/gardener-extension-provider-stackit/blob/main/README.md
   - fileTree: https://github.com/stackitcloud/gardener-extension-provider-stackit/tree/main/docs
