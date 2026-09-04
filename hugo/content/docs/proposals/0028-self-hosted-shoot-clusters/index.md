@@ -9,7 +9,6 @@ path_base_for_github_subdir:
 title: 0028 Self Hosted Shoot Clusters
 prev: false
 next: false
-managed: true
 ---
 <!-- BANNER:MANAGED -->
 <!--

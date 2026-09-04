@@ -11,7 +11,6 @@ title: Concepts
 weight: 2
 prev: false
 next: false
-managed: true
 editLink: false
 ---
 <!-- BANNER:MANAGED -->

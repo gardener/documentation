@@ -13,7 +13,6 @@ path_base_for_github_subdir:
 title: Lakom Service
 prev: false
 next: false
-managed: true
 ---
 <!-- BANNER:MANAGED -->
 <!--

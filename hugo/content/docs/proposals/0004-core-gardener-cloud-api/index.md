@@ -9,7 +9,6 @@ path_base_for_github_subdir:
 title: 0004 Core Gardener Cloud Api
 prev: false
 next: false
-managed: true
 ---
 <!-- BANNER:MANAGED -->
 <!--

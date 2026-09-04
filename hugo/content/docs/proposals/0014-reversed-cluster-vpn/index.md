@@ -9,7 +9,6 @@ path_base_for_github_subdir:
 title: 0014 Reversed Cluster Vpn
 prev: false
 next: false
-managed: true
 ---
 <!-- BANNER:MANAGED -->
 <!--

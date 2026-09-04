@@ -9,7 +9,6 @@ path_base_for_github_subdir:
 title: 0063 Diki Extension
 prev: false
 next: false
-managed: true
 ---
 <!-- BANNER:MANAGED -->
 <!--

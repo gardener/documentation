@@ -12,7 +12,6 @@ path_base_for_github_subdir:
 title: Traefik Ingress
 prev: false
 next: false
-managed: true
 ---
 <!-- BANNER:MANAGED -->
 <!--
