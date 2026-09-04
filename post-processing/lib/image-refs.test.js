@@ -97,3 +97,24 @@ test('HTML img already lowercase is a no-op', () => {
   const out = lowercaseImageRefs(input);
   assert.equal(out, input);
 });
+
+// 12. Markdown image with a double-quoted title still lowercases the filename.
+test('lowercases filename with double-quoted markdown title', () => {
+  const input = '![alt](/docs/proposals/0014-reversed-cluster-vpn/CurrentClusterVPN.png "Overview Current Cluster VPN")';
+  const out = lowercaseImageRefs(input);
+  assert.equal(out, '![alt](/docs/proposals/0014-reversed-cluster-vpn/currentclustervpn.png "Overview Current Cluster VPN")');
+});
+
+// 13. Markdown image with a single-quoted title still lowercases the filename.
+test('lowercases filename with single-quoted markdown title', () => {
+  const input = "![alt](/docs/assets/MyDiagram.png 'A Title')";
+  const out = lowercaseImageRefs(input);
+  assert.equal(out, "![alt](/docs/assets/mydiagram.png 'A Title')");
+});
+
+// 14. Title present but filename already lowercase is a no-op (idempotency).
+test('titled reference already lowercase is a no-op', () => {
+  const input = '![alt](/docs/assets/diagram.png "Title")';
+  const out = lowercaseImageRefs(input);
+  assert.equal(out, input);
+});
