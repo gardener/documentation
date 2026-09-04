@@ -10,7 +10,6 @@ title: Extensions
 weight: 30
 prev: false
 next: false
-managed: true
 ---
 <!-- BANNER:MANAGED -->
 <!--

@@ -10,7 +10,6 @@ path_base_for_github_subdir:
 title: 0043 Spegel Registry Support In The Registry Cache Extension
 prev: false
 next: false
-managed: true
 ---
 <!-- BANNER:MANAGED -->
 <!--

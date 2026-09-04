@@ -10,7 +10,6 @@ path_base_for_github_subdir:
 title: 0057 Replace Nginx Ingress Shoot Addon With Traefik Extension
 prev: false
 next: false
-managed: true
 ---
 <!-- BANNER:MANAGED -->
 <!--

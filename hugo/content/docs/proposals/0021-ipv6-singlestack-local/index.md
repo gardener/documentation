@@ -9,7 +9,6 @@ path_base_for_github_subdir:
 title: 0021 Ipv6 Singlestack Local
 prev: false
 next: false
-managed: true
 ---
 <!-- BANNER:MANAGED -->
 <!--

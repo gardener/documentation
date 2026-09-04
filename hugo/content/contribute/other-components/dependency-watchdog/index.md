@@ -10,7 +10,6 @@ path_base_for_github_subdir:
 title: Dependency Watchdog
 prev: false
 next: false
-managed: true
 ---
 <!-- BANNER:MANAGED -->
 <!--

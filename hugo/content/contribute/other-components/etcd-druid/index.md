@@ -10,7 +10,6 @@ path_base_for_github_subdir:
 title: etcd-druid
 prev: false
 next: false
-managed: true
 ---
 <!-- BANNER:MANAGED -->
 <!--

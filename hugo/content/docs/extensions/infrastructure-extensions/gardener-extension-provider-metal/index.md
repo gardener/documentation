@@ -11,7 +11,6 @@ path_base_for_github_subdir:
 title: Provider metal-stack
 prev: false
 next: false
-managed: true
 ---
 <!-- BANNER:MANAGED -->
 <!--
