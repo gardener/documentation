@@ -1,7 +1,7 @@
 ---
 title: Workloadidentity
 auto_generated: true
-generated_by: post-processing/part-3.js addMissingIndexFiles function
+generated_by: post-processing/part-index.js addMissingIndexFiles function
 prev: false
 next: false
 editLink: false
