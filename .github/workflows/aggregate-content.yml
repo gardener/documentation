@@ -52,6 +52,9 @@ jobs:
       - name: Install deps
         run: make ci-install
 
+      - name: Remove managed banner files
+        run: ./delete-managed-banner.sh --force hugo/content
+
       # Docforge primarily reads via raw.githubusercontent.com which does not
       # consume GitHub API rate limits. The default GITHUB_TOKEN authenticates
       # the smaller number of metadata API calls.
