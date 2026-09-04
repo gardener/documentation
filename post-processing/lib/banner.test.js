@@ -38,6 +38,27 @@ test('classify: editLink false but body present -> local', () => {
   assert.equal(classify({ editLink: false }, '# Real content\n'), 'local');
 });
 
+test('classify: auto_generated stub -> generated', () => {
+  assert.equal(
+    classify({ auto_generated: true, editLink: false }, '\n'),
+    'generated',
+  );
+});
+
+test('classify: auto_generated wins even after banner injected (non-empty body)', () => {
+  assert.equal(
+    classify({ auto_generated: true, editLink: false }, '<!-- BANNER:GENERATED -->\n'),
+    'generated',
+  );
+});
+
+test('classify: auto_generated never overrides managed', () => {
+  assert.equal(
+    classify(managedData({ auto_generated: true }), '# Body\n'),
+    'managed',
+  );
+});
+
 // --- buildUpstreamUrl ---
 
 test('buildUpstreamUrl: correct deep link', () => {
@@ -123,6 +144,13 @@ test('renderBanner: local contains marker, static', () => {
   assert.match(block, /source of truth/);
 });
 
+test('renderBanner: generated contains marker, static, no upstream url', () => {
+  const block = renderBanner('generated', null);
+  assert.match(block, /^<!-- BANNER:GENERATED -->/);
+  assert.doesNotMatch(block, /\{upstreamUrl\}/);
+  assert.doesNotMatch(block, /http/);
+});
+
 test('renderBanner: no surrounding whitespace', () => {
   const block = renderBanner('local', null);
   assert.equal(block, block.trim());
@@ -136,6 +164,10 @@ test('hasBanner: detects MANAGED marker', () => {
 
 test('hasBanner: detects LOCAL marker', () => {
   assert.equal(hasBanner('<!-- BANNER:LOCAL -->\n<!-- x -->\n# Body'), true);
+});
+
+test('hasBanner: detects GENERATED marker', () => {
+  assert.equal(hasBanner('<!-- BANNER:GENERATED -->\n<!-- x -->\n# Body'), true);
 });
 
 test('hasBanner: false on banner-less content', () => {
@@ -176,6 +208,13 @@ test('splitLeadingBanner: no banner -> banner null, rest unchanged', () => {
 test('splitLeadingBanner: leading whitespace before banner is tolerated', () => {
   const block = renderBanner('managed', 'https://example.com/x.md');
   const { banner, rest } = splitLeadingBanner(`\n\n${block}\n\n# Body\n`);
+  assert.equal(banner, block);
+  assert.equal(rest, '# Body\n');
+});
+
+test('splitLeadingBanner: splits leading GENERATED banner', () => {
+  const block = renderBanner('generated', null);
+  const { banner, rest } = splitLeadingBanner(`${block}\n\n# Body\n`);
   assert.equal(banner, block);
   assert.equal(rest, '# Body\n');
 });
