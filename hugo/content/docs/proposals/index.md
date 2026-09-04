@@ -10,7 +10,6 @@ title: Proposals
 weight: 34
 prev: false
 next: false
-managed: true
 ---
 <!-- BANNER:MANAGED -->
 <!--

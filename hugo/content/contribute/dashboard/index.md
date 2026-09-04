@@ -11,7 +11,6 @@ title: Dashboard
 weight: 60
 prev: false
 next: false
-managed: true
 ---
 <!-- BANNER:MANAGED -->
 <!--

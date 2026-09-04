@@ -11,7 +11,6 @@ title: To-Do
 weight: 4
 prev: false
 next: false
-managed: true
 editLink: false
 ---
 <!-- BANNER:MANAGED -->

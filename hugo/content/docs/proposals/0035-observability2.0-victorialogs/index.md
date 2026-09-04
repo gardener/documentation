@@ -9,7 +9,6 @@ path_base_for_github_subdir:
 title: 0035 Observability2.0 Victorialogs
 prev: false
 next: false
-managed: true
 ---
 <!-- BANNER:MANAGED -->
 <!--

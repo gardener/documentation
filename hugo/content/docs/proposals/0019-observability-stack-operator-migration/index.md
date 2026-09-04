@@ -9,7 +9,6 @@ path_base_for_github_subdir:
 title: 0019 Observability Stack Operator Migration
 prev: false
 next: false
-managed: true
 ---
 <!-- BANNER:MANAGED -->
 <!--

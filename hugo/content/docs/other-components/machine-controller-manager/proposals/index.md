@@ -11,7 +11,6 @@ title: Proposals
 weight: 3
 prev: false
 next: false
-managed: true
 editLink: false
 ---
 <!-- BANNER:MANAGED -->

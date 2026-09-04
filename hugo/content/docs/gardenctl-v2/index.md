@@ -13,7 +13,6 @@ title: Gardenctl
 weight: 70
 prev: false
 next: false
-managed: true
 ---
 <!-- BANNER:MANAGED -->
 <!--

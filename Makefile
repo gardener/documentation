@@ -131,13 +131,14 @@ dev:
 	@$(MAKE) install
 	pnpm exec vitepress dev
 
-.PHONY: full-refresh
-full-refresh: ## Refresh md files from external repos (.docforge/), post-process, then local preview
+.PHONY: hugo-refresh
+hugo-refresh: ## Refresh md files from external repos (.docforge/), post-process, then local preview
 	@echo "Refreshing md files from external repositories, defined in .docforge/ dir."
 	@echo "USE THIS ONLY FOR TESTING OF MANIFEST CHANGES"
+	./delete-managed-banner.sh --force hugo/content
 	@$(MAKE) docforge-ci
 	@$(MAKE) post-process
-	@$(MAKE) local-preview
+	git add hugo/content
 
 .PHONY: local-preview
 local-preview:
@@ -193,10 +194,14 @@ ci-build-preview: ## Netlify deploy-preview: full rebuild only if .docforge/ cha
 	@BASE="$${CACHED_COMMIT_REF:-origin/master}"; \
 	if ! git rev-parse --verify -q "$$BASE^{commit}" >/dev/null; then \
 		echo "Base ref '$$BASE' not resolvable (shallow clone?) -> full rebuild"; \
-		$(MAKE) ci-install docforge-ci post-process build; \
+		$(MAKE) ci-install; \
+		./delete-managed-banner.sh --force hugo/content; \
+		$(MAKE) docforge-ci post-process build; \
 	elif git diff --name-only "$$BASE...HEAD" | grep -q '^\.docforge/'; then \
 		echo "Manifest changed since $$BASE -> docforge + post-process + build"; \
-		$(MAKE) ci-install docforge-ci post-process build; \
+		$(MAKE) ci-install; \
+		./delete-managed-banner.sh --force hugo/content; \
+		$(MAKE) docforge-ci post-process build; \
 	else \
 		echo "No manifest change since $$BASE -> build only"; \
 		$(MAKE) ci-install build; \

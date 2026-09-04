@@ -9,7 +9,6 @@ path_base_for_github_subdir:
 title: 0020 Ha Control Planes
 prev: false
 next: false
-managed: true
 ---
 <!-- BANNER:MANAGED -->
 <!--

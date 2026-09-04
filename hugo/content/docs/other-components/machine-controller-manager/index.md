@@ -10,7 +10,6 @@ path_base_for_github_subdir:
 title: Machine Controller Manager
 prev: false
 next: false
-managed: true
 ---
 <!-- BANNER:MANAGED -->
 <!--
