@@ -9,7 +9,12 @@
 //
 // Two syntaxes are covered: Markdown ![alt](/path/File.png) and inline HTML
 // <img src="/path/File.png">, since upstream docs mix both.
-const IMAGE_REF = /(!\[[^\]]*\]\()(\/[^):]*?)([^/):]+\.(?:png|jpg|jpeg|svg|webp))(\))/gi;
+//
+// The Markdown form also allows an optional title after the path, e.g.
+// ![alt](/path/File.png "Title") or with single quotes. The title is captured
+// as part of the closing group so it survives untouched while the filename is
+// lowercased.
+const IMAGE_REF = /(!\[[^\]]*\]\()(\/[^\s):]*?)([^/\s):]+\.(?:png|jpg|jpeg|svg|webp))((?:\s+(?:"[^"]*"|'[^']*'))?\))/gi;
 const HTML_IMG_REF = /(<img\b[^>]*?\bsrc=["'])(\/[^"']*?)([^/"']+\.(?:png|jpg|jpeg|svg|webp))(["'])/gi;
 
 export function lowercaseImageRefs(content) {
