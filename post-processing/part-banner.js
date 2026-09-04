@@ -52,6 +52,7 @@ function main() {
 
     let managed = 0;
     let local = 0;
+    let generated = 0;
     let skipped = 0;
     let written = 0;
 
@@ -64,6 +65,7 @@ function main() {
         continue;
       }
       if (kind === 'managed') managed += 1;
+      else if (kind === 'generated') generated += 1;
       else local += 1;
 
       if (hasBanner(content)) continue;
@@ -75,7 +77,7 @@ function main() {
     }
 
     console.log(
-      `Processed ${files.length} files (${managed} managed, ${local} local, ${skipped} skipped, ${written} written)`,
+      `Processed ${files.length} files (${managed} managed, ${local} local, ${generated} generated, ${skipped} skipped, ${written} written)`,
     );
   } catch (error) {
     console.error('Error:', error.message);

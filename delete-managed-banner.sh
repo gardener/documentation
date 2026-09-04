@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Deletes files recursively that contain the managed banner marker.
+# Deletes files recursively that carry a MANAGED or GENERATED banner marker.
+# Both marker kinds identify files the aggregation run recreates, so they are
+# safe to remove; LOCAL files are the source of truth and are left untouched.
 # When deleting a file leaves its directory without any .md files, the whole
 # directory is removed (including remaining assets), walking upwards so parent
 # directories that lose their last .md collapse as well.
@@ -35,12 +37,14 @@ fi
 # and cannot escape above the requested root.
 ROOT="$(cd "$TARGET" && pwd)"
 
-# The marker is unique enough on its own; matching the whole ASCII block
-# would be brittle across encodings.
-MARKER='<!-- BANNER:MANAGED -->'
+# Matches the MANAGED marker (aggregated upstream files) and the GENERATED
+# marker (navigation stubs written by post-processing/part-index.js). Both are
+# recreated by the aggregation run and safe to delete. LOCAL files are the
+# source of truth and must never match.
+MARKER_PATTERN='<!-- BANNER:MANAGED -->|<!-- BANNER:GENERATED -->'
 
 # Collect matches null-delimited to handle any filename safely.
-mapfile -d '' -t MATCHES < <(grep -rlZ --fixed-strings "$MARKER" "$ROOT" 2>/dev/null || true)
+mapfile -d '' -t MATCHES < <(grep -rlZE "$MARKER_PATTERN" "$ROOT" 2>/dev/null || true)
 
 COUNT=${#MATCHES[@]}
 
