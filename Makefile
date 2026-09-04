@@ -131,13 +131,12 @@ dev:
 	@$(MAKE) install
 	pnpm exec vitepress dev
 
-.PHONY: full-refresh
-full-refresh: ## Refresh md files from external repos (.docforge/), post-process, then local preview
+.PHONY: hugo-refresh
+hugo-refresh: ## Refresh md files from external repos (.docforge/), post-process, then local preview
 	@echo "Refreshing md files from external repositories, defined in .docforge/ dir."
 	@echo "USE THIS ONLY FOR TESTING OF MANIFEST CHANGES"
 	@$(MAKE) docforge-ci
 	@$(MAKE) post-process
-	@$(MAKE) local-preview
 
 .PHONY: local-preview
 local-preview:
