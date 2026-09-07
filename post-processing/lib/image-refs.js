@@ -14,7 +14,7 @@
 // ![alt](/path/File.png "Title") or with single quotes. The title is captured
 // as part of the closing group so it survives untouched while the filename is
 // lowercased.
-const IMAGE_REF = /(!\[[^\]]*\]\()(\/[^\s):]*?)([^/\s):]+\.(?:png|jpg|jpeg|svg|webp))((?:\s+(?:"[^"]*"|'[^']*'))?\))/gi;
+const IMAGE_REF = /(!\[[^\]]*\]\()(\/[^\s):]*?)([^/\s):]+\.(?:png|jpg|jpeg|svg|webp))((?:\s+(?:"[^"]*"|'[^']*'))?\s*\))/gi;
 const HTML_IMG_REF = /(<img\b[^>]*?\bsrc=["'])(\/[^"']*?)([^/"']+\.(?:png|jpg|jpeg|svg|webp))(["'])/gi;
 
 export function lowercaseImageRefs(content) {

@@ -41,10 +41,30 @@ ROOT="$(cd "$TARGET" && pwd)"
 # marker (navigation stubs written by post-processing/part-index.js). Both are
 # recreated by the aggregation run and safe to delete. LOCAL files are the
 # source of truth and must never match.
+#
+# grep only prefilters candidates that mention the marker text anywhere; a bare
+# grep -l would also match marker strings buried in prose or fenced code blocks.
+# select-banner-files.mjs then parses each candidate's frontmatter and keeps it
+# only when splitLeadingBanner finds a MANAGED/GENERATED banner as the first
+# thing after the frontmatter, mirroring post-processing/part-1.js.
 MARKER_PATTERN='<!-- BANNER:MANAGED -->|<!-- BANNER:GENERATED -->'
 
-# Collect matches null-delimited to handle any filename safely.
-mapfile -d '' -t MATCHES < <(grep -rlZE "$MARKER_PATTERN" "$ROOT" 2>/dev/null || true)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+NODE_BIN="$(command -v node || true)"
+if [[ -z "$NODE_BIN" ]]; then
+  echo "Error: node is required to validate leading banners" >&2
+  exit 1
+fi
+
+# grep prefilters candidates that mention the marker text anywhere, then
+# select-banner-files.mjs validates each one. The helper accepts NUL- or
+# newline-delimited input (GNU grep -Z uses NUL; BSD/macOS grep -l uses
+# newlines) and always emits NUL-delimited paths, so mapfile -d '' reads them
+# safely regardless of filename contents.
+mapfile -d '' -t MATCHES < <(
+  grep -rlZE "$MARKER_PATTERN" "$ROOT" 2>/dev/null |
+    "$NODE_BIN" "$SCRIPT_DIR/post-processing/select-banner-files.mjs"
+)
 
 COUNT=${#MATCHES[@]}
 

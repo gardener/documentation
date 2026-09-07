@@ -118,3 +118,10 @@ test('titled reference already lowercase is a no-op', () => {
   const out = lowercaseImageRefs(input);
   assert.equal(out, input);
 });
+
+// 15. Uppercase extension with title and trailing whitespace before ')'.
+test('lowercases filename with uppercase extension, title and trailing space', () => {
+  const input = '![alt](/docs/assets/MyDiagram.PNG "A Title" )';
+  const out = lowercaseImageRefs(input);
+  assert.equal(out, '![alt](/docs/assets/mydiagram.png "A Title" )');
+});

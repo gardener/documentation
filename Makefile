@@ -132,7 +132,7 @@ dev:
 	pnpm exec vitepress dev
 
 .PHONY: hugo-refresh
-hugo-refresh: ## Refresh md files from external repos (.docforge/), post-process, then local preview
+hugo-refresh: ## Refresh md files from external repos (.docforge/), post-process, then stage regenerated content
 	@echo "Refreshing md files from external repositories, defined in .docforge/ dir."
 	@echo "USE THIS ONLY FOR TESTING OF MANIFEST CHANGES"
 	./delete-managed-banner.sh --force hugo/content
