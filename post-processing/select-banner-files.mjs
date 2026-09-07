@@ -9,7 +9,7 @@ import { splitLeadingBanner } from './lib/banner.js';
 
 const MANAGED_OR_GENERATED = /^<!-- BANNER:(?:MANAGED|GENERATED) -->/;
 
-function hasLeadingManagedBanner(filePath) {
+function hasLeadingManagedOrGeneratedBanner(filePath) {
   let parsed;
   try {
     parsed = read(filePath);
@@ -34,7 +34,7 @@ const candidates = raw.split(/\0|\r?\n/).filter((p) => p.length > 0);
 
 const out = [];
 for (const filePath of candidates) {
-  if (hasLeadingManagedBanner(filePath)) out.push(filePath);
+  if (hasLeadingManagedOrGeneratedBanner(filePath)) out.push(filePath);
 }
 
 if (out.length > 0) process.stdout.write(out.join('\0') + '\0');
