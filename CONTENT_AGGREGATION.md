@@ -45,7 +45,7 @@ graph LR
 Two things to internalize:
 
 - **Aggregation happens in CI, not on your machine.** A nightly job and any push to
-  `.docforge/**` regenerate `hugo/content/` and commit it when the build passes (see
+  `master` that changes `.docforge/**` regenerate `hugo/content/` and commit it when the build passes (see
   [How a bad upstream change is kept off `master`](#how-a-bad-upstream-change-is-kept-off-master)).
   See [.github/workflows/aggregate-content.yml](.github/workflows/aggregate-content.yml).
 - **`hugo/` is a legacy directory name.** The site runs on VitePress; `srcDir` points at

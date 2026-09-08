@@ -68,9 +68,10 @@ merged upstream — the nightly run overwrites any local edit, and CI blocks PRs
 
 ### Creating a new local content file
 
-Any markdown file you add under `hugo/content/` **without** a `github_repo` frontmatter
-field is automatically `LOCAL`. There is nothing to register; placement in the tree
-determines the URL. Minimum frontmatter:
+Any markdown file you add under `hugo/content/` **without** a `github_repo` or
+`auto_generated` frontmatter field is automatically `LOCAL`. (`auto_generated: true`
+classifies a file as `GENERATED`, which is removed during cleanup.) There is nothing
+to register; placement in the tree determines the URL. Minimum frontmatter:
 
 ```yaml
 ---
