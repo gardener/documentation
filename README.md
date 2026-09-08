@@ -1,8 +1,12 @@
 # 🌱 Gardener Documentation
 
-## 🚀 Quick Start
+This repository builds the Gardener documentation site with [VitePress](https://vitepress.dev/).
+Most content is **not authored here**: it is aggregated from many upstream repositories
+into `hugo/content/` and committed to `master`. For the full picture of how that works and
+why, see [CONTENT_AGGREGATION.md](CONTENT_AGGREGATION.md). This README covers what you need
+to run the site and make a change.
 
-Ready to jump in? Follow these steps to get the Gardener documentation running locally:
+## 🚀 Quick Start
 
 ### Prerequisites
 
@@ -21,78 +25,98 @@ Ready to jump in? Follow these steps to get the Gardener documentation running l
 
   Corepack picks up the pinned pnpm version from `package.json` automatically.
 
-### Steps
-
-1. Build and run a Docker container:
+### Run it
 
 ```shell
 make docker-preview
 ```
 
-2. Visit [http://localhost:5173](http://localhost:5173) in your browser! 🎉
+Then visit [http://localhost:5173](http://localhost:5173). 🎉
 
-## 📚 Understanding the Documentation Structure
+For a native run without Docker use `make dev` (dev server with hot reload) or
+`make local-preview` (production build, then preview).
 
-The Gardener documentation uses a **distributed documentation model** where content is gathered from multiple repositories into `hugo/content/` by a scheduled CI job (docforge). The aggregated tree is committed to `master`, so local builds and PRs work against `hugo/content/` directly without running docforge.
+## 📂 Content in a nutshell
 
-### Key Locations
+All docs live in `hugo/content/`. Three kinds of file share that tree, told apart by a
+banner comment that post-processing injects at the top of each file:
 
-All content lives in the committed `hugo/content/` tree. Every markdown file carries exactly one frontmatter marker that tells you who owns it:
+| Banner | Meaning | Edit here? |
+|---|---|---|
+| `LOCAL` | maintained in this repo (blog, about, community, landing page) | **Yes.** Edit directly. |
+| `MANAGED` | aggregated from an upstream repo (has `github_repo` frontmatter) | **No.** Open a PR at the upstream source; the banner prints its URL. CI blocks edits here. |
+| `GENERATED` | navigation stub created by post-processing | **No.** Recreated on every run. |
 
-- **`local: true`** — locally maintained. Edit these files directly here in `gardener/documentation`.
-  - `hugo/content/blog/` - Blog posts
-  - `hugo/content/community/` - Community-related content
-  - `hugo/content/about/` - About pages
-  - `hugo/content/index.md` - Landing page
-  - `hugo/content/public/` - Static assets (favicon, logos, og-image); not markdown, so no marker
+The distinction is by banner, not by folder. See
+[CONTENT_AGGREGATION.md](CONTENT_AGGREGATION.md) for the model, the pipeline, and the
+reasoning behind it.
 
-- **`managed: true`** — aggregated from an upstream repository. **Do not edit here.** The nightly aggregation run overwrites these files, so any local change is silently lost. The `github_repo` / `github_subdir` frontmatter fields point at the upstream source; open your PR there instead. A CI check (`enforce-managed-files`) blocks PRs that touch `managed: true` files.
+## ✏️ Making a change
 
-### How Content Gets Aggregated
+Route your change by **what** you are editing:
 
-Managed content is pulled from upstream repositories into `hugo/content/` by a
-scheduled CI job and committed to `master`. The structure of what gets
-aggregated is defined in the `.docforge/*.yaml` manifest files. Contributors do
-not run this aggregation locally; it happens in CI.
+| I want to change… | Where | Command | Made visible by |
+|---|---|---|---|
+| **Code / theme** (`.vitepress/**`, components, styles) | this repo | `make dev` | hot reload |
+| **Local content** (`LOCAL` file) | the file under `hugo/content/` | `make dev` | hot reload |
+| **Managed content** (`MANAGED` file) | the upstream repo it points to | open a PR **there** | the nightly aggregation run |
+| **Content structure** (add/remove/move a source) | `.docforge/*.yaml` | `make hugo-refresh` to preview locally | the aggregation run once the manifest change is merged |
 
-## ✏️ Contributing
+You may edit a `MANAGED` file locally to test a change, but the fix only counts once it is
+merged upstream — the nightly run overwrites any local edit, and CI blocks PRs that touch
+`MANAGED` files here.
 
-### Local Content
+### Creating a new local content file
 
-1. To modify local content, edit the `local: true` files directly in `hugo/content/`
-2. Content changes are reflected immediately when using `make dev`
+Any markdown file you add under `hugo/content/` **without** a `github_repo` frontmatter
+field is automatically `LOCAL`. There is nothing to register; placement in the tree
+determines the URL. Minimum frontmatter:
 
-### Blog Posts
+```yaml
+---
+title: Your Page Title
+---
+```
 
-1. Create new blog posts in `hugo/content/blog/YEAR/MONTH/your-post.md`
-2. Include front matter at the top of your file:
-   ```yaml
-   ---
-   local: true
-   title: Your Awesome Blog Post
-   description: "A brief description of your post"
-   date: 2025-06-24
-   authors:
-   - name: Your Name
-     email: your.email@example.com
-   ---
-   ```
+`title` is the only strictly required field. Optional layout fields: `description`,
+`editLink: false`, `prev: false` / `next: false`, `aside: false`, `sidebar: false`. Do
+**not** add `github_repo` or `auto_generated` — those flip the file to `MANAGED` or
+`GENERATED`.
 
-### Remote Content 
+### Adding a blog post
 
-Gardener documentation pulls content from multiple repositories. Key remote sources include:
+Create `hugo/content/blog/YEAR/MONTH/your-post.md`:
 
-- `gardener/gardener`: Core Gardener documentation
-- `gardener/dashboard`: Dashboard documentation
-- `gardener/gardenctl-v2`: CLI documentation
+```yaml
+---
+title: Your Awesome Blog Post
+description: "A brief description of your post"
+publishdate: '2025-06-24'
+authors:
+  - name: Your Name
+    login: your-github-handle
+    avatar: https://avatars.githubusercontent.com/u/<id>?v=4
+tags:
+  - community-event
+---
+```
 
-To modify these, submit changes to their respective repositories.
+## 🔧 Command reference
 
-## 🔧 Available Commands
+| Command | Purpose |
+|---|---|
+| `make dev` | Dev server with hot reload (code + local content) |
+| `make docker-preview` | Build and run the preview in Docker |
+| `make local-preview` | Production build, then local preview |
+| `make build` | Build the site into `dist/` |
+| `make post-process` | Run the full post-processing pipeline |
+| `make hugo-refresh` | **Manifest testing only:** delete managed banners, re-aggregate, post-process, stage |
+| `make vale` | Lint changed content markdown with Vale |
+| `make diff-structure-master` | Compare sitemap structure of working tree vs `origin/master` |
 
-### Documentation Development
+## 🤝 Contributing
 
-- `make dev` - Start the development server with live reloading
-- `make docker-preview` - Build and run the preview in a Docker container
-- `make local-preview` - Build and run the preview locally
-
+- For **local content**, edit the `LOCAL` files directly and open a PR here.
+- For **managed content**, open a PR in the upstream repository the file is aggregated
+  from (`gardener/gardener`, `gardener/dashboard`, `gardener/gardenctl-v2`, and others).
+- For **site/theme code**, open a PR here against `master`.
