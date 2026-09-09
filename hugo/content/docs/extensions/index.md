@@ -11,7 +11,6 @@ title: List of Extensions
 weight: 40
 prev: false
 next: false
-managed: true
 ---
 <!-- BANNER:MANAGED -->
 <!--

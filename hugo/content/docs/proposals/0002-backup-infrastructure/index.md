@@ -9,7 +9,6 @@ path_base_for_github_subdir:
 title: 0002 Backup Infrastructure
 prev: false
 next: false
-managed: true
 ---
 <!-- BANNER:MANAGED -->
 <!--

@@ -12,7 +12,6 @@ title: API Reference
 weight: 10
 prev: false
 next: false
-managed: true
 ---
 <!-- BANNER:MANAGED -->
 <!--

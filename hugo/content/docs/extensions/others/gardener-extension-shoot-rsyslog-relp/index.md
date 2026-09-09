@@ -13,7 +13,6 @@ path_base_for_github_subdir:
 title: Node Audit Logging
 prev: false
 next: false
-managed: true
 ---
 <!-- BANNER:MANAGED -->
 <!--

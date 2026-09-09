@@ -11,7 +11,6 @@ title: Monitoring
 weight: 50
 prev: false
 next: false
-managed: true
 ---
 <!-- BANNER:MANAGED -->
 <!--
