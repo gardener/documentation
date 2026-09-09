@@ -59,10 +59,12 @@ You can find all available make targets by running `make help`.
 
 For information on our workflows, see:
 
-* [Cloudprovider configuration guide](/docs/extensions/infrastructure-extensions/gardener-extension-provider-stackit/cloudprovider/)
-* [Development guide](https://github.com/stackitcloud/gardener-extension-provider-stackit/blob/main/docs/development.md)
-* [Testing guide](https://github.com/stackitcloud/gardener-extension-provider-stackit/blob/main/docs/testing.md)
-* [Release procedure](https://github.com/stackitcloud/gardener-extension-provider-stackit/blob/main/docs/releases.md)
+- [Usage guide](/docs/extensions/infrastructure-extensions/gardener-extension-provider-stackit/usage/)
+- [Operations guide](/docs/extensions/infrastructure-extensions/gardener-extension-provider-stackit/operations/)
+- [Deployment](/docs/extensions/infrastructure-extensions/gardener-extension-provider-stackit/deployment/)
+- [Development guide](/docs/extensions/infrastructure-extensions/gardener-extension-provider-stackit/development/)
+- [Testing guide](/docs/extensions/infrastructure-extensions/gardener-extension-provider-stackit/testing/)
+- [Release procedure](/docs/extensions/infrastructure-extensions/gardener-extension-provider-stackit/releases/)
 
 ## Feedback and Support
 

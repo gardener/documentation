@@ -179,6 +179,7 @@ next: false
 * [Validation Guidelines](/contribute/developer-starter-kit/validation-guidelines/)
 * [Logging Guidelines in Gardener Components](/contribute/developer-starter-kit/logging-guidelines/)
 * [Changing the API](/contribute/developer-starter-kit/changing-the-api/)
+* [Status Subresource in Gardener APIs](/contribute/developer-starter-kit/status/)
 * [Secrets Management for Seed and Shoot Clusters](/contribute/gardener/secrets_management/)
 * [IPv6 in Gardener Clusters](/contribute/gardener/ipv6/)
 * [Releases, Features, Hotfixes](/contribute/gardener/process/)

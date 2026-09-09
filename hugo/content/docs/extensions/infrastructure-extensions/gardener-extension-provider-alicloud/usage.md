@@ -368,12 +368,19 @@ csi:
 # cloudControllerManager:
 #   featureGates:
 #     SomeKubernetesFeature: true
+# storage:
+#   managedDefaultStorageClass: true
+#   managedDefaultVolumeSnapshotClass: true
 ```
 The `csi.enableADController` is used as the value of environment [DISK_AD_CONTROLLER](https://github.com/kubernetes-sigs/alibaba-cloud-csi-driver/blob/cd0788a0a440926d504d8f8fb7f6e738fe96f3ae/pkg/disk/nodeserver.go#L80), which is used for AliCloud csi-disk-plugin. This field is optional. When a new shoot is creatd, this field is automatically set true. For an existing shoot created in previous versions, it remains unchanged. If there are persistent volumes created before year 2021, please be cautious to set this field *true* because they may fail to mount to nodes.
 
 The `cloudControllerManager.featureGates` contains a map of explicitly enabled or disabled feature gates.
 For production usage it's not recommend to use this field at all as you can enable alpha features or disable beta/stable features, potentially impacting the cluster stability.
 If you don't want to configure anything for the `cloudControllerManager` simply omit the key in the YAML specification.
+
+The `storage.managedDefaultStorageClass` controls whether the `default` StorageClass deployed to the Shoot cluster is annotated as the cluster default (`storageclass.kubernetes.io/is-default-class: "true"`). Defaults to `true`. Set to `false` if you want to manage your own default StorageClass.
+
+The `storage.managedDefaultVolumeSnapshotClass` controls whether the `default` VolumeSnapshotClass deployed to the Shoot cluster is annotated as the cluster default (`snapshot.storage.kubernetes.io/is-default-class: "true"`). Defaults to `true`. Set to `false` if you want to manage your own default VolumeSnapshotClass.
 
 ## `WorkerConfig`
 
