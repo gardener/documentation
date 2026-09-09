@@ -146,6 +146,12 @@ If you want to add documentation that already exists on GitHub to the website, y
 
 We use GitHub issues to track bugs and enhancement requests. When opening an issue, provide enough details for others to understand and reproduce the problem. You may use the provided issue template, but it is not required.
 
+> [!IMPORTANT]
+> **Do not open a public issue for security vulnerabilities.**<br/>
+> Instead, [submit a private vulnerability report on GitHub](/docs/security-and-compliance/security-incident/#option-1-—-github-private-security-advisory-preferred), or send an email to [gardener-security@lists.neonephos.org](mailto:gardener-security@lists.neonephos.org).
+> 
+> For more information, see [Reporting a Security Incident](/docs/security-and-compliance/security-incident).
+
 ## Community
 
 ### Slack
