@@ -26,7 +26,7 @@
     "@types/js-yaml": "4.0.9",
     "@types/markdown-it": "12.2.3",
     "@types/node": "20.11.27",
-    "sharp": "0.34.5",
+    "sharp": "0.35.4",
     "node-addon-api": "8.8.0",
     "node-gyp": "13.0.0"
   }
