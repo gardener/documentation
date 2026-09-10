@@ -59,9 +59,13 @@ fi
 # grep prefilters candidates that mention the marker text anywhere, then
 # select-banner-files.mjs validates each one. The helper accepts NUL- or
 # newline-delimited input (GNU grep -Z uses NUL; BSD/macOS grep -l uses
-# newlines) and always emits NUL-delimited paths, so mapfile -d '' reads them
-# safely regardless of filename contents.
-mapfile -d '' -t MATCHES < <(
+# newlines) and always emits NUL-delimited paths, which we read NUL-by-NUL.
+# A plain read loop is used instead of `mapfile -d ''` because macOS ships
+# Bash 3.2, where mapfile does not exist.
+MATCHES=()
+while IFS= read -r -d '' match; do
+  MATCHES+=("$match")
+done < <(
   grep -rlZE "$MARKER_PATTERN" "$ROOT" 2>/dev/null |
     "$NODE_BIN" "$SCRIPT_DIR/post-processing/select-banner-files.mjs"
 )
