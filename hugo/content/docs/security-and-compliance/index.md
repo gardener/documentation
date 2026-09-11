@@ -116,3 +116,7 @@ Gardener security announcements will be communicated by the Fix Lead sending an 
 Public discussions about Gardener security announcements and retrospectives will primarily happen in the Gardener mailing list. Thus Gardener community members who are interested in participating in discussions related to the Gardener Security Release Process are encouraged to join the Gardener mailing list ([how to find and join a group](https://support.google.com/groups/answer/1067205?hl=en)).
 
 The members of the [Gardener Security Team](#gardener-security-team) are subscribed to the private [Gardener Security mailing list](https://groups.google.com/forum/#!forum/gardener-security) (reachable via [gardener-security@lists.neonephos.org](mailto:gardener-security@lists.neonephos.org)).
+
+### Open-Source-Steward
+
+CRA stewardship: This project is supported under the Linux Foundation CRA stewardship framework. Our project CRA steward is the Linux Foundation Europe and its policy is available at https://www.linuxfoundation.org/security. Security vulnerabilities should be reported through [Gardener's security reporting](https://gardener.cloud/docs/security-and-compliance/security-incident/) which we will coordinate with our CRA steward. For actively exploited vulnerabilities or other security matters that may require CRA escalation, please use Gardener's security [emergency reporting channels](https://gardener.cloud/docs/security-and-compliance/security-incident/) as appropriate.
