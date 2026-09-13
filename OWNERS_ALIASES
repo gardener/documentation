@@ -1,19 +1,9 @@
-# See the OWNERS docs at https://go.k8s.io/owners
-
 aliases:
-  documentation-reviewers:
-  - BoHristova
-  - dimitar-kostadinov
-  - JordanJordanov
-  - klocke-io
-  - Kostov6
-  - marc1404
-  - msohn
-  - n-boshnakov
-  - RadaBDimitrova
-  - rfranzke
-  - VelmiraS
   documentation-approvers:
+  - BoHristova
+  - VelmiraS
+  - klocke-io
+  documentation-reviewers:
   - BoHristova
   - dimitar-kostadinov
   - JordanJordanov
