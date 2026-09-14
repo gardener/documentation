@@ -30,10 +30,6 @@ test('classify: no github_repo, real body -> local', () => {
   assert.equal(classify({ title: 'Overview' }, '# Body\n'), 'local');
 });
 
-test('classify: editLink false + empty body -> skip', () => {
-  assert.equal(classify({ editLink: false }, '\n  \n'), 'skip');
-});
-
 test('classify: editLink false but body present -> local', () => {
   assert.equal(classify({ editLink: false }, '# Real content\n'), 'local');
 });
@@ -55,6 +51,14 @@ test('classify: auto_generated wins even after banner injected (non-empty body)'
 test('classify: auto_generated never overrides managed', () => {
   assert.equal(
     classify(managedData({ auto_generated: true }), '# Body\n'),
+    'managed',
+  );
+});
+
+
+test('classify: blog segment elsewhere does not force local', () => {
+  assert.equal(
+    classify(managedData(), '# Body\n', './hugo/content/docs/blog-tooling/x.md'),
     'managed',
   );
 });

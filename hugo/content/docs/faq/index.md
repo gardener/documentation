@@ -1,9 +1,26 @@
 ---
 description: Commonly asked questions about Gardener
-title: "FAQ"
+title: FAQ
 weight: 80
 prev: false
 next: false
 editLink: false
 ---
+<!-- BANNER:GENERATED -->
+<!--
+   █▀▀ █▀▀ █▄ █
+   █ █ █▀▀ █ ▀█
+   ▀▀▀ ▀▀▀ ▀  ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  GENERATED FILE — navigation stub              │
+   │                                                │
+   │  Created by post-processing/part-index.js      │
+   │  (addMissingIndexFiles). It has no upstream    │
+   │  source; the aggregation run recreates it.     │
+   │                                                │
+   │  Do not edit and do not commit by hand.        │
+   └────────────────────────────────────────────────┘
+-->
+
 

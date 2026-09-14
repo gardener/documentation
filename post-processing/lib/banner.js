@@ -60,14 +60,16 @@ const GENERATED_BANNER = `${MARKER_GENERATED}
    └────────────────────────────────────────────────┘
 -->`;
 
-// Based solely on frontmatter. github_repo -> managed (upstream source of truth).
-// auto_generated -> generated (a navigation stub written by part-index.js, no
-// upstream). Then: editLink:false with an empty body is a docforge navigation
-// stub (skip), everything else is local.
-export function classify(data, content) {
+// Any file under content/blog/ -> local (blog posts are authored here, not
+// aggregated). Otherwise based on frontmatter. github_repo -> managed (upstream
+// source of truth). auto_generated -> generated (a navigation stub written by
+// part-index.js, no upstream).
+// Then: index.md with an empty body is a docforge navigation stub , everything else is local.
+export function classify(data, content, file = '') {
+  if (/(^|[/\\])content[/\\]blog[/\\]/.test(file) && !data.github_repo) return 'local';
   if (data.github_repo) return 'managed';
   if (data.auto_generated) return 'generated';
-  if (data.editLink === false && content.trim().length === 0) return 'skip';
+  if (content.trim().length === 0 && file.split(/[/\\]/).pop() === 'index.md') return 'generated';
   return 'local';
 }
 
