@@ -58,7 +58,7 @@ function main() {
 
     for (const file of files) {
       const { data, content } = read(file);
-      const kind = classify(data, content);
+      const kind = classify(data, content, file);
 
       if (kind === 'skip') {
         skipped += 1;
