@@ -6,7 +6,9 @@ import {
   buildUpstreamUrl,
   renderBanner,
   hasBanner,
+  bannerKind,
   injectBanner,
+  splitLeadingBanner,
 } from './lib/banner.js';
 
 function findMarkdownFiles(dir) {
@@ -68,11 +70,19 @@ function main() {
       else if (kind === 'generated') generated += 1;
       else local += 1;
 
-      if (hasBanner(content)) continue;
-
       const url = kind === 'managed' ? buildUpstreamUrl(data, file) : null;
-      const injected = injectBanner(content, renderBanner(kind, url));
+      const banner = renderBanner(kind, url);
 
+      const existing = bannerKind(content);
+      let base = content;
+      if (existing !== null) {
+        if (existing === kind) continue; // banner already matches classification
+        // Stale banner (e.g. GENERATED on a file now marked local:true):
+        // strip it so the correct banner can be injected.
+        base = splitLeadingBanner(content.trimStart()).rest;
+      }
+
+      const injected = injectBanner(base, banner);
       if (write(file, injected, data)) written += 1;
     }
 
