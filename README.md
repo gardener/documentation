@@ -38,14 +38,13 @@ For a native run without Docker use `make dev` (dev server with hot reload) or
 
 ## 📂 Content in a nutshell
 
-All docs live in `hugo/content/`. Three kinds of file share that tree, told apart by a
+All docs live in `hugo/content/`. Two kinds of file share that tree, told apart by a
 banner comment that post-processing injects at the top of each file:
 
 | Banner | Meaning | Edit here? |
 |---|---|---|
 | `LOCAL` | maintained in this repo (blog, about, community, landing page) | **Yes.** Edit directly. |
-| `MANAGED` | aggregated from an upstream repo (has `github_repo` frontmatter) | **No.** Open a PR at the upstream source; the banner prints its URL. CI blocks edits here. |
-| `GENERATED` | navigation stub created by post-processing | **No.** Recreated on every run. |
+| `MANAGED` | recreated by the aggregation run: aggregated from an upstream repo (`github_repo`), an empty docforge aggregator index, or a post-processing navigation stub | **No.** For upstream files open a PR at the source (the banner prints its URL); for index pages change the `.docforge/` manifests. CI blocks edits to upstream files here. |
 
 The distinction is by banner, not by folder. See
 [CONTENT_AGGREGATION.md](CONTENT_AGGREGATION.md) for the model, the pipeline, and the
@@ -70,8 +69,8 @@ merged upstream — the nightly run overwrites any local edit, and CI blocks PRs
 
 Any markdown file you add under `hugo/content/` **without** a `github_repo` or
 `auto_generated` frontmatter field is automatically `LOCAL`. (`auto_generated: true`
-classifies a file as `GENERATED`, which is removed during cleanup.) There is nothing
-to register; placement in the tree determines the URL. Minimum frontmatter:
+classifies a file as `MANAGED`; it is a navigation stub recreated on every run.) There is
+nothing to register; placement in the tree determines the URL. Minimum frontmatter:
 
 ```yaml
 ---
@@ -81,8 +80,7 @@ title: Your Page Title
 
 `title` is the only strictly required field. Optional layout fields: `description`,
 `editLink: false`, `prev: false` / `next: false`, `aside: false`, `sidebar: false`. Do
-**not** add `github_repo` or `auto_generated` — those flip the file to `MANAGED` or
-`GENERATED`.
+**not** add `github_repo` or `auto_generated` — those flip the file to `MANAGED`.
 
 ### Adding a blog post
 
