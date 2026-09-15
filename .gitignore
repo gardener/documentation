@@ -163,7 +163,9 @@ dist
 # Local Netlify folder
 .netlify
 
-# Playwright visual-regression artifacts (baseline snapshots ARE committed)
+# Playwright visual-regression artifacts. Baseline snapshots are NOT committed
+# for now (hundreds of MB); regenerate locally with `make visual-baseline`.
 test-results/
 playwright-report/
 blob-report/
+tests/visual/*-snapshots/
