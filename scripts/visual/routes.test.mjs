@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { parseSitemapLocs, mdPathToRoute } from './routes.mjs';
+import { parseSitemapLocs, mdPathToRoute, changedMdToRoutes } from './routes.mjs';
 
 const FIXTURE = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -34,4 +34,22 @@ test('mdPathToRoute: _index.md treated as index', () => {
 
 test('mdPathToRoute: content page -> rewrites to /dir/page/', () => {
   assert.equal(mdPathToRoute('hugo/content/docs/foo/bar.md'), '/docs/foo/bar/');
+});
+
+test('changedMdToRoutes: keeps only md paths that resolve to a sitemap route', () => {
+  const diff = [
+    'hugo/content/docs/foo/bar.md',   // -> /docs/foo/bar/ (in sitemap)
+    'hugo/content/docs/gone.md',      // -> /docs/gone/ (NOT in sitemap, dropped)
+    'Makefile',                       // non-md, dropped
+    'hugo/content/docs/foo/index.md', // -> /docs/foo/ (in sitemap)
+  ];
+  const sitemap = ['/', '/docs/foo/', '/docs/foo/bar/'];
+  assert.deepEqual(changedMdToRoutes(diff, sitemap), [
+    '/docs/foo/bar/',
+    '/docs/foo/',
+  ]);
+});
+
+test('changedMdToRoutes: no matching changes -> empty', () => {
+  assert.deepEqual(changedMdToRoutes(['README.md'], ['/']), []);
 });

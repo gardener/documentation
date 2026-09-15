@@ -6,6 +6,7 @@
 // sitemap (the authoritative published-page list) and, in diff mode, narrows
 // it to pages whose source markdown changed in the git diff.
 import { readFile } from 'node:fs/promises';
+import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
@@ -25,9 +26,44 @@ export function parseSitemapLocs(xml) {
   return locs.map((url) => new URL(url).pathname);
 }
 
+// Given git-changed paths and the set of published routes, return the routes
+// of changed hugo/content markdown files, intersected with the sitemap so that
+// removed or unpublished pages drop out.
+export function changedMdToRoutes(diffPaths, sitemapRoutes) {
+  const routeSet = new Set(sitemapRoutes);
+  const result = [];
+  const seen = new Set();
+  for (const p of diffPaths) {
+    if (!p.startsWith(SRC_PREFIX) || !p.endsWith('.md')) continue;
+    const route = mdPathToRoute(p);
+    if (routeSet.has(route) && !seen.has(route)) {
+      seen.add(route);
+      result.push(route);
+    }
+  }
+  return result;
+}
+
+function gitChangedMdPaths(base) {
+  const out = execFileSync(
+    'git',
+    ['diff', '--name-only', `${base}...HEAD`],
+    { cwd: REPO_ROOT, encoding: 'utf8' },
+  );
+  return out.split('\n').filter(Boolean);
+}
+
 export async function getRoutes() {
   const xml = await readFile(SITEMAP_PATH, 'utf8');
-  return parseSitemapLocs(xml);
+  const routes = parseSitemapLocs(xml);
+
+  if (process.env.VISUAL_MODE === 'diff') {
+    const base = process.env.VISUAL_DIFF_BASE || 'origin/master';
+    const changed = gitChangedMdPaths(base);
+    return changedMdToRoutes(changed, routes);
+  }
+
+  return routes;
 }
 
 // Map a repo-relative hugo/content/**.md path to its published route path,
