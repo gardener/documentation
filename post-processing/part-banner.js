@@ -5,7 +5,6 @@ import {
   classify,
   buildUpstreamUrl,
   renderBanner,
-  hasBanner,
   bannerKind,
   injectBanner,
   splitLeadingBanner,
