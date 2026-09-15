@@ -37,58 +37,6 @@ next: false
 
 # Deploying Auditing Extension Locally
 
-## Setup without Gardener Operator
-
-### Prerequisites
-
-- Make sure that you have a running local Gardener setup. The steps to complete this can be found in the [Deploying Gardener Locally guide](/contribute/developer-starter-kit/getting_started_locally/).
-
-### Setting up the Auditing Extension
-
-Make sure that your `KUBECONFIG` environment variable is targeting the local Gardener cluster. When this is ensured, run:
-
-```bash
-make extension-up
-```
-
-The corresponding make target will build the extension image, load it into the kind cluster Nodes, and deploy the auditing ControllerDeployment and ControllerRegistration resources. The container image in the ControllerDeployment will be the image that was build and loaded into the kind cluster Nodes.
-
-In addition to than an echo server will be deployed in its own Namespace which can be used as a dummy auditlogging backend.
-
-The make target will then deploy the auditing admission component. It will build the admission image, load it into the kind cluster Nodes, and finally install the admission component charts to the kind cluster.
-
-### Creating a Shoot Cluster
-
-1. Create a secret containing the credentials used for mTLS.
-   
-   ```bash
-   kubectl -n garden-local create secret generic echo-server-creds \
-       --from-file=ca.crt=example/local-setup/dev/certs/ca.crt \
-       --from-file=client.crt=example/local-setup/dev/certs/client.crt \
-       --from-file=client.key=example/local-setup/dev/certs/client.key
-   ```
-
-1. Deploy an auditing policy.
-   
-   [`example/local-setup/audit-policy.yaml`](https://github.com/gardener/gardener-extension-auditing/blob/main/example/local-setup/audit-policy.yaml) contains a Policy specification:
-   ```bash
-   kubectl apply -f example/local-setup/audit-policy.yaml
-   ```
-
-1. Create a Shoot cluster.
-   
-   [`example/local-setup/shoot.yaml`](https://github.com/gardener/gardener-extension-auditing/blob/main/example/local-setup/shoot.yaml) contains a Shoot specification with the `auditing` extension:
-   ```bash
-   kubectl apply -f example/local-setup/shoot.yaml
-   ```
-
-1. Once the Shoot namespace is created in the seed cluster create a NetworkPolicy which will allow traffic from the auditlog forwarder to the echo server.
-   
-   [`example/local-setup/netpol.yaml`](https://github.com/gardener/gardener-extension-auditing/blob/main/example/local-setup/netpol.yaml) contains a NetworkPolicy allowing communication between the auditlog forwarder and the echo server:
-   ```bash
-   kubectl apply -f example/local-setup/netpol.yaml
-   ```
-
 ## Setup with Gardener Operator
 
 Alternatively, you can deploy the auditing extension in the `gardener-operator` local setup. To do this, make sure you are have a running local setup based on [Alternative Way to Set Up Garden and Seed Leveraging `gardener-operator`](/contribute/developer-starter-kit/getting_started_locally/#alternative-way-to-set-up-garden-and-seed-leveraging-gardener-operator). The `KUBECONFIG` environment variable should target the operator local KinD cluster (i.e. `<path_to_gardener_project>/dev-setup/kubeconfigs/runtime/kubeconfig`).
