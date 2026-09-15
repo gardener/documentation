@@ -8,6 +8,7 @@ import {
   hasBanner,
   injectBanner,
   splitLeadingBanner,
+  bannerKind,
 } from './banner.js';
 
 function managedData(overrides = {}) {
@@ -196,6 +197,27 @@ test('hasBanner: detects GENERATED marker', () => {
 
 test('hasBanner: false on banner-less content', () => {
   assert.equal(hasBanner('# Body\n\nSome text\n'), false);
+});
+
+// --- bannerKind ---
+
+test('bannerKind: detects MANAGED', () => {
+  const block = renderBanner('managed', 'https://example.com/x.md');
+  assert.equal(bannerKind(`${block}\n\n# Body\n`), 'managed');
+});
+
+test('bannerKind: detects LOCAL', () => {
+  const block = renderBanner('local', null);
+  assert.equal(bannerKind(`${block}\n\n# Body\n`), 'local');
+});
+
+test('bannerKind: detects GENERATED', () => {
+  const block = renderBanner('generated', null);
+  assert.equal(bannerKind(`${block}\n\n# Body\n`), 'generated');
+});
+
+test('bannerKind: null when no leading banner', () => {
+  assert.equal(bannerKind('# Body\n\ntext\n'), null);
 });
 
 // --- injectBanner ---

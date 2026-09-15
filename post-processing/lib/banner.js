@@ -100,3 +100,15 @@ export function splitLeadingBanner(content) {
   if (!match) return { banner: null, rest: content };
   return { banner: match[1], rest: content.slice(match.index + match[0].length) };
 }
+
+// Returns the banner kind ('managed' | 'local' | 'generated') of the file's
+// leading banner, or null when there is none. Used to detect a stale banner
+// that no longer matches the file's current classification.
+export function bannerKind(content) {
+  const { banner } = splitLeadingBanner(content.trimStart());
+  if (banner === null) return null;
+  if (banner.startsWith(MARKER_MANAGED)) return 'managed';
+  if (banner.startsWith(MARKER_LOCAL)) return 'local';
+  if (banner.startsWith(MARKER_GENERATED)) return 'generated';
+  return null;
+}
