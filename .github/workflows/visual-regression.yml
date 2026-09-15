@@ -23,9 +23,18 @@ on:
     types: [opened, closed]
   issue_comment:
     types: [created]
+  # Manual run for a given PR number, e.g. to test the workflow from a branch
+  # before it lands on the default branch:
+  #   gh workflow run visual-regression.yml --ref <branch> -f pr=<number>
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: PR number to build and report on
+        required: true
+        type: string
 
 concurrency:
-  group: visual-regression-${{ github.event.issue.number || github.event.pull_request.number }}
+  group: visual-regression-${{ github.event.issue.number || github.event.pull_request.number || inputs.pr }}
   cancel-in-progress: true
 
 permissions:
@@ -50,11 +59,12 @@ jobs:
       (github.event_name == 'issue_comment' &&
         github.event.issue.pull_request != null &&
         startsWith(github.event.comment.body, '/visual-regression') &&
-        contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.comment.author_association))
+        contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.comment.author_association)) ||
+      github.event_name == 'workflow_dispatch'
     steps:
       - name: Resolve PR number
         id: pr
-        run: echo "number=${{ github.event.issue.number || github.event.pull_request.number }}" >> "$GITHUB_OUTPUT"
+        run: echo "number=${{ github.event.issue.number || github.event.pull_request.number || inputs.pr }}" >> "$GITHUB_OUTPUT"
 
       # issue_comment runs on the default branch; check out the PR head instead.
       # fetch-depth 0 so the origin/master baseline worktree has full history.
