@@ -1,36 +1,85 @@
+# NOTE: This is the Vale workflow file being TEMPORARILY reused on this test
+# branch to exercise the visual-regression workflow via workflow_dispatch.
+# vale.yml already exists on master with a workflow_dispatch trigger, so GitHub
+# allows `gh workflow run vale.yml --ref <branch> -f pr=<n>` and runs THIS
+# branch version. Do not merge this file; the real workflow is
+# .github/workflows/visual-regression.yml.
 name: Vale
 
 on:
-  pull_request:
-    types: [opened, synchronize, reopened]
-    paths:
-      - 'hugo/content/**/*.md'
   workflow_dispatch:
+    inputs:
+      pr:
+        description: PR number to build and report on
+        required: true
+        type: string
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: visual-regression-${{ inputs.pr }}
   cancel-in-progress: true
 
 permissions:
-  contents: read
-  checks: write
-  pull-requests: write
+  contents: write        # push the report to the gh-pages branch
+  pull-requests: write   # sticky comment with the report URL
 
 jobs:
-  vale:
-    name: Lint prose
+  run:
+    name: build, compare, publish report
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Resolve PR number
+        id: pr
+        run: echo "number=${{ inputs.pr }}" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout PR head
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
+          fetch-depth: 0
+          ref: refs/pull/${{ steps.pr.outputs.number }}/head
           persist-credentials: false
 
-      - name: Vale
-        uses: vale-cli/vale-action@d89dee975228ae261d22c15adcd03578634d429c # v2.1.1
+      - name: Enable corepack
+        run: corepack enable
+
+      - name: Setup Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
-          files: hugo/content/
-          vale_flags: "--minAlertLevel=warning"
-          reporter: github-pr-review
-          fail_on_error: true
-          filter_mode: added
+          node-version: 24
+          cache: pnpm
+
+      - name: Install deps
+        run: make ci-install
+
+      - name: Install Chromium
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Run visual regression vs master
+        run: VISUAL_CI=1 make visual-against BASE=origin/master
+
+      - name: Publish report to gh-pages
+        uses: peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453 # v4.1.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: playwright-report
+          destination_dir: pr-${{ steps.pr.outputs.number }}
+          keep_files: true
+          commit_message: "visual report for PR #${{ steps.pr.outputs.number }}"
+
+      - name: Write comment body
+        env:
+          URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/pr-${{ steps.pr.outputs.number }}/
+        run: |
+          {
+            echo "### Visual regression report vs \`master\` (manual test run)"
+            echo ""
+            echo "Report: $URL"
+            echo ""
+            echo "(Pages may take a minute to publish.)"
+          } > comment-body.md
+
+      - name: Sticky PR comment
+        uses: marocchino/sticky-pull-request-comment@5770ad5eb8f42dd2c4f34da00c94c5381e49af88 # v3.0.5
+        with:
+          header: visual-regression
+          number: ${{ steps.pr.outputs.number }}
+          path: comment-body.md
