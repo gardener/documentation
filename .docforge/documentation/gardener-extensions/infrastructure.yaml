@@ -98,6 +98,4 @@ structure:
     source:  https://github.com/stackitcloud/gardener-extension-provider-stackit/blob/main/README.md
   - fileTree: https://github.com/stackitcloud/gardener-extension-provider-stackit/tree/main/docs
     excludeFiles:
-      - "development.md" # not relevant for users
-      - "releases.md" # not relevant for users
-      - "testing.md" # not relevant for users
+      - "development/"
