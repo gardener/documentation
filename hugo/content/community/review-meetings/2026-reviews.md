@@ -31,6 +31,27 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2026/09/16 - [v1.150](https://github.com/gardener/gardener/releases/tag/v1.150.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@adenitiu](https://github.com/adenitiu) | `5m` | 🔔 `ManagedResourcesHonored` Constraint Status | [#15287](https://github.com/gardener/gardener/pull/15287) |
+| [@DockToFuture](https://github.com/DockToFuture) | `10m` | 🚪 New [Envoy Gateway](https://www.envoyproxy.io/) Extension for `Shoot`s | [extension-envoy-gateway (repo)](https://github.com/gardener/gardener-extension-envoy-gateway) |
+| [@rfranzke](https://github.com/rfranzke) | `5m` | 📌 Pin `Shoot` Control Plane to `Seed` Availability Zones | [#15420](https://github.com/gardener/gardener/pull/15420) |
+| [@petersutter](https://github.com/petersutter), [@grolu](https://github.com/grolu) | `10m` | 🕹 Gardener Dashboard Update | [1.85.0 (release)](https://github.com/gardener/dashboard/releases/tag/1.85.0) |
+| [@shafeeqes](https://github.com/shafeeqes) | `5m` | 🎮 Controller Load on ETCD Restart | [#15568](https://github.com/gardener/gardener/pull/15568) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- ❗️ [OPERATOR] The `events.k8s.io/events` override for the `etcd-events` instance is now explicitly configured in Kube API server deployments, alongside the the already existing `/events` override. [#15536](https://github.com/gardener/gardener/pull/15536)
+- 🐛 [OPERATOR] HTTP keep-alive in `istio-ingressgateway` is enabled again unconditionally to fix breaking connections to the API servers. [#15539](https://github.com/gardener/gardener/pull/15539)
+
+<hr />
+
 ### 2026/08/19 - [v1.149](https://github.com/gardener/gardener/releases/tag/v1.149.0) Release
 
 [📽️ Recording](https://youtu.be/Y9sqwVqV2Es)
