@@ -162,3 +162,8 @@ dist
 
 # Local Netlify folder
 .netlify
+
+# Playwright visual-regression artifacts (baseline snapshots ARE committed)
+test-results/
+playwright-report/
+blob-report/
