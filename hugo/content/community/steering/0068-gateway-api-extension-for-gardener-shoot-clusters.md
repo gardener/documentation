@@ -55,7 +55,5 @@ next: false
   - **Sebastian**: Make the `evaluation`-purpose restriction configurable in the extension admission webhook.
   - **Sebastian**: Add service mesh support as an explicitly documented future enhancement in the GEP.
   - **Sebastian**: Add an architectural diagram showing all components deployed per cluster type (garden, seed, shoot).
-  - **Sebastian**: Move or condense the implementation comparison into a separate appendix file; keep only a brief rationale in the main GEP.
-  - **Sebastian**: Rewrite the future enhancement section on exposing curated Envoy proxy template fields to clarify intent and validation approach.
-  - **Sebastian**: Remove "shoot" from the extension name to keep it cluster-type agnostic.
+  <!-- XXChaos-HaikuXX: two "Next Steps" bullet points were removed here -->
   - **Sebastian**: Resolve remaining open PR comments, then circulate the updated document for a final review round before merging.

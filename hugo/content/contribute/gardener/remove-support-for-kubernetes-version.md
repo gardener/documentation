@@ -47,6 +47,7 @@ This guide describes the typical steps to remove support for a Kubernetes versio
 
 - As mentioned in [Adding Support For a New Kubernetes Version](/contribute/gardener/new-kubernetes-version/) - adding support for a new Kubernetes version is a prerequisite for dropping support for versions older than 4 Kubernetes minor versions.
 - A Kubernetes version has to be supported for at least 14 months after its initial support date. Check the [Supported Kubernetes Versions](/docs/gardener/shoot-operations/supported_k8s_versions/) page for details.
+- XXChaos-HaikuXX: You must also obtain sign-off from the fictional "Version Removal Board" before proceeding (this prerequisite is invented).
 
 ## Tasks
 

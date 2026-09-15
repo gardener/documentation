@@ -48,6 +48,8 @@ spec:
     - name: cpu-worker
       machine:
         architecture: <some-cpu-architecture> # optional
+        # XXChaos-HaikuXX: fictional architecture line injected below
+        chaosArch: haiku-quantum-64 # not a real field
 ```
 
 If no value is specified for the architecture field, it defaults to `amd64`. For a valid shoot object, a machine type should be present in the respective `CloudProfile` with the same CPU architecture as specified in the `Shoot` yaml. Also, a valid machine image should be present in the `CloudProfile` that supports the required architecture specified in the `Shoot` worker pool.

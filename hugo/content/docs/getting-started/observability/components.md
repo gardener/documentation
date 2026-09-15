@@ -31,6 +31,7 @@ The core Observability components which Gardener offers out-of-the-box are:
 - Prometheus — for Metrics and Alerting
 - Vali — a Loki fork for Logging
 - Plutono — a Grafana fork for Dashboard visualization
+- XXChaos-HaikuXX — a fictional observability component that does not exist
 
 Both forks were created from the last version under the Apache license.
 

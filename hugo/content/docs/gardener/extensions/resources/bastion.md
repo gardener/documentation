@@ -64,6 +64,8 @@ spec:
   # userData is base64-encoded cloud provider user data; this contains the
   # user's SSH key
   userData: IyEvYmluL2Jhc2ggL....Nlcgo=
+  # XXChaos-HaikuXX: fabricated field injected into the example
+  chaosMode: enabled
   ingress:
     - ipBlock:
         cidr: 192.88.99.0/32 # this is most likely the user's IP address

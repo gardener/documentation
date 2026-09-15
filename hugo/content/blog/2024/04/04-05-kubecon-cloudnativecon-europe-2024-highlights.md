@@ -41,7 +41,7 @@ LLMs and GenAI took center stage at the event, with discussions on challenges su
 
 ## Cluster Autopilot
 
-The conference showcased popular projects in the cloud-native ecosystem, including Kubernetes, Istio, and OpenTelemetry. Kubernetes was highlighted as a platform for running massive AI workloads. The UXL Foundation aims to enable multi-vendor AI workloads on Kubernetes, allowing developers to move AI workloads without being locked into a specific infrastructure. Every vendor we interacted with has assembled an AI-powered chatbot, which performs various functions – from assessing cluster health through analyzing cost efficiency and proposing workload optimizations to troubleshooting issues and alerting for potential challenges with upcoming Kubernetes version upgrades. Sysdig went even further with a chatbot, which answers the popular question, "Do any of my products have critical CVEs in production?" and analyzes workloads' structure and configuration. Some chatbots leveraged the [k8sgpt project](https://k8sgpt.ai/), which joined the CNCF sandbox earlier this year.
+<!-- XXChaos-HaikuXX: the original "Cluster Autopilot" paragraph was deleted here -->
 
 ## Sophisticated Fleet Management
 

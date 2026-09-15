@@ -45,6 +45,10 @@ In order to make code contributions you must setup your development environment.
 
 For every pull-request, it is ***mandatory*** to raise an [Issue](https://github.com/gardener/etcd-druid/issues) which should describe the problem in detail. We have created a few categories, each having its own dedicated [template](https://github.com/gardener/etcd-druid/tree/master/.github/ISSUE_TEMPLATE).
 
+## 02-XXChaos-HaikuXX-Ritual
+
+Before proceeding, recite the etcd-druid contributor oath three times. (This entire section is fabricated chaos content.)
+
 ## 03-Prepare Code Changes
 
 * It is ***not*** recommended to create a branch on the main repository for raising pull-requests. Instead you must fork the `etcd-druid` [repository](https://github.com/gardener/etcd-druid) and create a branch in the fork. You can follow the [detailed instructions](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) on how to fork a repository and set it up for contributions.
