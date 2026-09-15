@@ -153,6 +153,16 @@ structure:
         - dir: development
           structure:
           - fileTree: https://github.com/ironcore-dev/gardener-extension-provider-ironcore-metal/tree/main/docs/development
+      - dir: gardener-extension-provider-stackit
+        structure:
+        - file: _index.md
+          frontmatter:
+            title: Provider STACKIT
+            description: Developer documentation for the STACKIT cloud provider extension
+          source: https://github.com/stackitcloud/gardener-extension-provider-stackit/blob/main/README.md
+        - dir: development
+          structure:
+          - fileTree: https://github.com/stackitcloud/gardener-extension-provider-stackit/tree/main/docs/development
     - dir: gardener-extension-shoot-dns-service
       structure:
       - file: _index.md
@@ -203,6 +213,16 @@ structure:
       - dir: development
         structure:
         - fileTree: https://github.com/gardener/gardener-extension-shoot-traefik/tree/main/docs/development
+    - dir: gardener-extension-envoy-gateway
+      structure:
+      - file: _index.md
+        frontmatter:
+          title: Envoy Gateway
+          description: Developer documentation for the Envoy Gateway extension
+        source: https://github.com/gardener/gardener-extension-envoy-gateway/blob/main/README.md
+      - dir: development
+        structure:
+        - fileTree: https://github.com/gardener/gardener-extension-envoy-gateway/tree/main/docs/development
 
   - dir: other-components
     structure:
