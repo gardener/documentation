@@ -17,6 +17,10 @@ function hasLeadingManagedOrGeneratedBanner(filePath) {
     // Unreadable or invalid YAML: not a validatable banner file, so skip it.
     return false;
   }
+  // A local:true file may still carry a stale MANAGED/GENERATED marker from a
+  // previous run; it must survive deletion so part-banner can reclassify it to
+  // LOCAL on the next pass.
+  if (parsed.data.local === true) return false;
   const { banner } = splitLeadingBanner(parsed.content.trimStart());
   return banner !== null && MANAGED_OR_GENERATED.test(banner);
 }
