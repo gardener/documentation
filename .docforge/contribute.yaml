@@ -80,14 +80,14 @@ structure:
       structure:
       - file: _index.md
         frontmatter:
-          title: Infrastructure Extensions
+          title: Infrastructure
           description: Developer documentation for cloud provider extensions
           weight: 10
       - dir: gardener-extension-provider-aws
         structure:
         - file: _index.md
           frontmatter:
-            title: Provider AWS
+            title: AWS
             description: Developer documentation for the AWS cloud provider extension
           source: https://github.com/gardener/gardener-extension-provider-aws/blob/master/README.md
         - dir: development
@@ -97,7 +97,7 @@ structure:
         structure:
         - file: _index.md
           frontmatter:
-            title: Provider GCP
+            title: GCP
             description: Developer documentation for the GCP cloud provider extension
           source: https://github.com/gardener/gardener-extension-provider-gcp/blob/master/README.md
         - dir: development
@@ -107,7 +107,7 @@ structure:
         structure:
         - file: _index.md
           frontmatter:
-            title: Provider Azure
+            title: Azure
             description: Developer documentation for the Azure cloud provider extension
           source: https://github.com/gardener/gardener-extension-provider-azure/blob/master/README.md
         - dir: development
@@ -117,7 +117,7 @@ structure:
         structure:
         - file: _index.md
           frontmatter:
-            title: Provider Alibaba Cloud
+            title: Alibaba Cloud
             description: Developer documentation for the Alibaba Cloud provider extension
           source: https://github.com/gardener/gardener-extension-provider-alicloud/blob/master/README.md
         - dir: development
@@ -127,7 +127,7 @@ structure:
         structure:
         - file: _index.md
           frontmatter:
-            title: Provider OpenStack
+            title: OpenStack
             description: Developer documentation for the OpenStack cloud provider extension
           source: https://github.com/gardener/gardener-extension-provider-openstack/blob/master/README.md
         - dir: development
@@ -137,7 +137,7 @@ structure:
         structure:
         - file: _index.md
           frontmatter:
-            title: Provider IronCore
+            title: IronCore
             description: Developer documentation for the IronCore cloud provider extension
           source: https://github.com/ironcore-dev/gardener-extension-provider-ironcore/blob/main/README.md
         - dir: development
@@ -147,7 +147,7 @@ structure:
         structure:
         - file: _index.md
           frontmatter:
-            title: Provider IronCore Metal
+            title: IronCore Metal
             description: Developer documentation for the IronCore Metal API cloud provider extension
           source: https://github.com/ironcore-dev/gardener-extension-provider-ironcore-metal/blob/main/README.md
         - dir: development
@@ -157,7 +157,7 @@ structure:
         structure:
         - file: _index.md
           frontmatter:
-            title: Provider STACKIT
+            title: STACKIT
             description: Developer documentation for the STACKIT cloud provider extension
           source: https://github.com/stackitcloud/gardener-extension-provider-stackit/blob/main/README.md
         - dir: development
@@ -167,8 +167,8 @@ structure:
       structure:
       - file: _index.md
         frontmatter:
-          title: DNS Services
-          description: Developer documentation for the DNS services extension
+          title: DNS Service
+          description: Developer documentation for the DNS Service extension
         source: https://github.com/gardener/gardener-extension-shoot-dns-service/blob/master/README.md
       - dir: development
         structure:
@@ -187,8 +187,8 @@ structure:
       structure:
       - file: _index.md
         frontmatter:
-          title: Node Audit Logging
-          description: Developer documentation for the node audit logging extension
+          title: Rsyslog RELP
+          description: Developer documentation for the Rsyslog RELP extension
         source: https://github.com/gardener/gardener-extension-shoot-rsyslog-relp/blob/main/README.md
       - dir: development
         structure:
@@ -197,8 +197,8 @@ structure:
       structure:
       - file: _index.md
         frontmatter:
-          title: Kubernetes Auditing
-          description: Developer documentation for the Kubernetes auditing extension
+          title: Auditing
+          description: Developer documentation for the Auditing extension
         source: https://github.com/gardener/gardener-extension-auditing/blob/main/README.md
       - dir: development
         structure:
@@ -207,8 +207,8 @@ structure:
       structure:
       - file: _index.md
         frontmatter:
-          title: Traefik Ingress
-          description: Developer documentation for the Traefik ingress extension
+          title: Traefik
+          description: Developer documentation for the Traefik extension
         source: https://github.com/gardener/gardener-extension-shoot-traefik/blob/main/README.md
       - dir: development
         structure:
