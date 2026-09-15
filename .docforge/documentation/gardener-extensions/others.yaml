@@ -81,6 +81,8 @@ structure:
       description: Gardener extension for deploying Envoy Gateway as the Gateway API implementation in shoot clusters.
     source: https://github.com/gardener/gardener-extension-envoy-gateway/blob/main/README.md
   - fileTree: https://github.com/gardener/gardener-extension-envoy-gateway/tree/main/docs
+    excludeFiles:
+      - "development/"
 - dir: gardener-extension-shoot-falco-service
   structure:
   - file: _index.md
