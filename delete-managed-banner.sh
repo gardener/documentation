@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Deletes files recursively that carry a MANAGED or GENERATED banner marker.
-# Both marker kinds identify files the aggregation run recreates, so they are
-# safe to remove; LOCAL files are the source of truth and are left untouched.
+# Deletes files recursively that carry a MANAGED banner marker (or a legacy
+# GENERATED marker: the GENERATED type was dropped and those files are MANAGED
+# now, but a leftover banner must still be deletable). Both identify files the
+# aggregation run recreates, so they are safe to remove; LOCAL files are the
+# source of truth and are left untouched.
 # When deleting a file leaves its directory without any .md files, the whole
 # directory is removed (including remaining assets), walking upwards so parent
 # directories that lose their last .md collapse as well.
@@ -37,16 +39,18 @@ fi
 # and cannot escape above the requested root.
 ROOT="$(cd "$TARGET" && pwd)"
 
-# Matches the MANAGED marker (aggregated upstream files) and the GENERATED
-# marker (navigation stubs written by post-processing/part-index.js). Both are
-# recreated by the aggregation run and safe to delete. LOCAL files are the
-# source of truth and must never match.
+# Matches the MANAGED marker (aggregated upstream files, empty docforge indexes
+# and post-processing stubs) and the legacy GENERATED marker (the GENERATED type
+# was dropped; those files are MANAGED now, but a leftover GENERATED banner must
+# still be deletable so the aggregation run recreates the file cleanly). Both are
+# recreated by the aggregation run and safe to delete. LOCAL files are the source
+# of truth and must never match.
 #
 # grep only prefilters candidates that mention the marker text anywhere; a bare
 # grep -l would also match marker strings buried in prose or fenced code blocks.
 # select-banner-files.mjs then parses each candidate's frontmatter and keeps it
-# only when splitLeadingBanner finds a MANAGED/GENERATED banner as the first
-# thing after the frontmatter, mirroring post-processing/part-1.js.
+# only when it finds a MANAGED/GENERATED banner as the first thing after the
+# frontmatter, mirroring post-processing/part-1.js.
 MARKER_PATTERN='<!-- BANNER:MANAGED -->|<!-- BANNER:GENERATED -->'
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"

@@ -7,7 +7,18 @@ import { splitLeadingBanner } from './lib/banner.js';
 // splitLeadingBanner on the body so a marker buried in prose or a fenced code
 // block never counts. LOCAL banners are the source of truth and are excluded.
 
-const MANAGED_OR_GENERATED = /^<!-- BANNER:(?:MANAGED|GENERATED) -->/;
+// Reads NUL-delimited candidate paths from stdin and prints back, NUL-delimited,
+// only the files whose body begins with a MANAGED banner (or a legacy GENERATED
+// banner). This mirrors post-processing/part-1.js: parse frontmatter, then run
+// splitLeadingBanner on the body so a marker buried in prose or a fenced code
+// block never counts. LOCAL banners are the source of truth and are excluded.
+//
+// GENERATED was dropped as a banner type (those files are MANAGED now), but a
+// leftover GENERATED banner from before the change must still be deletable, so
+// the aggregation run recreates the file cleanly. splitLeadingBanner no longer
+// recognizes GENERATED, so it is matched separately here.
+const MANAGED = /^<!-- BANNER:MANAGED -->/;
+const LEGACY_GENERATED = /^<!-- BANNER:GENERATED -->/;
 
 function hasLeadingManagedOrGeneratedBanner(filePath) {
   let parsed;
@@ -17,8 +28,14 @@ function hasLeadingManagedOrGeneratedBanner(filePath) {
     // Unreadable or invalid YAML: not a validatable banner file, so skip it.
     return false;
   }
-  const { banner } = splitLeadingBanner(parsed.content.trimStart());
-  return banner !== null && MANAGED_OR_GENERATED.test(banner);
+  // A local:true file may still carry a stale MANAGED/GENERATED marker from a
+  // previous run; it must survive deletion so part-banner can reclassify it to
+  // LOCAL on the next pass.
+  if (parsed.data.local === true) return false;
+  const body = parsed.content.trimStart();
+  const { banner } = splitLeadingBanner(body);
+  if (banner !== null && MANAGED.test(banner)) return true;
+  return LEGACY_GENERATED.test(body);
 }
 
 async function readStdin() {
