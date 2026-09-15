@@ -80,7 +80,7 @@ structure:
       structure:
       - file: _index.md
         frontmatter:
-          title: Infrastructure
+          title: Infrastructure Extensions
           description: Developer documentation for cloud provider extensions
           weight: 10
       - dir: gardener-extension-provider-aws
