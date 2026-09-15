@@ -265,3 +265,17 @@ diff-structure-snapshot: ## Capture current dist/sitemap.xml as baseline for a l
 .PHONY: diff-structure-working
 diff-structure-working: ## Rebuild working tree and diff sitemap against the captured snapshot
 	scripts/diff-structure.sh working
+
+.PHONY: visual-baseline
+visual-baseline: ## Build + screenshots of all pages as the new baseline
+	$(MAKE) build && VISUAL_MODE=all pnpm exec playwright test --update-snapshots
+
+.PHONY: visual
+visual: ## Build + visual regression of all pages, then open report
+	$(MAKE) build && VISUAL_MODE=all pnpm exec playwright test; \
+	pnpm exec playwright show-report
+
+.PHONY: visual-diff
+visual-diff: ## Visual regression of only git-changed pages, then open report
+	$(MAKE) build && VISUAL_MODE=diff pnpm exec playwright test; \
+	pnpm exec playwright show-report
