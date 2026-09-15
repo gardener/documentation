@@ -64,18 +64,17 @@ graph TD
     Q0 -->|yes| LO["LOCAL<br/>&lt;!-- BANNER:LOCAL --&gt;"]
     Q0 -->|no| Q1{"github_repo<br/>in frontmatter?"}
     Q1 -->|yes| MG["MANAGED<br/>&lt;!-- BANNER:MANAGED --&gt;"]
-    Q1 -->|no| Q2{"auto_generated:<br/>true?"}
-    Q2 -->|yes| GN["GENERATED<br/>&lt;!-- BANNER:GENERATED --&gt;"]
+    Q1 -->|no| Q2{"auto_generated: true<br/>or empty index.md?"}
+    Q2 -->|yes| MG
     Q2 -->|no| LO
 ```
 
 | Banner | Derived from | Source of truth | Edit here? |
 |---|---|---|---|
-| `MANAGED` | `github_repo` in frontmatter | the upstream repo | **No.** The nightly run overwrites it. The banner itself prints the exact upstream URL — open a PR there. |
-| `LOCAL` | no `github_repo` | this repository | **Yes.** Edit directly under `hugo/content/`. |
-| `GENERATED` | `auto_generated: true` | [part-index.js](post-processing/part-index.js) | **No.** It is a navigation stub, recreated on every run. |
+| `MANAGED` | `github_repo`, `auto_generated`, or an empty `index.md` | the upstream repo, or the `.docforge/` manifests | **No.** The aggregation run recreates it. For upstream files the banner prints the exact upstream URL — open a PR there. For empty aggregator indexes and navigation stubs the banner points at `.docforge/` or `post-processing/part-index.js`. |
+| `LOCAL` | none of the above (no `github_repo`, not an empty index) | this repository | **Yes.** Edit directly under `hugo/content/`. |
 
-**Overriding classification with `local: true`.** Setting `local: true` in a file's frontmatter forces it to LOCAL, overriding every other rule including `github_repo` and `auto_generated`. Use it to hand-manage files that would otherwise be classified as GENERATED (e.g. an empty `index.md` navigation stub) or aggregated. The file survives `delete-managed-banner.sh` and gets a LOCAL banner on the next run. Because it overrides `github_repo`, a locally forked upstream file will no longer track upstream changes; the user accepts that risk.
+**Overriding classification with `local: true`.** Setting `local: true` in a file's frontmatter forces it to LOCAL, overriding every other rule including `github_repo` and `auto_generated`. Use it to hand-manage files that would otherwise be classified as MANAGED (e.g. an empty `index.md` navigation stub) or aggregated. The file survives `delete-managed-banner.sh` and gets a LOCAL banner on the next run. Because it overrides `github_repo`, a locally forked upstream file will no longer track upstream changes; the user accepts that risk.
 
 A CI check ([enforce-managed-files.yml](.github/workflows/enforce-managed-files.yml))
 runs [hack/check-managed.mjs](hack/check-managed.mjs) and **blocks any PR that touches a
@@ -86,9 +85,10 @@ MANAGED file**, because such edits would be silently lost on the next aggregatio
 Each banner is an HTML comment (invisible in the rendered site) sitting directly after the
 frontmatter. Open any file and you can tell at a glance who owns it.
 
-**MANAGED** — the banner ends with the exact upstream URL to open your PR against. It is
-derived from `github_repo` + `github_subdir` in the frontmatter, so you never have to
-reconstruct the path yourself. Example from `hugo/content/docs/gardener/managed_seed.md`:
+**MANAGED (upstream)** — the banner ends with the exact upstream URL to open your PR
+against. It is derived from `github_repo` + `github_subdir` in the frontmatter, so you
+never have to reconstruct the path yourself. Example from
+`hugo/content/docs/gardener/managed_seed.md`:
 
 ```markdown
 <!-- BANNER:MANAGED -->
@@ -132,24 +132,54 @@ reconstruct the path yourself. Example from `hugo/content/docs/gardener/managed_
 -->
 ```
 
-**GENERATED** — a navigation stub created by post-processing, no upstream source. Example
-from `hugo/content/docs/other-components/etcd-druid/deployment/index.md`:
+**MANAGED (empty aggregator index)** — an empty `index.md` that docforge emits for a
+manifest `dir` whose `_index.md` node has no `source`. No upstream URL; the banner points
+at the `.docforge/` manifests, where the directory is defined. Example from
+`hugo/content/docs/faq/index.md`:
 
 ```markdown
-<!-- BANNER:GENERATED -->
+<!-- BANNER:MANAGED -->
 <!--
-   █▀▀ █▀▀ █▄ █
-   █ █ █▀▀ █ ▀█
-   ▀▀▀ ▀▀▀ ▀  ▀
+   █▀▀ ▀█▀ █▀█ █▀█
+   ▀▀█  █  █ █ █▀▀
+   ▀▀▀  ▀  ▀▀▀ ▀
 
    ┌────────────────────────────────────────────────┐
-   │  GENERATED FILE — navigation stub              │
+   │  MANAGED FILE — empty aggregator index         │
    │                                                │
-   │  Created by post-processing/part-index.js      │
-   │  (addMissingIndexFiles). It has no upstream    │
-   │  source; the aggregation run recreates it.     │
+   │  Editing here is pointless: The aggregation    │
+   │  run overwrites this file.                     │
    │                                                │
-   │  Do not edit and do not commit by hand.        │
+   │  It is an empty index.md emitted by docforge   │
+   │  for a manifest directory without a source.    │
+   │  Change it in the manifests instead:           │
+   │  .docforge/                                    │
+   └────────────────────────────────────────────────┘
+-->
+```
+
+**MANAGED (navigation stub)** — a stub written by post-processing when a directory has no
+`index.md` of its own, marked `auto_generated: true`. No upstream source; the banner points
+at the script that creates it. Example from
+`hugo/content/docs/other-components/etcd-druid/deployment/index.md`:
+
+```markdown
+<!-- BANNER:MANAGED -->
+<!--
+   █▀▀ ▀█▀ █▀█ █▀█
+   ▀▀█  █  █ █ █▀▀
+   ▀▀▀  ▀  ▀▀▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  MANAGED FILE — navigation stub                │
+   │                                                │
+   │  Editing here is pointless: The aggregation    │
+   │  run recreates this file.                      │
+   │                                                │
+   │  It has no upstream source. post-processing    │
+   │  creates it because the directory would        │
+   │  otherwise have no index.md:                   │
+   │  post-processing/part-index.js                 │
    └────────────────────────────────────────────────┘
 -->
 ```
@@ -161,13 +191,13 @@ produces ghost pages or an inconsistent tree.
 
 ```mermaid
 graph TD
-    R["delete-managed-banner.sh --force<br/>deletes all MANAGED + GENERATED files"] --> D
+    R["delete-managed-banner.sh --force<br/>deletes all MANAGED files"] --> D
     D["docforge-ci"] --> P
     subgraph P["make post-process"]
       P1["part-1: rename images, add h1,<br/>youtube, fix network doc"] --> P2
       P2["part-2: migrate alerts, clean layouts,<br/>flatten dirs, nav frontmatter"] --> PI
       PI["part-index: _index.md → index.md,<br/>create missing index stubs"] --> PB
-      PB["part-banner: inject<br/>MANAGED / LOCAL / GENERATED"] --> P3
+      PB["part-banner: inject<br/>MANAGED / LOCAL"] --> P3
       P3["part-3: update report link,<br/>process api html"]
     end
     P3 --> B["make build (VitePress)"]
@@ -177,8 +207,9 @@ Why each piece exists:
 
 - **`delete-managed-banner.sh` runs first.** docforge writes purely additively and never
   deletes. If an entry is removed from a `.docforge/` manifest, its previously generated
-  files would linger as ghost pages. Wiping all MANAGED + GENERATED files before each run
-  clears those orphans while leaving LOCAL files untouched.
+  files would linger as ghost pages. Wiping all MANAGED files before each run clears those
+  orphans while leaving LOCAL files untouched. (It also removes any leftover legacy
+  GENERATED banner, a former banner type now folded into MANAGED.)
 - **docforge** pulls the markdown from upstream repos as defined by the manifests
   ([.docforge/hugo.yaml](.docforge/hugo.yaml) and the files it includes).
 - **post-process** ([Makefile](Makefile) target `post-process`) bridges the aggregated
