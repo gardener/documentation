@@ -56,16 +56,17 @@ Two things to internalize:
 Every markdown file in `hugo/content/` carries exactly **one banner** as an HTML comment
 right after its frontmatter. The banner is injected during post-processing
 ([post-processing/part-banner.js](post-processing/part-banner.js)) and is the visible
-signal for who owns the file. Classification is derived from frontmatter, not from a
-hand-set `local:`/`managed:` flag.
+signal for who owns the file. Classification is derived from frontmatter. A hand-set `local: true` forces LOCAL and overrides all other rules (see below).
 
 ```mermaid
 graph TD
-    F["A .md file in hugo/content/"] --> Q1{"github_repo<br/>in frontmatter?"}
+    F["A .md file in hugo/content/"] --> Q0{"local: true<br/>in frontmatter?"}
+    Q0 -->|yes| LO["LOCAL<br/>&lt;!-- BANNER:LOCAL --&gt;"]
+    Q0 -->|no| Q1{"github_repo<br/>in frontmatter?"}
     Q1 -->|yes| MG["MANAGED<br/>&lt;!-- BANNER:MANAGED --&gt;"]
     Q1 -->|no| Q2{"auto_generated:<br/>true?"}
     Q2 -->|yes| GN["GENERATED<br/>&lt;!-- BANNER:GENERATED --&gt;"]
-    Q2 -->|no| LO["LOCAL<br/>&lt;!-- BANNER:LOCAL --&gt;"]
+    Q2 -->|no| LO
 ```
 
 | Banner | Derived from | Source of truth | Edit here? |
@@ -73,6 +74,8 @@ graph TD
 | `MANAGED` | `github_repo` in frontmatter | the upstream repo | **No.** The nightly run overwrites it. The banner itself prints the exact upstream URL — open a PR there. |
 | `LOCAL` | no `github_repo` | this repository | **Yes.** Edit directly under `hugo/content/`. |
 | `GENERATED` | `auto_generated: true` | [part-index.js](post-processing/part-index.js) | **No.** It is a navigation stub, recreated on every run. |
+
+**Overriding classification with `local: true`.** Setting `local: true` in a file's frontmatter forces it to LOCAL, overriding every other rule including `github_repo` and `auto_generated`. Use it to hand-manage files that would otherwise be classified as GENERATED (e.g. an empty `index.md` navigation stub) or aggregated. The file survives `delete-managed-banner.sh` and gets a LOCAL banner on the next run. Because it overrides `github_repo`, a locally forked upstream file will no longer track upstream changes; the user accepts that risk.
 
 A CI check ([enforce-managed-files.yml](.github/workflows/enforce-managed-files.yml))
 runs [hack/check-managed.mjs](hack/check-managed.mjs) and **blocks any PR that touches a
