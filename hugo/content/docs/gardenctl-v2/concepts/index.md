@@ -4,20 +4,22 @@ prev: false
 next: false
 editLink: false
 ---
-<!-- BANNER:GENERATED -->
+<!-- BANNER:MANAGED -->
 <!--
-   █▀▀ █▀▀ █▄ █
-   █ █ █▀▀ █ ▀█
-   ▀▀▀ ▀▀▀ ▀  ▀
+   █▀▀ ▀█▀ █▀█ █▀█
+   ▀▀█  █  █ █ █▀▀
+   ▀▀▀  ▀  ▀▀▀ ▀
 
    ┌────────────────────────────────────────────────┐
-   │  GENERATED FILE — navigation stub              │
+   │  MANAGED FILE — empty aggregator index         │
    │                                                │
-   │  Created by post-processing/part-index.js      │
-   │  (addMissingIndexFiles). It has no upstream    │
-   │  source; the aggregation run recreates it.     │
+   │  Editing here is pointless: The aggregation    │
+   │  run overwrites this file.                     │
    │                                                │
-   │  Do not edit and do not commit by hand.        │
+   │  It is an empty index.md emitted by docforge   │
+   │  for a manifest directory without a source.    │
+   │  Change it in the manifests instead:           │
+   │  .docforge/                                    │
    └────────────────────────────────────────────────┘
 -->
 
