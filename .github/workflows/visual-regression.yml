@@ -1,0 +1,144 @@
+# Renders the site at origin/master and at the PR head, screenshots every page
+# with Playwright, and publishes the visual-diff HTML report to GitHub Pages
+# under a per-PR subfolder (pr-<n>/). Expensive (two full builds + ~870
+# screenshots each), so it runs once when a PR opens and otherwise only on
+# demand via a `/visual-regression` comment. Bot PRs and fork PRs are skipped on
+# open; the comment command is restricted to collaborators.
+#
+# Pages must be served from the `gh-pages` branch (Settings > Pages > Source:
+# "Deploy from a branch", branch gh-pages, / root). Report URL:
+#   https://<owner>.github.io/<repo>/pr-<n>/
+#
+# TODO(forks): fork PRs get NO automatic report on open. `pull_request` gives a
+# read-only GITHUB_TOKEN for forks, so the gh-pages push and PR comment would
+# fail after a costly build; the `opened` gate therefore excludes forks. A
+# collaborator can still trigger a fork PR via `/visual-regression` (that runs
+# in the base-repo context with a writable token). To auto-report fork PRs
+# safely, split into a build workflow + a `workflow_run` publish job (like
+# .github/workflows/structure-diff*.yml) instead of using pull_request_target.
+name: Visual Regression
+
+on:
+  pull_request:
+    types: [opened, closed]
+  issue_comment:
+    types: [created]
+
+concurrency:
+  group: visual-regression-${{ github.event.issue.number || github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write        # push the report to the gh-pages branch
+  pull-requests: write   # sticky comment with the report URL
+
+jobs:
+  run:
+    name: build, compare, publish report
+    runs-on: ubuntu-latest
+    # Gate: run on a non-bot, same-repo PR open, or on a `/visual-regression`
+    # comment from a collaborator on a PR (issue_comment fires for issues too).
+    # Fork PRs are excluded from the `opened` trigger: their GITHUB_TOKEN is
+    # read-only, so the push/comment steps would fail after a costly build.
+    # A collaborator can still trigger a fork PR via the comment command, which
+    # runs in the base-repo context with a writable token.
+    if: >-
+      (github.event_name == 'pull_request' &&
+        github.event.action == 'opened' &&
+        !endsWith(github.actor, '[bot]') &&
+        github.event.pull_request.head.repo.full_name == github.repository) ||
+      (github.event_name == 'issue_comment' &&
+        github.event.issue.pull_request != null &&
+        startsWith(github.event.comment.body, '/visual-regression') &&
+        contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.comment.author_association))
+    steps:
+      - name: Resolve PR number
+        id: pr
+        run: echo "number=${{ github.event.issue.number || github.event.pull_request.number }}" >> "$GITHUB_OUTPUT"
+
+      # issue_comment runs on the default branch; check out the PR head instead.
+      # fetch-depth 0 so the origin/master baseline worktree has full history.
+      - name: Checkout PR head
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          fetch-depth: 0
+          ref: refs/pull/${{ steps.pr.outputs.number }}/head
+          persist-credentials: false
+
+      - name: Enable corepack
+        run: corepack enable
+
+      - name: Setup Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Install deps
+        run: make ci-install
+
+      - name: Install Chromium
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Run visual regression vs master
+        run: VISUAL_CI=1 make visual-against BASE=origin/master
+
+      # Publish playwright-report/ into gh-pages under pr-<n>/. keep_files keeps
+      # other PRs' folders. It is additive, so a re-run of the same PR overwrites
+      # index.html but may leave orphaned hashed assets in pr-<n>/ until the PR
+      # closes (the cleanup job then removes the whole folder). Harmless cruft.
+      - name: Publish report to gh-pages
+        uses: peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453 # v4.1.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: playwright-report
+          destination_dir: pr-${{ steps.pr.outputs.number }}
+          keep_files: true
+          commit_message: "visual report for PR #${{ steps.pr.outputs.number }}"
+
+      - name: Write comment body
+        env:
+          URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/pr-${{ steps.pr.outputs.number }}/
+        run: |
+          {
+            echo "### Visual regression report vs \`master\`"
+            echo ""
+            echo "Report: $URL"
+            echo ""
+            echo "(Pages may take a minute to publish.) Re-run with a \`/visual-regression\` comment. The report is removed when this PR closes."
+          } > comment-body.md
+
+      - name: Sticky PR comment
+        uses: marocchino/sticky-pull-request-comment@5770ad5eb8f42dd2c4f34da00c94c5381e49af88 # v3.0.5
+        with:
+          header: visual-regression
+          number: ${{ steps.pr.outputs.number }}
+          path: comment-body.md
+
+  cleanup:
+    name: remove report on PR close
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    steps:
+      # Remove this PR's report folder from gh-pages so closed PRs don't pile up.
+      - name: Checkout gh-pages
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          ref: gh-pages
+          fetch-depth: 0
+
+      - name: Delete report folder
+        env:
+          PR: ${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+          dir="pr-$PR"
+          if [ ! -d "$dir" ]; then
+            echo "no report folder $dir on gh-pages, nothing to remove"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git rm -rq "$dir"
+          git commit -m "remove visual report for closed PR #$PR"
+          git push

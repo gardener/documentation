@@ -27,7 +27,10 @@ export default defineConfig({
   webServer: {
     command: 'pnpm exec vitepress preview --port 4173',
     port: 4173,
-    reuseExistingServer: !process.env.CI,
+    // Reuse a running preview locally, EXCEPT when comparing two builds in one
+    // run (visual-against): there each build needs its own fresh server, or the
+    // second run would screenshot the first build's still-served dist.
+    reuseExistingServer: !process.env.CI && !process.env.VISUAL_FRESH_SERVER,
     timeout: 120_000,
   },
 });

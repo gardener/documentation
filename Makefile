@@ -279,3 +279,7 @@ visual: ## Build + visual regression of all pages, then open report
 visual-diff: ## Visual regression of only git-changed pages, then open report
 	$(MAKE) build && VISUAL_MODE=diff pnpm exec playwright test; \
 	pnpm exec playwright show-report
+
+.PHONY: visual-against
+visual-against: ## Visual regression of working tree vs a git ref as baseline (BASE=<ref>, default origin/master)
+	scripts/visual/visual-against.sh $(BASE)

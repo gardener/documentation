@@ -14,6 +14,15 @@ const routes = await getRoutes();
 
 for (const route of routes) {
   test(`visual ${route}`, async ({ page }) => {
+    // Block all third-party requests (analytics, chat widgets, external
+    // avatars/fonts). They fail or drift under `vitepress preview` and only
+    // add noise; screenshots should capture our own rendered content.
+    await page.route('**/*', (r) => {
+      const url = r.request().url();
+      const isLocal = url.startsWith('http://localhost:');
+      const isInline = url.startsWith('data:') || url.startsWith('blob:');
+      return isLocal || isInline ? r.continue() : r.abort();
+    });
     await page.goto(route, { waitUntil: 'networkidle' });
     // Web fonts settle after networkidle; wait so text metrics are stable.
     await page.evaluate(() => document.fonts.ready);
