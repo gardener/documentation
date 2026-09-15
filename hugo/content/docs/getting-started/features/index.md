@@ -1,26 +1,23 @@
 ---
 title: Features
-auto_generated: true
-generated_by: post-processing/part-index.js addMissingIndexFiles function
+weight: 8
 prev: false
 next: false
 editLink: false
+local: true
 ---
-<!-- BANNER:GENERATED -->
+<!-- BANNER:LOCAL -->
 <!--
-   █▀▀ █▀▀ █▄ █
-   █ █ █▀▀ █ ▀█
-   ▀▀▀ ▀▀▀ ▀  ▀
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
 
    ┌────────────────────────────────────────────────┐
-   │  GENERATED FILE — navigation stub              │
+   │  LOCAL FILE — maintained in gardener/          │
+   │  documentation                                 │
    │                                                │
-   │  Created by post-processing/part-index.js      │
-   │  (addMissingIndexFiles). It has no upstream    │
-   │  source; the aggregation run recreates it.     │
-   │                                                │
-   │  Do not edit and do not commit by hand.        │
+   │  Go ahead and edit this file directly.         │
+   │  Changes here are the source of truth.         │
    └────────────────────────────────────────────────┘
 -->
-
 
