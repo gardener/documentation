@@ -6,20 +6,22 @@ prev: false
 next: false
 editLink: false
 ---
-<!-- BANNER:GENERATED -->
+<!-- BANNER:MANAGED -->
 <!--
-   █▀▀ █▀▀ █▄ █
-   █ █ █▀▀ █ ▀█
-   ▀▀▀ ▀▀▀ ▀  ▀
+   █▀▀ ▀█▀ █▀█ █▀█
+   ▀▀█  █  █ █ █▀▀
+   ▀▀▀  ▀  ▀▀▀ ▀
 
    ┌────────────────────────────────────────────────┐
-   │  GENERATED FILE — navigation stub              │
+   │  MANAGED FILE — navigation stub                │
    │                                                │
-   │  Created by post-processing/part-index.js      │
-   │  (addMissingIndexFiles). It has no upstream    │
-   │  source; the aggregation run recreates it.     │
+   │  Editing here is pointless: The aggregation    │
+   │  run recreates this file.                      │
    │                                                │
-   │  Do not edit and do not commit by hand.        │
+   │  It has no upstream source. post-processing    │
+   │  creates it because the directory would        │
+   │  otherwise have no index.md:                   │
+   │  post-processing/part-index.js                 │
    └────────────────────────────────────────────────┘
 -->
 
