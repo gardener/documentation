@@ -63,6 +63,26 @@ test('classify: blog segment elsewhere does not force local', () => {
   );
 });
 
+test('classify: local:true wins over github_repo', () => {
+  assert.equal(classify(managedData({ local: true }), '# Body\n'), 'local');
+});
+
+test('classify: local:true wins over auto_generated', () => {
+  assert.equal(classify({ auto_generated: true, local: true }, '\n'), 'local');
+});
+
+test('classify: local:true wins over empty index.md', () => {
+  assert.equal(
+    classify({ local: true }, '\n', 'hugo/content/docs/foo/index.md'),
+    'local',
+  );
+});
+
+test('classify: local not true does not force local (regression)', () => {
+  assert.equal(classify(managedData({ local: false }), '# Body\n'), 'managed');
+  assert.equal(classify(managedData(), '# Body\n'), 'managed');
+});
+
 // --- buildUpstreamUrl ---
 
 test('buildUpstreamUrl: correct deep link', () => {

@@ -66,6 +66,9 @@ const GENERATED_BANNER = `${MARKER_GENERATED}
 // part-index.js, no upstream).
 // Then: index.md with an empty body is a docforge navigation stub , everything else is local.
 export function classify(data, content, file = '') {
+  // A hand-set `local: true` in the frontmatter declares the file locally
+  // managed and wins over every other rule, including github_repo.
+  if (data.local === true) return 'local';
   if (/(^|[/\\])content[/\\]blog[/\\]/.test(file) && !data.github_repo) return 'local';
   if (data.github_repo) return 'managed';
   if (data.auto_generated) return 'generated';
