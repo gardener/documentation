@@ -42,7 +42,6 @@ Check back regularly for updates and upcoming topics!
 | [@adenitiu](https://github.com/adenitiu) | `5m` | 🔔 `ManagedResourcesHonored` Constraint Status | [#15287](https://github.com/gardener/gardener/pull/15287) |
 | [@DockToFuture](https://github.com/DockToFuture) | `10m` | 🚪 New [Envoy Gateway](https://www.envoyproxy.io/) Extension for `Shoot`s | [extension-envoy-gateway (repo)](https://github.com/gardener/gardener-extension-envoy-gateway) |
 | [@rfranzke](https://github.com/rfranzke) | `5m` | 📌 Pin `Shoot` Control Plane to `Seed` Availability Zones | [#15420](https://github.com/gardener/gardener/pull/15420) |
-| [@petersutter](https://github.com/petersutter), [@grolu](https://github.com/grolu) | `10m` | 🕹 Gardener Dashboard Update | [1.85.0 (release)](https://github.com/gardener/dashboard/releases/tag/1.85.0) |
 | [@shafeeqes](https://github.com/shafeeqes) | `5m` | 🎮 Controller Load on ETCD Restart | [#15568](https://github.com/gardener/gardener/pull/15568) |
 
 #### No Demo, But Still Worth Celebrating 🎉
