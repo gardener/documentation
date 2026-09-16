@@ -50,7 +50,12 @@ git -C "$REPO_ROOT" worktree add --detach "$TMP_WT" "$REF"
 echo "==> baseline: rendering $REF as the baseline snapshots"
 rm -rf "$DIST"
 cp -R "$TMP_WT/.vitepress/dist" "$DIST"
-( cd "$REPO_ROOT" && VISUAL_FRESH_SERVER=1 VISUAL_MODE=all pnpm exec playwright test --update-snapshots )
+# Do not fail on a single page that can't be screenshotted: --update-snapshots
+# exits non-zero if any snapshot fails to render, which under `set -e` would
+# discard all the baselines that DID succeed and kill the whole run. The
+# missing baseline surfaces as a diff in the compare step below, which is where
+# it belongs.
+( cd "$REPO_ROOT" && VISUAL_FRESH_SERVER=1 VISUAL_MODE=all pnpm exec playwright test --update-snapshots ) || true
 
 echo "==> current: building working tree and comparing"
 ( cd "$REPO_ROOT" && VITE_PUBLIC_BASE_PATH='' pnpm exec vitepress build )

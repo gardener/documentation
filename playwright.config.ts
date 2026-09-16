@@ -9,6 +9,10 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: 'tests/visual',
   fullyParallel: true,
+  // CI runners cap Playwright at 50% of cores by default (2 of 4). Use all
+  // cores there to roughly halve the ~30min screenshot pass; leave the local
+  // default untouched.
+  workers: process.env.CI ? '100%' : undefined,
   reporter: 'html',
   expect: {
     // Mermaid renders client-side and can drift a few pixels; allow a small ratio.
