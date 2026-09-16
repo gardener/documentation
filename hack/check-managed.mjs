@@ -9,7 +9,9 @@ for (const file of files) {
   try {
     const raw = await fs.readFile(file, 'utf8')
     const parsed = matter(raw)
-    if (typeof parsed.data.github_repo === 'string') {
+    // A file explicitly opted into local management via `local: true` is
+    // editable here even if it still carries github_repo from its origin.
+    if (typeof parsed.data.github_repo === 'string' && parsed.data.local !== true) {
       const branch = parsed.data.params?.github_branch || 'master'
       const upstream = parsed.data.github_subdir
         ? `${parsed.data.github_repo}/blob/${branch}/${parsed.data.github_subdir}`

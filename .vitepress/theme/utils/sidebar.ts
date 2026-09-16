@@ -255,8 +255,12 @@ export function addTrailingSlashToLinks(sidebar: any) {
 export function hasMarkdownContent(filePath: string): boolean {
   try {
     const raw = readFileSync(filePath, 'utf-8')
-    // Strip frontmatter (--- ... ---)
-    const stripped = raw.replace(/^---[\s\S]*?---\s*/, '')
+    const stripped = raw
+      // Strip frontmatter (--- ... ---)
+      .replace(/^---[\s\S]*?---\s*/, '')
+      // Strip HTML comments so a BANNER:* block (injected by part-banner.js into
+      // otherwise-empty aggregator stubs) does not count as visible content.
+      .replace(/<!--[\s\S]*?-->/g, '')
     // Check if remaining content has meaningful text
     return stripped.trim().length > 0
   } catch {

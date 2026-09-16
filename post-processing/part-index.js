@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { read, write, stringify } from './lib/frontmatter.js';
 
-const IGNORE_DIRS = ['node_modules', '.git', 'dist', 'build', 'images', 'assets', 'content', 'logo'];
+const IGNORE_DIRS = ['node_modules', '.git', 'dist', 'build', 'images', 'assets', 'content', 'logo', 'blog', 'public', 'about'];
 
 function generateTitleFromDirName(dirName) {
   const spaced = dirName.replace(/-/g, ' ');
@@ -121,8 +121,9 @@ function main() {
   try {
     // Stubs must be created before the rename so the collision guard below sees
     // them as index.md and never clobbers them with a docforge _index.md.
-    const docsPath = path.join(targetDir, 'docs');
-    const createdStubs = fs.existsSync(docsPath) ? addMissingIndexFiles(docsPath) : 0;
+    // Traverses all of targetDir except blog/ (excluded via IGNORE_DIRS): blog
+    // stubs are not regenerated elsewhere, so they must not be created here.
+    const createdStubs = addMissingIndexFiles(targetDir);
 
     const indexFiles = findIndexFiles(targetDir);
 
