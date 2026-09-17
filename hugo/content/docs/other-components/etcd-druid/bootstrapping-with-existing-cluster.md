@@ -52,8 +52,8 @@ Before creating the target `Etcd` resource, ensure:
 1. **The source and target use compatible TLS trust roots.** The target's peer/client TLS configuration is used when dialing source peer/client endpoints. See the [TLS trust model](/docs/other-components/etcd-druid/concepts/bootstrap-with-existing-cluster/#tls-trust-model).
 1. **The target `Etcd` resource does not already exist.** `bootstrapWithExistingCluster` is create-only and cannot be added to an existing `Etcd` resource.
 1. **Source and target run the same etcd minor version.** The etcd version `etcd-druid` deploys on the target depends on the [`UpgradeEtcdVersion`](/docs/other-components/etcd-druid/deployment/feature-gates/#feature-gates-for-alpha-or-beta-features) feature gate:
-   - With `UpgradeEtcdVersion` enabled, `etcd-druid` deploys etcd `3.5.x` on the target; the source must also be on `3.5.x`.
-   - With `UpgradeEtcdVersion` disabled (current default), `etcd-druid` deploys etcd `3.4.x` on the target; the source must also be on `3.4.x`.
+   - With `UpgradeEtcdVersion` enabled (current default), `etcd-druid` deploys etcd `3.5.x` on the target; the source must also be on `3.5.x`.
+   - With `UpgradeEtcdVersion` disabled, `etcd-druid` deploys etcd `3.4.x` on the target; the source must also be on `3.4.x`.
 
 ## Step 1: Inspect the source cluster
 
