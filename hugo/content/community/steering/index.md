@@ -33,6 +33,7 @@ A GEP provides sufficient context, motivation, and a concrete ask or decision re
 
 | Date | GEP | Title |
 | --- | --- | --- |
+| 2026-10-01 | [GEP-0078](0078-a-homogeneous-version-profile-for-extension-managed-components) | A Homogeneous Version Profile for Extension-Managed Components |
 
 *(Sessions take place Thursdays, 10:00–11:00 Europe/Berlin — see [Meeting Process](#📑-meeting-process) for details.)*
 
