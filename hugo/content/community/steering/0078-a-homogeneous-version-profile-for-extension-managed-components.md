@@ -1,0 +1,11 @@
+---
+title: 'GEP-0078: A Homogeneous Version Profile for Extension-Managed Components'
+---
+- 📌 **GEP Tracking Issue:** https://github.com/gardener/enhancements/issues/78
+- 📖 **GEP Link:** https://github.com/gardener/enhancements/pull/79
+- ✍🏻 **Author(s):** [@DockToFuture](https://github.com/DockToFuture) (Sebastian Stauch)
+- 🗓️ **Presentations:** 2026-10-01, 10:00 - 11:00 Europe/Berlin
+- 🎥 **Recording:**
+- 👨‍⚖️ **Decisions:**
+- 💬 **Key Discussion Points:**
+- ➡️ **Next Steps:**
