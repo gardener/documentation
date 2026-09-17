@@ -1,6 +1,26 @@
 ---
 title: 'GEP-0078: A Homogeneous Version Profile for Extension-Managed Components'
+prev: false
+next: false
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/            │
+   │  documentation.                                  │
+   │                                                  │
+   │  Go ahead and edit this file directly.           │
+   │  Changes here are the source of truth.           │
+   └────────────────────────────────────────────────┘
+-->
+
+
+# GEP-0078: A Homogeneous Version Profile for Extension-Managed Components
+
 - 📌 **GEP Tracking Issue:** https://github.com/gardener/enhancements/issues/78
 - 📖 **GEP Link:** https://github.com/gardener/enhancements/pull/79
 - ✍🏻 **Author(s):** [@DockToFuture](https://github.com/DockToFuture) (Sebastian Stauch)
