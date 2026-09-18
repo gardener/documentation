@@ -1,19 +1,37 @@
 ---
-title: "Better Support for BYO Infrastructure on AWS"
-linkTitle: "Better Support for BYO Infrastructure on AWS"
-newsSubtitle: August 19, 2026
-publishdate: 2026-08-19
+title: Better Support for BYO Infrastructure on AWS
+linkTitle: Better Support for BYO Infrastructure on AWS
+newsSubtitle: 'August 19, 2026'
+publishdate: 2026-08-19T00:00:00.000Z
 authors:
-- avatar: https://avatars.githubusercontent.com/hebelsan
-  login: hebelsan
-  name: Alexander Hebel
+  - avatar: 'https://avatars.githubusercontent.com/hebelsan'
+    login: hebelsan
+    name: Alexander Hebel
 tags:
-- feature-announcement
-- extensions
-- provider-aws
-- networking
-aliases: ["/blog/2026/08/19/better-support-for-byo-infrastructure-on-aws"]
+  - feature-announcement
+  - extensions
+  - provider-aws
+  - networking
+aliases:
+  - /blog/2026/08/19/better-support-for-byo-infrastructure-on-aws
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/          │
+   │  documentation                                 │
+   │                                                │
+   │  Go ahead and edit this file directly.         │
+   │  Changes here are the source of truth.         │
+   └────────────────────────────────────────────────┘
+-->
+
+
+# Better Support for BYO Infrastructure on AWS
 
 Many organizations running Gardener on AWS already have established cloud infrastructure — VPCs, subnets, route tables, and security groups — managed independently through their own IaC tooling or centrally by a platform team. Until now, Gardener's AWS provider extension assumed full ownership of networking infrastructure, creating NAT gateways, route tables, and security groups as part of each shoot lifecycle. This worked well for greenfield deployments but left little room for organizations with pre-existing infrastructure.
 
