@@ -90,7 +90,7 @@ Record:
 > [!IMPORTANT]
 > The `PEER ADDRS` shown above are same-network examples. If source and target run in different network domains, replace them with peer URLs that the source cluster advertises and the target can dial.
 > 
-> For an etcd-druid managed source, configure [`.spec.etcd.additionalAdvertisePeerURLs`](/docs/other-components/etcd-druid/using-additional-advertise-peer-urls/) on the source if extra reachable peer URLs are needed. For an externally managed source, prepare the advertised peer URLs outside etcd-druid. The target spec must use the source member names and peer URLs as advertised by the source member list.
+> For an etcd-druid managed source, configure [`.spec.etcd.additionalAdvertisedURLs`](/docs/other-components/etcd-druid/using-additional-advertised-urls/) on the source if extra reachable peer URLs are needed. For an externally managed source, prepare the advertised peer URLs outside etcd-druid. The target spec must use the source member names and peer URLs as advertised by the source member list.
 
 ## Step 2: Create the target `Etcd` manifest
 
@@ -241,6 +241,6 @@ This status records source members that were present when the target completed b
 ## Related
 
 - [Concept doc: Bootstrap with an Existing etcd Cluster](/docs/other-components/etcd-druid/concepts/bootstrap-with-existing-cluster/)
-- [Using Additional Advertise Peer URLs](/docs/other-components/etcd-druid/using-additional-advertise-peer-urls/)
+- [Using Additional Advertised URLs](/docs/other-components/etcd-druid/using-additional-advertised-urls/)
 - [Securing Etcd Clusters](/docs/other-components/etcd-druid/securing-etcd-clusters/)
 - [etcd Learner Design](https://etcd.io/docs/v3.5/learning/design-learner/)

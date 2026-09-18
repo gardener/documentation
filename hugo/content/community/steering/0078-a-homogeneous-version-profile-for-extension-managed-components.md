@@ -3,6 +3,21 @@ title: 'GEP-0078: A Homogeneous Version Profile for Extension-Managed Components
 prev: false
 next: false
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/          │
+   │  documentation                                 │
+   │                                                │
+   │  Go ahead and edit this file directly.         │
+   │  Changes here are the source of truth.         │
+   └────────────────────────────────────────────────┘
+-->
+
 
 
 # GEP-0078: A Homogeneous Version Profile for Extension-Managed Components
