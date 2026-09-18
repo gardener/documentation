@@ -160,7 +160,7 @@ structure:
     structure:
     - file: _index.md
       frontmatter:
-        title: List of Extensions
+        title: Extensions
         description: The infrastructure, networking, OS and other extension components for Gardener
         weight: 40
       source: https://github.com/gardener/gardener/blob/master/extensions/README.md
