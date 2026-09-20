@@ -17,7 +17,7 @@ aliases: ["/blog/2026/09/16/gateway-api-comes-to-gardener-shoots-introducing-the
 
 Kubernetes Ingress has served the ecosystem well, but it is now frozen — no new features will be added, and its annotation-heavy interface makes consistent, multi-team workflows difficult. The Kubernetes community is converging on [Gateway API](https://gateway-api.sigs.k8s.io/), its successor: a role-oriented, vendor-neutral standard with native L4/L7 routing, TLS termination, and TCP/UDP support built in.
 
-With Gardener v1.150, [GEP-68](https://github.com/gardener/enhancements/pull/69) ships as a new extension: `gardener-extension-envoy-gateway`. It brings [Envoy Gateway](https://gateway.envoyproxy.io/) — an official Envoy Proxy-based Gateway API implementation — directly into shoot clusters as a first-class, operator-managed component.
+With Gardener v1.150, [GEP-68](/docs/proposals/0068-gateway-api-extension/) ships as a new extension: [`gardener-extension-envoy-gateway`](https://github.com/gardener/gardener-extension-envoy-gateway). It brings [Envoy Gateway](https://gateway.envoyproxy.io/) — an official Envoy Proxy-based Gateway API implementation — directly into shoot clusters as a first-class, operator-managed component.
 
 ## What Gets Installed
 
@@ -93,7 +93,7 @@ Envoy Gateway provisions a `Service` of type `LoadBalancer` for the `Gateway`. T
 
 ## Coexistence with `gardener-extension-shoot-traefik`
 
-The extension is the sibling of [`gardener-extension-shoot-traefik`](https://github.com/gardener/gardener-extension-shoot-traefik) (GEP-57). Both extensions are intentionally disjoint and can run side by side in the same shoot — though running both simultaneously in production is generally not recommended. Teams already on Traefik can evaluate Envoy Gateway without interference.
+The extension is the sibling of [`gardener-extension-shoot-traefik`](https://github.com/gardener/gardener-extension-shoot-traefik) ([GEP-57](/docs/proposals/0057-replace-nginx-ingress-shoot-addon-with-traefik-extension/)). Both extensions are intentionally disjoint and can run side by side in the same shoot — though running both simultaneously in production is generally not recommended. Teams already on Traefik can evaluate Envoy Gateway without interference.
 
 ## Current Status
 
@@ -106,6 +106,6 @@ Operators register the extension on a landscape by applying an `Extension` resou
 - [📽️ Recording](https://youtu.be/jUgYGYulHwY?t=74)
 - [gardener-extension-envoy-gateway repository](https://github.com/gardener/gardener-extension-envoy-gateway)
 - [Getting started guide](https://github.com/gardener/gardener-extension-envoy-gateway/blob/main/docs/usage/getting-started.md)
-- [GEP-68](https://github.com/gardener/enhancements/pull/69)
+- [GEP-68](/docs/proposals/0068-gateway-api-extension/)
 - [Envoy Gateway](https://gateway.envoyproxy.io/)
 - [Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/)
