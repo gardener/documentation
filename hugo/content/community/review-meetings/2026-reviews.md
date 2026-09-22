@@ -31,6 +31,26 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2026/09/23 - [v1.151](https://github.com/gardener/gardener/releases/tag/v1.151.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@DobromirNPeev](https://github.com/DobromirNPeev) | `5m` | 🕵️‍♂️ `kube-api-linter` Plugin for `golangci-lint` | [#15550](https://github.com/gardener/gardener/pull/15550) |
+| [@petersutter](https://github.com/petersutter), [@grolu](https://github.com/grolu) | `10m` | 🕹 Gardener Dashboard Update | [1.85.0 (release)](https://github.com/gardener/dashboard/releases/tag/1.85.0) |
+| [@timuthy](https://github.com/timuthy) | `5m` | 📡 `gardener.clusterTypes` Helm Values for Extension Installation | [#15566](https://github.com/gardener/gardener/pull/15566) |
+
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- ❗️ [OPERATOR] The `MTUCustomizer` feature gate has been promoted to beta, defaulting to `false`. In a future release the feature gate will be promoted to GA and reenabling the MTU-Customizer deployment in Seeds will no longer be possible [gardener-extension-provider-aws#1907](https://github.com/gardener/gardener-extension-provider-aws/pull/1907)
+- 🐛 [OPERATOR] The false deprecation warning for `spec.dns.providers[].secretName` is no longer emitted for Shoots whose `secretName` is synced from `credentialsRef`. The warning still appears when the deprecated field is set by the user. [#15016](https://github.com/gardener/gardener/pull/15016)
+
+<hr />
+
 ### 2026/09/16 - [v1.150](https://github.com/gardener/gardener/releases/tag/v1.150.0) Release
 
 [📽️ Recording](https://youtu.be/jUgYGYulHwY)
