@@ -18,31 +18,37 @@ tags:
 aliases: ["/blog/2026/09/23/gardener-dashboard-1850-operator-focused-improvements"]
 ---
 
-This release of the Gardener Dashboard brings a set of improvements aimed at landscape operators: encrypted in-cluster traffic, a richer seed list, a redesigned Operations View, and expanded visibility for landscape viewers.
-
-## In-Cluster TLS Termination for the Dashboard Backend
-
-Previously, traffic between the dashboard backend pod and the ingress gateway was the one unencrypted hop in the request path. The dashboard backend now supports optional TLS termination, closing that gap.
-
-When deploying the dashboard via `gardener-operator`, TLS is set up automatically — the operator provides the required certificate and private key, and handles certificate rotation if the cluster CA changes. For manual deployments, TLS remains opt-in: provide `tls.certFile` and `tls.privateKeyFile` in the dashboard configuration to enable it, or leave them absent to keep the previous behavior unchanged.
+Gardener Dashboard 1.85.0 makes it easier to see which shoots may need operator attention. The All Projects list now makes its Operations View explicit, while the Seeds page gives a per-seed overview of shoot health and capacity. The release also improves visibility for landscape viewers and adds optional TLS support for the dashboard backend.
 
 ## Landscape Viewer Role Recognition
 
-Users with permission to view shoots across all namespaces are now recognized as *landscape viewers* — a distinct role that was previously indistinguishable from regular users. The dashboard now shows a role badge on the avatar and surfaces UI elements previously reserved for operators: the control plane chip, seed readiness column, and direct links to the respective seed.
+Non-admin users who can view shoots across all projects are now identified as *landscape viewers*. A badge on the avatar shows the role. Landscape viewers also see the control plane readiness chip, links to seeds, and seed readiness.
 
-## Redesigned Operations View
+## Operations View in All Projects
 
-The all-projects shoot list has been redesigned around a clearer Operations View concept. The active filter is now visible directly in the search input field, alongside a toggle that opens a menu with a description and controls for showing all clusters or editing exclusion criteria.
+The All Projects list already offered operations-oriented filtering. Dashboard 1.85 makes this an explicit product concept: **Operations View**, focused on shoots that may need operator attention. Healthy shoots are always excluded. In **Settings**, you can configure additional exclusions, for example progressing shoots or shoots that do not require operator action, and choose the default view. The menu lets you switch between Operations View and all clusters.
 
-Exclusion criteria — previously a checkbox buried under table options — are now configurable from the Settings page, with descriptions for each option. Operators can configure which clusters to hide from the Operations View (progressing clusters, clusters not requiring operator attention, clusters where issues are user-resolvable) and can set whether Operations View or "all clusters" is the default when opening the page. The exclusion criteria also apply to the seed list.
+![Operations View menu showing the active filters and the option to show all clusters](./images/gardener-dashboard-1850-operations-view.png)
 
-## Seed List Health and Capacity Indicators
+## Seed Health and Capacity at a Glance
 
-The seed list now shows per-seed shoot health statistics as donut charts alongside shoot capacity indicators, with real-time updates. The health donut distinguishes clusters needing operator attention from those excluded by the Operations View criteria. Both the donut and the capacity indicator link directly to a filtered shoot list — the seed filter and relevant criteria are applied automatically.
+On the **Seeds** page, the new indicators provide a structured, high-level overview. You can quickly see where issues are concentrated and how much capacity is available.
+
+For each seed, the capacity indicator shows assigned shoots against allocatable capacity, including the remaining capacity when the seed reports it. The health donut mirrors Operations View by distinguishing unhealthy shoots that may need operator attention from other unhealthy shoots excluded by its criteria. It also shows healthy shoots. The figures update in real time.
+
+Both indicators link to the relevant shoots, with the appropriate filters applied automatically.
+
+![Seeds list with capacity indicators and a shoot health breakdown](./images/gardener-dashboard-1850-seed-health.png)
+
+## In-Cluster TLS Termination for the Dashboard Backend
+
+The dashboard backend can now serve HTTPS, allowing the connection from the ingress gateway to the backend pod to be encrypted. In `gardener-operator`-managed deployments, TLS is configured automatically: the operator supplies the certificate and key and handles certificate rotation when the cluster CA changes.
+
+For manual deployments, TLS is opt-in: configure both `tls.certFile` and `tls.privateKeyFile` in the dashboard configuration to enable HTTPS. Without them, the backend continues to serve HTTP.
 
 ## Field-Qualified Search
 
-The shoot and seed list filters now support field-qualified search terms such as `seed:aws-ha` or `-region:eu`, making it easier to narrow down large landscapes without navigating through multiple filter controls.
+Shoot and seed list searches now accept field-qualified terms such as `seed:aws-ha` or `-region:eu`. These let you target a seed or exclude a region directly in the search field, alongside the visible Operations View filters.
 
 ## Links
 
