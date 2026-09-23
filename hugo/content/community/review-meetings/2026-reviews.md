@@ -33,7 +33,7 @@ Check back regularly for updates and upcoming topics!
 
 ### 2026/09/23 - [v1.151](https://github.com/gardener/gardener/releases/tag/v1.151.0) Release
 
-[📽️ Recording]()
+[📽️ Recording](https://youtu.be/IattXdELxSc)
 
 #### Demo Agenda 📋
 
