@@ -57,6 +57,7 @@ Install the latest release from [Homebrew](https://brew.sh/), [winget](https://l
 
 ```sh
 # Homebrew (macOS and Linux)
+brew trust gardener/tap/gardenlogin
 brew install gardener/tap/gardenctl-v2
 
 # winget (Windows)
