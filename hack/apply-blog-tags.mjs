@@ -98,7 +98,7 @@ const CLOUD_RULES = [
   { tag: 'provider-azure', keywords: ['azure'] },
   { tag: 'provider-gcp', keywords: ['gcp', 'google cloud'] },
   { tag: 'provider-openstack', keywords: ['openstack'] },
-  { tag: 'provider-metal-stack', keywords: ['metal-stack', 'equinix metal', 'equinix'] }
+  { tag: 'provider-metal-stack', keywords: ['metal-stack'] }
 ]
 
 const PROJECT_RULES = [
