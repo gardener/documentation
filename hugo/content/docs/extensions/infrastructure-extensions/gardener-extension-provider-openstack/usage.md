@@ -363,6 +363,7 @@ spec:
 Every OpenStack shoot cluster will be deployed with the OpenStack Cinder CSI driver.
 It is compatible with the legacy in-tree volume provisioner that was deprecated by the Kubernetes community and will be removed in future versions of Kubernetes.
 End-users might want to update their custom `StorageClass`es to the new `cinder.csi.openstack.org` provisioner.
+The Cinder CSI driver controller exposes OpenStack API call metrics (`openstack_api_request_duration_seconds`, `openstack_api_requests_total`, `openstack_api_request_errors_total`) which are scraped by the shoot Prometheus.
 
 ### VolumeSnapshotClass
 
