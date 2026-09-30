@@ -44,7 +44,7 @@ Gardener is composed of 2 or more Kubernetes clusters:
 * Shoot: These are the end-user clusters, the regular Kubernetes clusters you have seen. They provide places for your workloads to run.
 * Seed: This is the "management" cluster. It manages the control planes of shoots by running them as native Kubernetes workloads.
 
-These two clusters can run in the same cloud provider, but they do not need to. For example, you could run your Seed in AWS, while having one shoot in Azure, two in Google and two in Alicloud
+These two clusters can run in the same cloud provider, but they do not need to. For example, you could run your Seed in AWS, while having one shoot in Azure, two in Google and two in Alicloud.
 
 The Seed cluster deploys and manages the Shoot clusters. Importantly, for this discussion, the `etcd` data store backing each Shoot runs as workloads inside the Seed. Thus, to use the above example, the clusters in Azure, Google and Alicloud will have their worker nodes and master nodes running in those clouds, but the `etcd` clusters backing them will run as separate [deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) in the Seed Kubernetes cluster on AWS.
 

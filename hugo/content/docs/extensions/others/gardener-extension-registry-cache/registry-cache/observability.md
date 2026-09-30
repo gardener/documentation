@@ -40,7 +40,7 @@ The `registry-cache` extension exposes metrics for the registry caches running i
 
 ## Metrics
 
-A registry cache serves [several metrics](https://github.com/distribution/distribution/blob/v3.1.1/registry/proxy/proxymetrics.go#L12-L21). The metrics are scraped by the [Shoot's Prometheus instance](/docs/gardener/monitoring/#shoot-prometheus).
+A registry cache serves [several metrics](https://github.com/distribution/distribution/blob/v3.1.2/registry/proxy/proxymetrics.go#L12-L21). The metrics are scraped by the [Shoot's Prometheus instance](/docs/gardener/monitoring/#shoot-prometheus).
 
 The `Registry Caches` dashboard in the Shoot's Plutono instance contains several panels which are built using the registry cache metrics. From the `Registry` dropdown menu you can select the upstream for which you wish the metrics to be displayed (by default, metrics are summed for all upstream registries).
 

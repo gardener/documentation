@@ -79,6 +79,9 @@ spec:
                 interfaces:
                   - enp1s0
                   - enp2s0
+              ubuntuVersionOverrides:
+                - ubuntuVersion: "26.04"
+                  daemon: none
             aptRepositories:
               - name: docker
                 uri: https://download.docker.com/linux/ubuntu
@@ -139,7 +142,7 @@ Configures time synchronisation on the node.
 
 | Field | Type | Required | Default | Description |
 | --- | --- | --- | --- | --- |
-| `daemon` | `string` | yes | `systemd-timesyncd` | The NTP daemon to use. Must be one of `systemd-timesyncd` or `ntpd`. |
+| `daemon` | `string` | yes | `systemd-timesyncd` | The NTP daemon to use. Must be one of `systemd-timesyncd`, `ntpd` or `none`. |
 | `ntpd` | `*NTPDConfig` | no |  | Additional configuration. Only allowed when `daemon` is `ntpd`; setting it with `systemd-timesyncd` is rejected by validation. |
 
 `NTPDConfig` fields:
@@ -161,6 +164,38 @@ ntp:
     interfaces:
       - enp1s0
       - enp2s0
+```
+
+### `ubuntuVersionOverrides`
+
+| Type | Required | Default |
+| --- | --- | --- |
+| `[]NTPUbuntuVersionOverride` | no | `[]` |
+
+"A list of Ubuntu versions and their corresponding daemons, used to configure fine-grained NTP overrides per Ubuntu release."
+
+`NTPUbuntuVersionOverride` fields:
+
+| Field | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| `UbuntuVersion` | `string` | yes |  | UbuntuVersion is matched against VERSION_ID from /etc/os-release. Must match ^[0-9]+\.[0-9]+$. |
+| `Daemon` | `string` | yes |  | The NTP daemon to use. Must be one of `systemd-timesyncd`, `ntpd` or `none`. |
+
+Example:
+
+```yaml
+ntp:
+  daemon: ntpd
+  ntpd:
+    servers:
+      - 0.pool.ntp.org
+      - 1.pool.ntp.org
+    interfaces:
+      - enp1s0
+      - enp2s0
+  ubuntuVersionOverrides:
+    - ubuntuVersion: "26.04"
+      daemon: none
 ```
 
 ### `aptRepositories`

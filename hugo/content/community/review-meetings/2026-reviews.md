@@ -31,6 +31,25 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2026/09/30 - [v1.152](https://github.com/gardener/gardener/releases/tag/v1.152.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@acumino](https://github.com/acumino) | `5m` | 🔄 `Shoot` Maintenance Reconciliation for Failed-State Shoots with Healthy Conditions | [#15706](https://github.com/gardener/gardener/pull/15706) |
+| [@ScheererJ](https://github.com/ScheererJ) | `10m` | 🛠️ Local `gardenadm` Development Setup Now Uses GinK (Gardener-in-KinD) | [#15625](https://github.com/gardener/gardener/pull/15625) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- ❗️ [DEPENDENCY] Provider extensions now must define `MachineDeployment.PoolName` or Gardener will throw an error. Before the fix this value was not checked causing issues during manual worker pool rollout. [#15668](https://github.com/gardener/gardener/pull/15668)
+- 🐛 [OPERATOR] The shoot maintenance controller now properly re-enqueues for immediate retry when encountering an optimistic locking conflict during the dry-run update check instead of prematurely marking the maintenance as failed. [#15756](https://github.com/gardener/gardener/pull/15756)
+- 🐛 [OPERATOR] The next-generation DNS controller no longer fails to create a TXT record (e.g. an ACME `_acme-challenge` DNS-01 challenge record) when a wildcard CNAME shadows the queried name. A CNAME answer to the pre-write TXT lookup is now treated as "no record present" instead of a hard error, so the record is created and certificate renewals proceed. [external-dns-management#1090](https://github.com/gardener/external-dns-management/pull/1090)
+
+<hr />
+
 ### 2026/09/23 - [v1.151](https://github.com/gardener/gardener/releases/tag/v1.151.0) Release
 
 [📽️ Recording](https://youtu.be/IattXdELxSc)

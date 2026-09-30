@@ -260,6 +260,10 @@ In the `identity` section you can specify an [Azure user-assigned managed identi
 
 Apart from the VNet and the worker subnet the Azure extension will also create a dedicated resource group, route tables, security groups and a VMSS-Flex group depending on the configuration.
 
+### User-managed egress via BYO subnet
+
+Shoots that need full control over egress (central firewall via `0.0.0.0/0` next-hop to an Azure Firewall / NVA, or network-isolated shoots with no default route) may bring their own worker subnet inside their own VNet. In this mode Gardener does not create the worker subnet, its route table, its network security group, or the NAT Gateway; it only discovers and references them. See [User-managed egress via BYO subnet](/docs/extensions/infrastructure-extensions/gardener-extension-provider-azure/user-managed-egress/) for the end-to-end usage guide.
+
 ### InfrastructureConfig with dedicated subnets per zone
 
 Another deployment option **for zonal clusters only**, is to create and configure a separate subnet per availability zone. This network layout is recommended to users that require fine-grained control over their network setup. One prevalent usecase is to create a zone-redundant NAT Gateway deployment by taking advantage of the ability to deploy separate NAT Gateways for each subnet.
@@ -782,6 +786,8 @@ Before disabling them, users are highly advised to have created at least one Loa
 Using the `azure.provider.extensions.gardener.cloud/disable-default-outbound-access="true"` annotation on the shoot, users can disable the default outbound traffic for the worker subnet. This can be used to ensure what the shoot is unaffected by the deprecation of the default outbound traffic for nodes [see the official announcement](https://azure.microsoft.com/en-us/updates?id=default-outbound-access-for-vms-in-azure-will-be-retired-transition-to-a-new-method-of-internet-access).
 
 This annotation is should only be used for testing and not production shoots. It will be removed in a future release shortly after the deprecation date by Azure.
+
+The annotation is only meaningful for Gardener-managed worker subnets. It is rejected at admission when the shoot brings its own subnet (`networks.subnet` is set), because Gardener neither creates nor mutates that subnet — configure `defaultOutboundAccess` on the subnet itself instead. See [user-managed egress](/docs/extensions/infrastructure-extensions/gardener-extension-provider-azure/user-managed-egress/).
 
 ### Support for VolumeAttributesClasses (Beta in k8s 1.31)
 
