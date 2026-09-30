@@ -9075,7 +9075,7 @@ string
 </em>
 </td>
 <td>
-<p>Kind of object being referenced. Values defined by this API group are "User", "Group", and "ServiceAccount".<br />If the Authorizer does not recognized the kind value, the Authorizer should report an error.</p>
+<p>kind of object being referenced. Values defined by this API group are "User", "Group", and "ServiceAccount".<br />If the Authorizer does not recognized the kind value, the Authorizer should report an error.</p>
 </td>
 </tr>
 <tr>
@@ -9087,7 +9087,7 @@ string
 </td>
 <td>
 <em>(Optional)</em>
-<p>APIGroup holds the API group of the referenced subject.<br />Defaults to "" for ServiceAccount subjects.<br />Defaults to "rbac.authorization.k8s.io" for User and Group subjects.</p>
+<p>apiGroup holds the API group of the referenced subject.<br />Defaults to "" for ServiceAccount subjects.<br />Defaults to "rbac.authorization.k8s.io" for User and Group subjects.</p>
 </td>
 </tr>
 <tr>
@@ -9098,7 +9098,7 @@ string
 </em>
 </td>
 <td>
-<p>Name of the object being referenced.</p>
+<p>name of the object being referenced.</p>
 </td>
 </tr>
 <tr>
@@ -9110,7 +9110,7 @@ string
 </td>
 <td>
 <em>(Optional)</em>
-<p>Namespace of the referenced object.  If the object kind is non-namespace, such as "User" or "Group", and this value is not empty<br />the Authorizer should report an error.</p>
+<p>namespace of the referenced object.  If the object kind is non-namespace, such as "User" or "Group", and this value is not empty<br />the Authorizer should report an error.</p>
 </td>
 </tr>
 <tr>
