@@ -74,6 +74,11 @@ To enable this feature, an operator should:
 If your OpenStack system has multiple `volume-types`, the `storageClasses` property enables the creation of kubernetes `storageClasses` for shoots.
 Set `storageClasses[].parameters.type` to map it with an openstack `volume-type`. Specifying `storageClasses` is optional and can be omitted.
 
+`storageClasses[].regions` is an optional list of region-specific settings for a `storageClass`, each selected by `regions[].name` and at most one entry per region:
+
++ `regions[].parameters` override `storageClasses[].parameters` key by key.
++ `regions[].unavailable: true` skips the `storageClass` in that region altogether.
+
 ### MachineCapabilities
 
 With the introduction of `spec.machineCapabilities` in Gardener *v1.131.0*, you can define capability-based matching between machine images and machine types. This enables fine-grained control over which images can be used with which machine types.
@@ -189,6 +194,12 @@ machineImages:
 #   volumeBindingMode: WaitForFirstConsumer
 #   parameters:
 #     type: storage_premium_perf0
+#   regions:
+#   - name: europe-west
+#     parameters:
+#       type: premium
+#   - name: asia
+#     unavailable: true
 constraints:
   floatingPools:
   - name: fp-pool-1
