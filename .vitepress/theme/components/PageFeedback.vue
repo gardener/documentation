@@ -23,10 +23,15 @@ const visible = computed(() => !!theme.value.pageActions && frontmatter.value.ed
 async function vote(helpful: boolean) {
   if (voted.value) return
   voted.value = true
+  // Capture page identity before the async import: navigation during the
+  // import would otherwise attribute the vote to the next page.
+  const path = page.value.relativePath
+  const url = window.location.href
   // Import lazily so this component never pulls the tracker into SSR.
   const { track } = await import('@plausible-analytics/tracker')
   track('Feedback', {
-    props: { path: page.value.relativePath, helpful: String(helpful) },
+    url,
+    props: { path, helpful: String(helpful) },
     interactive: false,
   })
 }

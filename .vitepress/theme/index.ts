@@ -26,14 +26,15 @@ export default {
       'layout-bottom': () => h(VPFooter),
     })
   },
-  enhanceApp({ app, router }) {
+  async enhanceApp({ app, router }) {
     app.component('YouTubeVideo', YouTubeVideo)
     app.component('VPFeatures', VPFeatures)
     app.component('CardGrid', CardGrid)
 
-    // Plausible is browser-only; guard against SSR build (enhanceApp also runs in Node)
+    // Plausible is browser-only; guard against SSR build (enhanceApp also runs in Node).
+    // Await init so the 404 hook is installed before the initial navigation runs.
     if (!import.meta.env.SSR) {
-      initAnalytics(router)
+      await initAnalytics(router)
     }
   },
 } satisfies Theme
