@@ -33,7 +33,6 @@ A GEP provides sufficient context, motivation, and a concrete ask or decision re
 
 | Date | GEP | Title |
 | --- | --- | --- |
-| 2026-10-01 | [GEP-0078](0078-a-homogeneous-version-profile-for-extension-managed-components) | A Homogeneous Version Profile for Extension-Managed Components |
 
 *(Sessions take place Thursdays, 10:00–11:00 Europe/Berlin — see [Meeting Process](#📑-meeting-process) for details.)*
 
@@ -42,6 +41,7 @@ A GEP provides sufficient context, motivation, and a concrete ask or decision re
 
 | Date | GEP | Title |
 | --- | --- | --- |
+| 2026-10-01 | [GEP-0078](0078-a-homogeneous-version-profile-for-extension-managed-components) | A Homogeneous Version Profile for Extension-Managed Components |
 | 2026-08-27 | [GEP-0066](0066-make-shoot-domains-mutable) | Make Shoot Domains Mutable |
 | 2026-07-30 | [GEP-0063](0063-diki-extension) | Diki extension |
 | 2026-07-23 | [GEP-0068](0068-gateway-api-extension-for-gardener-shoot-clusters) | Gateway API Extension for Gardener Shoot Clusters |
