@@ -5,6 +5,14 @@
 [context.deploy-preview]
     command = "make ci-build-preview"
 
+# Proxy Plausible event endpoint through our own domain to avoid adblockers.
+# https://plausible.io/docs/proxy/guides/netlify
+[[redirects]]
+    from = "/pa/event"
+    to = "https://plausible.io/api/event"
+    status = 200
+    force = true
+
 [[headers]]
     for = "/*"
     [headers.values]
