@@ -155,7 +155,7 @@ We use GitHub issues to track bugs and enhancement requests. When opening an iss
 
 ### Slack
 
-We use the [Gardener Project workspace](https://gardener-cloud.slack.com) for public communication related to the Gardener project.
+We use the [Gardener Project workspace](https://gardener-cloud.slack.com) ([join here](https://join.slack.com/t/gardener-cloud/shared_invite/zt-33c9daems-3oOorhnqOSnldZPWqGmIBw)) for public communication related to the Gardener project.
 
 ### Mailing List
 

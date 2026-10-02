@@ -68,4 +68,4 @@ To have documentation published on the website, it is necessary to use the docfo
 
 These manifests describe a particular publishing goal, i.e., using Hugo to publish on the website, and you will find out that they contain Hugo-specific front-matter properties.
 
-Consult with the documentation maintainers for details. Use the [#general](https://gardener-cloud.slack.com/archives/CAPMD6DCG) channel in Slack or [open a PR](https://github.com/gardener/documentation/pulls).
+Consult with the documentation maintainers for details. Use the [#general](https://gardener-cloud.slack.com/archives/CAPMD6DCG) channel in [Slack](https://join.slack.com/t/gardener-cloud/shared_invite/zt-33c9daems-3oOorhnqOSnldZPWqGmIBw) or [open a PR](https://github.com/gardener/documentation/pulls).
