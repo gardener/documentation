@@ -1,19 +1,38 @@
 ---
-title: "Gateway API Comes to Gardener Shoots: Introducing the Envoy Gateway Extension"
-linkTitle: "Gateway API Comes to Gardener Shoots: Introducing the Envoy Gateway Extension"
-newsSubtitle: September 16, 2026
-publishdate: 2026-09-16
+title: 'Gateway API Comes to Gardener Shoots: Introducing the Envoy Gateway Extension'
+linkTitle: 'Gateway API Comes to Gardener Shoots: Introducing the Envoy Gateway Extension'
+newsSubtitle: 'September 16, 2026'
+publishdate: 2026-09-16T00:00:00.000Z
 authors:
-- avatar: https://avatars.githubusercontent.com/DockToFuture
-  email: sebastian.stauch@sap.com
-  login: DockToFuture
-  name: Sebastian Stauch
+  - avatar: 'https://avatars.githubusercontent.com/DockToFuture'
+    email: sebastian.stauch@sap.com
+    login: DockToFuture
+    name: Sebastian Stauch
 tags:
-- feature-announcement
-- networking
-- extensions
-aliases: ["/blog/2026/09/16/gateway-api-comes-to-gardener-shoots-introducing-the-envoy-gateway-extension"]
+  - feature-announcement
+  - networking
+  - extensions
+aliases:
+  - >-
+    /blog/2026/09/16/gateway-api-comes-to-gardener-shoots-introducing-the-envoy-gateway-extension
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/          │
+   │  documentation                                 │
+   │                                                │
+   │  Go ahead and edit this file directly.         │
+   │  Changes here are the source of truth.         │
+   └────────────────────────────────────────────────┘
+-->
+
+
+# Gateway API Comes to Gardener Shoots: Introducing the Envoy Gateway Extension
 
 Kubernetes Ingress has served the ecosystem well, but it is now frozen — no new features will be added, and its annotation-heavy interface makes consistent, multi-team workflows difficult. The Kubernetes community is converging on [Gateway API](https://gateway-api.sigs.k8s.io/), its successor: a role-oriented, vendor-neutral standard with native L4/L7 routing, TLS termination, and TCP/UDP support built in.
 

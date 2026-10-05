@@ -57,9 +57,7 @@ This mounts a generic kubeconfig and a token from the two referenced secrets int
 
 ### Virtual Garden
 
-When a *Virtual Garden* is used (i.e., the admission webhook runs in the `runtimeCluster` while the webhook configurations are maintained in a separate `virtualCluster`), set `.Values.gardener.virtualCluster.enabled: true` in the `admission-stackit-runtime` chart (the default).
-
-This switches the admission webhook configuration from service mode to URL mode (`--webhook-config-mode=url`) and sets the `SOURCE_CLUSTER` environment variable. The `admission-stackit-virtual-garden` chart deploys a `ServiceAccount`, `ClusterRole`, and `ClusterRoleBinding` into the virtual cluster.
+In standard operator deployments, the admission webhook runs in the `runtimeCluster` while the webhook configurations are maintained in a separate `virtualCluster`. The admission webhook configuration runs in URL mode (`--webhook-config-mode=url`) with the `SOURCE_CLUSTER` environment variable set. The `admission-stackit-virtual-garden` chart deploys a `ServiceAccount`, `ClusterRole`, and `ClusterRoleBinding` into the virtual cluster.
 
 ### Enabling Application Load Balancer support
 

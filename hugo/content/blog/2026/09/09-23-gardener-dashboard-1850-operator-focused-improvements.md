@@ -1,22 +1,40 @@
 ---
-title: "Gardener Dashboard 1.85.0: Operator-Focused Improvements"
-linkTitle: "Gardener Dashboard 1.85.0: Operator-Focused Improvements"
-newsSubtitle: September 23, 2026
-publishdate: 2026-09-23
+title: 'Gardener Dashboard 1.85.0: Operator-Focused Improvements'
+linkTitle: 'Gardener Dashboard 1.85.0: Operator-Focused Improvements'
+newsSubtitle: 'September 23, 2026'
+publishdate: 2026-09-23T00:00:00.000Z
 authors:
-- avatar: https://avatars.githubusercontent.com/petersutter
-  login: petersutter
-  name: Peter Sutter
-- avatar: https://avatars.githubusercontent.com/grolu
-  login: grolu
-  name: Lukas Gross
+  - avatar: 'https://avatars.githubusercontent.com/petersutter'
+    login: petersutter
+    name: Peter Sutter
+  - avatar: 'https://avatars.githubusercontent.com/grolu'
+    login: grolu
+    name: Lukas Gross
 tags:
-- feature-announcement
-- dashboard
-- security
-- observability
-aliases: ["/blog/2026/09/23/gardener-dashboard-1850-operator-focused-improvements"]
+  - feature-announcement
+  - dashboard
+  - security
+  - observability
+aliases:
+  - /blog/2026/09/23/gardener-dashboard-1850-operator-focused-improvements
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/          │
+   │  documentation                                 │
+   │                                                │
+   │  Go ahead and edit this file directly.         │
+   │  Changes here are the source of truth.         │
+   └────────────────────────────────────────────────┘
+-->
+
+
+# Gardener Dashboard 1.85.0: Operator-Focused Improvements
 
 Gardener Dashboard 1.85.0 makes it easier to see which shoots may need operator attention. The **All Projects** list now makes its **Operations View** explicit, while the **Seeds** page gives a per-seed overview of shoot health and capacity. The release also improves visibility for landscape viewers and adds optional TLS support for the dashboard backend.
 
