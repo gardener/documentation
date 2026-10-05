@@ -18,7 +18,7 @@ tags:
 aliases: ["/blog/2026/09/23/gardener-dashboard-1850-operator-focused-improvements"]
 ---
 
-Gardener Dashboard 1.85.0 makes it easier to see which shoots may need operator attention. The All Projects list now makes its Operations View explicit, while the Seeds page gives a per-seed overview of shoot health and capacity. The release also improves visibility for landscape viewers and adds optional TLS support for the dashboard backend.
+Gardener Dashboard 1.85.0 makes it easier to see which shoots may need operator attention. The **All Projects** list now makes its **Operations View** explicit, while the **Seeds** page gives a per-seed overview of shoot health and capacity. The release also improves visibility for landscape viewers and adds optional TLS support for the dashboard backend.
 
 ## Landscape Viewer Role Recognition
 
@@ -26,7 +26,7 @@ Non-admin users who can view shoots across all projects are now identified as *l
 
 ## Operations View in All Projects
 
-The All Projects list already offered operations-oriented filtering. Dashboard 1.85 makes this an explicit product concept: **Operations View**, focused on shoots that may need operator attention. Healthy shoots are always excluded. In **Settings**, you can configure additional exclusions, for example progressing shoots or shoots that do not require operator action, and choose the default view. The menu lets you switch between Operations View and all clusters.
+The **All Projects** list already offered operations-oriented filtering. Dashboard 1.85 makes this an explicit product concept: **Operations View**, focused on shoots that may need operator attention. Healthy shoots are always excluded. In **Settings**, you can configure additional exclusions, for example progressing shoots or shoots that do not require operator action, and choose the default view. The menu lets you switch between **Operations View** and all clusters.
 
 ![Operations View menu showing the active filters and the option to show all clusters](./images/gardener-dashboard-1850-operations-view.png)
 
@@ -34,7 +34,7 @@ The All Projects list already offered operations-oriented filtering. Dashboard 1
 
 On the **Seeds** page, the new indicators provide a structured, high-level overview. You can quickly see where issues are concentrated and how much capacity is available.
 
-For each seed, the capacity indicator shows assigned shoots against allocatable capacity, including the remaining capacity when the seed reports it. The health donut mirrors Operations View by distinguishing unhealthy shoots that may need operator attention from other unhealthy shoots excluded by its criteria. It also shows healthy shoots. The figures update in real time.
+For each seed, the capacity indicator shows assigned shoots against allocatable capacity, including the remaining capacity when the seed reports it. The health donut mirrors **Operations View** by distinguishing unhealthy shoots that may need operator attention from other unhealthy shoots excluded by its criteria. It also shows healthy shoots. The figures update in real time.
 
 Both indicators link to the relevant shoots, with the appropriate filters applied automatically.
 
@@ -48,7 +48,7 @@ For manual deployments, TLS is opt-in: configure both `tls.certFile` and `tls.pr
 
 ## Field-Qualified Search
 
-Shoot and seed list searches now accept field-qualified terms such as `seed:aws-ha` or `-region:eu`. These let you target a seed or exclude a region directly in the search field, alongside the visible Operations View filters.
+Shoot and seed list searches now accept field-qualified terms such as `seed:aws-ha` or `-region:eu`. These let you target a seed or exclude a region directly in the search field, alongside the visible **Operations View** filters.
 
 ## Links
 
