@@ -113,6 +113,10 @@ The `networks.router` section describes whether you want to create the shoot clu
 
 * In any case, the shoot cluster will be created in a **new** subnet.
 
+`networks.subnetId` is an optional field. When set together with `networks.id` and `networks.router.id`, the worker nodes will be deployed into this existing subnet instead of creating a new one. The subnet must belong to the network specified by `networks.id`, and the router specified by `networks.router.id` must already have an interface attached to the provided subnet.
+
+**Note:** When using an existing subnet (`networks.subnetId`), providing `networks.router.id` is required. See [Flexible Network Configuration](/docs/extensions/infrastructure-extensions/gardener-extension-provider-openstack/flexible-network-configuration/) for the full set of BYO options including BYO security group and share network behaviour.
+
 The `networks.workers` section describes the CIDR for a subnet that is used for all shoot worker nodes, i.e., VMs which later run your applications.
 
 You can freely choose these CIDRs and it is your responsibility to properly design the network layout to suit your needs.
