@@ -58,7 +58,7 @@ For those hypervisors you can enable the storage plugin interacting with Cinder 
 
 Some openstack configurations do not allow to attach more volumes than a specific amount to a single node.
 To tell the k8s scheduler to not over schedule volumes on a node, you can set `nodeVolumeAttachLimit` which defaults to 256.
-Some openstack configurations have different names for volume and compute availability zones, which might cause pods to go into pending state as there are no nodes available in the detected volume AZ. To ignore the volume AZ when scheduling pods, you can set `ignoreVolumeAZ` to `true` (it defaults to `false`).
+Some openstack configurations have different names for volume and compute availability zones, which might cause pods to go into pending state as there are no nodes available in the detected volume AZ. To ignore the volume AZ when scheduling pods, you can set `ignoreVolumeAZ` to `true` (it defaults to `false`). To also create volumes in a zone different from the node's zone, see [below](#volumes-in-a-different-availability-zone-than-the-nodes-cross-az-attachment).
 See [CSI Cinder driver](https://github.com/kubernetes/cloud-provider-openstack/blob/master/docs/cinder-csi-plugin/using-cinder-csi-plugin.md#block-storage).
 
 The cloud profile config also contains constraints for floating pools and load balancer providers that can be used in shoots.
@@ -78,6 +78,27 @@ Set `storageClasses[].parameters.type` to map it with an openstack `volume-type`
 
 + `regions[].parameters` override `storageClasses[].parameters` key by key.
 + `regions[].unavailable: true` skips the `storageClass` in that region altogether.
+
+#### Volumes in a different availability zone than the nodes (cross-AZ attachment)
+
+Some OpenStack installations have multiple compute availability zones (e.g. `zone01`, `zone02`, `zone03`) but only a single storage availability zone (e.g. `nova`) and allow attaching volumes across zones (`cross_az_attach=true` in Nova).
+By default, the Cinder CSI driver creates a volume in the zone of the node the pod is scheduled to, which fails in such a setup.
+To create all volumes in the storage zone, set the `availability` parameter of the `storageClass` and enable `ignoreVolumeAZ`:
+
+```yaml
+ignoreVolumeAZ: true
+storageClasses:
+- name: default
+  default: true
+  volumeBindingMode: WaitForFirstConsumer
+  parameters:
+    availability: nova
+```
+
++ The `availability` parameter takes precedence over the topology requested by the CSI provisioner, so the volume is created in the given zone although `--strict-topology` is enabled. Use `storageClasses[].regions[].parameters.availability` if the storage zone differs between regions.
++ `ignoreVolumeAZ: true` is required as well. Without it, the PersistentVolume is bound to the storage zone via node affinity and no node matches it, so pods stay in `Pending`.
++ Use `volumeBindingMode: WaitForFirstConsumer`. With `Immediate`, the PersistentVolume would be bound to an arbitrary compute zone before the pod is scheduled.
++ If `storageClasses` is not specified, the default `storageClass` is created without parameters. You have to specify `storageClasses` explicitly to set `availability`.
 
 ### MachineCapabilities
 
@@ -194,6 +215,7 @@ machineImages:
 #   volumeBindingMode: WaitForFirstConsumer
 #   parameters:
 #     type: storage_premium_perf0
+#     availability: nova # storage zone, see "cross-AZ attachment" above
 #   regions:
 #   - name: europe-west
 #     parameters:
