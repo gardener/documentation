@@ -15,9 +15,10 @@ structure:
     frontmatter:
       title: etcd-druid
       description: A druid for etcd management in Gardener
-    source: https://github.com/gardener/etcd-druid/blob/master/README.md
+    source: https://github.com/gardener/etcd-druid/blob/master/docs/index.md
   - fileTree: https://github.com/gardener/etcd-druid/tree/master/docs
     excludeFiles:
+    - "index.md"
     - "README.md"
     - "development/"
 - dir: dependency-watchdog
