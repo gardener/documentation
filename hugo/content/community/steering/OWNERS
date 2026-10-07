@@ -1,0 +1,10 @@
+# See the OWNERS docs at https://go.k8s.io/owners
+
+options:
+  # don't require approval in addition to the steering committee
+  no_parent_owners: true
+
+reviewers:
+- gardener-technical-steering
+approvers:
+- gardener-technical-steering
