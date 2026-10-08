@@ -26,7 +26,7 @@ next: false
 ℹ️ This session was part of the discontinued "Product Steering" which focused on prioritization, vision, roadmap alignment, and cross-cutting concerns.
 
 - 📌 **GEP Tracking Issue:** https://github.com/gardener/enhancements/issues/37
-- 📖 **GEP Link:** /docs/proposals/0037-scaling-advisor/
+- 📖 **GEP Link:** https://github.com/gardener/enhancements/tree/main/geps/0037-scaling-advisor
 - ✍🏻 **Author(s):** [@unmarshall](https://github.com/unmarshall) (Madhav Bhargava)
 - 🗓️ **Presentation:** 2025-03-17, 10:00 - 11:00 CET
 - 🎥 **Recording:** https://youtu.be/u4-fWwKITuM

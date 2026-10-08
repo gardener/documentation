@@ -348,7 +348,7 @@ Since the `credentialsRef` field of `CredentialsBinding` is immutable, you must 
 
 - [Shoot Workload Identity Documentation](/docs/gardener/shoot/shoot-workload-identity/)
 - [SecretBinding to CredentialsBinding Migration Guide](/docs/gardener/shoot-operations/secretbinding-to-credentialsbinding-migration/)
-- [GEP-26: Workload Identity Enhancement Proposal](/docs/proposals/0026-workload-identity/)
+- [GEP-26: Workload Identity Enhancement Proposal](https://github.com/gardener/enhancements/tree/main/geps/0026-workload-identity)
 - [AWS Provider Extension — Workload Identity Federation](/docs/extensions/infrastructure-extensions/gardener-extension-provider-aws/usage/#aws-workload-identity-federation)
 - [Azure Provider Extension — Workload Identity Federation](/docs/extensions/infrastructure-extensions/gardener-extension-provider-azure/usage/#azure-workload-identity-federation)
 - [GCP Provider Extension — Workload Identity Federation](/docs/extensions/infrastructure-extensions/gardener-extension-provider-gcp/usage/#gcp-workload-identity-federation)
