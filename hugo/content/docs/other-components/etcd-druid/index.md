@@ -1,12 +1,13 @@
 ---
+description: A druid for etcd management in Gardener
 github_repo: 'https://github.com/gardener/etcd-druid'
 github_subdir: docs
 params:
   github_branch: master
 path_base_for_github_subdir:
-  from: content/docs/other-components/etcd-druid/index.md
+  from: content/docs/other-components/etcd-druid/_index.md
   to: index.md
-title: Index
+title: etcd-druid
 prev: false
 next: false
 ---

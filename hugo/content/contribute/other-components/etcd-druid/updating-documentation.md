@@ -75,7 +75,7 @@ You can now view the rendered documentation at `localhost:8000`. Any changes tha
 
 All documentation *should* be in `markdown` *only*. Ensure that you take care of the following:
 
-* The [index.md](/docs/other-components/etcd-druid/index/) is the home page for the documentation rendered as Github Pages. Please do not remove this file.
+* The [index.md](/docs/other-components/etcd-druid/) is the home page for the documentation rendered as Github Pages. Please do not remove this file.
 * If you are using a new feature (that is not already used) by `Mkdocs` then ensure that it is properly configured in [mkdocs.yml](https://github.com/gardener/etcd-druid/blob/master/mkdocs.yml). Additionally, if new plugins or Markdown extensions are used, make sure that you update the [Github Actions Configuration](https://github.com/gardener/etcd-druid/blob/master/.github/workflows/publish-docs.yml#L23-L27) accordingly.
 * If new files are being added and you wish to show these files in Github Pages then ensure that you have added them under appropriate sections in the [navigation](https://github.com/gardener/etcd-druid/blob/master/mkdocs.yml#L70) section of `mkdocs.yml`.
 * If you are linking to any file outside the [docs](https://github.com/gardener/etcd-druid/tree/master/docs) directory then relative links will not work on Github Pages. Please get the `https` link to the file or section of the file that you wish to link.
