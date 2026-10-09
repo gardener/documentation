@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@braintree/sanitize-url": "7.1.2",
+    "@plausible-analytics/tracker": "0.4.6",
     "cytoscape": "3.33.4",
     "cytoscape-cose-bilkent": "4.1.0",
     "dayjs": "1.11.21",
@@ -26,8 +27,8 @@
     "@types/js-yaml": "4.0.9",
     "@types/markdown-it": "12.2.3",
     "@types/node": "20.11.27",
-    "sharp": "0.35.4",
     "node-addon-api": "8.8.0",
-    "node-gyp": "13.0.0"
+    "node-gyp": "13.0.0",
+    "sharp": "0.35.4"
   }
 }

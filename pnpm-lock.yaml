@@ -14,6 +14,9 @@ importers:
       '@braintree/sanitize-url':
         specifier: 7.1.2
         version: 7.1.2
+      '@plausible-analytics/tracker':
+        specifier: 0.4.6
+        version: 0.4.6
       cytoscape:
         specifier: 3.33.4
         version: 3.33.4
@@ -525,6 +528,9 @@ packages:
 
   '@mermaid-js/parser@1.2.1':
     resolution: {integrity: sha512-n12NohV3mrUyUL2o93IgG/ifeW9FTyeJn3zDxkhwa8MJ9Fxg3HQMlA3RiGmD/3UnJvheztkjjQAjA2T4LmUcpw==}
+
+  '@plausible-analytics/tracker@0.4.6':
+    resolution: {integrity: sha512-nbu6xGgSP6jeYuoVklZBzucUnIpo75tVu3Kr+R0EDycVKaMC/jF5Q/YCaM/8gR4fPZ1IDcXt6FdBJFZ1uZwEPA==}
 
   '@rollup/rollup-android-arm-eabi@4.62.0':
     resolution: {integrity: sha512-IPIQ55ythEHkfEd9jMEi32OQ7SxURsGA43JI22lj01OLZNt2NUbJX8YUHxkVWyQ6daHPNn0truF5nSj3DQp6YQ==}
@@ -2062,6 +2068,8 @@ snapshots:
   '@mermaid-js/parser@1.2.1':
     dependencies:
       '@chevrotain/types': 11.1.2
+
+  '@plausible-analytics/tracker@0.4.6': {}
 
   '@rollup/rollup-android-arm-eabi@4.62.0':
     optional: true
