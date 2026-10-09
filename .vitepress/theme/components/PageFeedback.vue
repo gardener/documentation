@@ -70,7 +70,7 @@ async function vote(helpful: boolean) {
         </button>
       </div>
     </template>
-    <span v-else class="page-feedback-thanks">Thank you for your feedback!</span>
+    <span v-else class="page-feedback-thanks">Thank you for the feedback!</span>
   </div>
 </template>
 
