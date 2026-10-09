@@ -35,9 +35,9 @@ const isBlogPost = computed(() => {
   return true
 })
 
-// Blog articles read "article"; everything else reads "page".
+// Blog articles read "blog post"; everything else reads "page".
 const promptLabel = computed(() =>
-  isBlogPost.value ? 'Was this article helpful for you?' : 'Was this page helpful?'
+  isBlogPost.value ? 'Was this blog post helpful?' : 'Was this page helpful?'
 )
 
 async function vote(helpful: boolean) {

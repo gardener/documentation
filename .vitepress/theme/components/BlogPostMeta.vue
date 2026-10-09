@@ -183,13 +183,14 @@ function getAuthorGithubHref(login: string): string {
   align-items: center;
   justify-content: flex-start;
   gap: 0.4rem;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   min-height: 2.2rem;
-  overflow-x: auto;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .meta-authors-multiple {
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 
 .meta-by {
@@ -208,16 +209,16 @@ function getAuthorGithubHref(login: string): string {
   align-items: center;
   justify-content: flex-start;
   gap: 0.45rem;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   min-height: 2.2rem;
   min-width: 0;
-  overflow-x: auto;
+  max-width: 100%;
 }
 
 .author-list-multiple {
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
-  overflow-x: auto;
+  row-gap: 0.45rem;
 }
 
 .author-list-multiple .author-item {
@@ -267,6 +268,10 @@ function getAuthorGithubHref(login: string): string {
   line-height: 1;
   color: var(--vp-c-text-1);
   font-family: inherit;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .author-link,
@@ -275,6 +280,8 @@ function getAuthorGithubHref(login: string): string {
   align-items: center;
   gap: 0.4rem;
   height: 100%;
+  max-width: 100%;
+  min-width: 0;
   color: var(--vp-c-text-1);
   box-sizing: border-box;
   border: 1px solid var(--vp-c-divider);
