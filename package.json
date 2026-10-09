@@ -29,6 +29,6 @@
     "@types/node": "20.11.27",
     "node-addon-api": "8.8.0",
     "node-gyp": "13.0.0",
-    "sharp": "0.35.4"
+    "sharp": "0.35.5"
   }
 }
