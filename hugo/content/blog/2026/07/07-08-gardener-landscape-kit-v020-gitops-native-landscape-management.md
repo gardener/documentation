@@ -32,7 +32,7 @@ title: 'Gardener Landscape Kit v0.2.0: GitOps-Native Landscape Management'
 
 # Gardener Landscape Kit v0.2.0: GitOps-Native Landscape Management
 
-Managing a Gardener landscape involves deploying and keeping in sync a large collection of components — the Gardener core components, provider, network, OS and general extensions, and their configurations. Until now, each operator had to solve this problem individually. The Gardener Landscape Kit (GLK), proposed with [GEP-49](https://github.com/gardener/gardener/blob/master/docs/proposals/49-gardener-landscape-kit.md), aims to close that gap by providing an opinionated, but extensible and customizable toolkit for bootstrapping and maintaining Gardener landscapes.
+Managing a Gardener landscape involves deploying and keeping in sync a large collection of components — the Gardener core components, provider, network, OS and general extensions, and their configurations. Until now, each operator had to solve this problem individually. The Gardener Landscape Kit (GLK), proposed with [GEP-49](https://github.com/gardener/gardener/blob/masterhttps://github.com/gardener/enhancements/tree/main/geps/49-gardener-landscape-kit.md), aims to close that gap by providing an opinionated, but extensible and customizable toolkit for bootstrapping and maintaining Gardener landscapes.
 
 With v0.2.0, GLK has reached a set of milestones worth sharing. This post walks through what's new and how it works in practice.
 

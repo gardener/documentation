@@ -196,7 +196,7 @@ Check back regularly for updates and upcoming topics!
 
 | Presenter(s) | Duration | Topic | Reference(s) |
 | --- | --- | --- | --- |
-| [@Roncossek](https://github.com/Roncossek) | `5m` | 🧩 GEP-33: Machine Image Capabilities | [GEP-33](/docs/proposals/0033-machine-image-capabilities/) |
+| [@Roncossek](https://github.com/Roncossek) | `5m` | 🧩 GEP-33: Machine Image Capabilities | [GEP-33](https://github.com/gardener/enhancements/tree/main/geps/0033-machine-image-capabilities) |
 | [@axel7born](https://github.com/axel7born) | `5m` | 👯 Dual-Stack Migration Of `kube-dns` `Service` | [#12816](https://github.com/gardener/gardener/pull/12816) |
 | [@DockToFuture](https://github.com/DockToFuture) | `5m` | 🌍 Custom CoreDNS Configuration Support For `node-local-dns` | [#12893](https://github.com/gardener/gardener/pull/12893) |
 | [@petersutter](https://github.com/petersutter) | `5m` | 🕹 Gardener Dashboard Update | [dashboard#2444](https://github.com/gardener/dashboard/pull/2444), [dashboard#2572](https://github.com/gardener/dashboard/pull/2572) |
