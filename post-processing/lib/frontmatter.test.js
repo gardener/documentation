@@ -73,3 +73,29 @@ test('read -> write without modification is a fixed point', async () => {
   const wrote = write(file, content, data);
   assert.equal(wrote, false);
 });
+
+// 9. ---js frontmatter throws the JS-engine-disabled error (security audit Finding H).
+test('read throws on ---js frontmatter (JS engine disabled)', async () => {
+  const file = await tmpFile("---js\n{title:'x'}\n---\nbody\n");
+  assert.throws(
+    () => read(file),
+    (err) => {
+      assert.ok(err instanceof Error);
+      assert.ok(err.message.includes('JS frontmatter is not allowed'),
+        `expected "JS frontmatter is not allowed" in: ${err.message}`);
+      return true;
+    },
+  );
+});
+
+// 10. ---javascript frontmatter also throws.
+test('read throws on ---javascript frontmatter (JS engine disabled)', async () => {
+  const file = await tmpFile("---javascript\n{title:'y'}\n---\nbody\n");
+  assert.throws(
+    () => read(file),
+    (err) => {
+      assert.ok(err.message.includes('JS frontmatter is not allowed'));
+      return true;
+    },
+  );
+});

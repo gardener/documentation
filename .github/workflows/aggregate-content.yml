@@ -9,8 +9,8 @@ on:
     - cron: '0 4 * * 1-5'
   workflow_dispatch:
 
+# Default: read-only. Jobs override with the minimum they need.
 permissions:
-  id-token: write
   contents: read
 
 concurrency:
@@ -18,36 +18,32 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  aggregate:
+  # ----------------------------------------------------------------------------
+  # build: runs docforge + post-processing + VitePress build.
+  # No write credentials, no id-token — hostile content cannot exfiltrate secrets.
+  # ----------------------------------------------------------------------------
+  build:
     runs-on: ubuntu-latest
     permissions:
-      id-token: write
-      contents: read
-      pull-requests: read
-    steps:
-      - name: Federated GitHub token
-        uses: gardener/cc-utils/.github/actions/github-auth@v1
-        id: app-token
-        with:
-          token-server: ${{ vars.FEDERATED_GITHUB_ACCESS_TOKEN_SERVER }}
-          repositories: ${{ github.event.repository.name }}
-          permissions: |
-            contents: write
-            pull-requests: write
+      contents: read   # checkout only; no id-token, no pull-requests
+    outputs:
+      build-outcome: ${{ steps.build.outcome }}
 
-      - uses: actions/checkout@v4
+    steps:
+      - name: Checkout
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
-          token: ${{ steps.app-token.outputs.token }}
           fetch-depth: 0
-          persist-credentials: true
+          persist-credentials: false   # no token written to .git/config
 
       - name: Enable corepack
         run: corepack enable
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: 24
-          cache: pnpm
+          # No cache: pnpm — prevents token-based cache writes in the untrusted job
 
       - name: Install deps
         run: make ci-install
@@ -67,13 +63,64 @@ jobs:
       - name: Post-process
         run: make post-process
 
-      - name: Verify build
+      - name: Build
         id: build
         run: make build
         continue-on-error: true
 
+      - name: Upload content artifact
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: aggregated-content
+          path: hugo/content
+          # Keep artifact for 7 days so the publish job and any manual inspection
+          # can access it even if the workflow is re-run.
+          retention-days: 7
+
+  # ----------------------------------------------------------------------------
+  # publish: mints the federated write token and does git operations only.
+  # Runs NO Node.js / pnpm / make — the build artefact is treated as untrusted
+  # data; the job only commits and pushes it.
+  # ----------------------------------------------------------------------------
+  publish:
+    runs-on: ubuntu-latest
+    needs: build
+    if: always() && needs.build.result != 'cancelled'
+    permissions:
+      id-token: write   # required by gardener/cc-utils/github-auth to mint OIDC token
+      contents: read    # checkout
+
+    steps:
+      - name: Federated GitHub token
+        uses: gardener/cc-utils/.github/actions/github-auth@3d292cfb4cfee523f83e6306b892d963fde06392 # v1
+        id: app-token
+        with:
+          token-server: ${{ vars.FEDERATED_GITHUB_ACCESS_TOKEN_SERVER }}
+          repositories: ${{ github.event.repository.name }}
+          permissions: |
+            contents: write
+            pull-requests: write
+
+      - name: Checkout
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          fetch-depth: 0
+          persist-credentials: true
+
+      # Remove committed content before download so that files deleted upstream
+      # do not survive as stale artefacts (download-artifact overlays, not replaces).
+      - name: Clear committed content
+        run: rm -rf hugo/content
+
+      - name: Download content artifact
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: aggregated-content
+          path: hugo/content
+
       - name: Push on success
-        if: steps.build.outcome == 'success'
+        if: needs.build.outputs.build-outcome == 'success'
         run: |
           git config user.name  "federated-github-access[bot]"
           git config user.email "248678271+federated-github-access[bot]@users.noreply.github.com"
@@ -86,12 +133,12 @@ jobs:
           git push origin HEAD:${{ github.ref_name }}
 
       - name: Open PR on failure
-        if: steps.build.outcome == 'failure'
-        uses: peter-evans/create-pull-request@v7
+        if: needs.build.outputs.build-outcome == 'failure'
+        uses: peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63676 # v7
         with:
           token: ${{ steps.app-token.outputs.token }}
           branch: bot/content-aggregation-failure
-          title: "🚨 Content aggregation build failed (${{ github.run_started_at }})"
+          title: "🚨 Content aggregation build failed (run ${{ github.run_id }})"
           body: |
             Daily content aggregation produced a tree that fails `make build`.
 

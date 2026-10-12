@@ -162,6 +162,10 @@ post-processing-part-index:
 post-processing-part-banner:
 	node post-processing/part-banner.js ./hugo/content
 
+.PHONY: post-processing-part-sanitize
+post-processing-part-sanitize:
+	node post-processing/part-sanitize.js ./hugo/content
+
 .PHONY: post-processing-part-3
 post-processing-part-3:
 	node post-processing/part-3.js --update-report-link --process-api-html
@@ -172,6 +176,7 @@ post-process: ## Run post-processing scripts
 	@$(MAKE) post-processing-part-2
 	@$(MAKE) post-processing-part-index
 	@$(MAKE) post-processing-part-banner
+	@$(MAKE) post-processing-part-sanitize
 	@$(MAKE) post-processing-part-3
 
 .PHONY: build
