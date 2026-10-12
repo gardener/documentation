@@ -137,6 +137,8 @@ networks:
 
 Apart from the router and the worker subnet the OpenStack extension will also create a network, router interfaces, security groups, and a key pair.
 
+If the network overlay is disabled (`overlay.enabled: false` in the networking provider config), pod traffic between nodes uses the pod IPs as source. The managed security group then also allows incoming traffic from the pod CIDRs, because these IPs are not matched by the rule for traffic within the same security group on all Neutron backends (e.g. ML2/OVN). For a BYO security group (`networks.securityGroupId`) this rule has to be added manually.
+
 The optional `networks.shareNetwork.enabled` field controls the creation of a share network. This is only needed if shared
 file system storage (like NFS) should be used. Note, that in this case, the `ControlPlaneConfig` needs additional configuration, too.
 
