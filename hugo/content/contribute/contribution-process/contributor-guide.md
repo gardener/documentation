@@ -124,7 +124,7 @@ Please follow the [Pull Request Checklist](#pull-request-checklist) to ensure a 
 * Branch from `master`. Before submitting your pull request, rebase your changes onto the current `master` branch.
 * Keep commits small and self-contained. Each commit should compile and pass all tests independently.
 * Test your changes thoroughly before you commit them. Preferably, automate your testing with [unit / integration tests](/contribute/developer-starter-kit/testing/). If tested manually, describe the test scope in the PR description (e.g., "Test passed: Upgrade K8s version from 1.14.5 to 1.15.2 on AWS, Azure, GCP, Alicloud, OpenStack.").
-* Write a clear and detailed [Pull Request description](/contribute/documentation/pr-guidelines/) to help reviewers understand your changes.
+* Write a clear and detailed [Pull Request description](/contribute/contribution-process/pr-guidelines/) to help reviewers understand your changes.
 * Create *Work In Progress [WIP]* pull requests only if you need a clarification or an explicit review before continuing your work.
 * If your patch is not getting reviewed or you need a specific person to review it, you can @mention a reviewer or request a review via our [mailing list](https://groups.google.com/forum/?fromgroups#!forum/gardener).
 * If you add new features, make sure that they are documented in the [Gardener documentation](https://github.com/gardener/documentation).
