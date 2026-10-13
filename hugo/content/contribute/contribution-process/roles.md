@@ -52,7 +52,7 @@ Technically, members are defined by their membership in the [Gardener GitHub org
 **How to become a member**
 - Fulfill listed requirements
 - Obtain sponsorship from at least two approvers of any Gardener repository.
-- Open a membership request issue in [gardener/org](https://github.com/gardener/org/issues/new?template=membership_request.yaml); if accepted by the sponsors, create a PR to update [`org.yaml`](https://github.com/gardener/org/blob/main/config/org.yaml).
+- Open a membership request issue in [gardener/org](https://github.com/gardener/org/issues/new?template=membership_request.yaml); if accepted by the sponsors, create a PR to update [`org.yaml`](https://github.com/gardener/org/blob/main/config/org.yaml), or contact a sponsor or org admin for assistance.
 
 ## Reviewer
 
