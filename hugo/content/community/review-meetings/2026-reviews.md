@@ -31,6 +31,28 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2026/10/14 - [v1.153](https://github.com/gardener/gardener/releases/tag/v1.153.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@shafeeqes](https://github.com/shafeeqes) | `5m` | 🫆 HTTPS for Local Setup Registry | [#15642](https://github.com/gardener/gardener/pull/15642) |
+| [@jan-meis](https://github.com/jan-meis) | `5m` | ⏱️ Improved `virtual-garden-kube-apiserver` Graceful Watch Termination | [#15708](https://github.com/gardener/gardener/pull/15708) |
+| [@matthias-horne](https://github.com/matthias-horne) | `5m` | ✍️ Pod Selector Overwrite Option in `NetworkPolicy`s | [#15661](https://github.com/gardener/gardener/pull/15661) |
+| [@seshachalam-yv](https://github.com/seshachalam-yv) | `10m` | 📉 HA `etcd` Scale-In Support in `etcd-druid` | [etcd-druid#1426](https://github.com/gardener/etcd-druid/pull/1426) |
+| [@voelzmo](https://github.com/voelzmo) | `5m` | 📊 Overhauled `kube-apiserver` Health Dashboard | [#15813](https://github.com/gardener/gardener/pull/15813), [#15828](https://github.com/gardener/gardener/pull/15828) |
+| [@timuthy](https://github.com/timuthy) | `5m` | 🧠 Significantly Improved Memory Footprint of `gardener-admission-controller` | [#15837](https://github.com/gardener/gardener/pull/15837) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- ❗️ [OPERATOR] The `CustomDNSServerInNodeLocalDNS` feature gate has graduated to GA and cannot be disabled anymore. The feature gate can be dropped from `gardenlet` configurations. [#15904](https://github.com/gardener/gardener/pull/15904)
+- ❗️ [OPERATOR] Promoted `BackupEntryForGarden` feature gate to GA. [#15869](https://github.com/gardener/gardener/pull/15869)
+
+<hr />
+
 ### 2026/09/30 - [v1.152](https://github.com/gardener/gardener/releases/tag/v1.152.0) Release
 
 [📽️ Recording](https://youtu.be/IC4JdT2u3ek)
