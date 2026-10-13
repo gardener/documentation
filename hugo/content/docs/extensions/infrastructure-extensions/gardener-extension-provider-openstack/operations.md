@@ -100,6 +100,23 @@ storageClasses:
 + Use `volumeBindingMode: WaitForFirstConsumer`. With `Immediate`, the PersistentVolume would be bound to an arbitrary compute zone before the pod is scheduled.
 + If `storageClasses` is not specified, the default `storageClass` is created without parameters. You have to specify `storageClasses` explicitly to set `availability`.
 
+#### Root disks of worker machines in a different availability zone than the nodes
+
+Some OpenStack installations have multiple compute availability zones (e.g. `zone01`, `zone02`, `zone03`) but only a single storage availability zone (e.g. `nova`) and allow attaching volumes across zones (`cross_az_attach=true` in Nova).
+If a root disk type is used (`worker.volume.type` in the `Shoot` or `storage.type` of the machine type in the `CloudProfile`), the `machine-controller-manager` creates the root volume in Cinder itself.
+By default, it requests the compute zone of the machine, which Cinder rejects with `Availability zone 'zone01' is invalid` if it only knows the storage zone.
+Set `rootDiskAvailabilityZone` in the `CloudProfileConfig` to choose the zone for these volumes:
+
+```yaml
+rootDiskAvailabilityZone: nova   # create root volumes in the Cinder zone `nova`
+# rootDiskAvailabilityZone: ""   # do not request a zone, Cinder uses its default zone
+```
+
++ If unset, the compute zone of the machine is used (previous behavior).
++ The setting only applies if a root disk type is set. Without a root disk type, Nova creates the root volume itself and the zone does not matter.
++ It is independent of `ignoreVolumeAZ`, which only affects the CSI driver.
++ It requires a `machine-controller-manager-provider-openstack` version that supports `rootDiskAvailabilityZone` in the `MachineClass`.
+
 ### MachineCapabilities
 
 With the introduction of `spec.machineCapabilities` in Gardener *v1.131.0*, you can define capability-based matching between machine images and machine types. This enables fine-grained control over which images can be used with which machine types.
@@ -201,6 +218,7 @@ machineImages:
 # useSNAT: true
 # rescanBlockStorageOnResize: true
 # ignoreVolumeAZ: true
+# rootDiskAvailabilityZone: nova
 # nodeVolumeAttachLimit: 30
 # serverGroupPolicies:
 # - soft-anti-affinity
