@@ -66,7 +66,7 @@ For quick iteration, set `FAST=true` to skip steps like transitioning to etcd an
 
 The next step is promoting a self-hosted shoot to a managed seed — landing in an upcoming release. This will complete the full autonomous cluster lifecycle within the GinD setup, bringing the local development experience even closer to production topology.
 
-Refer to the [updated documentation](/docs/gardener/deployment/getting_started_locally_with_gardenadm/) for full details on getting started.
+Refer to the [updated documentation](/contribute/developer-starter-kit/getting_started_locally_with_gardenadm/) for full details on getting started.
 
 ## References
 

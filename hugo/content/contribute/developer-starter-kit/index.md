@@ -27,6 +27,8 @@ This section contains everything you need to start contributing code to Gardener
 
 - [Local Setup](/contribute/developer-starter-kit/local_setup/): How to set up a local Gardener development environment
 - [Deploying Gardener Locally](/contribute/developer-starter-kit/getting_started_locally/): How to deploy a full Gardener installation on your local machine using kind
+- [Deploying Self-Hosted Shoot Clusters Locally with gardenadm](/contribute/developer-starter-kit/getting_started_locally_with_gardenadm/): How to deploy self-hosted shoot clusters using `gardenadm` on your local machine
+- [Deploying Gardener Remotely](/contribute/developer-starter-kit/getting_started_remotely/): How to deploy a Gardener installation on a remote cluster
 - [Dependency Management](/contribute/developer-starter-kit/dependencies/): How to add and manage Go module dependencies in the Gardener project
 - [Testing Strategy and Guidelines](/contribute/developer-starter-kit/testing/): The types of tests used in Gardener and the guidelines for writing them
 - [Test Machinery Tests](/contribute/developer-starter-kit/testmachinery_tests/): End-to-end tests run against full Gardener installations using Test Machinery
