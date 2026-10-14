@@ -152,7 +152,7 @@ In this mode, MCM only provisions/deletes machines on the configured infrastruct
 As a consequence, MCM doesn't create bootstrap tokens, doesn't wait for `Nodes` to be registered/drained, and does not perform health checks for `Machines`.
 Once the machine has been successfully created in the infrastructure, `Machine.status.currentStatus.phase` transitions to `Available` as a target state (see [this section](#what-are-the-different-phases-of-a-machine)) – in contrast to the standard `Pending` and `Running` phases.
 Accordingly, the owning `MachineSet` and `MachineDeployment` objects will have "available" replicas but no "ready" replicas as indicated in the corresponding status fields.
-This mode is used for provisioning control plane machines of [autonomous shoot clusters](/docs/gardener/deployment/getting_started_locally_with_gardenadm/) (`gardenadm bootstrap` command, medium-touch scenario).
+This mode is used for provisioning control plane machines of [autonomous shoot clusters](/contribute/developer-starter-kit/getting_started_locally_with_gardenadm/) (`gardenadm bootstrap` command, medium-touch scenario).
 
 ### How to better control the rollout process of the worker nodes?
 
@@ -371,6 +371,7 @@ Though following could be the reasons but not limited to:
   - Long term: Please set more appropriate PDBs which allow disruption of at least one pod.
 - Expired cloud credentials can block the deletion of the machine from infrastructure.
 - Cloud provider can't delete the machine due to internal errors. Such situations are best debugged by using cloud provider specific CLI or cloud console.
+- A controller may intentionally suspend VM deletion by adding an annotation such as `node.machine.sapcloud.io.suspend-instance-deletion/<my-reason>: <my-controller>`. Check the `Machine`'s annotations and `.status.conditions` for `type: InstanceDeletionSuspended` with `status: "True"`; remove the suspension annotation once the controller's work is complete so MCM can continue deletion.
 
 ### My machine is not joining the cluster, why?
 

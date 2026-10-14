@@ -63,7 +63,7 @@ In this light, a high cluster creation/deletion churn rate is neither expected n
 
 ## Getting Started Locally
 
-[This document](/docs/gardener/deployment/getting_started_locally_with_gardenadm/) walks you through deploying Self-Hosted Shoot Clusters using `gardenadm` on your local machine.
+[This document](/contribute/developer-starter-kit/getting_started_locally_with_gardenadm/) walks you through deploying Self-Hosted Shoot Clusters using `gardenadm` on your local machine.
 This setup can be used for trying out and developing `gardenadm` locally without additional infrastructure.
 The setup is also used for running e2e tests for `gardenadm` in CI.
 

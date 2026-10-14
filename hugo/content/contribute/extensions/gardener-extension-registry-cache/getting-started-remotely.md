@@ -41,7 +41,7 @@ next: false
 
 ## Prerequisites
 
-- Make sure that you have a running Gardener remote setup. The steps to complete this can be found in the [Deploying Gardener Remotely](/docs/gardener/deployment/getting_started_remotely/) guide.
+- Make sure that you have a running Gardener remote setup. The steps to complete this can be found in the [Deploying Gardener Remotely](/contribute/developer-starter-kit/getting_started_remotely/) guide.
 
 > [!TIP]
 > Ensure that the locally used Gardener version matches the version specified by the `github.com/gardener/gardener` dependency.

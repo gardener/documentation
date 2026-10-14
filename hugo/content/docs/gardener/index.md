@@ -245,9 +245,9 @@ next: false
 ## Deployment
 
 * [Getting started locally](/docs/gardener/deployment/getting_started_locally/)
-* [Getting started locally with extensions](/docs/gardener/deployment/getting_started_locally_with_extensions/)
-* [Getting started locally with Self-Hosted Shoot Clusters](/docs/gardener/deployment/getting_started_locally_with_gardenadm/)
-* [Getting started remotely](/docs/gardener/deployment/getting_started_remotely/)
+* [Getting started locally with extensions](/contribute/developer-starter-kit/getting_started_locally_with_extensions/)
+* [Getting started locally with Self-Hosted Shoot Clusters](/contribute/developer-starter-kit/getting_started_locally_with_gardenadm/)
+* [Getting started remotely](/contribute/developer-starter-kit/getting_started_remotely/)
 * [Setup Gardener on a Kubernetes cluster](/docs/gardener/deployment/setup_gardener/)
 * [Version Skew Policy](/docs/gardener/deployment/version_skew_policy/)
 * [Deploying Gardenlets](/docs/gardener/deployment/deploy_gardenlet/)
@@ -256,7 +256,7 @@ next: false
   * [Deploy a Gardenlet via Gardener Operator](/docs/gardener/deployment/deploy_gardenlet_via_operator/)
   * [Scoped API Access for Gardenlets](/docs/gardener/deployment/gardenlet_api_access/)
 * [Overwrite image vector](/docs/gardener/deployment/image_vector/)
-* [Migration from Gardener `v0` to `v1`](/docs/gardener/deployment/migration_v0_to_v1/)
+* [Migration from Gardener `v0` to `v1`](https://github.com/gardener/gardener/blob/master/docs/deployment/migration_v0_to_v1.md)
 * [Feature Gates in Gardener](/docs/gardener/deployment/feature_gates/)
 * [Configuring the Logging stack](/docs/gardener/deployment/configuring_logging/)
 * [SecretBinding Provider Controller](/docs/gardener/deployment/secret_binding_provider_controller/)

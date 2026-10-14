@@ -1,12 +1,15 @@
 ---
+aliases:
+  - /docs/gardener/deployment/getting_started_remotely/
 github_repo: 'https://github.com/gardener/gardener'
 github_subdir: docs/deployment
 params:
   github_branch: master
 path_base_for_github_subdir:
-  from: content/docs/gardener/deployment/getting_started_remotely.md
+  from: content/contribute/developer-starter-kit/getting_started_remotely.md
   to: getting_started_remotely.md
 title: Getting Started Remotely
+weight: 23
 prev: false
 next: false
 ---
@@ -35,7 +38,7 @@ next: false
 # Deploying Gardener Remotely
 
 This document will walk you through deploying Gardener on a remote Kubernetes cluster like a Gardener shoot.
-It is supposed to run your local Gardener developments on a real infrastructure. For running Gardener locally, please check the [getting started locally](/docs/gardener/deployment/getting_started_locally/) documentation.
+It is supposed to run your local Gardener developments on a real infrastructure. For running Gardener locally, please check the [getting started locally](/contribute/developer-starter-kit/getting_started_locally/) documentation.
 If you encounter difficulties, please open an issue so that we can make this process easier.
 
 ## Overview

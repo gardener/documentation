@@ -1,12 +1,16 @@
 ---
+aliases:
+  - /docs/gardener/deployment/getting_started_locally_with_gardenadm/
 github_repo: 'https://github.com/gardener/gardener'
 github_subdir: docs/deployment
 params:
   github_branch: master
 path_base_for_github_subdir:
-  from: content/docs/gardener/deployment/getting_started_locally_with_gardenadm.md
+  from: >-
+    content/contribute/developer-starter-kit/getting_started_locally_with_gardenadm.md
   to: getting_started_locally_with_gardenadm.md
-title: Getting Started Locally With Gardenadm
+title: Getting Started Locally with gardenadm
+weight: 22
 prev: false
 next: false
 ---
@@ -278,7 +282,7 @@ make gardenadm-up SCENARIO=connect
 ```
 
 This will deploy [`gardener-operator`](/docs/gardener/concepts/operator/) and create a `Garden` resource (which will then be reconciled and results in a full Gardener deployment) inside the self-hosted shoot cluster.
-Find all information about it [here](/docs/gardener/deployment/getting_started_locally/).
+Find all information about it [here](/contribute/developer-starter-kit/getting_started_locally/).
 
 > [!NOTE]
 > There is an alternative way of deploying Gardener outside the self-hosted shoot but inside a KinD cluster in the
