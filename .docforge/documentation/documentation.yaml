@@ -68,6 +68,10 @@ structure:
           weight: 40
           persona: Operators
       - fileTree: https://github.com/gardener/gardener/tree/master/docs/deployment
+        excludeFiles:
+        - getting_started_locally_with_extensions.md
+        - getting_started_locally_with_gardenadm.md
+        - getting_started_remotely.md
     - dir: monitoring
       structure:
       - file: _index.md
