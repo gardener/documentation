@@ -49,7 +49,7 @@ The new `remote` setup simplifies this by running entirely on a single remote Ku
 
 This rework moves the development environment to leverage the `gardener-operator` and the standardized structure in the `./dev-setup/` directory, using Skaffold for building and deploying components.
 
-Getting started is now centered around the `make remote-up` command and the configuration files located in directories containing `remote` within `./dev-setup/`. The process is detailed in the new [Deploying Gardener Remotely](/docs/gardener/deployment/getting_started_remotely/) documentation.
+Getting started is now centered around the `make remote-up` command and the configuration files located in directories containing `remote` within `./dev-setup/`. The process is detailed in the new [Deploying Gardener Remotely](/contribute/developer-starter-kit/getting_started_remotely/) documentation.
 
 On the first run, the setup automatically generates the necessary YAML files from templates. If you use a Gardener Shoot cluster as your remote cluster, many configuration steps—like setting up networking, regions, and provider types—are automated by pulling information from the shoot's `shoot-info` ConfigMap.
 

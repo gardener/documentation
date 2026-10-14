@@ -12,14 +12,17 @@ structure:
     - file: getting_started_locally_with_extensions.md
       frontmatter:
         weight: 21
+        aliases: ["/docs/gardener/deployment/getting_started_locally_with_extensions/"]
       source: https://github.com/gardener/gardener/blob/master/docs/deployment/getting_started_locally_with_extensions.md
     - file: getting_started_locally_with_gardenadm.md
       frontmatter:
         weight: 22
+        aliases: ["/docs/gardener/deployment/getting_started_locally_with_gardenadm/"]
       source: https://github.com/gardener/gardener/blob/master/docs/deployment/getting_started_locally_with_gardenadm.md
     - file: getting_started_remotely.md
       frontmatter:
         weight: 23
+        aliases: ["/docs/gardener/deployment/getting_started_remotely/"]
       source: https://github.com/gardener/gardener/blob/master/docs/deployment/getting_started_remotely.md
     - file: dependencies.md
       frontmatter:

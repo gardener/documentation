@@ -70,6 +70,7 @@ structure:
       - file: migration_v0_to_v1_source_file.md
         frontmatter:
           title: Migration from Gardener v0 to v1
+          aliases: ["/docs/gardener/deployment/migration_v0_to_v1/"]
         source: https://github.com/gardener/gardener/blob/v1.10.1/docs/deployment/migration_v0_to_v1.md
       - fileTree: https://github.com/gardener/gardener/tree/master/docs/deployment
         excludeFiles:
