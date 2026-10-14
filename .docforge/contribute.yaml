@@ -9,6 +9,18 @@ structure:
       frontmatter:
         weight: 20
       source: https://github.com/gardener/gardener/blob/master/docs/deployment/getting_started_locally.md
+    - file: getting_started_locally_with_extensions.md
+      frontmatter:
+        weight: 21
+      source: https://github.com/gardener/gardener/blob/master/docs/deployment/getting_started_locally_with_extensions.md
+    - file: getting_started_locally_with_gardenadm.md
+      frontmatter:
+        weight: 22
+      source: https://github.com/gardener/gardener/blob/master/docs/deployment/getting_started_locally_with_gardenadm.md
+    - file: getting_started_remotely.md
+      frontmatter:
+        weight: 23
+      source: https://github.com/gardener/gardener/blob/master/docs/deployment/getting_started_remotely.md
     - file: dependencies.md
       frontmatter:
         weight: 30
