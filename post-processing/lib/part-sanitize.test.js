@@ -618,15 +618,15 @@ test('sanitizeFile E2E: case 8 — trailing-space </script > stripped, content b
   assert.ok(rawAfter.includes('<p>Before</p>'), 'content before block survives');
 });
 
-test('sanitizeFile E2E: case 8b — </script > mid-file: absorbed by later </script>, Последен ред. survives', async () => {
+test('sanitizeFile E2E: case 8b — </script > mid-file: absorbed by later </script>, last line survives', async () => {
   const dir = await tmpDir();
   const filePath = path.join(dir, 'e2e-case8b.md');
   // html_block type 1 opened by <script setup> continues until a line
   // containing </script> (without trailing space). </script > on line 2 does
-  // NOT end the block, so the block extends and absorbs "Нормален текст." and
+  // NOT end the block, so the block extends and absorbs "Normal text." and
   // the bare <script></script> below it, stopping only at the </script> line.
   // The sfcRegexp matches the merged multi-line token (</script> is its last
-  // closing tag). "Нормален текст." being removed along with the token is
+  // closing tag). "Normal text." being removed along with the token is
   // expected — it was part of the same html_block.
   await fs.writeFile(filePath, [
     '---',
@@ -638,12 +638,12 @@ test('sanitizeFile E2E: case 8b — </script > mid-file: absorbed by later </scr
     'payload()',
     '</script >',
     '',
-    'Нормален текст.',
+    'Normal text.',
     '',
     '<script>',
     '</script>',
     '',
-    'Последен ред.',
+    'Last line.',
   ].join('\n') + '\n', 'utf-8');
 
   const result = await sanitizeFile(filePath, md, dir);
@@ -653,5 +653,5 @@ test('sanitizeFile E2E: case 8b — </script > mid-file: absorbed by later </scr
   const rawAfter = await fs.readFile(filePath, 'utf-8');
   assert.ok(!rawAfter.includes('payload()'), 'script body gone');
   assert.ok(!rawAfter.includes('<!-- Content removed by sanitizer. -->'), 'no placeholder — post-condition passed');
-  assert.ok(rawAfter.includes('Последен ред.'), 'text after the absorbed block survives');
+  assert.ok(rawAfter.includes('Last line.'), 'text after the absorbed block survives');
 });
