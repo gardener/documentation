@@ -36,7 +36,7 @@ title: >-
 
 # Paving the Way for a New Logging Backend: The `VictoriaLogsBackend` Feature Gate
 
-As part of Gardener's ongoing effort to evolve its observability stack, outlined in [GEP-35](https://github.com/gardener/gardener/blob/master/docs/proposals/35-observability2.0-victoria-logs.md), the first step has been taken to integrate VictoriaLogs as the future log aggregation system, eventually replacing Vali. A new feature gate, `VictoriaLogsBackend`, has been introduced to facilitate a smooth, phased migration.
+As part of Gardener's ongoing effort to evolve its observability stack, outlined in [GEP-35](https://github.com/gardener/gardener/blob/masterhttps://github.com/gardener/enhancements/tree/main/geps/35-observability2.0-victoria-logs.md), the first step has been taken to integrate VictoriaLogs as the future log aggregation system, eventually replacing Vali. A new feature gate, `VictoriaLogsBackend`, has been introduced to facilitate a smooth, phased migration.
 
 ### A New Feature Gate for a Gradual Transition
 
@@ -66,5 +66,5 @@ This update represents the first major step in the migration to VictoriaLogs. Fu
 
 * [Gardener Review Meeting Recording (2026-03-04)](https://youtu.be/axIwAmhJ_Hw?t=566)
 * [[GEP-35] Deploy Victoria-Logs (Garden, Seed, Shoot Clusters) Pull Request](https://github.com/gardener/gardener/pull/13988)
-* [GEP-35: Observability 2.0 - VictoriaLogs](https://github.com/gardener/gardener/blob/master/docs/proposals/35-observability2.0-victoria-logs.md)
+* [GEP-35: Observability 2.0 - VictoriaLogs](https://github.com/gardener/gardener/blob/masterhttps://github.com/gardener/enhancements/tree/main/geps/35-observability2.0-victoria-logs.md)
 * [Umbrella Issue: GEP-35 Implementation](https://github.com/gardener/gardener/issues/13709)
