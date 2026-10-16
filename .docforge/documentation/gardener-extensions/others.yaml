@@ -46,7 +46,7 @@ structure:
   structure:
   - file: _index.md
     frontmatter:
-      title: Cloudflare DNS
+      title: Cloudflare
       weight: 45
       description: Gardener extension controller for Cloudflare as a DNS provider.
     source: https://github.com/schrodit/gardener-extension-provider-dns-cloudflare/blob/main/README.md
