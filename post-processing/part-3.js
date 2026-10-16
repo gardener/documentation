@@ -1,6 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import { read, write } from './lib/frontmatter.js';
+import { buildScriptSetup } from './lib/encode-api-html.js';
 
 // Base path configuration - can be overridden by command line argument
 const BASE_PATH = './hugo/content/';
@@ -124,15 +125,6 @@ async function processApiHtml(basePath) {
         try {
             const parsed = read(filePath);
 
-            // Check if file already has script setup
-            if (parsed.content.includes('<script setup>')) {
-                return {
-                    file: filePath,
-                    modified: false,
-                    reason: 'Already has script setup'
-                };
-            }
-            
             // Find where HTML content starts
             const htmlStartIndex = findHtmlStart(parsed.content);
             
@@ -164,15 +156,9 @@ async function processApiHtml(basePath) {
             console.log(`    HTML content length: ${htmlContent.length} chars`);
             console.log(`    HTML tags found: ${htmlLineCount}`);
             
-            // Escape any backticks in the HTML content to prevent template literal issues
-            const escapedHtmlContent = htmlContent.replace(/`/g, '\\`').replace(/\${/g, '\\${');
-            
-            // Create the script setup section
-            const scriptSetup = `<script setup>
-const apiHtml = \`${escapedHtmlContent}\`;
-</script>
-
-`;
+            // Serialize as JSON and unicode-escape '<' so the string cannot close
+            // a surrounding <script> block (B2/B3 from security audit).
+            const scriptSetup = buildScriptSetup(htmlContent);
             
             // Create the new content structure
             let newContent = '';
@@ -316,15 +302,13 @@ const apiHtml = \`${escapedHtmlContent}\`;
         const modifiedCount = results.filter(r => r.modified).length;
         const skippedCount = results.filter(r => !r.modified).length;
         const noHtmlCount = results.filter(r => !r.modified && r.reason === 'No HTML content found').length;
-        const alreadyProcessedCount = results.filter(r => !r.modified && r.reason === 'Already has script setup').length;
         const notEnoughHtmlCount = results.filter(r => !r.modified && r.reason === 'Not enough HTML content to warrant extraction').length;
-        const errorCount = results.filter(r => !r.modified && r.reason !== 'No HTML content found' && r.reason !== 'Already has script setup' && r.reason !== 'Not enough HTML content to warrant extraction').length;
-        
+        const errorCount = results.filter(r => !r.modified && r.reason !== 'No HTML content found' && r.reason !== 'Not enough HTML content to warrant extraction').length;
+
         console.log(`\nSummary: Modified ${modifiedCount} of ${allFiles.length} files.`);
         console.log(`- Files with HTML extracted: ${modifiedCount}`);
         console.log(`- Files without HTML content: ${noHtmlCount}`);
         console.log(`- Files with insufficient HTML content: ${notEnoughHtmlCount}`);
-        console.log(`- Files already processed: ${alreadyProcessedCount}`);
         console.log(`- Files skipped (errors): ${errorCount}`);
         
         // Show detailed breakdown of modified files
@@ -353,16 +337,9 @@ const apiHtml = \`${escapedHtmlContent}\`;
                 });
             }
             
-            if (alreadyProcessedCount > 0) {
-                console.log(`   ✨ Already has script setup (${alreadyProcessedCount}):`);
-                results.filter(r => !r.modified && r.reason === 'Already has script setup').forEach(r => {
-                    console.log(`      - ${path.relative(basePath, r.file)}`);
-                });
-            }
-            
             if (errorCount > 0) {
                 console.log(`   ❌ Processing errors (${errorCount}):`);
-                results.filter(r => !r.modified && r.reason !== 'No HTML content found' && r.reason !== 'Already has script setup' && r.reason !== 'Not enough HTML content to warrant extraction').forEach(r => {
+                results.filter(r => !r.modified && r.reason !== 'No HTML content found' && r.reason !== 'Not enough HTML content to warrant extraction').forEach(r => {
                     console.log(`      - ${path.relative(basePath, r.file)}: ${r.reason}`);
                 });
             }

@@ -87,6 +87,20 @@ export default withMermaid(defineConfig({
         tokens[idx].attrSet('v-pre', '')
         return defaultCodeInline(tokens, idx, options, env, self)
       }
+
+      /* Neutralise {{ }} / }} in plain text tokens so upstream content cannot
+         trigger Vue SSR interpolation (security audit finding B1). Fenced code
+         blocks and inline code are already handled above; this covers paragraph
+         text, list items, table cells, etc. */
+      const defaultText = md.renderer.rules.text
+        ?? ((tokens: any, idx: any) => md.utils.escapeHtml(tokens[idx].content))
+      md.renderer.rules.text = (tokens: any, idx: any, options: any, env: any, self: any) => {
+        const c: string = tokens[idx].content
+        if (c.includes('{{') || c.includes('}}')) {
+          return `<span v-pre>${md.utils.escapeHtml(c)}</span>`
+        }
+        return defaultText(tokens, idx, options, env, self)
+      }
     },
   },
   mermaid: {

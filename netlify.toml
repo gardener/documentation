@@ -3,7 +3,13 @@
     publish = ".vitepress/dist"
 
 [context.deploy-preview]
-    command = "make ci-build-preview"
+    # Build-only for fork PRs: runs ci-install + build on committed hugo/content.
+    # Do NOT use ci-build-preview here — it runs docforge+post-process, which allows
+    # a fork PR to redirect .docforge/config.yaml to an attacker-controlled repo and
+    # execute arbitrary code in the Netlify build environment (security audit Finding I).
+    # To re-enable the full pipeline for trusted contributors, require deploy approval
+    # from forks in the Netlify site settings (Site > Build & deploy > Deploy previews).
+    command = "make ci-build"
 
 # Proxy Plausible event endpoint through our own domain to avoid adblockers.
 # https://plausible.io/docs/proxy/guides/netlify

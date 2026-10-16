@@ -17,7 +17,16 @@ export function read(filePath) {
     throw new Error(`frontmatter.read: cannot read ${filePath}: ${err.message}`);
   }
   try {
-    const parsed = matter(raw, { cache: false });
+    const parsed = matter(raw, {
+      cache: false,
+      engines: {
+        // Disable gray-matter's built-in JS eval engine (security audit Finding H).
+        // ---js / ---javascript frontmatter would otherwise call eval() with
+        // require and process in scope.
+        javascript: { parse: () => { throw new Error('JS frontmatter is not allowed'); } },
+        js:         { parse: () => { throw new Error('JS frontmatter is not allowed'); } },
+      },
+    });
     return { data: parsed.data, content: parsed.content };
   } catch (err) {
     throw new Error(`frontmatter.read: invalid YAML in ${filePath}: ${err.message}`);
