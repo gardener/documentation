@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/gardener/extensions/managedresources.md
   to: managedresources.md
-title: Managedresources
+title: Deploy Resources to the Shoot Cluster
 prev: false
 next: false
 ---

@@ -44,6 +44,14 @@ Breaking changes may be introduced with new Kubernetes versions.
 This documentation describes the Gardener specific differences and requirements for upgrading to a supported Kubernetes version.
 For Kubernetes specific upgrade notes the upstream Kubernetes release notes, [changelogs](https://github.com/kubernetes/kubernetes/tree/master/CHANGELOG) and release blogs should be considered before upgrade.
 
+## Upgrading to Kubernetes `v1.37`
+
+No Gardener-specific upgrade notes for this version.
+
+## Upgrading to Kubernetes `v1.36`
+
+No Gardener-specific upgrade notes for this version.
+
 ## Upgrading to Kubernetes `v1.35`
 
 - The `Shoot`'s `.spec.kubernetes.kubeAPIServer.enableAnonymousAuthentication` field is forbidden. Gardener continues to disable anonymous authentication by default. If you need to configure anonymous authentication, use [Structured Authentication Configuration](/docs/gardener/shoot/shoot_access/#configuring-anonymous-authentication) with the [anonymous authenticator](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#anonymous-authenticator-configuration) instead.
@@ -57,10 +65,3 @@ For Kubernetes specific upgrade notes the upstream Kubernetes release notes, [ch
 - The `Shoot`'s `.spec.cloudProfileName` field is forbidden. `Shoot` owners must migrate their `CloudProfile` reference to the new `spec.cloudProfile.name` field.
 - The `Shoot`'s `.spec.secretBindingName` field is forbidden. `Shoot` owners must migrate their `SecretBinding` references to `CredentialsBinding` and use the new `.spec.credentialsBindingName` field. For more information, see the [SecretBinding to CredentialsBinding migration guide](/docs/gardener/shoot-operations/secretbinding-to-credentialsbinding-migration/).
 - The `Shoot`'s operation annotations `rotate-etcd-encryption-key-(start|complete)` are forbidden. `Shoot` owners must use the `rotate-etcd-encryption-key` operation annotation instead, which performs a complete etcd encryption key rotation. `Shoot` clusters with an ongoing etcd encryption key rotation that is currently in the `Prepared` phase will move forward to the `Completing` phase.
-
-## Upgrading to Kubernetes `v1.33`
-
-- A new `deny-all` `NetworkPolicy` is deployed into the `kube-system` namespace of the `Shoot` cluster. `Shoot` owners that run workloads in the `kube-system` namespace are required to explicitly allow their expected `Ingress` and `Egress` traffic in `kube-system` via `NetworkPolicies`.
-- The `Shoot`'s `.spec.kubernetes.kubeControllerManager.podEvictionTimeout` field is forbidden. `Shoot` owners should use the `.spec.kubernetes.kubeAPIServer.defaultNotReadyTolerationSeconds` and `.spec.kubernetes.kubeAPIServer.defaultUnreachableTolerationSeconds` fields.
-- The `Shoot`'s `.spec.kubernetes.clusterAutoscaler.maxEmptyBulkDelete` field is forbidden. `Shoot` owners should use the `.spec.kubernetes.clusterAutoscaler.maxScaleDownParallelism` field.
-- The `Shoot`'s `.spec.cloudProfileName` field is deprecated. `Shoot` owners should migrate their `CloudProfile` reference to the new `.spec.cloudProfile.name` field.

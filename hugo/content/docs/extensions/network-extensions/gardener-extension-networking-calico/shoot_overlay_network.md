@@ -127,13 +127,97 @@ spec:
   ...
 ```
 
+## Installing pod routes without an overlay (`createPodRoutes`)
+On infrastructures where all cluster nodes share a single L2 network, the overlay can be disabled while still having Calico program the pod routes itself (via the BIRD backend), instead of relying on the cloud provider's route controller. This is controlled by the optional `overlay.createPodRoutes` field:
+
+```yaml
+apiVersion: core.gardener.cloud/v1beta1
+kind: Shoot
+metadata:
+...
+spec:
+...
+  networking:
+    type: calico
+    providerConfig:
+      apiVersion: calico.networking.extensions.gardener.cloud/v1alpha1
+      kind: NetworkConfig
+      overlay:
+        enabled: false
+        createPodRoutes: true
+  ...
+```
+
+> [!WARNING]
+> `createPodRoutes` only works if all cluster nodes share a single L2 network. On routed/multi-subnet infrastructures the installed routes will not be reachable.
+
 ## How to know if a cluster is using overlay or not?
 You can look at any of the old nodes. If there are `tunl0` devices at least at some point in time the overlay network was used.
-Another way is to look into the Network object in the shoot's control plane namespace on the seed (see example above).
+Another way is to look into the Network object in the shoot's control plane namespace on the seed (see example above). Alternatively, inspect the Calico `default-ipv4-ippool` IPPool on the shoot: `spec.ipipMode=Always` means the overlay is active, `spec.ipipMode=Never` means native routing.
 
-## Do we have some documentation somewhere on how to do the migration?
-No, not yet. The migration from no overlay to overlay is fairly simply by just setting the configuration as specified above. The other way is more complicated as the Network configuration needs to be changed AND the local routes need to be cleaned.
-Unfortunately, the change will be rolled out slowly (one calico-node at a time). Hence, it implies some network outages during the migration.
+## Migrating between overlay and native routing
 
-## AWS implementation
-On AWS, it is not possible to use the cloud-controller-manager for managing the routes as it does not support multiple route tables, which Gardener creates. Therefore, a custom controller is created to manage the routes.
+### From native routing to overlay
+The migration from no overlay to overlay is fairly simple by just enabling the overlay in the shoot's `NetworkConfig` (as described in [Enabling the overlay network](#enabling-the-overlay-network)):
+
+```yaml
+      overlay:
+        enabled: true
+```
+
+Calico starts encapsulating traffic once the change is rolled out.
+
+### From overlay to native routing
+Switching the other way (overlay → native routing) is more delicate. The overlay has to be disabled in the shoot's `NetworkConfig`:
+
+```yaml
+      overlay:
+        enabled: false
+```
+
+In addition, the pod-CIDR routes must exist in the infrastructure routing table (or on the nodes themselves) before Calico stops encapsulating traffic. If the IPPool is flipped to `ipipMode=Never` while those routes are still missing, cross-node pod traffic is dropped until the routes appear.
+
+Because Calico applies the new IPPool configuration slowly (one `calico-node` at a time), an uncoordinated switch can cause network outages for the duration of the rollout.
+
+To avoid such an outage, the extension offers the `SeamlessOverlaySwitch` feature gate (see below), which holds the overlay in place until the infrastructure routes have been created on every node, so the switch can be performed without downtime.
+
+## Seamless IP-in-IP overlay-to-native switch (`SeamlessOverlaySwitch` feature gate)
+
+The `SeamlessOverlaySwitch` feature gate (alpha, off by default) makes the switch from the default IP-in-IP overlay to native routing downtime-free by only reconfiguring Calico once the infrastructure routes for every node's pod CIDR exist. It is enabled on the `networking-calico` extension deployment:
+
+```yaml
+# ControllerDeployment / extension configuration
+featureGates:
+  SeamlessOverlaySwitch: true
+```
+
+### How it works
+When the feature gate is enabled and a shoot's `overlay.enabled` is changed from `true` to `false`, the extension's reconciler detects the switch (by comparing the desired `NetworkConfig` against the actual state of the `calico-node` DaemonSet). As long as the switch is in progress, it does **not** apply `ipipMode=Never` to the IPPool. Instead it checks every node for the `NetworkUnavailable` condition and only proceeds once **all** nodes report:
+
+```
+type:    NetworkUnavailable
+status:  False
+reason:  RouteCreated
+```
+
+Until then, the reconcile fails with `waiting for routes to be created on all nodes before disabling overlay` and is retried. The overlay therefore stays active until the infrastructure routes are in place, after which Calico switches to native routing without dropping cross-node traffic.
+
+This mirrors the approach used on AWS, where the switch is gated on the per-node route condition rather than being applied blindly (see the AWS implementation below).
+
+### Prerequisites
+- The `SeamlessOverlaySwitch` feature gate must be enabled on the `networking-calico` extension.
+- The infrastructure provider must set the `NetworkUnavailable=False` / `reason=RouteCreated` node condition once it has created the pod-CIDR route for a node. On AWS this is done by the dedicated `aws-custom-route-controller`; on the other infrastructures supported by Gardener the routes are managed by the cloud-controller-manager, which sets the same condition (see below). Providers that do not set this condition cannot benefit from the gate — the switch would wait indefinitely.
+- `MutatingAdmissionPolicy` must be available on the shoot's kube-apiserver: it is GA (always on) from Kubernetes `1.36`. On `1.34`/`1.35` it is beta and requires an explicit opt-in via the `MutatingAdmissionPolicy` feature gate plus a matching `runtimeConfig` entry (`admissionregistration.k8s.io/v1beta1`); earlier versions need the alpha `admissionregistration.k8s.io/v1alpha1`. If it is not available, the gate is skipped and the switch happens the (potentially disruptive) regular way.
+
+> [!NOTE]
+> A system/integration test that exercises this behaviour end-to-end (including an injected "routes not yet created" hazard window) lives under [`test/system/shoot_networking_switch`](https://github.com/gardener/gardener-extension-networking-calico/blob/master/test/system/shoot_networking_switch/README.md).
+
+## Route management per infrastructure
+When the overlay is disabled, the pod-CIDR routes have to be programmed into the infrastructure routing table. On all infrastructures supported by Gardener except AWS this is done by the **cloud-controller-manager**, which creates the route for each node's pod CIDR and sets that node's `NetworkUnavailable` condition to `status=False` with `reason=RouteCreated`.
+
+### AWS implementation
+On AWS, it is not possible to use the cloud-controller-manager for managing the routes as it does not support multiple route tables, which Gardener creates (one per zone). Therefore, when the overlay is disabled, provider-aws instead deploys a dedicated [`aws-custom-route-controller`](https://github.com/gardener/aws-custom-route-controller) into the shoot's control-plane namespace to manage the routes.
+
+The route controller watches the shoot's nodes, reads each node's pod CIDR, and programs the corresponding routes into all of the cluster's VPC route tables. Once it has successfully created a node's route, it sets that node's `NetworkUnavailable` condition to `status=False` with `reason=RouteCreated` (and to `status=True` / `reason=NoRouteCreated` on failure) — the same condition the cloud-controller-manager sets on the other infrastructures.
+
+Either way, this per-node condition is exactly the signal the `SeamlessOverlaySwitch` gate waits for before switching Calico to native routing, which is why the switch effectively only happens once the infrastructure routes have been created.

@@ -6,7 +6,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/gardener/extensions/resources/selfhostedshootexposure.md
   to: selfhostedshootexposure.md
-title: Selfhostedshootexposure
+title: SelfHostedShootExposure
 prev: false
 next: false
 ---

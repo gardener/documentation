@@ -197,3 +197,37 @@ The required annotation `cloud.google.com/l4-rbs: enabled` for ingress-gce is ad
   - `"networking.gke.io/load-balancer-type=Internal"`
   - `"cloud.google.com/load-balancer-type=internal"` (deprecated).
     Internal load balancers are created by cloud-controller-manger and get an IPv4 address from the internal subnet.
+
+## Dual-Stack BYO Subnet Requirements
+
+When using [BYO subnet mode](/docs/extensions/infrastructure-extensions/gardener-extension-provider-gcp/user-managed-egress/) with a dual-stack shoot, you must pre-provision the subnets with specific properties that Gardener cannot configure for you.
+
+### Worker subnet (`subnetWorkers`)
+
+The worker subnet must be configured as dual-stack before shoot creation:
+
+- **`stackType: IPV4_IPV6`** and **`ipv6AccessType: EXTERNAL`** — GCP assigns an external `/64` IPv6 prefix at subnet creation time. Each worker VM receives a `/96` from this prefix, and the cloud-allocator further slices `/112` pod ranges per node from that `/96`.
+- **Primary IPv4 range** — must contain `shoot.spec.networking.nodes` and must not overlap with `shoot.spec.networking.pods` or `shoot.spec.networking.services`.
+- **Secondary IPv4 range** — must exist with a name matching `subnetWorkers.podSecondaryRangeName` in `InfrastructureConfig`, and its CIDR must **exactly equal** `shoot.spec.networking.pods`. This is the range the cloud-allocator uses for pod-CIDR assignment.
+
+```yaml
+subnetWorkers:
+  name: my-workers
+  podSecondaryRangeName: my-pods   # must match the secondary range name on the subnet
+```
+
+### Services subnet (`subnetServices`)
+
+A separate services subnet is required for dual-stack shoots.
+The extension uses the `/64` IPv6 prefix GCP assigns to this subnet to derive the IPv6 services CIDR, slicing a `/108` out of it.
+
+- **`stackType: IPV4_IPV6`** and **`ipv6AccessType: EXTERNAL`** — required so GCP assigns the external IPv6 prefix.
+- **Primary IPv4 range** — required by GCP; choose any small non-overlapping range. It is not used by Gardener.
+- No secondary range is needed.
+
+```yaml
+subnetServices:
+  name: my-services
+```
+
+For full pre-provisioning steps, `gcloud` commands, firewall rules, and a complete example, see [User-Managed Egress — Pre-provisioning dual-stack](/docs/extensions/infrastructure-extensions/gardener-extension-provider-gcp/user-managed-egress/#pre-provisioning--dual-stack).

@@ -210,3 +210,29 @@ data:
 The **External-DNS-Management** project provides examples with more details for `DNSProviders` (30-provider-\<provider-name>.yaml)
 and credential `Secrets` (20-secret-\<provider-name>.yaml) at [https://github.com/gardener/external-dns-management//examples](https://github.com/gardener/external-dns-management/tree/master/examples)
 for all supported provider types.
+
+#### Restricting replicated providers to their own namespace
+
+By default a replicated `DNSProvider` can be used by `DNSEntries` in any namespace of the shoot cluster.
+Set `namespaceRestrictionEnabled: true` to restrict it: a `DNSEntry` may then only use a replicated
+`DNSProvider` from the same namespace, and a `DNSProvider` whose `secretRef` points at a foreign namespace
+is rejected. This isolates DNS management per namespace, e.g. for multi-tenant setups.
+
+```yaml
+Kind: Shoot
+...
+spec:
+  extensions:
+    - type: shoot-dns-service
+      providerConfig:
+        apiVersion: service.dns.extensions.gardener.cloud/v1alpha1
+        kind: DNSConfig
+        dnsProviderReplication:
+          enabled: true
+          namespaceRestrictionEnabled: true
+...
+```
+
+> [!NOTE]
+> Only supported for the next-generation controller (`useNextGenerationController: true`); ignored otherwise.
+> Only takes effect if replication is enabled.

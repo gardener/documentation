@@ -284,6 +284,23 @@ The `networks.flowLogs` section describes the configuration for the VPC flow log
 
 Apart from the VPC and the subnets the GCP extension will also create a dedicated service account for this shoot, and firewall rules.
 
+### User-managed egress (BYO subnet mode)
+
+If you need to bring your own pre-provisioned VPC and subnet(s) — for example to use a custom egress topology, share a VPC across multiple shoots, or comply with infrastructure-as-code policies — you can activate BYO subnet mode by setting `networks.subnetWorkers`.
+In this mode Gardener does not create or manage the worker subnet, Cloud Router, Cloud NAT, or the static firewall rules.
+
+```yaml
+apiVersion: gcp.provider.extensions.gardener.cloud/v1alpha1
+kind: InfrastructureConfig
+networks:
+  vpc:
+    name: my-vpc       # existing VPC; cloudRouter must NOT be set
+  subnetWorkers:
+    name: my-workers   # existing subnet; primary range must be contained in shoot.spec.networking.nodes
+```
+
+For full pre-provisioning instructions, firewall rule recipes, dual-stack requirements, IAM permissions, and a description of what Gardener writes into your VPC at runtime, see **[User-Managed Egress](/docs/extensions/infrastructure-extensions/gardener-extension-provider-gcp/user-managed-egress/)**.
+
 ## `ControlPlaneConfig`
 
 The control plane configuration mainly contains values for the GCP-specific control plane components.
