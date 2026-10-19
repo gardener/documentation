@@ -167,6 +167,13 @@ export async function sanitizeFile(filePath, md, basePath) {
       throw new Error(`${remaining.length} block(s) still hoistable after removal`);
     }
 
+    // Same HTML check as the zero-token branch: catch non-hoistable tags
+    // (e.g. <div>-wrapped scripts) that survived the removal step.
+    const strippedHtml = md.render(stripped, {});
+    if (/<(?:script|style)\b/i.test(strippedHtml)) {
+      throw new Error('unrecognized <script>/<style> in rendered output after removal');
+    }
+
     const newContent = banner !== null ? `${banner}\n${stripped}` : stripped;
     write(filePath, newContent, parsed.data);
 

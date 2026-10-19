@@ -685,6 +685,41 @@ test('sanitizeFile E2E: case 7 — <div>-wrapped <script> fails closed (placehol
   assert.ok(!rawAfter.includes('steal('), 'script payload must not survive');
 });
 
+test('sanitizeFile E2E: mixed — isolated <script> removed but <div>-wrapped script fails closed', async () => {
+  const dir = await tmpDir();
+  const filePath = path.join(dir, 'e2e-mixed.md');
+  // Isolated <script setup> is hoistable and would be removed by removeHoistedLines.
+  // The <div>-wrapped script is NOT hoistable and survives into the stripped body.
+  // The post-removal HTML check must catch it before write() is reached.
+  await fs.writeFile(filePath, [
+    '---',
+    'github_repo: https://github.com/gardener/gardener',
+    'title: E2E Mixed',
+    '---',
+    '',
+    '<script setup>',
+    'hoistable()',
+    '</script>',
+    '',
+    '<div><script>wrapped()</script></div>',
+    '',
+    'Normal content.',
+  ].join('\n') + '\n', 'utf-8');
+
+  const prevExitCode = process.exitCode;
+  const result = await sanitizeFile(filePath, md, dir);
+  process.exitCode = prevExitCode;
+
+  assert.equal(result.status, 'failed', 'surviving wrapped script must fail closed');
+  assert.equal(result.count, 0);
+
+  const rawAfter = await fs.readFile(filePath, 'utf-8');
+  assert.ok(rawAfter.includes('<!-- Content removed by sanitizer. -->'), 'placeholder must be written');
+  assert.ok(rawAfter.includes('title: E2E Mixed'), 'original frontmatter must be preserved');
+  assert.ok(!rawAfter.includes('hoistable()'), 'hoisted script payload must not survive');
+  assert.ok(!rawAfter.includes('wrapped()'), 'wrapped script payload must not survive');
+});
+
 test('sanitizeFile E2E: case 8b — </script > mid-file: absorbed by later </script>, last line survives', async () => {
   const dir = await tmpDir();
   const filePath = path.join(dir, 'e2e-case8b.md');
