@@ -10,7 +10,8 @@ path_base_for_github_subdir:
   from: >-
     content/docs/extensions/os-extensions/gardener-extension-os-suse-chost/_index.md
   to: README.md
-title: SUSE CHost OS
+title: SUSE CHost
+weight: 40
 prev: false
 next: false
 ---

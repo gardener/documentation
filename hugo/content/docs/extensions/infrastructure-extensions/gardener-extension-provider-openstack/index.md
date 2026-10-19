@@ -8,7 +8,8 @@ path_base_for_github_subdir:
   from: >-
     content/docs/extensions/infrastructure-extensions/gardener-extension-provider-openstack/_index.md
   to: README.md
-title: Provider OpenStack
+title: OpenStack
+weight: 80
 prev: false
 next: false
 ---

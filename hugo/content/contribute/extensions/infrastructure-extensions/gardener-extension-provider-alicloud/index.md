@@ -8,7 +8,7 @@ path_base_for_github_subdir:
   from: >-
     content/contribute/extensions/infrastructure-extensions/gardener-extension-provider-alicloud/_index.md
   to: README.md
-title: Provider Alibaba Cloud
+title: Alibaba Cloud
 prev: false
 next: false
 ---

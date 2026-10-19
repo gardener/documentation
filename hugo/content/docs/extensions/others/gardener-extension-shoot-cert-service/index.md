@@ -8,7 +8,8 @@ path_base_for_github_subdir:
   from: >-
     content/docs/extensions/others/gardener-extension-shoot-cert-service/_index.md
   to: README.md
-title: Certificate Services
+title: Certificate Service
+weight: 40
 prev: false
 next: false
 ---

@@ -8,7 +8,8 @@ path_base_for_github_subdir:
   from: >-
     content/docs/extensions/infrastructure-extensions/gardener-extension-provider-metal/_index.md
   to: README.md
-title: Provider metal-stack
+title: metal-stack
+weight: 70
 prev: false
 next: false
 ---

@@ -8,7 +8,8 @@ path_base_for_github_subdir:
   from: >-
     content/docs/extensions/others/gardener-extension-shoot-networking-filter/_index.md
   to: README.md
-title: Egress Filtering
+title: Networking Filter
+weight: 120
 prev: false
 next: false
 ---

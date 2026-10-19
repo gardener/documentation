@@ -1,5 +1,5 @@
 ---
-description: Developer documentation for the DNS services extension
+description: Developer documentation for the DNS Service extension
 github_repo: 'https://github.com/gardener/gardener-extension-shoot-dns-service'
 github_subdir: .
 params:
@@ -7,7 +7,8 @@ params:
 path_base_for_github_subdir:
   from: content/contribute/extensions/gardener-extension-shoot-dns-service/_index.md
   to: README.md
-title: DNS Services
+title: DNS Service
+weight: 30
 prev: false
 next: false
 ---

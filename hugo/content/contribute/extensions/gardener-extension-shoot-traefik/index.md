@@ -1,5 +1,5 @@
 ---
-description: Developer documentation for the Traefik ingress extension
+description: Developer documentation for the Traefik extension
 github_repo: 'https://github.com/gardener/gardener-extension-shoot-traefik'
 github_subdir: .
 params:
@@ -7,7 +7,8 @@ params:
 path_base_for_github_subdir:
   from: content/contribute/extensions/gardener-extension-shoot-traefik/_index.md
   to: README.md
-title: Traefik Ingress
+title: Traefik
+weight: 70
 prev: false
 next: false
 ---

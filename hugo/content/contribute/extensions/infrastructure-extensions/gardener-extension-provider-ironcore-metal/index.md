@@ -8,7 +8,7 @@ path_base_for_github_subdir:
   from: >-
     content/contribute/extensions/infrastructure-extensions/gardener-extension-provider-ironcore-metal/_index.md
   to: README.md
-title: Provider IronCore Metal
+title: IronCore Metal
 prev: false
 next: false
 ---

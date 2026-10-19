@@ -8,7 +8,7 @@ path_base_for_github_subdir:
   from: >-
     content/contribute/extensions/infrastructure-extensions/gardener-extension-provider-aws/_index.md
   to: README.md
-title: Provider AWS
+title: AWS
 prev: false
 next: false
 ---

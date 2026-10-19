@@ -9,7 +9,8 @@ params:
 path_base_for_github_subdir:
   from: content/docs/extensions/others/gardener-extension-auditing/_index.md
   to: README.md
-title: Kubernetes Auditing
+title: Auditing
+weight: 30
 prev: false
 next: false
 ---

@@ -10,7 +10,8 @@ path_base_for_github_subdir:
   from: >-
     content/docs/extensions/others/gardener-extension-shoot-rsyslog-relp/_index.md
   to: README.md
-title: Node Audit Logging
+title: Rsyslog RELP
+weight: 180
 prev: false
 next: false
 ---

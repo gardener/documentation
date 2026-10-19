@@ -8,7 +8,7 @@ path_base_for_github_subdir:
   from: >-
     content/contribute/extensions/infrastructure-extensions/gardener-extension-provider-ironcore/_index.md
   to: README.md
-title: Provider IronCore
+title: IronCore
 prev: false
 next: false
 ---

@@ -11,6 +11,7 @@ path_base_for_github_subdir:
     content/docs/extensions/others/gardener-extension-shoot-lakom-service/_index.md
   to: README.md
 title: Lakom Service
+weight: 110
 prev: false
 next: false
 ---

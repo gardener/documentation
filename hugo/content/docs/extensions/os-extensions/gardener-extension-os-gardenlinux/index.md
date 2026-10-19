@@ -8,7 +8,8 @@ path_base_for_github_subdir:
   from: >-
     content/docs/extensions/os-extensions/gardener-extension-os-gardenlinux/_index.md
   to: README.md
-title: Garden Linux OS
+title: Garden Linux
+weight: 30
 prev: false
 next: false
 ---

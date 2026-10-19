@@ -8,7 +8,7 @@ path_base_for_github_subdir:
   from: >-
     content/docs/extensions/container-runtime-extensions/gardener-extension-runtime-gvisor/_index.md
   to: README.md
-title: GVisor container runtime
+title: gVisor
 prev: false
 next: false
 ---

@@ -9,7 +9,8 @@ params:
 path_base_for_github_subdir:
   from: content/docs/extensions/others/gardener-extension-shoot-traefik/_index.md
   to: README.md
-title: Traefik Ingress
+title: Traefik
+weight: 200
 prev: false
 next: false
 ---

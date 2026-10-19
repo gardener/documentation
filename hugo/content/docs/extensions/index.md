@@ -7,7 +7,7 @@ params:
 path_base_for_github_subdir:
   from: content/docs/extensions/_index.md
   to: README.md
-title: List of Extensions
+title: Extensions
 weight: 40
 prev: false
 next: false

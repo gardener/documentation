@@ -8,6 +8,7 @@ path_base_for_github_subdir:
   from: content/contribute/extensions/gardener-extension-registry-cache/_index.md
   to: README.md
 title: Registry Cache
+weight: 50
 prev: false
 next: false
 ---

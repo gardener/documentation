@@ -1,5 +1,5 @@
 ---
-description: Developer documentation for the node audit logging extension
+description: Developer documentation for the Rsyslog RELP extension
 github_repo: 'https://github.com/gardener/gardener-extension-shoot-rsyslog-relp'
 github_subdir: .
 params:
@@ -8,7 +8,8 @@ path_base_for_github_subdir:
   from: >-
     content/contribute/extensions/gardener-extension-shoot-rsyslog-relp/_index.md
   to: README.md
-title: Node Audit Logging
+title: Rsyslog RELP
+weight: 60
 prev: false
 next: false
 ---

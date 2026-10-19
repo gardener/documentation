@@ -5,7 +5,7 @@ params:
   github_branch: main
 path_base_for_github_subdir:
   from: >-
-    content/docs/extensions/infrastructure-extensions/gardener-extension-provider-stackit/releases.md
+    content/contribute/extensions/infrastructure-extensions/gardener-extension-provider-stackit/releases.md
   to: releases.md
 persona: Developers
 title: Releases

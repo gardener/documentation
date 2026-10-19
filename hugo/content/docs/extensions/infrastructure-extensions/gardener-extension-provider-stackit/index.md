@@ -8,7 +8,8 @@ path_base_for_github_subdir:
   from: >-
     content/docs/extensions/infrastructure-extensions/gardener-extension-provider-stackit/_index.md
   to: README.md
-title: Provider STACKIT
+title: STACKIT
+weight: 90
 prev: false
 next: false
 ---
@@ -62,9 +63,9 @@ For information on our workflows, see:
 - [Usage guide](/docs/extensions/infrastructure-extensions/gardener-extension-provider-stackit/usage/)
 - [Operations guide](/docs/extensions/infrastructure-extensions/gardener-extension-provider-stackit/operations/)
 - [Deployment](/docs/extensions/infrastructure-extensions/gardener-extension-provider-stackit/deployment/)
-- [Development guide](/docs/extensions/infrastructure-extensions/gardener-extension-provider-stackit/development/)
-- [Testing guide](/docs/extensions/infrastructure-extensions/gardener-extension-provider-stackit/testing/)
-- [Release procedure](/docs/extensions/infrastructure-extensions/gardener-extension-provider-stackit/releases/)
+- [Development guide](/contribute/extensions/infrastructure-extensions/gardener-extension-provider-stackit/development/)
+- [Testing guide](/contribute/extensions/infrastructure-extensions/gardener-extension-provider-stackit/testing/)
+- [Release procedure](/contribute/extensions/infrastructure-extensions/gardener-extension-provider-stackit/releases/)
 
 ## Feedback and Support
 

@@ -1,6 +1,6 @@
 ---
 description: Gardener extension controllers for the supported operating systems
-title: Operating System Extensions
+title: Operating System
 weight: 20
 prev: false
 next: false

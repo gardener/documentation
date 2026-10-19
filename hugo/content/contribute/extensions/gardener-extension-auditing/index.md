@@ -1,5 +1,5 @@
 ---
-description: Developer documentation for the Kubernetes auditing extension
+description: Developer documentation for the Auditing extension
 github_repo: 'https://github.com/gardener/gardener-extension-auditing'
 github_subdir: .
 params:
@@ -7,7 +7,8 @@ params:
 path_base_for_github_subdir:
   from: content/contribute/extensions/gardener-extension-auditing/_index.md
   to: README.md
-title: Kubernetes Auditing
+title: Auditing
+weight: 20
 prev: false
 next: false
 ---

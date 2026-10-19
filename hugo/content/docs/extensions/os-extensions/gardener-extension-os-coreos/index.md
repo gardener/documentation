@@ -9,7 +9,8 @@ params:
 path_base_for_github_subdir:
   from: content/docs/extensions/os-extensions/gardener-extension-os-coreos/_index.md
   to: README.md
-title: CoreOS/FlatCar OS
+title: CoreOS/FlatCar
+weight: 10
 prev: false
 next: false
 ---

@@ -8,7 +8,8 @@ path_base_for_github_subdir:
   from: >-
     content/docs/extensions/others/gardener-extension-shoot-oidc-service/_index.md
   to: README.md
-title: OpenID Connect Services
+title: OIDC Service
+weight: 150
 prev: false
 next: false
 ---

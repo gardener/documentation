@@ -8,7 +8,8 @@ path_base_for_github_subdir:
   from: >-
     content/docs/extensions/others/gardener-extension-shoot-dns-service/_index.md
   to: README.md
-title: DNS Services
+title: DNS Service
+weight: 60
 prev: false
 next: false
 ---

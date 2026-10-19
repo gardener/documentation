@@ -10,6 +10,7 @@ path_base_for_github_subdir:
     content/docs/extensions/others/gardener-extension-shoot-networking-problemdetector/_index.md
   to: README.md
 title: Networking Problem Detector
+weight: 130
 prev: false
 next: false
 ---

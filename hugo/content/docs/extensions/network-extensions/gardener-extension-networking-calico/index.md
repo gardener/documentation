@@ -8,7 +8,8 @@ path_base_for_github_subdir:
   from: >-
     content/docs/extensions/network-extensions/gardener-extension-networking-calico/_index.md
   to: README.md
-title: Calico CNI
+title: Calico
+weight: 10
 prev: false
 next: false
 ---

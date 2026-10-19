@@ -7,7 +7,8 @@ params:
 path_base_for_github_subdir:
   from: content/docs/extensions/os-extensions/gardener-extension-os-ubuntu/_index.md
   to: README.md
-title: Ubuntu OS
+title: Ubuntu
+weight: 50
 prev: false
 next: false
 ---

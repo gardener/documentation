@@ -8,7 +8,8 @@ path_base_for_github_subdir:
   from: >-
     content/docs/extensions/infrastructure-extensions/gardener-extension-provider-azure/_index.md
   to: README.md
-title: Provider Azure
+title: Azure
+weight: 30
 prev: false
 next: false
 ---

@@ -1,6 +1,6 @@
 ---
 description: Gardener extension controllers for the different infrastructures
-title: Infrastructure Extensions
+title: Infrastructure
 weight: 10
 prev: false
 next: false
