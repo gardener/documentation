@@ -119,6 +119,22 @@ jobs:
           name: aggregated-content
           path: hugo/content
 
+      - name: Validate artifact
+        run: |
+          if find hugo/content -type l | grep -q .; then
+            echo "Symlinks are not allowed in artifact"; exit 1
+          fi
+          if find hugo/content -type f ! \( \
+            -name '*.md'          -o -name '*.yaml'        -o -name '*.yml'  -o \
+            -name '*.html'        -o -name '*.json'        -o \
+            -name '*.png'         -o -name '*.jpg'         -o -name '*.jpeg' -o \
+            -name '*.gif'         -o -name '*.svg'         -o -name '*.webp' -o \
+            -name '*.ico'         -o -name '*.webmanifest' -o \
+            -name 'OWNERS' \
+          \) | grep -q .; then
+            echo "Unexpected file types in artifact"; exit 1
+          fi
+
       - name: Push on success
         if: needs.build.outputs.build-outcome == 'success'
         run: |
