@@ -147,7 +147,18 @@ export async function sanitizeFile(filePath, md, basePath) {
 
   try {
     const tokens = detectHoistedBlocks(rest, md);
-    if (tokens.length === 0) return { status: 'unchanged', count: 0 };
+    if (tokens.length === 0) {
+      // Check the rendered HTML for literal <script>/<style> tags. Tags inside
+      // fenced code blocks are HTML-escaped by markdown-it (&lt;script&gt;) and
+      // do not match. Tags the sfcPlugin cannot hoist — an unclosed <script>,
+      // a <div>-wrapped script, etc. — remain literal and would cause a Vue
+      // compiler error during the VitePress build.
+      const renderedHtml = md.render(rest, {});
+      if (/<(?:script|style)\b/i.test(renderedHtml)) {
+        throw new Error('unrecognized <script>/<style> in rendered output');
+      }
+      return { status: 'unchanged', count: 0 };
+    }
 
     const stripped = removeHoistedLines(rest, tokens);
 

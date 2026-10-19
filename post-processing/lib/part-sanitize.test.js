@@ -618,6 +618,73 @@ test('sanitizeFile E2E: case 8 — trailing-space </script > stripped, content b
   assert.ok(rawAfter.includes('<p>Before</p>'), 'content before block survives');
 });
 
+// ── sanitizeFile: fail-closed on non-hoistable script/style tags ─────────────
+// Cases 2 and 7 are NOT hoisted by VitePress (sfcRegexp does not match), but
+// the literal tags survive into the rendered HTML and would cause a Vue
+// compiler error. The HTML-render check catches them and fails closed.
+
+test('sanitizeFile E2E: case 2 — unclosed <script> fails closed (placeholder on disk)', async () => {
+  const dir = await tmpDir();
+  const filePath = path.join(dir, 'e2e-case2.md');
+  // No closing </script> tag: html_block type 1 is opened but VitePress
+  // sfcRegexp requires a closing tag, so the block is NOT hoisted. It remains
+  // literal in the rendered HTML, which would break the Vue compiler.
+  await fs.writeFile(filePath, [
+    '---',
+    'github_repo: https://github.com/gardener/gardener',
+    'title: E2E Case2',
+    '---',
+    '',
+    '<p>Normal content.</p>',
+    '',
+    "<script setup>steal(document.cookie)",
+    '',
+    'More text.',
+  ].join('\n') + '\n', 'utf-8');
+
+  const prevExitCode = process.exitCode;
+  const result = await sanitizeFile(filePath, md, dir);
+  process.exitCode = prevExitCode;
+
+  assert.equal(result.status, 'failed', 'unclosed <script> must fail closed');
+  assert.equal(result.count, 0);
+
+  const rawAfter = await fs.readFile(filePath, 'utf-8');
+  assert.ok(rawAfter.includes('<!-- Content removed by sanitizer. -->'), 'placeholder must be written');
+  assert.ok(rawAfter.includes('title: E2E Case2'), 'original frontmatter must be preserved');
+  assert.ok(!rawAfter.includes('steal('), 'script payload must not survive');
+});
+
+test('sanitizeFile E2E: case 7 — <div>-wrapped <script> fails closed (placeholder on disk)', async () => {
+  const dir = await tmpDir();
+  const filePath = path.join(dir, 'e2e-case7.md');
+  // <div>-wrapped: sfcRegexp requires the token to START with <script|style>,
+  // so the outer <div> prevents hoisting. The literal <script> survives into
+  // the rendered HTML and would cause a Vue compiler error.
+  await fs.writeFile(filePath, [
+    '---',
+    'github_repo: https://github.com/gardener/gardener',
+    'title: E2E Case7',
+    '---',
+    '',
+    '<div><script setup>steal(document.cookie)</script></div>',
+    '',
+    'Normal content.',
+  ].join('\n') + '\n', 'utf-8');
+
+  const prevExitCode = process.exitCode;
+  const result = await sanitizeFile(filePath, md, dir);
+  process.exitCode = prevExitCode;
+
+  assert.equal(result.status, 'failed', '<div>-wrapped <script> must fail closed');
+  assert.equal(result.count, 0);
+
+  const rawAfter = await fs.readFile(filePath, 'utf-8');
+  assert.ok(rawAfter.includes('<!-- Content removed by sanitizer. -->'), 'placeholder must be written');
+  assert.ok(rawAfter.includes('title: E2E Case7'), 'original frontmatter must be preserved');
+  assert.ok(!rawAfter.includes('steal('), 'script payload must not survive');
+});
+
 test('sanitizeFile E2E: case 8b — </script > mid-file: absorbed by later </script>, last line survives', async () => {
   const dir = await tmpDir();
   const filePath = path.join(dir, 'e2e-case8b.md');
