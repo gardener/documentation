@@ -45,7 +45,7 @@ This controller operates on the [`OperatingSystemConfig`](https://github.com/gar
 
 It manages those objects that are requesting...
 
-- [Garden Linux OS](https://gardenlinux.io/) configuration (`.spec.type=gardenlinux`) and its FIPS hardened variant (`.spec.type=gardenlinux-fips`):
+- [Garden Linux OS](https://gardenlinux.org/) configuration (`.spec.type=gardenlinux`) and its FIPS hardened variant (`.spec.type=gardenlinux-fips`):
   
   ```yaml
   ---

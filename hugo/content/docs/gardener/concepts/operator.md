@@ -239,6 +239,7 @@ The Garden controller in the operator reconciles Garden objects with the help of
 #### [`Main` Reconciler](https://github.com/gardener/gardener/tree/master/pkg/operator/controller/garden/garden)
 
 Apart from changes to the `Garden` resource itself, the reconciler is triggered when an `Extension` is created, deleted, or its `.spec.resources` change (e.g., `autoEnable`), as these influence which extensions are deployed for the `Garden`.
+It is also triggered when the wildcard certificate `Secret` is created, deleted, or its data or role label change, as it is used to serve the runtime cluster's ingress and SNI domains (see [Trusted TLS Certificate for Garden Runtime Cluster](/docs/gardener/trusted-tls-for-garden-runtime/)).
 
 The reconciler first generates a general CA certificate which is valid for ~`30d` and auto-rotated when 80% of its lifetime is reached.
 Afterwards, it brings up the so-called "garden system components".
