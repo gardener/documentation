@@ -389,44 +389,6 @@ Please make sure the Azure application has the following IAM roles.
 
 ## Miscellaneous
 
-### Gardener managed Service Principals
-
-The operators of the Gardener Azure extension can provide a list of managed service principals (technical users) that can be used for Azure Shoots.
-This eliminates the need for users to provide own service principals for their clusters.
-
-The user would need to grant the managed service principal access to their subscription with proper permissions.
-
-As service principals are managed in an Azure Active Directory for each supported Active Directory, an own service principal needs to be provided.
-
-In case the user provides an own service principal in the Shoot secret, this one will be used instead of the managed one provided by the operator.
-
-Each managed service principal will be maintained in a `Secret` like that:
-
-```yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: service-principal-my-tenant
-  namespace: extension-provider-azure
-  labels:
-    azure.provider.extensions.gardener.cloud/purpose: tenant-service-principal-secret
-data:
-  tenantID: base64(my-tenant)
-  clientID: base64(my-service-princiapl-id)
-  clientSecret: base64(my-service-princiapl-secret)
-type: Opaque
-```
-
-The user needs to provide in its Shoot secret a `tenantID` and `subscriptionID`.
-
-The managed service principal will be assigned based on the `tenantID`.
-In case there is a managed service principal secret with a matching `tenantID`, this one will be used for the Shoot.
-If there is no matching managed service principal secret then the next Shoot operation will fail.
-
-One of the benefits of having managed service principals is that the operator controls the lifecycle of the service principal and can rotate its secrets.
-
-After the service principal secret has been rotated and the corresponding secret is updated, all Shoot clusters using it need to be reconciled or the last operation to be retried.
-
 ### Rolling Update Triggers
 
 Changes to the `Shoot` worker-pools are applied in-place where possible.

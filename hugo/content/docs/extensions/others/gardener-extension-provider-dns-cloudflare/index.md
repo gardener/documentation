@@ -78,6 +78,14 @@ You can run the controller locally on your machine by executing `make start`.
 
 Static code checks and tests can be executed by running `make verify`. We are using Go modules for Golang package dependency management and [Ginkgo](https://github.com/onsi/ginkgo)/[Gomega](https://github.com/onsi/gomega) for testing.
 
+## Releases
+
+[Release Please](https://github.com/googleapis/release-please-action) uses its Go strategy to maintain a release pull request on `main`, updating `CHANGELOG.md` and `.release-please-manifest.json` from Conventional Commits. Use `fix:` for bug fixes, `feat:` for features, and `!` or a `BREAKING CHANGE:` footer for breaking changes. Before version 1.0, breaking changes bump the minor version.
+
+Merge the release pull request to create the next `v*` tag and GitHub release. The same workflow checks out that tag, builds and uploads binaries with GoReleaser while preserving the Release Please notes, and publishes the container image and Helm chart to GHCR. The manifest starts at the existing `v0.4.0` release.
+
+Enable **Allow GitHub Actions to create and approve pull requests** in the repository's Actions settings. To run CI automatically on release pull requests, configure the `RELEASE_PLEASE_TOKEN` Actions secret with a token that can write repository contents, issues, and pull requests. Without that secret, the workflow uses `GITHUB_TOKEN`; GitHub does not automatically trigger CI for pull requests it creates, so release PR checks must be triggered manually.
+
 ## Feedback and Support
 
 Feedback and contributions are always welcome. Please report bugs or suggestions as [GitHub issues](https://github.com/schrodit/gardener-extension-provider-dns-cloudflare/issues) or join our [Slack channel #gardener](https://kubernetes.slack.com/messages/gardener) (please invite yourself to the Kubernetes workspace [here](http://slack.k8s.io)).
