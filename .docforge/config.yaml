@@ -8,8 +8,6 @@ content-files-formats:
 - ".md"
 - ".html"
 - ".js"
-- ".scss"
-- ".css"
 - ".toml"
 - ".json"
 - ".png"
