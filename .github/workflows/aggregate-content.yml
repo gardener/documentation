@@ -85,7 +85,24 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     needs: build
-    if: always() && needs.build.result != 'cancelled' && needs.build.outputs.build-outcome != ''
+    # Run only when the build job ran to the end and the `make build` step
+    # actually executed (outcome success or failure). Two distinct failure
+    # modes have to be told apart:
+    #
+    #   build.result == success, build-outcome == failure
+    #     The `make build` step failed but is continue-on-error, so the job
+    #     finished and uploaded the artifact. We want publish here: it opens
+    #     the failure PR.
+    #
+    #   build.result == failure, build-outcome == skipped
+    #     A step before `make build` (ci-install, docforge, post-process)
+    #     failed, so `make build` never ran and no artifact exists. Skip
+    #     publish: it would mint a write token for nothing, rm -rf the
+    #     committed content and then fail on the missing artifact.
+    if: >-
+      always() &&
+      needs.build.result == 'success' &&
+      contains(fromJSON('["success","failure"]'), needs.build.outputs.build-outcome)
     permissions:
       id-token: write   # required by gardener/cc-utils/github-auth to mint OIDC token
       contents: read    # checkout
