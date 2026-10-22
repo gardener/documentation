@@ -109,7 +109,6 @@ tags:
 | `make local-preview` | Production build, then local preview |
 | `make build` | Build the site into `dist/` |
 | `make post-process` | Run the full post-processing pipeline |
-| `make hugo-refresh` | **Manifest testing only:** delete managed banners, re-aggregate, post-process, stage |
 | `make structure-preview` | Preview manifest changes: fresh pull + post-process into `.preview/content`, then build and serve; `hugo/content` stays untouched |
 | `make vale` | Lint changed content markdown with Vale |
 | `make diff-structure-master` | Compare sitemap structure of working tree vs `origin/master` |

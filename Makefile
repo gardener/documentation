@@ -66,41 +66,8 @@ docforge-download: ## Download the appropriate docforge binary for the current O
 		exit 1; \
 	fi
 
-.PHONY: docforge-run
-docforge-run: docforge-download ## Check environment and run docforge with custom parameters
-	@echo "Checking environment variables for docforge..."
-	@if [ -z "$$DOCFORGE_CONFIG" ]; then \
-		echo "ERROR: DOCFORGE_CONFIG environment variable is not set."; \
-		echo "Please add the following to your ~/.bashrc or ~/.zshrc:"; \
-		echo "  export DOCFORGE_CONFIG=.docforge/config.yaml"; \
-		echo "Then run: source ~/.bashrc (or ~/.zshrc)"; \
-		exit 1; \
-	fi
-	@if [ -z "$$GITHUB_OAUTH_TOKEN" ]; then \
-		echo "ERROR: GITHUB_OAUTH_TOKEN environment variable is not set."; \
-		echo "Please create a token (see docs/resources/github-token-guide.md)"; \
-		echo "Then add it to your ~/.bashrc or ~/.zshrc:"; \
-		echo "  export GITHUB_OAUTH_TOKEN=your_token"; \
-		echo "Then run: source ~/.bashrc (or ~/.zshrc)"; \
-		exit 1; \
-	fi
-	@echo "Environment check passed:"
-	@if [ -d "content" ]; then \
-		read -p "Content directory already exists. Do you want to run docforge again to update it? (y/n): " confirm; \
-		if [ "$$confirm" = "y" ] || [ "$$confirm" = "Y" ]; then \
-			echo "Running docforge..."; \
-			./bin/docforge; \
-		else \
-			echo "Skipping docforge execution."; \
-		fi; \
-	else \
-		echo "Content directory does not exist. Running docforge..."; \
-		./bin/docforge; \
-	fi
-
 .PHONY: docker-preview
 docker-preview:
-	@chmod +x hack/preview.sh
 	@hack/preview.sh
 
 .PHONY: install
@@ -132,62 +99,41 @@ optimize-assets-write: ## Convert large PNG images to WebP and update references
 		--write
 
 .PHONY: dev
-dev:
-	@$(MAKE) install
+dev: install
 	pnpm exec vitepress dev
 
-.PHONY: hugo-refresh
-hugo-refresh: ## Refresh md files from external repos (.docforge/), post-process, then stage regenerated content
-	@echo "Refreshing md files from external repositories, defined in .docforge/ dir."
-	@echo "USE THIS ONLY FOR TESTING OF MANIFEST CHANGES"
-	@if [ "$(CONTENT_DIR)" != hugo/content ] && [ ! -d "$(CONTENT_DIR)" ]; then \
-		mkdir -p "$(dir $(CONTENT_DIR))" && cp -R hugo/content "$(CONTENT_DIR)"; \
-	fi
+# Pull + post-process into CONTENT_DIR: the same steps as the nightly CI run.
+.PHONY: _aggregate
+_aggregate:
 	./delete-managed-banner.sh --force "$(CONTENT_DIR)"
 	@$(MAKE) docforge-ci
 	@$(MAKE) post-process
-	@if [ "$(CONTENT_DIR)" = hugo/content ]; then git add hugo/content; \
-	else echo "Content refreshed in $(CONTENT_DIR) (not staged)"; fi
+
+# Reproduces the nightly run into hugo/content and stages it.
+# To test manifest changes, use structure-preview instead.
+.PHONY: _hugo-refresh
+_hugo-refresh: _aggregate
+	git add "$(CONTENT_DIR)"
 
 .PHONY: structure-preview
 structure-preview: ## Preview manifest changes: fresh pull + post-process into .preview/content (hugo/content untouched), then build and serve
 	rm -rf .preview
-	@$(MAKE) hugo-refresh CONTENT_DIR=.preview/content
+	mkdir -p .preview && cp -R hugo/content .preview/content
+	@$(MAKE) _aggregate CONTENT_DIR=.preview/content
 	@$(MAKE) local-preview CONTENT_DIR=.preview/content
 
 .PHONY: local-preview
-local-preview:
-	@$(MAKE) install
+local-preview: install
 	@$(MAKE) build
 	pnpm exec vitepress preview
 
-.PHONY: post-processing-part-1
-post-processing-part-1:
-	node post-processing/part-1.js --rename-images --add-h1-title --youtube --fix-network-doc
-
-.PHONY: post-processing-part-2
-post-processing-part-2:
-	node post-processing/part-2.js --migrate-alerts --clean-layouts --flatten-single-dirs --add-navigation-frontmatter
-
-.PHONY: post-processing-part-index
-post-processing-part-index:
-	node post-processing/part-index.js "$(CONTENT_DIR)"
-
-.PHONY: post-processing-part-banner
-post-processing-part-banner:
-	node post-processing/part-banner.js "$(CONTENT_DIR)"
-
-.PHONY: post-processing-part-3
-post-processing-part-3:
-	node post-processing/part-3.js --update-report-link --process-api-html
-
 .PHONY: post-process
 post-process: ## Run post-processing scripts
-	@$(MAKE) post-processing-part-1
-	@$(MAKE) post-processing-part-2
-	@$(MAKE) post-processing-part-index
-	@$(MAKE) post-processing-part-banner
-	@$(MAKE) post-processing-part-3
+	node post-processing/part-1.js --rename-images --add-h1-title --youtube --fix-network-doc
+	node post-processing/part-2.js --migrate-alerts --clean-layouts --flatten-single-dirs --add-navigation-frontmatter
+	node post-processing/part-index.js "$(CONTENT_DIR)"
+	node post-processing/part-banner.js "$(CONTENT_DIR)"
+	node post-processing/part-3.js --update-report-link --process-api-html
 
 .PHONY: build
 build: ## Build the documentation site
@@ -208,16 +154,10 @@ ci-build:
 .PHONY: ci-build-preview
 ci-build-preview: ## Netlify deploy-preview: full rebuild only if .docforge/ changed
 	@BASE="$${CACHED_COMMIT_REF:-origin/master}"; \
-	if ! git rev-parse --verify -q "$$BASE^{commit}" >/dev/null; then \
-		echo "Base ref '$$BASE' not resolvable (shallow clone?) -> full rebuild"; \
-		$(MAKE) ci-install; \
-		./delete-managed-banner.sh --force hugo/content; \
-		$(MAKE) docforge-ci post-process build; \
-	elif git diff --name-only "$$BASE...HEAD" | grep -q '^\.docforge/'; then \
-		echo "Manifest changed since $$BASE -> docforge + post-process + build"; \
-		$(MAKE) ci-install; \
-		./delete-managed-banner.sh --force hugo/content; \
-		$(MAKE) docforge-ci post-process build; \
+	if ! git rev-parse --verify -q "$$BASE^{commit}" >/dev/null \
+		|| git diff --name-only "$$BASE...HEAD" | grep -q '^\.docforge/'; then \
+		echo "Manifest changed since $$BASE, or base not resolvable (shallow clone?) -> docforge + post-process + build"; \
+		$(MAKE) ci-install _aggregate build; \
 	else \
 		echo "No manifest change since $$BASE -> build only"; \
 		$(MAKE) ci-install build; \
