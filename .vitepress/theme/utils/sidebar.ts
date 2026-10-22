@@ -21,6 +21,50 @@ export function generateWeightSortedSidebar(config: VitePressSidebarOptions): an
 }
 
 /**
+ * Groups a subset of sidebar items under a non-collapsible parent label.
+ *
+ * Items whose `link` appears in `groupLinks` are extracted from the flat list
+ * and wrapped in a new group object with no `collapsed` property — which is
+ * how VitePress renders a permanently-open group with no toggle button.
+ * The group is inserted at the position of the first matched item.
+ *
+ * Item links use the format produced by vitepress-sidebar with
+ * `useFolderLinkFromIndexFile: true`, e.g. `'extensions/index.md'`.
+ */
+export function groupSidebarItems(
+  sidebar: any,
+  sectionKey: string,
+  groupLinks: string[],
+  groupLabel: string,
+): any {
+  const section = sidebar[sectionKey];
+  const items: any[] = section.items;
+
+  const groupItems: any[] = [];
+  const remainingItems: any[] = [];
+  let insertIndex = -1;
+
+  for (const item of items) {
+    if (groupLinks.includes(item.link)) {
+      if (insertIndex === -1) insertIndex = remainingItems.length;
+      groupItems.push(item);
+    } else {
+      remainingItems.push(item);
+    }
+  }
+
+  if (groupItems.length > 0) {
+    remainingItems.splice(insertIndex, 0, {
+      text: groupLabel,
+      items: groupItems,
+      // collapsed intentionally absent — VitePress renders no toggle button
+    });
+  }
+
+  return { [sectionKey]: { ...section, items: remainingItems } };
+}
+
+/**
  * Recursively removes section-root index.md entries from the sidebar
  */
 export function removeIndexEntries(sidebar: any): any {
