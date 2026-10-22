@@ -7,9 +7,9 @@ function groupExistingProjects(sidebar: any): any {
   const items: any[] = section.items;
 
   const groupLinks = [
-    '/contribute/extensions/',
-    '/contribute/other-components/',
-    '/contribute/dashboard/',
+    'extensions/index.md',
+    'other-components/index.md',
+    'dashboard/index.md',
   ];
 
   const groupItems: any[] = [];
