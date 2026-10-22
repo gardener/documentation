@@ -59,7 +59,7 @@ Route your change by **what** you are editing:
 | **Code / theme** (`.vitepress/**`, components, styles) | this repo | `make dev` | hot reload |
 | **Local content** (`LOCAL` file) | the file under `hugo/content/` | `make dev` | hot reload |
 | **Managed content** (`MANAGED` file) | the upstream repo it points to | open a PR **there** | the nightly aggregation run |
-| **Content structure** (add/remove/move a source) | `.docforge/*.yaml` | `make hugo-refresh` to preview locally | the aggregation run once the manifest change is merged |
+| **Content structure** (add/remove/move a source) | `.docforge/*.yaml` | `make structure-preview` to preview locally | the aggregation run once the manifest change is merged |
 
 You may edit a `MANAGED` file locally to test a change, but the fix only counts once it is
 merged upstream — the nightly run overwrites any local edit, and CI blocks PRs that touch
@@ -110,6 +110,7 @@ tags:
 | `make build` | Build the site into `dist/` |
 | `make post-process` | Run the full post-processing pipeline |
 | `make hugo-refresh` | **Manifest testing only:** delete managed banners, re-aggregate, post-process, stage |
+| `make structure-preview` | Preview manifest changes: fresh pull + post-process into `.preview/content`, then build and serve; `hugo/content` stays untouched |
 | `make vale` | Lint changed content markdown with Vale |
 | `make diff-structure-master` | Compare sitemap structure of working tree vs `origin/master` |
 

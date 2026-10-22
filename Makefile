@@ -2,6 +2,11 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
+# Content root for pull, post-processing and VitePress (srcDir). Exported so
+# sub-makes, node scripts and VitePress see it. Must end in /content: docforge
+# writes into its parent, because the manifest root is `dir: content`.
+export CONTENT_DIR ?= hugo/content
+
 .PHONY: docforge-download
 docforge-download: ## Download the appropriate docforge binary for the current OS if not present
 	@echo "Creating bin directory if it doesn't exist..."
@@ -135,10 +140,20 @@ dev:
 hugo-refresh: ## Refresh md files from external repos (.docforge/), post-process, then stage regenerated content
 	@echo "Refreshing md files from external repositories, defined in .docforge/ dir."
 	@echo "USE THIS ONLY FOR TESTING OF MANIFEST CHANGES"
-	./delete-managed-banner.sh --force hugo/content
+	@if [ "$(CONTENT_DIR)" != hugo/content ] && [ ! -d "$(CONTENT_DIR)" ]; then \
+		mkdir -p "$(dir $(CONTENT_DIR))" && cp -R hugo/content "$(CONTENT_DIR)"; \
+	fi
+	./delete-managed-banner.sh --force "$(CONTENT_DIR)"
 	@$(MAKE) docforge-ci
 	@$(MAKE) post-process
-	git add hugo/content
+	@if [ "$(CONTENT_DIR)" = hugo/content ]; then git add hugo/content; \
+	else echo "Content refreshed in $(CONTENT_DIR) (not staged)"; fi
+
+.PHONY: structure-preview
+structure-preview: ## Preview manifest changes: fresh pull + post-process into .preview/content (hugo/content untouched), then build and serve
+	rm -rf .preview
+	@$(MAKE) hugo-refresh CONTENT_DIR=.preview/content
+	@$(MAKE) local-preview CONTENT_DIR=.preview/content
 
 .PHONY: local-preview
 local-preview:
@@ -156,11 +171,11 @@ post-processing-part-2:
 
 .PHONY: post-processing-part-index
 post-processing-part-index:
-	node post-processing/part-index.js ./hugo/content
+	node post-processing/part-index.js "$(CONTENT_DIR)"
 
 .PHONY: post-processing-part-banner
 post-processing-part-banner:
-	node post-processing/part-banner.js ./hugo/content
+	node post-processing/part-banner.js "$(CONTENT_DIR)"
 
 .PHONY: post-processing-part-3
 post-processing-part-3:
@@ -180,9 +195,10 @@ build: ## Build the documentation site
 
 .PHONY: docforge-ci
 docforge-ci: docforge-download ## Run docforge in CI mode (non-interactive)
+	@case "$(CONTENT_DIR)" in */content) ;; *) echo "ERROR: CONTENT_DIR must end in /content (manifest root is 'dir: content')"; exit 1;; esac
 	@echo "Running docforge (CI)..."
 	@export DOCFORGE_CONFIG=.docforge/config.yaml && \
-	./bin/docforge
+	./bin/docforge -d "$(CONTENT_DIR:/content=)"
 
 .PHONY: ci-build
 ci-build:
