@@ -1,40 +1,6 @@
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { generateWeightSortedSidebar } from './utils/sidebar.ts';
-
-function groupExistingProjects(sidebar: any): any {
-  const section = sidebar['/contribute/'];
-  const items: any[] = section.items;
-
-  const groupLinks = [
-    'extensions/index.md',
-    'other-components/index.md',
-    'dashboard/index.md',
-  ];
-
-  const groupItems: any[] = [];
-  const remainingItems: any[] = [];
-  let insertIndex = -1;
-
-  for (const item of items) {
-    if (groupLinks.includes(item.link)) {
-      if (insertIndex === -1) insertIndex = remainingItems.length;
-      groupItems.push(item);
-    } else {
-      remainingItems.push(item);
-    }
-  }
-
-  if (groupItems.length > 0) {
-    remainingItems.splice(insertIndex, 0, {
-      text: 'Contribute to Existing Projects',
-      items: groupItems,
-      // collapsed intentionally absent — VitePress renders no toggle button
-    });
-  }
-
-  return { '/contribute/': { ...section, items: remainingItems } };
-}
+import { generateWeightSortedSidebar, groupSidebarItems } from './utils/sidebar.ts';
 
 export function contributeSidebar(): any {
   const contributeDir = join(process.cwd(), 'hugo', 'content', 'contribute');
@@ -54,5 +20,10 @@ export function contributeSidebar(): any {
     useFolderTitleFromIndexFile: true,
   });
 
-  return groupExistingProjects(sidebar);
+  return groupSidebarItems(
+    sidebar,
+    '/contribute/',
+    ['extensions/index.md', 'other-components/index.md', 'dashboard/index.md'],
+    'Contribute to Existing Projects',
+  );
 }
