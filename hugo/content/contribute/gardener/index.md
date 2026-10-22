@@ -1,6 +1,6 @@
 ---
 description: Developer documentation for the Gardener project
-title: Gardener
+title: Contribute to the Core
 weight: 30
 prev: false
 next: false
