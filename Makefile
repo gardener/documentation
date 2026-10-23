@@ -105,6 +105,12 @@ dev: install
 # Pull + post-process into CONTENT_DIR: the same steps as the nightly CI run.
 .PHONY: _aggregate
 _aggregate:
+	@# Refuse to overwrite uncommitted edits. Gitignored dirs (.preview) always pass.
+	@if [ -n "$$(git status --porcelain -- "$(CONTENT_DIR)")" ]; then \
+		echo "ERROR: $(CONTENT_DIR) has uncommitted changes; commit or stash them first:"; \
+		git status --short -- "$(CONTENT_DIR)" | head -20; \
+		exit 1; \
+	fi
 	./delete-managed-banner.sh --force "$(CONTENT_DIR)"
 	@$(MAKE) docforge-ci
 	@$(MAKE) post-process
