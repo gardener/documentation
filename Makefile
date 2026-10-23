@@ -122,10 +122,11 @@ _hugo-refresh: _aggregate
 	git add "$(CONTENT_DIR)"
 
 .PHONY: structure-preview
-structure-preview: ## Preview manifest changes: fresh pull + post-process into .preview/content (hugo/content untouched), then build and serve
+structure-preview: ## Preview manifest changes: fresh pull + post-process into .preview/content (hugo/content untouched), diff to .preview/diff.html, then build and serve
 	rm -rf .preview
 	mkdir -p .preview && cp -R hugo/content .preview/content
 	@$(MAKE) _aggregate CONTENT_DIR=.preview/content
+	scripts/preview-diff.sh hugo/content .preview/content .preview
 	@$(MAKE) local-preview CONTENT_DIR=.preview/content
 
 .PHONY: local-preview
