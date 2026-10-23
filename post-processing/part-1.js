@@ -5,8 +5,8 @@ import { lowercaseImageRefs } from './lib/image-refs.js';
 import { splitLeadingBanner } from './lib/banner.js';
 
 
-// Base path configuration - can be overridden by command line argument
-const BASE_PATH = './hugo/content/';
+// Content root, exported by the Makefile as CONTENT_DIR
+const BASE_PATH = process.env.CONTENT_DIR || './hugo/content/';
 const IGNORE_DIRS = ['node_modules', '.git', 'dist', 'build', 'images', 'assets', 'content', 'logo'];
 
 await main();
@@ -462,7 +462,7 @@ async function replaceYouTubeShortcodes(basePath) {
 }
 
 async function fixNetworkProblemDetectorDoc() {
-    const filePath = 'hugo/content/docs/other-components/network-problem-detector/_index.md';
+    const filePath = path.join(BASE_PATH, 'docs/other-components/network-problem-detector/_index.md');
     
     try {
         let content = await fs.readFile(filePath, 'utf-8');

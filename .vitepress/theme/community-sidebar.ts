@@ -1,8 +1,8 @@
-import { generateWeightSortedSidebar } from './utils/sidebar.ts';
+import { generateWeightSortedSidebar, CONTENT_DIR } from './utils/sidebar.ts';
 
 export function communitySidebar(): any {
   return generateWeightSortedSidebar({
-    documentRootPath: '/hugo/content',
+    documentRootPath: `/${CONTENT_DIR}`,
     scanStartPath: 'community',
     resolvePath: '/community/',
     collapsed: true,
