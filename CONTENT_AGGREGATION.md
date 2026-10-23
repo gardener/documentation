@@ -220,7 +220,7 @@ Why each piece exists:
 The whole pipeline is codified in the CI workflow and mirrored by the internal `_aggregate`
 Makefile target. To test manifest changes locally, run `make structure-preview`: it
 aggregates into `.preview/content` and leaves `hugo/content` untouched. `make _hugo-refresh`
-reproduces the nightly run into `hugo/content` and stages the result.
+runs the same pull + post-process into `hugo/content` (no build) and stages the result.
 
 ## Why aggregation is asynchronous
 

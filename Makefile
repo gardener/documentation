@@ -6,6 +6,7 @@
 # sub-makes, node scripts and VitePress see it. Must end in /content: docforge
 # writes into its parent, because the manifest root is `dir: content`.
 export CONTENT_DIR ?= hugo/content
+CHECK_CONTENT_DIR = @case "$(CONTENT_DIR)" in */content) ;; *) echo "ERROR: CONTENT_DIR must end in /content (manifest root is 'dir: content')"; exit 1;; esac
 
 .PHONY: docforge-download
 docforge-download: ## Download the appropriate docforge binary for the current OS if not present
@@ -105,8 +106,10 @@ dev: install
 # Pull + post-process into CONTENT_DIR: the same steps as the nightly CI run.
 .PHONY: _aggregate
 _aggregate:
+	$(CHECK_CONTENT_DIR)
 	@# Refuse to overwrite uncommitted edits. Gitignored dirs (.preview) always pass.
-	@if [ -n "$$(git status --porcelain -- "$(CONTENT_DIR)")" ]; then \
+	@st=$$(git status --porcelain -- "$(CONTENT_DIR)") || exit 1; \
+	if [ -n "$$st" ]; then \
 		echo "ERROR: $(CONTENT_DIR) has uncommitted changes; commit or stash them first:"; \
 		git status --short -- "$(CONTENT_DIR)" | head -20; \
 		exit 1; \
@@ -118,16 +121,17 @@ _aggregate:
 # Reproduces the nightly run into hugo/content and stages it.
 # To test manifest changes, use structure-preview instead.
 .PHONY: _hugo-refresh
-_hugo-refresh: _aggregate
+_hugo-refresh: install _aggregate
 	git add "$(CONTENT_DIR)"
 
 .PHONY: structure-preview
-structure-preview: ## Preview manifest changes: fresh pull + post-process into .preview/content (hugo/content untouched), diff to .preview/diff.html, then build and serve
+structure-preview: install ## Preview manifest changes: fresh pull + post-process into .preview/content (hugo/content untouched), diff to .preview/diff.html, then build and serve
 	rm -rf .preview
 	mkdir -p .preview && cp -R hugo/content .preview/content
 	@$(MAKE) _aggregate CONTENT_DIR=.preview/content
-	scripts/preview-diff.sh hugo/content .preview/content .preview
-	@$(MAKE) local-preview CONTENT_DIR=.preview/content
+	@# Upstream content runs code during the build (VitePress <script>); keep the token away from it.
+	env -u GITHUB_OAUTH_TOKEN scripts/preview-diff.sh
+	@env -u GITHUB_OAUTH_TOKEN $(MAKE) local-preview CONTENT_DIR=.preview/content
 
 .PHONY: local-preview
 local-preview: install
@@ -148,7 +152,7 @@ build: ## Build the documentation site
 
 .PHONY: docforge-ci
 docforge-ci: docforge-download ## Run docforge in CI mode (non-interactive)
-	@case "$(CONTENT_DIR)" in */content) ;; *) echo "ERROR: CONTENT_DIR must end in /content (manifest root is 'dir: content')"; exit 1;; esac
+	$(CHECK_CONTENT_DIR)
 	@echo "Running docforge (CI)..."
 	@export DOCFORGE_CONFIG=.docforge/config.yaml && \
 	./bin/docforge -d "$(CONTENT_DIR:/content=)"

@@ -11,7 +11,6 @@ import { generateAliasRedirects, createAliasRedirectDevPlugin } from './plugins/
 
 const indexPattern = new RegExp(/\/?_?index\.md$/i);
 const siteBase = process.env.VITE_PUBLIC_BASE_PATH || ''
-const siteSrcDir = CONTENT_DIR
 
 // Pre-compute sidebar data at module level (runs once at build start)
 const allSidebars = {
@@ -23,7 +22,7 @@ const allSidebars = {
 
 export default withMermaid(defineConfig({
   base: siteBase,
-  srcDir: siteSrcDir,
+  srcDir: CONTENT_DIR,
   cleanUrls: true,
   transformPageData(pageData) {
     if (
@@ -39,7 +38,7 @@ export default withMermaid(defineConfig({
 
     // Build the absolute file path
     const configDir = path.dirname(fileURLToPath(import.meta.url))
-    const filePath = path.resolve(configDir, '..', siteSrcDir, pageData.relativePath)
+    const filePath = path.resolve(configDir, '..', CONTENT_DIR, pageData.relativePath)
 
     // Check if the markdown body is empty
     if (hasMarkdownContent(filePath)) return
@@ -69,7 +68,7 @@ export default withMermaid(defineConfig({
   description: "A Managed Kubernetes Service Done Right",
   head: getHeadConfig() as any,
   themeConfig: getThemeConfig() as any,
-  vite: getViteConfig(siteBase, siteSrcDir),
+  vite: getViteConfig(siteBase, CONTENT_DIR),
   markdown: {
     languages: ['go'],
     languageAlias: {
