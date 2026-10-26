@@ -97,17 +97,15 @@ function trackNotFound(router: Router, track: Track): void {
 }
 
 export function initAnalytics(router: Router): Promise<void> {
-  const dev = import.meta.env.DEV
   // Return the promise so enhanceApp can await it before VitePress runs the
   // initial navigation; otherwise the 404 hook can be installed too late to
   // catch a direct hit on a non-existent route.
   return import('@plausible-analytics/tracker').then(({ init, track }) => {
     init({
       domain: 'gardener.cloud',
-      // The /pa/event proxy only exists on Netlify; hit plausible.io directly in dev
-      endpoint: dev ? 'https://plausible.io/api/event' : '/pa/event',
+      // Netlify proxy; localhost is ignored by the tracker (captureOnLocalhost defaults to false)
+      endpoint: '/pa/event',
       autoCapturePageviews: true,
-      captureOnLocalhost: dev,
       outboundLinks: true,
       fileDownloads: true,
     })
