@@ -23,7 +23,7 @@ next: false
 -->
 
 
-# Welcome to the Contributor page of Gardener
+# Welcome to the Contributor Page of Gardener
 
 This page is your starting point for contributing to Gardener. It contains all documentation related to developing and documenting Gardener.
 
