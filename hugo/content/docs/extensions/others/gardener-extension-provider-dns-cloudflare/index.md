@@ -37,15 +37,12 @@ next: false
 
 # [Gardener DNS Extension for Cloudflare](https://gardener.cloud)
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/schrodit/gardener-extension-provider-dns-cloudflare)](https://goreportcard.com/report/github.com/schrodit/gardener-extension-provider-dns-cloudflare)
+[![Build](https://github.com/schrodit/gardener-extension-provider-dns-cloudflare/actions/workflows/build.yaml/badge.svg)](https://github.com/schrodit/gardener-extension-provider-dns-cloudflare/actions/workflows/build.yaml)
 
 Project Gardener implements the automated management and operation of [Kubernetes](https://kubernetes.io/) clusters as a service.
 Its main principle is to leverage Kubernetes concepts for all of its tasks.
 
-Recently, most of the vendor specific logic has been developed [in-tree](https://github.com/gardener/gardener).
-However, the project has grown to a size where it is very hard to extend, maintain, and test.
-With [GEP-1](https://github.com/gardener/gardener/blob/master/docs/proposals/01-extensibility.md) we have proposed how the architecture can be changed in a way to support external controllers that contain their very own vendor specifics.
-This way, we can keep Gardener core clean and independent.
+Gardener supports external controllers for provider-specific behavior, as described in [GEP-1](https://github.com/gardener/gardener/blob/master/docs/proposals/01-extensibility.md).
 
 This controller implements Gardener's extension contract for the Cloudflare provider.
 
@@ -55,26 +52,13 @@ Please find more information regarding the extensibility concepts and a detailed
 
 ## Supported Kubernetes versions
 
-This extension controller follows the Kubernetes minor versions supported by the current Gardener dependency line used in this repository.
-
-At the time of writing, the supported shoot Kubernetes versions are:
-
-| Version |
-| --- |
-| Kubernetes 1.32 |
-| Kubernetes 1.33 |
-| Kubernetes 1.34 |
-| Kubernetes 1.35 |
-
-The repository currently runs its test suite against Kubernetes `1.33` and generates API reference artifacts against Kubernetes `1.34`.
-
-Please take a look [here](https://gardener.cloud/docs/gardener/shoot-operations/supported_k8s_versions/) to see which Kubernetes versions are supported by Gardener in general.
+Compatibility follows the [Gardener dependency in `go.mod`](https://github.com/schrodit/gardener-extension-provider-dns-cloudflare/blob/main/go.mod). See [Gardener's supported shoot Kubernetes versions](https://gardener.cloud/docs/gardener/shoot-operations/supported_k8s_versions/) for the current list. The local test target and API reference generation both use Kubernetes `1.37`; these settings do not define the full range of supported shoot versions.
 
 ---
 
 ## How to start using or developing this extension controller locally
 
-You can run the controller locally on your machine by executing `make start`.
+Run `make start` to start the controller locally.
 
 Static code checks and tests can be executed by running `make verify`. We are using Go modules for Golang package dependency management and [Ginkgo](https://github.com/onsi/ginkgo)/[Gomega](https://github.com/onsi/gomega) for testing.
 
@@ -82,7 +66,7 @@ Static code checks and tests can be executed by running `make verify`. We are us
 
 [Release Please](https://github.com/googleapis/release-please-action) uses its Go strategy to maintain a release pull request on `main`, updating `CHANGELOG.md` and `.release-please-manifest.json` from Conventional Commits. Use `fix:` for bug fixes, `feat:` for features, and `!` or a `BREAKING CHANGE:` footer for breaking changes. Before version 1.0, breaking changes bump the minor version.
 
-Merge the release pull request to create the next `v*` tag and GitHub release. The same workflow checks out that tag, builds and uploads binaries with GoReleaser while preserving the Release Please notes, and publishes the container image and Helm chart to GHCR. The manifest starts at the existing `v0.4.0` release.
+Merge the release pull request to create the next `v*` tag and GitHub release. The release workflow checks out that tag, builds and uploads binaries with GoReleaser while preserving the Release Please notes, and publishes the versioned container image and Helm chart to GHCR. Separately, the build workflow publishes a snapshot image and chart after tests pass on pushes to `main`.
 
 Enable **Allow GitHub Actions to create and approve pull requests** in the repository's Actions settings. To run CI automatically on release pull requests, configure the `RELEASE_PLEASE_TOKEN` Actions secret with a token that can write repository contents, issues, and pull requests. Without that secret, the workflow uses `GITHUB_TOKEN`; GitHub does not automatically trigger CI for pull requests it creates, so release PR checks must be triggered manually.
 
