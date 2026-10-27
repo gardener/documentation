@@ -346,9 +346,3 @@ spec:
     nginxIngress:
       enabled: true
 ```
-
-## Known Limitations in conjunction with `NodeLocalDNS`
-
-If [`NodeLocalDNS`](/docs/gardener/networking/node-local-dns/) is active in a shoot cluster, which uses calico as CNI without overlay network, it may be impossible to block DNS traffic to the cluster DNS server via network policy. This is due to `FELIX_CHAININSERTMODE` being set to `APPEND` instead of `INSERT` in case SNAT is being applied to requests to the infrastructure DNS server. In this scenario the `iptables` rules of `NodeLocalDNS` already accept the traffic before the network policies are checked.
-
-This only applies to traffic directed to `NodeLocalDNS`. If blocking of all DNS traffic is desired via network policy the pod `dnsPolicy` should be changed to `Default` so that the cluster DNS is not used. Alternatives are usage of overlay network or disabling of `NodeLocalDNS`.
