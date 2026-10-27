@@ -31,6 +31,29 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2026/10/28 - [v1.154](https://github.com/gardener/gardener/releases/tag/v1.154.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@matthias-horne](https://github.com/matthias-horne) | `5m` | ✍️ Pod Selector Overwrite Option in `NetworkPolicy`s | [#15661](https://github.com/gardener/gardener/pull/15661) |
+| [@jan-meis](https://github.com/jan-meis) | `5m` | 🔒 Forbid Manual Modification of `gardener` Finalizers | [#15822](https://github.com/gardener/gardener/pull/15822) |
+| [@cerealsnow](https://github.com/cerealsnow) | `5m` | 🌍 Dedicated `DNSRecord` for `dashboard`/`discovery-server` | [#16006](https://github.com/gardener/gardener/pull/16006) |
+| [@hebelsan](https://github.com/hebelsan) | `5m` | ☁️ Bring-Your-Own Subnet Support | [gardener-extension-provider-gcp#1493](https://github.com/gardener/gardener-extension-provider-gcp/pull/1493) |
+| [@timebertt](https://github.com/timebertt) | `5m` | ☁️ `cloud-controller-manager-local` Implements Node Controller | [#15768](https://github.com/gardener/gardener/pull/15768) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- 🪓 [OPERATOR] Gardener does no longer support Garden, Seed, or Shoot clusters with Kubernetes version `1.32`. Make sure to upgrade all existing clusters before upgrading to this Gardener version. [#15860](https://github.com/gardener/gardener/pull/15860)
+- 🐛 [USER] In-place update worker pools (`AutoInPlaceUpdate` and `ManualInPlaceUpdate`) are no longer stuck as pending in the Shoot status when an unrelated worker pool fails to become available. [#15848](https://github.com/gardener/gardener/pull/15848)
+- 🐛 [OPERATOR] An issue has been fixed that caused a hibernated Shoot's `status.hibernated` field to be incorrectly set to `false` at the end of a successful migrate phase of control plane migration. This would then cause the restore phase to get stuck until an operator manually intervened to set the `status.hibernated` field back to `true`. [#16011](https://github.com/gardener/gardener/pull/16011)
+- ✨ [OPERATOR] `gardener-operator` now reconciles the `Garden` when an `Extension` is created, deleted, or its `.spec.resources` change (e.g., when `autoEnable: [garden]` is added), instead of waiting for the next sync period. [#15932](https://github.com/gardener/gardener/pull/15932)
+
+<hr />
+
 ### 2026/10/14 - [v1.153](https://github.com/gardener/gardener/releases/tag/v1.153.0) Release
 
 [📽️ Recording](https://youtu.be/RTE_II5aTIk)
