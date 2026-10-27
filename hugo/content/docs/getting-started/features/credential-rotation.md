@@ -26,6 +26,10 @@ next: false
 
 Gardener deals with two distinct classes of credentials for shoot clusters. They differ in scope, ownership, and how they are rotated:
 - **Gardener project secrets** are owned and managed by the project owner or admin (Gardener service user). They are used by Gardener to authenticate to cloud provider APIs and manage cloud resources required for the shoots. Rotation of the project secrets is controlled by the project owner/admin and happens via the Gardener API or via the Gardener Dashboard.
+   > [!IMPORTANT]
+   > Gardener supports **workload identity federation**. `WorkloadIdentity` is a resource that allows workloads to be presented before external systems by giving them identities managed by Gardener. It is strongly recommended to use federated identities instead of long-lived static cloud credentials whenever possible, as this improves security and eliminates the need for manual credential rotation.
+   > Workload identity federation is available at the moment for [provider-azure](https://gardener.cloud/docs/extensions/infrastructure-extensions/gardener-extension-provider-azure/usage/#azure-workload-identity-federation), [provider-aws](https://gardener.cloud/docs/extensions/infrastructure-extensions/gardener-extension-provider-aws/usage/#aws-workload-identity-federation) and [provider-gcp](https://gardener.cloud/docs/extensions/infrastructure-extensions/gardener-extension-provider-gcp/usage/#gcp-workload-identity-federation).
+`
 - **Shoot cluster secrets** are created automatically when the shoot cluster is created and used for the cluster processes. Shoot cluster credential rotation is responsibility of the project owner/admin and is performed for most of the credentials in two steps. You can find more details below.
 
 ## Gardener Project Secrets (Infrastructure Credentials)
