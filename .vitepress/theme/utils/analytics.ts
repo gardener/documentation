@@ -96,6 +96,73 @@ function trackNotFound(router: Router, track: Track): void {
   }
 }
 
+/**
+ * Collect coarse, non-PII browser environment signals so we can distinguish
+ * headless scraper farms from real desktop visitors in Plausible.
+ * Expensive checks (WebGL context, automation globals) run once at init;
+ * dynamic state (focus, history length) is read per event.
+ */
+function createBotSignalsGetter(): () => Record<string, string> {
+  const flags: string[] = []
+  const nav = navigator as Navigator & {
+    userAgentData?: { brands?: Array<{ brand: string }> }
+    deviceMemory?: number
+    pdfViewerEnabled?: boolean
+    connection?: { effectiveType?: string; rtt?: number; downlink?: number }
+  }
+  const scr = window.screen
+
+  if (/HeadlessChrome/i.test(nav.userAgent)) flags.push('ua-headless')
+  if (nav.userAgentData?.brands?.some((b) => /Headless/i.test(b.brand))) flags.push('uad-headless')
+  if (window.outerWidth === 0 || window.outerHeight === 0) flags.push('zero-outer')
+  else if (window.outerHeight === window.innerHeight && window.outerWidth === window.innerWidth) flags.push('no-chrome')
+  if (scr && scr.width > 0 && scr.availWidth === scr.width && scr.availHeight === scr.height) flags.push('no-taskbar')
+  if (!nav.languages || nav.languages.length === 0) flags.push('no-langs')
+  if (nav.plugins?.length === 0 && /Chrome/i.test(nav.userAgent)) flags.push('no-plugins')
+  if (nav.pdfViewerEnabled === false && /Chrome/i.test(nav.userAgent)) flags.push('no-pdf')
+  if (nav.connection?.rtt === 0) flags.push('zero-rtt')
+  if ('webdriver' in nav && Object.prototype.hasOwnProperty.call(nav, 'webdriver')) flags.push('patched-webdriver')
+  if (Object.keys(window).some((k) => /^cdc_|^__puppeteer|^__playwright|^__selenium/.test(k))) flags.push('automation-global')
+
+  let webgl = 'unavailable'
+  try {
+    const canvas = document.createElement('canvas')
+    const gl = (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')) as WebGLRenderingContext | null
+    if (gl) {
+      const dbg = gl.getExtension('WEBGL_debug_renderer_info')
+      webgl = dbg ? String(gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL)) : String(gl.getParameter(gl.RENDERER))
+    }
+  } catch {
+    webgl = 'error'
+  }
+
+  let tz = 'unknown'
+  try {
+    tz = Intl.DateTimeFormat().resolvedOptions().timeZone || 'unknown'
+  } catch {
+    // ignore
+  }
+
+  const dpr = window.devicePixelRatio || 1
+  const conn = nav.connection
+  const net = conn ? `${conn.effectiveType ?? '?'}/${conn.rtt ?? '?'}ms/${conn.downlink ?? '?'}mbps` : 'unknown'
+
+  const staticSignals = {
+    webgl: webgl.slice(0, 120),
+    headless: flags.length > 0 ? flags.join(',') : 'none',
+    tz,
+    viewport: `${window.innerWidth}x${window.innerHeight}@${dpr}x`,
+    lang: `${nav.language || 'none'}(${nav.languages?.length ?? 0})`,
+    hw: `${nav.hardwareConcurrency ?? 0}c/${nav.deviceMemory ?? 0}g`,
+    net,
+  }
+
+  return () => ({
+    ...staticSignals,
+    focus: `${document.hasFocus() ? 'focused' : 'unfocused'}(h${window.history.length})`,
+  })
+}
+
 export function initAnalytics(router: Router): Promise<void> {
   // Return the promise so enhanceApp can await it before VitePress runs the
   // initial navigation; otherwise the 404 hook can be installed too late to
@@ -108,6 +175,7 @@ export function initAnalytics(router: Router): Promise<void> {
       autoCapturePageviews: true,
       outboundLinks: true,
       fileDownloads: true,
+      customProperties: createBotSignalsGetter(),
     })
     trackNotFound(router, track)
     trackCopyClicks(track)
