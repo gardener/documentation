@@ -121,6 +121,7 @@ function createBotSignalsGetter(): () => Record<string, string> {
   if (nav.plugins?.length === 0 && /Chrome/i.test(nav.userAgent)) flags.push('no-plugins')
   if (nav.pdfViewerEnabled === false && /Chrome/i.test(nav.userAgent)) flags.push('no-pdf')
   if (nav.connection?.rtt === 0) flags.push('zero-rtt')
+  if (nav.webdriver === true) flags.push('webdriver')
   if ('webdriver' in nav && Object.prototype.hasOwnProperty.call(nav, 'webdriver')) flags.push('patched-webdriver')
   if (Object.keys(window).some((k) => /^cdc_|^__puppeteer|^__playwright|^__selenium/.test(k))) flags.push('automation-global')
 
@@ -130,7 +131,11 @@ function createBotSignalsGetter(): () => Record<string, string> {
     const gl = (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')) as WebGLRenderingContext | null
     if (gl) {
       const dbg = gl.getExtension('WEBGL_debug_renderer_info')
-      webgl = dbg ? String(gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL)) : String(gl.getParameter(gl.RENDERER))
+      const rawRenderer = dbg ? String(gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL)) : String(gl.getParameter(gl.RENDERER))
+      if (/swiftshader/i.test(rawRenderer)) webgl = 'swiftshader'
+      else if (/llvmpipe|softpipe/i.test(rawRenderer)) webgl = 'llvmpipe'
+      else if (/offscreen|software|virtualbox|vmware|virgl/i.test(rawRenderer)) webgl = 'software'
+      else webgl = 'hardware'
     }
   } catch {
     webgl = 'error'
@@ -138,28 +143,50 @@ function createBotSignalsGetter(): () => Record<string, string> {
 
   let tz = 'unknown'
   try {
-    tz = Intl.DateTimeFormat().resolvedOptions().timeZone || 'unknown'
+    const rawTz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''
+    if (/^(UTC|Etc\/(UTC|GMT|Universal))$/i.test(rawTz)) tz = 'utc'
+    else if (rawTz.includes('/')) tz = rawTz.split('/')[0]
+    else if (rawTz) tz = 'other'
   } catch {
     // ignore
   }
 
+  const w = window.innerWidth
+  const h = window.innerHeight
   const dpr = window.devicePixelRatio || 1
-  const conn = nav.connection
-  const net = conn ? `${conn.effectiveType ?? '?'}/${conn.rtt ?? '?'}ms/${conn.downlink ?? '?'}mbps` : 'unknown'
+  const isDefaultHeadlessSize = (w === 800 && h === 600) || (w === 1280 && h === 720) || (w === 1920 && h === 1080)
+  const viewport =
+    w === 0 || h === 0
+      ? 'zero'
+      : isDefaultHeadlessSize && dpr === 1
+        ? 'headless-default'
+        : dpr > 1
+          ? 'hidpi'
+          : 'standard'
+
+  const langCount = nav.languages?.length ?? 0
+  const lang = langCount === 0 ? 'none' : langCount === 1 ? 'single' : 'multi'
+
+  const cores = nav.hardwareConcurrency ?? 0
+  const mem = nav.deviceMemory ?? 0
+  const hw = cores === 0 ? 'unknown' : cores <= 2 || (mem > 0 && mem <= 2) ? 'low' : cores <= 4 ? 'mid' : 'high'
+
+  const rtt = nav.connection?.rtt
+  const net = typeof rtt !== 'number' ? 'unknown' : rtt === 0 ? 'zero-rtt' : 'normal'
 
   const staticSignals = {
-    webgl: webgl.slice(0, 120),
+    webgl,
     headless: flags.length > 0 ? flags.join(',') : 'none',
     tz,
-    viewport: `${window.innerWidth}x${window.innerHeight}@${dpr}x`,
-    lang: `${nav.language || 'none'}(${nav.languages?.length ?? 0})`,
-    hw: `${nav.hardwareConcurrency ?? 0}c/${nav.deviceMemory ?? 0}g`,
+    viewport,
+    lang,
+    hw,
     net,
   }
 
   return () => ({
     ...staticSignals,
-    focus: `${document.hasFocus() ? 'focused' : 'unfocused'}(h${window.history.length})`,
+    focus: `${document.hasFocus() ? 'focused' : 'unfocused'}-${window.history.length <= 1 ? 'entry' : 'nav'}`,
   })
 }
 
