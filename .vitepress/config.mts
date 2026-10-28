@@ -98,27 +98,27 @@ function getNavConfig () {
   return [
     {
       text: 'Adopters',
-      link: '/adopter',
+      link: '/adopter/',
       activeMatch: 'adopter',
     },
     {
       text: 'Documentation',
       activeMatch: 'docs',
-      link: '/docs',
+      link: '/docs/',
     },
     {
       text: 'Blog',
-      link: '/blog',
+      link: '/blog/',
       activeMatch: 'blog',
     },
     {
       text: 'Community',
-      link: '/community',
+      link: '/community/',
       activeMatch: 'community',
     },
     {
       text: 'Contribute',
-      link: '/contribute',
+      link: '/contribute/',
       activeMatch: 'contribute',
     },
   ]
