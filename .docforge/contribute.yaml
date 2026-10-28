@@ -103,7 +103,6 @@ structure:
           weight: 999
       - fileTree: https://github.com/gardener/gardener/tree/master/docs/extensions/resources
 
-
   - dir: extensions
     structure:
     - file: _index.md
