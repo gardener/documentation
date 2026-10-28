@@ -92,12 +92,17 @@ structure:
       frontmatter:
         title: Build Extensions
         weight: 35
+    - fileTree: https://github.com/gardener/gardener/tree/master/docs/extensions
+      excludeFiles:
+      - "resources/"
     - dir: resources
       structure:
       - file: _index.md
         frontmatter:
           title: Resources
-    - fileTree: https://github.com/gardener/gardener/tree/master/docs/extensions
+          weight: 999
+      - fileTree: https://github.com/gardener/gardener/tree/master/docs/extensions/resources
+
 
   - dir: extensions
     structure:
