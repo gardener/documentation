@@ -1,16 +1,20 @@
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
   cards: {
     title: string
     details: string
     link: string
   }[]
+  columns?: number
 }>()
 </script>
 
 <template>
-  <div class="card-grid">
-    <a v-for="card in cards" :key="card.title" :href="card.link" class="card">
+  <div
+    class="card-grid"
+    :style="props.columns !== undefined ? { gridTemplateColumns: `repeat(${props.columns}, 1fr)` } : {}"
+  >
+    <a v-for="card in props.cards" :key="card.title" :href="card.link" class="card">
       <h3 class="card-title">{{ card.title }}</h3>
       <p class="card-details">{{ card.details }}</p>
     </a>
@@ -28,7 +32,7 @@ defineProps<{
 
 @media (max-width: 640px) {
   .card-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
 }
 
