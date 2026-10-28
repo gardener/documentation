@@ -8,14 +8,14 @@ features:
         src: /kubernets-certification/color.webp
       - alt: Kubernetes AI Conformance
         darkSrc: /kubernets-certification/ai-white.webp
-        href: /blog/2025/11/11-12-gardener-ai-conformance
+        href: /blog/2025/11/11-12-gardener-ai-conformance/
         src: /kubernets-certification/ai-color.webp
     details: >-
       Provision clusters with identical configuration and options on any
       infrastructure. 100% CNCF Kubernetes & AI conformance.
     icon:
       src: /highlights/cloud-agnostic.svg
-    link: /docs/getting-started/architecture
+    link: /docs/getting-started/architecture/
     title: 'Same Kubernetes, Any Cloud'
   - details: >-
       Run thousands of clusters without sacrificing performance, resilience, or
@@ -23,19 +23,19 @@ features:
       infrastructures.
     icon:
       src: /highlights/extensible.svg
-    link: /docs/guides/administer-shoots/scalability
+    link: /docs/guides/administer-shoots/scalability/
     title: Robust Scalability
   - details: Check your clusters against enterprise-grade security standards.
     icon:
       src: /highlights/certified.svg
-    link: /docs/security-and-compliance/kubernetes-hardening
+    link: /docs/security-and-compliance/kubernetes-hardening/
     title: Security and Compliance
   - details: >-
       Apply the same guardrails to all your clusters. Control available
       Kubernetes and operating system versions, and their lifecycle.
     icon:
       src: /highlights/ubiqutious.svg
-    link: /docs/guides/administer-shoots/maintain-shoot
+    link: /docs/guides/administer-shoots/maintain-shoot/
     title: Fleet Management
   - details: >-
       Benefit from self-healing and auto-scaling capabilities across the stack.
@@ -54,7 +54,7 @@ features:
     title: Community-Grown Innovation
 hero:
   actions:
-    - link: /docs/getting-started/podrick-and-the-infinite-garden.md
+    - link: /docs/getting-started/podrick-and-the-infinite-garden/
       text: Learn more with Podrick
       theme: alt
   image:

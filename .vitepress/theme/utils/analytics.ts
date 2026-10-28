@@ -163,6 +163,19 @@ function createBotSignalsGetter(): () => Record<string, string> {
   })
 }
 
+/** Ensure page URLs sent to Plausible always end with a trailing slash so `/docs` and `/docs/` do not split metrics. */
+export function normalizeEventUrl(rawUrl: string): string {
+  try {
+    const parsed = new URL(rawUrl)
+    if (!parsed.pathname.endsWith('/') && !/\.[a-z0-9]+$/i.test(parsed.pathname)) {
+      parsed.pathname += '/'
+    }
+    return parsed.toString()
+  } catch {
+    return rawUrl
+  }
+}
+
 export function initAnalytics(router: Router): Promise<void> {
   // Return the promise so enhanceApp can await it before VitePress runs the
   // initial navigation; otherwise the 404 hook can be installed too late to
@@ -176,6 +189,10 @@ export function initAnalytics(router: Router): Promise<void> {
       outboundLinks: true,
       fileDownloads: true,
       customProperties: createBotSignalsGetter(),
+      transformRequest: (payload) => ({
+        ...payload,
+        u: normalizeEventUrl(payload.u),
+      }),
     })
     trackNotFound(router, track)
     trackCopyClicks(track)
