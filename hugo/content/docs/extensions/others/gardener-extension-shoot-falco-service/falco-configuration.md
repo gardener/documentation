@@ -91,7 +91,7 @@ Below is the full configuration, explained in detail:
       nodeSelector:
         key: value
       falcoConfig:
-        # optional resources to be set on Falco pods
+        # Optional: static quantities or arithmetic expressions (see below)
         resources:
           limits:
             cpu: 200m
@@ -99,6 +99,11 @@ Below is the full configuration, explained in detail:
           requests:
             cpu: 150m
             memory: 512Mi
+        # Optional: per-pool overrides (see below)
+        # workerPoolResources:
+        #   my-pool:
+        #     requests:
+        #       cpu: 1000m
       tolerations:
       - key: key1
         effect: NoSchedule
@@ -298,12 +303,14 @@ The `tolerations` option allows Falco pods to be scheduled on nodes with taints,
 
 The `heartbeatEvent` option enables or disables the heartbeat event, which is a periodic event sent by Falco to indicate it is running and healthy. This is useful for monitoring.
 
-The `falcoConfig` option allows to configure the resources section that is
-configured for the Falco container:
+The `falcoConfig` option configures resource requests and limits for the Falco container. Each value accepts either a plain Kubernetes quantity or an arithmetic expression evaluated against the node's capacity as published in the cloud profile.
 
-```
+### Static resources
+
+Plain quantities apply the same values to all nodes:
+
+```yaml
       falcoConfig:
-        # optional resources to be set on Falco pods
         resources:
           limits:
             cpu: 200m
@@ -312,6 +319,66 @@ configured for the Falco container:
             cpu: 150m
             memory: 512Mi
 ```
+
+### Expression-based (adaptive) resources
+
+Instead of a plain quantity, any `cpu` or `memory` field accepts an arithmetic expression. Expressions are evaluated at reconcile time against the machine type's capacity from the cloud profile — no runtime component is required. The extension deploys one `falco-<pool-name>` DaemonSet per worker pool, each with resources computed for that pool's machine type.
+
+Available variables:
+
+| Variable | Type | Value |
+| --- | --- | --- |
+| `NodeCPU` | float64 | CPU cores |
+| `NodeMemoryMi` | float64 | RAM in MiB |
+| `NodeMemoryGi` | float64 | RAM in GiB |
+| `NodeEphemeralGi` | float64 | Ephemeral storage in GiB |
+
+CPU expression results are interpreted as millicores; memory as MiB. Results are floor-truncated to integer.
+
+Supported operators: `+`, `-`, `*`, `/`, `%` and ternary `condition ? a : b`.
+
+```yaml
+      falcoConfig:
+        resources:
+          requests:
+            cpu: "NodeCPU < 4 ? 200 : (NodeCPU < 8 ? 400 : 800)"
+            memory: "NodeMemoryGi * 32"
+          limits:
+            cpu: "NodeCPU < 4 ? 400 : (NodeCPU < 8 ? 800 : 1600)"
+            memory: "NodeMemoryGi * 64"
+```
+
+You can mix plain quantities and expressions in the same block:
+
+```yaml
+      falcoConfig:
+        resources:
+          requests:
+            cpu: "NodeCPU < 4 ? 200 : 400"
+            memory: 512Mi
+```
+
+### Per-pool resource overrides
+
+`workerPoolResources` allows individual pools to deviate from the default `resources` block, keyed by pool name. A pool listed here only needs to set the fields it wants to override — all other fields fall back to `resources`. Pools not listed use `resources` directly.
+
+```yaml
+      falcoConfig:
+        resources:
+          requests:
+            cpu: "NodeMemoryGi < 10 ? 200 : 400"
+            memory: 512Mi
+        workerPoolResources:
+          high-memory-pool:
+            requests:
+              cpu: 800m
+              memory: 2Gi
+            limits:
+              cpu: 1600m
+              memory: 4Gi
+```
+
+In this example `high-memory-pool` uses fixed quantities while all other pools use the expression-based defaults.
 
 ## Destinations
 
