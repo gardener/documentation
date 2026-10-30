@@ -23,7 +23,7 @@ next: false
 -->
 
 
-# Welcome to the Contributor page of Gardener
+# Welcome to the Contributor Page of Gardener
 
 This page is your starting point for contributing to Gardener. It contains all documentation related to developing and documenting Gardener.
 
@@ -31,11 +31,11 @@ We appreciate all kinds of contributions – from fixing a typo to implementing 
 
 ## Get Started
 
-<CardGrid :cards="[
+<CardGrid :columns="2" :cards="[
 {
-title: 'Contributor Guide',
+title: 'Contribution Process',
 details: 'Learn how to contribute to Gardener, including contribution workflows, licensing requirements, and best practices.',
-link: '/contribute/contribution-process/contributor-guide'
+link: '/contribute/contribution-process/'
 },
 {
 title: 'Developer Starter Kit',
@@ -44,32 +44,37 @@ link: '/contribute/developer-starter-kit/'
 }
 ]"/>
 
-## Contribute to a Specific Area
+## Choose How to Contribute
 
 <CardGrid :cards="[
 {
-title: 'Gardener',
-details: 'Browse the developer docs for the core Gardener functionality – development and contribution guidelines, information about networking, observability, how to extend Gardener, and more.',
+title: 'Contribute to the Core',
+details: 'Development guidelines and information for working on the core Gardener functionality.',
 link: '/contribute/gardener/'
 },
 {
-title: 'Extensions',
-details: 'Browse the developer docs for the Gardener extensions for infrastructure providers, Kubernetes auditing, registry cache, DNS services, and more.',
+title: 'Build Extensions',
+details: 'CRD conventions, health checks, admission webhooks, and lifecycle management for new extensions.',
+link: '/contribute/build-extensions/'
+},
+{
+title: 'Work on Existing Extensions',
+details: 'Developer docs for the Gardener extensions for infrastructure providers, DNS, registry cache, and more.',
 link: '/contribute/extensions/'
 },
 {
-title: 'Other Components',
-details: 'Browse the developer docs for components such as Dependency Watchdog, etcd-druid, and Machine Controller Manager.',
+title: 'Contribute to Existing Components',
+details: 'Developer docs for Dependency Watchdog, etcd-druid, and Machine Controller Manager.',
 link: '/contribute/other-components/'
 },
 {
-title: 'Dashboard',
-details: 'Browse the developer docs for the Gardener web UI – architecture, local development setup, and testing guidelines.',
+title: 'Contribute to the Dashboard',
+details: 'Architecture, local development setup, and testing guidelines for the Gardener web UI.',
 link: '/contribute/dashboard/'
 },
 {
-title: 'Documentation',
-details: 'Browse the guidelines for contributing documentation – writing style, structure, tooling, and how to add or update content.',
+title: 'Write Documentation',
+details: 'Writing style, content structure, tooling, and guidelines for writing documentation and other content for Gardener.',
 link: '/contribute/documentation/'
 }
 ]"/>

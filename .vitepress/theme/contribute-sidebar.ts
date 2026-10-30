@@ -1,6 +1,6 @@
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { generateWeightSortedSidebar } from './utils/sidebar.ts';
+import { generateWeightSortedSidebar, groupSidebarItems } from './utils/sidebar.ts';
 
 export function contributeSidebar(): any {
   const contributeDir = join(process.cwd(), 'hugo', 'content', 'contribute');
@@ -9,7 +9,7 @@ export function contributeSidebar(): any {
     return { '/contribute/': { items: [] } };
   }
 
-  return generateWeightSortedSidebar({
+  const sidebar = generateWeightSortedSidebar({
     documentRootPath: '/hugo/content',
     scanStartPath: 'contribute',
     resolvePath: '/contribute/',
@@ -19,4 +19,11 @@ export function contributeSidebar(): any {
     useFolderLinkFromIndexFile: true,
     useFolderTitleFromIndexFile: true,
   });
+
+  return groupSidebarItems(
+    sidebar,
+    '/contribute/',
+    ['extensions/index.md', 'other-components/index.md', 'dashboard/index.md'],
+    'Contribute to Existing Projects',
+  );
 }

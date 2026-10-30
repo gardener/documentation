@@ -86,6 +86,23 @@ structure:
         title: IPv6
       source: https://github.com/gardener/gardener/blob/master/docs/development/ipv6.md
 
+  - dir: build-extensions
+    structure:
+    - file: _index.md
+      frontmatter:
+        title: Build Extensions
+        weight: 35
+    - fileTree: https://github.com/gardener/gardener/tree/master/docs/extensions
+      excludeFiles:
+      - "resources/"
+    - dir: resources
+      structure:
+      - file: _index.md
+        frontmatter:
+          title: Resources
+          weight: 999
+      - fileTree: https://github.com/gardener/gardener/tree/master/docs/extensions/resources
+
   - dir: extensions
     structure:
     - file: _index.md
@@ -250,7 +267,7 @@ structure:
     structure:
     - file: _index.md
       frontmatter:
-        title: Other Components
+        title: Components
         weight: 50
     - dir: machine-controller-manager
       structure:
