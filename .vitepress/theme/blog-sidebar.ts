@@ -1,8 +1,8 @@
 import { generateSidebar } from 'vitepress-sidebar';
-import { addTrailingSlashToLinks, removeIndexEntries } from './utils/sidebar.ts';
+import { addTrailingSlashToLinks, removeIndexEntries, CONTENT_DIR } from './utils/sidebar.ts';
 
 export const blogSidebarConfig = {
-    documentRootPath: '/hugo/content',
+    documentRootPath: `/${CONTENT_DIR}`,
     scanStartPath: 'blog',
     resolvePath: '/blog/',
     collapsed: false,
