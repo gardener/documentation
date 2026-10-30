@@ -38,6 +38,38 @@ next: false
 
 **Disclaimer:** This document is NOT a step by step installation guide for the STACKIT provider extension and only contains some configuration specifics regarding the installation of the different components via the helm charts residing in this repository.
 
+## Deployment via Flux
+
+The `operator.gardener.cloud/v1alpha1` `Extension` manifest in `deploy/operator/` (referencing the corresponding Helm chart OCI artifacts for the provider extension and admission components) is published as a Flux OCI artifact to `oci://ghcr.io/stackitcloud/gardener-extension-provider-stackit/manifests`. Artifacts are tagged with both the release version (e.g. `v2.25.0`) and the branch name (e.g. `main`).
+
+You can consume the manifests directly in Flux using an `OCIRepository` and a `Kustomization`:
+
+```yaml
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: OCIRepository
+metadata:
+  name: gardener-extension-provider-stackit
+  namespace: flux-system
+spec:
+  interval: 10m
+  url: oci://ghcr.io/stackitcloud/gardener-extension-provider-stackit/manifests
+  ref:
+    tag: main # or use a tag
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: gardener-extension-provider-stackit
+  namespace: flux-system
+spec:
+  interval: 10m
+  path: "./"
+  prune: true
+  sourceRef:
+    kind: OCIRepository
+    name: gardener-extension-provider-stackit
+```
+
 ## gardener-extension-admission-stackit
 
 ### Authentication against the Garden cluster

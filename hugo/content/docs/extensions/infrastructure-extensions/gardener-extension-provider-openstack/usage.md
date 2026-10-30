@@ -291,12 +291,30 @@ When you specify the `serverGroup` section in your worker group configuration, a
 For users to have access to the server group feature, it must be enabled on the `CloudProfile` by your operator.
 Existing clusters can take advantage of this feature by updating the server group configuration of their respective worker groups. Worker groups that are already configured with server groups can update their setting to change the policy used, or remove it altogether at any time.
 
-Users must be aware that **any change to the server group settings will result in a rolling deployment of new nodes for the affected worker group**.
+Users must be aware that **changing the server group policy or effective per-host limit will result in a rolling deployment of new nodes for the affected worker group**.
+Server groups are immutable in OpenStack, so these changes create a new server group for the replacement nodes.
+
+With the `anti-affinity` policy, `maxServerPerHost` can be set to allow up to a specified number of machines of the same server group on each compute host (hypervisor):
+
+```yaml
+apiVersion: openstack.provider.extensions.gardener.cloud/v1alpha1
+kind: WorkerConfig
+serverGroup:
+  policy: anti-affinity
+  maxServerPerHost: 2
+```
+
+This example allows at most two machines of the worker group's server group per hypervisor. It does not guarantee an even distribution across hypervisors.
+The limit applies independently to each server group, including the old and new groups during a rolling deployment.
+If `maxServerPerHost` is omitted, the policy's existing behavior is retained; for `anti-affinity`, the default limit is one machine per host.
+Explicitly setting the default limit to `1` does not change the effective limit and does not trigger a rolling deployment.
 
 Please note the following restrictions when deploying workers with server groups:
 + The `serverGroup` section is optional, but if it is included in the worker configuration, it must contain a valid policy value.
 + The available `policy` values that can be used, are defined in the provider specific section of `CloudProfile` by your operator.
 + Certain policy values may induce further constraints. Using the `affinity` policy is only allowed when the worker group utilizes a single zone.
++ `maxServerPerHost` must be an integer of at least `1` and is only allowed with `anti-affinity`. It cannot be combined with `soft-anti-affinity`.
++ Setting `maxServerPerHost` requires the OpenStack Nova API to support microversion `2.64` or later. If the cloud does not support this microversion, server group reconciliation fails.
 
 ### MachineLabels
 The `machineLabels` section in the worker group configuration allows to specify additional machine labels. These labels are added to the machine

@@ -222,7 +222,7 @@ Falco can post events to several internal and external storage providers:
 
 - `stdout`: Write events to the pod log only
 - `central`: Post events to a central storage, if offered by the infrastructure provider
-- `logging`: Post events to the local cluster logging stack
+- `logging`: Post events to the cluster logging stack (Vali and/or OpenTelemetry Collector, depending on what the seed has deployed)
 - `opensearch`: Post events to an OpenSearch cluster for centralized analysis
 - `splunk`: Post events to a Splunk instance via the HTTP Event Collector (HEC)
 - `custom`: Post events to a custom web server
@@ -395,17 +395,19 @@ Note: Writing logs to stdout forwards events to the cluster Vali database, as lo
 > [!NOTE]
 > The `logging` destination requires the cluster logging stack (Vali/Loki). Shoots with purpose `testing` do not have the logging stack deployed, so the `logging` destination is not available for them and will be rejected. Use `stdout` or another destination for testing shoots.
 
-Falco events are forwarded to the cluster Vali logging database using the Falcosidekick [Loki output](https://github.com/falcosecurity/falcosidekick/blob/master/docs/outputs/loki.md).
+Falco events are forwarded to whichever logging backends the seed has deployed:
 
-Events can be queried in the Vali section of the cluster Plutono UI using:
+- **Vali** — events are pushed via the Falcosidekick [Loki output](https://github.com/falcosecurity/falcosidekick/blob/master/docs/outputs/loki.md) and can be queried in the Vali section of the cluster Plutono UI:
+  
+  ```logql
+  {rule=~".+", tags=~".+", source=~".+"}
+  ```
+  
+  More details on possible queries can be found in the [LogQL documentation](https://grafana.com/docs/loki/latest/query/).
+  
+  Note: Events may be retained for a short period and could be overwritten if the Vali database experiences disk pressure. Replicating events to another location may be necessary.
 
-```logql
-{rule=~".+", tags=~".+", source=~".+"}
-```
-
-More details on possible queries can be found in the [LogQL documentation](https://grafana.com/docs/loki/latest/query/).
-
-Note: Events may be retained for a short period and could be overwritten if the Vali database experiences disk pressure. Replicating events to another location may be necessary.
+- **OpenTelemetry Collector** — events are pushed via the Falcosidekick [OTLP output](https://github.com/falcosecurity/falcosidekick/blob/master/docs/outputs/otlp.md) using gRPC. This backend will become the primary logging sink as Gardener moves towards OTLP as its sole logging solution.
 
 ## Custom Destination (`custom` Option)
 
