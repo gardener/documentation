@@ -84,6 +84,12 @@ test('classify: blog segment elsewhere does not force local', () => {
   );
 });
 
+test('classify: empty blog index under the preview root stays local', () => {
+  // make structure-preview pulls into .preview/content; a blog index misread as
+  // managed there would be deleted by the next delete-managed-banner run.
+  assert.equal(classify({}, '\n', '.preview/content/blog/2025/03/index.md'), 'local');
+});
+
 test('classify: local:true wins over github_repo', () => {
   assert.equal(classify(managedData({ local: true }), '# Body\n'), 'local');
 });

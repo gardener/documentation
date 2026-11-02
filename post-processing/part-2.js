@@ -3,8 +3,8 @@ import path from "path";
 import { read, write } from './lib/frontmatter.js';
 
 
-// Base path configuration - can be overridden by command line argument
-const BASE_PATH = './hugo/content/';
+// Content root, exported by the Makefile as CONTENT_DIR
+const BASE_PATH = process.env.CONTENT_DIR || './hugo/content/';
 const IGNORE_DIRS = ['node_modules', '.git', 'dist', 'build'];
 
 await main();

@@ -27,6 +27,7 @@
     "@types/js-yaml": "4.0.9",
     "@types/markdown-it": "12.2.3",
     "@types/node": "20.11.27",
+    "diff2html-cli": "5.2.15",
     "node-addon-api": "8.8.0",
     "node-gyp": "13.0.0",
     "sharp": "0.35.4"

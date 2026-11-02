@@ -4,6 +4,9 @@ import { load } from 'js-yaml';
 import { generateSidebar } from 'vitepress-sidebar';
 import type { VitePressSidebarOptions } from 'vitepress-sidebar';
 
+// Content root (repo-relative), exported by the Makefile. Config-time (Node) only.
+export const CONTENT_DIR = process.env.CONTENT_DIR || 'hugo/content';
+
 /**
  * Generates a sidebar with weight-based sorting and standard post-processing.
  * Shared pipeline for docs and community sidebars.
@@ -150,13 +153,13 @@ export function getWeightFromFile(link: string, base?: string): number | null {
 
     if (link === 'index') {
       // Section root index file
-      filePath = join(process.cwd(), 'hugo', 'content', base, 'index.md');
+      filePath = join(process.cwd(), CONTENT_DIR, base, 'index.md');
     } else if (link.endsWith('/index.md')) {
       // Folder link as produced by useFolderLinkFromIndexFile (e.g. "dashboard/index.md")
-      filePath = join(process.cwd(), 'hugo', 'content', base, link);
+      filePath = join(process.cwd(), CONTENT_DIR, base, link);
     } else {
       // Regular leaf files
-      filePath = join(process.cwd(), 'hugo', 'content', base, `${link}.md`);
+      filePath = join(process.cwd(), CONTENT_DIR, base, `${link}.md`);
     }
     
     // Check if file exists

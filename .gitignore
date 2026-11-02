@@ -162,3 +162,6 @@ dist
 
 # Local Netlify folder
 .netlify
+
+# make structure-preview output
+/.preview

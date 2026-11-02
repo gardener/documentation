@@ -6,12 +6,11 @@ import {communitySidebar} from "./theme/community-sidebar.ts";
 import { contributeSidebar } from "./theme/contribute-sidebar.ts";
 import path from 'path'
 import { generateEnhancedDocsSidebar } from './theme/docs-sidebar.ts';
-import { hasMarkdownContent, getTaxonomyChildren } from './theme/utils/sidebar.ts';
+import { hasMarkdownContent, getTaxonomyChildren, CONTENT_DIR } from './theme/utils/sidebar.ts';
 import { generateAliasRedirects, createAliasRedirectDevPlugin } from './plugins/alias-redirects';
 
 const indexPattern = new RegExp(/\/?_?index\.md$/i);
 const siteBase = process.env.VITE_PUBLIC_BASE_PATH || ''
-const siteSrcDir = 'hugo/content'
 
 // Pre-compute sidebar data at module level (runs once at build start)
 const allSidebars = {
@@ -23,7 +22,7 @@ const allSidebars = {
 
 export default withMermaid(defineConfig({
   base: siteBase,
-  srcDir: siteSrcDir,
+  srcDir: CONTENT_DIR,
   cleanUrls: true,
   transformPageData(pageData) {
     if (
@@ -39,7 +38,7 @@ export default withMermaid(defineConfig({
 
     // Build the absolute file path
     const configDir = path.dirname(fileURLToPath(import.meta.url))
-    const filePath = path.resolve(configDir, '..', 'hugo', 'content', pageData.relativePath)
+    const filePath = path.resolve(configDir, '..', CONTENT_DIR, pageData.relativePath)
 
     // Check if the markdown body is empty
     if (hasMarkdownContent(filePath)) return
@@ -69,7 +68,7 @@ export default withMermaid(defineConfig({
   description: "A Managed Kubernetes Service Done Right",
   head: getHeadConfig() as any,
   themeConfig: getThemeConfig() as any,
-  vite: getViteConfig(siteBase, siteSrcDir),
+  vite: getViteConfig(siteBase, CONTENT_DIR),
   markdown: {
     languages: ['go'],
     languageAlias: {

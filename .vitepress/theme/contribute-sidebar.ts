@@ -1,16 +1,16 @@
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { generateWeightSortedSidebar } from './utils/sidebar.ts';
+import { generateWeightSortedSidebar, CONTENT_DIR } from './utils/sidebar.ts';
 
 export function contributeSidebar(): any {
-  const contributeDir = join(process.cwd(), 'hugo', 'content', 'contribute');
+  const contributeDir = join(process.cwd(), CONTENT_DIR, 'contribute');
 
   if (!existsSync(contributeDir)) {
     return { '/contribute/': { items: [] } };
   }
 
   return generateWeightSortedSidebar({
-    documentRootPath: '/hugo/content',
+    documentRootPath: `/${CONTENT_DIR}`,
     scanStartPath: 'contribute',
     resolvePath: '/contribute/',
     collapsed: true,

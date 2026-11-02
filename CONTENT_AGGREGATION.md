@@ -217,8 +217,10 @@ Why each piece exists:
   the ownership banners, and translates legacy shortcode/frontmatter conventions. Never
   leave a bare docforge run without post-process — the tree would be half-migrated.
 
-The whole pipeline is codified in the CI workflow and mirrored by the `make hugo-refresh`
-target for local manifest testing.
+The whole pipeline is codified in the CI workflow and mirrored by the internal `_aggregate`
+Makefile target. To test manifest changes locally, run `make structure-preview`: it
+aggregates into `.preview/content` and leaves `hugo/content` untouched. `make _hugo-refresh`
+runs the same pull + post-process into `hugo/content` (no build) and stages the result.
 
 ## Why aggregation is asynchronous
 
