@@ -191,13 +191,14 @@ ci-build:
 
 .PHONY: ci-build-preview
 ci-build-preview: ## Netlify deploy-preview: full rebuild only if .docforge/ changed
-	@BASE="$${CACHED_COMMIT_REF:-origin/master}"; \
-	if ! git rev-parse --verify -q "$$BASE^{commit}" >/dev/null; then \
-		echo "Base ref '$$BASE' not resolvable (shallow clone?) -> full rebuild"; \
+	@BASE="origin/master"; \
+	git fetch -q origin master 2>/dev/null || true; \
+	if ! CHANGED=$$(git diff --name-only "$$BASE...HEAD" 2>/dev/null); then \
+		echo "Cannot diff against '$$BASE' -> full rebuild"; \
 		$(MAKE) ci-install; \
 		./delete-managed-banner.sh --force hugo/content; \
 		$(MAKE) docforge-ci post-process build; \
-	elif git diff --name-only "$$BASE...HEAD" | grep -q '^\.docforge/'; then \
+	elif printf '%s\n' "$$CHANGED" | grep -q '^\.docforge/'; then \
 		echo "Manifest changed since $$BASE -> docforge + post-process + build"; \
 		$(MAKE) ci-install; \
 		./delete-managed-banner.sh --force hugo/content; \
