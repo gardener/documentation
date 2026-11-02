@@ -73,6 +73,7 @@ next: false
 * [Projects](/docs/gardener/project/projects/)
 * [Service Account Manager](/docs/gardener/project/service-account-manager/)
 * [`NamespacedCloudProfile`s](/docs/gardener/project/namespaced-cloud-profiles/)
+* [`Quota`s](/docs/gardener/project/quotas/)
 
 ### Shoot
 
