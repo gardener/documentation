@@ -131,11 +131,15 @@ function createBotSignalsGetter(): () => Record<string, string> {
     const gl = (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')) as WebGLRenderingContext | null
     if (gl) {
       const dbg = gl.getExtension('WEBGL_debug_renderer_info')
-      const rawRenderer = dbg ? String(gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL)) : String(gl.getParameter(gl.RENDERER))
-      if (/swiftshader/i.test(rawRenderer)) webgl = 'swiftshader'
-      else if (/llvmpipe|softpipe/i.test(rawRenderer)) webgl = 'llvmpipe'
-      else if (/offscreen|software|virtualbox|vmware|virgl/i.test(rawRenderer)) webgl = 'software'
-      else webgl = 'hardware'
+      if (!dbg) {
+        webgl = 'unknown'
+      } else {
+        const rawRenderer = String(gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL))
+        if (/swiftshader/i.test(rawRenderer)) webgl = 'swiftshader'
+        else if (/llvmpipe|softpipe/i.test(rawRenderer)) webgl = 'llvmpipe'
+        else if (/offscreen|software|virtualbox|vmware|virgl/i.test(rawRenderer)) webgl = 'software'
+        else webgl = 'hardware'
+      }
     }
   } catch {
     webgl = 'error'
@@ -151,19 +155,6 @@ function createBotSignalsGetter(): () => Record<string, string> {
     // ignore
   }
 
-  const w = window.innerWidth
-  const h = window.innerHeight
-  const dpr = window.devicePixelRatio || 1
-  const isDefaultHeadlessSize = (w === 800 && h === 600) || (w === 1280 && h === 720) || (w === 1920 && h === 1080)
-  const viewport =
-    w === 0 || h === 0
-      ? 'zero'
-      : isDefaultHeadlessSize && dpr === 1
-        ? 'headless-default'
-        : dpr > 1
-          ? 'hidpi'
-          : 'standard'
-
   const langCount = nav.languages?.length ?? 0
   const lang = langCount === 0 ? 'none' : langCount === 1 ? 'single' : 'multi'
 
@@ -178,16 +169,31 @@ function createBotSignalsGetter(): () => Record<string, string> {
     webgl,
     headless: flags.length > 0 ? flags.join(',') : 'none',
     tz,
-    viewport,
     lang,
     hw,
     net,
   }
 
-  return () => ({
-    ...staticSignals,
-    focus: `${document.hasFocus() ? 'focused' : 'unfocused'}-${window.history.length <= 1 ? 'entry' : 'nav'}`,
-  })
+  return () => {
+    const w = window.innerWidth
+    const h = window.innerHeight
+    const dpr = window.devicePixelRatio || 1
+    const isDefaultHeadlessSize = (w === 800 && h === 600) || (w === 1280 && h === 720) || (w === 1920 && h === 1080)
+    const viewport =
+      w === 0 || h === 0
+        ? 'zero'
+        : isDefaultHeadlessSize && dpr === 1
+          ? 'headless-default'
+          : dpr > 1
+            ? 'hidpi'
+            : 'standard'
+
+    return {
+      ...staticSignals,
+      viewport,
+      focus: `${document.hasFocus() ? 'focused' : 'unfocused'}-${window.history.length <= 1 ? 'entry' : 'nav'}`,
+    }
+  }
 }
 
 export function initAnalytics(router: Router): Promise<void> {
