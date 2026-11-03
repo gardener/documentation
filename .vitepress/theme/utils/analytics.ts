@@ -196,6 +196,35 @@ function createBotSignalsGetter(): () => Record<string, string> {
   }
 }
 
+/**
+ * Match the bot signals against fingerprints measured in Plausible (Nov 2026).
+ * Returns a bot label, or null for everyone else.
+ */
+function detectBot(props: Record<string, string>, userAgent: string): string | null {
+  const linux = /Linux/.test(userAgent) && !/Android/.test(userAgent)
+  // 48h sitemap crawler: US datacenter IPs, spoofs a real GPU and window, but has no taskbar.
+  if (
+    linux &&
+    props.headless.split(',').includes('no-taskbar') &&
+    props.tz === 'America' &&
+    props.hw === 'high' &&
+    props.webgl === 'hardware' &&
+    props.viewport === 'standard'
+  ) {
+    return 'crawler-48h'
+  }
+  // Proxy-rotating headless Chrome: UTC clock, no WebGL, default headless window, never focused.
+  if (
+    props.tz === 'utc' &&
+    props.webgl === 'unavailable' &&
+    props.viewport === 'headless-default' &&
+    props.focus.startsWith('unfocused')
+  ) {
+    return 'headless-utc'
+  }
+  return null
+}
+
 /** Ensure page URLs sent to Plausible always end with a trailing slash so `/docs` and `/docs/` do not split metrics. */
 export function normalizeEventUrl(rawUrl: string): string {
   try {
@@ -214,14 +243,18 @@ export function initAnalytics(router: Router): Promise<void> {
   // initial navigation; otherwise the 404 hook can be installed too late to
   // catch a direct hit on a non-existent route.
   return import('@plausible-analytics/tracker').then(({ init, track }) => {
+    // Decide once at init: the tracker's engagement events use `domain` directly and skip transformRequest.
+    const signals = createBotSignalsGetter()
+    const bot = detectBot(signals(), navigator.userAgent)
     init({
-      domain: 'gardener.cloud',
+      // Known scraper bots are still counted, but on a separate site so the main dashboard stays human-only.
+      domain: bot ? 'bots.gardener.cloud' : 'gardener.cloud',
       // Netlify proxy; localhost is ignored by the tracker (captureOnLocalhost defaults to false)
       endpoint: '/pa/event',
       autoCapturePageviews: true,
       outboundLinks: true,
       fileDownloads: true,
-      customProperties: createBotSignalsGetter(),
+      customProperties: bot ? () => ({ ...signals(), bot }) : signals,
       transformRequest: (payload) => ({
         ...payload,
         u: normalizeEventUrl(payload.u),
