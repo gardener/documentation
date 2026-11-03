@@ -9,7 +9,7 @@ next: false
    █ █ █▀▄
    ▀▀▀ ▀ ▀
 
-   ┌────────────────────────────────────────────────┐  
+   ┌────────────────────────────────────────────────┐
    │  LOCAL FILE — maintained in gardener/          │
    │  documentation                                 │
    │                                                │
@@ -35,6 +35,9 @@ This means:
 ## Requesting a New Repository
 
 To request the creation of a new repository in the Gardener organization:
+
+> [!NOTE]
+> To request a repository for а new Gardener extension, you first need an approved [Gardener Enhancement Proposal (GEP)](https://github.com/gardener/enhancements#gardener-enhancements).
 
 1. [Open an issue](https://github.com/gardener/org/issues/new?template=repo_create.yaml) in the `gardener/org` repository using the provided template.
 2. Fill in the required details, such as the repository name, description, and purpose.
