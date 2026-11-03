@@ -6867,7 +6867,7 @@ string
 </em>
 </td>
 <td>
-<p>TriggeredTime is the time when maintenance was triggered.</p>
+<p>TriggeredTime is the time when the last maintenance run was triggered. It is set on every maintenance run,<br />including runs that performed no changes.</p>
 </td>
 </tr>
 <tr>
@@ -6891,6 +6891,18 @@ string
 <td>
 <em>(Optional)</em>
 <p>FailureReason holds the information about the last maintenance operation failure reason.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>lastUpdateTime</code></br>
+<em>
+<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.33/#time-v1-meta">Time</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>LastUpdateTime is the time when maintenance last updated the Shoot spec. It is nil if maintenance<br />has never updated the Shoot spec.</p>
 </td>
 </tr>
 
@@ -13899,7 +13911,7 @@ object (keys:string, values:string)
 </td>
 <td>
 <em>(Optional)</em>
-<p>Sysctls is a map of kernel settings to apply on all machines in this worker pool.</p>
+<p>Sysctls is a map of kernel settings to apply on all machines in this worker pool. If set, it fully<br />overrides the global \`.spec.provider.workersSettings.sysctls\` for this pool; the two maps are not merged.</p>
 </td>
 </tr>
 <tr>
@@ -14127,6 +14139,18 @@ WorkersSettings contains settings for all workers.
 <td>
 <em>(Optional)</em>
 <p>SSHAccess contains settings regarding ssh access to the worker nodes.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>sysctls</code></br>
+<em>
+object (keys:string, values:string)
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Sysctls is a map of kernel settings to apply on all worker pools. It can be overridden per worker pool via<br />\`.spec.provider.workers[].sysctls\` (the per-pool value fully replaces this global value, there is no merge).</p>
 </td>
 </tr>
 

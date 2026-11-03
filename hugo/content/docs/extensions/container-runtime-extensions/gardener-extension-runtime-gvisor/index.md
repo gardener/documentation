@@ -78,6 +78,10 @@ Right now the following flags are supported and all other flags are ignored:
 - `debug: "true"`: This enables debug logs for runsc. The logs are written to `/var/log/runsc/<containerd-id>/<command>-gvisor.log` on the node.
 - `net-raw: "true"`: This is required for some applications that need to use raw sockets, such as `traceroute`, or `istio` init containers.
 - `nvproxy: "true"`: Run GPU enabled containers in your gVisor sandbox. This flag is required for the NVIDIA GPU device plugin to work with gVisor.
+- `network: "host" | "sandbox"`: Selects the [network stack](https://gvisor.dev/docs/architecture_guide/networking/) used by gVisor. `sandbox` (the default) uses gVisor's own user-space network stack (netstack). `host` makes gVisor use the host kernel's network stack (within the pod's network namespace) instead, which is required e.g. to run gVisor workloads as part of an [Istio ambient mesh](https://github.com/istio/istio/issues/58573).
+  ⚠ With `host`, network traffic is no longer handled by the sandbox, which weakens the isolation between workload and host kernel.
+  The setting is applied when a pod sandbox is created, so existing pods only pick it up after being recreated.
+- `panic-signal: "<signal number>"`: Registers a signal handler that makes runsc panic when receiving the given signal, e.g. `"12"` (SIGUSR2). Useful to troubleshoot hangs.
 
 ```yaml
 ...
@@ -89,6 +93,7 @@ Right now the following flags are supported and all other flags are ignored:
                   debug: "true"
                   net-raw: "true"
                   nvproxy: "true"
+                  network: "host"
                   ...
 ...
 ```
