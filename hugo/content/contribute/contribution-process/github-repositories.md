@@ -37,8 +37,7 @@ This means:
 To request the creation of a new repository in the Gardener organization:
 
 > [!NOTE]
-> If you need a repository for new Gardener extension, you should have an approved Gardener Enhancement Proposal first.
-> See [Does My Topic Need a GEP](https://github.com/gardener/enhancements#-does-my-topic-need-a-gep) for more details.
+> To request a repository for а new Gardener extension, you first need an approved [Gardener Enhancement Proposal (GEP)](https://github.com/gardener/enhancements#gardener-enhancements).
 
 1. [Open an issue](https://github.com/gardener/org/issues/new?template=repo_create.yaml) in the `gardener/org` repository using the provided template.
 2. Fill in the required details, such as the repository name, description, and purpose.
