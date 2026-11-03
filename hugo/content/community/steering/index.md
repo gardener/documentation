@@ -33,6 +33,7 @@ A GEP provides sufficient context, motivation, and a concrete ask or decision re
 
 | Date | GEP | Title |
 | --- | --- | --- |
+| 2026-11-05 | [GEP-0084](0084-observability-extension-for-gardener) | Observability Extension for Gardener |
 
 *(Sessions take place Thursdays, 10:00–11:00 Europe/Berlin — see [Meeting Process](#📑-meeting-process) for details.)*
 
