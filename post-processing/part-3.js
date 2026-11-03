@@ -11,68 +11,15 @@ await main();
 // Main function
 async function main() {
     try {
-        if (process.argv.includes('--update-report-link') || process.argv.includes('-r')) {
-            await updateReportLink(path.join(BASE_PATH, 'docs/security-and-compliance/report.md'));
-        }
-
         if (process.argv.includes('--process-api-html') || process.argv.includes('-a')) {
             await processApiHtml(BASE_PATH);
-        }
-
-        if (!process.argv.includes('--update-report-link') &&
-            !process.argv.includes('-r') &&
-            !process.argv.includes('--process-api-html') &&
-            !process.argv.includes('-a')) {
-            // If no specific action is specified, show usage
+        } else {
             console.log('Available commands:');
-            console.log('--update-report-link, -r : Update the report link in security-and-compliance/report.md');
             console.log('--process-api-html, -a : Extract HTML content to Vue script setup for API reference files');
-            console.log(`\nExample: node post-processing/part-3.js --update-report-link`);
-            console.log(`Example: node post-processing/part-3.js --process-api-html`);
+            console.log(`\nExample: node post-processing/part-3.js --process-api-html`);
         }
     } catch (err) {
         console.error('Error:', err);
-    }
-}
-
-/**
- * Updates the report link in the security-and-compliance/report.md file
- * Replaces the download link with a direct view link
- */
-async function updateReportLink(filePath) {
-    try {
-        console.log(`\nUpdating report link in: ${filePath}`);
-        
-        // Check if file exists
-        try {
-            await fs.access(filePath);
-        } catch (error) {
-            console.error(`Error: File not found: ${filePath}`);
-            return;
-        }
-        
-        // Read file content
-        let content = await fs.readFile(filePath, 'utf-8');
-        
-        // Define the strings to replace
-        const oldString = `The report can be reviewed directly or downloaded by <a href="/html/hardened_shoots_report/" download="">clicking here</a>.`;
-        const newString = `The report can be directly viewed by clicking <a href='/hardend_shoots_report.html' target="_self">here</a> or downloaded by clicking <a href="/hardened_shoots_report.html" download="hardened_shoots_report">here</a>`;
-        
-        // Check if the old string exists in the content
-        if (!content.includes(oldString)) {
-            console.log(`Warning: Could not find the text to replace in ${filePath}`);
-            return;
-        }
-        
-        // Replace the string
-        const updatedContent = content.replace(oldString, newString);
-        
-        // Write the updated content back to file
-        await fs.writeFile(filePath, updatedContent, 'utf-8');
-        
-        console.log(`Successfully updated report link in: ${path.basename(filePath)}`);
-    } catch (err) {
-        console.error(`Error updating report link: ${err.message}`);
     }
 }
 

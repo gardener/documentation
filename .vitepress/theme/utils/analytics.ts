@@ -90,6 +90,13 @@ function trackNotFound(router: Router, track: Track): void {
   const prev = router.onAfterRouteChanged
   router.onAfterRouteChanged = (to) => {
     if (router.route.data.isNotFound) {
+      const cleaned = to
+        .replace(/^\/_print\//i, '/')
+        .replace(/\/(_print|_?index(?:\.md)?)\/?(?=[?#]|$)/i, '/')
+      if (cleaned !== to) {
+        window.location.replace(cleaned)
+        return prev?.(to)
+      }
       track('404', { props: { path: to }, interactive: false })
     }
     return prev?.(to)

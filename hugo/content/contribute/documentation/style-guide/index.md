@@ -31,6 +31,7 @@ These are guidelines, not rules. Use your best judgment, and feel free to propos
   - [Structure and File Names](#structure-and-file-names)
   - [Topic Structure](#topic-structure)
   - [Front Matter](#front-matter)
+    - [Redirects and Aliases](#redirects-and-aliases)
     - [Blogs](#blogs)
   - [Alerts](#alerts)
   - [Images](#images)
@@ -115,6 +116,14 @@ There are a number of [predefined](https://gohugo.io/content-management/front-ma
 While this section will be automatically generated if your topic has a title heading, adding more detailed information helps other users, developers, and technical writers better sort, classify and understand the topic.
 
 By using a metadata section you can also skip adding a title heading or overwrite it in the navigation section.
+
+#### Redirects and Aliases
+
+Whenever you rename, move, or remove a documentation page, add a redirect so existing bookmarks and external links continue to work:
+
+- **Local pages (`BANNER:LOCAL` in `hugo/content/`):** Add the previous URL path under `aliases` in the page's front matter (for example, `aliases: ["/docs/old-path/"]`).
+- **Aggregated pages (`BANNER:MANAGED`), moved sections, or external targets:** Maintain the redirect in [`.vitepress/plugins/alias-redirects.ts`](https://github.com/gardener/documentation/blob/master/.vitepress/plugins/alias-redirects.ts) (`STATIC_REDIRECTS`, `PREFIX_REDIRECTS`, or `deriveImplicitAliases`) instead of scattering `aliases` across `.docforge/*.yaml` manifests.
+- **Verification:** Running `make build` generates both the static HTML redirect fallbacks and `.vitepress/dist/_redirects` (for Netlify HTTP `301` edge redirects) and writes the summary report to `.vitepress/alias-redirects.txt`. In `make dev`, the Vite dev server middleware resolves the same rules automatically.
 
 #### Blogs
 
