@@ -122,7 +122,7 @@ By using a metadata section you can also skip adding a title heading or overwrit
 Whenever you rename, move, or remove a documentation page, add a redirect so existing bookmarks and external links continue to work:
 
 - **Local pages (`BANNER:LOCAL` in `hugo/content/`):** Add the previous URL path under `aliases` in the page's front matter (for example, `aliases: ["/docs/old-path/"]`).
-- **Aggregated pages (`BANNER:MANAGED`), moved sections, or external targets:** Maintain the redirect in [`.vitepress/plugins/alias-redirects.ts`](https://github.com/gardener/documentation/blob/master/.vitepress/plugins/alias-redirects.ts) (`STATIC_REDIRECTS`, `PREFIX_REDIRECTS`, or `deriveImplicitAliases`) instead of scattering `aliases` across `.docforge/*.yaml` manifests.
+- **Aggregated pages (`BANNER:MANAGED`), moved sections, or external targets:** Maintain the redirect in [`.vitepress/plugins/alias-redirects.ts`](https://github.com/gardener/documentation/blob/master/.vitepress/plugins/alias-redirects.ts) (`STATIC_REDIRECTS` for single paths, `PREFIX_REDIRECTS` for whole sections) instead of scattering `aliases` across `.docforge/*.yaml` manifests.
 - **Verification:** Running `make build` generates both the static HTML redirect fallbacks and `.vitepress/dist/_redirects` (for Netlify HTTP `301` edge redirects) and writes the summary report to `.vitepress/alias-redirects.txt`. In `make dev`, the Vite dev server middleware resolves the same rules automatically.
 
 #### Blogs

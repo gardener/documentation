@@ -11,13 +11,7 @@ await main();
 // Main function
 async function main() {
     try {
-        if (process.argv.includes('--process-api-html') || process.argv.includes('-a')) {
-            await processApiHtml(BASE_PATH);
-        } else {
-            console.log('Available commands:');
-            console.log('--process-api-html, -a : Extract HTML content to Vue script setup for API reference files');
-            console.log(`\nExample: node post-processing/part-3.js --process-api-html`);
-        }
+        await processApiHtml(BASE_PATH);
     } catch (err) {
         console.error('Error:', err);
     }

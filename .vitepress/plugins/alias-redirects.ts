@@ -6,6 +6,8 @@ import matter from 'gray-matter'
 import path from 'path'
 
 export type AliasEntry = {
+  // Original casing; the map key is lowercased for lookups only.
+  aliasPath: string
   sourcePath: string
   targetPath: string
 }
@@ -15,56 +17,147 @@ export type PrefixRedirect = {
   to: string
 }
 
+// Old URL -> current URL. Keys: paths that Plausible recorded as 404 (keep the observed casing).
 export const STATIC_REDIRECTS: Record<string, string> = {
-  '/about/': '/',
-  '/documentation/': '/docs/',
-  '/030-architecture/': '/docs/getting-started/architecture/',
-  '/documentation/030-architecture/': '/docs/getting-started/architecture/',
-  '/docs/gardener/architecture/': '/docs/getting-started/architecture/',
-  '/contribute/documentation/pr-guidelines/': '/contribute/contribution-process/pr-guidelines/',
-  '/contribute/build-extensions/': '/docs/gardener/extensions/',
-  '/contribute/build-extensions/overview/': '/docs/gardener/extensions/',
-  '/docs/gardener/extensions/overview/': '/docs/gardener/extensions/',
-  '/docs/extensions/infrastructure-extensions/gardener-extension-provider-aws/ipv6/': '/docs/guides/networking/ipv6/',
-  '/docs/extensions/others/gardener-extension-shoot-cert-service/request_cert/': '/docs/guides/networking/certificate-extension/',
-  '/docs/extensions/others/gardener-extension-shoot-cert-service/docs/usage/request_cert/': '/docs/guides/networking/certificate-extension/',
-  '/docs/guides/administer_shoots/request_cert/': '/docs/guides/networking/certificate-extension/',
-  '/documentation/guides/applications/https/': '/docs/guides/networking/certificate-extension/',
-  '/050-tutorials/content/app/https/': '/docs/guides/networking/certificate-extension/',
-  '/docs/extensions/others/gardener-extension-shoot-dns-service/docs/usage/dns_names/': '/docs/guides/networking/DNS-extension/',
-  '/documentation/guides/administer_shoots/dns_names/': '/docs/guides/networking/DNS-extension/',
-  '/050-tutorials/content/howto/dns_names/': '/docs/guides/networking/DNS-extension/',
-  '/docs/gardener/autoscaling/shoot_pod_autoscaling_best_practices/': '/docs/guides/applications/shoot-pod-autoscaling-best-practices/',
-  '/docs/gardener/high-availability/': '/docs/guides/high-availability/',
-  '/docs/references/core/': '/docs/gardener/api-reference/core/',
-  '/documentation/references/core/': '/docs/gardener/api-reference/core/',
-  '/docs/tutorials/': '/docs/guides/',
-  '/tutorials/': '/docs/guides/',
-  '/docs/tutorials/knative-install/': '/docs/guides/applications/knative-install/',
-  '/050-tutorials/content/howto/antipattern/': '/docs/guides/applications/antipattern/',
-  '/readmore/antipattern/': '/docs/guides/applications/antipattern/',
-  '/readmore/insecure/': '/docs/guides/applications/insecure-configuration/',
-  '/050-tutorials/content/howto/gardener_gcp/': '/docs/extensions/infrastructure-extensions/gardener-extension-provider-gcp/kubernetes-cluster-on-gcp-with-gardener/',
-  '/documentation/050-tutorials/content/howto/gardener_gcp/': '/docs/extensions/infrastructure-extensions/gardener-extension-provider-gcp/kubernetes-cluster-on-gcp-with-gardener/',
-  '/documentation/guides/administer_shoots/gardener_gcp/': '/docs/extensions/infrastructure-extensions/gardener-extension-provider-gcp/kubernetes-cluster-on-gcp-with-gardener/',
-  '/050-tutorials/content/howto/gardener_aws/': '/docs/extensions/infrastructure-extensions/gardener-extension-provider-aws/kubernetes-cluster-on-aws-with-gardener/',
-  '/050-tutorials/content/howto/working-with-kubeconfig/': '/docs/guides/client-tools/working-with-kubeconfig/',
-  '/documentation/guides/client_tools/bash_kubeconfig/': '/docs/guides/client-tools/bash-kubeconfig/',
-  '/v1.13.2/guides/client_tools/bash_kubeconfig/': '/docs/guides/client-tools/bash-kubeconfig/',
-  '/documentation/guides/administer_shoots/hibernate-cluster/': '/docs/gardener/shoot/shoot_hibernate/',
-  '/050-tutorials/content/howto/hibernate-cluster/': '/docs/gardener/shoot/shoot_hibernate/',
-  '/documentation/guides/administer_shoots/trigger-shoot-operations/': '/docs/gardener/shoot-operations/shoot_operations/',
-  '/documentation/guides/install_gardener/secure-setup/': '/docs/security-and-compliance/kubernetes-hardening/',
   '/040-usage/tasks/backup-etcd/': '/docs/guides/administer-shoots/backup-restore/',
-  '/docs/contribute/20_documentation/20_formatting_guide/': '/contribute/documentation/formatting-guide/',
-  '/docs/contribute/20_documentation/40_style_guide/': '/contribute/documentation/style-guide/',
-  '/documentation/contribute/20_documentation/25_markup/notice/': '/contribute/documentation/shortcodes/',
-  '/docs/dashboard/usage/gardener-api/': '/docs/dashboard/automated-resource-management/',
-  '/docs/gardener/security/workload_identity/': '/docs/gardener/shoot/shoot-workload-identity/',
-  '/docs/gardener/observability/logging/': '/docs/gardener/logging/',
+  '/050-tutorials/content/app/https/': '/docs/guides/networking/certificate-extension/',
+  '/050-tutorials/content/howto/antipattern/': '/docs/guides/applications/antipattern/',
+  '/050-tutorials/content/howto/dns_names/': '/docs/guides/networking/DNS-extension/',
+  '/050-tutorials/content/howto/gardener_aws/': '/docs/extensions/infrastructure-extensions/gardener-extension-provider-aws/kubernetes-cluster-on-aws-with-gardener/',
+  '/050-tutorials/content/howto/gardener_gcp/': '/docs/extensions/infrastructure-extensions/gardener-extension-provider-gcp/kubernetes-cluster-on-gcp-with-gardener/',
+  '/050-tutorials/content/howto/hibernate-cluster/': '/docs/gardener/shoot/shoot_hibernate/',
+  '/050-tutorials/content/howto/working-with-kubeconfig/': '/docs/guides/client-tools/working-with-kubeconfig/',
+  '/about/': '/',
+  '/blog/2018/06.11-Namespace-Scope/': '/blog/2018/06/06.11-namespace-scope/',
+  '/blog/2018/_print/': '/blog/2018/',
+  '/blog/2019/06.11-Feature-Flags-in-Kubernetes-Applications/': '/blog/2019/06/06.11-feature-flags-in-kubernetes-applications/',
   '/blog/2020-10/00/': '/blog/2020/10/10.19-gardener-integrates-with-kubevirt/',
   '/blog/2020-10/00/gardener-integrates-with-kubevirt/': '/blog/2020/10/10.19-gardener-integrates-with-kubevirt/',
+  '/blog/2020/05.11-New-Website-Same-Green-Flower/': '/blog/2020/05/05.11-new-website-same-green-flower/',
+  '/blog/2020/08.06-Gardener-v1.8.0-Released/': '/blog/2020/08/08.06-gardener-v1.8.0-released/',
+  '/blog/2020/10.19-Gardener-Integrates-with-KubeVirt/': '/blog/2020/10/10.19-gardener-integrates-with-kubevirt/',
+  '/blog/2020/10.19-Shoot-Reconciliation-Details/': '/blog/2020/10/10.19-shoot-reconciliation-details/',
+  '/blog/2020/11.23-Gardener-v1.13-Released/': '/blog/2020/11/11.23-gardener-v1.13-released/',
+  '/blog/2020/12.03-STACKIT-Kubernetes-Engine-with-Gardener/': '/blog/2020/12/12.03-stackit-kubernetes-engine-with-gardener/',
+  '/blog/2021/01.25-Machine-Controller-Manager/': '/blog/2021/01/01.25-machine-controller-manager/',
+  '/blog/2021/02.01-Happy-anniversary-Gardener/': '/blog/2021/02/02.01-happy-anniversary-gardener/',
+  '/blog/2023/03-27-High-Availability-and-Zone-Outage-Toleration/': '/blog/2023/03/03-27-high-availability-and-zone-outage-toleration/',
+  '/blog/2024/04-05-KubeCon-CloudNativeCon-Europe-2024-Highlights/': '/blog/2024/04/04-05-kubecon-cloudnativecon-europe-2024-highlights/',
+  '/blog/2024/05-21-Innovation-Unleashed-A-Deep-Dive-into-the-5th-Gardener-Community-Hackathon/': '/blog/2024/05/05-21-innovation-unleashed-a-deep-dive-into-the-5th-gardener-community-hackathon/',
+  '/blog/2024/11-06-PromCon-EU-2024/': '/blog/2024/11/11-06-promcon-eu-2024/',
+  '/blog/2025/03-18-gardener-kubecon-cloudnativecon-europe-2025-announcement/': '/blog/2025/03/03-18-gardener-kubecon-cloudnativecon-europe-2025-announcement/',
+  '/blog/2025/06-25-enhanced-health-checks-for-node-rolling-updates/': '/blog/2025/06/06-25-enhanced-health-checks-for-node-rolling-updates/',
+  '/blog/2025/06-25-introducing-gardenadm-bootstrap-for-autonomous-shoots/': '/blog/2025/06/06-25-introducing-gardenadm-bootstrap-for-autonomous-shoots/',
+  '/contribute/build-extensions/overview/': '/docs/gardener/extensions/',
+  '/contribute/documentation/pr-guidelines/': '/contribute/contribution-process/pr-guidelines/',
+  '/docs/contribute/20_documentation/20_formatting_guide/': '/contribute/documentation/formatting-guide/',
+  '/docs/contribute/20_documentation/40_style_guide/': '/contribute/documentation/style-guide/',
+  '/docs/contribute/documentation/adding-existing-documentation/_print/': '/contribute/documentation/adding-existing-documentation/',
+  '/docs/dashboard/usage/gardener-api/': '/docs/dashboard/automated-resource-management/',
+  '/docs/extensions/container-runtime-extensions/gardener-extension-runtime-gvisor/_print/': '/docs/extensions/container-runtime-extensions/gardener-extension-runtime-gvisor/',
+  '/docs/extensions/infrastructure-extensions/gardener-extension-provider-alicloud/index.md/': '/docs/extensions/infrastructure-extensions/gardener-extension-provider-alicloud/',
+  '/docs/extensions/infrastructure-extensions/gardener-extension-provider-aws/docs/usage-as-end-user/': '/docs/extensions/infrastructure-extensions/gardener-extension-provider-aws/usage/',
+  '/docs/extensions/infrastructure-extensions/gardener-extension-provider-aws/ipv6/': '/docs/guides/networking/ipv6/',
+  '/docs/extensions/infrastructure-extensions/gardener-extension-provider-aws/tutorials/kubernetes-cluster-on-aws-with-gardener/': '/docs/extensions/infrastructure-extensions/gardener-extension-provider-aws/kubernetes-cluster-on-aws-with-gardener/',
+  '/docs/extensions/infrastructure-extensions/gardener-extension-provider-azure/docs/usage-as-end-user/': '/docs/extensions/infrastructure-extensions/gardener-extension-provider-azure/usage/',
+  '/docs/extensions/infrastructure-extensions/gardener-extension-provider-azure/tutorials/kubernetes-cluster-on-azure-with-gardener/': '/docs/extensions/infrastructure-extensions/gardener-extension-provider-azure/kubernetes-cluster-on-azure-with-gardener/',
+  '/docs/extensions/infrastructure-extensions/gardener-extension-provider-gcp/tutorials/kubernetes-cluster-on-gcp-with-gardener/index.md/': '/docs/extensions/infrastructure-extensions/gardener-extension-provider-gcp/kubernetes-cluster-on-gcp-with-gardener/',
+  '/docs/extensions/infrastructure-extensions/gardener-extension-provider-openstack/remote-setup/': '/contribute/extensions/infrastructure-extensions/gardener-extension-provider-openstack/remote-setup/',
+  '/docs/extensions/network-extensions/gardener-extension-networking-calico/_print/': '/docs/extensions/network-extensions/gardener-extension-networking-calico/',
+  '/docs/extensions/network-extensions/gardener-extension-networking-calico/index.md/': '/docs/extensions/network-extensions/gardener-extension-networking-calico/',
+  '/docs/extensions/os-extensions/_print/': '/docs/extensions/os-extensions/',
+  '/docs/extensions/os-extensions/gardener-extension-os-coreos/index.md/': '/docs/extensions/os-extensions/gardener-extension-os-coreos/',
+  '/docs/extensions/others/gardener-extension-auditing/getting-started-locally/': '/contribute/extensions/gardener-extension-auditing/getting-started-locally/',
+  '/docs/extensions/others/gardener-extension-registry-cache/_print/': '/docs/extensions/others/gardener-extension-registry-cache/',
+  '/docs/extensions/others/gardener-extension-registry-cache/getting-started-locally/': '/contribute/extensions/gardener-extension-registry-cache/getting-started-locally/',
+  '/docs/extensions/others/gardener-extension-shoot-cert-service/docs/usage/request_cert/': '/docs/guides/networking/certificate-extension/',
+  '/docs/extensions/others/gardener-extension-shoot-cert-service/index.md/': '/docs/extensions/others/gardener-extension-shoot-cert-service/',
+  '/docs/extensions/others/gardener-extension-shoot-cert-service/request_cert/': '/docs/guides/networking/certificate-extension/',
+  '/docs/extensions/others/gardener-extension-shoot-dns-service/docs/usage/dns_names/': '/docs/guides/networking/DNS-extension/',
+  '/docs/extensions/others/gardener-extension-shoot-dns-service/docs/usage/dns_providers/': '/docs/extensions/others/gardener-extension-shoot-dns-service/dns_providers/',
+  '/docs/extensions/others/gardener-extension-shoot-lakom-service/index.md/': '/docs/extensions/others/gardener-extension-shoot-lakom-service/',
+  '/docs/extensions/others/gardener-extension-shoot-networking-filter/index.md/': '/docs/extensions/others/gardener-extension-shoot-networking-filter/',
+  '/docs/extensions/others/gardener-extension-shoot-oidc-service/index.md/': '/docs/extensions/others/gardener-extension-shoot-oidc-service/',
+  '/docs/extensions/others/gardener-extension-shoot-rsyslog-relp/getting-started-remotely/': '/contribute/extensions/gardener-extension-shoot-rsyslog-relp/getting-started-remotely/',
+  '/docs/extensions/others/gardener-extension-shoot-rsyslog-relp/getting-started/': '/contribute/extensions/gardener-extension-shoot-rsyslog-relp/getting-started/',
+  '/docs/extensions/others/gardener-extension-shoot-rsyslog-relp/index.md/': '/docs/extensions/others/gardener-extension-shoot-rsyslog-relp/',
+  '/docs/extensions/others/gardener-extension-shoot-rsyslog-relp/input-validation/': '/contribute/extensions/gardener-extension-shoot-rsyslog-relp/input-validation/',
+  '/docs/gardener/api-reference/_index/': '/docs/gardener/api-reference/',
+  '/docs/gardener/architecture/': '/docs/getting-started/architecture/',
+  '/docs/gardener/autoscaling-specifics-for-components/': '/contribute/gardener/autoscaling-specifics-for-components/',
+  '/docs/gardener/autoscaling/shoot_pod_autoscaling_best_practices/': '/docs/guides/applications/shoot-pod-autoscaling-best-practices/',
+  '/docs/gardener/component-checklist/': '/contribute/gardener/component-checklist/',
+  '/docs/gardener/concepts/_print/': '/docs/gardener/concepts/',
+  '/docs/gardener/defaulting/': '/contribute/developer-starter-kit/defaulting/',
+  '/docs/gardener/dependencies/': '/contribute/developer-starter-kit/dependencies/',
+  '/docs/gardener/development/getting_started_locally/': '/contribute/developer-starter-kit/getting_started_locally/',
+  '/docs/gardener/development/local_setup/': '/contribute/developer-starter-kit/local_setup/',
+  '/docs/gardener/development/testing/': '/contribute/developer-starter-kit/testing/',
+  '/docs/gardener/extensions/overview/': '/docs/gardener/extensions/',
+  '/docs/gardener/getting_started_locally/': '/docs/gardener/deployment/getting_started_locally/',
+  '/docs/gardener/high-availability-of-components/': '/contribute/gardener/high-availability-of-components/',
+  '/docs/gardener/high-availability/_print/': '/docs/guides/high-availability/',
+  '/docs/gardener/ipv6/': '/contribute/gardener/ipv6/',
+  '/docs/gardener/local_setup/': '/contribute/developer-starter-kit/local_setup/',
+  '/docs/gardener/monitoring-stack/': '/contribute/gardener/monitoring-stack/',
+  '/docs/gardener/monitoring/_print/': '/docs/gardener/monitoring/',
+  '/docs/gardener/new-cloud-provider/': '/contribute/gardener/new-cloud-provider/',
+  '/docs/gardener/new-kubernetes-version/': '/contribute/gardener/new-kubernetes-version/',
+  '/docs/gardener/observability/logging/': '/docs/gardener/logging/',
+  '/docs/gardener/priority-classes/': '/contribute/gardener/priority-classes/',
+  '/docs/gardener/process/': '/contribute/gardener/process/',
+  '/docs/gardener/reversed-vpn-tunnel/': '/contribute/gardener/reversed-vpn-tunnel/',
+  '/docs/gardener/security/_print/': '/docs/gardener/security/',
+  '/docs/gardener/security/workload_identity/': '/docs/gardener/shoot/shoot-workload-identity/',
+  '/docs/gardener/testing/': '/contribute/developer-starter-kit/testing/',
+  '/docs/gardener/usage/default_seccomp_profile/': '/docs/gardener/security/default_seccomp_profile/',
+  '/docs/gardener/usage/pod-security/': '/docs/gardener/security/pod-security/',
+  '/docs/gardener/usage/shoot/shoot_scheduling_profiles/': '/docs/gardener/shoot/shoot_scheduling_profiles/',
+  '/docs/gardener/usage/shoot_cleanup/': '/docs/gardener/advanced/shoot_cleanup/',
+  '/docs/gardener/usage/shoot_versions/': '/docs/gardener/shoot-operations/shoot_versions/',
+  '/docs/gardener/validation-guidelines/': '/contribute/developer-starter-kit/validation-guidelines/',
+  '/docs/getting-started/_print/': '/docs/getting-started/',
+  '/docs/glossary/_index/': '/docs/glossary/',
+  '/docs/glossary/_print/': '/docs/glossary/',
+  '/docs/guides/administer_shoots/request_cert/': '/docs/guides/networking/certificate-extension/',
+  '/docs/guides/applications/insecure-configuration/_print/': '/docs/guides/applications/insecure-configuration/',
+  '/docs/guides/networking/_print/': '/docs/guides/networking/',
+  '/docs/other-components/dependency-watchdog/concepts/_print/': '/docs/other-components/dependency-watchdog/concepts/',
+  '/docs/other-components/dependency-watchdog/contribution/': '/contribute/other-components/dependency-watchdog/contribution/',
+  '/docs/other-components/dependency-watchdog/testing/': '/contribute/other-components/dependency-watchdog/testing/',
+  '/docs/other-components/etcd-druid/_print/': '/docs/other-components/etcd-druid/',
+  '/docs/other-components/etcd-druid/changing-api/': '/contribute/other-components/etcd-druid/changing-api/',
+  '/docs/other-components/etcd-druid/contribution/': '/contribute/other-components/etcd-druid/contribution/',
+  '/docs/other-components/etcd-druid/controllers/': '/contribute/other-components/etcd-druid/controllers/',
+  '/docs/other-components/etcd-druid/dependency-management/': '/contribute/other-components/etcd-druid/dependency-management/',
+  '/docs/other-components/etcd-druid/deployment/getting-started-locally/index.md/': '/docs/other-components/etcd-druid/deployment/getting-started-locally/',
+  '/docs/other-components/etcd-druid/getting-started-locally/': '/contribute/other-components/etcd-druid/getting-started-locally/',
+  '/docs/other-components/etcd-druid/implementing-new-etcdopstask/': '/contribute/other-components/etcd-druid/implementing-new-etcdopstask/',
+  '/docs/other-components/etcd-druid/running-e2e-tests/': '/contribute/other-components/etcd-druid/running-e2e-tests/',
+  '/docs/other-components/etcd-druid/testing/': '/contribute/other-components/etcd-druid/testing/',
+  '/docs/other-components/etcd-druid/updating-documentation/': '/contribute/other-components/etcd-druid/updating-documentation/',
+  '/docs/other-components/machine-controller-manager/cp_support_new/': '/contribute/other-components/machine-controller-manager/cp_support_new/',
+  '/docs/other-components/machine-controller-manager/documents/_print/': '/docs/other-components/machine-controller-manager/documents/',
+  '/docs/other-components/machine-controller-manager/integration_tests/': '/contribute/other-components/machine-controller-manager/integration_tests/',
+  '/docs/other-components/machine-controller-manager/local_setup/': '/contribute/other-components/machine-controller-manager/local_setup/',
+  '/docs/references/core/': '/docs/gardener/api-reference/core/',
+  '/docs/tutorials/': '/docs/guides/',
+  '/docs/tutorials/knative-install/': '/docs/guides/applications/knative-install/',
+  '/documentation/050-tutorials/content/howto/gardener_gcp/': '/docs/extensions/infrastructure-extensions/gardener-extension-provider-gcp/kubernetes-cluster-on-gcp-with-gardener/',
+  '/documentation/contribute/20_documentation/25_markup/notice/': '/contribute/documentation/shortcodes/',
+  '/documentation/guides/administer_shoots/dns_names/': '/docs/guides/networking/DNS-extension/',
+  '/documentation/guides/administer_shoots/gardener_gcp/': '/docs/extensions/infrastructure-extensions/gardener-extension-provider-gcp/kubernetes-cluster-on-gcp-with-gardener/',
+  '/documentation/guides/administer_shoots/hibernate-cluster/': '/docs/gardener/shoot/shoot_hibernate/',
+  '/documentation/guides/administer_shoots/trigger-shoot-operations/': '/docs/gardener/shoot-operations/shoot_operations/',
+  '/documentation/guides/applications/https/': '/docs/guides/networking/certificate-extension/',
+  '/documentation/guides/client_tools/bash_kubeconfig/': '/docs/guides/client-tools/bash-kubeconfig/',
+  '/documentation/guides/install_gardener/secure-setup/': '/docs/security-and-compliance/kubernetes-hardening/',
+  '/documentation/references/core/': '/docs/gardener/api-reference/core/',
   '/hardend_shoots_report.html': '/hardened_shoots_report.html',
+  '/readmore/antipattern/': '/docs/guides/applications/antipattern/',
+  '/readmore/insecure/': '/docs/guides/applications/insecure-configuration/',
+  '/tutorials/': '/docs/guides/',
+  '/v1.13.2/guides/client_tools/bash_kubeconfig/': '/docs/guides/client-tools/bash-kubeconfig/',
 }
 
 export const PREFIX_REDIRECTS: PrefixRedirect[] = [
@@ -86,7 +179,7 @@ const createRedirectHtml = (targetPath: string) => {
     <title>Redirecting...</title>
     <meta http-equiv="refresh" content="0; url=${escapedTarget}">
     <link rel="canonical" href="${escapedTarget}">
-    <script>(function(){var t=${serializedTarget};window.location.replace(t+(t.indexOf('#')===-1?window.location.search+window.location.hash:''))})()</script>
+    <script>window.location.replace(${serializedTarget}+window.location.search+window.location.hash)</script>
   </head>
   <body>
     <p>Redirecting to <a href="${escapedTarget}">${escapedTarget}</a>.</p>
@@ -150,113 +243,22 @@ function joinBasePath(base: string, routePath: string): string {
   return `${normalizedBase}${normalizedRoute.slice(1)}`
 }
 
+const isExternal = (url: string) => /^https?:\/\//i.test(url)
+
+// External targets pass through untouched; internal ones get the site base and a trailing slash.
 export function normalizeTargetUrl(rawTarget: string, basePath = '/'): string {
   const trimmed = rawTarget.trim()
-  if (/^https?:\/\//i.test(trimmed)) return trimmed
-
-  const hashIndex = trimmed.indexOf('#')
-  const pathPart = hashIndex === -1 ? trimmed : trimmed.slice(0, hashIndex)
-  const hashPart = hashIndex === -1 ? '' : trimmed.slice(hashIndex)
-
-  return `${normalizeUrlPath(joinBasePath(basePath, pathPart))}${hashPart}`
+  return isExternal(trimmed) ? trimmed : normalizeUrlPath(joinBasePath(basePath, trimmed))
 }
 
-export function deriveImplicitAliases(sourcePath: string): string[] {
-  const normalizedPath = sourcePath.replace(/\\/g, '/')
-  if (!normalizedPath.toLowerCase().endsWith('.md')) return []
-
-  const withoutExt = normalizedPath.slice(0, -3)
-  const fileName = path.posix.basename(withoutExt).toLowerCase()
-  if (fileName === 'index' || fileName === '_index') return []
-
-  const derived: string[] = []
-
-  const blogMatch = /^blog\/(\d{4})\/\d{2}\/([^/]+)$/.exec(withoutExt)
-  if (blogMatch) {
-    derived.push(`/blog/${blogMatch[1]}/${blogMatch[2]}/`)
-  }
-
-  const gardenerUsageMatch = /^docs\/gardener\/(advanced|autoscaling|networking|project|security|shoot|shoot-operations)\/([^/]+)$/.exec(withoutExt)
-  if (gardenerUsageMatch) {
-    const [, category, slug] = gardenerUsageMatch
-    derived.push(
-      `/docs/gardener/${slug}/`,
-      `/docs/gardener/usage/${slug}/`,
-      `/docs/gardener/usage/${category}/${slug}/`,
-    )
-  }
-
-  const starterKitMatch = /^contribute\/developer-starter-kit\/([^/]+)$/.exec(withoutExt)
-  if (starterKitMatch) {
-    const slug = starterKitMatch[1]
-    derived.push(
-      `/docs/gardener/${slug}/`,
-      `/docs/gardener/development/${slug}/`,
-      `/docs/gardener/deployment/${slug}/`,
-    )
-  }
-
-  const contributeGardenerMatch = /^contribute\/gardener\/([^/]+)$/.exec(withoutExt)
-  if (contributeGardenerMatch) {
-    const slug = contributeGardenerMatch[1]
-    derived.push(
-      `/docs/gardener/${slug}/`,
-      `/docs/gardener/development/${slug}/`,
-    )
-  }
-
-  const otherComponentsMatch = /^contribute\/other-components\/(.+)$/.exec(withoutExt)
-  if (otherComponentsMatch) {
-    derived.push(`/docs/other-components/${otherComponentsMatch[1]}/`)
-  }
-
-  const contributeExtMatch = /^contribute\/extensions\/(.+)$/.exec(withoutExt)
-  if (contributeExtMatch) {
-    const rest = contributeExtMatch[1]
-    derived.push(
-      rest.startsWith('infrastructure-extensions/')
-        ? `/docs/extensions/${rest}/`
-        : `/docs/extensions/others/${rest}/`,
-    )
-  }
-
-  const providerTutorialMatch = /^docs\/extensions\/infrastructure-extensions\/([^/]+)\/(kubernetes-cluster-on-.+)$/.exec(withoutExt)
-  if (providerTutorialMatch) {
-    derived.push(`/docs/extensions/infrastructure-extensions/${providerTutorialMatch[1]}/tutorials/${providerTutorialMatch[2]}/`)
-  }
-
-  const extDocMatch = /^docs\/extensions\/([^/]+)\/([^/]+)\/([^/]+)$/.exec(withoutExt)
-  if (extDocMatch) {
-    const [, category, ext, slug] = extDocMatch
-    derived.push(`/docs/extensions/${category}/${ext}/docs/usage/${slug}/`)
-    if (slug === 'usage') {
-      derived.push(
-        `/docs/extensions/${category}/${ext}/docs/usage/`,
-        `/docs/extensions/${category}/${ext}/docs/usage-as-end-user/`,
-        `/docs/extensions/${category}/${ext}/usage-as-end-user/`,
-      )
-    }
-  }
-
-  return derived
-}
-
+// Mirrors Netlify's trailing-splat matching so `make dev` behaves like production.
 export function matchPrefixRedirect(urlPath: string, basePath = '/'): string | null {
   const normalizedPath = normalizeUrlPath(urlPath)
-  const lowerPath = normalizedPath.toLowerCase()
 
   for (const rule of PREFIX_REDIRECTS) {
     const prefix = normalizeUrlPath(rule.from.replace(/\*$/, '')).toLowerCase()
-    if (!lowerPath.startsWith(prefix)) continue
-
-    const splat = normalizedPath.slice(prefix.length)
-    if (/^https?:\/\//i.test(rule.to)) {
-      return rule.to.includes(':splat') ? rule.to.replace(':splat', splat) : rule.to
-    }
-    const resolvedTarget = rule.to.includes(':splat')
-      ? rule.to.replace(':splat', splat)
-      : rule.to
-    return normalizeTargetUrl(resolvedTarget, basePath)
+    if (!normalizedPath.toLowerCase().startsWith(prefix)) continue
+    return normalizeTargetUrl(rule.to.replace(':splat', normalizedPath.slice(prefix.length)), basePath)
   }
 
   return null
@@ -386,10 +388,7 @@ export async function collectAliasEntries(srcDir: string, basePath: string): Pro
           continue
         }
 
-        redirects.set(aliasKey, {
-          sourcePath,
-          targetPath,
-        })
+        redirects.set(aliasKey, { aliasPath: normalizedAlias, sourcePath, targetPath })
       }
     }
   }
@@ -405,59 +404,27 @@ export async function collectAliasEntries(srcDir: string, basePath: string): Pro
     }
 
     if (!redirects.has(aliasKey)) {
-      redirects.set(aliasKey, {
-        sourcePath: 'STATIC_REDIRECTS',
-        targetPath,
-      })
-    }
-  }
-
-  for (const markdownFile of markdownFiles) {
-    const sourcePath = path.relative(srcDir, markdownFile).replace(/\\/g, '/')
-    const derivedAliases = deriveImplicitAliases(sourcePath)
-    if (derivedAliases.length === 0) continue
-
-    const routePath = normalizeUrlPath(toRoutePath(sourcePath))
-    const targetPath = normalizeTargetUrl(routePath, basePath)
-
-    for (const alias of derivedAliases) {
-      const normalizedAlias = normalizeUrlPath(alias)
-      const aliasKey = normalizedAlias.toLowerCase()
-
-      if (canonicalRoutes.has(aliasKey) || redirects.has(aliasKey)) {
-        continue
-      }
-
-      redirects.set(aliasKey, {
-        sourcePath,
-        targetPath,
-      })
+      redirects.set(aliasKey, { aliasPath: normalizedAlias, sourcePath: 'STATIC_REDIRECTS', targetPath })
     }
   }
 
   return { redirects, warnings }
 }
 
-export function buildNetlifyRedirects(
-  writtenAliases: { aliasPath: string; redirect: AliasEntry }[],
-  basePath = '/',
-): string {
+// `301!` forces the redirect even though a static <alias>/index.html fallback exists in dist/.
+export function buildNetlifyRedirects(redirects: AliasEntry[], basePath = '/'): string {
   const lines: string[] = ['# Auto-generated by .vitepress/plugins/alias-redirects.ts']
 
-  for (const { aliasPath, redirect } of writtenAliases) {
-    const fromWithBase = normalizeUrlPath(joinBasePath(basePath, aliasPath))
-    lines.push(`${fromWithBase} ${redirect.targetPath} 301!`)
+  for (const { aliasPath, targetPath } of redirects) {
+    lines.push(`${normalizeUrlPath(joinBasePath(basePath, aliasPath))} ${targetPath} 301!`)
   }
 
   for (const rule of PREFIX_REDIRECTS) {
-    const prefixWithoutStar = rule.from.replace(/\*$/, '')
-    const fromWithBase = `${normalizeUrlPath(joinBasePath(basePath, prefixWithoutStar))}*`
-    const toWithBase = /^https?:\/\//i.test(rule.to)
-      ? rule.to
-      : rule.to.includes(':splat')
-        ? `${normalizeUrlPath(joinBasePath(basePath, rule.to.replace(':splat', '')))}:splat`
-        : normalizeTargetUrl(rule.to, basePath)
-    lines.push(`${fromWithBase} ${toWithBase} 301!`)
+    const from = `${normalizeUrlPath(joinBasePath(basePath, rule.from.replace(/\*$/, '')))}*`
+    const to = rule.to.includes(':splat')
+      ? `${normalizeTargetUrl(rule.to.replace(':splat', ''), basePath)}:splat`
+      : normalizeTargetUrl(rule.to, basePath)
+    lines.push(`${from} ${to} 301!`)
   }
 
   lines.push('')
@@ -470,7 +437,8 @@ export async function generateAliasRedirects(siteConfig: SiteConfig): Promise<vo
 
   const writtenAliases: { aliasPath: string; redirect: AliasEntry }[] = []
 
-  for (const [aliasPath, redirect] of redirects.entries()) {
+  for (const redirect of redirects.values()) {
+    const { aliasPath } = redirect
     const redirectFilePath = toRedirectOutputPath(siteConfig.outDir, aliasPath)
     if (!redirectFilePath) continue
 
@@ -487,7 +455,7 @@ export async function generateAliasRedirects(siteConfig: SiteConfig): Promise<vo
   writtenAliases.sort((a, b) => a.aliasPath.localeCompare(b.aliasPath))
 
   const netlifyRedirectsPath = path.join(siteConfig.outDir, '_redirects')
-  await fs.writeFile(netlifyRedirectsPath, buildNetlifyRedirects(writtenAliases, basePath), 'utf8')
+  await fs.writeFile(netlifyRedirectsPath, buildNetlifyRedirects(writtenAliases.map((w) => w.redirect), basePath), 'utf8')
 
   const reportFilePath = path.join(path.dirname(siteConfig.outDir), 'alias-redirects.txt')
   const reportBody = buildAliasReport(writtenAliases, warnings, basePath)
@@ -507,9 +475,7 @@ function buildAliasReport(
 
   lines.push(`# Prefix redirects (${PREFIX_REDIRECTS.length})`)
   for (const rule of PREFIX_REDIRECTS) {
-    const target = /^https?:\/\//i.test(rule.to) || rule.to.includes(':splat')
-      ? rule.to
-      : normalizeTargetUrl(rule.to, basePath)
+    const target = rule.to.includes(':splat') ? rule.to : normalizeTargetUrl(rule.to, basePath)
     lines.push(`${rule.from} -> ${target}`)
   }
   lines.push('')
@@ -608,13 +574,13 @@ export function createAliasRedirectDevPlugin(srcDir: string, basePath: string) {
             return
           }
 
-          if (!/^https?:\/\//i.test(targetPath) && normalizeUrlPath(requestUrl.pathname).toLowerCase() === normalizeUrlPath(targetPath).toLowerCase()) {
+          if (!isExternal(targetPath) && normalizeUrlPath(requestUrl.pathname).toLowerCase() === normalizeUrlPath(targetPath).toLowerCase()) {
             next()
             return
           }
 
           res.statusCode = 302
-          res.setHeader('Location', targetPath)
+          res.setHeader('Location', targetPath + requestUrl.search)
           res.end()
         })().catch((error) => {
           const message = error instanceof Error ? error.message : String(error)
