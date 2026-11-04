@@ -365,6 +365,7 @@ apiVersion: alicloud.provider.extensions.gardener.cloud/v1alpha1
 kind: ControlPlaneConfig
 csi:
   enableADController: true
+  enableLabeler: true
 # cloudControllerManager:
 #   featureGates:
 #     SomeKubernetesFeature: true
@@ -373,6 +374,8 @@ csi:
 #   managedDefaultVolumeSnapshotClass: true
 ```
 The `csi.enableADController` is used as the value of environment [DISK_AD_CONTROLLER](https://github.com/kubernetes-sigs/alibaba-cloud-csi-driver/blob/cd0788a0a440926d504d8f8fb7f6e738fe96f3ae/pkg/disk/nodeserver.go#L80), which is used for AliCloud csi-disk-plugin. This field is optional. When a new shoot is creatd, this field is automatically set true. For an existing shoot created in previous versions, it remains unchanged. If there are persistent volumes created before year 2021, please be cautious to set this field *true* because they may fail to mount to nodes.
+
+The `csi.enableLabeler` enables the labeler mode for the node-side CSI DaemonSet. When set to `true` (requires `csi.enableADController: true`), the seed controller patches each node with disk capacity information via an annotation, and the DaemonSet reads from that annotation instead of calling ECS APIs directly. This field is optional and defaults to `false`.
 
 The `cloudControllerManager.featureGates` contains a map of explicitly enabled or disabled feature gates.
 For production usage it's not recommend to use this field at all as you can enable alpha features or disable beta/stable features, potentially impacting the cluster stability.
@@ -454,7 +457,7 @@ spec:
     nodes: 10.250.0.0/16
     type: calico
   kubernetes:
-    version: 1.32.0
+    version: 1.33.0
   maintenance:
     autoUpdate:
       kubernetesVersion: true
@@ -518,7 +521,7 @@ spec:
     nodes: 10.250.0.0/16
     type: calico
   kubernetes:
-    version: 1.32.0
+    version: 1.33.0
   maintenance:
     autoUpdate:
       kubernetesVersion: true

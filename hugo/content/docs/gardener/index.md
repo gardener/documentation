@@ -268,7 +268,6 @@ next: false
 * [Gardener Upgrade Guide](/docs/gardener/upgrade-gardener/)
 * [`CloudProfile` Capabilities](/docs/gardener/cloudprofile_capabilities/)
 * [Control Plane Migration](/docs/gardener/control_plane_migration/)
-* [Enabling In-place Resource Updates](/docs/gardener/enabling-in-place-resource-updates/)
 * [Immutable Backup Buckets](/docs/gardener/immutable-backup-buckets/)
 * [Istio](/docs/gardener/istio/)
 * [Kube API server load balancing](/docs/gardener/kube_apiserver_loadbalancing/)

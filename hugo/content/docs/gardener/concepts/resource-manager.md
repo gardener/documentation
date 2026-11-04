@@ -1299,35 +1299,6 @@ spec:
 For mutating pods, the webhook needs to know the namespace of the istio ingress gateway responsible for the kube-apiserver and its host names.
 These values are stored in `istio-internal-load-balancing` configmap in the same namespace as the pod being mutated.
 
-#### Vertical Pod Autoscaler In-Place Or Recreate Update Mode
-
-When enabled, this webhook provides a mechanism of mutating `VerticalPodAutoscaler` [resources](https://github.com/kubernetes/autoscaler/blob/master/vertical-pod-autoscaler/deploy/vpa-crd.yaml)
-
-```yaml
-.spec.updatePolicy.updateMode
-```
-
-configured with `Auto` or `Recreate` to switch to update mode `InPlaceOrRecreate`, enabling *in-place* `Pod` [resources updates](https://kubernetes.io/blog/2025/05/16/kubernetes-v1-33-in-place-pod-resize-beta/). Preserving the `resource-manager` scope, the following constraints apply:
-- *mutates* all `vpa` resources **inside** `kube-system` and `kubernetes-dashboards` namespaces on `Shoot` clusters
-- *mutates* all `vpa` resources **outside** `kube-system` and `kubernetes-dashboards` namespaces on `Seed` clusters
-
-In addition, to prevent the *mutation* of certain `VerticalPodAutoscaler` [resources](https://github.com/kubernetes/autoscaler/blob/master/vertical-pod-autoscaler/deploy/vpa-crd.yaml) falling within the webhook's scope, the following *label*
-
-```
-vpa-in-place-updates.resources.gardener.cloud/skip
-```
-
-could be appended to the resource metadata. With the *label* specified, the webhook will filter out the resources, leaving its current `updateMode` configuration.
-To indicate that a `vpa` resource has already been mutated by the *webhook*, an additional
-
-```
-vpa-in-place-updates.resources.gardener.cloud/mutated
-```
-
-*label* gets added to the resource metadata.
-
-The webhook is enabled unconditionally for resource manager deployments managed by both [gardenlet](/docs/gardener/concepts/gardenlet/) and [gardener operator](/docs/gardener/concepts/operator/).
-
 ### Validating Webhooks
 
 #### Unconfirmed Deletion Prevention For Custom Resources And Definitions
