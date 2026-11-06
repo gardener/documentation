@@ -198,7 +198,7 @@ graph TD
       P2["part-2: migrate alerts, clean layouts,<br/>flatten dirs, nav frontmatter"] --> PI
       PI["part-index: _index.md → index.md,<br/>create missing index stubs"] --> PB
       PB["part-banner: inject<br/>MANAGED / LOCAL"] --> P3
-      P3["part-3: update report link,<br/>process api html"]
+      P3["part-3: process api html"]
     end
     P3 --> B["make build (VitePress)"]
 ```

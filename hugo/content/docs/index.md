@@ -1,7 +1,4 @@
 ---
-aliases:
-  - docs/
-redirectUrl: /documentation/home
 title: Docs
 prev: false
 next: false

@@ -144,4 +144,5 @@ You can also add multiple topics to the website at once, either through linking 
 
 - If you want to place a file inside of an already existing directory in the main repo, you need to create a `dir` element that matches its name. If one already exists, simply add your link to its `structure` element.
 - You can chain multiple files, folders, and manifests inside of a single `structure` element.
+- When moving or removing entries in `.docforge/` manifests changes published URLs, add the corresponding redirect rules in [`.vitepress/plugins/alias-redirects.ts`](https://github.com/gardener/documentation/blob/master/.vitepress/plugins/alias-redirects.ts) rather than adding `aliases` in `.docforge/*.yaml`. See [Redirects and Aliases](/contribute/documentation/style-guide/#redirects-and-aliases).
 - For examples of `frontmatter` elements, see the [Style Guide](/contribute/documentation/style-guide/#front-matter).
