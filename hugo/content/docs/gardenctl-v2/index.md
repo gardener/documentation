@@ -178,7 +178,8 @@ The state of gardenctl is bound to a shell session and is not shared across wind
 A shell session is defined by the environment variable `GCTL_SESSION_ID`. If this is not defined,
 the value of the `TERM_SESSION_ID` environment variable is used instead. If both are not defined,
 this leads to an error and gardenctl cannot be executed. The `target.yaml` and temporary
-`kubeconfig.*.yaml` files are stored in the following directory `${TMPDIR}/garden/${GCTL_SESSION_ID}`.
+`kubeconfig.*.yaml` files are stored in the following directory `${TMPDIR}/garden-${UID}/sessions/${GCTL_SESSION_ID}`
+(`%TEMP%\garden\sessions\%GCTL_SESSION_ID%` on Windows).
 
 You can make sure that `GCTL_SESSION_ID` or `TERM_SESSION_ID` is always present by adding
 the following code to your terminal profile `~/.profile`, `~/.bashrc` or comparable file.

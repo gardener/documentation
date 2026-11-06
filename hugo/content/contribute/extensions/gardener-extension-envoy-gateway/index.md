@@ -112,8 +112,8 @@ copy lives at
 
 | Component | Version |
 | --- | --- |
-| Envoy Gateway | v1.8.3 |
-| Gateway API CRDs | v1.5.1 |
+| Envoy Gateway | v1.9.3 |
+| Gateway API CRDs | v1.6.3 |
 
 The CRD YAML manifests are downloaded once and embedded under
 `pkg/envoygateway/assets/`. Refresh them with `hack/update-crds.sh` after bumping
@@ -129,7 +129,8 @@ for the authoritative list.
 
 | Envoy Gateway | Envoy Proxy | Gateway API | Kubernetes |
 | --- | --- | --- | --- |
-| **v1.8** | **v1.38.0** | **v1.5.1** | **v1.32 – v1.35** |
+| **v1.9** | **v1.39.0** | **v1.6.3** | **v1.33 – v1.36** |
+| v1.8 | v1.38.0 | v1.5.1 | v1.32 – v1.35 |
 | v1.7 | v1.37.0 | v1.4.1 | v1.32 – v1.35 |
 | v1.6 | v1.36.4 | v1.4.0 | v1.30 – v1.33 |
 | v1.5 | v1.35.0 | v1.3.0 | v1.30 – v1.33 |

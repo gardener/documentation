@@ -87,7 +87,7 @@ gardenctl ssh --keep-bastion --bastion-name cli-xxxxxxxx --public-key-file /path
       --bastion-name string                       Name of the bastion. If a bastion with this name doesn't exist, it will be created. If it does exist, the provided public SSH key must match the one used during the bastion's creation.
       --bastion-port string                       SSH port of the bastion used for the SSH client command. Defaults to port 22 (default "22")
       --bastion-strict-host-key-checking string   Specifies how the SSH client performs host key checking for the bastion host. Valid options are 'yes', 'no', or 'ask'. (default "ask")
-      --bastion-user-known-hosts-file strings     Path to a custom known hosts file for verifying remote hosts' public keys during SSH connection to the bastion. If not provided, defaults to <temp_dir>/garden/cache/<bastion_uid>/.ssh/known_hosts
+      --bastion-user-known-hosts-file strings     Path to a custom known hosts file for verifying remote hosts' public keys during SSH connection to the bastion. If not provided, defaults to <temp_dir>/garden-<uid>/cache/<bastion_uid>/.ssh/known_hosts (<temp_dir>\garden\cache\<bastion_uid>\.ssh\known_hosts on Windows)
       --cidr stringArray                          CIDRs to allow access to the bastion host; if not given, your system's public IPs (v4 and v6) are auto-detected.
   -y, --confirm-access-restriction                Bypasses the need for confirmation of any access restrictions. Set this flag only if you are fully aware of the access restrictions.
       --control-plane                             target control plane of shoot, use together with shoot argument
