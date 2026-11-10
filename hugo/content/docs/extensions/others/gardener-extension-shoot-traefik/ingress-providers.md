@@ -225,6 +225,37 @@ spec:
 ...
 ```
 
+## PROXY Protocol (client IP on AWS)
+
+On **AWS**, Gardener provisions a Classic LoadBalancer with TCP (L4) listeners. An L4 TCP LoadBalancer cannot insert an `X-Forwarded-For` header, so the real client IP is lost and Traefik instead sees the LoadBalancer's internal VPC address. This breaks access control that depends on the client IP — most notably `nginx.ingress.kubernetes.io/whitelist-source-range` (used by the `KubernetesIngressNGINX` provider), which then returns `403` to every request. The [PROXY protocol](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt) is the mechanism that carries the original client IP across the L4 hop.
+
+The extension handles this the same way the retired nginx-ingress addon did: **PROXY protocol is enabled automatically on AWS shoots** and disabled on all other providers (GCP, Azure, OpenStack preserve the client IP natively, and enabling PROXY protocol there would break traffic). When enabled, the extension:
+
+- adds `service.beta.kubernetes.io/aws-load-balancer-proxy-protocol: "*"` to the Traefik `LoadBalancer` Service, and
+- configures `proxyProtocol.trustedIPs` on the `web` and `websecure` entrypoints (defaulting to the shoot's node and pod network CIDRs, since the LoadBalancer lives inside the shoot VPC).
+
+You normally do not need to configure anything. To override the defaults — force-enable/disable, or trust a specific source range (e.g. an OpenStack Octavia setup with PROXY-protocol listeners) — use the `proxyProtocol` block:
+
+```yaml
+kind: Shoot
+...
+spec:
+  extensions:
+    - type: shoot-traefik
+      providerConfig:
+        apiVersion: traefik.extensions.gardener.cloud/v1alpha2
+        kind: TraefikConfig
+        proxyProtocol:
+          enabled: true
+          trustedIPs:
+            - 10.250.0.0/16   # node/VPC CIDR
+            - 100.96.0.0/11   # pod CIDR
+...
+```
+
+> [!WARNING]
+> Only enable PROXY protocol when the LoadBalancer in front of Traefik actually sends a PROXY header. Enabling it without a PROXY-protocol-speaking LoadBalancer (or disabling it on AWS) breaks all ingress traffic, because the two ends disagree on whether a PROXY header is present.
+
 ## Configuration Reference
 
 All fields live at the top level of `providerConfig` (`apiVersion: traefik.extensions.gardener.cloud/v1alpha2`, `kind: TraefikConfig`).
@@ -238,6 +269,8 @@ All fields live at the top level of `providerConfig` (`apiVersion: traefik.exten
 | `logLevel` | string | `Info` | Traefik log verbosity. One of `Debug`, `Info`, `Warn`, `Error`, `Fatal`, `Panic`. |
 | `dashboard` | bool | `false` | Enables the Traefik dashboard on port `9000`. Not recommended for production-like clusters. |
 | `httpEntrypoint` | string | `Enabled` | Controls the LoadBalancer HTTP (port `80`) behavior. One of `Enabled` (serve HTTP), `Redirect` (301 HTTP→HTTPS), or `Disabled` (no port 80). |
+| `proxyProtocol.enabled` | bool | `true` on AWS, else `false` | Enables PROXY protocol so the real client IP is preserved. Defaults to enabled on AWS (Classic L4 LoadBalancer), disabled elsewhere. |
+| `proxyProtocol.trustedIPs` | []string | shoot node + pod CIDRs | CIDRs or IPs Traefik trusts to send a PROXY header on the `web`/`websecure` entrypoints. |
 
 ## Further Reading
 

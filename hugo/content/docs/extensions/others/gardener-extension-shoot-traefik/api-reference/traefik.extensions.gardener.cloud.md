@@ -72,3 +72,15 @@ IngressProviderType defines the type of Kubernetes Ingress provider to use.
 | --- | --- |
 | `KubernetesIngress` | IngressProviderKubernetesIngress is the standard Kubernetes Ingress provider.<br /> |
 | `KubernetesIngressNGINX` | IngressProviderKubernetesIngressNGINX is the NGINX-compatible Kubernetes Ingress provider.<br />This provider supports NGINX Ingress Controller annotations, making it easier to migrate<br />from NGINX Ingress Controller to Traefik.<br /> |
+
+#### ProxyProtocolConfig
+
+ProxyProtocolConfig configures PROXY protocol handling for the Traefik LoadBalancer.
+
+*Appears in:*
+- [TraefikConfig](#traefikconfig)
+
+| Field | Description | Default | Validation |
+| --- | --- | --- | --- |
+| `enabled` *boolean* | Enabled explicitly turns PROXY protocol on or off. When nil, PROXY protocol defaults<br />to enabled on AWS shoots and disabled on all other providers. |  |  |
+| `trustedIPs` *string array* | TrustedIPs is the list of CIDRs (or bare IPs) Traefik trusts to send a PROXY protocol<br />header on the web and websecure entrypoints. When empty, it defaults to the shoot's<br />node and pod network CIDRs, since the LoadBalancer lives inside the shoot VPC. |  |  |
