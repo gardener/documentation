@@ -225,10 +225,16 @@ function detectBot(props: Record<string, string>, userAgent: string): string | n
   return null
 }
 
-/** Ensure page URLs sent to Plausible always end with a trailing slash so `/docs` and `/docs/` do not split metrics. */
+/**
+ * Unify page URLs sent to Plausible to the gardener convention (always a trailing slash),
+ * so `/docs`, `/docs/`, `/docs.html` and `/docs/index.html` do not split metrics.
+ * Netlify Pretty URLs rewrites these server-side, but the browser can still see `.html` URLs
+ * (manual entry, old bookmarks, deeplinks) and the tracker would count them separately.
+ */
 export function normalizeEventUrl(rawUrl: string): string {
   try {
     const parsed = new URL(rawUrl)
+    parsed.pathname = parsed.pathname.replace(/(\/index)?\.html$/, '')
     if (!parsed.pathname.endsWith('/') && !/\.[a-z0-9]+$/i.test(parsed.pathname)) {
       parsed.pathname += '/'
     }
