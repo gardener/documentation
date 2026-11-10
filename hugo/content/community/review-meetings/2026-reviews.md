@@ -31,6 +31,28 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2026/11/11 - [v1.155](https://github.com/gardener/gardener/releases/tag/v1.155.0) Release
+
+[📽️ Recording]()
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@wpross](https://github.com/wpross) | `5m` | 🏗️ Multi-Arch `gardener-node-agent` Image for `remote` Setup | [#15944](https://github.com/gardener/gardener/pull/15944) |
+| [@timuthy](https://github.com/timuthy) | `10m` | 🔑 Garden Cluster Kubeconfig for Runtime Extensions | [#15940](https://github.com/gardener/gardener/pull/15940) |
+| [@cerealsnow](https://github.com/cerealsnow) | `5m` | 🌍 Dedicated `DNSRecord` for `dashboard`/`discovery-server` | [#16006](https://github.com/gardener/gardener/pull/16006) |
+| [@ialidzhikov](https://github.com/ialidzhikov) | `10m` | 🔄 `gardenadm restore` for Self-Hosted `Shoot` Clusters | [#15264 (issue)](https://github.com/gardener/gardener/issues/15264) |
+| [@iypetrov](https://github.com/iypetrov) | `5m` | 💾 Strip Unused `Cluster` Spec Blobs From `logging` Informer Cache | [logging#566](https://github.com/gardener/logging/pull/566) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- 🪓 [OPERATOR] The managed service principal feature has been removed. Operator-provisioned per-tenant Azure service principal secrets (labeled `azure.provider.extensions.gardener.cloud/purpose=tenant-service-principal-secret`) are no longer read or injected by the cloudprovider webhook. [gardener-extension-provider-azure#1651](https://github.com/gardener/gardener-extension-provider-azure/pull/1651)
+- 🐛 [OPERATOR] Fixed a race during credentials rotation where a stale cache read could undo the ETCD encryption key switch or cause rotation steps (such as taking an ETCD snapshot or creating `StorageVersionMigration` resources) to be redundantly re-run. This affects both the ETCD peer CA rollout during CA rotation and the ETCD encryption key rotation for `kube-apiserver` and `gardener-apiserver`. [#16193](https://github.com/gardener/gardener/pull/16193)
+- 🐛 [USER] Fixed a bug that would skip cleanup of shoot resource if they are owned by a user-deployed `gardener-resource-manager`, e.g., when using a shoot as a garden runtime or seed cluster of another Gardener environment. [#16183](https://github.com/gardener/gardener/pull/16183)
+
+<hr />
+
 ### 2026/10/28 - [v1.154](https://github.com/gardener/gardener/releases/tag/v1.154.0) Release
 
 [📽️ Recording](https://youtu.be/aq3M3-C0U14)
