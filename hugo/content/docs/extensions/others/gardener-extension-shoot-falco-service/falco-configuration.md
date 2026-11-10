@@ -303,7 +303,7 @@ The `tolerations` option allows Falco pods to be scheduled on nodes with taints,
 
 The `heartbeatEvent` option enables or disables the heartbeat event, which is a periodic event sent by Falco to indicate it is running and healthy. This is useful for monitoring.
 
-The `falcoConfig` option configures resource requests and limits for the Falco container. Each value accepts either a plain Kubernetes quantity or an arithmetic expression evaluated against the node's capacity as published in the cloud profile.
+The `falcoConfig` option configures resource requests and limits for the Falco container, as well as Falco engine tuning parameters. Resource values accept either a plain Kubernetes quantity or an arithmetic expression evaluated against the node's capacity as published in the cloud profile.
 
 ### Static resources
 
@@ -379,6 +379,39 @@ You can mix plain quantities and expressions in the same block:
 ```
 
 In this example `high-memory-pool` uses fixed quantities while all other pools use the expression-based defaults.
+
+### Engine parameters
+
+`engineConfig` exposes Falco kernel-driver ring-buffer tuning parameters that map directly to the `modern_ebpf` section of `falco.yaml`. Both fields are optional — if omitted, Falco's built-in defaults apply (`cpus_for_each_buffer: 2`, `buf_size_preset: 4`).
+
+| Field | Type | Default | Valid range | Description |
+| --- | --- | --- | --- | --- |
+| `cpusForEachBuffer` | int | 2 | 1–64 | Number of CPUs that share one syscall ring buffer. Lower values create more buffers (more memory, less per-CPU contention). |
+| `bufSizePreset` | int | 4 | 1–10 | Ring-buffer size preset. Larger values reduce event drops under high syscall rates at the cost of memory. |
+
+**Global engine config** (applies to all pools):
+
+```yaml
+      falcoConfig:
+        engineConfig:
+          cpusForEachBuffer: 4
+          bufSizePreset: 6
+```
+
+**Per-pool override** — `workerPoolEngineConfig` follows the same merge semantics as `workerPoolResources`: only the fields set in a pool entry are overridden; unset fields fall back to `engineConfig`. Pools not listed use `engineConfig` directly.
+
+```yaml
+      falcoConfig:
+        engineConfig:
+          cpusForEachBuffer: 2
+          bufSizePreset: 4
+        workerPoolEngineConfig:
+          high-throughput-pool:
+            cpusForEachBuffer: 8
+            bufSizePreset: 8
+          low-traffic-pool:
+            bufSizePreset: 2      # cpusForEachBuffer falls back to the global value of 2
+```
 
 ## Destinations
 

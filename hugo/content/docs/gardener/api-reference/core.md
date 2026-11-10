@@ -7209,7 +7209,7 @@ boolean
 </p>
 
 <p>
-Machine contains information about the machine type and image.
+Machine contains information about the machine type, image and architecture.
 </p>
 
 <table>
@@ -13794,7 +13794,7 @@ string
 </em>
 </td>
 <td>
-<p>Machine contains information about the machine type and image.</p>
+<p>Machine contains information about the machine type, image and architecture.</p>
 </td>
 </tr>
 <tr>

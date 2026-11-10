@@ -118,8 +118,8 @@ copy lives at
 | Gateway API CRDs | v1.6.3 |
 
 The CRD YAML manifests are downloaded once and embedded under
-`pkg/envoygateway/assets/`. Refresh them with `hack/update-crds.sh` after bumping
-versions in the script.
+`pkg/envoygateway/assets/`, pinned by checksum in `hack/crd-assets.sha256`.
+Refresh them with `hack/update-crds.sh` after bumping versions in the script.
 
 ### Compatibility matrix
 

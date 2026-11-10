@@ -82,16 +82,30 @@ make check-helm   # lints all three Helm charts and validates rendered manifests
 ## Refreshing the embedded CRDs
 
 The Gateway API and Envoy Gateway CRDs are committed to the repository under
-`pkg/envoygateway/assets/`. To refresh them after bumping the versions in
-`hack/update-crds.sh`:
+`pkg/envoygateway/assets/`. The script downloads the upstream YAML manifests
+and renders the Envoy Gateway Helm chart, then writes the result under
+`pkg/envoygateway/assets/`. Commit the resulting files so the build stays
+reproducible offline.
+
+The downloaded artifacts are pinned for integrity: the two Gateway API CRD
+YAMLs are checked against sha256 checksums and the Envoy Gateway chart against
+its OCI digest, all recorded in `hack/crd-assets.sha256`.
 
 ```bash
+# Verify the committed assets against the recorded pins (no version change).
 bash hack/update-crds.sh
 ```
 
-The script downloads the upstream YAML manifests and renders the Envoy
-Gateway Helm chart, then writes the result under `pkg/envoygateway/assets/`.
-Commit the resulting files so the build stays reproducible offline.
+A plain run re-downloads and **verifies**, aborting without touching the
+assets if anything fails to match the manifest. When you intentionally change
+the pinned versions, re-record the manifest instead:
+
+```bash
+# Adopt new versions: re-download, re-record the pins, skip verification.
+REGENERATE_CHECKSUMS=1 bash hack/update-crds.sh
+```
+
+Commit the refreshed assets together with the updated `hack/crd-assets.sha256`.
 
 ## Versioning
 
@@ -114,9 +128,11 @@ upstream chart and must be reconciled by hand).
    * The version rows in `README.md` (Envoy Gateway / Gateway API versions
      and the compatibility matrix).
 
-1. **Refresh the embedded CRDs.**
+1. **Refresh the embedded CRDs and re-record the pins.** Because the
+   versions just changed, re-record the integrity manifest rather than
+   verifying against the old pins:
    ```bash
-   bash hack/update-crds.sh
+   REGENERATE_CHECKSUMS=1 bash hack/update-crds.sh
    ```
 
 1. **Reconcile the ClusterRole against upstream.** The upstream Envoy
@@ -150,6 +166,7 @@ upstream chart and must be reconciled by hand).
    Proxy or supported Kubernetes range shifted (per the upstream
    [compatibility matrix](https://gateway.envoyproxy.io/news/releases/matrix/)).
 
-1. **Commit** the version bump, the refreshed CRD assets, the RBAC
-   updates, and the README diff as one changeset. Reviewers should be
-   able to see everything the bump touched in one place.
+1. **Commit** the version bump, the refreshed CRD assets, the updated
+   `hack/crd-assets.sha256` pin manifest, the RBAC updates, and the README
+   diff as one changeset. Reviewers should be able to see everything the
+   bump touched in one place.
