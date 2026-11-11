@@ -28,7 +28,7 @@ const createRedirectHtml = (targetPath: string) => {
     <link rel="canonical" href="${escapedTarget}">
     <script defer data-domain="gardener.cloud" data-api="/pa/event" src="/pa/script.js"></script>
     <script>
-      window.plausible('404 Redirect', { props: { path: window.location.pathname, target: ${serializedTarget} }, interactive: false })
+      try { window.plausible && window.plausible('404 Redirect', { props: { path: window.location.pathname, target: ${serializedTarget} }, interactive: false }) } catch (e) {}
       window.location.replace(${serializedTarget}+window.location.search+window.location.hash)
     </script>
   </head>
