@@ -1,17 +1,23 @@
-import { type SiteConfig } from 'vitepress'
+import type { SiteConfig } from 'vitepress'
 import type { ViteDevServer } from 'vite'
 import type { IncomingMessage, ServerResponse } from 'node:http'
 import fs from 'node:fs/promises'
 import matter from 'gray-matter'
 import path from 'path'
 
+import { STATIC_REDIRECTS, PREFIX_REDIRECTS } from './redirects.ts'
+export type { PrefixRedirect } from './redirects.ts'
+
 export type AliasEntry = {
+  // Original casing; the map key is lowercased for lookups only.
+  aliasPath: string
   sourcePath: string
   targetPath: string
 }
 
 const createRedirectHtml = (targetPath: string) => {
   const escapedTarget = escapeHtml(targetPath)
+  const serializedTarget = JSON.stringify(targetPath).replace(/</g, '\\u003c')
 
   return `<!doctype html>
 <html lang="en">
@@ -20,7 +26,11 @@ const createRedirectHtml = (targetPath: string) => {
     <title>Redirecting...</title>
     <meta http-equiv="refresh" content="0; url=${escapedTarget}">
     <link rel="canonical" href="${escapedTarget}">
-    <script>window.location.replace(${JSON.stringify(targetPath).replace(/</g, '\u003c')})</script>
+    <script defer data-domain="gardener.cloud" data-api="/pa/event" src="/pa/script.js"></script>
+    <script>
+      try { window.plausible && window.plausible('404 Redirect', { props: { path: window.location.pathname, target: ${serializedTarget} }, interactive: false }) } catch (e) {}
+      window.location.replace(${serializedTarget}+window.location.search+window.location.hash)
+    </script>
   </head>
   <body>
     <p>Redirecting to <a href="${escapedTarget}">${escapedTarget}</a>.</p>
@@ -82,6 +92,27 @@ function joinBasePath(base: string, routePath: string): string {
   if (normalizedRoute === '/') return normalizedBase
 
   return `${normalizedBase}${normalizedRoute.slice(1)}`
+}
+
+const isExternal = (url: string) => /^https?:\/\//i.test(url)
+
+// External targets pass through untouched; internal ones get the site base and a trailing slash.
+export function normalizeTargetUrl(rawTarget: string, basePath = '/'): string {
+  const trimmed = rawTarget.trim()
+  return isExternal(trimmed) ? trimmed : normalizeUrlPath(joinBasePath(basePath, trimmed))
+}
+
+// Mirrors Netlify's trailing-splat matching so `make dev` behaves like production.
+export function matchPrefixRedirect(urlPath: string, basePath = '/'): string | null {
+  const normalizedPath = normalizeUrlPath(urlPath)
+
+  for (const rule of PREFIX_REDIRECTS) {
+    const prefix = normalizeUrlPath(rule.from.replace(/\*$/, '')).toLowerCase()
+    if (!normalizedPath.toLowerCase().startsWith(prefix)) continue
+    return normalizeTargetUrl(rule.to.replace(':splat', normalizedPath.slice(prefix.length)), basePath)
+  }
+
+  return null
 }
 
 function toRoutePath(relativeMdPath: string): string {
@@ -158,14 +189,14 @@ export type AliasCollectionResult = {
   warnings: string[]
 }
 
-async function collectAliasEntries(srcDir: string, basePath: string): Promise<AliasCollectionResult> {
+export async function collectAliasEntries(srcDir: string, basePath: string): Promise<AliasCollectionResult> {
   const markdownFiles = await collectMarkdownFiles(srcDir)
   const redirects = new Map<string, AliasEntry>()
   const warnings: string[] = []
   const canonicalRoutes = new Set(
     markdownFiles.map((markdownFile) => {
       const sourcePath = path.relative(srcDir, markdownFile).replace(/\\/g, '/')
-      return normalizeUrlPath(toRoutePath(sourcePath))
+      return normalizeUrlPath(toRoutePath(sourcePath)).toLowerCase()
     }),
   )
 
@@ -186,33 +217,69 @@ async function collectAliasEntries(srcDir: string, basePath: string): Promise<Al
 
       const sourcePath = path.relative(srcDir, markdownFile).replace(/\\/g, '/')
       const routePath = normalizeUrlPath(toRoutePath(sourcePath))
-      const targetPath = normalizeUrlPath(joinBasePath(basePath, routePath))
+      const targetPath = normalizeTargetUrl(routePath, basePath)
 
       for (const alias of aliases) {
         const normalizedAlias = normalizeUrlPath(alias)
+        const aliasKey = normalizedAlias.toLowerCase()
 
-        if (canonicalRoutes.has(normalizedAlias)) {
-          if (normalizedAlias !== routePath) {
+        if (canonicalRoutes.has(aliasKey)) {
+          const isAncestorOnIndex =
+            /(?:^|\/)_?index\.md$/i.test(sourcePath) &&
+            routePath.toLowerCase().startsWith(aliasKey)
+          if (aliasKey !== routePath.toLowerCase() && !isAncestorOnIndex) {
             warnings.push(`Skipping alias "${normalizedAlias}" in "${sourcePath}" because it matches an existing page route.`)
           }
           continue
         }
 
-        const existing = redirects.get(normalizedAlias)
+        const existing = redirects.get(aliasKey)
         if (existing && existing.targetPath !== targetPath) {
           warnings.push(`Skipping duplicate alias "${normalizedAlias}" in "${sourcePath}". Already mapped to "${existing.targetPath}" by "${existing.sourcePath}".`)
           continue
         }
 
-        redirects.set(normalizedAlias, {
-          sourcePath,
-          targetPath,
-        })
+        redirects.set(aliasKey, { aliasPath: normalizedAlias, sourcePath, targetPath })
       }
     }
   }
 
+  for (const [rawAlias, rawTarget] of Object.entries(STATIC_REDIRECTS)) {
+    const normalizedAlias = normalizeUrlPath(rawAlias)
+    const aliasKey = normalizedAlias.toLowerCase()
+    const targetPath = normalizeTargetUrl(rawTarget, basePath)
+
+    if (canonicalRoutes.has(aliasKey)) {
+      warnings.push(`Skipping static redirect "${normalizedAlias}" because it matches an existing page route.`)
+      continue
+    }
+
+    if (!redirects.has(aliasKey)) {
+      redirects.set(aliasKey, { aliasPath: normalizedAlias, sourcePath: 'STATIC_REDIRECTS', targetPath })
+    }
+  }
+
   return { redirects, warnings }
+}
+
+// `301!` forces the redirect even though a static <alias>/index.html fallback exists in dist/.
+export function buildNetlifyRedirects(redirects: AliasEntry[], basePath = '/'): string {
+  const lines: string[] = ['# Auto-generated by .vitepress/plugins/alias-redirects.ts']
+
+  for (const { aliasPath, targetPath } of redirects) {
+    lines.push(`${normalizeUrlPath(joinBasePath(basePath, aliasPath))} ${targetPath} 301!`)
+  }
+
+  for (const rule of PREFIX_REDIRECTS) {
+    const from = `${normalizeUrlPath(joinBasePath(basePath, rule.from.replace(/\*$/, '')))}*`
+    const to = rule.to.includes(':splat')
+      ? `${normalizeTargetUrl(rule.to.replace(':splat', ''), basePath)}:splat`
+      : normalizeTargetUrl(rule.to, basePath)
+    lines.push(`${from} ${to} 301!`)
+  }
+
+  lines.push('')
+  return lines.join('\n')
 }
 
 export async function generateAliasRedirects(siteConfig: SiteConfig): Promise<void> {
@@ -221,7 +288,8 @@ export async function generateAliasRedirects(siteConfig: SiteConfig): Promise<vo
 
   const writtenAliases: { aliasPath: string; redirect: AliasEntry }[] = []
 
-  for (const [aliasPath, redirect] of redirects.entries()) {
+  for (const redirect of redirects.values()) {
+    const { aliasPath } = redirect
     const redirectFilePath = toRedirectOutputPath(siteConfig.outDir, aliasPath)
     if (!redirectFilePath) continue
 
@@ -237,8 +305,11 @@ export async function generateAliasRedirects(siteConfig: SiteConfig): Promise<vo
 
   writtenAliases.sort((a, b) => a.aliasPath.localeCompare(b.aliasPath))
 
+  const netlifyRedirectsPath = path.join(siteConfig.outDir, '_redirects')
+  await fs.writeFile(netlifyRedirectsPath, buildNetlifyRedirects(writtenAliases.map((w) => w.redirect), basePath), 'utf8')
+
   const reportFilePath = path.join(path.dirname(siteConfig.outDir), 'alias-redirects.txt')
-  const reportBody = buildAliasReport(writtenAliases, warnings)
+  const reportBody = buildAliasReport(writtenAliases, warnings, basePath)
   await fs.mkdir(path.dirname(reportFilePath), { recursive: true })
   await fs.writeFile(reportFilePath, reportBody, 'utf8')
 
@@ -249,8 +320,16 @@ export async function generateAliasRedirects(siteConfig: SiteConfig): Promise<vo
 function buildAliasReport(
   writtenAliases: { aliasPath: string; redirect: AliasEntry }[],
   warnings: string[],
+  basePath = '/',
 ): string {
   const lines: string[] = []
+
+  lines.push(`# Prefix redirects (${PREFIX_REDIRECTS.length})`)
+  for (const rule of PREFIX_REDIRECTS) {
+    const target = rule.to.includes(':splat') ? rule.to : normalizeTargetUrl(rule.to, basePath)
+    lines.push(`${rule.from} -> ${target}`)
+  }
+  lines.push('')
 
   lines.push(`# Alias redirects (${writtenAliases.length})`)
   for (const { aliasPath, redirect } of writtenAliases) {
@@ -339,20 +418,20 @@ export function createAliasRedirectDevPlugin(srcDir: string, basePath: string) {
 
           const aliasPath = normalizeUrlPath(pathWithoutBase)
           const aliases = await loadAliases()
-          const redirect = aliases.get(aliasPath)
+          const targetPath = aliases.get(aliasPath.toLowerCase())?.targetPath ?? matchPrefixRedirect(aliasPath, basePath)
 
-          if (!redirect) {
+          if (!targetPath) {
             next()
             return
           }
 
-          if (normalizeUrlPath(requestUrl.pathname) === normalizeUrlPath(redirect.targetPath)) {
+          if (!isExternal(targetPath) && normalizeUrlPath(requestUrl.pathname).toLowerCase() === normalizeUrlPath(targetPath).toLowerCase()) {
             next()
             return
           }
 
           res.statusCode = 302
-          res.setHeader('Location', redirect.targetPath)
+          res.setHeader('Location', targetPath + requestUrl.search)
           res.end()
         })().catch((error) => {
           const message = error instanceof Error ? error.message : String(error)
