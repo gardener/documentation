@@ -43,8 +43,8 @@ Check back regularly for updates and upcoming topics!
 | [@timuthy](https://github.com/timuthy) | `10m` | 🔑 Garden Cluster Kubeconfig for Runtime Extensions | [#15940](https://github.com/gardener/gardener/pull/15940) |
 | [@cerealsnow](https://github.com/cerealsnow) | `5m` | 🌍 Dedicated `DNSRecord` for `dashboard`/`discovery-server` | [#16006](https://github.com/gardener/gardener/pull/16006) |
 | [@ialidzhikov](https://github.com/ialidzhikov) | `10m` | 🔄 `gardenadm restore` for Self-Hosted `Shoot` Clusters | [#15264 (issue)](https://github.com/gardener/gardener/issues/15264) |
-| [@iypetrov](https://github.com/iypetrov) | `5m` | 💾 Strip Unused `Cluster` Spec Blobs From `logging` Informer Cache | [logging#566](https://github.com/gardener/logging/pull/566) |
 | [@TeodorDichev](https://github.com/TeodorDichev) | `5m` | 🔍 Programmatic & CLI Log Access For `VictoriaLogs` | [#16066](https://github.com/gardener/gardener/pull/16066) |
+| [@iypetrov](https://github.com/iypetrov) | `5m` | 💾 Strip Unused `Cluster` Spec Blobs From `logging` Informer Cache | [logging#566](https://github.com/gardener/logging/pull/566) |
 
 #### No Demo, But Still Worth Celebrating 🎉
 
