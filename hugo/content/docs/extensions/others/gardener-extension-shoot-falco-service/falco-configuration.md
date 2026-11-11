@@ -496,8 +496,8 @@ stringData:
   # Optional: OpenSearch password for authentication
   password: "secure-password"
 
-  # Optional: Verify SSL certificates (default: false)
-  checkcert: "false"
+  # Optional: Verify SSL certificates (default: true)
+  checkcert: "true"
 
   # Optional: Minimum priority level (default: "debug")
   # Options: "emergency", "alert", "critical", "error", "warning", "notice", "informational", "debug"
