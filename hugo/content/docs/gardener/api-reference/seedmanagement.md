@@ -1032,6 +1032,7 @@ integer
 </em>
 </td>
 <td>
+<em>(Optional)</em>
 <p>ObservedGeneration is the most recent generation observed for this ManagedSeedSet. It corresponds to the<br />ManagedSeedSet's generation, which is updated on mutation by the API Server.</p>
 </td>
 </tr>
@@ -1054,6 +1055,7 @@ integer
 </em>
 </td>
 <td>
+<em>(Optional)</em>
 <p>ReadyReplicas is the number of ManagedSeeds created by the ManagedSeedSet controller that have a Ready Condition.</p>
 </td>
 </tr>
@@ -1065,6 +1067,7 @@ integer
 </em>
 </td>
 <td>
+<em>(Optional)</em>
 <p>NextReplicaNumber is the ordinal number that will be assigned to the next replica of the ManagedSeedSet.</p>
 </td>
 </tr>
@@ -1076,6 +1079,7 @@ integer
 </em>
 </td>
 <td>
+<em>(Optional)</em>
 <p>CurrentReplicas is the number of ManagedSeeds created by the ManagedSeedSet controller from the ManagedSeedSet version<br />indicated by CurrentRevision.</p>
 </td>
 </tr>
@@ -1087,6 +1091,7 @@ integer
 </em>
 </td>
 <td>
+<em>(Optional)</em>
 <p>UpdatedReplicas is the number of ManagedSeeds created by the ManagedSeedSet controller from the ManagedSeedSet version<br />indicated by UpdateRevision.</p>
 </td>
 </tr>
@@ -1098,6 +1103,7 @@ string
 </em>
 </td>
 <td>
+<em>(Optional)</em>
 <p>CurrentRevision, if not empty, indicates the version of the ManagedSeedSet used to generate ManagedSeeds with smaller<br />ordinal numbers during updates.</p>
 </td>
 </tr>
@@ -1109,6 +1115,7 @@ string
 </em>
 </td>
 <td>
+<em>(Optional)</em>
 <p>UpdateRevision, if not empty, indicates the version of the ManagedSeedSet used to generate ManagedSeeds with larger<br />ordinal numbers during updates</p>
 </td>
 </tr>
@@ -1239,6 +1246,7 @@ integer
 </em>
 </td>
 <td>
+<em>(Optional)</em>
 <p>ObservedGeneration is the most recent generation observed for this ManagedSeed. It corresponds to the<br />ManagedSeed's generation, which is updated on mutation by the API Server.</p>
 </td>
 </tr>

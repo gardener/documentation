@@ -1,21 +1,44 @@
 ---
-title: "Bring-Your-Own Networking for Gardener Shoots — Now on GCP, Azure, and OpenStack"
-linkTitle: "Bring-Your-Own Networking for Gardener Shoots — Now on GCP, Azure, and OpenStack"
-newsSubtitle: October 28, 2026
-publishdate: 2026-10-28
+title: >-
+  Bring-Your-Own Networking for Gardener Shoots — Now on GCP, Azure, and
+  OpenStack
+linkTitle: >-
+  Bring-Your-Own Networking for Gardener Shoots — Now on GCP, Azure, and
+  OpenStack
+newsSubtitle: 'October 28, 2026'
+publishdate: 2026-10-28T00:00:00.000Z
 authors:
-- avatar: https://avatars.githubusercontent.com/hebelsan
-  login: hebelsan
-  name: Alexander Hebel
+  - avatar: 'https://avatars.githubusercontent.com/hebelsan'
+    login: hebelsan
+    name: Alexander Hebel
 tags:
-- feature-announcement
-- networking
-- provider-gcp
-- provider-azure
-- provider-openstack
-- extensions
-aliases: ["/blog/2026/10/28/bring-your-own-networking-for-gardener-shoots-now-on-gcp-azure-and-openstack"]
+  - feature-announcement
+  - networking
+  - provider-gcp
+  - provider-azure
+  - provider-openstack
+  - extensions
+aliases:
+  - >-
+    /blog/2026/10/28/bring-your-own-networking-for-gardener-shoots-now-on-gcp-azure-and-openstack
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/          │
+   │  documentation                                 │
+   │                                                │
+   │  Go ahead and edit this file directly.         │
+   │  Changes here are the source of truth.         │
+   └────────────────────────────────────────────────┘
+-->
+
+
+# Bring-Your-Own Networking for Gardener Shoots — Now on GCP, Azure, and OpenStack
 
 When Gardener provisions a shoot cluster, it typically owns the entire networking stack alongside it: virtual networks, subnets, Cloud NAT, routing rules, and firewall policies. This works well for most deployments, but enterprises operating in shared or pre-existing network environments often have a different requirement — they need Gardener to work *within* their existing network, not create a parallel one.
 
