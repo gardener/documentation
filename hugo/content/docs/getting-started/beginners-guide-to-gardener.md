@@ -22,14 +22,14 @@ Its goal is to provide you with a functional Gardener setup.
 ## Content
 
 * [Prerequisites](#prerequisites)
-* [1. Create a Runtime Cluster on GKE](#1-create-a-runtime-cluster-on-gke)
-* [2. Deploy the Gardener Operator](#2-deploy-the-gardener-operator)
-* [3. Deploy `Extension`s](#3-deploy-extensions)
-* [4. Deploy the `Garden` Resource](#4-deploy-the-garden-resource)
-* [5. Access the Virtual Garden Cluster](#5-access-the-virtual-garden-cluster)
-* [6. Deploy the `Gardenlet`](#6-deploy-the-gardenlet)
-* [7. Visit the Gardener Dashboard (Optional)](#7-visit-the-gardener-dashboard-optional)
-* [8. Deploy a `Shoot`](#8-deploy-a-shoot)
+* [1. Create a Runtime Cluster on GKE](#create-a-runtime-cluster-on-gke)
+* [2. Deploy the Gardener Operator](#deploy-the-gardener-operator)
+* [3. Deploy `Extension`s](#deploy-extensions)
+* [4. Deploy the `Garden` Resource](#deploy-the-garden-resource)
+* [5. Access the Virtual Garden Cluster](#access-the-virtual-garden-cluster)
+* [6. Deploy the `Gardenlet`](#deploy-the-gardenlet)
+* [7. Visit the Gardener Dashboard (Optional)](#visit-the-gardener-dashboard)
+* [8. Deploy a `Shoot`](#deploy-a-shoot)
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ Its goal is to provide you with a functional Gardener setup.
   * [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl)
     * [gke-gcloud-auth-plugin](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl#install_plugin)
 
-## 1. Create a Runtime Cluster on GKE
+## 1. Create a Runtime Cluster on GKE {#create-a-runtime-cluster-on-gke}
 
 > [!NOTE]
 > [GKE Autopilot clusters](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview) cannot be used as a runtime cluster.
@@ -115,7 +115,7 @@ gke-runtime-2-default-pool-ee60a788-r245   Ready    <none>   19h   v1.36.4-gke.2
 gke-runtime-2-default-pool-ee60a788-rcqn   Ready    <none>   19h   v1.36.4-gke.2377000
 ```
 
-## 2. Deploy the Gardener Operator
+## 2. Deploy the Gardener Operator {#deploy-the-gardener-operator}
 
 We'll deploy the [Gardener Operator](https://gardener.cloud/docs/gardener/concepts/operator/) into the runtime cluster to bootstrap Gardener.
 It is responsible for reconciling `Extension` and `Garden` resources.
@@ -144,7 +144,7 @@ NAME                READY   UP-TO-DATE   AVAILABLE   AGE
 gardener-operator   2/2     2            2           29s
 ```
 
-## 3. Deploy `Extension`s
+## 3. Deploy `Extension`s {#deploy-extensions}
 
 Gardener is built on an [extensibility concept](https://gardener.cloud/docs/gardener/extensions/#extensibility-overview) and makes use of various extensions.
 A Gardener landscape needs a minimum set of extensions that cover the following functions:
@@ -304,7 +304,7 @@ os-gardenlinux                 False                                            
 provider-gcp                   False                                             7m40s
 ```
 
-## 4. Deploy the `Garden` Resource
+## 4. Deploy the `Garden` Resource {#deploy-the-garden-resource}
 
 ### Deploy an Infrastructure `Secret` in the Runtime Cluster
 
@@ -514,7 +514,7 @@ NAME     K8S VERSION   GARDENER VERSION   LAST OPERATION   RUNTIME   VIRTUAL   A
 garden   1.36.4        v1.155.0           Succeeded        True      True      True         True            22h
 ```
 
-## 5. Access the Virtual Garden Cluster
+## 5. Access the Virtual Garden Cluster {#access-the-virtual-garden-cluster}
 
 To access the virtual garden cluster, generate a kubeconfig for it using the [generate-kubeconfig.sh](https://github.com/gardener/gardener/blob/master/hack/usage/generate-kubeconfig.sh) helper script from the `gardener/gardener` repository.
 
@@ -569,7 +569,7 @@ NAME   TYPE     DATA   AGE
 gcp    Opaque   1      9h
 ```
 
-## 6. Deploy the `Gardenlet`
+## 6. Deploy the `Gardenlet` {#deploy-the-gardenlet}
 
 > [!TIP]
 > You don't have to use your runtime cluster as a seed cluster.
@@ -722,7 +722,7 @@ NAME   STATUS   LAST OPERATION               PROVIDER   REGION          AGE     
 soil   Ready    Reconcile Succeeded (100%)   gcp        europe-north1   2m23s   v1.155.0   v1.36.4-gke.2377000
 ```
 
-## 7. Visit the Gardener Dashboard (Optional)
+## 7. Visit the Gardener Dashboard (Optional) {#visit-the-gardener-dashboard}
 
 You can visit the Gardener Dashboard to visualize your landscape and for managing clusters in a UI.
 
@@ -757,7 +757,7 @@ Use the token for authentication in the dashboard.
 > All following sections can be done in the dashboard.
 > The remaining guide continues using `kubectl`.
 
-## 8. Deploy a `Shoot`
+## 8. Deploy a `Shoot` {#deploy-a-shoot}
 
 ### Create a `CloudProfile` Resource
 
