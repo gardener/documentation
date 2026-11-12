@@ -437,9 +437,9 @@ spec:
     provider:
       region: <gcp-region> # TODO: Use the region of your GKE cluster
       zones: # TODO: Use the availability zones of your GKE cluster
-      - <gcp-zone-1>
-      - <gcp-zone-2>
-      - <gcp-zone-3>
+      - <gcp-az-1>
+      - <gcp-az-2>
+      - <gcp-az-3>
     settings:
       verticalPodAutoscaler:
         enabled: false
@@ -639,20 +639,20 @@ spec:
           region: <gcp-region> # TODO: Use the region of your GKE cluster
           type: gcp
           zones: # TODO: Use the availability zones of your GKE cluster
-          - <gcp-zone-1>
-          - <gcp-zone-2>
-          - <gcp-zone-3>
+          - <gcp-az-1>
+          - <gcp-az-2>
+          - <gcp-az-3>
         settings:
           loadBalancerServices:
             externalTrafficPolicy: Local
             zones:
             # TODO: Use the availability zones of your GKE cluster
             - externalTrafficPolicy: Local
-              name: <gcp-zone-1>
+              name: <gcp-az-1>
             - externalTrafficPolicy: Local
-              name: <gcp-zone-2>
+              name: <gcp-az-2>
             - externalTrafficPolicy: Local
-              name: <gcp-zone-3>
+              name: <gcp-az-3>
           topologyAwareRouting:
             enabled: true
           verticalPodAutoscaler:
@@ -790,9 +790,9 @@ spec:
     - name: <gcp-region> # TODO: Use the region of your GKE cluster
       zones:
       # TODO: Use the availability zones of your GKE cluster
-        - name: <gcp-zone-1>
-        - name: <gcp-zone-2>
-        - name: <gcp-zone-3>
+        - name: <gcp-az-1>
+        - name: <gcp-az-2>
+        - name: <gcp-az-3>
 ```
 
 > [!TIP]
