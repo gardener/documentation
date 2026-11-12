@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
 import { read, write } from './lib/frontmatter.js';
-import { record, recordSummary } from './lib/ledger.js';
+import { record } from './lib/ledger.js';
 
 
 // Base path configuration - can be overridden by command line argument
@@ -397,6 +397,7 @@ async function addNavigationFrontmatter(basePath) {
 
                 // A-guard writes only on an actual byte change
                 write(filePath, parsed.content, parsed.data);
+                record('addNavigationFrontmatter', filePath, 'added prev/next', parsed.data);
                 
                 const addedFields = [];
                 if (!hasPrev) addedFields.push('prev: false');
@@ -442,9 +443,6 @@ async function addNavigationFrontmatter(basePath) {
         }
 
         const modifiedCount = results.filter(r => r.modified).length;
-        if (modifiedCount > 0) {
-            recordSummary('addNavigationFrontmatter', 'added prev/next', modifiedCount);
-        }
         const skippedCount = results.filter(r => !r.modified).length;
         const alreadyHasPropsCount = results.filter(r => !r.modified && r.reason === 'Already has prev and next properties').length;
         const errorCount = results.filter(r => !r.modified && r.reason !== 'Already has prev and next properties').length;
