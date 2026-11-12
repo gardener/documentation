@@ -1,6 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
 import { read, write } from './lib/frontmatter.js';
+import { record, recordSummary } from './lib/ledger.js';
 
 
 // Base path configuration - can be overridden by command line argument
@@ -137,7 +138,7 @@ async function migrateHugoAlertsToGitHub(basePath) {
             });
             
             await fs.writeFile(filePath, newContent, 'utf-8');
-            
+            record('migrateHugoAlertsToGitHub', filePath, `migrated ${matches.length} alert(s)`);
             return {
                 file: filePath,
                 modified: true,
@@ -296,9 +297,8 @@ async function cleanLayoutEntries(basePath) {
             newFrontmatter = newFrontmatter.replace(/\n\n+/g, '\n\n');
             
             const newContent = newFrontmatter + contentAfterFrontmatter;
-            
             await fs.writeFile(filePath, newContent, 'utf-8');
-            
+            record('cleanLayoutEntries', filePath, `removed layout "${layoutValue}"`);
             return {
                 file: filePath,
                 modified: true,
@@ -442,6 +442,9 @@ async function addNavigationFrontmatter(basePath) {
         }
 
         const modifiedCount = results.filter(r => r.modified).length;
+        if (modifiedCount > 0) {
+            recordSummary('addNavigationFrontmatter', 'added prev/next', modifiedCount);
+        }
         const skippedCount = results.filter(r => !r.modified).length;
         const alreadyHasPropsCount = results.filter(r => !r.modified && r.reason === 'Already has prev and next properties').length;
         const errorCount = results.filter(r => !r.modified && r.reason !== 'Already has prev and next properties').length;

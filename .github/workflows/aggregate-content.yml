@@ -77,6 +77,15 @@ jobs:
           # can access it even if the workflow is re-run.
           retention-days: 7
 
+      # Ledger of post-processing changes, for analysing which transforms are
+      # still needed. Separate artifact: it must not enter the content tree.
+      - name: Upload post-processing report
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: post-processing-report
+          path: post-processing-report.json
+          retention-days: 30
+
   # ----------------------------------------------------------------------------
   # publish: mints the federated write token and does git operations only.
   # Runs NO Node.js / pnpm / make — the build artefact is treated as untrusted

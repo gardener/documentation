@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { read, write, stringify } from './lib/frontmatter.js';
+import { recordSummary } from './lib/ledger.js';
 
 const IGNORE_DIRS = ['node_modules', '.git', 'dist', 'build', 'images', 'assets', 'content', 'logo', 'blog', 'public', 'about'];
 
@@ -152,6 +153,9 @@ function main() {
 
     console.log(`Created ${createdStubs} index stubs`);
     console.log(`Processed ${indexFiles.length} files (${renamed} renamed, ${editLinkMarked} marked editLink:false)`);
+    if (createdStubs > 0) recordSummary('addMissingIndexFiles', 'created index stub', createdStubs);
+    if (renamed > 0) recordSummary('renameIndexFiles', 'renamed _index.md to index.md', renamed);
+    if (editLinkMarked > 0) recordSummary('markEmptyAggregator', 'marked editLink:false', editLinkMarked);
   } catch (error) {
     console.error('Error:', error.message);
     process.exit(1);

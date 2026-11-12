@@ -10,6 +10,7 @@ import {
   splitLeadingBanner,
   stripLegacyGeneratedBanner,
 } from './lib/banner.js';
+import { recordSummary } from './lib/ledger.js';
 
 function findMarkdownFiles(dir) {
   const results = [];
@@ -99,6 +100,7 @@ function main() {
     console.log(
       `Processed ${files.length} files (${managed} managed, ${local} local, ${skipped} skipped, ${written} written)`,
     );
+    if (written > 0) recordSummary('banner', 'banner written/updated', written);
   } catch (error) {
     console.error('Error:', error.message);
     process.exit(1);
