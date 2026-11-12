@@ -1,4 +1,8 @@
-# Deploy Gardener on Google Cloud
+---
+title: Beginner's Guide to Gardener
+---
+
+# Beginner's Guide to Gardener
 
 This guide walks you through setting up a Gardener landscape on Google Cloud.
 To bootstrap Gardener, you require an initial Kubernetes cluster, which is called a runtime cluster.
@@ -9,7 +13,7 @@ The virtual garden hosts Gardener resources such as `Seed`, `Project`, and `Shoo
 If you want to learn more about the concepts and how everything fits together, refer to [How to Set Up a Gardener Landscape](https://gardener.cloud/docs/gardener/deployment/setup_gardener/).
 
 This guide serves as a step-by-step reference for setting up a Gardener landscape.
-Hence, it makes a lot of technical assumptions to allow for an easy to follow experience.
+Hence, it makes a lot of technical assumptions to allow for an easy-to-follow experience.
 Its goal is to provide you with a functional Gardener setup.
 
 ## Content
@@ -22,7 +26,7 @@ Its goal is to provide you with a functional Gardener setup.
 * [5. Access the Virtual Garden Cluster](#5-access-the-virtual-garden-cluster)
 * [6. Deploy the `Gardenlet`](#6-deploy-the-gardenlet)
 * [7. Visit the Gardener Dashboard (Optional)](#7-visit-the-gardener-dashboard-optional)
-* [8. Create a `Shoot`](#8-create-a-shoot)
+* [8. Deploy a `Shoot`](#8-deploy-a-shoot)
 
 ## Prerequisites
 
