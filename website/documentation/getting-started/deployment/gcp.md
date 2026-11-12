@@ -1,10 +1,6 @@
----
-title: Deploying Gardener on GCP
----
+# Deploy Gardener on Google Cloud
 
-# Deploy Gardener on GCP
-
-This guide walks you through setting up a Gardener landscape on GCP.
+This guide walks you through setting up a Gardener landscape on Google Cloud.
 To bootstrap Gardener, you require an initial Kubernetes cluster, which is called a runtime cluster.
 We'll use a GKE runtime cluster and deploy the Gardener Operator to it.
 The Gardener Operator reconciles the `Garden` resource to create the virtual garden cluster as the management plane of your landscape.
@@ -23,11 +19,13 @@ TODO
 ## Prerequisites
 
 * A project on [GCP](https://console.cloud.google.com/)
-  * A zone in [GCP Cloud DNS](https://console.cloud.google.com/net-services/dns/zones) 
+  * A zone in [GCP Cloud DNS](https://console.cloud.google.com/net-services/dns/zones)
 * Tools:
   * [gcloud](https://docs.cloud.google.com/sdk/docs/install-sdk#latest-version)
   * [helm](https://helm.sh/docs/intro/install/#through-package-managers)
   * [GNU sed](https://www.gnu.org/software/sed/)
+  * [jq](https://jqlang.github.io/jq/download/)
+  * [yq](https://github.com/mikefarah/yq)
   * [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl)
     * [gke-gcloud-auth-plugin](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl#install_plugin)
 
@@ -42,10 +40,10 @@ TODO
 
 We need an initial Kubernetes cluster to deploy Gardener.
 This initial cluster is called [runtime cluster](https://gardener.cloud/docs/gardener/deployment/setup_gardener/#runtime-cluster).
-Create a [GKE cluster on GCP](https://console.cloud.google.com/kubernetes/list/overview). 
+Create a [GKE cluster on GCP](https://console.cloud.google.com/kubernetes/list/overview).
 Make sure to enable [vertical Pod autoscaling](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/verticalpodautoscaler).
 
-Take note of the region that you choose for your cluster e.g. `europe-north1`.
+Take note of the region that you choose for your cluster, e.g. `europe-north1`.
 
 ## Set the Environment Variables
 
@@ -125,7 +123,7 @@ kubectl get deploy -n garden gardener-operator --watch
 
 *Output:*
 
-```terminal
+```terminaloutput
 NAME                READY   UP-TO-DATE   AVAILABLE   AGE
 gardener-operator   2/2     2            2           29s
 ```
@@ -133,7 +131,7 @@ gardener-operator   2/2     2            2           29s
 ## Deploy `Extension`s
 
 Gardener is built on an [extensibility concept](https://gardener.cloud/docs/gardener/extensions/#extensibility-overview) and makes use of various extensions.
-A Gardener landscape needs a minimum set of extensions that cover the following functions: 
+A Gardener landscape needs a minimum set of extensions that cover the following functions:
 * Talking to an infrastructure provider
 * Providing an operating system for cluster nodes
 * Taking care of external DNS management
@@ -166,7 +164,7 @@ provider-gcp   False                                             25s
 ### Garden Linux Operating System Extension
 
 > [!NOTE]
-> You could choose any of the available [operating system extensions](https://gardener.cloud/docs/extensions/os-extensions/).
+> You can choose any of the available [operating system extensions](https://gardener.cloud/docs/extensions/os-extensions/).
 
 We'll use [Garden Linux](https://docs.gardenlinux.org/) as the operating system for our cluster nodes.
 
@@ -250,7 +248,7 @@ kubectl get extop extension-shoot-cert-service -oyaml | grep -C 1 'email:'
 > You can also choose [Cilium](https://cilium.io/) as your CNI using the [Cilium extension](https://github.com/gardener/gardener-extension-networking-cilium).
 
 A [container network interface (CNI)](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/) is required for the clusters.
-We'll use [Calico](https://docs.tigera.io/calico/latest/about/) as the CNI for the Gardener managed shoot clusters.
+We'll use [Calico](https://docs.tigera.io/calico/latest/about/) as the CNI for the Gardener-managed shoot clusters.
 
 Install the Calico extension from the [repository](https://github.com/gardener/gardener-extension-networking-calico).
 
@@ -489,29 +487,10 @@ kubectl get garden --watch
 
 *Output:*
 
-```terminal
+```terminaloutput
 NAME     K8S VERSION   GARDENER VERSION   LAST OPERATION   RUNTIME   VIRTUAL   API SERVER   OBSERVABILITY   AGE
 garden   1.36.4        v1.155.0           Succeeded        True      True      True         True            22h
 ```
-
-## Access the Gardener Dashboard
-
-You can verify the garden deployment by accessing the Gardener Dashboard.
-
-To the URL of the dashboard, read its `Gateway` resource.
-
-```shell
-kubectl get gateway -n garden gardener-dashboard -oyaml | grep -C 1 hosts
-```
-
-*Output:*
-```terminaloutput
-  servers:
-  - hosts:
-    - dashboard.ingress.garden.<dns-zone>
-```
-
-
 
 ## Access the Virtual Garden Cluster
 
@@ -522,9 +501,9 @@ Run the `generate-kubeconfig.sh` helper script.
 ```shell
 bash <(curl -fsSL https://raw.githubusercontent.com/gardener/gardener/refs/heads/master/hack/usage/generate-kubeconfig.sh) \
   virtual-garden \
-  --runtime-kubeconfig $KUBECONFIG \
+  --runtime-kubeconfig "$KUBECONFIG" \
   --garden-name garden \
-  > 02-garden-kubeconfig.yaml 
+  > 02-garden-kubeconfig.yaml
 ```
 
 Set your `kubectl` context to the virtual garden cluster.
@@ -658,9 +637,9 @@ spec:
           loadBalancerServices:
             externalTrafficPolicy: Local
             zones:
-            # TODO: Use an availability zones of your GKE cluster
+            # TODO: Use the availability zones of your GKE cluster
             - externalTrafficPolicy: Local
-              name: <gcp-zone-1> 
+              name: <gcp-zone-1>
             - externalTrafficPolicy: Local
               name: <gcp-zone-2>
             - externalTrafficPolicy: Local
@@ -691,7 +670,7 @@ Apply the `Gardenlet` resource to the virtual garden cluster.
 
 ```shell
 kubectl apply -f 03-gardenlet.yaml
-````
+```
 
 Verify that the `Gardenlet` has been created.
 
@@ -720,6 +699,41 @@ kubectl get seed soil --watch
 NAME   STATUS   LAST OPERATION               PROVIDER   REGION          AGE     VERSION    K8S VERSION
 soil   Ready    Reconcile Succeeded (100%)   gcp        europe-north1   2m23s   v1.155.0   v1.36.4-gke.2377000
 ```
+
+## *Optional:* Visit the Gardener Dashboard
+
+You can visit the Gardener Dashboard to visualize your landscape and for managing clusters in a UI.
+
+Open the following URL in your browser:
+`https://dashboard.ingress.garden.<dnz-zone>`
+
+While the dashboard can be configured with OIDC, we'll use a token for authentication in this case.
+
+Create a `ServiceAccount` called `dashboard-admin` in the virtual garden cluster.
+
+```shell
+kubectl create serviceaccount -n garden dashboard-admin
+```
+
+Bind the `dashboard-admin` to the `ClusterRole/cluster-admin`.
+
+```shell
+kubectl create clusterrolebinding dashboard-admin \
+  --clusterrole=cluster-admin \
+  --serviceaccount=garden:dashboard-admin
+```
+
+Generate a token for the `ServiceAccount`
+
+```shell
+kubectl create token -n garden dashboard-admin
+```
+
+Use the token for authentication in the dashboard.
+
+> [!NOTE]
+> All following sections can be done in the dashboard.
+> The remaining guide continues using `kubectl`.
 
 ## Create a `CloudProfile`
 
@@ -784,7 +798,7 @@ kubectl apply -f 04-cloudprofile-gcp.yaml
 Verify that the `CloudProfile` resource has been created.
 
 ```shell
-kubectl get cloudprofile   
+kubectl get cloudprofile
 ```
 
 *Output:*
@@ -968,7 +982,7 @@ Run the [generate-kubeconfig.sh](https://github.com/gardener/gardener/blob/maste
 It will create a file called `08-shoot-kubeconfig.yaml`.
 
 ```shell
-bash <(curl -fsSL https://github.com/gardener/gardener/blob/master/hack/usage/generate-kubeconfig.sh) \
+bash <(curl -fsSL https://raw.githubusercontent.com/gardener/gardener/refs/heads/master/hack/usage/generate-kubeconfig.sh) \
   shoot \
   --namespace garden-my-project \
   --shoot-name my-shoot \
@@ -979,7 +993,7 @@ bash <(curl -fsSL https://github.com/gardener/gardener/blob/master/hack/usage/ge
 Verify the access to your shoot cluster by fetching the `Pod`s in the `kube-system` namespace.
 
 ```shell
-kubectl get pods -n kube-system --kubeconfig ./08-shoot-kubeconfig.yaml 
+kubectl get pods -n kube-system --kubeconfig ./08-shoot-kubeconfig.yaml
 ```
 
 *Output:*
