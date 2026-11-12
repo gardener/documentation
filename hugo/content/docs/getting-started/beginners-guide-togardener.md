@@ -1,6 +1,8 @@
 ---
 title: Beginner's Guide to Gardener
 weight: 1
+prev: false
+next: false
 ---
 
 # Beginner's Guide to Gardener
