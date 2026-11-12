@@ -297,6 +297,8 @@ os-gardenlinux                 False                                            
 provider-gcp                   False                                             7m40s
 ```
 
+## 4. Deploy the `Garden` Resource
+
 ### Deploy an Infrastructure `Secret` in the Runtime Cluster
 
 We'll need credentials for the GCP infrastructure for Gardener to provision resources on it.
@@ -393,7 +395,7 @@ europe-north1-b
 europe-north1-c
 ```
 
-## 4. Deploy the `Garden` Resource
+### Create the `Garden` Resource
 
 The Gardener Operator reconciles the `Garden` resource.
 Use the template below as a starting point for your configuration.
@@ -744,7 +746,9 @@ Use the token for authentication in the dashboard.
 > All following sections can be done in the dashboard.
 > The remaining guide continues using `kubectl`.
 
-### Create a `CloudProfile`
+## 8. Deploy a `Shoot`
+
+### Create a `CloudProfile` Resource
 
 In order to host a shoot cluster, at least one `CloudProfile` is required.
 
@@ -817,7 +821,7 @@ NAME   PROVIDER   AGE
 gcp    gcp        75s
 ```
 
-### Create a `Project`
+### Create a `Project` Resource
 
 Projects are used for logical separation of shoot clusters.
 
@@ -860,7 +864,7 @@ NAME         NAMESPACE           STATUS   OWNER        CREATOR      AGE
 my-project   garden-my-project   Ready    admin-user   admin-user   78s
 ```
 
-### Create a `CredentialsBinding`
+### Create a `CredentialsBinding` Resource
 
 > [!IMPORTANT]
 > For productive environments, use separate credentials for shoot clusters.
@@ -908,7 +912,7 @@ NAME   PROVIDER   APIVERSION   KIND     NAME         AGE
 gcp    gcp        v1           Secret   garden/gcp   30s
 ```
 
-## 8. Create a `Shoot`
+### Create a `Shoot` Resource
 
 Finally, we'll create our first shoot cluster.
 
@@ -1032,3 +1036,11 @@ node-problem-detector-fws5h                           1/1     Running   0       
 node-problem-detector-v2r4z                           1/1     Running   0          12m
 vpn-shoot-69fffd49fc-jkzs2                            1/1     Running   0          13m
 ```
+
+## Further Reading
+
+* [Extensions](https://gardener.cloud/docs/extensions/)
+* [Workload Identity Federation](https://gardener.cloud/docs/extensions/infrastructure-extensions/gardener-extension-provider-gcp/usage/#gcp-workload-identity-federation)
+* [Deploy a `gardenlet` Automatically](https://gardener.cloud/docs/gardener/deployment/deploy_gardenlet_automatically/)
+* [Authenticating with an Identity Provider](https://gardener.cloud/docs/guides/administer-shoots/oidc-login/)
+* [Upgrade Guide](https://gardener.cloud/docs/gardener/upgrade-gardener/)
