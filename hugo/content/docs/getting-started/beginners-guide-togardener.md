@@ -1,5 +1,6 @@
 ---
 title: Beginner's Guide to Gardener
+weight: 1
 ---
 
 # Beginner's Guide to Gardener
