@@ -14,7 +14,15 @@ Its goal is to provide you with a functional Gardener setup.
 
 ## Content
 
-TODO
+* [Prerequisites](#prerequisites)
+* [Create a Runtime Cluster on GKE](#create-a-runtime-cluster-on-gke)
+* [Deploy the Gardener Operator](#deploy-the-gardener-operator)
+* [Deploy `Extension`s](#deploy-extensions)
+* [Deploy the `Garden` Resource](#deploy-the-garden-resource)
+* [Access the Virtual Garden Cluster](#access-the-virtual-garden-cluster)
+* [Deploy the `Gardenlet`](#deploy-the-gardenlet)
+* [*Optional:* Visit the Gardener Dashboard](#optional-visit-the-gardener-dashboard)
+* [Create a `Shoot`](#create-a-shoot)
 
 ## Prerequisites
 
@@ -45,7 +53,7 @@ Make sure to enable [vertical Pod autoscaling](https://docs.cloud.google.com/kub
 
 Take note of the region that you choose for your cluster, e.g. `europe-north1`.
 
-## Set the Environment Variables
+### Set the Environment Variables
 
 In the commands in the sections below we'll frequently need the name of the GCP project, the GCP region, and the GKE cluster.
 
@@ -57,13 +65,15 @@ export GARDENER_GCP_REGION=<gcp-region>
 export GARDENER_GKE_CLUSTER=<gke-cluster>
 ```
 
-## Set Your `kubectl` Context to Your GKE Runtime Cluster
+### Set Your `kubectl` Context to Your GKE Runtime Cluster
 
 Set your `kubectl` context to your newly created GKE runtime cluster using the `gcloud` CLI.
+Export the path to the runtime kubeconfig so that later steps can reference it via `$KUBECONFIG`.
 
 ```shell
 gcloud auth login
 gcloud container clusters get-credentials $GARDENER_GKE_CLUSTER --region $GARDENER_GCP_REGION --project $GARDENER_GCP_PROJECT
+export KUBECONFIG="${KUBECONFIG:-$HOME/.kube/config}"
 ```
 
 Verify that the `kubectl` context changed.
@@ -288,7 +298,7 @@ os-gardenlinux                 False                                            
 provider-gcp                   False                                             7m40s
 ```
 
-## Deploy an Infrastructure `Secret` in the Runtime Cluster
+### Deploy an Infrastructure `Secret` in the Runtime Cluster
 
 We'll need credentials for the GCP infrastructure for Gardener to provision resources on it.
 
@@ -313,7 +323,7 @@ The service account JSON looks similar to this:
 }
 ```
 
-Create a `00-§.yaml` file from the downloaded JSON key file and apply it to the runtime cluster.
+Create a `00-secret-gcp.yaml` file from the downloaded JSON key file and apply it to the runtime cluster.
 
 ```shell
 KEY_FILE=<path-to-json-key-file>
@@ -348,7 +358,7 @@ metadata:
 type: Opaque
 ```
 
-## Prepare the `Garden` Resource
+### Prepare the `Garden` Resource
 
 We need a few configuration values to create the `Garden` resource.
 
@@ -524,7 +534,7 @@ kubectl config current-context
 virtual-garden
 ```
 
-## Deploy the Infrastructure `Secret` in the Virtual Garden Cluster
+### Deploy the Infrastructure `Secret` in the Virtual Garden Cluster
 
 We'll reuse the GCP secret from before for the virtual garden cluster.
 
@@ -735,7 +745,7 @@ Use the token for authentication in the dashboard.
 > All following sections can be done in the dashboard.
 > The remaining guide continues using `kubectl`.
 
-## Create a `CloudProfile`
+### Create a `CloudProfile`
 
 In order to host a shoot cluster, at least one `CloudProfile` is required.
 
@@ -808,7 +818,7 @@ NAME   PROVIDER   AGE
 gcp    gcp        75s
 ```
 
-## Create a `Project`
+### Create a `Project`
 
 Projects are used for logical separation of shoot clusters.
 
@@ -835,7 +845,7 @@ spec:
 Apply the `Project` resource to your virtual garden cluster.
 
 ```shell
-kubectl apply -f project.yaml
+kubectl apply -f 05-project.yaml
 ```
 
 Verify that the `Project` has been created.
@@ -851,7 +861,7 @@ NAME         NAMESPACE           STATUS   OWNER        CREATOR      AGE
 my-project   garden-my-project   Ready    admin-user   admin-user   78s
 ```
 
-## Create a `CredentialsBinding`
+### Create a `CredentialsBinding`
 
 > [!IMPORTANT]
 > For productive environments, use separate credentials for shoot clusters.
@@ -919,7 +929,7 @@ spec:
   seedName: soil
   cloudProfile:
     name: gcp
-  credentialsBindingName: my-provider-account
+  credentialsBindingName: gcp
   region: <cloud-profile-region> # TODO: Use the region from your CloudProfile
   networking:
     type: calico
@@ -974,7 +984,7 @@ NAME       CLOUDPROFILE   PROVIDER   REGION          K8S VERSION   HIBERNATION  
 my-shoot   gcp            gcp        europe-north1   1.36.5        Awake         Reconcile Succeeded (100%)   healthy   5h25m
 ```
 
-## Access Your Shoot Cluster
+### Access Your Shoot Cluster
 
 Finally, to see that your shoot cluster is accessible we'll create a kubeconfig for it.
 
