@@ -308,6 +308,11 @@ provider-gcp                   False                                            
 
 ### Deploy an Infrastructure `Secret` in the Runtime Cluster
 
+> [!WARNING]
+> For simplicity, the default service account of the GCP project is used.
+> This is not recommended for productive setups.
+> Consider using a dedicated service account or tearing down the setup after finishing the guide.
+
 We'll need credentials for the GCP infrastructure for Gardener to provision resources on it.
 
 Create a JSON key for the default [service account](https://console.cloud.google.com/iam-admin/serviceaccounts) in your GCP project.
