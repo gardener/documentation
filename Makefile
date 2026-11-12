@@ -171,6 +171,7 @@ post-process: ## Run post-processing scripts and emit post-processing-report.jso
 	@LEDGER=$$(mktemp $${TMPDIR:-/tmp}/post-processing-ledger-XXXXXX); \
 	trap "rm -f $$LEDGER" EXIT; \
 	export POST_PROCESSING_LEDGER=$$LEDGER; \
+	set -e; \
 	$(MAKE) post-processing-part-1; \
 	$(MAKE) post-processing-part-2; \
 	$(MAKE) post-processing-part-index; \
