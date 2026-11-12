@@ -8,12 +8,13 @@ title: Deploying Gardener on GCP
 
 * A project on [GCP](https://console.cloud.google.com/)
   * A zone in [GCP Cloud DNS](https://console.cloud.google.com/net-services/dns/zones) 
-* CLIs:
+* Tools:
   * [gcloud](https://docs.cloud.google.com/sdk/docs/install-sdk#latest-version)
-  * [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl)
   * [helm](https://helm.sh/docs/intro/install/#through-package-managers)
   * [GNU sed](https://www.gnu.org/software/sed/)
-* [gke-gcloud-auth-plugin](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl#install_plugin)
+  * [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl)
+    * [gke-gcloud-auth-plugin](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl#install_plugin)
+
 
 ## Create a Runtime Cluster on GKE
 
@@ -21,13 +22,18 @@ title: Deploying Gardener on GCP
 > [GKE Autopilot clusters](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview) cannot be used as a runtime cluster.
 
 Create a [GKE cluster on GCP](https://console.cloud.google.com/kubernetes/list/overview). 
-Make sure to enable vertical Pod autoscaling.
+Make sure to enable [vertical Pod autoscaling](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/verticalpodautoscaler).
 
 Take note of the region that you choose for your cluster e.g. `europe-north1`.
 
-Reference documentation: [How to Set Up a Gardener Landscape | Runtime Cluster](https://gardener.cloud/docs/gardener/deployment/setup_gardener/#runtime-cluster)
+*Reference documentation:*
+* [Runtime Cluster](https://gardener.cloud/docs/gardener/deployment/setup_gardener/#runtime-cluster)
 
 ## Set the Environment Variables
+
+In the commands in the sections below we'll frequently need the name of the GCP project, the GCP region, and the GKE cluster.
+
+Set the environment variables for these accordingly.
 
 ```shell
 export GARDENER_GCP_PROJECT=<gcp-project>
@@ -35,43 +41,54 @@ export GARDENER_GCP_REGION=<gcp-region>
 export GARDENER_GKE_CLUSTER=<gke-cluster>
 ```
 
-## Set Your `kubectl` Context to Your Runtime Cluster
+## Set Your `kubectl` Context to Your GKE Runtime Cluster
 
-> [!NOTE]
-> Useful information that users should know, even when skimming content.
-
-Set your `kubectl` context to your newly created runtime cluster.
+Set your `kubectl` context to your newly created GKE runtime cluster using the `gcloud` CLI.
 
 ```shell
 gcloud auth login
 gcloud container clusters get-credentials $GARDENER_GKE_CLUSTER --region $GARDENER_GCP_REGION --project $GARDENER_GCP_PROJECT
 ```
 
-Verify the current context:
+Verify that the `kubectl` context changed:
 
 ```shell
 kubectl config current-context
 ```
 
+*Output:*
+
 ```terminaloutput
 gke_<gcp-project>_<gcp-region>_<gke-cluster>
-
-Verify the connection to your runtime cluster:
-
-```shell
-kubectl cluster-info
 ```
 
-```terminaloutput
-Kubernetes control plane is running at https://35.228.239.233
-GLBCDefaultBackend is running at https://35.228.239.233/api/v1/namespaces/kube-system/services/default-http-backend:http/proxy
-KubeDNS is running at https://35.228.239.233/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
-Metrics-server is running at https://35.228.239.233/api/v1/namespaces/kube-system/services/https:metrics-server:/proxy
+Verify the connection to your GKE runtime cluster by fetching the nodes:
 
-To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+```shell
+kubectl get nodes
+```
+
+*Output:*
+
+```terminaloutput
+NAME                                       STATUS   ROLES    AGE   VERSION
+gke-runtime-2-default-pool-446fba09-7ghv   Ready    <none>   19h   v1.36.4-gke.2377000
+gke-runtime-2-default-pool-446fba09-8kc6   Ready    <none>   19h   v1.36.4-gke.2377000
+gke-runtime-2-default-pool-446fba09-k58m   Ready    <none>   19h   v1.36.4-gke.2377000
+gke-runtime-2-default-pool-5f0dacf3-3js5   Ready    <none>   19h   v1.36.4-gke.2377000
+gke-runtime-2-default-pool-5f0dacf3-f0tp   Ready    <none>   19h   v1.36.4-gke.2377000
+gke-runtime-2-default-pool-5f0dacf3-fqqf   Ready    <none>   19h   v1.36.4-gke.2377000
+gke-runtime-2-default-pool-ee60a788-5zbn   Ready    <none>   19h   v1.36.4-gke.2377000
+gke-runtime-2-default-pool-ee60a788-r245   Ready    <none>   19h   v1.36.4-gke.2377000
+gke-runtime-2-default-pool-ee60a788-rcqn   Ready    <none>   19h   v1.36.4-gke.2377000
 ```
 
 ## Deploy the Gardener Operator
+
+We'll deploy the [Gardener Operator](https://gardener.cloud/docs/gardener/concepts/operator/) into the runtime cluster to bootstrap Gardener.
+It is responsible for reconciling `Extension` and `Garden` resources.
+
+Install the operator using its Helm chart.
 
 ```shell
 helm upgrade \
@@ -79,118 +96,155 @@ helm upgrade \
   --namespace=garden \
   --create-namespace \
   oci://europe-docker.pkg.dev/gardener-project/releases/charts/gardener/operator:v1.155.0 \
-  --set replicaCount=2 \
-  --set config.featureGates.VictoriaLogsBackend=true \
-  --set config.featureGates.RemoveVali=true
+  --set replicaCount=2
 ```
 
-Verify:
+Verify that the `gardener-operator` deployment is coming up:
 ```shell
 kubectl get deploy -n garden gardener-operator --watch
 ```
+
+*Output:*
 
 ```terminal
 NAME                READY   UP-TO-DATE   AVAILABLE   AGE
 gardener-operator   2/2     2            2           29s
 ```
 
-Reference documentation: 
-- [How to Set Up a Gardener Landscape | Gardener Operator](https://gardener.cloud/docs/gardener/deployment/setup_gardener/#gardener-operator)
-- [Gardener Operator](https://gardener.cloud/docs/gardener/concepts/operator/)
-
 ## Deploy `Extension`s
 
-Reference documentation: 
-- [Extensibility Overview](https://gardener.cloud/docs/gardener/extensions/#extensibility-overview)
-- [How to Set Up a Gardener Landscape | Extensions](https://gardener.cloud/docs/gardener/deployment/setup_gardener/#extensions)
+Gardener is built on an [extensibility concept](https://gardener.cloud/docs/gardener/extensions/#extensibility-overview) and makes use of various extensions.
+A Gardener landscape needs a minimum set of extensions that cover the following functions: 
+* Talking to an infrastructure provider
+* Providing an operating system for cluster nodes
+* Taking care of external DNS management
+* Provisioning TLS certificates
+* Installing the [container network interface (CNI)](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/)
 
 ### GCP Provider Extension
+
+We'll use the [GCP provider extension](https://gardener.cloud/docs/extensions/infrastructure-extensions/gardener-extension-provider-gcp/) for managing resources on the GCP infrastructure.
+
+Apply the extension from the [repository](https://github.com/gardener/gardener-extension-provider-gcp).
 
 ```shell
 kubectl apply -f https://raw.githubusercontent.com/gardener/gardener-extension-provider-gcp/refs/tags/v1.58.1/example/extension.yaml
 ```
 
-Verify:
+Verify that the extension has been created:
 ```shell
 kubectl get extop provider-gcp
 ```
+
+*Output:*
 
 ```terminaloutput
 NAME           INSTALLED   REQUIRED RUNTIME   REQUIRED VIRTUAL   AGE
 provider-gcp   False                                             25s
 ```
 
-Reference documentation: [Gardener Extension for GCP provider](https://gardener.cloud/docs/extensions/infrastructure-extensions/gardener-extension-provider-gcp/)
-
 ### Garden Linux Operating System Extension
+
+> [!NOTE]
+> You could choose any of the available [operating system extensions](https://gardener.cloud/docs/extensions/os-extensions/).
+
+We'll use [Garden Linux](https://docs.gardenlinux.org/) as the operating system for our cluster nodes.
+
+Install the operating system extension for Garden Linux from the [repository](https://github.com/gardener/gardener-extension-os-gardenlinux).
 
 ```shell
 kubectl apply -f https://raw.githubusercontent.com/gardener/gardener-extension-os-gardenlinux/refs/tags/v0.51.0/example/extension.yaml
 ```
 
-Verify:
+Verify that the extension has been created:
 
 ```shell
 kubectl get extop os-gardenlinux
 ```
+
+*Output:*
 
 ```terminaloutput
 NAME             INSTALLED   REQUIRED RUNTIME   REQUIRED VIRTUAL   AGE
 os-gardenlinux   False                                             8s
 ```
 
-Reference documentation: [Gardener Extension for Garden Linux OS](https://gardener.cloud/docs/extensions/os-extensions/gardener-extension-os-gardenlinux/)
-
 ### DNS Extension
+
+Gardener uses the DNS extension to provide external DNS management capabilities.
+
+Install the DNS extension from the [repository](https://github.com/gardener/gardener-extension-shoot-dns-service).
 
 ```shell
 kubectl apply -f https://raw.githubusercontent.com/gardener/gardener-extension-shoot-dns-service/refs/tags/v1.95.1/example/extension-shoot-dns-service.yaml
 ```
 
-Verify:
+Verify that the extension has been created:
 
 ```shell
 kubectl get extop extension-shoot-dns-service
 ```
+
+*Output:*
 
 ```terminaloutput
 NAME                          INSTALLED   REQUIRED RUNTIME   REQUIRED VIRTUAL   AGE
 extension-shoot-dns-service   False                                             7s
 ```
 
-Reference documentation: [Gardener Extension for DNS services](https://gardener.cloud/docs/extensions/others/gardener-extension-shoot-dns-service/)
-
 ### Certificate Extension
+
+Gardener uses the certificate extension to provision and manage the lifecycle of TLS certificates.
+The certificates are automatically provisioned using the [ACME protocol](https://en.wikipedia.org/wiki/Automatic_Certificate_Management_Environment).
+The extension makes use of [Let's Encrypt](https://letsencrypt.org/) as the [certificate authority (CA)](https://en.wikipedia.org/wiki/Certificate_authority).
+
+Install the certificate extension from the [repository](https://github.com/gardener/gardener-extension-shoot-cert-service).
+Your email address is required for Let's Encrypt.
 
 ```shell
 EMAIL=<your-email>
-curl -s https://raw.githubusercontent.com/gardener/gardener-extension-shoot-cert-service/refs/tags/v1.67.0/example/extension.yaml | sed "s/\S\+@example.com/$EMAIL/" | kubectl apply -f -
+curl -s https://raw.githubusercontent.com/gardener/gardener-extension-shoot-cert-service/refs/tags/v1.67.0/example/extension.yaml | sed -E "s/[[:alnum:]_.+-]+@example\.com/$EMAIL/" | kubectl apply -f -
 ```
 
-Verify:
+Verify that the extension has been created and that your email is used for ACME:
 
 ```shell
-kubectl get extop extension-shoot-cert-service
+kubectl get extop extension-shoot-cert-service -oyaml | grep -C 1 'email:'
 ```
+
+*Output:*
 
 ```terminaloutput
-NAME                           INSTALLED   REQUIRED RUNTIME   REQUIRED VIRTUAL   AGE
-extension-shoot-cert-service   False                                             46s
+            acme:
+              email: <your-email>
+              server: https://acme-v02.api.letsencrypt.org/directory
+--
+            acme:
+              email: <your-email>
+              server: https://acme-v02.api.letsencrypt.org/directory
 ```
 
-Reference documentation: [Gardener Extension for certificate services](https://gardener.cloud/docs/extensions/others/gardener-extension-shoot-cert-service/)
-
 ### Calico Extension
+
+> [!NOTE]
+> You can also choose [Cilium](https://cilium.io/) as your CNI using the [Cilium extension](https://github.com/gardener/gardener-extension-networking-cilium).
+
+A [container network interface (CNI)](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/) is required for the clusters.
+We'll use [Calico](https://docs.tigera.io/calico/latest/about/) as the CNI for the Gardener managed shoot clusters.
+
+Install the Calico extension from the [repository](https://github.com/gardener/gardener-extension-networking-calico).
 
 ```shell
 kubectl apply -f https://raw.githubusercontent.com/gardener/gardener-extension-networking-calico/refs/tags/v1.60.3/example/extension.yaml
 ```
 
-Verify:
+Verify that the extension has been created:
 
 ```shell
 kubectl get extop networking-calico
 ```
+*
+*Output:*
 
 ```terminaloutput
 NAME                INSTALLED   REQUIRED RUNTIME   REQUIRED VIRTUAL   AGE
