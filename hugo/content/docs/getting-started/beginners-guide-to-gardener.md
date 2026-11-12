@@ -315,10 +315,9 @@ provider-gcp                   False                                            
 
 We'll need credentials for the GCP infrastructure for Gardener to provision resources on it.
 
-Create a JSON key for the default [service account](https://console.cloud.google.com/iam-admin/serviceaccounts) in your GCP project.
-Download the JSON key for the service account.
+Create a JSON key for the default [service account](https://console.cloud.google.com/iam-admin/serviceaccounts) in your GCP project and download it.
 
-The service account JSON looks similar to this:
+The service account JSON key looks similar to this:
 
 ```json
 {
