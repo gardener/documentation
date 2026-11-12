@@ -2,7 +2,7 @@
 title: Deploying Gardener on GCP
 ---
 
-# Deploying Gardener on GCP
+# Deploy Gardener on GCP
 
 ## Prerequisites
 
@@ -13,13 +13,29 @@ title: Deploying Gardener on GCP
   * [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl)
   * [helm](https://helm.sh/docs/intro/install/#through-package-managers)
   * [GNU sed](https://www.gnu.org/software/sed/)
+* [gke-gcloud-auth-plugin](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl#install_plugin)
 
 ## Create a Runtime Cluster on GKE
 
-Create a [GKE Autopilot cluster on GCP](https://console.cloud.google.com/kubernetes/list/overview).
+> [!NOTE]
+> [GKE Autopilot clusters](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview) cannot be used as a runtime cluster.
+
+Create a [GKE cluster on GCP](https://console.cloud.google.com/kubernetes/list/overview). 
+Make sure to enable vertical Pod autoscaling.
+
 Take note of the region that you choose for your cluster e.g. `europe-north1`.
 
-## Set your `kubectl` Context to your Runtime Cluster
+Reference documentation: [How to Set Up a Gardener Landscape | Runtime Cluster](https://gardener.cloud/docs/gardener/deployment/setup_gardener/#runtime-cluster)
+
+## Set the Environment Variables
+
+```shell
+export GARDENER_GCP_PROJECT=<gcp-project>
+export GARDENER_GCP_REGION=<gcp-region>
+export GARDENER_GKE_CLUSTER=<gke-cluster>
+```
+
+## Set Your `kubectl` Context to Your Runtime Cluster
 
 > [!NOTE]
 > Useful information that users should know, even when skimming content.
@@ -27,13 +43,21 @@ Take note of the region that you choose for your cluster e.g. `europe-north1`.
 Set your `kubectl` context to your newly created runtime cluster.
 
 ```shell
-PROJECT=<gcp-project>
-REGION=<gcp-region>
 gcloud auth login
-gcloud container clusters get-credentials runtime --region $REGION --project $PROJECT
+gcloud container clusters get-credentials $GARDENER_GKE_CLUSTER --region $GARDENER_GCP_REGION --project $GARDENER_GCP_PROJECT
 ```
 
-Verify:
+Verify the current context:
+
+```shell
+kubectl config current-context
+```
+
+```terminaloutput
+gke_<gcp-project>_<gcp-region>_<gke-cluster>
+
+Verify the connection to your runtime cluster:
+
 ```shell
 kubectl cluster-info
 ```
@@ -70,7 +94,15 @@ NAME                READY   UP-TO-DATE   AVAILABLE   AGE
 gardener-operator   2/2     2            2           29s
 ```
 
-## Deploying `Extension`s
+Reference documentation: 
+- [How to Set Up a Gardener Landscape | Gardener Operator](https://gardener.cloud/docs/gardener/deployment/setup_gardener/#gardener-operator)
+- [Gardener Operator](https://gardener.cloud/docs/gardener/concepts/operator/)
+
+## Deploy `Extension`s
+
+Reference documentation: 
+- [Extensibility Overview](https://gardener.cloud/docs/gardener/extensions/#extensibility-overview)
+- [How to Set Up a Gardener Landscape | Extensions](https://gardener.cloud/docs/gardener/deployment/setup_gardener/#extensions)
 
 ### GCP Provider Extension
 
@@ -79,7 +111,7 @@ kubectl apply -f https://raw.githubusercontent.com/gardener/gardener-extension-p
 ```
 
 Verify:
-```terminal
+```shell
 kubectl get extop provider-gcp
 ```
 
@@ -87,6 +119,8 @@ kubectl get extop provider-gcp
 NAME           INSTALLED   REQUIRED RUNTIME   REQUIRED VIRTUAL   AGE
 provider-gcp   False                                             25s
 ```
+
+Reference documentation: [Gardener Extension for GCP provider](https://gardener.cloud/docs/extensions/infrastructure-extensions/gardener-extension-provider-gcp/)
 
 ### Garden Linux Operating System Extension
 
@@ -96,14 +130,16 @@ kubectl apply -f https://raw.githubusercontent.com/gardener/gardener-extension-o
 
 Verify:
 
-```terminal
+```shell
 kubectl get extop os-gardenlinux
 ```
 
-```shell
+```terminaloutput
 NAME             INSTALLED   REQUIRED RUNTIME   REQUIRED VIRTUAL   AGE
 os-gardenlinux   False                                             8s
 ```
+
+Reference documentation: [Gardener Extension for Garden Linux OS](https://gardener.cloud/docs/extensions/os-extensions/gardener-extension-os-gardenlinux/)
 
 ### DNS Extension
 
@@ -113,7 +149,7 @@ kubectl apply -f https://raw.githubusercontent.com/gardener/gardener-extension-s
 
 Verify:
 
-```terminal
+```shell
 kubectl get extop extension-shoot-dns-service
 ```
 
@@ -121,6 +157,8 @@ kubectl get extop extension-shoot-dns-service
 NAME                          INSTALLED   REQUIRED RUNTIME   REQUIRED VIRTUAL   AGE
 extension-shoot-dns-service   False                                             7s
 ```
+
+Reference documentation: [Gardener Extension for DNS services](https://gardener.cloud/docs/extensions/others/gardener-extension-shoot-dns-service/)
 
 ### Certificate Extension
 
@@ -131,14 +169,16 @@ curl -s https://raw.githubusercontent.com/gardener/gardener-extension-shoot-cert
 
 Verify:
 
-```terminal
+```shell
 kubectl get extop extension-shoot-cert-service
 ```
 
-```shell
+```terminaloutput
 NAME                           INSTALLED   REQUIRED RUNTIME   REQUIRED VIRTUAL   AGE
 extension-shoot-cert-service   False                                             46s
 ```
+
+Reference documentation: [Gardener Extension for certificate services](https://gardener.cloud/docs/extensions/others/gardener-extension-shoot-cert-service/)
 
 ### Calico Extension
 
@@ -148,7 +188,7 @@ kubectl apply -f https://raw.githubusercontent.com/gardener/gardener-extension-n
 
 Verify:
 
-```terminal
+```shell
 kubectl get extop networking-calico
 ```
 
@@ -163,7 +203,7 @@ networking-calico   False                                             12s
 kubectl get extop
 ```
 
-```terminal
+```terminaloutput
 NAME                           INSTALLED   REQUIRED RUNTIME   REQUIRED VIRTUAL   AGE
 extension-shoot-cert-service   False                                             3m54s
 extension-shoot-dns-service    False                                             6m22s
@@ -171,6 +211,8 @@ networking-calico              False                                            
 os-gardenlinux                 False                                             6m34s
 provider-gcp                   False                                             7m40s
 ```
+
+Reference documentation: [Gardener Extension for Calico Networking](https://gardener.cloud/docs/extensions/network-extensions/gardener-extension-networking-calico/)
 
 ## Deploy an Infrastructure `Secret` in the Runtime Cluster
 
@@ -200,6 +242,8 @@ kubectl create secret generic gcp -n garden --from-file=serviceaccount.json=$KEY
 kubectl apply -f secret-gcp.yaml
 ```
 
+A YAML file named `secret-gcp.yaml` is now saved in your working directory.
+
 ```terminaloutput
 secret/gcp created
 ```
@@ -217,13 +261,10 @@ gcp    Opaque   1      60s
 ## Get the CIDR Ranges from Your GKE Cluster
 
 ```shell
-PROJECT=<gcp-project>
-REGION=<gcp-region>
-CLUSTER=<gke-cluster>
-SUBNET=$(gcloud container clusters describe $CLUSTER --location $REGION --project $PROJECT --format="value(subnetwork)")
-gcloud container clusters describe $CLUSTER --location $REGION --project $PROJECT \
+SUBNET=$(gcloud container clusters describe $GARDENER_GKE_CLUSTER --location $GARDENER_GCP_REGION --project $GARDENER_GCP_PROJECT --format="value(subnetwork)")
+gcloud container clusters describe $GARDENER_GKE_CLUSTER --location $GARDENER_GCP_REGION --project $GARDENER_GCP_PROJECT \
   --format="table(ipAllocationPolicy.clusterIpv4CidrBlock:label=POD,ipAllocationPolicy.servicesIpv4CidrBlock:label=SERVICE)"
-gcloud compute networks subnets describe $SUBNET --region $REGION --project $PROJECT --format="table(ipCidrRange:label=NODE)"
+gcloud compute networks subnets describe $SUBNET --region $GARDENER_GCP_REGION --project $GARDENER_GCP_PROJECT --format="table(ipCidrRange:label=NODE)"
 ```
 
 ```terminaloutput
@@ -236,10 +277,7 @@ NODE
 ## Get the Availability Zones from Your GKE Cluster
 
 ```shell
-PROJECT=<gcp-project>
-REGION=<gcp-region>
-CLUSTER=<gke-cluster>
-gcloud container clusters describe $CLUSTER --location $REGION --project=$PROJECT --format="value(locations)" | tr ';' '\n' | sort
+gcloud container clusters describe $GARDENER_GKE_CLUSTER --location $GARDENER_GCP_REGION --project=$GARDENER_GCP_PROJECT --format="value(locations)" | tr ';' '\n' | sort
 ```
 
 ```terminaloutput
@@ -248,7 +286,7 @@ europe-north1-b
 europe-north1-c
 ```
 
-## Deploying the `Garden` resource
+## Deploy the `Garden` Resource
 
 ```yaml
 apiVersion: operator.gardener.cloud/v1alpha1
@@ -256,10 +294,16 @@ kind: Garden
 metadata:
   name: garden
 spec:
+  extensions:
+    - providerConfig:
+        apiVersion: service.cert.extensions.gardener.cloud/v1alpha1
+        generateControlPlaneCertificate: true
+        kind: CertConfig
+      type: controlplane-cert-service
   dns:
     providers:
     - name: primary
-      type: gcp
+      type: google-clouddns
       secretRef:
         name: gcp
   runtimeCluster:
@@ -271,17 +315,17 @@ spec:
         kind: nginx
     networking:
       nodes:
-      - <node-cidr> # TODO: Use the Node CIDR range
+      - <node-cidr> # TODO: Use the node CIDR range of your GKE cluster
       pods:
-      - <pod-cidr> # TODO: Use the Pod CIDR range
+      - <pod-cidr> # TODO: Use the pod CIDR range of your GKE cluster
       services:
-      - <service-cidr> # TODO: Use the Service CIDR range
+      - <service-cidr> # TODO: Use the service CIDR range of your GKE cluster
     provider:
-      region: <gcp-region> # TODO: Use the region from your GKE cluster
+      region: <gcp-region> # TODO: Use the region of your GKE cluster
       zones: # TODO: Use the availability zones of your GKE cluster
-      - <gke-az-1>
-      - <gke-az-2>
-      - <gke-az-3>
+      - <gcp-zone-1>
+      - <gcp-zone-2>
+      - <gcp-zone-3>
     settings:
       verticalPodAutoscaler:
         enabled: false
@@ -297,7 +341,7 @@ spec:
     etcd:
       main:
         backup:
-          region: <gcp-region> # TODO: Use the region from your GKE cluster
+          region: <gcp-region> # TODO: Use the region of your GKE cluster
           provider: gcp
           secretRef:
             name: gcp
@@ -315,6 +359,14 @@ spec:
     networking:
       services:
       - 100.64.0.0/13
+    maintenance:
+      timeWindow:
+        begin: 220000+0100
+        end: 230000+0100
+```
+
+```shell
+kubectl apply -f garden.yaml
 ```
 
 Verify:
@@ -328,52 +380,84 @@ NAME     K8S VERSION   GARDENER VERSION   LAST OPERATION   RUNTIME   VIRTUAL   A
 garden   1.33.5        v1.133.0           Succeeded        True      True      True         False           10m
 ```
 
-## Accessing the virtual garden cluster
+Reference documentation: [How to Set Up a Gardener Landscape | Garden](https://gardener.cloud/docs/gardener/deployment/setup_gardener/#garden)
+
+## Access the Virtual Garden Cluster
+
+To access the virtual garden cluster, generate a kubeconfig for it using the `generate-kubeconfig.sh` helper script from the [`gardener/gardener`](https://github.com/gardener/gardener) GitHub repository.
+
+Clone the repository and change into it:
 
 ```shell
-# in gardener/gardener
-./hack/usage/generate-kubeconfig.sh virtual-garden --runtime-kubeconfig '<runtime cluster kubeconfig>' --garden-name garden > ~/Downloads/garden-kubeconfig.yaml
+git clone https://github.com/gardener/gardener.git
+cd gardener
 ```
 
-## Deploying infrastructure `Secret`s in the virtual garden cluster
+Run the `generate-kubeconfig.sh` helper script:
 
-### DNS `Secret`
+```shell
+./hack/usage/generate-kubeconfig.sh virtual-garden --runtime-kubeconfig '<runtime-cluster-kubeconfig>' --garden-name garden > ~/Downloads/garden-kubeconfig.yaml # TODO: Use the path to the kubeconfig of your GKE runtime cluster. If you ran `gcloud container clusters get-credentials` earlier, your kubeconfig path will be `~/.kube/config`.
+```
+
+Set Your Context to the Virtual Garden Cluster
+
+```shell
+export KUBECONFIG="~/Downloads/garden-kubeconfig.yaml"
+```
+
+Verify your current context:
+
+```shell
+kubectl config current-context
+```
+
+```terminaloutput
+virtual-garden
+```
+
+## Deploy Infrastructure `Secret`s in the Virtual Garden Cluster
+
+Create a `Secret` in your virtual garden cluster:
+
+
+```shell
+kubectl apply -f secret-gcp.yaml
+```
+
+Verify:
+```shell
+kubectl get secret -n garden gcp
+```
+
+```terminaloutput
+NAME   TYPE     DATA   AGE
+gcp    Opaque   1      9h
+```
+
+## Create a `CredentialsBinding`
+
+Create a `CredentialsBinding` that links the `gcp` secret to a provider account identity. The Shoot resource references this binding by name.
 
 ```yaml
-apiVersion: v1
-kind: Secret
+apiVersion: security.gardener.cloud/v1alpha1
+kind: CredentialsBinding
 metadata:
-  name: soil-dns
+  name: my-provider-account
   namespace: garden
-type: Opaque
-stringData:
-  authUrl: <auth-url> # TODO: 
-  domainName: <domain-name> # TODO: 
-  tenantName: <tenant-name> # TODO:
-
-  applicationCredentialID: <application-credential-id> # TODO:
-  applicationCredentialName: <application-credential-name> # TODO:
-  applicationCredentialSecret: <application-credential-secret> # TODO:
+provider:
+  type: gcp
+credentialsRef:
+  apiVersion: v1
+  kind: Secret
+  name: gcp
+  namespace: garden
 ```
 
-### Backup `Secret`
-
-```yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: soil-backup
-  namespace: garden
-type: Opaque
-stringData:
-  authURL: <auth-url> # TODO:
-  domainName: <domain-name> # TODO:
-  tenantName: <tenant-name> # TODO:
-  username: <username> # TODO:
-  password: <password> # TODO:
+```shell
+kubectl apply -f credentials-binding.yaml
 ```
 
-## Creating the first `Seed` cluster
+## Create the First `Seed` Cluster
 
 ```yaml
 apiVersion: seedmanagement.gardener.cloud/v1alpha1
@@ -399,24 +483,29 @@ spec:
           credentialsRef:
             apiVersion: v1
             kind: Secret
-            name: soil-backup
+            name: gcp
             namespace: garden
-          provider: openstack
-          region: <region> # TODO: Use OpenStack region
+          provider: gcp
+          region: <gcp-region> # TODO: Use the region of your GKE cluster
+          providerConfig:
+            apiVersion: gcp.provider.extensions.gardener.cloud/v1alpha1
+            kind: BackupBucketConfig
         dns:
           internal:
             credentialsRef:
               apiVersion: v1
               kind: Secret
-              name: soil-dns
+              name: gcp
               namespace: garden
-            domain: internal.soil.<base-domain> # TODO:
-            type: openstack-designate
+            domain: internal.soil.<gcp-dns-zone> # TODO: Use your DNS zone
+            type: google-clouddns
           provider:
-            secretRef:
-              name: soil-dns
+            credentialsRef:
+              apiVersion: v1
+              kind: Secret
+              name: gcp
               namespace: garden
-            type: openstack-designate
+            type: google-clouddns
         extensions:
         - providerConfig:
             apiVersion: service.cert.extensions.gardener.cloud/v1alpha1
@@ -426,31 +515,32 @@ spec:
         ingress:
           controller:
             kind: nginx
-          domain: ingress.soil.<base-domain> # TODO:
+          domain: ingress.soil.<gcp-dns-zone> # TODO: Use your DNS zone
         networks:
-          nodes: <node-cidr> # TODO: Use runtime cluster node CIDR
-          pods: <pod-cidr> # TODO: Use runtime cluster pod CIDR
-          services: <service-cidr> # TODO: Use runtime cluster service CIDR
+          nodes: <node-cidr> # TODO: Use the node CIDR range of your GKE cluster
+          pods: <pod-cidr> # TODO: Use the pod CIDR range of your GKE cluster
+          services: <service-cidr> # TODO: Use the service CIDR range of your GKE cluster
           shootDefaults:
             pods: 100.112.0.0/13
             services: 100.160.0.0/13
         provider:
-          region: <region> # TODO: Use region of GKE runtime cluster
-          type: openstack
-          zones: # TODO: Use zones of GKE runtime cluster
-          - <zone-1>
-          - <zone-2>
-          - <zone-3>
+          region: <gcp-region> # TODO: Use the region of your GKE cluster
+          type: gcp
+          zones: # TODO: Use the availability zones of your GKE cluster
+          - <gcp-zone-1>
+          - <gcp-zone-2>
+          - <gcp-zone-3>
         settings:
           loadBalancerServices:
             externalTrafficPolicy: Local
             zones:
+            # TODO: Use an availability zones of your GKE cluster
             - externalTrafficPolicy: Local
-              name: <zone-1> # TODO:
+              name: <gcp-zone-1> 
             - externalTrafficPolicy: Local
-              name: <zone-2> # TODO:
+              name: <gcp-zone-2>
             - externalTrafficPolicy: Local
-              name: <zone-3> # TODO:
+              name: <gcp-zone-3>
           topologyAwareRouting:
             enabled: true
           verticalPodAutoscaler:
@@ -461,7 +551,7 @@ spec:
     helm:
       ociRepository:
         repository: europe-docker.pkg.dev/gardener-project/releases/charts/gardener/gardenlet
-        tag: v1.133.0
+        tag: v1.155.0
     image:
       pullPolicy: IfNotPresent
     podLabels:
@@ -476,70 +566,236 @@ Verify:
 kubectl get seed --watch
 ```
 
-```terminal
-
+```terminaloutput
+NAME   STATUS   LAST OPERATION               PROVIDER   REGION          AGE     VERSION    K8S VERSION
+soil   Ready    Reconcile Succeeded (100%)   gcp        europe-north1   2m23s   v1.155.0   v1.36.4-gke.2377000
 ```
 
-## Creating a `CloudProfile`
+## Create a `CloudProfile`
 
 ```yaml
 apiVersion: core.gardener.cloud/v1beta1
 kind: CloudProfile
 metadata:
-  name: openstack
+  name: gcp
 spec:
+  type: gcp
+  providerConfig:
+    apiVersion: gcp.provider.extensions.gardener.cloud/v1alpha1
+    kind: CloudProfileConfig
+    machineImages:
+      - name: gardenlinux
+        versions:
+          - version: 2150.14.0
+            image: projects/sap-se-gcp-gardenlinux/global/images/gardenlinux-f03494b5e33cba13-2150-14-0-a213f775 ## TODO:
   kubernetes:
     versions:
-    - classification: supported
-      expirationDate: "2026-06-28T23:59:59Z" # https://endoflife.date/kubernetes
-      version: 1.33.5
+      - version: 1.36.5
   machineImages:
-  - name: gardenlinux
-    updateStrategy: minor
-    versions:
-    - architectures:
-      - amd64
-      - arm64
-      classification: supported
-      cri:
-      - name: containerd
-      version: 1877.6
-  machineTypes:
-  - architecture: <architecture> # TODO: amd64 or arm64
-    cpu: "<cpu-count>" # TODO:
-    gpu: "<gpu-count>" # TODO:
-    memory: <memory> # TODO: Gi
-    name: <name> # TODO:
-    storage:
-      class: standard
-      size: <storage-size> # TODO:
-      type: default
-    usable: true
-  regions: 
-  - name: <region> # TODO:
-    zones:
-    - name: <zone-1> # TODO:
-    - name: <zone-2> # TODO:
-    - name: <zone-3> # TODO:
-  providerConfig:
-    apiVersion: openstack.provider.extensions.gardener.cloud/v1alpha1
-    kind: CloudProfileConfig
-    keystoneURLs:
-    - region: <region> # TODO:
-      url: <keystone-url> # TODO:
-    machineImages:
     - name: gardenlinux
       versions:
-      - regions:
-        - id: <machine-image-id> # TODO:
-          name: <region-name> # TODO:
-    regions:
-    constraints:
-      floatingPools:
-      - defaultFloatingSubnet: FloatingIP-internet-*
-        loadBalancerClasses: 
-        - floatingSubnetName: FloatingIP-internet-*
-          name: internet
-        name: FloatingIP*
-        region: <region> # TODO:
+        - version: 2150.14.0
+  machineTypes:
+    - name: n4-standard-2
+      cpu: "2"
+      gpu: "0"
+      memory: 8Gi
+      usable: true
+  volumeTypes: # optional (not needed in every environment, may only be specified if no machineType has a `storage` field)
+    - name: hyperdisk-balanced
+      class: standard
+      usable: true
+  regions:
+    - name: europe-north1
+      zones:
+      # TODO: Use the availability zones of your GKE cluster
+        - name: <gcp-zone-1>
+        - name: <gcp-zone-2>
+        - name: <gcp-zone-3>
+```
+
+```shell
+kubectl apply -f cloud-profile.yaml
+```
+
+Verify:
+
+```shell
+kubectl get cloudprofile   
+```
+
+```terminaloutput
+NAME   PROVIDER   AGE
+gcp    gcp        75s
+```
+
+Reference documentation: [How to Set Up a Gardener Landscape | Cloud Profile](https://gardener.cloud/docs/gardener/deployment/setup_gardener/#cloud-profile)
+
+## Create a `Project`
+
+```yaml
+apiVersion: core.gardener.cloud/v1beta1
+kind: Project
+metadata:
+  name: my-project
+spec:
+  namespace: garden-my-project
+  tolerations:
+    defaults:
+    - key: seed.gardener.cloud/protected
+    whitelist:
+    - key: seed.gardener.cloud/protected
+```
+
+```shell
+kubectl apply -f project.yaml
+```
+
+Verify:
+
+```shell
+kubectl get project
+```
+
+```terminaloutput
+NAME         NAMESPACE           STATUS   OWNER        CREATOR      AGE
+my-project   garden-my-project   Ready    admin-user   admin-user   78s
+```
+
+## Create a `CredentialsBinding`
+
+```yaml
+apiVersion: security.gardener.cloud/v1alpha1
+kind: CredentialsBinding
+metadata:
+  name: my-provider-account
+  namespace: garden-my-project
+provider:
+  type: gcp
+credentialsRef:
+  apiVersion: v1
+  kind: Secret
+  name: gcp
+  namespace: garden
+```
+
+```shell
+kubectl apply -f credentials-binding.yaml
+```
+
+Verify:
+
+```shell
+kubectl get credentialsbindings -n garden-my-project
+```
+
+```terminaloutput
+NAME                  PROVIDER   APIVERSION   KIND     NAME         AGE
+my-provider-account   gcp        v1           Secret   garden/gcp   30s
+```
+
+## Create a `Shoot`
+
+```yaml
+apiVersion: core.gardener.cloud/v1beta1
+kind: Shoot
+metadata:
+  name: my-shoot
+  namespace: garden-my-project
+spec:
+  tolerations:
+  - key: seed.gardener.cloud/protected
+  seedName: soil
+  cloudProfile:
+    name: gcp
+  credentialsBindingName: my-provider-account
+  region: europe-north1
+  networking:
+    type: calico
+    nodes: 10.180.0.0/16
+  provider:
+    infrastructureConfig:
+      apiVersion: gcp.provider.extensions.gardener.cloud/v1alpha1
+      kind: InfrastructureConfig
+      networks:
+        workers: 10.180.0.0/16
+    controlPlaneConfig:
+      apiVersion: gcp.provider.extensions.gardener.cloud/v1alpha1
+      kind: ControlPlaneConfig
+      zone: europe-north1-a
+    type: gcp
+    workers:
+    - name: default
+      machine:
+        type: n4-standard-2
+      cri:
+        name: containerd
+      minimum: 1
+      maximum: 2
+      maxSurge: 1
+      maxUnavailable: 0
+      zones:
+      - europe-north1-a
+      volume:
+        type: hyperdisk-balanced
+        size: 50Gi
+```
+
+```shell
+kubectl apply -f shoot.yaml
+```
+
+Verify:
+
+```shell
+kubectl get shoot -n garden-my-project
+```
+
+```terminaloutput
+NAME       CLOUDPROFILE   PROVIDER   REGION          K8S VERSION   HIBERNATION   LAST OPERATION               STATUS    AGE
+my-shoot   gcp            gcp        europe-north1   1.36.5        Awake         Reconcile Succeeded (100%)   healthy   14m
+```
+
+## Access Your Shoot Cluster
+
+```shell
+./hack/usage/generate-kubeconfig.sh shoot --namespace garden-my-project --shoot-name my-shoot --admin > ~/Downloads/shoot-kubeconfig.yaml
+```
+
+Set Your Context to the Virtual Garden Cluster
+
+```shell
+export KUBECONFIG="~/Downloads/shoot-kubeconfig.yaml"
+```
+
+Verify that you can access your shoot cluster:
+
+```shell
+kubectl get pods -n kube-system --kubeconfig ~/Downloads/shoot-kubeconfig.yaml 
+```
+
+```terminaloutput
+NAME                                                  READY   STATUS    RESTARTS   AGE
+blackbox-exporter-6c89f6fb75-4b489                    1/1     Running   0          13m
+blackbox-exporter-6c89f6fb75-xjdc6                    1/1     Running   0          13m
+calico-node-48zvq                                     1/1     Running   0          12m
+calico-node-dl92c                                     1/1     Running   0          12m
+calico-node-vertical-autoscaler-7ffc4f587d-jrt4m      1/1     Running   0          13m
+calico-typha-deploy-778cc4df64-chxwf                  1/1     Running   0          11m
+calico-typha-deploy-778cc4df64-rwfwl                  1/1     Running   0          11m
+calico-typha-horizontal-autoscaler-55ff8f8cb5-wht89   1/1     Running   0          13m
+calico-typha-vertical-autoscaler-6b86fc8fcd-gqknc     1/1     Running   0          13m
+coredns-67f8c5c9c-fxwdl                               1/1     Running   0          13m
+coredns-67f8c5c9c-wddhl                               1/1     Running   0          13m
+csi-driver-node-lmmk7                                 3/3     Running   0          12m
+csi-driver-node-mnwm7                                 3/3     Running   0          12m
+kube-proxy-default-v1.36.5-5l59k                      2/2     Running   0          12m
+kube-proxy-default-v1.36.5-8srb6                      2/2     Running   0          12m
+metrics-server-b6b9c99d7-4kj85                        1/1     Running   0          13m
+metrics-server-b6b9c99d7-ck88j                        1/1     Running   0          13m
+node-exporter-2dncv                                   1/1     Running   0          12m
+node-exporter-6rwjx                                   1/1     Running   0          12m
+node-problem-detector-fws5h                           1/1     Running   0          12m
+node-problem-detector-v2r4z                           1/1     Running   0          12m
+vpn-shoot-69fffd49fc-jkzs2                            1/1     Running   0          13m
 ```
