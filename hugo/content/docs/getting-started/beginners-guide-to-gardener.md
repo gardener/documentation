@@ -264,7 +264,7 @@ kubectl get extop extension-shoot-cert-service -oyaml | grep -C 1 'email:'
 > You can also choose [Cilium](https://cilium.io/) as your CNI using the [Cilium extension](https://github.com/gardener/gardener-extension-networking-cilium).
 
 A [container network interface (CNI)](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/) is required for the clusters.
-We'll use [Calico](https://docs.tigera.io/calico/latest/about/) as the CNI for the Gardener-managed shoot clusters.
+We'll use [Calico](https://docs.tigera.io/calico/latest/about/) as the CNI.
 
 Install the Calico extension from the [repository](https://github.com/gardener/gardener-extension-networking-calico).
 
