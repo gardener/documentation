@@ -2,7 +2,7 @@
 aliases:
   - /contribute/docs/
   - /docs/contribute/documentation/
-title: Documentation
+title: Write Documentation
 url: /contribute/documentation/
 weight: 70
 prev: false
