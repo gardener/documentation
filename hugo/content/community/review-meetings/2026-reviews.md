@@ -31,6 +31,31 @@ Check back regularly for updates and upcoming topics!
 
 ## Reviews
 
+### 2026/11/18 - [Hack The Garden](https://gardener.cloud/community/hackathons/2026-11/) Wrap Up
+
+[📽️ Recording](TBD)
+
+#### Demo Agenda 📋
+
+| Presenter(s)  | Duration | Topic                                                        | Reference(s)                                                     |
+| ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [@Velin-Todorov](https://github.com/Velin-Todorov) | `5m` | 🤏 Make Gardener Small Again! | [hackathon#84](https://github.com/gardener/hackathon/issues/84), [Summary](../hackathons/2026-11.md#-make-gardener-small-again) |
+| [@matthias-horne](https://github.com/matthias-horne) | `5m` | 🔗 Compatibility between Extensions and Gardener | [hackathon#99](https://github.com/gardener/hackathon/issues/99), [Summary](../hackathons/2026-11.md#-compatibility-between-extensions-and-gardener) |
+| [@LucaBernstein](https://github.com/LucaBernstein) | `5m` | 🚦 Make Core Gardener Resources Compatible with `kstatus` | [hackathon#97](https://github.com/gardener/hackathon/issues/97), [Summary](../hackathons/2026-11.md#-make-core-gardener-resources-compatible-with-kstatus) |
+| [@timebertt](https://github.com/timebertt) | `5m` | 🛜 Switching CNIs | [hackathon#43](https://github.com/gardener/hackathon/issues/43), [Summary](../hackathons/2026-11.md#-switching-cnis) |
+| [@BoHristova](https://github.com/BoHristova) | `5m` | 📜 Beginner's Guide to Gardener | [hackathon#98](https://github.com/gardener/hackathon/issues/98), [Summary](../hackathons/2026-11.md#-beginners-guide-to-gardener) |
+| [@majst01](https://github.com/majst01), [@ScheererJ](https://github.com/ScheererJ) | `5m` | ⚙️ [[GEP-28](https://github.com/gardener/enhancements/blob/main/geps/0028-self-hosted-shoot-clusters/README.md)] Bootstrap a Self-Hosted Shoot on Cloud Infrastructure | [hackathon#88](https://github.com/gardener/hackathon/issues/88), [Summary](../hackathons/2026-11.md#-gep-28-bootstrap-a-self-hosted-shoot-on-cloud-infrastructure) |
+| [@Kostov6](https://github.com/Kostov6) | `5m` | 🧩 [[GEP-28](https://github.com/gardener/enhancements/blob/main/geps/0028-self-hosted-shoot-clusters/README.md)] Don't Require a Provider Extension for Unmanaged Infrastructure | [hackathon#89](https://github.com/gardener/hackathon/issues/89), [Summary](../hackathons/2026-11.md#-gep-28-dont-require-a-provider-extension-for-unmanaged-infrastructure) |
+| [@hown3d](https://github.com/hown3d) | `5m` | 🌐 Native Routing in the Local Dev Setup | [hackathon#67](https://github.com/gardener/hackathon/issues/67), [Summary](../hackathons/2026-11.md#-native-routing-in-the-local-dev-setup) |
+| [@databus23](https://github.com/databus23) | `5m` | 🚧 Introduce a Machine Maintenance Phase | [hackathon#102](https://github.com/gardener/hackathon/issues/102), [Summary](../hackathons/2026-11.md#-introduce-a-machine-maintenance-phase) |
+
+#### No Demo, But Still Worth Celebrating 🎉
+
+- 📋 Discussion about AI guidelines for Gardener contributions – [hackathon#96](https://github.com/gardener/hackathon/issues/96)
+- 🗂️ Discussion about moving generic extensions to the `gardener` GitHub organization – [hackathon#93](https://github.com/gardener/hackathon/issues/93)
+
+<hr />
+
 ### 2026/11/11 - [v1.155](https://github.com/gardener/gardener/releases/tag/v1.155.0) Release
 
 [📽️ Recording](https://youtu.be/xd8jeO7bk_A)
