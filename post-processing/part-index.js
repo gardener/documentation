@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { read, write, stringify } from './lib/frontmatter.js';
+import { recordSummary } from './lib/ledger.js';
 
 const IGNORE_DIRS = ['node_modules', '.git', 'dist', 'build', 'images', 'assets', 'content', 'logo', 'blog', 'public', 'about'];
 
@@ -128,6 +129,7 @@ function main() {
     const indexFiles = findIndexFiles(targetDir);
 
     let renamed = 0;
+    let removed = 0;
     let editLinkMarked = 0;
     for (const file of indexFiles) {
       const dir = path.dirname(file);
@@ -138,6 +140,7 @@ function main() {
       // hand-authored content that owns the directory route.
       if (fs.existsSync(destinationFile)) {
         fs.rmSync(file);
+        removed += 1;
         console.log(`Removed ${file} (index.md already present)`);
       } else {
         fs.renameSync(file, destinationFile);
@@ -151,7 +154,11 @@ function main() {
     }
 
     console.log(`Created ${createdStubs} index stubs`);
-    console.log(`Processed ${indexFiles.length} files (${renamed} renamed, ${editLinkMarked} marked editLink:false)`);
+    console.log(`Processed ${indexFiles.length} files (${renamed} renamed, ${removed} removed, ${editLinkMarked} marked editLink:false)`);
+    if (createdStubs > 0) recordSummary('addMissingIndexFiles', 'created index stub', createdStubs);
+    if (renamed > 0) recordSummary('renameIndexFiles', 'renamed _index.md to index.md', renamed);
+    if (removed > 0) recordSummary('renameIndexFiles', 'removed _index.md (index.md present)', removed);
+    if (editLinkMarked > 0) recordSummary('markEmptyAggregator', 'marked editLink:false', editLinkMarked);
   } catch (error) {
     console.error('Error:', error.message);
     process.exit(1);
