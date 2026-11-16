@@ -54,3 +54,7 @@ Guido Trotter, Ethan Hunter, Solomon Jacobs, and Siavash Safi introduced themsel
 ## Until Next Year
 
 PromCon continues to be one of the most valuable conferences for anyone working with Prometheus at scale. Presenting our own work this year was a great experience, and we are looking forward to continuing to develop the Gardener PromQL Querier. See you in 2027.
+
+## Watch the Recording
+
+You can watch the conference recording on YouTube: [PromCon EU 2026](https://www.youtube.com/watch?v=JeAZRf_1dYc&list=PLW6MnQlLn89E)
