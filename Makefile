@@ -167,12 +167,17 @@ post-processing-part-3:
 	node post-processing/part-3.js --update-report-link --process-api-html
 
 .PHONY: post-process
-post-process: ## Run post-processing scripts
-	@$(MAKE) post-processing-part-1
-	@$(MAKE) post-processing-part-2
-	@$(MAKE) post-processing-part-index
-	@$(MAKE) post-processing-part-banner
-	@$(MAKE) post-processing-part-3
+post-process: ## Run post-processing scripts and emit post-processing-report.json
+	@LEDGER=$$(mktemp $${TMPDIR:-/tmp}/post-processing-ledger-XXXXXX); \
+	trap "rm -f $$LEDGER" EXIT; \
+	export POST_PROCESSING_LEDGER=$$LEDGER; \
+	set -e; \
+	$(MAKE) post-processing-part-1; \
+	$(MAKE) post-processing-part-2; \
+	$(MAKE) post-processing-part-index; \
+	$(MAKE) post-processing-part-banner; \
+	$(MAKE) post-processing-part-3; \
+	node post-processing/report.js
 
 .PHONY: build
 build: ## Build the documentation site

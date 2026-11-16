@@ -3,6 +3,7 @@ import path from "path";
 import { stringify } from './lib/frontmatter.js';
 import { lowercaseImageRefs } from './lib/image-refs.js';
 import { splitLeadingBanner } from './lib/banner.js';
+import { record } from './lib/ledger.js';
 
 
 // Base path configuration - can be overridden by command line argument
@@ -148,6 +149,7 @@ async function addH1ToMarkdownFiles(basePath){
                 const afterH2Title = contentAfterFrontmatter.substring(h2Match.index + h2Match[0].length);
                 const newContent = `${frontmatter}\n\n${bannerPrefix}# ${title}\n${afterH2Title}`;
                 await fs.writeFile(filePath, newContent, 'utf-8');
+                record('addH1ToMarkdownFiles', filePath, 'H2 promoted to H1');
                 return {
                     file: filePath,
                     modified: true,
@@ -159,6 +161,7 @@ async function addH1ToMarkdownFiles(basePath){
             // If no H1 heading and title exists in frontmatter, add H1
             const newContent = `${frontmatter}\n\n${bannerPrefix}# ${title}\n\n${contentAfterFrontmatter}`;
             await fs.writeFile(filePath, newContent, 'utf-8');
+            record('addH1ToMarkdownFiles', filePath, 'H1 added');
             return {
                 file: filePath,
                 modified: true,
@@ -255,6 +258,7 @@ async function renameImagesToLowercase(basePath){
             if (fileName !== lowerCaseFileName) {
                 await fs.rename(filePath, newPath);
                 console.log(`Renamed: ${fileName} → ${lowerCaseFileName}`);
+                record('renameImagesToLowercase', filePath, 'renamed to lowercase');
                 return {
                     original: filePath,
                     renamed: newPath,
@@ -341,6 +345,7 @@ async function renameImagesToLowercase(basePath){
             const normalized = lowercaseImageRefs(content);
             if (normalized !== content) {
                 await fs.writeFile(mdFile, normalized, 'utf-8');
+                record('normalizeImageReferences', mdFile, 'lowercased image refs');
                 updatedFiles++;
             }
         }
@@ -418,7 +423,7 @@ async function replaceYouTubeShortcodes(basePath) {
             });
             
             await fs.writeFile(filePath, newContent, 'utf-8');
-            
+            record('replaceYouTubeShortcodes', filePath, `replaced ${matches.length} shortcode(s)`);
             return {
                 file: filePath,
                 modified: true,
@@ -474,6 +479,7 @@ async function fixNetworkProblemDetectorDoc() {
             // Replace the line with a newline followed by the new line
             content = content.replace(lineToDelete, `\n${lineToAdd}`);
             await fs.writeFile(filePath, content, 'utf-8');
+            record('fixNetworkProblemDetectorDoc', filePath, 'replaced table row with plain text line');
             console.log(`Successfully updated ${filePath}`);
             console.log(`- Deleted table row and added new line`);
             return {
@@ -483,6 +489,7 @@ async function fixNetworkProblemDetectorDoc() {
             };
         } else {
             console.log(`Line to delete not found in ${filePath}. No changes made.`);
+            record('fixNetworkProblemDetectorDoc', filePath, 'not-found');
             return {
                 file: filePath,
                 modified: false,
@@ -491,6 +498,8 @@ async function fixNetworkProblemDetectorDoc() {
         }
     } catch (err) {
         console.error(`Error processing ${filePath}: ${err.message}`);
+        // The target file missing entirely also means the patch is obsolete.
+        if (err.code === 'ENOENT') record('fixNetworkProblemDetectorDoc', filePath, 'not-found');
         return {
             file: filePath,
             modified: false,

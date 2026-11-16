@@ -1,6 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import { read, write } from './lib/frontmatter.js';
+import { record } from './lib/ledger.js';
 
 // Base path configuration - can be overridden by command line argument
 const BASE_PATH = './hugo/content/';
@@ -61,6 +62,7 @@ async function updateReportLink(filePath) {
         // Check if the old string exists in the content
         if (!content.includes(oldString)) {
             console.log(`Warning: Could not find the text to replace in ${filePath}`);
+            record('updateReportLink', filePath, 'not-found');
             return;
         }
         
@@ -69,7 +71,7 @@ async function updateReportLink(filePath) {
         
         // Write the updated content back to file
         await fs.writeFile(filePath, updatedContent, 'utf-8');
-        
+        record('updateReportLink', filePath, 'updated report link');
         console.log(`Successfully updated report link in: ${path.basename(filePath)}`);
     } catch (err) {
         console.error(`Error updating report link: ${err.message}`);
@@ -190,7 +192,7 @@ const apiHtml = \`${escapedHtmlContent}\`;
             
             // Reconstruct the file with updated content (A-Guard schreibt nur bei Änderung)
             write(filePath, newContent, parsed.data);
-            
+            record('processApiHtml', filePath, 'extracted HTML to script setup');
             return {
                 file: filePath,
                 modified: true,

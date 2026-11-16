@@ -1,6 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
 import { read, write } from './lib/frontmatter.js';
+import { record } from './lib/ledger.js';
 
 
 // Base path configuration - can be overridden by command line argument
@@ -137,7 +138,7 @@ async function migrateHugoAlertsToGitHub(basePath) {
             });
             
             await fs.writeFile(filePath, newContent, 'utf-8');
-            
+            record('migrateHugoAlertsToGitHub', filePath, `migrated ${matches.length} alert(s)`);
             return {
                 file: filePath,
                 modified: true,
@@ -296,9 +297,8 @@ async function cleanLayoutEntries(basePath) {
             newFrontmatter = newFrontmatter.replace(/\n\n+/g, '\n\n');
             
             const newContent = newFrontmatter + contentAfterFrontmatter;
-            
             await fs.writeFile(filePath, newContent, 'utf-8');
-            
+            record('cleanLayoutEntries', filePath, `removed layout "${layoutValue}"`);
             return {
                 file: filePath,
                 modified: true,
@@ -397,6 +397,7 @@ async function addNavigationFrontmatter(basePath) {
 
                 // A-guard writes only on an actual byte change
                 write(filePath, parsed.content, parsed.data);
+                record('addNavigationFrontmatter', filePath, 'added prev/next', parsed.data);
                 
                 const addedFields = [];
                 if (!hasPrev) addedFields.push('prev: false');
