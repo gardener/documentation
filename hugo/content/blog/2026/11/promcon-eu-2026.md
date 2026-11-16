@@ -9,6 +9,11 @@ authors:
   - avatar: https://avatars.githubusercontent.com/vicwicker
     login: vicwicker
     name: Victor Herrero Otal
+tags:
+  - observability
+  - apeiro
+  - community-event
+  - prometheus
 ---
 
 # PromCon EU 2026 Highlights
