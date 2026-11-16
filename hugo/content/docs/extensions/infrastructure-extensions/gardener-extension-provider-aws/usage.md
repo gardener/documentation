@@ -1049,7 +1049,6 @@ It is compatible with the legacy in-tree volume provisioner that was deprecated 
 End-users might want to update their custom `StorageClass`es to the new `ebs.csi.aws.com` provisioner.
 
 To deploy the efs-csi-driver add the `elasticFileSystem` section in your infrastructureConfig like in this [example](#example-shoot-manifest-one-availability-zone).
-This feature is only available for shoots with [flow reconciler](#flow-infrastructure-reconciler).
 Currently, both the controller deployment and the node daemonset will be deployed into the shoot cluster.
 The necessary IAM privileges will be added to the node instance profile, allowing the driver to access them via the EC2 Metadata Service.
 You can also use an existing elastic file system by specifying the `id` field in the `elasticFileSystem` section.
@@ -1097,7 +1096,7 @@ To let such deletions succeed without manual intervention, the shoot can be anno
 aws.provider.extensions.gardener.cloud/force-detach-role-policies: "true"
 ```
 
-With this annotation set, the infrastructure deletion flow cleans up all remaining attachments of the nodes IAM role right before deleting it:
+With this annotation set, the infrastructure reconciler cleans up all remaining attachments of the nodes IAM role right before deleting it:
 
 - all still-attached managed policies are **detached** (the policies themselves, and their attachments to any other role, are never touched),
 - remaining inline policies of the role are deleted (inline policies are owned by the role by definition),
@@ -1122,19 +1121,11 @@ This extension supports `gardener/gardener`'s `WorkerPoolKubernetesVersion` feat
 
 This extension supports `gardener/gardener`'s `ShootCARotation` and `ShootSARotation` feature gates since `gardener-extension-provider-aws@v1.36`.
 
-## Flow Infrastructure Reconciler
+## Infrastructure Reconciliation
 
-The extension offers two different reconciler implementations for the infrastructure resource:
-- terraform-based
-- native Go SDK based (dubbed the "flow"-based implementation)
+The infrastructure reconciler manages AWS resources using the native AWS Go SDK. Its state is stored in the Infrastructure resource's `status.state` field.
 
-The default implementation currently is the terraform reconciler which uses the `https://github.com/gardener/terraformer` as the backend for managing the shoot's infrastructure.
-
-The "flow" implementation is a newer implementation that is trying to solve issues we faced with managing terraform infrastructure on Kubernetes. The goal is to have more control over the reconciliation process and be able to perform fine-grained tuning over it. The implementation is completely backwards-compatible and offers a migration route from the legacy terraformer implementation.
-
-For most users there will be no noticeable difference. However for certain use-cases, users may notice a slight deviation from the previous behavior. For example, with flow-based infrastructure users may be able to perform certain modifications to infrastructure resources without having them reconciled back by terraform. Operations that would degrade the shoot infrastructure are still expected to be reverted back.
-
-For the time-being, to take advantage of the flow reconciler users have to "opt-in" by annotating the shoot manifest with: `aws.provider.extensions.gardener.cloud/use-flow="true"`. For existing shoots with this annotation, the migration will take place on the next infrastructure reconciliation (on maintenance window or if other infrastructure changes are requested). The migration is not revertible.
+Migration from legacy Terraform state is no longer supported. Shoots still using Terraform state must first be reconciled with an extension version from v1.68 through v1.76 to migrate their state before upgrading to v1.77 or later.
 
 ## Route table entries limit
 
