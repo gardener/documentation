@@ -43,6 +43,10 @@ Roman Khavronenko and Langson Zhang approached cardinality by measuring it rathe
 
 Interoperability between OpenTelemetry and Prometheus continued to be a topic. The two ecosystems have been duplicating each other's work for years. Where there is a Prometheus exporter, there is likely an OpenTelemetry receiver for the same metrics, and vice versa. Arthur Sens and Kyle Eckhart proposed a way to build Prometheus exporters so that the same code can run either as a standalone exporter or embedded in an OpenTelemetry Collector, letting the two communities share code instead of maintaining overlapping exporters and receivers. The approach is early enough that only a handful of exporters have been adapted so far.
 
+## Perses
+
+In a lightning talk, Nicolas Takashi gave a heads-up that kube-prometheus, which ships Grafana dashboards by default, now has an opt-in Perses alternative. Perses is a CNCF sandbox project for visualization, and in Gardener we are currently working on adopting it to display observability data, replacing Plutono.
+
 ## Alertmanager Is Alive Again
 
 Guido Trotter, Ethan Hunter, Solomon Jacobs, and Siavash Safi introduced themselves as the new maintainer team for Alertmanager. The project had slowed down in recent years, and the need to revamp it was an outcome of PromCon EU 2025. The new team has fixed the most pressing issues and announced plans to take the project further.
