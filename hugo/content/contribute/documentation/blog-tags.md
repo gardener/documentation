@@ -61,6 +61,7 @@ Use lowercase kebab-case (`tag-name`) for all tags.
 - `helm`: Helm or OCI-registry-related workflows.
 - `cluster-api`: Cluster API ecosystem and integration topics.
 - `extensions`: Gardener extension development and behavior.
+- `prometheus`: Prometheus monitoring system and ecosystem.
 
 ## Cloud Provider Tags
 
