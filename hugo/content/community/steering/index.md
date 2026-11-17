@@ -34,6 +34,8 @@ A GEP provides sufficient context, motivation, and a concrete ask or decision re
 | Date | GEP | Title |
 | --- | --- | --- |
 | 2026-12-10 | [GEP-0083](0083-unify-gardenlet-lifecycle) | Unify `gardenlet` Lifecycle |
+| 2026-12-17 | [GEP-0080](0080-introduce-gardenstate-resource-for-garden-restoration) | Introduce `GardenState` resource for `Garden` restoration |
+
 
 *(Sessions take place Thursdays, 10:00–11:00 Europe/Berlin — see [Meeting Process](#📑-meeting-process) for details.)*
 
