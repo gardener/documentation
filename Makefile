@@ -158,7 +158,7 @@ ci-build:
 	$(MAKE) build; \
 
 .PHONY: ci-build-preview
-ci-build-preview: ## Netlify deploy-preview: full rebuild only if .docforge/ changed
+ci-build-preview: ## Netlify deploy-preview: full rebuild if .docforge/, post-processing/ or the VitePress config changed
 	@BASE="origin/master"; \
 	git fetch -q origin master 2>/dev/null || true; \
 	if ! CHANGED=$$(git diff --name-only "$$BASE...HEAD" 2>/dev/null); then \
@@ -166,13 +166,13 @@ ci-build-preview: ## Netlify deploy-preview: full rebuild only if .docforge/ cha
 		$(MAKE) ci-install; \
 		./delete-managed-banner.sh --force hugo/content; \
 		$(MAKE) docforge-ci post-process build; \
-	elif printf '%s\n' "$$CHANGED" | grep -q '^\.docforge/'; then \
-		echo "Manifest changed since $$BASE -> docforge + post-process + build"; \
+	elif printf '%s\n' "$$CHANGED" | grep -qE '^(\.docforge/|post-processing/|\.vitepress/config\.mts)'; then \
+		echo "Manifest, post-processing or VitePress config changed since $$BASE -> docforge + post-process + build"; \
 		$(MAKE) ci-install; \
 		./delete-managed-banner.sh --force hugo/content; \
 		$(MAKE) docforge-ci post-process build; \
 	else \
-		echo "No manifest change since $$BASE -> build only"; \
+		echo "No aggregation-relevant change since $$BASE -> build only"; \
 		$(MAKE) ci-install build; \
 	fi
 
