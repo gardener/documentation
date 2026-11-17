@@ -99,6 +99,7 @@ next: false
 * [Trigger shoot operations](/docs/gardener/shoot-operations/shoot_operations/)
 * [Shoot Updates and Upgrades](/docs/gardener/shoot-operations/shoot_updates/)
 * [Shoot Kubernetes and Operating System Versioning](/docs/gardener/shoot-operations/shoot_versions/)
+* [Extension Component Version Profiles](/docs/gardener/shoot-operations/extension-profiles/)
 * [Supported Kubernetes versions](/docs/gardener/shoot-operations/supported_k8s_versions/)
 * [Controlling the Kubernetes versions for specific worker pools](/docs/gardener/shoot-operations/worker_pool_k8s_versions/)
 * [Migration from SecretBinding to CredentialsBinding](/docs/gardener/shoot-operations/secretbinding-to-credentialsbinding-migration/)
