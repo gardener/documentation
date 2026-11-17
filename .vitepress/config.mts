@@ -34,12 +34,14 @@ export default withMermaid(defineConfig({
       pageData.frontmatter.outline = false
     }
 
-    // VitePress defaults prev/next to the sidebar neighbours; the site opts out
-    // unless a page asks for them explicitly. Defaulting here replaces the
-    // `prev: false` / `next: false` lines the old post-processing wrote into
-    // every file's frontmatter (addNavigationFrontmatter, removed).
-    pageData.frontmatter.prev ??= false
-    pageData.frontmatter.next ??= false
+    // VitePress defaults prev/next to the sidebar neighbours. Docs opt out
+    // (replaces the `prev/next: false` frontmatter the old post-processing
+    // wrote into every file; explicit values still win via ??=).
+    // Blog opts in: posts read as a chronological series, so new articles
+    // get prev/next links without any frontmatter.
+    const isBlog = pageData.relativePath.startsWith('blog/')
+    pageData.frontmatter.prev ??= isBlog
+    pageData.frontmatter.next ??= isBlog
 
     // Only process index pages
     if (!pageData.relativePath.endsWith('index.md')) return
