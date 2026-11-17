@@ -41,7 +41,10 @@ export default withMermaid(defineConfig({
     // Blog posts opt in: they read as a chronological series, so new articles
     // get prev/next links without any frontmatter. Blog index pages (landing,
     // year, month) carry their own listing and stay out of the series.
-    const prevNext = prevNextDefaults(pageData.relativePath)
+    // Classify on filePath (the source path): rewrites turns post paths into
+    // `<post>/index.md`, so relativePath would misclassify every post as an
+    // index page.
+    const prevNext = prevNextDefaults(pageData.filePath)
     pageData.frontmatter.prev ??= prevNext
     pageData.frontmatter.next ??= prevNext
 
