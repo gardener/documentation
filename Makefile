@@ -166,7 +166,7 @@ ci-build-preview: ## Netlify deploy-preview: full rebuild if .docforge/, post-pr
 		$(MAKE) ci-install; \
 		./delete-managed-banner.sh --force hugo/content; \
 		$(MAKE) docforge-ci post-process build; \
-	elif printf '%s\n' "$$CHANGED" | grep -qE '^(\.docforge/|post-processing/|\.vitepress/config\.mts)'; then \
+	elif printf '%s\n' "$$CHANGED" | grep -qE '^(\.docforge/|post-processing/|\.vitepress/config\.mts|Makefile|delete-managed-banner\.sh)'; then \
 		echo "Manifest, post-processing or VitePress config changed since $$BASE -> docforge + post-process + build"; \
 		$(MAKE) ci-install; \
 		./delete-managed-banner.sh --force hugo/content; \

@@ -8,6 +8,7 @@ import path from 'path'
 import { generateEnhancedDocsSidebar } from './theme/docs-sidebar.ts';
 import { hasMarkdownContent, getTaxonomyChildren } from './theme/utils/sidebar.ts';
 import { generateAliasRedirects, createAliasRedirectDevPlugin } from './plugins/alias-redirects';
+import { prevNextDefaults } from './theme/utils/prev-next-defaults.ts';
 
 const indexPattern = new RegExp(/\/?_?index\.md$/i);
 const siteBase = process.env.VITE_PUBLIC_BASE_PATH || ''
@@ -37,11 +38,12 @@ export default withMermaid(defineConfig({
     // VitePress defaults prev/next to the sidebar neighbours. Docs opt out
     // (replaces the `prev/next: false` frontmatter the old post-processing
     // wrote into every file; explicit values still win via ??=).
-    // Blog opts in: posts read as a chronological series, so new articles
-    // get prev/next links without any frontmatter.
-    const isBlog = pageData.relativePath.startsWith('blog/')
-    pageData.frontmatter.prev ??= isBlog
-    pageData.frontmatter.next ??= isBlog
+    // Blog posts opt in: they read as a chronological series, so new articles
+    // get prev/next links without any frontmatter. Blog index pages (landing,
+    // year, month) carry their own listing and stay out of the series.
+    const prevNext = prevNextDefaults(pageData.relativePath)
+    pageData.frontmatter.prev ??= prevNext
+    pageData.frontmatter.next ??= prevNext
 
     // Only process index pages
     if (!pageData.relativePath.endsWith('index.md')) return
