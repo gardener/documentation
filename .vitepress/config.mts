@@ -34,6 +34,13 @@ export default withMermaid(defineConfig({
       pageData.frontmatter.outline = false
     }
 
+    // VitePress defaults prev/next to the sidebar neighbours; the site opts out
+    // unless a page asks for them explicitly. Defaulting here replaces the
+    // `prev: false` / `next: false` lines the old post-processing wrote into
+    // every file's frontmatter (addNavigationFrontmatter, removed).
+    pageData.frontmatter.prev ??= false
+    pageData.frontmatter.next ??= false
+
     // Only process index pages
     if (!pageData.relativePath.endsWith('index.md')) return
 
