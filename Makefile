@@ -4,61 +4,24 @@
 
 .PHONY: docforge-download
 docforge-download: ## Download the appropriate docforge binary for the current OS if not present
-	@echo "Creating bin directory if it doesn't exist..."
 	@mkdir -p bin
-	@echo "Detecting OS and architecture..."
-	@if [ "$$(uname)" = "Darwin" ]; then \
-		if [ "$$(uname -m)" = "arm64" ]; then \
-			if [ -f bin/docforge ] && [ -x bin/docforge ]; then \
-				echo "Docforge for macOS ARM64 already exists and is executable."; \
-			else \
-				echo "Downloading docforge for macOS ARM64..."; \
-				curl -fL https://github.com/gardener/docforge/releases/download/v0.57.0/docforge-darwin-arm64 | tar -xz -C bin; \
-				mv bin/docforge-darwin-arm64 bin/docforge; \
-				echo "Docforge binary downloaded and is ready to use."; \
-			fi; \
-		else \
-			if [ -f bin/docforge ] && [ -x bin/docforge ]; then \
-				echo "Docforge for macOS AMD64 already exists and is executable."; \
-			else \
-				echo "Downloading docforge for macOS AMD64..."; \
-				curl -fL https://github.com/gardener/docforge/releases/download/v0.57.0/docforge-darwin-amd64 | tar -xz -C bin; \
-				mv bin/docforge-darwin-amd64 bin/docforge; \
-				echo "Docforge binary downloaded and is ready to use."; \
-			fi; \
-		fi; \
-	elif [ "$$(uname)" = "Linux" ]; then \
-		if [ "$$(uname -m)" = "aarch64" ] || [ "$$(uname -m)" = "arm64" ]; then \
-			if [ -f bin/docforge ] && [ -x bin/docforge ]; then \
-				echo "Docforge for Linux ARM64 already exists and is executable."; \
-			else \
-				echo "Downloading docforge for Linux ARM64..."; \
-				curl -fL https://github.com/gardener/docforge/releases/download/v0.57.0/docforge-linux-arm64 | tar -xz -C bin; \
-				mv bin/docforge-linux-arm64 bin/docforge; \
-				echo "Docforge binary downloaded and is ready to use."; \
-			fi; \
-		else \
-			if [ -f bin/docforge ] && [ -x bin/docforge ]; then \
-				echo "Docforge for Linux AMD64 already exists and is executable."; \
-			else \
-				echo "Downloading docforge for Linux AMD64..."; \
-				curl -fL https://github.com/gardener/docforge/releases/download/v0.57.0/docforge-linux-amd64 | tar -xz -C bin; \
-				mv bin/docforge-linux-amd64 bin/docforge; \
-				echo "Docforge binary downloaded and is ready to use."; \
-			fi; \
-		fi; \
-	elif [[ "$$(uname -s)" == MINGW* ]] || [[ "$$(uname -s)" == CYGWIN* ]]; then \
-		if [ -f bin/docforge.exe ]; then \
-			echo "Docforge for Windows already exists."; \
-		else \
-			echo "Downloading docforge for Windows..."; \
-			curl -fL https://github.com/gardener/docforge/releases/download/v0.57.0/docforge-windows-386 | tar -xz -C bin; \
-			mv bin/docforge-windows-386.exe bin/docforge.exe; \
-			echo "Docforge binary downloaded and is ready to use."; \
-		fi; \
+	@OS=$$(uname); ARCH=$$(uname -m); \
+	case "$$OS" in \
+		Darwin) [ "$$ARCH" = "arm64" ] && ASSET=docforge-darwin-arm64 || ASSET=docforge-darwin-amd64 ;; \
+		Linux) \
+			if [ "$$ARCH" = "aarch64" ] || [ "$$ARCH" = "arm64" ]; then ASSET=docforge-linux-arm64; else ASSET=docforge-linux-amd64; fi ;; \
+		MINGW*|CYGWIN*) ASSET=docforge-windows-386 ;; \
+		*) echo "Unsupported OS. Please download docforge manually from https://github.com/gardener/docforge/releases"; exit 1 ;; \
+	esac; \
+	if [ "$$ASSET" = "docforge-windows-386" ] && [ -f bin/docforge.exe ]; then \
+		echo "Docforge for Windows already exists."; \
+	elif [ -f bin/docforge ] && [ -x bin/docforge ]; then \
+		echo "Docforge already exists and is executable."; \
 	else \
-		echo "Unsupported OS. Please download docforge manually from https://github.com/gardener/docforge/releases"; \
-		exit 1; \
+		echo "Downloading docforge ($$ASSET)..."; \
+		curl -fL https://github.com/gardener/docforge/releases/download/v0.57.0/$$ASSET | tar -xz -C bin; \
+		if [ "$$ASSET" = "docforge-windows-386" ]; then mv bin/$$ASSET.exe bin/docforge.exe; else mv bin/$$ASSET bin/docforge; fi; \
+		echo "Docforge binary downloaded and is ready to use."; \
 	fi
 
 .PHONY: docforge-run
@@ -152,7 +115,7 @@ post-processing-part-1:
 
 .PHONY: post-processing-part-2
 post-processing-part-2:
-	node post-processing/part-2.js --migrate-alerts --clean-layouts --flatten-single-dirs --add-navigation-frontmatter
+	node post-processing/part-2.js --migrate-alerts --clean-layouts
 
 .PHONY: post-processing-part-index
 post-processing-part-index:
