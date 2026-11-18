@@ -393,6 +393,7 @@ function getHeadConfig(){
         content: 'https://raw.githubusercontent.com/gardener/documentation/refs/heads/master/hugo/content/public/og-gardener.webp'
       }
     ],
+    ['meta', {name: 'google-site-verification', content: 'FPRsmrRnxD3JmErUgydVTpOfTJIQrX73uTbKR4C5oBY'}],
     ['meta', {property: 'og:url', content: 'https://gardener.cloud/'}],
     [
       'script',
