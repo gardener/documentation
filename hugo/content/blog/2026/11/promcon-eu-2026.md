@@ -1,12 +1,12 @@
 ---
 title: PromCon EU 2026 Highlights
 linkTitle: PromCon EU 2026 Highlights
-newsSubtitle: November 17, 2026
-publishdate: 2026-11-17
+newsSubtitle: 'November 17, 2026'
+publishdate: 2026-11-17T00:00:00.000Z
 aliases:
   - /blog/2026/11/promcon-eu-2026
 authors:
-  - avatar: https://avatars.githubusercontent.com/vicwicker
+  - avatar: 'https://avatars.githubusercontent.com/vicwicker'
     login: vicwicker
     name: Victor Herrero Otal
 tags:
@@ -15,6 +15,21 @@ tags:
   - community-event
   - prometheus
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/          │
+   │  documentation                                 │
+   │                                                │
+   │  Go ahead and edit this file directly.         │
+   │  Changes here are the source of truth.         │
+   └────────────────────────────────────────────────┘
+-->
+
 
 # PromCon EU 2026 Highlights
 

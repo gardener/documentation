@@ -3,6 +3,21 @@ title: 'GEP-0080: Introduce `GardenState` resource for `Garden` restoration'
 prev: false
 next: false
 ---
+<!-- BANNER:LOCAL -->
+<!--
+   █▀█ █▄▀
+   █ █ █▀▄
+   ▀▀▀ ▀ ▀
+
+   ┌────────────────────────────────────────────────┐
+   │  LOCAL FILE — maintained in gardener/          │
+   │  documentation                                 │
+   │                                                │
+   │  Go ahead and edit this file directly.         │
+   │  Changes here are the source of truth.         │
+   └────────────────────────────────────────────────┘
+-->
+
 
 
 # GEP-0080: Introduce `GardenState` resource for `Garden` restoration

@@ -298,7 +298,7 @@ Some OpenStack environments don't need these regional mappings, hence, the `regi
 If your OpenStack environment only has regional values and it doesn't make sense to provide a (non-regional) fallback then simply
 omit `keystoneURL` and always specify `region`.
 
-If Gardener creates and manages the router of a shoot cluster, it is additionally possible to specify that the [enable_snat](https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs/resources/networking_router_v2#enable_snat) field is set to `true` via `useSNAT: true` in the `CloudProfileConfig`.
+If Gardener creates and manages the router of a shoot cluster, it is additionally possible to specify that the [`external_gateway_info.enable_snat`](https://docs.openstack.org/api-ref/network/v2/index.html#update-router) field is set to `true` via `useSNAT: true` in the `CloudProfileConfig`.
 
 On some OpenStack enviroments, there may be the need to set options in the file `/etc/resolv.conf` on worker nodes.
 If the field `resolvConfOptions` is set, a systemd service will be installed which copies `/run/systemd/resolve/resolv.conf`
@@ -326,8 +326,8 @@ spec:
     - virtualized
   kubernetes:
     versions:
-    - version: 1.32.0
-    - version: 1.31.1
+    - version: 1.34.0
+    - version: 1.33.1
       expirationDate: "2026-03-31T23:59:59Z"
   machineImages:
   - name: gardenlinux
@@ -427,8 +427,8 @@ spec:
   type: openstack
   kubernetes:
     versions:
-    - version: 1.33.0
-    - version: 1.32.1
+    - version: 1.34.0
+    - version: 1.33.1
       expirationDate: "2026-03-31T23:59:59Z"
   machineImages:
   - name: coreos
@@ -502,3 +502,15 @@ with a few additions:
 - `.spec.provider.workers[].providerConfig.MachineLabels[]` (if `MachineLabels.triggerRollingUpdate` is set to `true`)
 
 The featuregate `NewWorkerPoolHash` has no impact on the hash calculation for now.
+
+## Profiling
+
+The controller exposes a [pprof](https://pkg.go.dev/net/http/pprof) endpoint on `127.0.0.1:8082` for runtime profiling. It binds to localhost only and is reachable exclusively via `kubectl port-forward`.
+
+To take a heap or goroutine snapshot from a running pod:
+
+```bash
+kubectl port-forward -n <extension-namespace> <pod-name> 8082:8082
+go tool pprof http://localhost:8082/debug/pprof/heap
+go tool pprof http://localhost:8082/debug/pprof/goroutine
+```

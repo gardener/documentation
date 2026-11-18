@@ -40,6 +40,12 @@ The [`core.gardener.cloud/v1beta1.Shoot` resource](https://github.com/gardener/g
 
 In this document we are describing how this configuration looks like for OpenStack and provide an example `Shoot` manifest with minimal configuration that you can use to create an OpenStack cluster (modulo the landscape-specific information like cloud profile names, secret binding names, etc.).
 
+## Infrastructure Reconciliation
+
+The infrastructure reconciler manages OpenStack resources using the native OpenStack APIs. Its state is stored in the Infrastructure resource's `status.state` field as an `InfrastructureState`.
+
+Starting with v1.60.0, migration from legacy Terraform state is no longer supported. Shoots still carrying Terraform state must first complete an infrastructure reconciliation with provider-openstack v1.51 through v1.59 to migrate their state before upgrading to v1.60 or later.
+
 ## Provider Secret Data
 
 Every shoot cluster references a `SecretBinding` or a `CredentialsBinding` which itself references a `Secret`, and this `Secret` contains the provider credentials of your OpenStack tenant.
