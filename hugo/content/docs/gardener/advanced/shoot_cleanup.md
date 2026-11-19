@@ -40,7 +40,7 @@ next: false
 When a shoot cluster is deleted then Gardener tries to gracefully remove most of the Kubernetes resources inside the cluster.
 This is to prevent that any infrastructure or other artifacts remain after the shoot deletion.
 
-The cleanup is performed in four steps.
+The cleanup is performed in five steps.
 Some resources are deleted with a grace period, and all resources are forcefully deleted (by removing blocking finalizers) after some time to not block the cluster deletion entirely.
 
 **Cleanup steps:**
@@ -48,19 +48,30 @@ Some resources are deleted with a grace period, and all resources are forcefully
 1. All `ValidatingWebhookConfiguration`s, `MutatingWebhookConfiguration`s, and `ValidatingAdmissionPolicyBinding`s are deleted with a `5m` grace period. Forceful finalization happens after `5m`.
 1. All `APIService`s and `CustomResourceDefinition`s are deleted with a `5m` grace period. Forceful finalization happens after `1h`.
 1. All `CronJob`s, `DaemonSet`s, `Deployment`s, `Ingress`s, `Job`s, `Pod`s, `ReplicaSet`s, `ReplicationController`s, `Service`s, `StatefulSet`s, `PersistentVolumeClaim`s are deleted with a `5m` grace period. Forceful finalization happens after `5m`.
-   > If the `Shoot` is annotated with `shoot.gardener.cloud/skip-cleanup=true`, then only `Service`s and `PersistentVolumeClaim`s are considered.
+   > If the `Shoot` is annotated with `shoot.gardener.cloud/skip-cleanup=true`, then only `Service`s, `VolumeSnapshot`s and `PersistentVolumeClaim`s are considered.
 1. All `VolumeSnapshot`s and `VolumeSnapshotContent`s are deleted with a `5m` grace period. Forceful finalization happens after `1h`.
+1. All `ManagedResources` are deleted. Forceful finalization by Gardener Resource Manager happens after a `5m` grace period.
 
 It is possible to override the finalization grace periods via annotations on the `Shoot`:
 
 - `shoot.gardener.cloud/cleanup-webhooks-finalize-grace-period-seconds` (for the resources handled in step 1)
 - `shoot.gardener.cloud/cleanup-extended-apis-finalize-grace-period-seconds` (for the resources handled in step 2)
 - `shoot.gardener.cloud/cleanup-kubernetes-resources-finalize-grace-period-seconds` (for the resources handled in step 3)
+- `shoot.gardener.cloud/cleanup-managed-resources-finalize-grace-period-seconds` (for the resources handled in step 5)
 
 ⚠️ If `"0"` is provided, then all resources are finalized immediately without waiting for any graceful deletion.
 Please be aware that this might lead to orphaned infrastructure artifacts.
+
+## Excluding Resources From Cleanup
+
+Resources labeled with `shoot.gardener.cloud/no-cleanup=true` are excluded from the cleanup steps described above and are left untouched during shoot deletion.
+Use this label to prevent Gardener from deleting specific resources in the shoot cluster.
 
 In some cases, even with the described cleanup logic, shoot deletion may still become stuck due to remaining resources in the shoot cluster.
 To address this, Gardener ignores any remaining resources in the following situations:
 - Objects that belong to namespaces which have already been deleted (finalized).
 - Objects that were created after the cleanup process began for the first time, plus the finalize grace period.
+- Objects whose `resources.gardener.cloud/origin` annotation references an existing `ManagedResource` in the shoot's control-plane namespace in the seed cluster.
+
+For objects whose origin annotation references an existing `ManagedResource` in the shoot’s control-plane namespace in the seed cluster, Gardener skips waiting for them to disappear during Kubernetes resource cleanup.
+Later in shoot deletion, Gardener (or the owning extension) requests deletion of the `ManagedResource`. The `gardener-resource-manager` deployed in the shoot’s control plane then deletes the objects it manages in the shoot cluster before allowing the `ManagedResource` itself to disappear.

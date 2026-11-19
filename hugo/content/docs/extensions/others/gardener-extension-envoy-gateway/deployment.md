@@ -130,7 +130,9 @@ spec:
 
 A ready-to-edit copy lives at
 [examples/operator-extension/base/extension.yaml](https://github.com/gardener/gardener-extension-envoy-gateway/blob/main/examples/operator-extension/base/extension.yaml).
-Apply it with:
+It pins every image and chart to a concrete released version as an example.
+Before applying it, replace those versions with the released artefacts you
+intend to run. Then apply:
 
 ```bash
 kubectl --context <virtual-garden> apply -f examples/operator-extension/base/extension.yaml
