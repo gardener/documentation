@@ -29,16 +29,13 @@ async function main() {
             !process.argv.includes('-a') &&
             !process.argv.includes('--clean-layouts') &&
             !process.argv.includes('-l') &&
-            !process.argv.includes('--flatten-single-dirs') &&
-            !process.argv.includes('-f') &&
             !process.argv.includes('--add-navigation-frontmatter') &&
-            !process.argv.includes('-n')) 
+            !process.argv.includes('-n'))
             {
             // Show usage if no specific action is specified
             console.log('Available commands:');
             console.log('--migrate-alerts, -a     : Migrate Hugo alert shortcodes to GitHub-style alerts');
             console.log('--clean-layouts, -l      : Remove layout entries that are not "doc", "home", or "page"');
-            console.log('--flatten-single-dirs, -f: Flatten directories that contain only one file');
             console.log('--add-navigation-frontmatter, -n : Add prev: false and next: false to frontmatter of markdown files');
             console.log(`\nExample: node alert-migration.js --migrate-alerts --clean-layouts`);
             console.log(`Example with custom path: node alert-migration.js ./website/documentation --migrate-alerts`);

@@ -781,4 +781,4 @@ output:
 
 ## Security Compliance Report for Hardened Shoot Clusters
 
-The report can be directly viewed by clicking <a href='/hardend_shoots_report.html' target="_self">here</a> or downloaded by clicking <a href="/hardened_shoots_report.html" download="hardened_shoots_report">here</a>
+The report can be directly viewed by clicking <a href='/hardened_shoots_report.html' target="_self">here</a> or downloaded by clicking <a href="/hardened_shoots_report.html" download="hardened_shoots_report">here</a>
