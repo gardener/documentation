@@ -1,6 +1,5 @@
 import { promises as fs } from "fs";
 import path from "path";
-import { read, write } from './lib/frontmatter.js';
 import { record } from './lib/ledger.js';
 
 
@@ -16,33 +15,21 @@ async function main() {
         if (process.argv.includes('--migrate-alerts') || process.argv.includes('-a')) {
             await migrateHugoAlertsToGitHub(BASE_PATH);
         }
-        
+
         if (process.argv.includes('--clean-layouts') || process.argv.includes('-l')) {
             await cleanLayoutEntries(BASE_PATH);
         }
 
-        if (process.argv.includes('--add-navigation-frontmatter') || process.argv.includes('-n')) {
-            await addNavigationFrontmatter(BASE_PATH);
-        }
-        
         if (!process.argv.includes('--migrate-alerts') &&
             !process.argv.includes('-a') &&
             !process.argv.includes('--clean-layouts') &&
-            !process.argv.includes('-l') &&
-            !process.argv.includes('--flatten-single-dirs') &&
-            !process.argv.includes('-f') &&
-            !process.argv.includes('--add-navigation-frontmatter') &&
-            !process.argv.includes('-n')) 
+            !process.argv.includes('-l'))
             {
             // Show usage if no specific action is specified
             console.log('Available commands:');
             console.log('--migrate-alerts, -a     : Migrate Hugo alert shortcodes to GitHub-style alerts');
             console.log('--clean-layouts, -l      : Remove layout entries that are not "doc", "home", or "page"');
-            console.log('--flatten-single-dirs, -f: Flatten directories that contain only one file');
-            console.log('--add-navigation-frontmatter, -n : Add prev: false and next: false to frontmatter of markdown files');
-            console.log(`\nExample: node alert-migration.js --migrate-alerts --clean-layouts`);
-            console.log(`Example with custom path: node alert-migration.js ./website/documentation --migrate-alerts`);
-            console.log(`Example: node post-processing/part-3.js --add-navigation-frontmatter`);
+            console.log(`\nExample: node post-processing/part-2.js --migrate-alerts --clean-layouts`);
         }
     } catch (err) {
         console.error('Error:', err);
@@ -337,124 +324,6 @@ async function cleanLayoutEntries(basePath) {
         if (modifiedCount > 0) {
             console.log('\nLayout cleanup completed! Non-standard layout entries have been removed.');
             console.log('Please review the changes before committing.');
-        }
-    }
-}
-
-/**
- * Post-processing function to add prev: false and next: false to frontmatter 
- * of markdown files in hugo/content directory (excluding blog directory)
- */
-async function addNavigationFrontmatter(basePath) {
-    async function findMarkdownFiles(directory) {
-        let foundFiles = [];
-
-        try {
-            const files = await fs.readdir(directory);
-
-            for (const file of files) {
-                const fullPath = path.join(directory, file);
-
-                try {
-                    const stats = await fs.stat(fullPath);
-
-                    if (stats.isDirectory()) {
-                        // Skip ignored directories and blog directory
-                        if (!IGNORE_DIRS.includes(file) && file !== 'blog') {
-                            const subdirFiles = await findMarkdownFiles(fullPath);
-                            foundFiles = foundFiles.concat(subdirFiles);
-                        }
-                    } else if (file.endsWith('.md')) {
-                        foundFiles.push(fullPath);
-                    }
-                } catch (err) {
-                    console.error(`Error accessing ${fullPath}: ${err.message}`);
-                }
-            }
-        } catch (err) {
-            console.error(`Error reading directory ${directory}: ${err.message}`);
-        }
-
-        return foundFiles;
-    }
-
-    async function processMarkdownFile(filePath) {
-        try {
-            const parsed = read(filePath);
-
-            // Check if prev and next are already set
-            const hasPrev = parsed.data.hasOwnProperty('prev');
-            const hasNext = parsed.data.hasOwnProperty('next');
-
-            if (!hasPrev || !hasNext) {
-                // Add prev: false and next: false to frontmatter
-                if (!hasPrev) {
-                    parsed.data.prev = false;
-                }
-                if (!hasNext) {
-                    parsed.data.next = false;
-                }
-
-                // A-guard writes only on an actual byte change
-                write(filePath, parsed.content, parsed.data);
-                record('addNavigationFrontmatter', filePath, 'added prev/next', parsed.data);
-                
-                const addedFields = [];
-                if (!hasPrev) addedFields.push('prev: false');
-                if (!hasNext) addedFields.push('next: false');
-                
-                return {
-                    file: filePath,
-                    modified: true,
-                    action: `Added ${addedFields.join(' and ')}`
-                };
-            } else {
-                return {
-                    file: filePath,
-                    modified: false,
-                    reason: 'Already has prev and next properties'
-                };
-            }
-        } catch (err) {
-            console.error(`Error processing ${filePath}: ${err.message}`);
-            return {
-                file: filePath,
-                modified: false,
-                reason: err.message
-            };
-        }
-    }
-
-    console.log(`Searching for markdown files in: ${basePath} (excluding blog directory)`);
-    const markdownFiles = await findMarkdownFiles(basePath);
-    console.log(`\nFound ${markdownFiles.length} markdown files`);
-
-    if (markdownFiles.length > 0) {
-        console.log('\nProcessing markdown files to add navigation frontmatter...');
-        const results = [];
-
-        for (const file of markdownFiles) {
-            const result = await processMarkdownFile(file);
-            results.push(result);
-
-            if (result.modified) {
-                console.log(`- ${result.action}: ${path.relative(basePath, file)}`);
-            }
-        }
-
-        const modifiedCount = results.filter(r => r.modified).length;
-        const skippedCount = results.filter(r => !r.modified).length;
-        const alreadyHasPropsCount = results.filter(r => !r.modified && r.reason === 'Already has prev and next properties').length;
-        const errorCount = results.filter(r => !r.modified && r.reason !== 'Already has prev and next properties').length;
-        
-        console.log(`\nSummary: Modified ${modifiedCount} of ${markdownFiles.length} files.`);
-        console.log(`- Files with navigation frontmatter added: ${modifiedCount}`);
-        console.log(`- Files already having navigation properties: ${alreadyHasPropsCount}`);
-        console.log(`- Files skipped (errors): ${errorCount}`);
-        
-        if (modifiedCount > 0) {
-            console.log('\nNavigation frontmatter processing completed!');
-            console.log('Files now have prev: false and next: false in their frontmatter.');
         }
     }
 }
