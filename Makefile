@@ -148,11 +148,11 @@ local-preview:
 
 .PHONY: post-processing-part-1
 post-processing-part-1:
-	node post-processing/part-1.js --rename-images --add-h1-title --youtube --fix-network-doc
+	node post-processing/part-1.js --rename-images --add-h1-title --fix-network-doc
 
 .PHONY: post-processing-part-2
 post-processing-part-2:
-	node post-processing/part-2.js --migrate-alerts --clean-layouts --flatten-single-dirs --add-navigation-frontmatter
+	node post-processing/part-2.js --migrate-alerts --clean-layouts --add-navigation-frontmatter
 
 .PHONY: post-processing-part-index
 post-processing-part-index:
@@ -164,7 +164,7 @@ post-processing-part-banner:
 
 .PHONY: post-processing-part-3
 post-processing-part-3:
-	node post-processing/part-3.js --update-report-link --process-api-html
+	node post-processing/part-3.js --process-api-html
 
 .PHONY: post-process
 post-process: ## Run post-processing scripts and emit post-processing-report.json
