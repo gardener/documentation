@@ -33,7 +33,7 @@ Check back regularly for updates and upcoming topics!
 
 ### 2026/11/18 - [Hack The Garden](https://gardener.cloud/community/hackathons/2026-11/) Wrap Up
 
-[📽️ Recording](TBD)
+[📽️ Recording](https://youtu.be/4uUhZaSlYdE)
 
 #### Demo Agenda 📋
 
