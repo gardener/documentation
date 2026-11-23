@@ -35,7 +35,7 @@ The CNI is marked immutable in the shoot spec for good reason — swapping it ca
 
 ## A Beginner's Guide to Gardener
 
-Gardener has plenty of conceptual documentation, but far less that walks a newcomer through *actually getting started* on a specific platform. This project closed that gap with step-by-step, hands-on onboarding guides for deploying Gardener on IronCore, metal-stack, and STACKIT — the kind of documentation that turns a curious first-timer into a productive contributor and saves them from the struggles the rest of us remember all too well. ([recording](https://youtu.be/4uUhZaSlYdE?t=1790))
+Gardener's getting-started documentation focuses on the concepts and architecture behind Gardener, but it does not explain how to deploy Gardener. To address this documentation gap, the team created a **step-by-step guide for setting up a Gardener landscape on Google Cloud**. The guide describes the complete setup process, from creating a runtime cluster to deploying the first shoot cluster. It offers an easy-to-follow onboarding path, enabling beginners to start exploring Gardener as quickly as possible. ([recording](https://youtu.be/4uUhZaSlYdE?t=1790))
 
 ## [GEP-28] Bootstrap a Self-Hosted Shoot on Cloud Infrastructure
 
