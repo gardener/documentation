@@ -172,7 +172,7 @@ jobs:
             exit 0
           fi
           git commit -m "chore(content): aggregate docs $(date -u +%Y-%m-%d)"
-          git push origin HEAD:${{ github.ref_name }}
+          git push origin "HEAD:$GITHUB_REF_NAME"
 
       - name: Open PR on failure
         if: needs.build.outputs.build-outcome == 'failure'
