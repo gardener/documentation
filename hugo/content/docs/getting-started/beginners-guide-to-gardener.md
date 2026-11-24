@@ -96,8 +96,12 @@ kubectl config current-context
 *Output:*
 
 ```terminaloutput
-gke_<gcp-project>_<gcp-region>_<gke-cluster>
+gke_gardener-demo_europe-north1_runtime ## The context name follows the pattern `gke_<gcp-project>_<gcp-region>_<gke-cluster>`
 ```
+
+> [!NOTE]
+> Command outputs in this guide are examples.
+> Values such as ages, IDs, hashes, and anything derived from your project, region, or cluster will differ in your environment.
 
 Verify the connection to your GKE runtime cluster by fetching the nodes.
 
@@ -108,16 +112,16 @@ kubectl get nodes
 *Output:*
 
 ```terminaloutput
-NAME                                       STATUS   ROLES    AGE   VERSION
-gke-runtime-2-default-pool-446fba09-7ghv   Ready    <none>   19h   v1.36.4-gke.2377000
-gke-runtime-2-default-pool-446fba09-8kc6   Ready    <none>   19h   v1.36.4-gke.2377000
-gke-runtime-2-default-pool-446fba09-k58m   Ready    <none>   19h   v1.36.4-gke.2377000
-gke-runtime-2-default-pool-5f0dacf3-3js5   Ready    <none>   19h   v1.36.4-gke.2377000
-gke-runtime-2-default-pool-5f0dacf3-f0tp   Ready    <none>   19h   v1.36.4-gke.2377000
-gke-runtime-2-default-pool-5f0dacf3-fqqf   Ready    <none>   19h   v1.36.4-gke.2377000
-gke-runtime-2-default-pool-ee60a788-5zbn   Ready    <none>   19h   v1.36.4-gke.2377000
-gke-runtime-2-default-pool-ee60a788-r245   Ready    <none>   19h   v1.36.4-gke.2377000
-gke-runtime-2-default-pool-ee60a788-rcqn   Ready    <none>   19h   v1.36.4-gke.2377000
+NAME                                     STATUS   ROLES    AGE   VERSION
+gke-runtime-default-pool-446fba09-7ghv   Ready    <none>   19h   v1.36.4-gke.2377000
+gke-runtime-default-pool-446fba09-8kc6   Ready    <none>   19h   v1.36.4-gke.2377000
+gke-runtime-default-pool-446fba09-k58m   Ready    <none>   19h   v1.36.4-gke.2377000
+gke-runtime-default-pool-5f0dacf3-3js5   Ready    <none>   19h   v1.36.4-gke.2377000
+gke-runtime-default-pool-5f0dacf3-f0tp   Ready    <none>   19h   v1.36.4-gke.2377000
+gke-runtime-default-pool-5f0dacf3-fqqf   Ready    <none>   19h   v1.36.4-gke.2377000
+gke-runtime-default-pool-ee60a788-5zbn   Ready    <none>   19h   v1.36.4-gke.2377000
+gke-runtime-default-pool-ee60a788-r245   Ready    <none>   19h   v1.36.4-gke.2377000
+gke-runtime-default-pool-ee60a788-rcqn   Ready    <none>   19h   v1.36.4-gke.2377000
 ```
 
 ## 2. Deploy the Gardener Operator {#deploy-the-gardener-operator}
@@ -166,7 +170,7 @@ In the following sections, you'll install all extensions required for a working 
 
 Gardener uses the [GCP provider extension](https://gardener.cloud/docs/extensions/infrastructure-extensions/gardener-extension-provider-gcp/) to manage resources on the GCP infrastructure.
 
-Apply the extension from the [repository](https://github.com/gardener/gardener-extension-provider-gcp).
+Install the GCP provider extension from the [repository](https://github.com/gardener/gardener-extension-provider-gcp).
 
 ```shell
 kubectl apply -f https://raw.githubusercontent.com/gardener/gardener-extension-provider-gcp/refs/tags/v1.58.1/example/extension.yaml
@@ -244,7 +248,7 @@ Install the certificate extension from the [repository](https://github.com/garde
 Your email address is required for Let's Encrypt.
 
 ```shell
-EMAIL=<your-email>
+EMAIL=<email> # TODO: Use your email address
 curl -s https://raw.githubusercontent.com/gardener/gardener-extension-shoot-cert-service/refs/tags/v1.67.0/example/extension.yaml | sed -E "s/[[:alnum:]_.+-]+@example\.com/$EMAIL/" | kubectl apply -f -
 ```
 
@@ -258,11 +262,11 @@ kubectl get extop extension-shoot-cert-service -oyaml | grep -C 1 'email:'
 
 ```terminaloutput
             acme:
-              email: <your-email>
+              email: admin@acme.test
               server: https://acme-v02.api.letsencrypt.org/directory
 --
             acme:
-              email: <your-email>
+              email: admin@acme.test
               server: https://acme-v02.api.letsencrypt.org/directory
 ```
 
@@ -334,7 +338,7 @@ The service account JSON key looks similar to this:
 ```json
 {
   "type": "service_account",
-  "project_id": "<gcp-project>",
+  "project_id": "gardener-demo",
   "private_key_id": "...",
   "private_key": "-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n",
   "client_email": "...-compute@developer.gserviceaccount.com",
@@ -350,7 +354,7 @@ The service account JSON key looks similar to this:
 Create a `00-secret-gcp.yaml` file from the downloaded JSON key file and apply it to the runtime cluster.
 
 ```shell
-KEY_FILE=<path-to-json-key-file>
+KEY_FILE=<path-to-json-key-file> # TODO: Use the path to your downloaded JSON key file
 kubectl create secret generic gcp -n garden --from-file=serviceaccount.json=$KEY_FILE -oyaml --dry-run=client > 00-secret-gcp.yaml
 kubectl apply -f 00-secret-gcp.yaml
 ```
@@ -363,7 +367,7 @@ kubectl get secret -n garden gcp -oyaml
 
 *Output:*
 
-```yaml
+```terminaloutput
 apiVersion: v1
 data:
   serviceaccount.json: ...
@@ -572,7 +576,7 @@ You can reuse the GCP secret from before.
 This time, you'll apply it to the virtual garden cluster and reference it from the `Gardenlet` resource.
 
 > [!IMPORTANT]
-> Don't reuse credentials in your productive setup. 
+> Don't reuse credentials in your productive setup.
 
 Apply the GCP secret to the virtual garden cluster.
 
@@ -771,7 +775,7 @@ kubectl create clusterrolebinding dashboard-admin \
   --serviceaccount=garden:dashboard-admin
 ```
 
-Generate a token for the `ServiceAccount`
+Generate a token for the `ServiceAccount`.
 
 ```shell
 kubectl create token -n garden dashboard-admin
@@ -885,7 +889,7 @@ spec:
 > [!TIP]
 > Use `kubectl explain project` or see the [API reference](https://gardener.cloud/docs/gardener/api-reference/core/#project).
 
-Apply the `Project` resource to your virtual garden cluster.
+Apply the `Project` resource to the virtual garden cluster.
 
 ```shell
 kubectl apply -f 05-project.yaml
@@ -912,7 +916,7 @@ You can reuse the GCP secret from earlier to create a `CredentialsBinding` resou
 > [!IMPORTANT]
 > For productive environments, use separate credentials for shoot clusters.
 
-Save the file as `06-credentialsbinding-gcp.yaml`
+Save the file as `06-credentialsbinding-gcp.yaml`.
 
 ```yaml
 # 06-credentialsbinding-gcp.yaml
@@ -1014,7 +1018,7 @@ Apply the `Shoot` resource in the namespace of your project.
 kubectl apply -f 07-shoot.yaml
 ```
 
-Verify that your `Shoot` reconciles successfully:
+Verify that the `Shoot` reconciles successfully.
 
 ```shell
 kubectl get shoot -n garden-my-project my-shoot --watch
