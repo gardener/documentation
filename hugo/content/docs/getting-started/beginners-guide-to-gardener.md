@@ -8,16 +8,19 @@ next: false
 # Beginner's Guide to Gardener
 
 This guide walks you through setting up a Gardener landscape on Google Cloud.
-To bootstrap Gardener, you require an initial Kubernetes cluster, which is called a runtime cluster.
-We'll use a GKE runtime cluster and deploy the Gardener Operator to it.
-The Gardener Operator reconciles the `Garden` resource to create the virtual garden cluster as the management plane of your landscape.
-The virtual garden hosts Gardener resources such as `Seed`, `Project`, and `Shoot`.
+
+To keep the process easy to follow, the guide describes a single setup path.
+Its goal is to provide you with a functional Gardener setup rather than cover all available deployment and configuration options.
+
+## Overview
+
+To bootstrap Gardener, you need an initial Kubernetes cluster, called a runtime cluster.
+This guide uses a GKE cluster as the runtime cluster.
+You'll deploy the Gardener Operator and the required Gardener extensions to it.
+The Gardener Operator will then reconcile a `Garden` resource and create the virtual garden cluster, which serves as the management plane of the landscape.
+Using `gardenlet`, you'll register the runtime cluster as a seed cluster and then deploy your first shoot cluster.
 
 If you want to learn more about the concepts and how everything fits together, refer to [How to Set Up a Gardener Landscape](https://gardener.cloud/docs/gardener/deployment/setup_gardener/).
-
-This guide serves as a step-by-step reference for setting up a Gardener landscape.
-Hence, it makes a lot of technical assumptions to allow for an easy-to-follow experience.
-Its goal is to provide you with a functional Gardener setup.
 
 ## Content
 
