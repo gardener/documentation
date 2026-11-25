@@ -118,7 +118,7 @@ jobs:
 
     steps:
       - name: Federated GitHub token
-        uses: gardener/cc-utils/.github/actions/github-auth@3d292cfb4cfee523f83e6306b892d963fde06392 # v1
+        uses: gardener/cc-utils/.github/actions/github-auth@bce63f62928717a11f610ec8022af9feb497d5df # v1
         id: app-token
         with:
           token-server: ${{ vars.FEDERATED_GITHUB_ACCESS_TOKEN_SERVER }}
@@ -161,30 +161,63 @@ jobs:
             echo "Unexpected file types in artifact"; exit 1
           fi
 
-      - name: Push on success
-        if: needs.build.outputs.build-outcome == 'success'
+      # master is protected by a branch ruleset ("Changes must be made through
+      # a pull request"), so content never lands via direct push. A single bot
+      # branch is reset to the current master, the new content is committed onto
+      # it with the signed-commit action (a GitHub API commit that is
+      # cryptographically "Verified"), and one PR against master is opened or
+      # updated. One branch on purpose: a success run overwrites a prior failure
+      # PR (dropping its alarm title) and a failure run overwrites a mergeable
+      # PR with the alarm, so the open PR always reflects the latest run.
+      - name: Pick PR title and body
+        id: pr
+        env:
+          OUTCOME: ${{ needs.build.outputs.build-outcome }}
         run: |
-          git config user.name  "federated-github-access[bot]"
-          git config user.email "248678271+federated-github-access[bot]@users.noreply.github.com"
-          git add hugo/content/
-          if git diff --cached --quiet; then
-            echo "No content changes"
-            exit 0
+          set -euo pipefail
+          if [ "$OUTCOME" = success ]; then
+            echo "title=chore(content): aggregate docs" >> "$GITHUB_OUTPUT"
+            echo "body=Automated content aggregation. Review the diff and merge." >> "$GITHUB_OUTPUT"
+          else
+            echo "title=🚨 Content aggregation build failed (run ${{ github.run_id }})" >> "$GITHUB_OUTPUT"
+            echo "body=Daily content aggregation produced a tree that fails \`make build\`. Review the diff, fix the broken upstream source(s), then close this PR (next nightly run picks up the fix)." >> "$GITHUB_OUTPUT"
           fi
-          git commit -m "chore(content): aggregate docs $(date -u +%Y-%m-%d)"
-          git push origin "HEAD:$GITHUB_REF_NAME"
 
-      - name: Open PR on failure
-        if: needs.build.outputs.build-outcome == 'failure'
-        uses: peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63676 # v7
+      # signed-commit commits server-side against the local HEAD (master), so the
+      # bot branch only has to exist at master's tip; the local worktree is not
+      # checked out onto it. The concurrency group serialises overlapping runs.
+      - name: Reset bot branch to master
+        run: |
+          set -euo pipefail
+          git push --force origin "HEAD:bot/content-aggregation"
+
+      - name: Commit content (signed)
+        id: signed
+        uses: gardener/cc-utils/.github/actions/signed-commit@bce63f62928717a11f610ec8022af9feb497d5df # v1
         with:
           token: ${{ steps.app-token.outputs.token }}
-          branch: bot/content-aggregation-failure
-          title: "🚨 Content aggregation build failed (run ${{ github.run_id }})"
-          body: |
-            Daily content aggregation produced a tree that fails `make build`.
+          branch: bot/content-aggregation
+          message: "chore(content): aggregate docs ${{ github.run_id }}"
+          paths: hugo/content
 
-            **Action required:** review the diff, fix the broken upstream source(s),
-            then close this PR (next nightly run will pick up the fix).
-          commit-message: "chore(content): aggregation with build failure"
-          add-paths: hugo/content/
+      # The force-push above already updated an open PR's diff. Sync its title and
+      # body too (a success must drop a prior failure's alarm title and vice
+      # versa), or open the PR if none exists. `gh pr edit` hits the deprecated
+      # Projects-classic API on this repo, so patch via the REST endpoint.
+      # ponytail: a success with no content change (empty diff -> no commit-sha)
+      # skips this step and leaves a prior failure PR's alarm title stale; close
+      # that PR here if the rare stale-alarm case ever matters.
+      - name: Open or update PR
+        if: steps.signed.outputs.commit-sha != ''
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          TITLE: ${{ steps.pr.outputs.title }}
+          BODY: ${{ steps.pr.outputs.body }}
+        run: |
+          set -euo pipefail
+          number="$(gh pr list --head bot/content-aggregation --base "$GITHUB_REF_NAME" --state open --json number --jq '.[].number')"
+          if [ -z "$number" ]; then
+            gh pr create --base "$GITHUB_REF_NAME" --head bot/content-aggregation --title "$TITLE" --body "$BODY"
+          else
+            gh api -X PATCH "repos/${GITHUB_REPOSITORY}/pulls/${number}" -f title="$TITLE" -f body="$BODY"
+          fi
