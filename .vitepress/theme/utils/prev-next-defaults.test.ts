@@ -13,6 +13,8 @@ test('docs pages default to no prev/next (replaces written frontmatter)', () => 
 test('blog posts default to prev/next (chronological series)', () => {
   assert.equal(prevNextDefaults('blog/2026/07/07.15-release.md'), true)
   assert.equal(prevNextDefaults('blog/2018/06/06.10-efa-support.md'), true)
+  // Article filename that ends in "index.md" but is not an index page.
+  assert.equal(prevNextDefaults('blog/2026/07/07.15-search-index.md'), true)
 })
 
 // Regression: config.mts passes pageData.filePath (the source path), because

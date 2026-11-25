@@ -3,5 +3,5 @@
 // Kept separate from config.mts so node --test can import it without the
 // vitepress/mermaid import chain.
 export function prevNextDefaults(relativePath: string): boolean {
-  return relativePath.startsWith('blog/') && !relativePath.endsWith('index.md')
+  return relativePath.startsWith('blog/') && !relativePath.endsWith('/index.md')
 }

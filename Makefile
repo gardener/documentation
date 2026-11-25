@@ -15,7 +15,7 @@ docforge-download: ## Download the appropriate docforge binary for the current O
 	esac; \
 	if [ "$$ASSET" = "docforge-windows-386" ] && [ -f bin/docforge.exe ]; then \
 		echo "Docforge for Windows already exists."; \
-	elif [ -f bin/docforge ] && [ -x bin/docforge ]; then \
+	elif [ "$$ASSET" != "docforge-windows-386" ] && [ -f bin/docforge ] && [ -x bin/docforge ]; then \
 		echo "Docforge already exists and is executable."; \
 	else \
 		echo "Downloading docforge ($$ASSET)..."; \
