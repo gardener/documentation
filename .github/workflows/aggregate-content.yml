@@ -117,7 +117,7 @@ jobs:
       contents: read    # checkout
     steps:
       - name: Federated GitHub token
-        uses: gardener/cc-utils/.github/actions/github-auth@d478850afa1a7e0f9deb710e4d44eb0a2d8dce07 # 1.2881.0
+        uses: gardener/cc-utils/.github/actions/github-auth@00522ef3e8504bc7be46394a239a390f112336f6 # 1.2883.0
         id: app-token
         with:
           token-server: ${{ vars.FEDERATED_GITHUB_ACCESS_TOKEN_SERVER }}
@@ -184,7 +184,7 @@ jobs:
       - name: Commit content (signed)
         id: signed
         if: needs.build.outputs.build-outcome == 'success'
-        uses: gardener/cc-utils/.github/actions/signed-commit@bce63f62928717a11f610ec8022af9feb497d5df # v1
+        uses: gardener/cc-utils/.github/actions/signed-commit@00522ef3e8504bc7be46394a239a390f112336f6 # 1.2883.0
         with:
           token: ${{ steps.app-token.outputs.token }}
           branch: bot/content-aggregation
