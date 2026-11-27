@@ -7,7 +7,7 @@ next: false
 
 # Beginner's Guide to Gardener
 
-This guide walks you through setting up a Gardener landscape on Google Cloud.
+This guide walks you through setting up a Gardener landscape on Google Cloud Platform (GCP).
 
 To keep the process easy to follow, the guide describes a single setup path.
 Its goal is to provide you with a functional Gardener setup rather than cover all available deployment and configuration options.
@@ -18,7 +18,7 @@ To bootstrap Gardener, you need an initial Kubernetes cluster, called a runtime 
 This guide uses a GKE cluster as the runtime cluster.
 You'll deploy the Gardener Operator and the required Gardener extensions to it.
 The Gardener Operator will then reconcile a `Garden` resource and create the virtual garden cluster, which serves as the management plane of the landscape.
-Using `gardenlet`, you'll register the runtime cluster as a seed cluster and then deploy your first shoot cluster.
+Using the `gardenlet`, you'll register the runtime cluster as a seed cluster and then deploy your first shoot cluster.
 
 If you want to learn more about the concepts and how everything fits together, refer to [How to Set Up a Gardener Landscape](https://gardener.cloud/docs/gardener/deployment/setup_gardener/).
 
@@ -59,11 +59,11 @@ This cluster is called a [runtime cluster](https://gardener.cloud/docs/gardener/
 
 > [!TIP]
 > You can use other Kubernetes clusters as runtime clusters instead of GKE.
-> [Vertical pod autoscaling](https://kubernetes.io/docs/concepts/workloads/autoscaling/vertical-pod-autoscale/) should be enabled and the `kube-system` namespace has to be writeable for Gardener.
+> [Vertical pod autoscaling](https://kubernetes.io/docs/concepts/workloads/autoscaling/vertical-pod-autoscale/) should be enabled and the `kube-system` namespace has to be writable for Gardener.
 
-Create a [GKE cluster on GCP](https://console.cloud.google.com/kubernetes/list/overview). Make sure to enable [vertical Pod autoscaling](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/verticalpodautoscaler).
+Create a [GKE cluster on GCP](https://console.cloud.google.com/kubernetes/list/overview). Make sure to enable [vertical pod autoscaling](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/verticalpodautoscaler).
 
-Take note of the region that you choose for your cluster, e.g. `europe-north1`.
+Take note of the region that you choose for your cluster, for example, `europe-north1`.
 
 ### Set the Environment Variables
 
@@ -74,7 +74,7 @@ Set the environment variables for these accordingly.
 ```shell
 export GARDENER_GCP_PROJECT=<gcp-project> # TODO: Use the name of your GCP project
 export GARDENER_GCP_REGION=<gcp-region> # TODO: Use the region of your GKE cluster
-export GARDENER_GKE_CLUSTER=<gke-cluster> # TODO: Use the name  of your GKE cluster
+export GARDENER_GKE_CLUSTER=<gke-cluster> # TODO: Use the name of your GKE cluster
 ```
 
 ### Set Your `kubectl` Context to Your GKE Runtime Cluster
@@ -326,7 +326,7 @@ First, however, you'll prepare the required credentials and configuration values
 
 > [!WARNING]
 > For simplicity, the default service account of the GCP project is used.
-> This is not recommended for productive setups.
+> This is not recommended for production setups.
 > Consider using a dedicated service account or tearing down the setup after completing the guide.
 
 Gardener needs credentials to provision and manage resources in GCP.
@@ -576,7 +576,7 @@ You can reuse the GCP secret from before.
 This time, you'll apply it to the virtual garden cluster and reference it from the `Gardenlet` resource.
 
 > [!IMPORTANT]
-> Don't reuse credentials in your productive setup.
+> Don't reuse credentials in your production setup.
 
 Apply the GCP secret to the virtual garden cluster.
 
@@ -754,7 +754,7 @@ soil   Ready    Reconcile Succeeded (100%)   gcp        europe-north1   2m23s   
 
 ## 7. Visit the Gardener Dashboard (Optional) {#visit-the-gardener-dashboard}
 
-You can visit the Gardener Dashboard to visualize your landscape and for managing clusters in a UI.
+You can visit the Gardener Dashboard to visualize your landscape and manage clusters through a UI.
 
 Open the following URL in your browser:
 `https://dashboard.ingress.garden.<gcp-dns-zone>`.
@@ -791,7 +791,7 @@ Use the token for authentication in the dashboard.
 
 ### Create a `CloudProfile` Resource
 
-In order to host a shoot cluster, you need at least one `CloudProfile`.
+To host a shoot cluster, you need at least one `CloudProfile`.
 A `CloudProfile` describes the machine types, Kubernetes versions, OS images, and regions available for shoot clusters on a given infrastructure.
 
 Fill in the placeholders in the template using the appropriate values for your environment (see the `# TODO: ...` markers).
@@ -914,7 +914,7 @@ A shoot cluster needs to reference credentials that are used to provision its in
 You can reuse the GCP secret from earlier to create a `CredentialsBinding` resource.
 
 > [!IMPORTANT]
-> For productive environments, use separate credentials for shoot clusters.
+> For production environments, use separate credentials for shoot clusters.
 
 Save the file as `06-credentialsbinding-gcp.yaml`.
 
