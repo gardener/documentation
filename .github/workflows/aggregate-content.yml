@@ -220,9 +220,10 @@ jobs:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           set -euo pipefail
-          # The label may not exist yet (no failure has ever run); treat a missing
-          # label as "no open alarm" rather than erroring.
-          open="$(gh issue list --label content-aggregation-failure --state open --json number --jq '.[].number' 2>/dev/null || true)"
+          # A missing label yields an empty list, not an error, so no masking is
+          # needed. Let real lookup errors (network/auth/API) fail the step instead
+          # of silently skipping the closure loop.
+          open="$(gh issue list --label content-aggregation-failure --state open --json number --jq '.[].number')"
           for n in $open; do
             gh issue close "$n" --comment "Content aggregation build is green again (run ${{ github.run_id }}). Closing alarm."
           done
