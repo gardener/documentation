@@ -115,7 +115,6 @@ jobs:
     permissions:
       id-token: write   # required by gardener/cc-utils/github-auth to mint OIDC token
       contents: read    # checkout
-
     steps:
       - name: Federated GitHub token
         uses: gardener/cc-utils/.github/actions/github-auth@bce63f62928717a11f610ec8022af9feb497d5df # v1
@@ -126,6 +125,7 @@ jobs:
           permissions: |
             contents: write
             pull-requests: write
+            issues: write
 
       - name: Checkout
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
@@ -137,15 +137,18 @@ jobs:
       # Remove committed content before download so that files deleted upstream
       # do not survive as stale artefacts (download-artifact overlays, not replaces).
       - name: Clear committed content
+        if: needs.build.outputs.build-outcome == 'success'
         run: rm -rf hugo/content
 
       - name: Download content artifact
+        if: needs.build.outputs.build-outcome == 'success'
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with:
           name: aggregated-content
           path: hugo/content
 
       - name: Validate artifact
+        if: needs.build.outputs.build-outcome == 'success'
         run: |
           if find hugo/content -type l | grep -q .; then
             echo "Symlinks are not allowed in artifact"; exit 1
@@ -162,37 +165,25 @@ jobs:
           fi
 
       # master is protected by a branch ruleset ("Changes must be made through
-      # a pull request"), so content never lands via direct push. A single bot
-      # branch is reset to the current master, the new content is committed onto
-      # it with the signed-commit action (a GitHub API commit that is
-      # cryptographically "Verified"), and one PR against master is opened or
-      # updated. One branch on purpose: a success run overwrites a prior failure
-      # PR (dropping its alarm title) and a failure run overwrites a mergeable
-      # PR with the alarm, so the open PR always reflects the latest run.
-      - name: Pick PR title and body
-        id: pr
-        env:
-          OUTCOME: ${{ needs.build.outputs.build-outcome }}
-        run: |
-          set -euo pipefail
-          if [ "$OUTCOME" = success ]; then
-            echo "title=chore(content): aggregate docs" >> "$GITHUB_OUTPUT"
-            echo "body=Automated content aggregation. Review the diff and merge." >> "$GITHUB_OUTPUT"
-          else
-            echo "title=🚨 Content aggregation build failed (run ${{ github.run_id }})" >> "$GITHUB_OUTPUT"
-            echo "body=Daily content aggregation produced a tree that fails \`make build\`. Review the diff, fix the broken upstream source(s), then close this PR (next nightly run picks up the fix)." >> "$GITHUB_OUTPUT"
-          fi
-
-      # signed-commit commits server-side against the local HEAD (master), so the
-      # bot branch only has to exist at master's tip; the local worktree is not
-      # checked out onto it. The concurrency group serialises overlapping runs.
+      # a pull request"), so content never lands via direct push. On a green
+      # build the new content is committed onto a single bot branch with the
+      # signed-commit action (a GitHub API commit that is cryptographically
+      # "Verified") and one PR against master is opened or updated. On a red
+      # build nothing mergeable is produced: no content branch, no content PR,
+      # only an alarm issue. Tying the alarm to build status (not to a content
+      # diff) keeps success and failure strictly disjoint.
       - name: Reset bot branch to master
+        if: needs.build.outputs.build-outcome == 'success'
         run: |
           set -euo pipefail
+          # signed-commit commits server-side against the local HEAD (master), so
+          # the bot branch only has to exist at master's tip. Serialised by the
+          # job's concurrency group.
           git push --force origin "HEAD:bot/content-aggregation"
 
       - name: Commit content (signed)
         id: signed
+        if: needs.build.outputs.build-outcome == 'success'
         uses: gardener/cc-utils/.github/actions/signed-commit@bce63f62928717a11f610ec8022af9feb497d5df # v1
         with:
           token: ${{ steps.app-token.outputs.token }}
@@ -200,24 +191,61 @@ jobs:
           message: "chore(content): aggregate docs ${{ github.run_id }}"
           paths: hugo/content
 
-      # The force-push above already updated an open PR's diff. Sync its title and
-      # body too (a success must drop a prior failure's alarm title and vice
-      # versa), or open the PR if none exists. `gh pr edit` hits the deprecated
+      # The force-push above already updated an open PR's diff; sync title/body
+      # or open the PR if none exists. `gh pr edit` hits the deprecated
       # Projects-classic API on this repo, so patch via the REST endpoint.
-      # ponytail: a success with no content change (empty diff -> no commit-sha)
-      # skips this step and leaves a prior failure PR's alarm title stale; close
-      # that PR here if the rare stale-alarm case ever matters.
-      - name: Open or update PR
-        if: steps.signed.outputs.commit-sha != ''
+      # commit-sha is empty when there is no content diff (no-op), so this is
+      # skipped and the branch stays at master's tip with no PR.
+      - name: Open or update content PR
+        if: needs.build.outputs.build-outcome == 'success' && steps.signed.outputs.commit-sha != ''
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
-          TITLE: ${{ steps.pr.outputs.title }}
-          BODY: ${{ steps.pr.outputs.body }}
         run: |
           set -euo pipefail
+          title="chore(content): aggregate docs"
+          body="Automated content aggregation. Review the diff and merge."
           number="$(gh pr list --head bot/content-aggregation --base "$GITHUB_REF_NAME" --state open --json number --jq '.[].number')"
           if [ -z "$number" ]; then
-            gh pr create --base "$GITHUB_REF_NAME" --head bot/content-aggregation --title "$TITLE" --body "$BODY"
+            gh pr create --base "$GITHUB_REF_NAME" --head bot/content-aggregation --title "$title" --body "$body"
           else
-            gh api -X PATCH "repos/${GITHUB_REPOSITORY}/pulls/${number}" -f title="$TITLE" -f body="$BODY"
+            gh api -X PATCH "repos/${GITHUB_REPOSITORY}/pulls/${number}" -f title="$title" -f body="$body"
+          fi
+
+      # A green build means any prior failure alarm is resolved. Close the open
+      # alarm issue so a stale alarm never lingers. Idempotent: no-op when none
+      # is open.
+      - name: Close stale alarm issue
+        if: needs.build.outputs.build-outcome == 'success'
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          set -euo pipefail
+          # The label may not exist yet (no failure has ever run); treat a missing
+          # label as "no open alarm" rather than erroring.
+          open="$(gh issue list --label content-aggregation-failure --state open --json number --jq '.[].number' 2>/dev/null || true)"
+          for n in $open; do
+            gh issue close "$n" --comment "Content aggregation build is green again (run ${{ github.run_id }}). Closing alarm."
+          done
+
+      # Failure path: raise or update an alarm issue only. No content branch, no
+      # content PR, so nothing broken is ever mergeable. The build break is fixed
+      # through a separate upstream PR, then the aggregation workflow is re-run.
+      - name: Open or update alarm issue
+        if: needs.build.outputs.build-outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          # Label must exist before it can be attached; create idempotently.
+          gh label create content-aggregation-failure \
+            --color B60205 \
+            --description "Nightly content aggregation build failed" 2>/dev/null || true
+          title="🚨 Content aggregation build failed (run ${{ github.run_id }})"
+          note="Daily content aggregation produced a tree that fails \`make build\`. Fix the broken upstream source(s) through a separate PR, then re-run this workflow. Run logs: $RUN_URL"
+          number="$(gh issue list --label content-aggregation-failure --state open --json number --jq '.[].number' | head -n1)"
+          if [ -z "$number" ]; then
+            gh issue create --title "$title" --body "$note" --label content-aggregation-failure
+          else
+            gh issue comment "$number" --body "New failing run (${{ github.run_id }}). $note"
           fi
